@@ -2,144 +2,85 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>uncreated — products</title>
+<title>uncreated - Services</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="AI consulting services from uncreated: forward deployed engineering, custom agents, evals, and production deployment." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --ink: #1c1c1a;
-    --ink-2: #4a4a47;
-    --ink-3: #8a8a85;
-    --paper: #f6f3ec;
-    --paper-2: #ece7d9;
-    --hi: #ffec8a;
-    --hand: "Kalam", cursive;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--hand);
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    background-image:
-      radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
-      radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 5px 5px, 11px 11px;
-    background-position: 0 0, 2px 3px;
-  }
-  .ribbon {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--paper);
-    border-bottom: 2px solid var(--ink);
-    padding: 14px 32px 12px;
-    display: flex; align-items: center; gap: 28px;
-  }
-  .logo {
-    font-family: var(--hand); font-weight: 700; font-size: 24px;
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--ink);
-  }
-  .logo .dot {
-    width: 14px; height: 14px; border-radius: 50%;
-    border: 2px solid var(--ink); background: var(--hi);
-    transform: rotate(-6deg);
-  }
-  .ribbon nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
-  .ribbon nav a {
-    font-family: var(--hand); font-size: 17px; color: var(--ink-2);
-    padding: 6px 14px 7px; text-decoration: none;
-    border-radius: 18px 22px 16px 24px / 22px 16px 24px 18px;
-    border: 2px solid transparent;
-    transition: color 0.12s, background-color 0.12s, border-color 0.12s;
-  }
-  .ribbon nav a:hover { color: var(--ink); }
-  .ribbon nav a[aria-current="page"] {
-    background: var(--ink); color: var(--paper); border-color: var(--ink);
-  }
-  .ribbon nav a.cta {
-    border: 2px solid var(--ink); color: var(--ink); margin-left: 8px;
-  }
-  .ribbon nav a.cta:hover { background: var(--ink); color: var(--paper); }
-
-  main {
-    flex: 1;
-    display: flex; align-items: center; justify-content: center;
-    padding: 64px 32px;
-  }
-  .placeholder {
-    max-width: 560px;
-    text-align: center;
-    border: 2.5px dashed var(--ink);
-    border-radius: 18px 24px 16px 26px;
-    padding: 56px 40px;
-    background: #fffdf6;
-    box-shadow: 6px 6px 0 -2px var(--ink);
-  }
-  .placeholder .kicker {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    margin-bottom: 14px;
-  }
-  .placeholder h1 {
-    font-family: var(--hand);
-    font-weight: 700;
-    font-size: 56px;
-    margin: 0 0 12px;
-    line-height: 1;
-  }
-  .placeholder h1 .hl { background: var(--hi); padding: 0 8px; }
-  .placeholder p {
-    font-family: var(--hand);
-    font-size: 18px;
-    color: var(--ink-2);
-    margin: 0 0 24px;
-    line-height: 1.4;
-  }
-  .placeholder a.back {
-    display: inline-block;
-    background: var(--ink); color: var(--paper);
-    border: 2px solid var(--ink);
-    padding: 10px 22px;
-    font-family: var(--hand); font-size: 17px;
-    border-radius: 22px 24px 20px 26px;
-    text-decoration: none;
-  }
-  .placeholder .scratch {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-3);
-    margin-top: 18px;
-    letter-spacing: 0.08em;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="ribbon">
-  <a class="logo" href="index.html"><span class="dot"></span>uncreated</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html" aria-current="page">Products</a>
-    <a href="resources.html">Resources</a>
-    <a href="index.html#contact" class="cta">Get in touch →</a>
-  </nav>
-</header>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>uncreated</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html" aria-current="page">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="index.html#contact" class="nav-cta">Start a project</a>
+    </nav>
+  </header>
 
-<main>
-  <div class="placeholder">
-    <div class="kicker">§ products · placeholder</div>
-    <h1>shipping <span class="hl">soon</span>.</h1>
-    <p>We're sketching this page. Come back when it's drawn — or ping us and we'll send a preview.</p>
-    <a class="back" href="index.html">← Back home</a>
-    <div class="scratch">to-do: index cards · product pages · changelog</div>
-  </div>
-</main>
+  <main class="page">
+    <section class="page-hero">
+      <div class="eyebrow">Services</div>
+      <h1>Build the AI layer your team actually needs.</h1>
+      <p class="page-lede">We work across strategy, engineering, and deployment so your project does not stall between a promising prototype and a reliable operating system.</p>
+    </section>
+
+    <section class="section">
+      <div class="card-grid">
+        <article class="card dark">
+          <div class="card-number">01</div>
+          <h3>AI opportunity sprint</h3>
+          <p>Map workflows, select use cases, estimate ROI, and define the smallest shippable system worth building.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">02</div>
+          <h3>Agent buildout</h3>
+          <p>Design and implement agents that retrieve context, use tools, escalate gracefully, and produce auditable outputs.</p>
+        </article>
+        <article class="card">
+          <div class="card-number">03</div>
+          <h3>Production hardening</h3>
+          <p>Add evals, permissions, observability, cost controls, and deployment practices that make systems maintainable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="panel">
+          <div class="section-kicker">Engagement shapes</div>
+          <h2>Flexible enough for a sprint, serious enough for launch.</h2>
+          <p>Some teams need a sharp plan. Others need builders embedded for several weeks. We shape the engagement around the decision, system, and handoff you need most.</p>
+        </div>
+        <div class="panel">
+          <div class="process-list">
+            <div class="process-row"><span>2 wks</span><div><b>Discovery sprint</b><p>Workflow mapping, use case scoring, architecture, and a build plan.</p></div></div>
+            <div class="process-row"><span>4-8</span><div><b>Build engagement</b><p>Prototype, evaluate, deploy, and train your team around one focused system.</p></div></div>
+            <div class="process-row"><span>12+</span><div><b>Forward deployed team</b><p>Ongoing embedded engineering for AI-native product and operations work.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Bring the messy workflow. We will help turn it into a build plan.</h2>
+        <p>Send a short description of the team, data, tools, and bottleneck. We will respond with a practical next step.</p>
+      </div>
+      <a class="button primary" href="mailto:hello@uncreated.co">Talk to us</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>uncreated - AI consulting and deployment</span>
+      <span>NYC / SF / remote</span>
+    </div>
+  </footer>
+</div>
 </body>
 </html>

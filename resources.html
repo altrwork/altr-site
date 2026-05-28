@@ -2,144 +2,77 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>uncreated — resources</title>
+<title>uncreated - Resources</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Field notes, guides, and case studies from uncreated on production AI systems." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --ink: #1c1c1a;
-    --ink-2: #4a4a47;
-    --ink-3: #8a8a85;
-    --paper: #f6f3ec;
-    --paper-2: #ece7d9;
-    --hi: #ffec8a;
-    --hand: "Kalam", cursive;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--hand);
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    background-image:
-      radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
-      radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 5px 5px, 11px 11px;
-    background-position: 0 0, 2px 3px;
-  }
-  .ribbon {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--paper);
-    border-bottom: 2px solid var(--ink);
-    padding: 14px 32px 12px;
-    display: flex; align-items: center; gap: 28px;
-  }
-  .logo {
-    font-family: var(--hand); font-weight: 700; font-size: 24px;
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--ink);
-  }
-  .logo .dot {
-    width: 14px; height: 14px; border-radius: 50%;
-    border: 2px solid var(--ink); background: var(--hi);
-    transform: rotate(-6deg);
-  }
-  .ribbon nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
-  .ribbon nav a {
-    font-family: var(--hand); font-size: 17px; color: var(--ink-2);
-    padding: 6px 14px 7px; text-decoration: none;
-    border-radius: 18px 22px 16px 24px / 22px 16px 24px 18px;
-    border: 2px solid transparent;
-    transition: color 0.12s, background-color 0.12s, border-color 0.12s;
-  }
-  .ribbon nav a:hover { color: var(--ink); }
-  .ribbon nav a[aria-current="page"] {
-    background: var(--ink); color: var(--paper); border-color: var(--ink);
-  }
-  .ribbon nav a.cta {
-    border: 2px solid var(--ink); color: var(--ink); margin-left: 8px;
-  }
-  .ribbon nav a.cta:hover { background: var(--ink); color: var(--paper); }
-
-  main {
-    flex: 1;
-    display: flex; align-items: center; justify-content: center;
-    padding: 64px 32px;
-  }
-  .placeholder {
-    max-width: 560px;
-    text-align: center;
-    border: 2.5px dashed var(--ink);
-    border-radius: 18px 24px 16px 26px;
-    padding: 56px 40px;
-    background: #fffdf6;
-    box-shadow: 6px 6px 0 -2px var(--ink);
-  }
-  .placeholder .kicker {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    margin-bottom: 14px;
-  }
-  .placeholder h1 {
-    font-family: var(--hand);
-    font-weight: 700;
-    font-size: 56px;
-    margin: 0 0 12px;
-    line-height: 1;
-  }
-  .placeholder h1 .hl { background: var(--hi); padding: 0 8px; }
-  .placeholder p {
-    font-family: var(--hand);
-    font-size: 18px;
-    color: var(--ink-2);
-    margin: 0 0 24px;
-    line-height: 1.4;
-  }
-  .placeholder a.back {
-    display: inline-block;
-    background: var(--ink); color: var(--paper);
-    border: 2px solid var(--ink);
-    padding: 10px 22px;
-    font-family: var(--hand); font-size: 17px;
-    border-radius: 22px 24px 20px 26px;
-    text-decoration: none;
-  }
-  .placeholder .scratch {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-3);
-    margin-top: 18px;
-    letter-spacing: 0.08em;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="ribbon">
-  <a class="logo" href="index.html"><span class="dot"></span>uncreated</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="resources.html" aria-current="page">Resources</a>
-    <a href="index.html#contact" class="cta">Get in touch →</a>
-  </nav>
-</header>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>uncreated</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="products.html">Services</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="index.html#contact" class="nav-cta">Start a project</a>
+    </nav>
+  </header>
 
-<main>
-  <div class="placeholder">
-    <div class="kicker">§ resources · placeholder</div>
-    <h1>writing <span class="hl">soon</span>.</h1>
-    <p>Essays, case studies, and field notes will live here. We're still drafting.</p>
-    <a class="back" href="index.html">← Back home</a>
-    <div class="scratch">to-do: essays · case studies · open source · talks</div>
-  </div>
-</main>
+  <main class="page">
+    <section class="page-hero">
+      <div class="eyebrow">Resources</div>
+      <h1>Notes on building AI that holds up.</h1>
+      <p class="page-lede">A home for case studies, field notes, and working guides. The first pieces are staged here as editorial previews while the company story sharpens.</p>
+    </section>
+
+    <section class="section">
+      <div class="resource-list">
+        <article class="resource-item" id="forward-deployed-engineering">
+          <span>Service</span>
+          <div>
+            <h3>Forward deployed engineering</h3>
+            <p>Embedded builders who scope, implement, evaluate, and hand off production AI workflows with your team.</p>
+          </div>
+          <a href="index.html#contact">Request</a>
+        </article>
+        <article class="resource-item" id="custom-agents-and-automations">
+          <span>Service</span>
+          <div>
+            <h3>Custom agents and automations</h3>
+            <p>Workflow-specific agents that use your tools, follow your review paths, and produce auditable outputs.</p>
+          </div>
+          <a href="index.html#contact">Request</a>
+        </article>
+        <article class="resource-item">
+          <span>Case study</span>
+          <div>
+            <h3>From manual research to GTM intelligence</h3>
+            <p>A practical pattern for account research, signal detection, and sales context.</p>
+          </div>
+          <a href="index.html#contact">Request</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Want the next field note when it ships?</h2>
+        <p>Send us the kind of AI system you are exploring. We will point you toward the most relevant guide or pattern.</p>
+      </div>
+      <a class="button primary" href="mailto:hello@uncreated.co">hello@uncreated.co</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>uncreated - AI consulting and deployment</span>
+      <span>NYC / SF / remote</span>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
