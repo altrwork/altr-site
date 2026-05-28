@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>uncreated — landing page wireframes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1c1c1a;
+    --ink-2: #4a4a47;
+    --ink-3: #8a8a85;
+    --line: #1c1c1a;
+    --paper: #f6f3ec;
+    --paper-2: #ecE7d9;
+    --hi: #ffec8a;       /* highlighter yellow */
+    --hi-2: #ffd6a0;     /* secondary highlight */
+    --hand: "Kalam", "Caveat", cursive;
+    --label: "Kalam", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--hand);
+    font-size: 16px;
+    /* paper grain */
+    background-image:
+      radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 5px 5px, 11px 11px;
+    background-position: 0 0, 2px 3px;
+  }
+
+  /* ------- tab bar ------- */
+  .tabbar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+    padding: 14px 28px 12px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    box-shadow: 0 6px 0 -4px rgba(0,0,0,0.06);
+  }
+  .brandmark {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .brandmark .dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid var(--ink);
+    background: var(--hi);
+    transform: rotate(-6deg);
+  }
+  .brandmark small {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .tabs {
+    display: flex; gap: 6px; margin-left: auto;
+    flex-wrap: wrap;
+  }
+  .tab {
+    font-family: var(--hand);
+    font-size: 18px;
+    background: transparent;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 16px 7px;
+    border-radius: 22px 24px 20px 26px / 24px 20px 26px 22px;
+    cursor: pointer;
+    transition: transform 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+  }
+  .tab:hover { transform: translate(-1px,-1px); background: var(--paper-2); }
+  .tab.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .tab .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    opacity: 0.7;
+    margin-right: 6px;
+  }
+
+  /* ------- canvas ------- */
+  .canvas {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 28px 120px;
+  }
+  .canvas-title {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 28px;
+    margin: 8px 0 4px;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .canvas-title .v {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border: 1.5px solid var(--ink);
+    padding: 2px 8px;
+    border-radius: 10px 12px 10px 14px;
+  }
+  .canvas-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    margin: 0 0 22px;
+    letter-spacing: 0.02em;
+  }
+  .canvas-sub b { color: var(--ink); background: var(--hi); padding: 0 4px; }
+
+  /* ------- frame (browser chrome) ------- */
+  .frame {
+    border: 2.5px solid var(--ink);
+    border-radius: 14px 16px 13px 17px / 16px 13px 17px 14px;
+    background: #fffdf6;
+    overflow: hidden;
+    box-shadow: 6px 6px 0 -2px var(--ink);
+  }
+  .chrome {
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--paper-2);
+  }
+  .chrome .lights { display: flex; gap: 6px; }
+  .chrome .lights span {
+    width: 11px; height: 11px; border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    background: #fffdf6;
+  }
+  .chrome .url {
+    flex: 1;
+    border: 1.5px solid var(--ink);
+    border-radius: 10px 12px 10px 14px;
+    padding: 3px 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+    background: #fffdf6;
+  }
+  .page {
+    padding: 28px 32px 40px;
+  }
+
+  /* ------- shared wireframe primitives ------- */
+  .nav {
+    display: flex; align-items: center; gap: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1.5px dashed var(--ink-3);
+    margin-bottom: 26px;
+  }
+  .nav .logo { font-family: var(--hand); font-weight: 700; font-size: 22px; display: flex; align-items: center; gap: 8px;}
+  .nav .logo .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--hi); border: 2px solid var(--ink); transform: rotate(-8deg); }
+  .nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 18px; font-family: var(--hand); font-size: 16px; color: var(--ink-2);}
+  .nav ul li { position: relative; }
+  .nav ul li.active::after {
+    content: ""; position: absolute; left: -2px; right: -2px; bottom: -3px;
+    height: 7px; background: var(--hi); z-index: -1; border-radius: 4px;
+  }
+  .nav .cta {
+    margin-left: auto;
+    font-family: var(--hand);
+    border: 2px solid var(--ink);
+    padding: 4px 14px 5px;
+    border-radius: 18px 22px 16px 24px / 22px 16px 24px 18px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 16px;
+  }
+
+  /* image / box placeholders, hatched */
+  .ph {
+    border: 2px solid var(--ink);
+    border-radius: 8px 10px 7px 11px / 9px 7px 11px 8px;
+    background:
+      repeating-linear-gradient(45deg,
+        rgba(28,28,26,0.07) 0 6px,
+        transparent 6px 12px),
+      #fffdf6;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+    min-height: 80px;
+  }
+  .ph.dark { background:
+      repeating-linear-gradient(45deg,
+        rgba(28,28,26,0.18) 0 6px,
+        rgba(28,28,26,0.05) 6px 12px),
+      #fffdf6; }
+  .ph.tiny { min-height: 0; padding: 4px 8px; font-size: 10px; }
+
+  /* lines for body text */
+  .lines {
+    --line-h: 8px;
+    --line-gap: 8px;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        var(--ink-3) 0 1.5px,
+        transparent 1.5px calc(var(--line-h) + var(--line-gap))
+      );
+    height: 0;
+    padding-top: calc((var(--line-h) + var(--line-gap)) * var(--rows, 3));
+    border-radius: 2px;
+  }
+  .lines.short { width: 65%; }
+  .lines.shorter { width: 40%; }
+
+  /* badges / chips */
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1.5px solid var(--ink);
+    padding: 2px 10px 3px;
+    border-radius: 18px 22px 16px 24px / 20px 16px 24px 18px;
+    font-family: var(--hand); font-size: 14px; color: var(--ink);
+    background: #fffdf6;
+  }
+  .chip.dark { background: var(--ink); color: var(--paper); }
+  .chip.hi { background: var(--hi); }
+
+  /* logo cell */
+  .logo-cell {
+    border: 1.5px solid var(--ink);
+    border-radius: 6px 8px 5px 9px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    background: #fffdf6;
+  }
+  .logo-cell.alt {
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(28,28,26,0.06) 0 4px,
+        transparent 4px 8px),
+      #fffdf6;
+  }
+
+  /* helper headings */
+  h2.sec {
+    font-family: var(--hand); font-weight: 700;
+    font-size: 30px; margin: 0 0 4px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  h2.sec .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-2);
+    border: 1.5px solid var(--ink);
+    padding: 1px 6px 2px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sec-sub {
+    font-family: var(--hand); font-size: 18px; color: var(--ink-2); margin: 0 0 22px;
+  }
+
+  /* footer */
+  .footer {
+    border-top: 1.5px dashed var(--ink-3);
+    margin-top: 36px;
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 18px;
+    font-family: var(--hand);
+    color: var(--ink-2);
+    font-size: 14px;
+  }
+  .footer h6 { margin: 0 0 8px; font-family: var(--hand); font-size: 14px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.06em; }
+  .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+
+  /* annotation arrows */
+  .annot {
+    position: relative;
+    font-family: var(--hand);
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .annot::before {
+    content: "✎";
+    margin-right: 6px;
+    color: var(--ink-3);
+  }
+
+  /* ====== V1: Editorial scroll ====== */
+  .v1 .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 6% 30px;
+    position: relative;
+  }
+  .v1 .hero .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .v1 .hero h1 {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 auto 14px;
+    max-width: 16ch;
+  }
+  .v1 .hero h1 .hl { background: var(--hi); padding: 0 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .v1 .hero .sub { color: var(--ink-2); font-size: 20px; max-width: 50ch; margin: 0 auto 22px; }
+  .v1 .hero .ctas { display: flex; gap: 12px; justify-content: center; }
+  .v1 .hero .cta-primary {
+    background: var(--ink); color: var(--paper);
+    padding: 10px 22px; font-family: var(--hand); font-size: 18px;
+    border: 2px solid var(--ink);
+    border-radius: 22px 24px 20px 26px / 24px 20px 26px 22px;
+  }
+  .v1 .hero .cta-ghost {
+    background: transparent; color: var(--ink);
+    padding: 10px 22px; font-family: var(--hand); font-size: 18px;
+    border: 2px solid var(--ink);
+    border-radius: 22px 24px 20px 26px / 24px 20px 26px 22px;
+  }
+  .v1 .hero .scribble {
+    position: absolute; right: 12%; top: 30%; font-family: var(--hand);
+    color: var(--ink-2); font-size: 13px; transform: rotate(8deg);
+  }
+  .v1 .logo-strip {
+    margin-top: 28px;
+    border: 1.5px dashed var(--ink-3);
+    padding: 18px;
+    border-radius: 10px;
+  }
+  .v1 .logo-strip .label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2); text-align: center; margin-bottom: 12px;}
+  .v1 .logo-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+
+  .v1 .services {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 36px;
+  }
+  .v1 .services .list { display: grid; gap: 14px; }
+  .v1 .service-row {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 4px;
+    border-bottom: 1.5px dashed var(--ink-3);
+  }
+  .v1 .service-row .n { font-family: var(--mono); color: var(--ink-3); font-size: 12px; }
+  .v1 .service-row h4 { margin: 0; font-family: var(--hand); font-size: 22px; }
+  .v1 .service-row .arrow { font-family: var(--hand); font-size: 22px; color: var(--ink-3); }
+  .v1 .service-row.active { background: var(--hi); border-radius: 8px; padding: 14px; border-bottom-color: transparent; }
+  .v1 .service-row.active .arrow { color: var(--ink); }
+
+  .v1 .case-studies { margin-top: 56px; }
+  .v1 .case-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: auto auto; gap: 18px; }
+  .v1 .case-card {
+    border: 2px solid var(--ink);
+    border-radius: 12px 14px 11px 15px;
+    padding: 16px;
+    display: grid; gap: 10px;
+    background: #fffdf6;
+  }
+  .v1 .case-card.featured { grid-row: span 2; }
+  .v1 .case-card .img { min-height: 120px; }
+  .v1 .case-card.featured .img { min-height: 240px; }
+  .v1 .case-card h5 { margin: 0; font-family: var(--hand); font-size: 20px; }
+  .v1 .case-card .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .v1 .quote-row {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .v1 .quote {
+    border: 2px solid var(--ink);
+    border-radius: 16px 20px 14px 22px;
+    padding: 18px;
+    background: #fffdf6;
+    position: relative;
+  }
+  .v1 .quote::before {
+    content: "“";
+    font-size: 60px; font-family: var(--hand); line-height: 0.6;
+    position: absolute; top: 16px; left: 14px; color: var(--ink-3);
+  }
+  .v1 .quote .body { margin-top: 26px; }
+  .v1 .quote .who { font-family: var(--mono); font-size: 11px; color: var(--ink-2); margin-top: 10px; }
+
+  .v1 .contact {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 36px;
+    border: 2px solid var(--ink);
+    border-radius: 16px 20px 14px 22px;
+    padding: 28px;
+    background: var(--paper-2);
+  }
+  .v1 .contact h3 { font-family: var(--hand); font-size: 34px; margin: 0 0 8px; }
+  .v1 .form { display: grid; gap: 10px; }
+  .field {
+    border: 1.5px solid var(--ink);
+    border-radius: 8px 10px 7px 11px;
+    padding: 10px 12px;
+    background: #fffdf6;
+    display: grid; gap: 4px;
+  }
+  .field .lbl { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-2); }
+  .field .val { font-family: var(--hand); color: var(--ink-3); font-size: 16px; }
+  .field.textarea { min-height: 90px; align-content: start; }
+  .form .send {
+    justify-self: start;
+    border: 2px solid var(--ink); background: var(--ink); color: var(--paper);
+    padding: 8px 22px; font-family: var(--hand); font-size: 18px;
+    border-radius: 22px 24px 20px 26px / 24px 20px 26px 22px;
+  }
+
+  /* ====== V2: Bento ====== */
+  .v2 .bento {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(110px, auto);
+    gap: 14px;
+  }
+  .v2 .tile {
+    border: 2px solid var(--ink);
+    border-radius: 14px 18px 12px 20px / 18px 12px 20px 14px;
+    padding: 16px;
+    background: #fffdf6;
+    display: flex; flex-direction: column; gap: 8px;
+    position: relative;
+  }
+  .v2 .tile .kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-2); text-transform: uppercase; }
+  .v2 .tile h3 { margin: 0; font-family: var(--hand); font-size: 22px; }
+  .v2 .tile h2 { margin: 0; font-family: var(--hand); font-size: 38px; line-height: 1.05; }
+  .v2 .tile .arrow { position: absolute; right: 14px; bottom: 12px; font-size: 22px; font-family: var(--hand); }
+
+  .v2 .t-hero { grid-column: span 4; grid-row: span 2; background: var(--ink); color: var(--paper); }
+  .v2 .t-hero h2 { font-size: 52px; }
+  .v2 .t-hero .hl { background: var(--hi); color: var(--ink); padding: 0 6px; }
+  .v2 .t-hero .ctas { display: flex; gap: 10px; margin-top: auto; }
+  .v2 .t-hero .ctas .b1 { background: var(--hi); color: var(--ink); padding: 8px 16px; border-radius: 18px 22px 16px 24px; border: 2px solid var(--paper); font-family: var(--hand); font-size: 16px; }
+  .v2 .t-hero .ctas .b2 { background: transparent; color: var(--paper); padding: 8px 16px; border-radius: 18px 22px 16px 24px; border: 2px solid var(--paper); font-family: var(--hand); font-size: 16px; }
+
+  .v2 .t-stat { grid-column: span 2; background: var(--hi); }
+  .v2 .t-companies { grid-column: span 2; grid-row: span 2; }
+  .v2 .t-companies .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1; }
+  .v2 .t-companies .logo-cell { height: 100%; min-height: 56px; }
+
+  .v2 .t-svc { grid-column: span 2; }
+  .v2 .t-svc.wide { grid-column: span 3; }
+  .v2 .t-svc .icon {
+    width: 32px; height: 32px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--hand); font-size: 18px;
+    background: var(--hi);
+  }
+
+  .v2 .t-case { grid-column: span 3; }
+  .v2 .t-case .img { min-height: 110px; }
+  .v2 .t-case-tall { grid-column: span 2; grid-row: span 2; }
+  .v2 .t-case-tall .img { flex: 1; min-height: 0; }
+
+  .v2 .t-quote { grid-column: span 4; background: var(--paper-2); }
+  .v2 .t-quote .q { font-family: var(--hand); font-size: 22px; line-height: 1.3; }
+
+  .v2 .t-contact { grid-column: span 6; background: var(--paper-2); }
+  .v2 .t-contact .row { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: end; }
+
+  /* ====== V3: Sidebar + tabs ====== */
+  .v3 .layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    min-height: 600px;
+  }
+  .v3 .sidebar {
+    border-right: 1.5px dashed var(--ink-3);
+    padding-right: 18px;
+    position: sticky; top: 30px; align-self: start;
+  }
+  .v3 .sidebar .logo { font-family: var(--hand); font-weight: 700; font-size: 22px; display: flex; align-items: center; gap: 8px; margin-bottom: 24px;}
+  .v3 .sidebar .logo .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--hi); border: 2px solid var(--ink); transform: rotate(-8deg);}
+  .v3 .sidebar ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+  .v3 .sidebar li {
+    font-family: var(--hand); font-size: 17px; color: var(--ink-2);
+    padding: 6px 10px; border-radius: 6px 10px 6px 12px;
+    display: flex; align-items: center; gap: 8px;
+    border: 1.5px dashed transparent;
+  }
+  .v3 .sidebar li.active { background: var(--hi); color: var(--ink); border-color: var(--ink); }
+  .v3 .sidebar li .n { font-family: var(--mono); font-size: 10px; color: var(--ink-3); }
+  .v3 .sidebar .cta {
+    margin-top: 28px;
+    border: 2px solid var(--ink); background: var(--ink); color: var(--paper);
+    padding: 8px 14px; font-family: var(--hand); font-size: 15px;
+    border-radius: 18px 22px 16px 24px;
+    text-align: center;
+  }
+
+  .v3 .hero { padding-bottom: 28px; border-bottom: 1.5px dashed var(--ink-3); margin-bottom: 28px;}
+  .v3 .hero .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-2); text-transform: uppercase; margin-bottom: 10px;}
+  .v3 .hero h1 { font-family: var(--hand); font-size: 46px; margin: 0 0 10px; line-height: 1.05;}
+  .v3 .hero h1 .hl { background: var(--hi); padding: 0 6px; }
+  .v3 .hero .sub { font-size: 18px; color: var(--ink-2); max-width: 60ch; margin: 0 0 16px;}
+  .v3 .hero .ctas { display: flex; gap: 10px; }
+  .v3 .hero .b1 { background: var(--ink); color: var(--paper); padding: 8px 18px; border-radius: 18px 22px 16px 24px; border: 2px solid var(--ink); font-family: var(--hand); font-size: 16px; }
+  .v3 .hero .b2 { background: transparent; color: var(--ink); padding: 8px 18px; border-radius: 18px 22px 16px 24px; border: 2px solid var(--ink); font-family: var(--hand); font-size: 16px; }
+
+  .v3 .logos { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 18px;}
+  .v3 .logos .label { font-family: var(--mono); font-size: 11px; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.14em; min-width: 100%; margin-bottom: 4px; }
+  .v3 .logos .logo-cell { flex: 1 1 0; min-width: 110px; height: 50px;}
+
+  .v3 .svc-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
+  .v3 .svc-tab {
+    border: 1.5px solid var(--ink);
+    padding: 6px 14px; font-family: var(--hand); font-size: 16px;
+    border-radius: 18px 22px 16px 24px;
+    background: #fffdf6; color: var(--ink-2);
+  }
+  .v3 .svc-tab.active { background: var(--ink); color: var(--paper); }
+
+  .v3 .svc-panel {
+    margin-top: 14px;
+    border: 2px solid var(--ink);
+    border-radius: 14px 18px 12px 20px;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 22px;
+    background: #fffdf6;
+  }
+  .v3 .svc-panel h3 { font-family: var(--hand); font-size: 28px; margin: 0 0 8px;}
+  .v3 .svc-panel ul { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; font-family: var(--hand); font-size: 16px; }
+  .v3 .svc-panel ul li::before { content: "→"; margin-right: 8px; color: var(--ink-3); }
+
+  .v3 .case-scroller { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+  .v3 .case { border: 2px solid var(--ink); border-radius: 12px 16px 11px 17px; padding: 14px; background: #fffdf6;}
+  .v3 .case .img { min-height: 130px; margin-bottom: 10px; }
+  .v3 .case h5 { font-family: var(--hand); font-size: 18px; margin: 0 0 4px; }
+  .v3 .case .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .v3 .case .metric { font-family: var(--hand); font-size: 22px; margin-top: 4px;}
+  .v3 .case .metric small { font-family: var(--mono); font-size: 11px; color: var(--ink-2); display: block;}
+
+  .v3 .testimonial-strip {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
+  }
+  .v3 .ts {
+    border: 2px solid var(--ink); border-radius: 14px 18px 12px 20px;
+    padding: 16px; background: #fffdf6;
+  }
+  .v3 .ts .q { font-family: var(--hand); font-size: 16px; }
+  .v3 .ts .who { font-family: var(--mono); font-size: 10px; color: var(--ink-2); margin-top: 8px;}
+
+  .v3 .contact {
+    margin-top: 32px;
+    border: 2px solid var(--ink);
+    border-radius: 14px 18px 12px 20px;
+    padding: 22px;
+    background: var(--paper-2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* ====== V4: Centered manifesto ====== */
+  .v4 .stack { max-width: 720px; margin: 0 auto; }
+  .v4 .topbar { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 36px; border-bottom: 1.5px solid var(--ink); margin-bottom: 36px; }
+  .v4 .topbar .logo { font-family: var(--hand); font-weight: 700; font-size: 22px; display: flex; align-items: center; gap: 8px;}
+  .v4 .topbar .logo .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--hi); border: 2px solid var(--ink); transform: rotate(-8deg);}
+  .v4 .topbar nav { font-family: var(--hand); font-size: 15px; color: var(--ink-2); display: flex; gap: 16px; }
+
+  .v4 .hero h1 {
+    font-family: var(--hand); font-size: 44px; line-height: 1.1; margin: 0 0 16px;
+  }
+  .v4 .hero h1 .hl { background: var(--hi); padding: 0 4px; }
+  .v4 .hero p { font-size: 18px; color: var(--ink-2); margin: 0 0 20px; }
+  .v4 .hero .actions { display: flex; gap: 10px; align-items: center; }
+  .v4 .hero .b1 { background: var(--ink); color: var(--paper); border: 2px solid var(--ink); padding: 8px 18px; border-radius: 18px 22px 16px 24px; font-family: var(--hand); font-size: 16px; }
+  .v4 .hero .meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+
+  .v4 .divider { border: none; border-top: 1.5px dashed var(--ink-3); margin: 44px 0; }
+
+  .v4 .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+  .v4 .section-head h2 { font-family: var(--hand); font-size: 28px; margin: 0;}
+  .v4 .section-head .n { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.16em; text-transform: uppercase; }
+
+  .v4 .logo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .v4 .logo-row .logo-cell { height: 48px; font-size: 10px; }
+  .v4 .companies-note { font-family: var(--hand); font-size: 14px; color: var(--ink-2); margin-top: 8px;}
+
+  .v4 .svc-list { display: grid; gap: 0; border-top: 1.5px solid var(--ink); }
+  .v4 .svc-item { border-bottom: 1.5px solid var(--ink); padding: 14px 0;}
+  .v4 .svc-item .row { display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; }
+  .v4 .svc-item .n { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+  .v4 .svc-item h4 { font-family: var(--hand); font-size: 22px; margin: 0; }
+  .v4 .svc-item .tog { font-family: var(--hand); font-size: 22px; color: var(--ink); }
+  .v4 .svc-item .body { padding: 10px 0 4px 54px; max-width: 60ch; color: var(--ink-2); font-size: 16px; }
+  .v4 .svc-item.open { background: var(--hi); margin: 0 -16px; padding: 14px 16px; border-radius: 4px;}
+  .v4 .svc-item.open .tog { transform: rotate(45deg); display: inline-block; }
+
+  .v4 .case-list { display: grid; gap: 18px; }
+  .v4 .case-row {
+    display: grid; grid-template-columns: 120px 1fr auto; gap: 18px;
+    border: 1.5px solid var(--ink);
+    border-radius: 10px 14px 9px 15px;
+    padding: 14px; background: #fffdf6;
+    align-items: center;
+  }
+  .v4 .case-row .img { min-height: 70px; }
+  .v4 .case-row h5 { font-family: var(--hand); font-size: 18px; margin: 0 0 4px;}
+  .v4 .case-row .meta { font-family: var(--mono); font-size: 11px; color: var(--ink-2);}
+  .v4 .case-row .metric { font-family: var(--hand); font-size: 24px; text-align: right; }
+  .v4 .case-row .metric small { display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-2); }
+
+  .v4 .quote-block {
+    border-left: 4px solid var(--ink);
+    padding: 4px 0 4px 18px;
+    margin: 0 0 16px;
+  }
+  .v4 .quote-block .q { font-family: var(--hand); font-size: 22px; line-height: 1.3; margin: 0 0 6px; }
+  .v4 .quote-block .who { font-family: var(--mono); font-size: 11px; color: var(--ink-2);}
+
+  .v4 .contact .form { display: grid; gap: 10px; }
+
+  /* tweaks helper */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+  <header class="tabbar">
+    <div class="brandmark">
+      <span class="dot"></span>
+      <div>uncreated <small>landing wireframes</small></div>
+    </div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="v1"><span class="num">01</span>Editorial scroll</button>
+      <button class="tab" data-tab="v2"><span class="num">02</span>Bento grid</button>
+      <button class="tab" data-tab="v3"><span class="num">03</span>Docs sidebar</button>
+      <button class="tab" data-tab="v4"><span class="num">04</span>Manifesto</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ V1: Editorial scroll ============ -->
+    <section class="canvas v1-canvas" id="v1">
+      <h2 class="canvas-title">Editorial scroll <span class="v">v01</span></h2>
+      <p class="canvas-sub">Long, centered, magazine-feel. <b>Wide hero</b> → logo strip → numbered services → featured case + grid → quote row → contact.</p>
+
+      <div class="frame">
+        <div class="chrome">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="url">uncreated.co</div>
+        </div>
+        <div class="page v1">
+          <div class="nav">
+            <div class="logo"><span class="dot"></span>uncreated</div>
+            <ul>
+              <li class="active">Work</li>
+              <li>Services</li>
+              <li>Approach</li>
+              <li>Writing</li>
+              <li>Contact</li>
+            </ul>
+            <div class="cta">Book a call →</div>
+          </div>
+
+          <div class="hero">
+            <div class="eyebrow">AI consulting · build & deploy</div>
+            <h1>We build the AI you <span class="hl">actually ship</span>.</h1>
+            <p class="sub">A small team of engineers and strategists. We design, build, and deploy production AI systems for teams that need it to work on Monday — not in Q4.</p>
+            <div class="ctas">
+              <button class="cta-primary">Start a project →</button>
+              <button class="cta-ghost">See our work</button>
+            </div>
+            <div class="scribble">↖ headline carries the value prop</div>
+          </div>
+
+          <div class="logo-strip">
+            <div class="label">— trusted by teams at —</div>
+            <div class="logo-grid">
+              <div class="logo-cell">[ logo ]</div>
+              <div class="logo-cell alt">[ logo ]</div>
+              <div class="logo-cell">[ logo ]</div>
+              <div class="logo-cell alt">[ logo ]</div>
+              <div class="logo-cell">[ logo ]</div>
+              <div class="logo-cell alt">[ logo ]</div>
+            </div>
+          </div>
+
+          <div class="services" data-section="services">
+            <div>
+              <h2 class="sec">What we do <span class="tag">services</span></h2>
+              <p class="sec-sub">Four practice areas. One opinionated team.</p>
+              <div class="ph" style="min-height: 220px;">
+                preview / illustration<br/>(swap per service)
+              </div>
+            </div>
+            <div class="list">
+              <div class="service-row active">
+                <span class="n">01</span>
+                <div>
+                  <h4>Agent design & deployment</h4>
+                  <div class="lines short" style="--rows: 2; margin-top: 8px;"></div>
+                </div>
+                <span class="arrow">→</span>
+              </div>
+              <div class="service-row">
+                <span class="n">02</span>
+                <h4>Custom model integration</h4>
+                <span class="arrow">→</span>
+              </div>
+              <div class="service-row">
+                <span class="n">03</span>
+                <h4>Evals & guardrails</h4>
+                <span class="arrow">→</span>
+              </div>
+              <div class="service-row">
+                <span class="n">04</span>
+                <h4>Forward-deployed engineering</h4>
+                <span class="arrow">→</span>
+              </div>
+              <div class="service-row" style="border-bottom: none;">
+                <span class="n">05</span>
+                <h4>AI strategy workshops</h4>
+                <span class="arrow">→</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-studies" data-section="cases">
+            <h2 class="sec">Selected work <span class="tag">case studies</span></h2>
+            <p class="sec-sub">Three months in. Real users. Real numbers.</p>
+            <div class="case-grid">
+              <div class="case-card featured">
+                <div class="ph img dark">[ hero shot — product screenshot ]</div>
+                <div class="meta">
+                  <span class="chip hi">Featured</span>
+                  <span class="chip">Fintech</span>
+                  <span class="chip">Agents</span>
+                </div>
+                <h5>How [Client] cut underwriting time by 73%</h5>
+                <div class="lines" style="--rows: 3;"></div>
+                <div style="display:flex; gap: 18px; margin-top: 8px;">
+                  <div><div style="font-family: var(--hand); font-size: 28px;">73%</div><div style="font-family: var(--mono); font-size: 10px; color: var(--ink-2);">time saved</div></div>
+                  <div><div style="font-family: var(--hand); font-size: 28px;">$2.1M</div><div style="font-family: var(--mono); font-size: 10px; color: var(--ink-2);">annual</div></div>
+                  <div><div style="font-family: var(--hand); font-size: 28px;">6wk</div><div style="font-family: var(--mono); font-size: 10px; color: var(--ink-2);">to ship</div></div>
+                </div>
+              </div>
+              <div class="case-card">
+                <div class="ph img">[ thumb ]</div>
+                <div class="meta"><span class="chip">SaaS</span><span class="chip">RAG</span></div>
+                <h5>Support agent for [SaaS]</h5>
+              </div>
+              <div class="case-card">
+                <div class="ph img">[ thumb ]</div>
+                <div class="meta"><span class="chip">Health</span><span class="chip">Evals</span></div>
+                <h5>Clinical doc summarizer</h5>
+              </div>
+              <div class="case-card">
+                <div class="ph img">[ thumb ]</div>
+                <div class="meta"><span class="chip">Retail</span><span class="chip">Search</span></div>
+                <h5>Semantic catalog for [Retailer]</h5>
+              </div>
+              <div class="case-card">
+                <div class="ph img">[ thumb ]</div>
+                <div class="meta"><span class="chip">Legal</span><span class="chip">Workflow</span></div>
+                <h5>Contract review pipeline</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-row" data-section="testimonials">
+            <div class="quote">
+              <div class="body">
+                <div class="lines" style="--rows: 4;"></div>
+              </div>
+              <div class="who">— Name, Title @ Co.</div>
+            </div>
+            <div class="quote">
+              <div class="body">
+                <div class="lines" style="--rows: 4;"></div>
+              </div>
+              <div class="who">— Name, Title @ Co.</div>
+            </div>
+            <div class="quote">
+              <div class="body">
+                <div class="lines" style="--rows: 4;"></div>
+              </div>
+              <div class="who">— Name, Title @ Co.</div>
+            </div>
+          </div>
+
+          <div class="contact" data-section="contact">
+            <div>
+              <h3>Tell us what you're stuck on.</h3>
+              <p style="font-family: var(--hand); font-size: 17px; color: var(--ink-2);">We reply within a day. No sales decks.</p>
+              <div style="margin-top: 18px; font-family: var(--mono); font-size: 12px; color: var(--ink-2); line-height: 1.6;">
+                hello@uncreated.co<br/>
+                @uncreated<br/>
+                NYC · SF · remote
+              </div>
+            </div>
+            <div class="form">
+              <div class="field"><span class="lbl">Name</span><span class="val">Your name</span></div>
+              <div class="field"><span class="lbl">Email · Company</span><span class="val">you@company.co</span></div>
+              <div class="field textarea"><span class="lbl">What are you building?</span><span class="val">A few sentences is plenty…</span></div>
+              <button class="send">Send it →</button>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div>
+              <div class="logo" style="display:flex; gap: 8px; align-items: center; font-family: var(--hand); font-size: 20px; font-weight: 700;"><span style="width:12px;height:12px;background:var(--hi);border-radius:50%;border:2px solid var(--ink);"></span> uncreated</div>
+              <p style="font-family: var(--hand); font-size: 14px; color: var(--ink-2); margin-top: 6px;">Build &amp; deploy. <br/>© 2026</p>
+            </div>
+            <div><h6>Work</h6><ul><li>Case studies</li><li>Open source</li><li>Writing</li></ul></div>
+            <div><h6>Company</h6><ul><li>About</li><li>Careers</li><li>Press</li></ul></div>
+            <div><h6>Contact</h6><ul><li>hello@uncreated.co</li><li>Book a call</li><li>@uncreated</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ V2: Bento ============ -->
+    <section class="canvas v2-canvas hidden" id="v2">
+      <h2 class="canvas-title">Bento grid <span class="v">v02</span></h2>
+      <p class="canvas-sub">Modular tiles. <b>Big hero card</b> sets the tone, surrounding cards each preview one section (companies / a service / a case / a quote). Everything visible on first scroll.</p>
+
+      <div class="frame">
+        <div class="chrome">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="url">uncreated.co</div>
+        </div>
+        <div class="page v2">
+          <div class="nav">
+            <div class="logo"><span class="dot"></span>uncreated</div>
+            <ul>
+              <li class="active">Home</li>
+              <li>Work</li>
+              <li>Services</li>
+              <li>Writing</li>
+            </ul>
+            <div class="cta">Start a project →</div>
+          </div>
+
+          <div class="bento">
+            <div class="tile t-hero" data-section="hero">
+              <div class="kicker" style="color: var(--paper-2);">AI consulting · build & deploy</div>
+              <h2>Production AI for teams that <span class="hl">need it to work</span>.</h2>
+              <div style="font-family: var(--hand); font-size: 16px; color: var(--paper-2); max-width: 32ch;">We design, build, and deploy AI systems end-to-end. No 60-page strategy decks.</div>
+              <div class="ctas">
+                <button class="b1">Book intro call →</button>
+                <button class="b2">See our work</button>
+              </div>
+            </div>
+
+            <div class="tile t-stat">
+              <div class="kicker">since 2024</div>
+              <h2>47</h2>
+              <div style="font-family: var(--hand); font-size: 15px; color: var(--ink-2);">systems shipped to prod</div>
+            </div>
+
+            <div class="tile t-companies" data-section="companies">
+              <div class="kicker">Companies we work with</div>
+              <div class="grid">
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+              </div>
+              <div class="annot" style="margin-top: auto;">+ 30 more</div>
+            </div>
+
+            <div class="tile t-svc" data-section="services">
+              <div class="icon">◆</div>
+              <div class="kicker">Service · 01</div>
+              <h3>Agent design</h3>
+              <div style="font-family: var(--hand); font-size: 14px; color: var(--ink-2);">Multi-step agents that handle real workflows.</div>
+              <span class="arrow">→</span>
+            </div>
+            <div class="tile t-svc">
+              <div class="icon">▲</div>
+              <div class="kicker">Service · 02</div>
+              <h3>Model integration</h3>
+              <div style="font-family: var(--hand); font-size: 14px; color: var(--ink-2);">RAG, fine-tunes, evals, the whole pipeline.</div>
+              <span class="arrow">→</span>
+            </div>
+            <div class="tile t-svc">
+              <div class="icon">●</div>
+              <div class="kicker">Service · 03</div>
+              <h3>Forward deployed</h3>
+              <div style="font-family: var(--hand); font-size: 14px; color: var(--ink-2);">Embedded engineers in your codebase.</div>
+              <span class="arrow">→</span>
+            </div>
+
+            <div class="tile t-case-tall" data-section="cases">
+              <div class="kicker">Case · featured</div>
+              <h3>Underwriting agent · fintech</h3>
+              <div class="ph img" style="margin-top: 4px; flex: 1; min-height: 0;">[ product shot ]</div>
+              <div style="display: flex; gap: 14px; margin-top: 8px;">
+                <div><div style="font-family: var(--hand); font-size: 22px;">73%</div><div style="font-family: var(--mono); font-size: 9px; color: var(--ink-2);">time saved</div></div>
+                <div><div style="font-family: var(--hand); font-size: 22px;">6wk</div><div style="font-family: var(--mono); font-size: 9px; color: var(--ink-2);">to ship</div></div>
+              </div>
+            </div>
+            <div class="tile t-case">
+              <div class="kicker">Case</div>
+              <h3>Support agent · SaaS</h3>
+              <div class="ph img">[ thumb ]</div>
+              <span class="arrow">→</span>
+            </div>
+            <div class="tile t-case">
+              <div class="kicker">Case</div>
+              <h3>Catalog search · retail</h3>
+              <div class="ph img">[ thumb ]</div>
+              <span class="arrow">→</span>
+            </div>
+
+            <div class="tile t-quote" data-section="testimonials">
+              <div class="kicker">Testimonial</div>
+              <div class="q">"They shipped in six weeks what our team had been failing to ship for nine months. Best money we've spent."</div>
+              <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-2); margin-top: auto;">— Name, VP Eng @ Co.</div>
+            </div>
+            <div class="tile" style="grid-column: span 2;">
+              <div class="kicker">Writing</div>
+              <h3>From the team</h3>
+              <ul style="list-style: none; padding: 0; margin: 0; font-family: var(--hand); font-size: 15px; display: grid; gap: 6px;">
+                <li>→ Stop benchmarking. Start shipping.</li>
+                <li>→ Evals are a UX problem.</li>
+                <li>→ The boring agent stack.</li>
+              </ul>
+            </div>
+
+            <div class="tile t-contact" data-section="contact">
+              <div class="kicker">Get in touch</div>
+              <h3 style="margin-bottom: 8px;">Tell us what you're stuck on.</h3>
+              <div class="row">
+                <div class="field"><span class="lbl">Name</span><span class="val">Your name</span></div>
+                <div class="field"><span class="lbl">Email</span><span class="val">you@company.co</span></div>
+                <div class="field"><span class="lbl">Project</span><span class="val">One line is fine…</span></div>
+                <button class="send" style="border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 8px 18px; border-radius: 18px 22px 16px 24px; font-family: var(--hand); font-size: 16px;">Send →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div>
+              <div class="logo" style="display:flex; gap: 8px; align-items: center; font-family: var(--hand); font-size: 20px; font-weight: 700;"><span style="width:12px;height:12px;background:var(--hi);border-radius:50%;border:2px solid var(--ink);"></span> uncreated</div>
+              <p style="font-family: var(--hand); font-size: 14px; color: var(--ink-2); margin-top: 6px;">Build &amp; deploy AI. © 2026</p>
+            </div>
+            <div><h6>Work</h6><ul><li>Case studies</li><li>Open source</li></ul></div>
+            <div><h6>Company</h6><ul><li>About</li><li>Careers</li></ul></div>
+            <div><h6>Contact</h6><ul><li>hello@uncreated.co</li><li>@uncreated</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ V3: Sidebar docs ============ -->
+    <section class="canvas v3-canvas hidden" id="v3">
+      <h2 class="canvas-title">Docs sidebar <span class="v">v03</span></h2>
+      <p class="canvas-sub">Persistent left nav, hero on top, <b>tabbed services panel</b> (closest to your reference), case-study grid, quote row, inline contact.</p>
+
+      <div class="frame">
+        <div class="chrome">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="url">uncreated.co</div>
+        </div>
+        <div class="page v3">
+          <div class="layout">
+            <aside class="sidebar">
+              <div class="logo"><span class="dot"></span>uncreated</div>
+              <ul>
+                <li class="active"><span class="n">01</span> Overview</li>
+                <li><span class="n">02</span> Companies</li>
+                <li><span class="n">03</span> Services</li>
+                <li><span class="n">04</span> Case studies</li>
+                <li><span class="n">05</span> Testimonials</li>
+                <li><span class="n">06</span> Contact</li>
+              </ul>
+              <div class="cta">Book a call →</div>
+              <div style="margin-top: 14px; font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.6;">
+                hello@uncreated.co<br/>
+                NYC · SF · remote
+              </div>
+            </aside>
+
+            <div>
+              <div class="hero" data-section="hero">
+                <div class="eyebrow">AI consulting · build &amp; deploy</div>
+                <h1>We design, build, and deploy <span class="hl">production AI systems</span>.</h1>
+                <p class="sub">A senior team of forward-deployed engineers. We embed with yours, ship the system, and hand it off — instrumented, evaluated, and ready for prod.</p>
+                <div class="ctas">
+                  <button class="b1">Start a project →</button>
+                  <button class="b2">See our work</button>
+                </div>
+
+                <div class="logos" data-section="companies">
+                  <div class="label">— companies we work with —</div>
+                  <div class="logo-cell">[ logo ]</div>
+                  <div class="logo-cell alt">[ logo ]</div>
+                  <div class="logo-cell">[ logo ]</div>
+                  <div class="logo-cell alt">[ logo ]</div>
+                  <div class="logo-cell">[ logo ]</div>
+                </div>
+              </div>
+
+              <div data-section="services">
+                <h2 class="sec">Services <span class="tag">switch tabs</span></h2>
+                <p class="sec-sub">Pick a focus area — same team, different shape of engagement.</p>
+                <div class="svc-tabs">
+                  <div class="svc-tab active">Agent design</div>
+                  <div class="svc-tab">Model integration</div>
+                  <div class="svc-tab">Forward deployed</div>
+                  <div class="svc-tab">Evals &amp; guardrails</div>
+                  <div class="svc-tab">Strategy</div>
+                </div>
+                <div class="svc-panel">
+                  <div>
+                    <div class="ph" style="min-height: 200px;">
+                      [ animated demo / product shot ]
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Agent design &amp; deployment</h3>
+                    <div class="lines" style="--rows: 4;"></div>
+                    <ul>
+                      <li>Multi-step planning, tool use, recovery</li>
+                      <li>Observability + eval harness on day one</li>
+                      <li>Production rollout w/ your platform team</li>
+                      <li>Engagement: 4–12 weeks, fixed scope</li>
+                    </ul>
+                    <div style="margin-top: 14px; display: flex; gap: 10px;">
+                      <span class="chip dark">Talk to us →</span>
+                      <span class="chip">Read the case →</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div data-section="cases" style="margin-top: 36px;">
+                <h2 class="sec">Selected work <span class="tag">case studies</span></h2>
+                <p class="sec-sub">Three months. Real users. Real numbers.</p>
+                <div class="case-scroller">
+                  <div class="case">
+                    <div class="ph img">[ shot ]</div>
+                    <div class="row"><span class="chip">Fintech</span><span class="chip">Agents</span></div>
+                    <h5>Underwriting agent</h5>
+                    <div class="metric">73%<small>cycle time saved</small></div>
+                  </div>
+                  <div class="case">
+                    <div class="ph img">[ shot ]</div>
+                    <div class="row"><span class="chip">SaaS</span><span class="chip">RAG</span></div>
+                    <h5>Support deflection</h5>
+                    <div class="metric">2.4×<small>tickets resolved</small></div>
+                  </div>
+                  <div class="case">
+                    <div class="ph img">[ shot ]</div>
+                    <div class="row"><span class="chip">Health</span><span class="chip">Evals</span></div>
+                    <h5>Doc summarization</h5>
+                    <div class="metric">98.1%<small>eval pass rate</small></div>
+                  </div>
+                </div>
+                <div style="margin-top: 12px; display:flex; justify-content: flex-end;">
+                  <span class="chip">See all 12 →</span>
+                </div>
+              </div>
+
+              <div class="testimonial-strip" data-section="testimonials">
+                <div class="ts">
+                  <div class="q">"They shipped in six weeks what our team had been failing to ship for nine months."</div>
+                  <div class="who">— Name, VP Eng @ Co.</div>
+                </div>
+                <div class="ts">
+                  <div class="q">"Felt like an extension of our team from day one. Stayed until it worked."</div>
+                  <div class="who">— Name, CTO @ Co.</div>
+                </div>
+              </div>
+
+              <div class="contact" data-section="contact">
+                <div>
+                  <h3 style="font-family: var(--hand); font-size: 26px; margin: 0 0 8px;">Tell us what you're stuck on.</h3>
+                  <p style="font-family: var(--hand); font-size: 16px; color: var(--ink-2);">We reply within a day.</p>
+                  <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-2); margin-top: 14px; line-height: 1.7;">
+                    hello@uncreated.co<br/>
+                    NYC · SF · remote
+                  </div>
+                </div>
+                <div class="form" style="display:grid; gap: 10px;">
+                  <div class="field"><span class="lbl">Name</span><span class="val">Your name</span></div>
+                  <div class="field"><span class="lbl">Email · Company</span><span class="val">you@company.co</span></div>
+                  <div class="field textarea"><span class="lbl">What are you building?</span><span class="val">A few sentences…</span></div>
+                  <button class="send" style="justify-self: start; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 8px 22px; border-radius: 18px 22px 16px 24px; font-family: var(--hand); font-size: 16px;">Send →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer">
+            <div>
+              <div class="logo" style="display:flex; gap: 8px; align-items: center; font-family: var(--hand); font-size: 20px; font-weight: 700;"><span style="width:12px;height:12px;background:var(--hi);border-radius:50%;border:2px solid var(--ink);"></span> uncreated</div>
+              <p style="font-family: var(--hand); font-size: 14px; color: var(--ink-2); margin-top: 6px;">Build &amp; deploy. © 2026</p>
+            </div>
+            <div><h6>Work</h6><ul><li>Case studies</li><li>Writing</li></ul></div>
+            <div><h6>Company</h6><ul><li>About</li><li>Careers</li></ul></div>
+            <div><h6>Contact</h6><ul><li>hello@uncreated.co</li><li>@uncreated</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ V4: Manifesto ============ -->
+    <section class="canvas v4-canvas hidden" id="v4">
+      <h2 class="canvas-title">Manifesto <span class="v">v04</span></h2>
+      <p class="canvas-sub">Narrow, centered, text-forward — feels like a memo or essay. <b>Numbered service accordion</b>, case studies as compact rows with one metric each, quotes inline.</p>
+
+      <div class="frame">
+        <div class="chrome">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="url">uncreated.co</div>
+        </div>
+        <div class="page v4">
+          <div class="stack">
+            <div class="topbar">
+              <div class="logo"><span class="dot"></span>uncreated</div>
+              <nav>
+                <span>Work</span><span>Services</span><span>Writing</span><span>Contact</span>
+              </nav>
+            </div>
+
+            <div class="hero" data-section="hero">
+              <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-2); text-transform: uppercase; margin-bottom: 12px;">A note from us · est. 2024</div>
+              <h1>We build the AI you <span class="hl">actually ship</span>. <br/>Nothing more, nothing less.</h1>
+              <p>Most AI projects die in the gap between a great demo and a working system. We close that gap. Senior engineers, opinionated about what to build, embedded with your team until it's in production.</p>
+              <div class="actions">
+                <button class="b1">Start a project →</button>
+                <span class="meta">— or — hello@uncreated.co</span>
+              </div>
+            </div>
+
+            <hr class="divider"/>
+
+            <div data-section="companies">
+              <div class="section-head">
+                <h2>Companies we've shipped with</h2>
+                <span class="n">§01</span>
+              </div>
+              <div class="logo-row">
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell">[ logo ]</div>
+                <div class="logo-cell alt">[ logo ]</div>
+              </div>
+              <p class="companies-note">From Series A startups to Fortune 100 — usually four-to-twelve-week engagements.</p>
+            </div>
+
+            <hr class="divider"/>
+
+            <div data-section="services">
+              <div class="section-head">
+                <h2>What we do</h2>
+                <span class="n">§02</span>
+              </div>
+              <div class="svc-list">
+                <div class="svc-item open">
+                  <div class="row">
+                    <span class="n">01</span>
+                    <h4>Agent design &amp; deployment</h4>
+                    <span class="tog">+</span>
+                  </div>
+                  <div class="body">
+                    Multi-step agents with planning, tool use, and recovery. We design the agent loop, instrument it with evals, and deploy it inside your stack — not a sandbox.
+                  </div>
+                </div>
+                <div class="svc-item">
+                  <div class="row"><span class="n">02</span><h4>Custom model integration</h4><span class="tog">+</span></div>
+                </div>
+                <div class="svc-item">
+                  <div class="row"><span class="n">03</span><h4>Evals, guardrails &amp; observability</h4><span class="tog">+</span></div>
+                </div>
+                <div class="svc-item">
+                  <div class="row"><span class="n">04</span><h4>Forward-deployed engineering</h4><span class="tog">+</span></div>
+                </div>
+                <div class="svc-item">
+                  <div class="row"><span class="n">05</span><h4>AI strategy &amp; workshops</h4><span class="tog">+</span></div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="divider"/>
+
+            <div data-section="cases">
+              <div class="section-head">
+                <h2>Selected work</h2>
+                <span class="n">§03</span>
+              </div>
+              <div class="case-list">
+                <div class="case-row">
+                  <div class="ph img">[ shot ]</div>
+                  <div>
+                    <h5>Underwriting agent · fintech</h5>
+                    <div class="meta">Agents · 6 weeks · 2025</div>
+                  </div>
+                  <div class="metric">73%<small>cycle time</small></div>
+                </div>
+                <div class="case-row">
+                  <div class="ph img">[ shot ]</div>
+                  <div>
+                    <h5>Support deflection · SaaS</h5>
+                    <div class="meta">RAG + evals · 8 weeks · 2025</div>
+                  </div>
+                  <div class="metric">2.4×<small>tickets resolved</small></div>
+                </div>
+                <div class="case-row">
+                  <div class="ph img">[ shot ]</div>
+                  <div>
+                    <h5>Clinical summarizer · health</h5>
+                    <div class="meta">Evals + safety · 12 weeks · 2026</div>
+                  </div>
+                  <div class="metric">98.1%<small>eval pass</small></div>
+                </div>
+                <div class="case-row">
+                  <div class="ph img">[ shot ]</div>
+                  <div>
+                    <h5>Semantic catalog · retail</h5>
+                    <div class="meta">Search · 5 weeks · 2026</div>
+                  </div>
+                  <div class="metric">+38%<small>conversion</small></div>
+                </div>
+              </div>
+              <div style="margin-top: 14px; text-align: right;">
+                <span class="chip">All twelve →</span>
+              </div>
+            </div>
+
+            <hr class="divider"/>
+
+            <div data-section="testimonials">
+              <div class="section-head">
+                <h2>What clients say</h2>
+                <span class="n">§04</span>
+              </div>
+              <div class="quote-block">
+                <p class="q">"They shipped in six weeks what our team had been failing to ship for nine months. Best money we've spent."</p>
+                <div class="who">— Name, VP Eng @ Co.</div>
+              </div>
+              <div class="quote-block">
+                <p class="q">"Felt like an extension of our team from day one. Stayed until it worked in production."</p>
+                <div class="who">— Name, CTO @ Co.</div>
+              </div>
+            </div>
+
+            <hr class="divider"/>
+
+            <div class="contact" data-section="contact">
+              <div class="section-head">
+                <h2>Get in touch</h2>
+                <span class="n">§05</span>
+              </div>
+              <p style="font-family: var(--hand); font-size: 17px; color: var(--ink-2); margin: 0 0 16px;">
+                Tell us what you're stuck on. We reply within a day, no sales decks.
+              </p>
+              <div class="form">
+                <div class="field"><span class="lbl">Name</span><span class="val">Your name</span></div>
+                <div class="field"><span class="lbl">Email · Company</span><span class="val">you@company.co</span></div>
+                <div class="field textarea"><span class="lbl">What are you building?</span><span class="val">A few sentences is plenty…</span></div>
+                <button class="send" style="justify-self: start; border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 8px 22px; border-radius: 18px 22px 16px 24px; font-family: var(--hand); font-size: 16px;">Send it →</button>
+              </div>
+            </div>
+
+            <div class="footer" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+              <div>
+                <div class="logo" style="display:flex; gap: 8px; align-items: center; font-family: var(--hand); font-size: 20px; font-weight: 700;"><span style="width:12px;height:12px;background:var(--hi);border-radius:50%;border:2px solid var(--ink);"></span> uncreated</div>
+                <p style="font-family: var(--hand); font-size: 14px; color: var(--ink-2); margin-top: 6px;">© 2026</p>
+              </div>
+              <div><h6>Work</h6><ul><li>Case studies</li><li>Writing</li></ul></div>
+              <div><h6>Company</h6><ul><li>About</li><li>Careers</li></ul></div>
+              <div><h6>Contact</h6><ul><li>hello@uncreated.co</li><li>@uncreated</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- React + Babel for Tweaks panel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+
+  <div id="tweaks-root"></div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const sections = ['v1', 'v2', 'v3', 'v4'];
+    function showTab(id) {
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+      sections.forEach(s => {
+        const el = document.getElementById(s);
+        if (el) el.classList.toggle('hidden', s !== id);
+      });
+      try { localStorage.setItem('uncreated.tab', id); } catch(e) {}
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    tabs.forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
+    try {
+      const saved = localStorage.getItem('uncreated.tab');
+      if (saved && sections.includes(saved)) showTab(saved);
+    } catch(e) {}
+  </script>
+
+  <script type="text/babel">
+    const { useEffect } = React;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "accent": "#ffec8a",
+      "showCompanies": true,
+      "showServices": true,
+      "showCases": true,
+      "showTestimonials": true,
+      "showContact": true,
+      "fidelity": "midfi",
+      "paper": "warm"
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      useEffect(() => {
+        document.documentElement.style.setProperty('--hi', t.accent);
+        // section visibility
+        const map = {
+          showCompanies: 'companies',
+          showServices: 'services',
+          showCases: 'cases',
+          showTestimonials: 'testimonials',
+          showContact: 'contact',
+        };
+        Object.entries(map).forEach(([k, sec]) => {
+          document.querySelectorAll(`[data-section="${sec}"]`).forEach(el => {
+            el.style.display = t[k] ? '' : 'none';
+          });
+        });
+        // fidelity
+        document.body.dataset.fidelity = t.fidelity;
+        if (t.fidelity === 'midfi') {
+          document.documentElement.style.setProperty('--hand', '"Inter", system-ui, sans-serif');
+        } else {
+          document.documentElement.style.setProperty('--hand', '"Kalam", "Caveat", cursive');
+        }
+        // paper tone
+        if (t.paper === 'cool') {
+          document.documentElement.style.setProperty('--paper', '#f1f3f5');
+          document.documentElement.style.setProperty('--paper-2', '#e3e7ec');
+        } else if (t.paper === 'white') {
+          document.documentElement.style.setProperty('--paper', '#fafaf7');
+          document.documentElement.style.setProperty('--paper-2', '#eeeee8');
+        } else {
+          document.documentElement.style.setProperty('--paper', '#f6f3ec');
+          document.documentElement.style.setProperty('--paper-2', '#ece7d9');
+        }
+      }, [t]);
+
+      return (
+        <TweaksPanel>
+          <TweakSection label="Wireframe" />
+          <TweakRadio
+            label="Fidelity"
+            value={t.fidelity}
+            options={["sketch", "midfi"]}
+            onChange={(v) => setTweak('fidelity', v)}
+          />
+          <TweakRadio
+            label="Paper"
+            value={t.paper}
+            options={["warm", "cool", "white"]}
+            onChange={(v) => setTweak('paper', v)}
+          />
+          <TweakColor
+            label="Highlight"
+            value={t.accent}
+            options={["#ffec8a", "#ffd6a0", "#b6e3c2", "#cdd6ff"]}
+            onChange={(v) => setTweak('accent', v)}
+          />
+
+          <TweakSection label="Sections" />
+          <TweakToggle label="Companies"    value={t.showCompanies}    onChange={(v) => setTweak('showCompanies', v)} />
+          <TweakToggle label="Services"     value={t.showServices}     onChange={(v) => setTweak('showServices', v)} />
+          <TweakToggle label="Case studies" value={t.showCases}        onChange={(v) => setTweak('showCases', v)} />
+          <TweakToggle label="Testimonials" value={t.showTestimonials} onChange={(v) => setTweak('showTestimonials', v)} />
+          <TweakToggle label="Contact"      value={t.showContact}      onChange={(v) => setTweak('showContact', v)} />
+        </TweaksPanel>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
+  </script>
+</body>
+</html>
