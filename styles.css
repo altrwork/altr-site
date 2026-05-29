@@ -319,9 +319,10 @@ a { color: inherit; }
   position: absolute;
   left: 0;
   right: 0;
-  top: clamp(250px, 34vh, 340px);
+  top: 0;
   bottom: 0;
   z-index: 0;
+  opacity: 0.94;
 }
 
 .agent-swarm-background canvas {
