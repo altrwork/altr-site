@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>uncreated - About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Learn about uncreated's mission and why." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>uncreated</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <div class="nav-dropdown">
+        <a href="resources.html" class="nav-dropdown-trigger">Products</a>
+        <div class="nav-dropdown-menu">
+          <a class="product-dropdown-item product-dropdown-fde" href="forward-deployed-engineering.html">Forward Deployed Engineering</a>
+          <a class="product-dropdown-item product-dropdown-agents" href="custom-agents.html">Custom Agents</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger" aria-current="page">Services</a>
+        <div class="nav-dropdown-menu nav-dropdown-menu-wide">
+          <a class="service-dropdown-item service-dropdown-about" href="about.html"><span>About</span><small>Learn about our mission and WHY</small></a>
+          <a class="service-dropdown-item service-dropdown-impact" href="impact-studies.html"><span>Impact Studies</span><small>Real results from real customers</small></a>
+          <a class="service-dropdown-item service-dropdown-events" href="events.html"><span>Events</span><small>Join us at upcoming events from Tampa, FL</small></a>
+        </div>
+      </div>
+      <a href="start-a-conversation.html" class="nav-cta">Start a project</a>
+    </nav>
+  </header>
+
+  <main class="page about-page-simple">
+    <section class="about-simple" aria-label="About uncreated">
+      <h1>About uncreated</h1>
+      <p>
+        At Uncreated, we consider our clients to be partners — and we are driven on outcomes. We help embed our partners' domain knowledge into agentic systems. We've deployed solutions across many businesses from, startup incubators, software companies, and trades. In the new era of work, we build these systems to help you accelerate and outpace your competition.
+      </p>
+      <div class="globe-panel about-globe" aria-label="Interactive globe showing Tampa, Florida">
+        <canvas id="client-globe" width="620" height="620"></canvas>
+        <div class="globe-caption">
+          <span class="globe-caption-dot"></span>
+          <span>Tampa, FL</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script type="module">
+  import createGlobe from "https://esm.sh/cobe@0.6.4";
+
+  const canvas = document.getElementById("client-globe");
+  const panel = canvas.parentElement;
+  let phi = 4.95;
+  let theta = 0.32;
+  let width = 0;
+  let pointerInteraction = null;
+  let pointerInteractionMovementX = 0;
+  let pointerInteractionMovementY = 0;
+
+  function updateSize() {
+    width = panel.offsetWidth;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${width}px`;
+  }
+
+  updateSize();
+  window.addEventListener("resize", updateSize);
+
+  const globe = createGlobe(canvas, {
+    devicePixelRatio: 2,
+    width: width * 2,
+    height: width * 2,
+    phi,
+    theta,
+    dark: 0,
+    diffuse: 1.55,
+    scale: 1,
+    mapSamples: 28000,
+    mapBrightness: 7.5,
+    baseColor: [0.78, 0.84, 0.76],
+    markerColor: [0.525, 0.827, 0.498],
+    glowColor: [0.97, 0.98, 0.95],
+    markerElevation: 0.03,
+    markers: [
+      { location: [27.9506, -82.4572], size: 0.08 }
+    ],
+    onRender: (state) => {
+      if (!pointerInteraction) phi += 0.003;
+      state.phi = phi + pointerInteractionMovementX;
+      state.theta = theta + pointerInteractionMovementY;
+      state.width = width * 2;
+      state.height = width * 2;
+    }
+  });
+
+  panel.addEventListener("pointerdown", (event) => {
+    pointerInteraction = {
+      x: event.clientX - pointerInteractionMovementX,
+      y: event.clientY - pointerInteractionMovementY
+    };
+    panel.setPointerCapture(event.pointerId);
+    canvas.style.cursor = "grabbing";
+  });
+
+  panel.addEventListener("pointermove", (event) => {
+    if (pointerInteraction === null) return;
+    pointerInteractionMovementX = (event.clientX - pointerInteraction.x) / 180;
+    pointerInteractionMovementY = Math.max(-0.75, Math.min(0.75, (event.clientY - pointerInteraction.y) / 220));
+  });
+
+  function endGlobeInteraction(event) {
+    if (pointerInteraction === null) return;
+    phi += pointerInteractionMovementX;
+    theta = Math.max(-0.75, Math.min(0.75, theta + pointerInteractionMovementY));
+    pointerInteraction = null;
+    pointerInteractionMovementX = 0;
+    pointerInteractionMovementY = 0;
+    canvas.style.cursor = "grab";
+    if (event?.pointerId) panel.releasePointerCapture(event.pointerId);
+  }
+
+  panel.addEventListener("pointerup", endGlobeInteraction);
+  panel.addEventListener("pointercancel", endGlobeInteraction);
+  window.addEventListener("beforeunload", () => globe.destroy());
+</script>
+<script src="intake-modal.js"></script>
+</body>
+</html>

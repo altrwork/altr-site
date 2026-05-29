@@ -1,0 +1,106 @@
+(function () {
+  const calendlyBaseUrl = "https://calendly.com/jarredrobidoux";
+  const triggerSelector = 'a[href="start-a-conversation.html"]';
+  let lastFocusedElement = null;
+
+  function buildModal() {
+    const modal = document.createElement("div");
+    modal.className = "intake-modal";
+    modal.id = "intake-modal";
+    modal.setAttribute("aria-hidden", "true");
+    modal.innerHTML = `
+      <div class="intake-modal-backdrop" data-intake-close></div>
+      <div class="intake-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="intake-modal-title">
+        <button class="intake-modal-close" type="button" aria-label="Close intake form" data-intake-close>&times;</button>
+        <div class="intake-modal-copy">
+          <div class="section-kicker">Start a conversation</div>
+          <h2 id="intake-modal-title">Tell us what you want to solve.</h2>
+          <p>Share the company and workflow context, then choose a time on Calendly.</p>
+        </div>
+        <form class="intake-form" id="intake-modal-form">
+          <label>
+            <span>Company name</span>
+            <input id="intake-modal-company" name="company" type="text" autocomplete="organization" placeholder="Company or team name" required />
+          </label>
+          <label>
+            <span>What are you interested in solving?</span>
+            <textarea id="intake-modal-interest" name="interest" rows="6" placeholder="Describe the workflow, bottleneck, product idea, or AI system you want to explore." required></textarea>
+          </label>
+          <button class="button primary" type="submit">Pick a time</button>
+        </form>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  function getModal() {
+    return document.getElementById("intake-modal") || buildModal();
+  }
+
+  function openModal() {
+    const modal = getModal();
+    lastFocusedElement = document.activeElement;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("intake-modal-open");
+    window.setTimeout(() => {
+      document.getElementById("intake-modal-company")?.focus();
+    }, 0);
+  }
+
+  function closeModal() {
+    const modal = getModal();
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("intake-modal-open");
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
+    }
+  }
+
+  function calendlyUrl(company, interest) {
+    const params = new URLSearchParams({
+      utm_source: "uncreated_site",
+      utm_medium: "intake_modal",
+      utm_campaign: "start_a_conversation",
+      utm_content: company,
+      utm_term: interest,
+      company,
+      interest
+    });
+
+    return `${calendlyBaseUrl}?${params.toString()}`;
+  }
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest(triggerSelector);
+    if (trigger) {
+      event.preventDefault();
+      openModal();
+      return;
+    }
+
+    if (event.target.closest("[data-intake-close]")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("submit", (event) => {
+    if (event.target.id !== "intake-modal-form") return;
+    event.preventDefault();
+    if (!event.target.reportValidity()) return;
+
+    const company = document.getElementById("intake-modal-company").value.trim();
+    const interest = document.getElementById("intake-modal-interest").value.trim();
+    window.location.href = calendlyUrl(company, interest);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    const modal = document.getElementById("intake-modal");
+    if (event.key === "Escape" && modal?.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+})();

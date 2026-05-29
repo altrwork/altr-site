@@ -19,12 +19,19 @@
       <div class="nav-dropdown">
         <a href="resources.html" class="nav-dropdown-trigger" aria-current="page">Products</a>
         <div class="nav-dropdown-menu">
-          <a href="forward-deployed-engineering.html">Forward Deployed Engineering</a>
-          <a href="custom-agents.html">Custom Agents</a>
+          <a class="product-dropdown-item product-dropdown-fde" href="forward-deployed-engineering.html">Forward Deployed Engineering</a>
+          <a class="product-dropdown-item product-dropdown-agents" href="custom-agents.html">Custom Agents</a>
         </div>
       </div>
-      <a href="products.html">Services</a>
-      <a href="index.html#contact" class="nav-cta">Start a project</a>
+      <div class="nav-dropdown">
+        <a href="products.html" class="nav-dropdown-trigger">Services</a>
+        <div class="nav-dropdown-menu nav-dropdown-menu-wide">
+          <a class="service-dropdown-item service-dropdown-about" href="about.html"><span>About</span><small>Learn about our mission and WHY</small></a>
+          <a class="service-dropdown-item service-dropdown-impact" href="impact-studies.html"><span>Impact Studies</span><small>Real results from real customers</small></a>
+          <a class="service-dropdown-item service-dropdown-events" href="events.html"><span>Events</span><small>Join us at upcoming events from Tampa, FL</small></a>
+        </div>
+      </div>
+      <a href="start-a-conversation.html" class="nav-cta">Start a project</a>
     </nav>
   </header>
 
@@ -43,7 +50,7 @@
             <h3>Forward deployed engineering</h3>
             <p>Embedded builders who scope, implement, evaluate, and hand off production AI workflows with your team.</p>
           </div>
-          <a href="index.html#contact">Request</a>
+          <a href="start-a-conversation.html">Request</a>
         </article>
         <article class="resource-item" id="custom-agents-and-automations">
           <span>Service</span>
@@ -51,7 +58,7 @@
             <h3>Custom agents and automations</h3>
             <p>Workflow-specific agents that use your tools, follow your review paths, and produce auditable outputs.</p>
           </div>
-          <a href="index.html#contact">Request</a>
+          <a href="start-a-conversation.html">Request</a>
         </article>
         <article class="resource-item">
           <span>Case study</span>
@@ -59,7 +66,7 @@
             <h3>From manual research to GTM intelligence</h3>
             <p>A practical pattern for account research, signal detection, and sales context.</p>
           </div>
-          <a href="index.html#contact">Request</a>
+          <a href="start-a-conversation.html">Request</a>
         </article>
       </div>
     </section>
@@ -80,5 +87,6 @@
     </div>
   </footer>
 </div>
+<script src="intake-modal.js"></script>
 </body>
 </html>

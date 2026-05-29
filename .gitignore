@@ -4,3 +4,5 @@ dist/
 build/
 .env
 .env.*
+.playwright-mcp/
+uploads/videos/event-request-final.mp4
