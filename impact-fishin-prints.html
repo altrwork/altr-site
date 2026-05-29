@@ -16,48 +16,53 @@
     <a class="brand" href="index.html"><span class="brand-mark"></span>uncreated</a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <div class="nav-dropdown">
-        <a href="resources.html" class="nav-dropdown-trigger">Products</a>
-        <div class="nav-dropdown-menu">
-          <a class="product-dropdown-item product-dropdown-fde" href="forward-deployed-engineering.html">Forward Deployed Engineering</a>
-          <a class="product-dropdown-item product-dropdown-agents" href="custom-agents.html">Custom Agents</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="products.html" class="nav-dropdown-trigger" aria-current="page">Services</a>
-        <div class="nav-dropdown-menu nav-dropdown-menu-wide">
-          <a class="service-dropdown-item service-dropdown-about" href="about.html"><span>About</span><small>Learn about our mission and WHY</small></a>
-          <a class="service-dropdown-item service-dropdown-impact" href="impact-studies.html"><span>Impact Studies</span><small>Real results from real customers</small></a>
-          <a class="service-dropdown-item service-dropdown-events" href="events.html"><span>Events</span><small>Join us at upcoming events from Tampa, FL</small></a>
-        </div>
-      </div>
-      <a href="start-a-conversation.html" class="nav-cta">Start a project</a>
+      <a href="impact-studies.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="start-a-conversation.html" class="nav-cta">Book an intro</a>
     </nav>
   </header>
 
   <main class="page">
-    <section class="page-hero">
-      <div class="eyebrow">Impact Study</div>
-      <h1>Fishin Prints operations support</h1>
-      <p class="page-lede">Placeholder page for the Fishin Prints story, including the problem, deployed system, outcomes, and a future video walkthrough.</p>
-      <div class="page-hero-actions">
-        <a class="button secondary" href="impact-studies.html">Back to studies</a>
+    <section class="page-hero impact-page-hero">
+      <div class="impact-hero-topline">
+        <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
       </div>
+      <img class="page-hero-logo" src="assets/fishin-prints-logo-transparent.png" alt="Fishin Prints" />
     </section>
 
-    <section class="section">
-      <article class="impact-detail">
-        <div>
+    <section class="section impact-primary-section">
+      <article class="impact-detail impact-detail-stacked">
+        <img class="impact-study-image" src="04_bull_trout_pair.png" alt="Fishin Prints AI-generated bull trout reference and print example" />
+        <div class="impact-study-copy">
           <div class="content-label">Fishin Prints</div>
-          <h3>Operational support for faster, clearer follow-through.</h3>
-          <p>Placeholder text for the full story: how the system supported intake, routing, fulfillment, and team visibility without forcing a heavy process change.</p>
-        </div>
-        <div class="impact-video-slot impact-video-slot-large" aria-label="Video embed placeholder for Fishin Prints case study">
-          <span>Embed video here</span>
+          <h3>From catch photo to custom fish print.</h3>
+          <p>Fishin Prints wanted a faster way to create custom fish artwork without asking the customer to wait through a slow, manual back-and-forth. The new workflow lets a customer submit one or two catch photos, then uses AI to understand the fish and prepare the artwork process for the team.</p>
+          <p>The agent reviews the image, pulls out the details an artist would normally have to inspect by hand, and turns that into a clear production brief: species cues, body shape, colors, markings, fins, tail details, and anything missing from the photo.</p>
+          <p>That brief then drives the image-generation workflow. Instead of starting from scratch on every order, the team gets a repeatable path from photo to print-ready artwork. This cuts down the time and cost required to produce each piece and gives customers a smoother experience from upload to approval.</p>
         </div>
       </article>
     </section>
-  </main>
+
+    <section class="section">
+      <div class="text-block-grid">
+        <article class="text-block">
+          <h3>The agent</h3>
+          <p>The agent acts like the first production reviewer. It looks at the customer photo, identifies what matters about the fish, and creates a brief the team can trust before artwork is generated.</p>
+        </article>
+        <article class="text-block">
+          <h3>The automation</h3>
+          <p>The automation carries each order through the same steps: upload, image review, production brief, AI artwork generation, human review, and final export. That consistency is what reduces production time and improves the customer experience.</p>
+        </article>
+      </div>
+    </section>
+</main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>uncreated - AI consulting and deployment</span>
+      <span>Tampa, FL</span>
+    </div>
+  </footer>
 </div>
 <script src="intake-modal.js"></script>
 </body>

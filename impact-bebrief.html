@@ -16,48 +16,43 @@
     <a class="brand" href="index.html"><span class="brand-mark"></span>uncreated</a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <div class="nav-dropdown">
-        <a href="resources.html" class="nav-dropdown-trigger">Products</a>
-        <div class="nav-dropdown-menu">
-          <a class="product-dropdown-item product-dropdown-fde" href="forward-deployed-engineering.html">Forward Deployed Engineering</a>
-          <a class="product-dropdown-item product-dropdown-agents" href="custom-agents.html">Custom Agents</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="products.html" class="nav-dropdown-trigger" aria-current="page">Services</a>
-        <div class="nav-dropdown-menu nav-dropdown-menu-wide">
-          <a class="service-dropdown-item service-dropdown-about" href="about.html"><span>About</span><small>Learn about our mission and WHY</small></a>
-          <a class="service-dropdown-item service-dropdown-impact" href="impact-studies.html"><span>Impact Studies</span><small>Real results from real customers</small></a>
-          <a class="service-dropdown-item service-dropdown-events" href="events.html"><span>Events</span><small>Join us at upcoming events from Tampa, FL</small></a>
-        </div>
-      </div>
-      <a href="start-a-conversation.html" class="nav-cta">Start a project</a>
+      <a href="impact-studies.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="start-a-conversation.html" class="nav-cta">Book an intro</a>
     </nav>
   </header>
 
   <main class="page">
-    <section class="page-hero">
-      <div class="eyebrow">Impact Study</div>
-      <h1>BeBrief workflow automation</h1>
-      <p class="page-lede">Placeholder page for the BeBrief story, including the problem, deployed system, outcomes, and a future video walkthrough.</p>
-      <div class="page-hero-actions">
-        <a class="button secondary" href="impact-studies.html">Back to studies</a>
+    <section class="page-hero impact-page-hero">
+      <div class="impact-hero-topline">
+        <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
       </div>
+      <img class="page-hero-logo" src="assets/bebrief-logo-transparent.png" alt="BeBrief" />
     </section>
 
-    <section class="section">
-      <article class="impact-detail">
-        <div>
-          <div class="content-label">BeBrief</div>
-          <h3>From recurring tasks to repeatable AI-assisted workflows.</h3>
-          <p>Placeholder text for the full story: the business context, the manual workflow we found, the AI system we built, and the measurable change the team saw after launch.</p>
-        </div>
-        <div class="impact-video-slot impact-video-slot-large" aria-label="Video embed placeholder for BeBrief case study">
-          <span>Embed video here</span>
+    <section class="section impact-primary-section">
+      <article class="impact-detail impact-detail-stacked">
+        <div class="impact-study-copy">
+          <h3>Codex inside the full-stack build process.</h3>
+          <p>BeBrief is a pilot briefing and readiness app built around route-level aviation briefings, aircraft profiles, weather and NOTAM review, account data, subscriptions, and Flight Service workflows.</p>
+          <p>The AI work was not a chatbot added to the product. It was a better way for the team to build the product. We helped set up Codex as an AI build partner that could read the app, understand the existing structure, help explain features, make focused edits, and run checks across the mobile app, backend, and integrations.</p>
+          <p>That included automated code review workflows, security review agents, remote Codex agents the team could control from a phone, and MCP tools that connected the agent to the systems and context it needed. The goal was simple: make full-stack product work easier to start, easier to review, and easier to keep moving.</p>
+          <p>Automated code review let Codex inspect proposed changes against the actual repo, call out risky edits, explain what changed, and help the team tighten implementation before release.</p>
+          <p>Remote agents made it possible to start and guide Codex work from a phone, so focused implementation, debugging, and review tasks could move without someone sitting at a full workstation.</p>
+          <p>Security review agents helped look for sensitive issues across authentication, data access, backend logic, and integration points before changes moved forward.</p>
+          <p>MCP tools gave Codex cleaner access to project context and workflows. Onboarding showed the team how to use those tools, review the diffs, and keep ownership of full-stack decisions.</p>
+          <p>We also onboarded the team on when to use Codex, how to ask for focused changes, how to review the output, and where human judgment still matters: product decisions, aviation safety context, code review, and releases.</p>
         </div>
       </article>
     </section>
-  </main>
+</main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>uncreated - AI consulting and deployment</span>
+      <span>Tampa, FL</span>
+    </div>
+  </footer>
 </div>
 <script src="intake-modal.js"></script>
 </body>

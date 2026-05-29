@@ -13,9 +13,9 @@
       <div class="intake-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="intake-modal-title">
         <button class="intake-modal-close" type="button" aria-label="Close intake form" data-intake-close>&times;</button>
         <div class="intake-modal-copy">
-          <div class="section-kicker">Start a conversation</div>
-          <h2 id="intake-modal-title">Tell us what you want to solve.</h2>
-          <p>Share the company and workflow context, then choose a time on Calendly.</p>
+          <div class="section-kicker">Book an intro</div>
+          <h2 id="intake-modal-title">Tell us what you want to discuss.</h2>
+          <p>Share the company and the workflow, agent, demo, or enablement topic. Calendly will handle the meeting details next.</p>
         </div>
         <form class="intake-form" id="intake-modal-form">
           <label>
@@ -24,9 +24,9 @@
           </label>
           <label>
             <span>What are you interested in solving?</span>
-            <textarea id="intake-modal-interest" name="interest" rows="6" placeholder="Describe the workflow, bottleneck, product idea, or AI system you want to explore." required></textarea>
+            <textarea id="intake-modal-interest" name="interest" rows="6" placeholder="Describe the workflow, agentic coding system, demo, or AI enablement need you want to discuss." required></textarea>
           </label>
-          <button class="button primary" type="submit">Pick a time</button>
+          <button class="button primary" type="submit">Book an intro</button>
         </form>
       </div>
     `;
