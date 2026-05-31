@@ -4,10 +4,10 @@
 <meta charset="utf-8" />
 <title>uncreated - AI systems, deployed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="uncreated designs, builds, and deploys production AI systems for teams ready to move from prototype to impact." />
+<meta name="description" content="uncreated is a Tampa-based AI deployment studio helping operators move from AI experiments to working agents, automations, and workflow systems." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:ital,wght@1,800;1,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -27,16 +27,39 @@
     <section class="hero">
       <div id="agent-swarm" class="agent-swarm-background" aria-hidden="true"></div>
       <div class="hero-content">
-        <h1>AI, deployed.</h1>
-        <p class="hero-copy">We help operators and founders learn where AI fits, then deploy workflow automations and agentic coding systems that work inside the tools they already use.</p>
+        <div class="hero-kicker">AI deployment studio · Tampa, FL</div>
+        <h1>AI systems, deployed.</h1>
+        <p class="hero-copy">We help operators move from scattered AI experiments to working agents, automations, and internal tools connected to the workflows they already run.</p>
         <div class="hero-actions">
           <a class="button primary" href="start-a-conversation.html">Book an engagement</a>
           <a class="button secondary" href="#services">View framework</a>
         </div>
-        <div class="rotating-eyebrow" aria-live="polite">
-          <span id="rotating-eyebrow-text" class="is-visible">Workshops, demos, agents, automations</span>
-        </div>
       </div>
+    </section>
+
+    <section class="positioning-panel" aria-label="What uncreated does">
+      <div>
+        <div class="section-kicker">The gap</div>
+        <h2>The gap is AI capability: knowing where it helps, how to trust it, and how to turn it into daily workflow.</h2>
+      </div>
+    </section>
+
+    <section class="signal-grid" aria-label="AI deployment signals">
+      <article class="signal-card">
+        <span>01</span>
+        <h3>Teams need enablement before automation.</h3>
+        <p>People are trying AI in pockets, but few teams have shared habits, review standards, or clear rules for where the tools should actually be used.</p>
+      </article>
+      <article class="signal-card">
+        <span>02</span>
+        <h3>Start where work already repeats.</h3>
+        <p>Customer intake, reporting, research, document handling, CRM updates, coding-agent loops, and internal handoffs are usually better targets than broad AI strategy.</p>
+      </article>
+      <article class="signal-card">
+        <span>03</span>
+        <h3>Ship small, then compound.</h3>
+        <p>We map one workflow, build the first useful system, teach the team how to operate it, then expand from proven usage.</p>
+      </article>
     </section>
 
     <section class="logo-band" aria-label="Client proof">
@@ -59,7 +82,7 @@
           <div class="section-kicker">Framework</div>
           <h2>Forward Deployed Engineering.</h2>
         </div>
-        <p>We teach the team where AI creates leverage, then deploy the systems that make that leverage show up in daily work.</p>
+        <p>Enablement shows the team what to trust. Deployment turns the best opportunities into agents, automations, coding-agent loops, and internal tools that run inside the business.</p>
       </div>
 
       <div class="service-arm-grid service-product-grid">
@@ -128,26 +151,6 @@
       <span>Tampa, FL</span>
     </div>
   </footer>
-  <script>
-    const rotatingEyebrowPhrases = [
-      "Workshops and demos",
-      "Workflow automations",
-      "Agentic coding systems"
-    ];
-
-    const rotatingEyebrowText = document.getElementById("rotating-eyebrow-text");
-    let rotatingEyebrowIndex = 0;
-
-    setInterval(() => {
-      rotatingEyebrowIndex = (rotatingEyebrowIndex + 1) % rotatingEyebrowPhrases.length;
-      rotatingEyebrowText.classList.remove("is-visible");
-      window.setTimeout(() => {
-        rotatingEyebrowText.textContent = rotatingEyebrowPhrases[rotatingEyebrowIndex];
-        rotatingEyebrowText.classList.add("is-visible");
-      }, 180);
-    }, 2800);
-
-  </script>
   <script src="assets/particles.min.js"></script>
   <script>
     const canAnimateSwarm = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
