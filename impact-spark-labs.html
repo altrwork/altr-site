@@ -55,8 +55,18 @@
           <div class="impact-article-divider" aria-hidden="true"></div>
           <p class="impact-subheading">spARK Labs by ARK Invest gives founders and entrepreneurs the insights, intelligence, and resources to help new ideas take form. This project focused on bringing that same spirit of practical innovation to everyday operations, starting with expense reporting and event requests. The work turned manual submissions, handoffs, and follow-up into reusable AI-assisted workflows the team could operate, understand, and build on.
           </p>
-          <p>Placeholder text explaining what the workflow did. This can describe how expense reports and event requests were collected, organized, reviewed, and moved through the right follow-up steps without relying on scattered manual handoffs.</p>
-          <p>Placeholder text explaining the AI-assisted layer. This can cover how the workflow helped summarize submissions, prepare next actions, reduce repeated coordination, and keep people in the loop where judgment or approval was still needed.</p>
+          <p>The existing process relied on manual review, follow-up, and document handling across two common operational workflows: expense reporting and event requests. In partnership with <strong>altr</strong>, spARK Labs used Claude Cowork to turn those repeatable steps into AI-assisted workflows that could intake information, organize the required details, and help the team move from request to completed output with less manual effort.
+          </p>
+          <p>To make the workflow repeatable, we packaged the process into Claude Cowork using a combination of MCP connectors and custom skills. The connectors gave Claude access to the tools and files needed to complete the work, while the skill provided the step-by-step instructions, context, and guardrails for each workflow. This allowed members of the spARK Labs team to kick off the process with a simple `/` command inside Claude Cowork and move through expense reports or event requests in a consistent, guided way.
+          </p>
+          <p>For the expense reporting workflow, the goal was to take a folder of monthly receipt PDFs and turn them into a completed Excel report using the team’s existing template. Instead of manually opening each PDF, copying details, and filling out the report line by line, the workflow gives Claude Cowork the structure it needs to read the scans folder, extract the required information, and organize the output into the correct format.
+          </p>
+          <img class="impact-article-image" src="assets/spARK-expense-report.png" alt="Expense report workflow from monthly PDFs to scans folder to completed Excel report" />
+          <p>For event requests, the workflow began with a completed interest form and ended with a review-ready PDF routed through email. Claude Cowork helped bridge the steps in between by using the submitted form details to draft the correct document and prepare the request for review. Instead of manually transferring information from the form into a PDF and coordinating the next step by hand, the team could move from intake to review through a repeatable AI-assisted process.
+          </p>
+          <img class="impact-article-image" src="assets/spARK-event-request.png" alt="Event request workflow from completed interest form to PDF draft to emailed review" />
+          <p>The result was not just a pair of automations, but a repeatable way for the spARK Labs team to launch and operate these workflows inside Claude Cowork. By packaging the process into skills and connecting the right tools through MCP, the team can move from intake to output with a simple command and a clear set of steps. Watch the video below to see how the workflow is triggered in Claude Cowork and how the process moves from request to completed output.
+          </p>
         </div>
           <video class="impact-video-player" controls preload="metadata" poster="uploads/thumbnails/event-request-splabs-hs.png" aria-label="spARK Labs Future of Work video">
             <source src="uploads/videos/event-request-final-web.mp4" type="video/mp4" />

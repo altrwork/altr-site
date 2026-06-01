@@ -1641,6 +1641,19 @@ h2 {
   margin-top: 42px;
 }
 
+.impact-article-image {
+  width: min(100%, 540px);
+  display: block;
+  margin: 28px auto 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.impact-article-image + p {
+  margin-top: 34px;
+}
+
 .impact-study-copy .content-label {
   text-align: left;
 }
