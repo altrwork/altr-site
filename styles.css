@@ -1518,6 +1518,13 @@ h2 {
   line-height: 1.52;
 }
 
+.work-list-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
 .work-list-action {
   display: inline-flex;
   align-items: center;
@@ -1792,15 +1799,24 @@ h2 {
   margin-bottom: 4px;
 }
 
+.impact-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.impact-meta-row .content-label,
+.impact-meta-row .case-meta {
+  margin-bottom: 0;
+}
+
 .impact-date {
-  width: 100%;
-  margin: 0 0 18px;
   color: var(--muted);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  text-align: center;
   text-transform: uppercase;
 }
 
@@ -2408,7 +2424,8 @@ h2 {
   .work-list-item {
     grid-template-columns: 132px minmax(0, 1fr);
   }
-  .work-list-action {
+  .work-list-action,
+  .work-list-right {
     grid-column: 2;
   }
   .featured-work-card {
