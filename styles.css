@@ -14,8 +14,15 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-html, body { margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 body {
   min-height: 100vh;
   background:
@@ -274,11 +281,12 @@ a { color: inherit; }
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  min-height: calc(82vh - 75px);
+  min-height: clamp(460px, calc(62vh - 75px), 580px);
   display: grid;
-  place-items: center;
+  align-items: start;
+  justify-items: center;
   overflow: hidden;
-  padding: clamp(88px, 11vw, 140px) clamp(20px, 6vw, 88px) clamp(76px, 8vw, 108px);
+  padding: clamp(32px, 4vw, 52px) clamp(20px, 6vw, 88px) clamp(38px, 5vw, 58px);
   border: 0;
   border-radius: 0;
   background:
@@ -304,17 +312,19 @@ a { color: inherit; }
   display: grid;
   justify-items: center;
   text-align: center;
+  margin-top: 0;
 }
 
 .hero-lockup {
   --hero-lockup-gap: clamp(14px, 2.2vw, 28px);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: inline-grid;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: center;
   column-gap: 0;
-  width: min(100%, 980px);
-  margin-bottom: 34px;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: clamp(22px, 3vw, 30px);
   transition: column-gap 520ms ease, margin 420ms ease;
 }
 
@@ -324,7 +334,7 @@ a { color: inherit; }
 
 .hero-key-button {
   appearance: none;
-  grid-column: 2;
+  grid-column: 1;
   width: clamp(136px, 14.5vw, 204px);
   flex: 0 0 auto;
   display: block;
@@ -479,7 +489,7 @@ h1 {
 
 .hero h1 {
   max-width: none;
-  min-height: 1.18em;
+  min-height: 1.24em;
   margin: 0;
   font-family: var(--sans);
   font-style: normal;
@@ -488,7 +498,7 @@ h1 {
 }
 
 .typed-hero-line {
-  grid-column: 3;
+  grid-column: 2;
   width: 0;
   color: var(--accent-2);
   font-size: clamp(44px, 5vw, 70px);
@@ -523,10 +533,11 @@ h1 {
 
 .hero-copy {
   max-width: 700px;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
   color: var(--muted);
-  font-size: clamp(19px, 2vw, 24px);
+  font-size: clamp(18px, 1.8vw, 22px);
   line-height: 1.45;
+  text-wrap: pretty;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 320ms ease, transform 420ms ease;
@@ -2121,7 +2132,10 @@ h2 {
   .cta-section {
     grid-template-columns: 1fr;
   }
-  .hero { min-height: 640px; }
+  .hero {
+    min-height: 560px;
+    padding-top: 44px;
+  }
   .hero-lockup {
     --hero-lockup-gap: clamp(12px, 3vw, 24px);
     align-items: center;
@@ -2156,9 +2170,20 @@ h2 {
   .nav-links {
     width: 100%;
     margin-left: 0;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: start;
+    flex-wrap: initial;
   }
   .nav-links a { flex: 0 0 auto; }
+  .nav-links .nav-cta {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-left: 0;
+    width: auto;
+    padding-inline: 18px;
+    flex-basis: auto;
+  }
   .page { width: min(100% - 28px, 1180px); }
   .page-hero h1.single-line-title {
     font-size: clamp(38px, 12vw, 58px);
@@ -2166,12 +2191,15 @@ h2 {
   }
   h1 { font-size: clamp(52px, 17vw, 74px); }
   .hero {
-    padding-top: 54px;
+    min-height: 520px;
+    padding-top: 36px;
   }
   .hero-lockup {
     grid-template-columns: 1fr;
     justify-items: center;
     row-gap: 20px;
+    width: 100%;
+    max-width: calc(100vw - 32px);
     margin-bottom: 24px;
   }
   .hero.has-typed .hero-lockup {
@@ -2180,11 +2208,19 @@ h2 {
   .typed-hero-line {
     grid-column: 1;
     width: 0;
+    max-width: calc(100vw - 48px);
+    font-size: clamp(31px, 8.5vw, 34px);
+    line-height: 1.04;
     text-align: center;
     white-space: normal;
   }
   .hero.has-typed .typed-hero-line {
-    width: min(100%, 14ch);
+    width: calc(100vw - 48px);
+  }
+  .hero-copy {
+    width: min(100%, 300px);
+    font-size: 17px;
+    line-height: 1.42;
   }
   .hero.is-key-only .typed-hero-line {
     width: 0;
@@ -2192,6 +2228,14 @@ h2 {
   .hero-key-button {
     grid-column: 1;
     width: min(46vw, 150px);
+  }
+  .hero-actions {
+    width: min(100%, 260px);
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .button {
+    width: 100%;
   }
   .logo-grid { grid-template-columns: repeat(2, 1fr); }
   .logo-grid-three { grid-template-columns: 1fr; }
