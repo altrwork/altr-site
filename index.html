@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>uncreated - AI systems, deployed</title>
+<title>altr - AI systems, deployed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="uncreated is a Tampa-based AI deployment studio helping operators move from AI experiments to working agents, automations, and workflow systems." />
+<meta name="description" content="altr is a Tampa-based AI deployment studio helping operators move from AI experiments to working agents, automations, and workflow systems." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
 <body>
 <div class="site-shell" id="top">
   <header class="nav">
-    <a class="brand" href="index.html"><span class="brand-mark"></span>uncreated</a>
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html" aria-current="page">Home</a>
       <a href="impact-studies.html">Work</a>
@@ -25,19 +25,21 @@
 
   <main class="page">
     <section class="hero">
-      <div id="agent-swarm" class="agent-swarm-background" aria-hidden="true"></div>
       <div class="hero-content">
-        <div class="hero-kicker">AI deployment studio · Tampa, FL</div>
-        <h1>AI systems, deployed.</h1>
-        <p class="hero-copy">We help operators move from scattered AI experiments to working agents, automations, and internal tools connected to the workflows they already run.</p>
+        <div class="hero-kicker">Small business systems · Tampa, FL</div>
+        <h1>altr the way you work.</h1>
+        <p class="hero-copy">We help small businesses modernize their systems, tools, and workflows so they can move faster without adding complexity.</p>
         <div class="hero-actions">
           <a class="button primary" href="start-a-conversation.html">Book an engagement</a>
           <a class="button secondary" href="#services">View framework</a>
         </div>
       </div>
+      <div class="hero-brand-visual" aria-hidden="true">
+        <img src="assets/altr_key_logo_cream_taupe_transparent.png" alt="" />
+      </div>
     </section>
 
-    <section class="positioning-panel" aria-label="What uncreated does">
+    <section class="positioning-panel" aria-label="What altr does">
       <div>
         <div class="section-kicker">The gap</div>
         <h2>The gap is AI capability: knowing where it helps, how to trust it, and how to turn it into daily workflow.</h2>
@@ -131,7 +133,6 @@
     <section class="contact-strip" id="contact" aria-label="Contact links">
       <a class="contact-logo" href="#top" aria-label="Back to top">
         <span class="brand-mark"></span>
-        <span>uncreated</span>
       </a>
       <div class="contact-links">
         <a class="contact-email" href="mailto:hello@uncreated.co">hello@uncreated.co</a>
@@ -147,55 +148,10 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>uncreated - AI consulting and deployment</span>
+      <span>altr - AI consulting and deployment</span>
       <span>Tampa, FL</span>
     </div>
   </footer>
-  <script src="assets/particles.min.js"></script>
-  <script>
-    const canAnimateSwarm = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (canAnimateSwarm && window.particlesJS) {
-      particlesJS("agent-swarm", {
-        particles: {
-          number: { value: 520, density: { enable: true, value_area: 700 } },
-          color: { value: ["#203f2b", "#86d37f", "#101411"] },
-          shape: { type: "circle" },
-          opacity: { value: 0.7, random: true },
-          size: { value: 3.3, random: true },
-          line_linked: {
-            enable: true,
-            distance: 108,
-            color: "#203f2b",
-            opacity: 0.3,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 1.75,
-            direction: "none",
-            random: true,
-            straight: false,
-            out_mode: "out",
-            bounce: false
-          }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "grab" },
-            onclick: { enable: true, mode: "push" },
-            resize: true
-          },
-          modes: {
-            grab: { distance: 150, line_linked: { opacity: 0.36 } },
-            push: { particles_nb: 4 }
-          }
-        },
-        retina_detect: true
-      });
-    }
-  </script>
 </div>
 <script src="service-detail-modal.js"></script>
 <script src="intake-modal.js"></script>
