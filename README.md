@@ -1,25 +1,24 @@
-# uncreated landing page
+# altr site
 
-Static landing page concept for an AI consulting company.
+Static website for altr.
 
 ## Files
 
 - `index.html` - primary landing page.
-- `products.html` - products/services placeholder page.
-- `resources.html` - resources placeholder page.
-- `wireframes.html` - original landing page wireframe explorations.
-- `uploads/` - design-export image assets.
+- `styles.css` - shared site styling.
+- `hero-intro.js` - homepage keypress and typewriter animation.
+- `service-detail-modal.js` - service card detail modal behavior.
+- `intake-modal.js` - booking intake modal behavior.
+- `altr-brand-assets/` - source brand assets and brand notes.
+- `assets/` - optimized site assets and social preview images.
+- `wireframes.html` - original design exploration reference.
 
 ## Local preview
 
 Open `index.html` directly in a browser, or run a simple static server:
 
 ```sh
-python3 -m http.server 8000
+python -m http.server 8000
 ```
 
 Then visit `http://localhost:8000`.
-
-## Direction
-
-The current design is a hand-drawn/wireframe concept. The intended next pass is a more production-grade AI consulting landing page inspired by the structure of Linkt AI: direct hero positioning, service/product cards, client proof, and a concise contact footer.
