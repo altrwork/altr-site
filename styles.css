@@ -2144,26 +2144,33 @@ h2 {
 
 @media (max-width: 680px) {
   .nav {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 14px;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    padding: 12px 12px;
+  }
+  .brand-mark {
+    width: 42px;
+    height: 32px;
   }
   .nav-links {
-    width: 100%;
-    margin-left: 0;
-    display: grid;
-    grid-template-columns: repeat(4, max-content);
-    justify-content: start;
-    flex-wrap: initial;
-  }
-  .nav-links a { flex: 0 0 auto; }
-  .nav-links .nav-cta {
-    grid-column: 1 / -1;
-    justify-self: start;
-    margin-left: 0;
     width: auto;
-    padding-inline: 18px;
-    flex-basis: auto;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
+    flex-wrap: initial;
+    min-width: 0;
+  }
+  .nav-links a {
+    min-height: 32px;
+    flex: 0 0 auto;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+  .nav-links .nav-cta {
+    display: none;
   }
   .page { width: min(100% - 28px, 1180px); }
   .page-hero h1.single-line-title {
@@ -2202,8 +2209,13 @@ h2 {
   .hero.has-typed .typed-hero-line {
     width: min(10.5ch, calc(100vw - 48px));
   }
+  .hero.is-key-only .typed-hero-line {
+    width: min(10.5ch, calc(100vw - 48px));
+    opacity: 0;
+    transform: translateY(10px);
+  }
   .hero-copy {
-    width: min(100%, 330px);
+    width: min(100%, 300px);
     font-size: 18px;
     line-height: 1.42;
   }
