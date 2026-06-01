@@ -1,5 +1,6 @@
 (function () {
   const hero = document.querySelector(".hero");
+  const nav = document.querySelector(".nav");
   const heroKeyButton = document.querySelector(".hero-key-button");
   const typedHeroText = document.getElementById("typed-hero-text");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -56,7 +57,9 @@
   function updateHeroScrollState() {
     if (!hero) return;
     const keyOnlyThreshold = Math.min(260, hero.offsetHeight * 0.32);
-    hero.classList.toggle("is-key-only", window.scrollY > keyOnlyThreshold);
+    const lockupIsCompact = window.scrollY > keyOnlyThreshold;
+    hero.classList.toggle("is-key-only", lockupIsCompact);
+    nav?.classList.toggle("has-hero-lockup", lockupIsCompact);
   }
 
   window.addEventListener("load", playHeroIntro);
