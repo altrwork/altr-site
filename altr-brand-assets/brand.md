@@ -1,10 +1,10 @@
 # altr Brand System
 
-A compact brand package for **altr** — a small-business consulting firm modernizing how people work. The logo system is built around a tactile keycap container, referencing the `ALT` key as a metaphor for changing modes, unlocking a better workflow, and pressing into a more intentional way of working.
+A compact brand package for **altr** — a consulting firm "altring" how people work. The logo system is built around a tactile keycap container, referencing the `ALT` key as a metaphor for changing modes, unlocking a better workflow, and pressing into a more intentional way of working.
 
 ## Primary logo
 
-![altr cream key logo](assets/altr_key_logo_cream_taupe_on_ivory.png)
+![altr cream key logo](assets/logo-w-background.png)
 
 The primary logo is the lowercase wordmark **altr** embedded into a rounded keycap form. The keycap should feel physical, useful, and modern — tactile enough to be memorable, but restrained enough to work across business decks, websites, proposals, social media, and product-style interfaces.
 
@@ -14,31 +14,18 @@ Use these exported PNGs when building future assets:
 
 | Asset | File | Use |
 |---|---|---|
-| Key logo on ivory | `assets/altr_key_logo_cream_taupe_on_ivory.png` | Hero sections, thumbnails, covers, slide title pages |
-| Key logo, transparent | `assets/altr_key_logo_cream_taupe_transparent.png` | Compositing onto custom backgrounds |
-| Key logo, no shadow, transparent | `assets/altr_key_logo_cream_taupe_no_shadow_transparent.png` | Clean layouts, small spaces, UI, documents |
-| Wordmark taupe, transparent | `assets/altr_wordmark_taupe_transparent.png` | Headers, footers, decks, watermark moments |
-| Wordmark warm black, transparent | `assets/altr_wordmark_warm_black_transparent.png` | High-contrast documents and light backgrounds |
-| Wordmark ivory, transparent | `assets/altr_wordmark_ivory_transparent.png` | Dark backgrounds |
-| Social avatar | `assets/altr_social_avatar_ivory.png` | LinkedIn, X, YouTube, profile images |
-| Color palette | `assets/altr_color_palette.png` | Quick reference |
-| Original reference image | `assets/altr_reference_cream_logo.jpeg` | Visual source reference |
-
+| Key logo with background | `assets/logo-w-background.png` | Hero sections, thumbnails, covers, slide title pages |
+| Key logo, transparent | `assets/logo-no-background.png` | Clean layouts, small spaces, UI, documents |
+| Banner logo | `assets/logo-banner.png` | Website headers, horizontal lockups, social banners |
+| Social avatar | `assets/logo-w-background.png` | LinkedIn, X, YouTube, profile images |
 ## Exact color palette
 
 These are the working production colors for the cream/taupe identity. The logo should primarily use **Cream on Ivory with Taupe lettering**.
 
 | Token | Hex | Role |
 |---|---:|---|
-| Ivory | `#F4F1EB` | Primary background, whitespace, deck canvas |
-| Cream | `#ECE6DA` | Primary keycap face |
-| Parchment | `#DED6C6` | Secondary background, panels, soft UI surfaces |
-| Sand | `#CDBFAE` | Keycap side/lip, dividers, subtle depth |
-| Taupe | `#A89A87` | Primary wordmark, logo emboss, muted text |
-| Mushroom | `#8E8172` | Secondary text, icon strokes, shadows |
-| Warm Black | `#403A33` | Headlines, high-contrast text, dark mode |
-
-![altr palette](assets/altr_color_palette.png)
+| Ivory | `#D5C5B2` | Primary background, whitespace, deck canvas |
+| Cream | `#847262` | Primary keycap face |
 
 ## Design language
 
