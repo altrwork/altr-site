@@ -6,7 +6,6 @@ Static website for altr.
 
 - `index.html` - primary landing page.
 - `styles.css` - shared site styling.
-- `hero-intro.js` - homepage keypress and typewriter animation.
 - `service-detail-modal.js` - service card detail modal behavior.
 - `intake-modal.js` - booking intake modal behavior.
 - `altr-brand-assets/` - source brand assets and brand notes.

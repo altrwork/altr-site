@@ -17,8 +17,8 @@
 <meta property="og:image:height" content="630" />
 <meta name="geo.region" content="US-FL" />
 <meta name="geo.placename" content="Tampa" />
-<link rel="icon" type="image/png" href="altr-brand-assets/assets/logo-no-background.png" />
-<link rel="apple-touch-icon" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="assets/altr_social_avatar_ivory.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/altr_social_avatar_ivory.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
@@ -105,29 +105,31 @@
       <span class="brand-line" aria-hidden="true">the way you work.</span>
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
-      <a href="index.html" aria-current="page">Home</a>
+      <a href="#services">Services</a>
       <a href="impact-studies.html">Work</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
-      <a href="start-a-conversation.html" class="nav-cta">Book an intro</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
     </nav>
   </header>
 
   <main class="page">
     <section class="hero">
       <div class="hero-content">
-        <div class="hero-lockup" aria-label="altr the way you work.">
-          <button class="hero-key-button" type="button" aria-label="Replay altr key animation">
-            <img src="altr-brand-assets/assets/logo-no-background.png" alt="altr" />
-          </button>
-          <h1 class="typed-hero-line" aria-label="the way you work.">
-            <span id="typed-hero-text"></span><span class="typing-caret" aria-hidden="true"></span>
-          </h1>
-        </div>
-        <p class="hero-copy">We help teams deploy practical AI through workshops, workflow automations, custom agents, and coding-agent systems built around daily work.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="start-a-conversation.html">Book an engagement</a>
-          <a class="button secondary" href="#services">View framework</a>
+        <div class="hero-main">
+          <div class="hero-narrative">
+            <div class="hero-kicker">AI deployment studio / Tampa + remote</div>
+            <h1 class="hero-headline">altr the way you work.</h1>
+            <p class="hero-copy">We embed with the real workflow, tools, team habits, permissions, and review paths; enable people with workshops and demos inside the work they already do; then deploy agents, automations, and coding-agent systems into the existing operating stack.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="start-a-conversation.html">Book an intro</a>
+              <a class="button secondary" href="#services">See the framework</a>
+            </div>
+          </div>
+
+          <aside class="hero-logo-surface" aria-label="altr logo at a desk">
+            <img class="hero-computer-image" src="altr-brand-assets/assets/hero-computer-logo-background.png" alt="altr logo leaning against a computer" />
+          </aside>
         </div>
       </div>
     </section>
@@ -137,24 +139,6 @@
         <div class="section-kicker">The gap</div>
         <h2>The gap is turning AI into reliable work: knowing where it belongs, how to trust it, and how to make it part of daily workflow.</h2>
       </div>
-    </section>
-
-    <section class="signal-grid" aria-label="AI deployment signals">
-      <article class="signal-card">
-        <span>01</span>
-        <h3>Teams need enablement before automation.</h3>
-        <p>People are trying AI in pockets, but few teams have shared habits, review standards, or clear rules for where the tools should actually be used.</p>
-      </article>
-      <article class="signal-card">
-        <span>02</span>
-        <h3>Start where work already repeats.</h3>
-        <p>Customer intake, reporting, research, document handling, CRM updates, coding-agent loops, and internal handoffs are usually better targets than broad AI strategy.</p>
-      </article>
-      <article class="signal-card">
-        <span>03</span>
-        <h3>Ship small, then compound.</h3>
-        <p>We map one workflow, build the first useful system, teach the team how to operate it, then expand from proven usage.</p>
-      </article>
     </section>
 
     <section class="logo-band" aria-label="Client proof">
@@ -182,13 +166,11 @@
 
       <div class="service-arm-grid service-product-grid">
         <article class="service-arm service-product-card" role="button" tabindex="0" data-service-detail="enablement" aria-label="Learn more about AI Enablement">
-          <div class="content-label">01</div>
           <h3>AI Enablement</h3>
           <p>Workshops and demos that help teams use AI in the work they already do, with examples built around their documents, customers, inboxes, code, and handoffs.</p>
           <a class="conversation-link" href="start-a-conversation.html">Book enablement</a>
         </article>
         <article class="service-arm service-product-card" role="button" tabindex="0" data-service-detail="deployment" aria-label="Learn more about Deployment">
-          <div class="content-label">02</div>
           <h3>Deployment</h3>
           <p>Custom agents, workflow automations, and agentic coding systems designed around your tools, review paths, permissions, and operating constraints.</p>
           <a class="conversation-link" href="start-a-conversation.html">Book deployment</a>
@@ -239,7 +221,6 @@
     </div>
   </footer>
 </div>
-<script src="hero-intro.js"></script>
 <script src="service-detail-modal.js"></script>
 <script src="intake-modal.js"></script>
 </body>
