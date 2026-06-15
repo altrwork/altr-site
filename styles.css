@@ -487,11 +487,12 @@ h4 {
 }
 
 .modern-proof-band {
-  padding: 0 0 clamp(66px, 8vw, 104px);
+  padding: clamp(26px, 4vw, 42px) 0 clamp(70px, 8vw, 108px);
+  border-top: 1px solid var(--line);
 }
 
 .modern-proof-band p {
-  margin: 0 0 14px;
+  margin: 0 0 18px;
   color: var(--bone-dim);
   font-family: var(--mono);
   font-size: 11px;
@@ -503,27 +504,32 @@ h4 {
 .proof-logos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  overflow: hidden;
-  border: 1px solid rgba(245, 235, 220, 0.14);
-  border-radius: var(--radius);
-  background: rgba(245, 235, 220, 0.9);
+  gap: clamp(18px, 5vw, 52px);
+  align-items: center;
 }
 
 .proof-logos span {
-  min-height: 86px;
+  min-height: 72px;
   display: grid;
   place-items: center;
-  border-right: 1px solid rgba(18, 17, 15, 0.14);
-}
-
-.proof-logos span:last-child {
-  border-right: 0;
+  border: 0;
+  opacity: 0.9;
 }
 
 .logo-img-wide {
   width: min(78%, 180px);
   height: 54px;
   object-fit: contain;
+}
+
+.logo-tone-flat {
+  opacity: 0.9;
+  filter: brightness(0) saturate(100%) invert(90%) sepia(18%) saturate(340%) hue-rotate(343deg) brightness(106%) contrast(96%);
+}
+
+.logo-tone-warm {
+  opacity: 0.92;
+  filter: grayscale(0.72) sepia(0.82) saturate(0.38) hue-rotate(332deg) brightness(1.18) contrast(1.2);
 }
 
 .service-arm-grid,
@@ -698,15 +704,17 @@ h4 {
   display: grid;
   place-items: center;
   margin-bottom: 18px;
-  border: 1px solid rgba(18, 17, 15, 0.12);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(245, 235, 220, 0.92);
+  background:
+    linear-gradient(135deg, rgba(245, 235, 220, 0.055), transparent 62%),
+    rgba(245, 235, 220, 0.025);
   transition: transform 260ms var(--ease-out), background-color 260ms var(--ease-out);
 }
 
 .impact-card:hover .impact-card-logo-wrap {
   transform: translateY(-2px) scale(1.01);
-  background-color: rgba(255, 246, 233, 0.96);
+  background-color: rgba(245, 235, 220, 0.055);
 }
 
 .impact-card-logo {
@@ -1398,7 +1406,7 @@ h4 {
 
   .proof-logos span {
     border-right: 0;
-    border-bottom: 1px solid rgba(18, 17, 15, 0.14);
+    border-bottom: 1px solid var(--line);
   }
 
   .proof-logos span:last-child {
