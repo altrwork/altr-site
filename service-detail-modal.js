@@ -6,19 +6,19 @@
       body: [
         "Enablement starts with the work your team already handles every week. We look at the documents, messages, decisions, handoffs, and review steps that slow people down, then build demos around those real patterns.",
         "The workshop gives people a practical way to use AI without guessing. We show where it helps, where it should stay out of the way, and how to review the output with the same judgment your team already uses.",
-        "Teams leave with examples they can reuse, clearer rules for when to use AI, and a short list of workflows that are ready for deeper automation or agent deployment."
+        "Teams leave with examples they can reuse, clearer rules for when to use AI, and a short list of workflows that are ready for deeper automation."
       ],
       action: "Book enablement"
     },
-    deployment: {
-      kicker: "Deployment",
-      title: "Agents and automations built around how your team actually operates.",
+    automation: {
+      kicker: "AI Automation",
+      title: "Automations and agents built around how your team actually operates.",
       body: [
-        "Deployment takes the best opportunities from discovery or enablement and turns them into working systems. That can mean a workflow automation, a custom agent, a coding agent setup, or a review process that helps the team move faster without losing control.",
+        "Automation takes the best opportunities from discovery or enablement and turns them into working systems. That can mean a workflow automation, a custom agent, a coding-agent setup, reporting flow, or a review process that helps the team move faster without losing control.",
         "We design around the tools, permissions, data, and approval paths already inside the business. The goal is to make the system useful in daily work, not impressive in a demo and awkward everywhere else.",
-        "A good deployment gives the team a repeatable way to get work done with less manual drag. People still own the decisions, while the agent handles context gathering, drafting, routing, review support, and other steps that should not require constant human effort."
+        "A good automation gives the team a repeatable way to get work done with less manual drag. People still own the decisions, while the system handles context gathering, drafting, routing, review support, and other steps that should not require constant human effort."
       ],
-      action: "Book deployment"
+      action: "Book automation"
     }
   };
 
@@ -55,7 +55,13 @@
     lastFocusedElement = document.activeElement;
     document.getElementById("service-detail-kicker").textContent = detail.kicker;
     document.getElementById("service-detail-title").textContent = detail.title;
-    document.getElementById("service-detail-body").innerHTML = detail.body.map((paragraph) => `<p>${paragraph}</p>`).join("");
+    const detailBody = document.getElementById("service-detail-body");
+    detailBody.replaceChildren();
+    detail.body.forEach((paragraph) => {
+      const element = document.createElement("p");
+      element.textContent = paragraph;
+      detailBody.appendChild(element);
+    });
     document.querySelector(".service-detail-book").textContent = detail.action;
 
     modal.classList.add("is-open");
