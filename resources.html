@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>AI Resources and Workflow Guides | altr Tampa</title>
+<title>Journal | AI Consulting and Automation Notes from altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Resources from altr on forward deployed engineering, custom agents, AI enablement, workflow automation, and deployed agent systems." />
+<meta name="description" content="Technical and operator-focused notes from altr on AI consulting, AI workflow automation, MCP, RAG evaluation, agentic coding, governance, and AI implementation." />
 <link rel="canonical" href="https://altrwork.com/resources.html" />
-<meta property="og:title" content="AI Resources and Workflow Guides | altr Tampa" />
-<meta property="og:description" content="Resources from altr on forward deployed engineering, custom agents, AI enablement, workflow automation, and deployed agent systems." />
+<meta property="og:title" content="Journal | AI Consulting and Automation Notes from altr" />
+<meta property="og:description" content="Technical and operator-focused notes from altr on AI consulting, AI workflow automation, MCP, RAG evaluation, agentic coding, governance, and AI implementation." />
 <meta property="og:url" content="https://altrwork.com/resources.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -28,55 +28,96 @@
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
-      <a href="impact-studies.html" aria-current="page">Work</a>
+      <a href="impact-studies.html">Work</a>
       <a href="about.html">About</a>
-      <a href="events.html">Events</a>
+      <a href="resources.html" aria-current="page">Journal</a>
       <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
     </nav>
   </header>
 
   <main class="page">
-    <section class="page-hero">
-      <div class="eyebrow">Work</div>
-      <h1>Work</h1>
-      <p class="page-lede">A home for the AI enablement, workflow automation, and deployed agent work we are building with partner teams.</p>
+    <section class="page-hero learning-hero learning-hero-compact learning-hero-simple">
+      <div class="learning-hero-copy">
+        <h1>Technical notes from the edge of practical AI usage and systems.</h1>
+        <p class="page-lede">Field notes for teams turning AI from scattered experiments into workflows, agents, tools, review loops, and operating systems that people use.</p>
+      </div>
     </section>
 
-    <section class="section">
-      <div class="resource-list">
-        <article class="resource-item" id="forward-deployed-engineering">
-          <span>Service</span>
+    <section class="section learning-index-section learning-index-compact learning-index-simple">
+      <div class="resource-list learning-resource-list">
+        <article class="resource-item">
+          <span>MCP</span>
           <div>
-            <h3>Forward deployed engineering</h3>
-            <p>Embedded builders who scope, implement, and hand off production AI workflows with your team.</p>
+            <h3>MCP server design for internal AI tools</h3>
+            <p>How we scope Model Context Protocol tools around narrow schemas, permissions, audit logs, local testing, and human approval.</p>
           </div>
-          <a href="forward-deployed-engineering.html">Read</a>
-        </article>
-        <article class="resource-item" id="custom-agents-and-automations">
-          <span>Service</span>
-          <div>
-            <h3>Custom agents and automations</h3>
-            <p>Workflow-specific agents that use your tools, follow your review paths, and support auditable handoff.</p>
-          </div>
-          <a href="custom-agents.html">Read</a>
+          <a href="mcp-server-design-internal-ai-tools.html">Read</a>
         </article>
         <article class="resource-item">
-          <span>Work</span>
+          <span>Agents</span>
           <div>
-            <h3>Impact studies</h3>
-            <p>Short briefs on client work across enablement, workflow automation, and deployed agent systems.</p>
+            <h3>MCP agents and function calling</h3>
+            <p>How tool-calling agents differ from MCP-connected workflows, and where each pattern fits in internal AI systems.</p>
           </div>
-          <a href="impact-studies.html">Read</a>
+          <a href="mcp-agents-function-calling.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>Audit</span>
+          <div>
+            <h3>AI workflow audit for small businesses</h3>
+            <p>How to map inputs, decisions, tools, memory, outputs, review steps, and failure modes before choosing what to automate.</p>
+          </div>
+          <a href="ai-workflow-audit-small-business.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>Context</span>
+          <div>
+            <h3>Context engineering for large codebases</h3>
+            <p>How coding agents get better when repo instructions, retrieval, dependency maps, and definitions of done are treated as infrastructure.</p>
+          </div>
+          <a href="context-engineering-large-codebases.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>Deployment</span>
+          <div>
+            <h3>The three phases of AI deployment</h3>
+            <p>A practical model for moving from workflow audit to pilot build to controlled rollout without forcing every engagement into the same timeline.</p>
+          </div>
+          <a href="three-phases-ai-deployment.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>RAG evals</span>
+          <div>
+            <h3>RAG evaluation for internal knowledge bases</h3>
+            <p>How to separate retrieval quality, answer quality, source freshness, faithfulness, and human trust before deploying company knowledge AI.</p>
+          </div>
+          <a href="rag-evaluation-internal-knowledge-bases.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>Retrieval</span>
+          <div>
+            <h3>LLM retrieval for grounded answers</h3>
+            <p>How retrieval, citations, context limits, and answer checks work together when teams need AI outputs grounded in source material.</p>
+          </div>
+          <a href="llm-retrieval-grounded-answers.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>Governance</span>
+          <div>
+            <h3>AI governance lite for SMBs</h3>
+            <p>How smaller teams can set data rules, approval tiers, vendor review, incident paths, logs, and human review without building a bureaucracy.</p>
+          </div>
+          <a href="ai-governance-lite-smb.html">Read</a>
+        </article>
+        <article class="resource-item">
+          <span>Review</span>
+          <div>
+            <h3>AI code review with judge agents</h3>
+            <p>How reviewer agents, severity rules, false-positive tracking, and PR handoff make automated code review useful inside engineering teams.</p>
+          </div>
+          <a href="ai-code-review-judge-agents.html">Read</a>
         </article>
       </div>
-    </section>
-
-    <section class="cta-section">
-      <div>
-        <h2>Want to discuss a workflow like these?</h2>
-        <p>Send us the kind of AI system, demo, or enablement need you are exploring.</p>
-      </div>
-      <a class="button primary" href="start-a-conversation.html">Book an intro</a>
     </section>
   </main>
 

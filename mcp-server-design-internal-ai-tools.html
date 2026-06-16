@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MCP Server Design for Internal AI Tools | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A practical guide to MCP server design for internal AI tools, including tool boundaries, auth, schemas, audit logs, testing, and human approval." />
+<link rel="canonical" href="https://altrwork.com/mcp-server-design-internal-ai-tools.html" />
+<meta property="og:title" content="MCP Server Design for Internal AI Tools | altr" />
+<meta property="og:description" content="A practical guide to MCP server design for internal AI tools, including tool boundaries, auth, schemas, audit logs, testing, and human approval." />
+<meta property="og:url" content="https://altrwork.com/mcp-server-design-internal-ai-tools.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MCP Server Design for Internal AI Tools | altr" />
+<meta name="twitter:description" content="A practical guide to MCP server design for internal AI tools, including tool boundaries, auth, schemas, audit logs, testing, and human approval." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MCP Server Design for Internal AI Tools",
+  "description": "A practical guide to MCP server design for internal AI tools, including tool boundaries, auth, schemas, audit logs, testing, and human approval.",
+  "image": "https://altrwork.com/assets/altr_social_preview.png",
+  "author": {
+    "@type": "Organization",
+    "name": "altr"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "altr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altrwork.com/mcp-server-design-internal-ai-tools.html"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+</script>
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Journal</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero article-hero">
+      <div class="eyebrow">Internal AI Tools</div>
+      <h1>MCP server design for internal AI tools.</h1>
+      <p class="page-lede">Model Context Protocol tools give AI systems a controlled way to inspect data and take action. The useful work is deciding what each tool may do, who can call it, and how the result is checked.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>In practice</span>
+          <p>We design MCP servers like internal APIs with stronger operating rules. Each tool needs a clear boundary, typed inputs, predictable outputs, audit records, and an owner who accepts the risk of read or write access.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Start with tool boundaries.</h2>
+          <p>A good MCP server design begins with a list of jobs the agent is allowed to perform. Examples include searching CRM notes, reading support tickets, drafting a refund request, or opening a deployment report.</p>
+          <p>The owner should define the input, the data touched, the expected output, and the failure mode for each tool. Broad tools create ambiguous behavior. Small tools make permissions, testing, and review easier.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Separate read tools from write tools.</h2>
+          <p>Read tools should return only the data needed for the task. Write tools should require stronger auth, narrower scopes, idempotency keys, and human approval for material changes.</p>
+          <p>This split gives technical leaders a clean control point. A support agent can search order history without permission to issue refunds. A deployment assistant can inspect logs without permission to change production settings.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Use schemas as operating contracts.</h2>
+          <p>Model Context Protocol tools should expose strict schemas for inputs and outputs. Required fields, enums, limits, and validation errors tell the agent what it can ask for and tell engineers what they need to test.</p>
+          <p>Good schemas also protect downstream systems. They prevent free-form database filters, oversized payloads, hidden writes, and vague success messages. The output should include enough source detail for a person to verify the result.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Make approval and audit part of the server.</h2>
+          <p>Internal AI tools need logs that record the caller, tool name, input summary, source system, result status, approval state, and correlation ID. These records should be searchable by engineering and operations owners.</p>
+          <p>Local testing should cover success paths, permission failures, malformed inputs, empty results, rate limits, and approval gates. The handoff point is explicit: the agent proposes, the server records, and the human approves high-impact writes.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>Give every MCP tool one job, one owner, one auth path, and one auditable result.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Planning MCP tools for an internal workflow?</h2>
+        <p>Bring the systems, permissions, and decisions your team wants an AI agent to handle.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Design the tool boundary</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+</body>
+</html>

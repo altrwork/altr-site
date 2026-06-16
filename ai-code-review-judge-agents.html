@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AI Code Review With Judge Agents | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership." />
+<link rel="canonical" href="https://altrwork.com/ai-code-review-judge-agents.html" />
+<meta property="og:title" content="AI Code Review With Judge Agents | altr" />
+<meta property="og:description" content="A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership." />
+<meta property="og:url" content="https://altrwork.com/ai-code-review-judge-agents.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Code Review With Judge Agents | altr" />
+<meta name="twitter:description" content="A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Code Review With Judge Agents",
+  "description": "A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership.",
+  "image": "https://altrwork.com/assets/altr_social_preview.png",
+  "author": {
+    "@type": "Organization",
+    "name": "altr"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "altr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altrwork.com/ai-code-review-judge-agents.html"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+</script>
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Journal</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero article-hero">
+      <div class="eyebrow">Engineering Review</div>
+      <h1>AI code review with judge agents.</h1>
+      <p class="page-lede">Automated pull request review works best when judge agents have narrow reviewer roles, a shared severity rubric, and a clear handoff to the human owner of the change.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>In practice</span>
+          <p>We use AI code review as a triage layer for engineering managers and reviewers. The judge agent flags risks, groups duplicates, cites evidence, and leaves ownership with the humans who approve and ship the PR.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Give each reviewer a role.</h2>
+          <p>A judge agent should know what kind of review it owns. Roles can include security, data integrity, test coverage, API compatibility, frontend behavior, migration safety, or operational risk.</p>
+          <p>Each role needs concrete inputs: the diff, relevant files, tests, changed contracts, ownership rules, and any issue or spec attached to the pull request. The output should be a short finding with file evidence and a proposed next action.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Use a severity rubric reviewers can enforce.</h2>
+          <p>AI code review needs a shared rubric for blockers, high-risk issues, medium concerns, and notes. A blocker should describe a likely production defect, security exposure, data loss, failed test path, or broken contract.</p>
+          <p>The rubric keeps automated pull request review from becoming a stream of preferences. Findings should explain impact, affected users or systems, reproduction path, and the check that would prove the fix.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Track false positives and duplicate findings.</h2>
+          <p>Managers need to know whether judge agent comments are useful. Track accepted findings, dismissed findings, false positives, duplicates, severity changes, and time saved during review.</p>
+          <p>Dedupe matters because agents often spot the same issue from multiple angles. The PR handoff should group related comments under one finding, keep the clearest evidence, and remove noise before the human reviewer sees it.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Keep human ownership explicit.</h2>
+          <p>A judge agent can identify risk, but the accountable owner is still the engineer, reviewer, or manager responsible for the pull request. The system should mark which findings require a human decision.</p>
+          <p>The final handoff should include reviewed scope, skipped files, tool errors, unresolved risks, tests observed, and questions for the reviewer. That lets the human approve, request changes, or escalate with the right context.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>Let judge agents reduce review load, while humans retain the decision to merge.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Want AI review that engineering managers can trust?</h2>
+        <p>Bring the pull request patterns, review rules, and failure modes your team wants caught earlier.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Shape the review rubric</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>RAG Evaluation for Internal Knowledge Bases | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks." />
+<link rel="canonical" href="https://altrwork.com/rag-evaluation-internal-knowledge-bases.html" />
+<meta property="og:title" content="RAG Evaluation for Internal Knowledge Bases | altr" />
+<meta property="og:description" content="A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks." />
+<meta property="og:url" content="https://altrwork.com/rag-evaluation-internal-knowledge-bases.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RAG Evaluation for Internal Knowledge Bases | altr" />
+<meta name="twitter:description" content="A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RAG Evaluation for Internal Knowledge Bases",
+  "description": "A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks.",
+  "image": "https://altrwork.com/assets/altr_social_preview.png",
+  "author": {
+    "@type": "Organization",
+    "name": "altr"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "altr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altrwork.com/rag-evaluation-internal-knowledge-bases.html"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+</script>
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Journal</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero article-hero">
+      <div class="eyebrow">RAG Systems</div>
+      <h1>RAG evaluation for internal knowledge bases.</h1>
+      <p class="page-lede">A retrieval system can look useful in a demo and still fail on daily questions. Evaluation gives technical leaders a way to measure whether the system retrieves the right context and answers from it faithfully.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>In practice</span>
+          <p>We build RAG evaluation around real questions, expected sources, answer requirements, and failure categories. The outputs are RAG metrics, examples, trend reports, and release checks that data and engineering teams can act on.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Build golden sets from real work.</h2>
+          <p>A golden set should include questions people actually ask the knowledge base. Each item needs the question, acceptable source documents, required facts, answer constraints, owner, and review date.</p>
+          <p>The set should cover common requests, edge cases, recent policy changes, ambiguous wording, and questions the system should refuse. This gives the team a stable input for regression checks.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Measure retrieval before the answer.</h2>
+          <p>Retrieval metrics show whether the right context reached the model. Useful checks include recall at k, context precision, duplicate rate, stale-source rate, and whether the top result came from an approved source.</p>
+          <p>These metrics isolate failures. If the source never appears in retrieved context, prompt changes will have limited value. The retrieval owner needs to inspect chunking, metadata, filters, permissions, and ranking.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Judge answers against sources.</h2>
+          <p>Answer metrics should evaluate faithfulness, completeness, citation accuracy, refusal behavior, and usefulness for the task. The expected output is a scored result with the source passages used to justify the score.</p>
+          <p>Faithfulness matters because an answer can sound correct while adding claims the source does not support. A good eval report shows the unsupported sentence, the missing source, and the likely cause.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Turn reports into release checks.</h2>
+          <p>RAG evaluation should run before changes to prompts, models, retrievers, chunking, indexes, or source permissions. CI checks can block releases when critical questions regress or when source quality drops below a threshold.</p>
+          <p>The report should name the changed component, passing and failing examples, metric deltas, owners, and next actions. That makes evaluation a maintenance system instead of a one-time scorecard.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>Evaluate retrieval and answer quality separately, then make the failure owner obvious.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Need a RAG evaluation loop for internal knowledge?</h2>
+        <p>Bring the knowledge base, real questions, and the failures your team needs to stop repeating.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Define the eval set</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+</body>
+</html>

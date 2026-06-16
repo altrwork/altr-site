@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MCP vs Agents and Function Calling | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A practical field guide to the difference between function calling, AI agents, and MCP when building tool-using AI systems." />
+<link rel="canonical" href="https://altrwork.com/mcp-agents-function-calling.html" />
+<meta property="og:title" content="MCP vs Agents and Function Calling | altr" />
+<meta property="og:description" content="A practical field guide to the difference between function calling, AI agents, and MCP when building tool-using AI systems." />
+<meta property="og:url" content="https://altrwork.com/mcp-agents-function-calling.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MCP vs Agents and Function Calling | altr" />
+<meta name="twitter:description" content="A practical field guide to the difference between function calling, AI agents, and MCP when building tool-using AI systems." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MCP vs Agents and Function Calling",
+  "description": "A practical field guide to the difference between function calling, AI agents, and MCP when building tool-using AI systems.",
+  "image": "https://altrwork.com/assets/altr_social_preview.png",
+  "author": {
+    "@type": "Organization",
+    "name": "altr"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "altr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png"
+    }
+  },
+  "mainEntityOfPage": "https://altrwork.com/mcp-agents-function-calling.html",
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+</script>
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Journal</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero article-hero">
+      <div class="eyebrow">Tool access</div>
+      <h1>MCP, agents, and function calling solve different problems.</h1>
+      <p class="page-lede">When AI systems start touching real tools, the core question shifts from whether the model can reason to how the system exposes access, controls actions, and keeps workflows reusable.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>In practice</span>
+          <p>Function calling, agents, and MCP can look like competing ideas. They are better understood as different layers: direct tool execution, adaptive workflow loops, and standardized access.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Function calling is the direct path.</h2>
+          <p>Function calling is useful when an application needs a model to use a small, known set of tools. The model chooses a function, fills out structured arguments, and the application executes the call.</p>
+          <p>This works well for contained jobs: one user experience, a stable schema, and a narrow tool surface where latency and simplicity matter.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Agents are useful when the task needs a loop.</h2>
+          <p>Agents add state and iteration. They can inspect a situation, make a plan, call tools, observe the result, and continue toward the goal.</p>
+          <p>That loop is valuable for research, debugging, code editing, planning, and workflows where the next step depends on what the system discovers. The tradeoff is coordination: more tools and more steps mean more places where control can break down.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>MCP is about the access layer.</h2>
+          <p>The Model Context Protocol is not the same thing as an agent framework. It is a standardized way to expose tools, resources, and services to AI clients.</p>
+          <p>That becomes useful when multiple clients, agents, or models need access to the same capabilities. Instead of rebuilding integrations for every surface, an MCP server can expose a capability once behind a more consistent interface.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>The design question is control.</h2>
+          <p>The model needs to know what tools exist, what each tool is for, what arguments are valid, and what boundaries apply. Without that structure, even a capable model can call the wrong thing or operate with incomplete context.</p>
+          <p>Direct function calls are enough for narrow integrations. Agents help when work needs adaptation. MCP helps when access should be reusable, composable, and easier to govern.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>Function calling is how a tool gets called. MCP is one way to standardize how tools are exposed.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Sorting out the right tool layer?</h2>
+        <p>We can help decide whether your workflow needs a direct integration, an agent loop, an MCP server, or a simpler automation.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Map the tool layer</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+</body>
+</html>

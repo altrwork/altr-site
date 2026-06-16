@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Context Engineering for Large Codebases | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria." />
+<link rel="canonical" href="https://altrwork.com/context-engineering-large-codebases.html" />
+<meta property="og:title" content="Context Engineering for Large Codebases | altr" />
+<meta property="og:description" content="A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria." />
+<meta property="og:url" content="https://altrwork.com/context-engineering-large-codebases.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Context Engineering for Large Codebases | altr" />
+<meta name="twitter:description" content="A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Context Engineering for Large Codebases",
+  "description": "A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria.",
+  "image": "https://altrwork.com/assets/altr_social_preview.png",
+  "author": {
+    "@type": "Organization",
+    "name": "altr"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "altr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altrwork.com/context-engineering-large-codebases.html"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+</script>
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Journal</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero article-hero">
+      <div class="eyebrow">AI Engineering</div>
+      <h1>Context engineering for large codebases.</h1>
+      <p class="page-lede">AI coding agents work better when the repository gives them current instructions, relevant files, dependency context, and a clear definition of done before they start changing code.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>In practice</span>
+          <p>We treat context engineering as part of engineering operations. The goal is to help AI coding agents find the right codebase context retrieval path, spend context budget on useful evidence, and hand off changes in a form humans can review.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Write repo instructions as working constraints.</h2>
+          <p>Large codebases need a short source of truth for agent behavior. It should name the test commands, package managers, architecture boundaries, generated files, migration rules, review expectations, and files the agent should avoid changing.</p>
+          <p>The owner is usually the engineering team that owns the repository. The output is a maintained instruction file that answers the first questions an engineer would ask before making a change.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Spend context budget on evidence.</h2>
+          <p>Context engineering starts with choosing what the agent reads. Useful inputs include the target file, nearby tests, shared interfaces, call sites, error logs, product requirements, and recent commits that explain current behavior.</p>
+          <p>The failure mode is easy to spot. The agent edits from a narrow view, misses a caller, and breaks behavior outside the file it touched. Good code retrieval makes hidden dependencies visible before implementation.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Use maps for dependencies and ownership.</h2>
+          <p>Dependency maps help agents understand where changes travel. They can show package boundaries, API consumers, database tables, job queues, feature flags, and services that share a contract.</p>
+          <p>Ownership maps are just as useful. They tell the agent when a change needs review from platform, data, security, product, or infrastructure. That prevents quiet edits to code with a wider blast radius.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Keep stale docs out of the critical path.</h2>
+          <p>Old docs can be worse than missing docs because agents tend to follow them confidently. Teams should label deprecated instructions, remove obsolete setup steps, and connect docs to the tests or systems that prove they still apply.</p>
+          <p>Every agent task should end with a definition of done. That can include passing tests, screenshots, schema checks, lint results, manual verification, migration notes, and a clear PR handoff for the human reviewer.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>Make the right context easier to find than the wrong context.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Want AI coding agents to work inside your repo?</h2>
+        <p>Bring the codebase, review rules, and recurring engineering tasks that need a clearer context path.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Map the agent workflow</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+</body>
+</html>

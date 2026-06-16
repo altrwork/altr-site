@@ -47,8 +47,53 @@
   </url>
   <url>
     <loc>https://altrwork.com/resources.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.5</priority>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/llm-retrieval-grounded-answers.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/mcp-agents-function-calling.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/mcp-server-design-internal-ai-tools.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/context-engineering-large-codebases.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/rag-evaluation-internal-knowledge-bases.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/ai-code-review-judge-agents.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/ai-workflow-audit-small-business.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/three-phases-ai-deployment.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/ai-governance-lite-smb.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://altrwork.com/start-a-conversation.html</loc>

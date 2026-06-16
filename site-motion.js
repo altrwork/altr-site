@@ -23,12 +23,16 @@
     ".featured-work-card",
     ".work-list-item",
     ".founder-card",
+    ".about-beliefs",
     ".globe-panel",
     ".impact-detail",
     ".impact-study-copy > *",
     ".impact-article-heading",
     ".impact-article-image",
     ".impact-study-image",
+    ".learning-brief",
+    ".learning-feature-card",
+    ".learning-tabs",
     ".intake-form",
     ".intake-note"
   ];
