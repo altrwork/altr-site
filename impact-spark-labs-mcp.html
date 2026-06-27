@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>spARK Labs Remote MCP Server Impact Study | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
+<link rel="canonical" href="https://altrwork.com/impact-spark-labs-mcp.html" />
+<meta property="og:title" content="spARK Labs Remote MCP Server Impact Study | altr" />
+<meta property="og:description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
+<meta property="og:url" content="https://altrwork.com/impact-spark-labs-mcp.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="spARK Labs Remote MCP Server Impact Study | altr" />
+<meta name="twitter:description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Journal</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero impact-page-hero">
+      <div class="impact-hero-topline">
+        <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
+      </div>
+    </section>
+
+    <section class="section impact-primary-section">
+      <article class="impact-detail impact-detail-stacked impact-client-spark">
+        <div class="impact-study-copy">
+          <div class="impact-meta-row">
+            <div class="content-label">spARK Labs</div>
+            <div class="impact-date">Jun 26, 2026</div>
+          </div>
+          <h1>Connecting the tools that run a startup accelerator</h1>
+          <div class="impact-article-divider" aria-hidden="true"></div>
+          <p class="impact-subheading">spARK Labs by ARK Invest manages member intake, physical building access, coworking memberships, and outbound communication across four separate platforms. Getting Claude to help with any of that work meant manually copying information between systems. altr built a single remote MCP server that connects all four platforms to Claude and Claude Cowork behind a secure, Microsoft-authenticated endpoint.</p>
+          <p>The gap was not a missing tool — spARK Labs already had BossHub for intake forms, Verkada for building access control, Nexudus for membership management and room bookings, and Outlook for email. The gap was that none of those systems were connected to Claude. Using AI to assist with operations required opening each platform separately, copying data by hand, and re-entering it in the next system.</p>
+          <p>Rather than building separate integrations or distributing API keys to each team member, altr deployed a single Cloudflare Worker that exposes all four systems through a secure MCP endpoint. Authentication is handled through Microsoft OAuth — team members log in with their existing Microsoft accounts, and an email allowlist ensures only authorized operators can access the tools. There is nothing to install locally, no keys to manage, and no per-user setup.</p>
+          <img class="impact-article-image" src="assets/operations-mcp.png" width="1456" height="816" loading="lazy" alt="Architecture diagram: Claude Cowork connects through the Cloudflare Worker MCP server to BossHub, Verkada, Nexudus, and Outlook" />
+          <h4 class="impact-article-heading">BossHub — reading member inquiries</h4>
+          <p>The BossHub tools give Claude read access to the inquiry forms and submissions the spARK Labs team uses to track new member interest. Claude can list available forms, pull recent submissions, or look up a specific inquiry by name or email. In practice, this is where a member activation workflow begins: Claude reads the submission to understand what plan was requested, what company details were provided, and what the member needs before they move in.</p>
+          <h4 class="impact-article-heading">Verkada — provisioning building access</h4>
+          <p>The Verkada tools handle physical building access. Claude can search for an existing Verkada user by email, create a new access user, list available access groups, and add a user to the appropriate group to unlock building entry. These operations write directly to the building access system, so they are gated by both the email allowlist and a dry-run flag that lets operators test the workflow without making live changes.</p>
+          <h4 class="impact-article-heading">Nexudus — managing memberships and bookings</h4>
+          <p>Nexudus is the coworking platform that tracks members, plans, and room reservations. The tools cover both sides of operations: onboarding — looking up an existing coworker, creating a new member with the right plan assigned — and day-to-day management — listing available resources, creating room bookings, and cancelling them when needed. Membership plans are mapped by tariff ID, so Claude can create a member record with the correct access level already in place.</p>
+          <h4 class="impact-article-heading">Outlook — drafting outbound email</h4>
+          <p>The Outlook tool creates email drafts through the Microsoft Graph API. Claude composes the message and places it in the configured sender's mailbox ready to review — nothing is sent automatically. This keeps a human in the loop on outbound communication while removing the work of composing and addressing the email from scratch.</p>
+          <img class="impact-article-image" src="assets/operations-mcp-sbs.png" width="1536" height="768" loading="lazy" alt="Member activation workflow: BossHub form submission to Nexudus member record to Verkada building access to Outlook welcome email draft" />
+          <p>Together, these tools let a spARK Labs team member describe what they need to do in Claude and move from an intake form to a provisioned membership to building access to a draft welcome email — in a single conversation, without switching between platforms. The MCP server runs entirely on Cloudflare Workers and requires no local software. New team members connect in minutes by authenticating with their existing Microsoft account.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+<script src="site-motion.js"></script>
+</body>
+</html>
