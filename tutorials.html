@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tutorials | Step-by-step guides for building with AI | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Step-by-step tutorials from altr on building with AI: MCP servers, Claude agents, workflow automation, and practical implementation guides." />
+<link rel="canonical" href="https://altrwork.com/tutorials.html" />
+<meta property="og:title" content="Tutorials | Step-by-step guides for building with AI | altr" />
+<meta property="og:description" content="Step-by-step tutorials from altr on building with AI: MCP servers, Claude agents, workflow automation, and practical implementation guides." />
+<meta property="og:url" content="https://altrwork.com/tutorials.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Resources
+          <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="tutorials.html" class="nav-dropdown-item" role="menuitem" aria-current="page">Tutorials</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero learning-hero learning-hero-compact learning-hero-simple">
+      <div class="learning-hero-copy">
+        <h1>Tutorials for teams building with AI.</h1>
+        <p class="page-lede">Step-by-step guides on MCP servers, Claude agents, workflow automation, and the infrastructure underneath practical AI systems.</p>
+      </div>
+    </section>
+
+    <section class="section tutorials-section">
+      <div class="tutorials-layout">
+
+        <!-- Sidebar -->
+        <aside class="tutorials-sidebar">
+          <div class="tutorials-filter">
+            <div class="tutorials-filter-header">
+              <p class="tutorials-filter-heading">Filter</p>
+              <button class="tutorials-filter-clear" id="tutorials-clear" hidden>Clear</button>
+            </div>
+            <div class="tutorials-filter-group">
+              <button class="tutorials-filter-group-toggle" aria-expanded="true">
+                Category
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="tutorials-filter-options">
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check" data-filter="mcp" />
+                  <span class="tutorials-check-mark"></span>
+                  MCP
+                </label>
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check" data-filter="agents" />
+                  <span class="tutorials-check-mark"></span>
+                  Agents
+                </label>
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check" data-filter="automation" />
+                  <span class="tutorials-check-mark"></span>
+                  Automation
+                </label>
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check" data-filter="strategy" />
+                  <span class="tutorials-check-mark"></span>
+                  Strategy
+                </label>
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check" data-filter="rag" />
+                  <span class="tutorials-check-mark"></span>
+                  RAG
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <div class="tutorials-main">
+          <div class="tutorials-controls">
+            <div class="tutorials-search-wrap">
+              <svg class="tutorials-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <input type="search" class="tutorials-search" placeholder="Search tutorials" aria-label="Search tutorials" />
+            </div>
+            <div class="tutorials-view-toggle" role="group" aria-label="View mode">
+              <button class="tutorials-view-btn is-active" data-view="grid" title="Grid view" aria-pressed="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                </svg>
+              </button>
+              <button class="tutorials-view-btn" data-view="list" title="List view" aria-pressed="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <line x1="1" y1="4" x2="15" y2="4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <line x1="1" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <line x1="1" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="tutorials-grid" id="tutorials-grid">
+
+            <article class="tutorial-card" data-category="mcp" data-title="building a remote mcp server on cloudflare workers">
+              <a href="mcp-server-design-internal-ai-tools.html" class="tutorial-card-thumb tutorial-thumb-mcp" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="mcp-server-design-internal-ai-tools.html">Building a remote MCP server on Cloudflare Workers</a></h3>
+                <p class="tutorial-card-desc">How to scope, design, and deploy a Model Context Protocol server that connects Claude to internal tools through a secure, authenticated endpoint.</p>
+                <span class="tutorial-card-tag tutorial-tag-mcp">MCP</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="mcp" data-title="mcp agents and function calling when to use each">
+              <a href="mcp-agents-function-calling.html" class="tutorial-card-thumb tutorial-thumb-mcp" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="mcp-agents-function-calling.html">MCP agents and function calling: when to use each</a></h3>
+                <p class="tutorial-card-desc">How tool-calling agents differ from MCP-connected workflows, and where each pattern fits in internal AI systems.</p>
+                <span class="tutorial-card-tag tutorial-tag-mcp">MCP</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="strategy" data-title="how to run a workflow audit before you automate">
+              <a href="ai-workflow-audit-small-business.html" class="tutorial-card-thumb tutorial-thumb-strategy" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="ai-workflow-audit-small-business.html">How to run a workflow audit before you automate</a></h3>
+                <p class="tutorial-card-desc">Map inputs, decisions, tools, memory, outputs, review steps, and failure modes before choosing what to hand to an AI system.</p>
+                <span class="tutorial-card-tag tutorial-tag-strategy">Strategy</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="strategy" data-title="the three phases of ai deployment">
+              <a href="three-phases-ai-deployment.html" class="tutorial-card-thumb tutorial-thumb-strategy" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="three-phases-ai-deployment.html">The three phases of AI deployment</a></h3>
+                <p class="tutorial-card-desc">A practical model for moving from workflow audit to pilot build to controlled rollout without forcing every engagement into the same timeline.</p>
+                <span class="tutorial-card-tag tutorial-tag-strategy">Strategy</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="rag" data-title="rag evaluation for internal knowledge bases">
+              <a href="rag-evaluation-internal-knowledge-bases.html" class="tutorial-card-thumb tutorial-thumb-rag" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="rag-evaluation-internal-knowledge-bases.html">RAG evaluation for internal knowledge bases</a></h3>
+                <p class="tutorial-card-desc">How to measure retrieval quality, answer grounding, and failure modes before trusting a RAG system in production.</p>
+                <span class="tutorial-card-tag tutorial-tag-rag">RAG</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="agents" data-title="context engineering for large codebases">
+              <a href="context-engineering-large-codebases.html" class="tutorial-card-thumb tutorial-thumb-agents" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="context-engineering-large-codebases.html">Context engineering for large codebases</a></h3>
+                <p class="tutorial-card-desc">How coding agents get better when repo instructions, retrieval, dependency maps, and definitions of done are treated as infrastructure.</p>
+                <span class="tutorial-card-tag tutorial-tag-agents">Agents</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="agents" data-title="using ai for code review with judge agents">
+              <a href="ai-code-review-judge-agents.html" class="tutorial-card-thumb tutorial-thumb-agents" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="ai-code-review-judge-agents.html">Using AI for code review with judge agents</a></h3>
+                <p class="tutorial-card-desc">How to build a judge-model loop that reviews pull requests for correctness, style, and risk without replacing the human in the loop.</p>
+                <span class="tutorial-card-tag tutorial-tag-agents">Agents</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="strategy" data-title="ai governance for small and mid-size businesses">
+              <a href="ai-governance-lite-smb.html" class="tutorial-card-thumb tutorial-thumb-strategy" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="ai-governance-lite-smb.html">AI governance for small and mid-size businesses</a></h3>
+                <p class="tutorial-card-desc">A lightweight governance framework for teams that need policy, access controls, and audit trails without an enterprise compliance team.</p>
+                <span class="tutorial-card-tag tutorial-tag-strategy">Strategy</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="automation" data-title="forward deployed engineering with ai agents">
+              <a href="forward-deployed-engineering.html" class="tutorial-card-thumb tutorial-thumb-automation" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="forward-deployed-engineering.html">Forward-deployed engineering with AI agents</a></h3>
+                <p class="tutorial-card-desc">How to embed AI agents directly into client operations: scoping the integration, managing access, and measuring results in the field.</p>
+                <span class="tutorial-card-tag tutorial-tag-automation">Automation</span>
+              </div>
+            </article>
+
+            <article class="tutorial-card" data-category="rag" data-title="llm retrieval and grounded answers">
+              <a href="llm-retrieval-grounded-answers.html" class="tutorial-card-thumb tutorial-thumb-rag" tabindex="-1" aria-hidden="true"></a>
+              <div class="tutorial-card-body">
+                <h3 class="tutorial-card-title"><a href="llm-retrieval-grounded-answers.html">LLM retrieval and grounded answers</a></h3>
+                <p class="tutorial-card-desc">How retrieval-augmented generation works in practice: chunking, embedding, retrieval ranking, and keeping answers tied to source documents.</p>
+                <span class="tutorial-card-tag tutorial-tag-rag">RAG</span>
+              </div>
+            </article>
+
+          </div>
+
+          <p class="tutorials-empty" hidden>No tutorials match your search.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="nav-dropdown.js"></script>
+<script src="tutorials-ui.js"></script>
+<script src="intake-modal.js"></script>
+<script src="site-motion.js"></script>
+</body>
+</html>

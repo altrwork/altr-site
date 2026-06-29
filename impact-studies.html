@@ -29,8 +29,16 @@
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html" aria-current="page">Work</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Resources
+          <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
-      <a href="resources.html">Journal</a>
       <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
     </nav>
   </header>
@@ -42,64 +50,146 @@
       <p class="page-lede">Briefs on the AI enablement, workflow automation, and deployed agent work we are building with partner teams.</p>
     </section>
 
-    <section class="section work-index-section">
-      <a class="featured-work-card" href="impact-spark-labs-mcp.html">
-        <div class="featured-work-copy">
-          <div class="case-meta">Featured · Impact Study 04</div>
-          <h2>Connecting the tools that run a startup accelerator</h2>
-          <p>spARK Labs by ARK Invest manages member intake, physical building access, coworking memberships, and outbound communication across four separate platforms. altr built a single remote MCP server that connects all four — BossHub, Verkada, Nexudus, and Outlook — to Claude and Claude Cowork behind a secure, Microsoft-authenticated endpoint.</p>
-          <span class="case-stat">Read the study</span>
+    <section class="section tutorials-section">
+      <div class="tutorials-layout">
+
+        <!-- Sidebar -->
+        <aside class="tutorials-sidebar">
+          <div class="tutorials-filter">
+            <div class="tutorials-filter-header">
+              <p class="tutorials-filter-heading">Filter</p>
+              <button class="tutorials-filter-clear" id="impact-clear" hidden>Clear</button>
+            </div>
+            <div class="tutorials-filter-group">
+              <button class="tutorials-filter-group-toggle" aria-expanded="true">
+                Industry
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="tutorials-filter-options">
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check impact-filter-check" data-filter="nonprofit" />
+                  <span class="tutorials-check-mark"></span>
+                  Nonprofit
+                </label>
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check impact-filter-check" data-filter="ecommerce" />
+                  <span class="tutorials-check-mark"></span>
+                  E-commerce
+                </label>
+                <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check impact-filter-check" data-filter="technology" />
+                  <span class="tutorials-check-mark"></span>
+                  Technology
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <div class="tutorials-main">
+          <div class="tutorials-controls">
+            <div class="tutorials-search-wrap">
+              <svg class="tutorials-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <input type="search" class="tutorials-search impact-search" placeholder="Search impact studies" aria-label="Search impact studies" />
+            </div>
+            <div class="tutorials-view-toggle" role="group" aria-label="View mode">
+              <button class="tutorials-view-btn is-active impact-view-btn" data-view="grid" title="Grid view" aria-pressed="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                  <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.4"/>
+                </svg>
+              </button>
+              <button class="tutorials-view-btn impact-view-btn" data-view="list" title="List view" aria-pressed="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <line x1="1" y1="4" x2="15" y2="4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <line x1="1" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  <line x1="1" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="impact-grid" id="impact-grid">
+
+            <article class="impact-card" data-category="nonprofit" data-title="connecting the tools that run a startup accelerator spark labs mcp server">
+              <a href="impact-spark-labs-mcp.html" class="impact-card-thumb" tabindex="-1" aria-hidden="true">
+                <img src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs" />
+              </a>
+              <div class="impact-card-body">
+                <div class="impact-card-meta">
+                  <span class="case-meta">Impact Study 04</span>
+                  <span class="impact-date">Jun 26, 2026</span>
+                </div>
+                <h3 class="impact-card-title"><a href="impact-spark-labs-mcp.html">Connecting the tools that run a startup accelerator</a></h3>
+                <p class="impact-card-desc">altr built a single remote MCP server connecting BossHub, Verkada, Nexudus, and Outlook to Claude behind a secure, Microsoft-authenticated endpoint.</p>
+                <div class="impact-card-footer">
+                  <span class="tutorial-card-tag tutorial-tag-nonprofit">Nonprofit</span>
+                  <span class="impact-card-featured">Featured</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="impact-card" data-category="nonprofit" data-title="automating the work behind expenses and events spark labs">
+              <a href="impact-spark-labs.html" class="impact-card-thumb" tabindex="-1" aria-hidden="true">
+                <img src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs" />
+              </a>
+              <div class="impact-card-body">
+                <div class="impact-card-meta">
+                  <span class="case-meta">Impact Study 03</span>
+                  <span class="impact-date">May 28, 2026</span>
+                </div>
+                <h3 class="impact-card-title"><a href="impact-spark-labs.html">Automating the work behind expenses and events</a></h3>
+                <p class="impact-card-desc">spARK Labs used Claude Cowork, MCP connectors, and custom skills to automate expense reports and event requests with a simple slash command.</p>
+                <div class="impact-card-footer">
+                  <span class="tutorial-card-tag tutorial-tag-nonprofit">Nonprofit</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="impact-card" data-category="ecommerce" data-title="fishin prints ai print workflow e-commerce">
+              <a href="impact-fishin-prints.html" class="impact-card-thumb" tabindex="-1" aria-hidden="true">
+                <img src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" />
+              </a>
+              <div class="impact-card-body">
+                <div class="impact-card-meta">
+                  <span class="case-meta">Impact Study 02</span>
+                  <span class="impact-date">Apr 14, 2026</span>
+                </div>
+                <h3 class="impact-card-title"><a href="impact-fishin-prints.html">Fishin Prints AI print workflow</a></h3>
+                <p class="impact-card-desc">An AI workflow that turns customer fish photos into print-ready artwork faster, lowering manual production time and improving the buying experience.</p>
+                <div class="impact-card-footer">
+                  <span class="tutorial-card-tag tutorial-tag-ecommerce">E-commerce</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="impact-card" data-category="technology" data-title="bebrief codex enablement technology saas">
+              <a href="impact-bebrief.html" class="impact-card-thumb" tabindex="-1" aria-hidden="true">
+                <img src="assets/bebrief-logo-transparent.png" width="300" height="80" loading="lazy" alt="BeBrief" />
+              </a>
+              <div class="impact-card-body">
+                <div class="impact-card-meta">
+                  <span class="case-meta">Impact Study 01</span>
+                  <span class="impact-date">Mar 23, 2026</span>
+                </div>
+                <h3 class="impact-card-title"><a href="impact-bebrief.html">BeBrief Codex enablement</a></h3>
+                <p class="impact-card-desc">How Codex, MCP tools, automated reviews, security agents, and phone-controlled remote agents streamlined full-stack product work.</p>
+                <div class="impact-card-footer">
+                  <span class="tutorial-card-tag tutorial-tag-technology">Technology</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <p class="tutorials-empty" hidden>No studies match your search.</p>
         </div>
-        <div class="featured-work-media">
-          <img src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs logo" />
-        </div>
-      </a>
-
-      <div class="work-list" aria-label="Impact study list">
-        <a class="work-list-item" href="impact-spark-labs.html">
-          <div class="work-list-media">
-            <img src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs logo" />
-          </div>
-          <div class="work-list-copy">
-            <div class="case-meta">Impact Study 03</div>
-            <h3>Automating the work behind expenses and events</h3>
-            <p>spARK Labs used Claude Cowork, MCP connectors, and custom skills to automate expense reports and event requests with a simple slash command.</p>
-          </div>
-          <div class="work-list-right">
-            <div class="impact-date">May 28, 2026</div>
-            <span class="work-list-action">Read</span>
-          </div>
-        </a>
-
-        <a class="work-list-item" href="impact-fishin-prints.html">
-          <div class="work-list-media">
-            <img src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints logo" />
-          </div>
-          <div class="work-list-copy">
-            <div class="case-meta">Impact Study 02</div>
-            <h3>Fishin Prints AI print workflow</h3>
-            <p>An AI workflow that turns customer fish photos into print-ready artwork faster, lowering manual production time and improving the buying experience.</p>
-          </div>
-          <div class="work-list-right">
-            <div class="impact-date">Apr 14, 2026</div>
-            <span class="work-list-action">Read</span>
-          </div>
-        </a>
-
-        <a class="work-list-item" href="impact-bebrief.html">
-          <div class="work-list-media">
-            <img src="assets/bebrief-logo-transparent.png" width="300" height="80" loading="lazy" alt="BeBrief logo" />
-          </div>
-          <div class="work-list-copy">
-            <div class="case-meta">Impact Study 01</div>
-            <h3>BeBrief Codex enablement</h3>
-            <p>How Codex, MCP tools, automated reviews, security agents, and phone-controlled remote agents streamlined full-stack product work.</p>
-          </div>
-          <div class="work-list-right">
-            <div class="impact-date">Mar 23, 2026</div>
-            <span class="work-list-action">Read</span>
-          </div>
-        </a>
       </div>
     </section>
 
@@ -119,6 +209,8 @@
     </div>
   </footer>
 </div>
+<script src="nav-dropdown.js"></script>
+<script src="impact-ui.js"></script>
 <script src="intake-modal.js"></script>
 <script src="site-motion.js"></script>
 </body>
