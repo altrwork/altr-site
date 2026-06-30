@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>How to write a SKILL.md that actually gets used | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed." />
+<link rel="canonical" href="https://altrwork.com/writing-a-skill-md.html" />
+<meta property="og:title" content="How to write a SKILL.md that actually gets used | altr" />
+<meta property="og:description" content="Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed." />
+<meta property="og:url" content="https://altrwork.com/writing-a-skill-md.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to write a SKILL.md that actually gets used | altr" />
+<meta name="twitter:description" content="Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to write a SKILL.md that actually gets used",
+  "description": "Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed.",
+  "image": "https://altrwork.com/assets/altr_social_preview.png",
+  "author": {
+    "@type": "Organization",
+    "name": "altr"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "altr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png"
+    }
+  },
+  "mainEntityOfPage": "https://altrwork.com/writing-a-skill-md.html",
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30"
+}
+</script>
+<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html#services">Services</a>
+      <a href="impact-studies.html">Work</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Resources
+          <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="start-a-conversation.html" class="nav-cta">Contact us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-hero article-hero">
+      <div class="eyebrow">Claude Skills</div>
+      <h1>Most SKILL.md files fail for one of two reasons.</h1>
+      <p class="page-lede">Either the description is too vague for Claude to know when to load it, or the body is long enough that it crowds out everything else in context. Writing a Skill that actually gets used reliably comes down to a handful of disciplines.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>In practice</span>
+          <p>A Skill is only useful if it triggers at the right moment and gives Claude exactly enough to act on. That means writing a sharp description, keeping the body lean, and treating the file as instructions for a competent reader, not documentation for a human.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>The description field does the triggering.</h2>
+          <p>Claude decides whether to load a Skill based on its name and description, before it has read the body. A description that just restates the skill's name ("helps with reports") gives the model nothing to match against. A description that lists concrete trigger phrases, file types, or task shapes the user is likely to mention gets picked up far more reliably.</p>
+          <p>Write the description the way you'd write a search query you expect to match the user's actual words, not a category label.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Keep the body procedural, not informational.</h2>
+          <p>SKILL.md isn't a wiki page. It's a set of instructions a capable reader executes once, right now, on a real task. Background, history, and rationale belong in a comment or a linked reference file — not the main body, where every paragraph competes for the model's attention.</p>
+          <p>Lead with what to do. State constraints and conventions as rules, not prose. If a step has a fixed sequence, number it.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Push detail into referenced files, not inline.</h2>
+          <p>Skills can ship supporting scripts, templates, and reference docs alongside SKILL.md. Anything that's only needed in an edge case — a full schema, a long example, a rarely used flag — belongs in a separate file that gets read on demand, not loaded by default with every invocation.</p>
+          <p>This keeps the default load small and fast while still making deep detail available when the task actually calls for it.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Test the trigger, not just the output.</h2>
+          <p>It's easy to validate that a Skill produces the right output once you've manually invoked it. The harder, more important test is whether it fires on its own from a natural request — the phrasing a real user would actually type, not the phrasing you used while building it.</p>
+          <p>If a Skill never triggers under its intended phrasing, the body quality doesn't matter. Fix the description first.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>Write the description for the matcher and the body for the executor. If you only optimize one of the two, the Skill will either never fire or fire and underdeliver.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Building out a Skills library for your team?</h2>
+        <p>We help teams turn their existing playbooks and conventions into Skills that Claude actually picks up and follows.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Map your Skills library</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI enablement and automation for teams doing real work.</span>
+      </a>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Tampa, FL</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="nav-dropdown.js"></script>
+<script src="intake-modal.js"></script>
+</body>
+</html>
