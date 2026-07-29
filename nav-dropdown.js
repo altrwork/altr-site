@@ -1,3 +1,16 @@
+document.querySelectorAll('.nav-dropdown-panel').forEach(panel => {
+  if (panel.querySelector('a[href="frameworks.html"]')) return;
+  const link = document.createElement('a');
+  link.href = 'frameworks.html';
+  link.className = 'nav-dropdown-item';
+  link.setAttribute('role', 'menuitem');
+  link.textContent = 'Frameworks';
+  if (location.pathname.endsWith('/frameworks.html') || location.pathname.endsWith('/how-we-altr-work.html')) {
+    link.setAttribute('aria-current', 'page');
+  }
+  panel.appendChild(link);
+});
+
 document.querySelectorAll('.nav').forEach(nav => {
   const navLinks = nav.querySelector('.nav-links');
 

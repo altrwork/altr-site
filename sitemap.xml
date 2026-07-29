@@ -47,8 +47,18 @@
   </url>
   <url>
     <loc>https://altrwork.com/resources.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/frameworks.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://altrwork.com/how-we-altr-work.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altrwork.com/llm-retrieval-grounded-answers.html</loc>
