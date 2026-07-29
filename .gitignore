@@ -2,7 +2,12 @@
 node_modules/
 dist/
 build/
+!build/
+!build/sites-vite-plugin.ts
 .env
 .env.*
 .playwright-mcp/
 uploads/videos/event-request-final.mp4
+.next/
+public/
+.wrangler/
