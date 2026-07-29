@@ -8,7 +8,9 @@ document.querySelectorAll('.nav-dropdown-panel').forEach(panel => {
   if (location.pathname.endsWith('/frameworks.html') || location.pathname.endsWith('/how-we-altr-work.html')) {
     link.setAttribute('aria-current', 'page');
   }
-  panel.appendChild(link);
+  const tutorialsLink = panel.querySelector('a[href="tutorials.html"]');
+  if (tutorialsLink) tutorialsLink.insertAdjacentElement('afterend', link);
+  else panel.appendChild(link);
 });
 
 document.querySelectorAll('.nav').forEach(nav => {
