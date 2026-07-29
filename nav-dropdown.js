@@ -1,5 +1,5 @@
 document.querySelectorAll('.nav-dropdown-panel').forEach(panel => {
-  if (panel.querySelector('a[href="frameworks.html"]')) return;
+  if (panel.querySelector('a[href$="/frameworks"], a[href$="frameworks.html"]')) return;
   const link = document.createElement('a');
   link.href = 'frameworks.html';
   link.className = 'nav-dropdown-item';
@@ -8,7 +8,7 @@ document.querySelectorAll('.nav-dropdown-panel').forEach(panel => {
   if (location.pathname.endsWith('/frameworks.html') || location.pathname.endsWith('/how-we-altr-work.html')) {
     link.setAttribute('aria-current', 'page');
   }
-  const tutorialsLink = panel.querySelector('a[href="tutorials.html"]');
+  const tutorialsLink = panel.querySelector('a[href$="/tutorials"], a[href$="tutorials.html"]');
   if (tutorialsLink) tutorialsLink.insertAdjacentElement('afterend', link);
   else panel.appendChild(link);
 });
