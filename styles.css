@@ -1221,6 +1221,48 @@ h4 {
   margin-bottom: 18px;
 }
 
+.article-block h3 {
+  max-width: 640px;
+  margin: 34px 0 14px;
+  color: var(--bone);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+}
+
+.article-block ul,
+.article-block ol {
+  max-width: 720px;
+  margin: 0 0 24px;
+  padding-left: 1.4em;
+  color: var(--bone-dim);
+  font-size: clamp(17px, 1.55vw, 20px);
+  line-height: 1.68;
+}
+
+.article-block li + li {
+  margin-top: 7px;
+}
+
+.article-block blockquote {
+  margin: 28px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 2px solid var(--sage);
+}
+
+.article-block blockquote p {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--sans);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+}
+
+.article-block a {
+  color: var(--bone);
+  text-decoration-color: var(--sage);
+  text-underline-offset: 0.18em;
+}
+
 .article-body p {
   max-width: 760px;
   font-size: clamp(17px, 1.55vw, 20px);
@@ -1261,6 +1303,8 @@ h4 {
 
 .framework-figure img {
   width: 100%;
+  height: auto;
+  object-fit: contain;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgba(245, 235, 220, 0.04);
