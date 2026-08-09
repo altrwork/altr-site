@@ -5,6 +5,7 @@
     ".hero-headline span",
     ".hero-copy",
     ".hero-actions",
+    ".ai-gap-card",
     ".page-hero > .section-kicker",
     ".page-hero h1",
     ".page-hero p",

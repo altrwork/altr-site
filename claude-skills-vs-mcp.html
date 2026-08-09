@@ -40,15 +40,15 @@
   },
   "mainEntityOfPage": "https://altrwork.com/claude-skills-vs-mcp.html",
   "datePublished": "2026-06-30",
-  "dateModified": "2026-06-30"
+  "dateModified": "2026-08-09"
 }
 </script>
 <link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260809-inter" />
 </head>
 <body>
 <div class="site-shell">
@@ -73,33 +73,56 @@
   <main class="page">
     <section class="page-hero article-hero">
       <div class="eyebrow">Extending Claude</div>
-      <h1>Skills and MCP both extend Claude. They aren't the same lever.</h1>
-      <p class="page-lede">As teams build more on top of Claude, the question of "do we write a Skill or stand up an MCP server" comes up constantly. The honest answer is that they answer different questions: what Claude knows how to do, versus what Claude can reach.</p>
+      <h1>Claude Skills vs MCP: when should you use each?</h1>
+      <p class="page-lede">Claude Skills package repeatable instructions, scripts, and reference material. Model Context Protocol (MCP) connects Claude to live tools and data. Use a Skill when Claude needs a better method; use MCP when Claude needs access to a system. Use both when the method depends on that access.</p>
+      <p class="article-meta">By altr · Updated August 9, 2026 · 6 min read</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
-          <p>A Skill packages procedural knowledge — instructions, conventions, reusable scripts — that Claude loads when a task matches. MCP exposes live capability — tools, data, and actions in an external system. Most production setups end up using both.</p>
+          <span>The short answer</span>
+          <p>A Skill teaches Claude how to perform a specialized workflow consistently. MCP gives Claude a standardized way to discover and call external capabilities. They solve different layers of the same system, so neither is a replacement for the other.</p>
         </div>
 
         <section class="article-block">
-          <h2>Skills package how, not what.</h2>
-          <p>A Skill is a folder with a SKILL.md file and, optionally, supporting scripts or reference material. It doesn't grant Claude any new ability to reach the outside world — it teaches Claude how to do something well within the tools it already has: a house style for commit messages, a checklist for running an audit, a template for drafting a weekly report.</p>
-          <p>Skills are model-loaded context, not infrastructure. There's no server to deploy, no auth flow, no uptime to manage. That makes them cheap to write and cheap to iterate on.</p>
+          <h2>What is the difference between Claude Skills and MCP?</h2>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Question</th><th>Claude Skill</th><th>MCP server</th></tr></thead>
+              <tbody>
+                <tr><td>Primary job</td><td>Package instructions and reusable workflow knowledge</td><td>Expose live tools, resources, and prompts</td></tr>
+                <tr><td>Best for</td><td>Repeatable methods, standards, templates, and scripts</td><td>Databases, APIs, SaaS tools, and actions with side effects</td></tr>
+                <tr><td>Infrastructure</td><td>A folder centered on <code>SKILL.md</code></td><td>A local or remote client-server connection</td></tr>
+                <tr><td>Operational burden</td><td>Versioning and testing the instructions</td><td>Authentication, deployment, permissions, logging, and uptime</td></tr>
+                <tr><td>Can they work together?</td><td colspan="2">Yes. A Skill can teach Claude when and how to use tools exposed through MCP.</td></tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section class="article-block">
-          <h2>MCP grants reach.</h2>
+          <h2>When should you use a Claude Skill?</h2>
+          <p>A Skill is a folder with a <code>SKILL.md</code> file and, optionally, supporting scripts or reference material. It doesn't grant Claude a new connection to the outside world. It teaches Claude how to do something well with the capabilities already available: follow a house style, run an audit, or draft a weekly report.</p>
+          <p>Skills are model-loaded context, not infrastructure. There's no server to deploy, no auth flow, no uptime to manage. That makes them cheap to write and cheap to iterate on.</p>
+          <p>Anthropic describes Skills as folders of instructions, scripts, and resources that Claude loads dynamically for specialized tasks. That progressive-disclosure model keeps detailed procedures available without loading all of them into every conversation. See <a href="https://support.claude.com/en/articles/12512176-what-are-skills">Anthropic's overview of Claude Skills</a>.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>When should you use MCP?</h2>
           <p>MCP servers expose live tools and resources — read a database, call an internal API, send a Slack message, query a CRM. They're the layer that lets Claude act on systems outside the conversation, with real authentication and real side effects.</p>
           <p>That comes with the obligations of any service: deployment, secrets management, rate limits, and a security boundary around what the tool is allowed to touch.</p>
+          <p>The official <a href="https://modelcontextprotocol.io/docs/learn/architecture">MCP architecture guide</a> defines a client-server model in which an AI application connects to one or more servers and discovers the capabilities each server exposes.</p>
         </section>
 
         <section class="article-block">
-          <h2>The test: does Claude need new knowledge, or a new door?</h2>
-          <p>If the task is "Claude already has the tools, it just needs to do this consistently" — that's a Skill. House style, internal conventions, a multi-step procedure your team already follows by hand.</p>
-          <p>If the task is "Claude needs to read or write something it currently has no access to" — that's MCP. A live system, a private data source, an action with a side effect outside the conversation.</p>
+          <h2>How do you choose between a Skill and MCP?</h2>
+          <ol>
+            <li><strong>Start with the missing capability.</strong> If Claude has the tools but needs to follow a procedure consistently, write a Skill.</li>
+            <li><strong>Identify outside access.</strong> If Claude must read or write a live system it cannot reach, build or connect an MCP server.</li>
+            <li><strong>Separate method from permission.</strong> Keep workflow guidance in the Skill and enforce data access, authentication, and side effects at the MCP layer.</li>
+            <li><strong>Compose them when needed.</strong> Let the Skill describe the safe sequence for using MCP tools, including review and escalation rules.</li>
+          </ol>
           <p>In our own stack, Skills carry the conventions (how we structure a campaign brief, how we format a client report) and MCP servers carry the access (BossHub, Nexudus, internal Workers). Skills tell Claude how to use the tools well; MCP is what makes the tools exist in the first place.</p>
         </section>
 
@@ -111,6 +134,30 @@
         <div class="article-callout">
           <span>Working rule</span>
           <p>If you're writing instructions, write a Skill. If you're writing a server, you're building MCP. Most mature setups need both, and conflating them is the fastest way to over-engineer a simple need.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Frequently asked questions</h2>
+          <h3>Can a Claude Skill call MCP tools?</h3>
+          <p>Yes. A Skill can instruct Claude to use named MCP tools in a specific order, validate their results, and request human approval before sensitive actions. The Skill provides the operating method; the MCP server provides the actual connection and enforces its permissions.</p>
+          <h3>Do Claude Skills replace system prompts?</h3>
+          <p>No. System prompts set broad behavior for a session or application. Skills are task-specific packages that load when relevant, making them better for specialized procedures that would otherwise consume context on every request.</p>
+          <h3>Does MCP require a remote server?</h3>
+          <p>No. MCP supports local connections over standard input/output and remote connections over Streamable HTTP. The right transport depends on where the client and protected system run, along with the authentication and deployment requirements.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Related tutorials</h2>
+          <ul>
+            <li><a href="writing-a-skill-md.html">How to write a SKILL.md that actually gets used</a></li>
+            <li><a href="mcp-server-design-internal-ai-tools.html">How to design an MCP server for internal AI tools</a></li>
+            <li><a href="mcp-agents-function-calling.html">MCP, agents, and function calling: when to use each</a></li>
+          </ul>
+        </section>
+
+        <div class="article-author">
+          <span>About the author</span>
+          <p><a href="about.html">altr</a> is an AI enablement and automation studio that designs agent workflows, internal tools, and practical operating systems with the teams that use them.</p>
         </div>
       </article>
     </section>

@@ -43,15 +43,15 @@
     "@id": "https://altrwork.com/rag-evaluation-internal-knowledge-bases.html"
   },
   "datePublished": "2026-06-16",
-  "dateModified": "2026-06-16"
+  "dateModified": "2026-08-09"
 }
 </script>
 <link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260809-inter" />
 </head>
 <body>
 <div class="site-shell">
@@ -77,36 +77,55 @@
     <section class="page-hero article-hero">
       <div class="eyebrow">RAG Systems</div>
       <h1>RAG evaluation for internal knowledge bases.</h1>
-      <p class="page-lede">A retrieval system can look useful in a demo and still fail on daily questions. Evaluation gives technical leaders a way to measure whether the system retrieves the right context and answers from it faithfully.</p>
+      <p class="page-lede">RAG evaluation measures two systems separately: whether retrieval finds the right source material and whether generation answers faithfully from that material. A useful evaluation set combines real user questions, expected sources, answer requirements, refusal cases, and release thresholds that expose the owner of each failure.</p>
+      <p class="article-meta">By altr · Updated August 9, 2026 · 6 min read</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
+          <span>The short answer</span>
           <p>We build RAG evaluation around real questions, expected sources, answer requirements, and failure categories. The outputs are RAG metrics, examples, trend reports, and release checks that data and engineering teams can act on.</p>
         </div>
 
         <section class="article-block">
-          <h2>Build golden sets from real work.</h2>
+          <h2>What should a RAG evaluation set contain?</h2>
           <p>A golden set should include questions people actually ask the knowledge base. Each item needs the question, acceptable source documents, required facts, answer constraints, owner, and review date.</p>
           <p>The set should cover common requests, edge cases, recent policy changes, ambiguous wording, and questions the system should refuse. This gives the team a stable input for regression checks.</p>
         </section>
 
         <section class="article-block">
-          <h2>Measure retrieval before the answer.</h2>
+          <h2>Which RAG retrieval metrics should you measure?</h2>
           <p>Retrieval metrics show whether the right context reached the model. Useful checks include recall at k, context precision, duplicate rate, stale-source rate, and whether the top result came from an approved source.</p>
           <p>These metrics isolate failures. If the source never appears in retrieved context, prompt changes will have limited value. The retrieval owner needs to inspect chunking, metadata, filters, permissions, and ranking.</p>
         </section>
 
         <section class="article-block">
-          <h2>Judge answers against sources.</h2>
+          <h2>Which RAG answer metrics should you measure?</h2>
           <p>Answer metrics should evaluate faithfulness, completeness, citation accuracy, refusal behavior, and usefulness for the task. The expected output is a scored result with the source passages used to justify the score.</p>
           <p>Faithfulness matters because an answer can sound correct while adding claims the source does not support. A good eval report shows the unsupported sentence, the missing source, and the likely cause.</p>
+          <p>The peer-reviewed <a href="https://aclanthology.org/2024.eacl-demo.16/">RAGAS paper</a> formalized separate measures for retrieved-context quality, faithfulness, and answer relevance. Automated scoring can accelerate iteration, but teams should calibrate model-based judges against human review on their own domain.</p>
         </section>
 
         <section class="article-block">
-          <h2>Turn reports into release checks.</h2>
+          <h2>RAG retrieval metrics vs answer metrics</h2>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Layer</th><th>Metric</th><th>Question it answers</th></tr></thead>
+              <tbody>
+                <tr><td>Retrieval</td><td>Recall at k</td><td>Did the expected source appear in the top k results?</td></tr>
+                <tr><td>Retrieval</td><td>Context precision</td><td>How much of the retrieved context was actually relevant?</td></tr>
+                <tr><td>Retrieval</td><td>Freshness and permission checks</td><td>Was the source current and allowed for this user?</td></tr>
+                <tr><td>Generation</td><td>Faithfulness</td><td>Does every material claim follow from the retrieved evidence?</td></tr>
+                <tr><td>Generation</td><td>Completeness</td><td>Did the answer include the facts required for the task?</td></tr>
+                <tr><td>Generation</td><td>Citation accuracy</td><td>Does each citation support the statement attached to it?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="article-block">
+          <h2>How do you turn RAG evaluation into a release check?</h2>
           <p>RAG evaluation should run before changes to prompts, models, retrievers, chunking, indexes, or source permissions. CI checks can block releases when critical questions regress or when source quality drops below a threshold.</p>
           <p>The report should name the changed component, passing and failing examples, metric deltas, owners, and next actions. That makes evaluation a maintenance system instead of a one-time scorecard.</p>
         </section>
@@ -114,6 +133,30 @@
         <div class="article-callout">
           <span>Working rule</span>
           <p>Evaluate retrieval and answer quality separately, then make the failure owner obvious.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>Frequently asked questions</h2>
+          <h3>What is a golden set for RAG?</h3>
+          <p>A RAG golden set is a reviewed collection of realistic questions paired with acceptable sources, required answer facts, and expected behavior. It should include routine questions, edge cases, ambiguous requests, current-policy questions, and requests the system must refuse.</p>
+          <h3>Should retrieval and generation be evaluated separately?</h3>
+          <p>Yes. Separating them tells the team whether a failure came from indexing and ranking or from the model's use of retrieved context. Without that split, teams often change prompts to compensate for documents the retriever never supplied.</p>
+          <h3>Can an LLM judge RAG answers automatically?</h3>
+          <p>Yes, but judge scores should be calibrated against human-reviewed examples and monitored for drift. Use deterministic checks where possible, require evidence for model-based scores, and keep human review for high-risk or ambiguous failures.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Related tutorials</h2>
+          <ul>
+            <li><a href="llm-retrieval-grounded-answers.html">How LLMs use retrieval to answer with context</a></li>
+            <li><a href="ai-code-review-judge-agents.html">AI code review with judge agents</a></li>
+            <li><a href="context-engineering-large-codebases.html">Context engineering for large codebases</a></li>
+          </ul>
+        </section>
+
+        <div class="article-author">
+          <span>About the author</span>
+          <p><a href="about.html">altr</a> builds and evaluates grounded AI systems for internal knowledge work, with an emphasis on source quality, explicit failure modes, and release checks teams can maintain.</p>
         </div>
       </article>
     </section>

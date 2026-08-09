@@ -43,15 +43,15 @@
     "@id": "https://altrwork.com/mcp-server-design-internal-ai-tools.html"
   },
   "datePublished": "2026-06-16",
-  "dateModified": "2026-06-16"
+  "dateModified": "2026-08-09"
 }
 </script>
 <link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260809-inter" />
 </head>
 <body>
 <div class="site-shell">
@@ -76,44 +76,81 @@
   <main class="page">
     <section class="page-hero article-hero">
       <div class="eyebrow">Internal AI Tools</div>
-      <h1>MCP server design for internal AI tools.</h1>
-      <p class="page-lede">Model Context Protocol tools give AI systems a controlled way to inspect data and take action. The useful work is deciding what each tool may do, who can call it, and how the result is checked.</p>
+      <h1>How to design an MCP server for internal AI tools.</h1>
+      <p class="page-lede">A production MCP server should expose narrow tools with typed schemas, least-privilege access, predictable errors, approval gates for sensitive writes, and complete audit records. Treat the server as a security boundary around internal systems—not as a thin wrapper around every available API endpoint.</p>
+      <p class="article-meta">By altr · Updated August 9, 2026 · 5 min read</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
+          <span>Design principle</span>
           <p>We design MCP servers like internal APIs with stronger operating rules. Each tool needs a clear boundary, typed inputs, predictable outputs, audit records, and an owner who accepts the risk of read or write access.</p>
         </div>
 
         <section class="article-block">
-          <h2>Start with tool boundaries.</h2>
+          <h2>What should an MCP server expose?</h2>
           <p>A good MCP server design begins with a list of jobs the agent is allowed to perform. Examples include searching CRM notes, reading support tickets, drafting a refund request, or opening a deployment report.</p>
           <p>The owner should define the input, the data touched, the expected output, and the failure mode for each tool. Broad tools create ambiguous behavior. Small tools make permissions, testing, and review easier.</p>
+          <p>The <a href="https://modelcontextprotocol.io/docs/learn/architecture">official MCP architecture guide</a> separates tools, resources, and prompts into discoverable server capabilities. That separation is useful when deciding whether the model should take an action, read context, or start from a reusable interaction template.</p>
         </section>
 
         <section class="article-block">
-          <h2>Separate read tools from write tools.</h2>
+          <h2>How should MCP permissions work?</h2>
           <p>Read tools should return only the data needed for the task. Write tools should require stronger auth, narrower scopes, idempotency keys, and human approval for material changes.</p>
           <p>This split gives technical leaders a clean control point. A support agent can search order history without permission to issue refunds. A deployment assistant can inspect logs without permission to change production settings.</p>
         </section>
 
         <section class="article-block">
-          <h2>Use schemas as operating contracts.</h2>
+          <h2>Why do MCP tool schemas matter?</h2>
           <p>Model Context Protocol tools should expose strict schemas for inputs and outputs. Required fields, enums, limits, and validation errors tell the agent what it can ask for and tell engineers what they need to test.</p>
           <p>Good schemas also protect downstream systems. They prevent free-form database filters, oversized payloads, hidden writes, and vague success messages. The output should include enough source detail for a person to verify the result.</p>
         </section>
 
         <section class="article-block">
-          <h2>Make approval and audit part of the server.</h2>
+          <h2>How do you test and audit an MCP server?</h2>
           <p>Internal AI tools need logs that record the caller, tool name, input summary, source system, result status, approval state, and correlation ID. These records should be searchable by engineering and operations owners.</p>
           <p>Local testing should cover success paths, permission failures, malformed inputs, empty results, rate limits, and approval gates. The handoff point is explicit: the agent proposes, the server records, and the human approves high-impact writes.</p>
+          <p>For remote servers, use the protocol's current Streamable HTTP transport and test the full authorization flow. Cloudflare's <a href="https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/">remote MCP server guide</a> documents authenticated and unauthenticated deployments and recommends the MCP Inspector for local verification.</p>
         </section>
 
         <div class="article-callout">
           <span>Working rule</span>
           <p>Give every MCP tool one job, one owner, one auth path, and one auditable result.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>MCP server design checklist</h2>
+          <ol>
+            <li>Give each tool one clear business job and a named owner.</li>
+            <li>Separate read operations from writes and grant the minimum required scope.</li>
+            <li>Define strict input schemas, bounded outputs, and actionable error responses.</li>
+            <li>Require confirmation or human approval for irreversible and high-impact actions.</li>
+            <li>Log the caller, tool, input summary, approval state, result, and correlation ID.</li>
+            <li>Test normal, malformed, unauthorized, empty, rate-limited, and replayed requests.</li>
+          </ol>
+        </section>
+
+        <section class="article-block">
+          <h2>Frequently asked questions</h2>
+          <h3>Should one MCP tool wrap an entire API?</h3>
+          <p>Usually not. A narrow task-oriented tool is easier for a model to select, easier for engineers to test, and easier for security owners to authorize. Keep low-level flexibility behind the server unless the client genuinely needs it.</p>
+          <h3>When should an MCP write require human approval?</h3>
+          <p>Require approval when a write is difficult to reverse or could affect money, customer communication, production systems, access rights, legal obligations, or employee records. Lower-risk idempotent changes may use policy-based automation with logging and bounded permissions.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Related tutorials</h2>
+          <ul>
+            <li><a href="claude-skills-vs-mcp.html">Claude Skills vs MCP: when should you use each?</a></li>
+            <li><a href="mcp-agents-function-calling.html">MCP, agents, and function calling: when to use each</a></li>
+            <li><a href="ai-governance-lite-smb.html">AI governance for small and mid-size businesses</a></li>
+          </ul>
+        </section>
+
+        <div class="article-author">
+          <span>About the author</span>
+          <p><a href="about.html">altr</a> designs secure AI workflows and internal tools, including MCP servers that connect agents to real operational systems with explicit permissions and review paths.</p>
         </div>
       </article>
     </section>

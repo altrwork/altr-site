@@ -21,8 +21,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260809-mobile-chart-dates-lower" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -125,9 +125,164 @@
       <div class="hero-content">
         <div class="hero-main">
           <div class="hero-narrative">
-            <div class="hero-kicker">AI enablement + automation / Tampa + remote</div>
-            <h1 class="hero-headline"><span>altr the</span><span><em>way</em> you</span><span>work.</span></h1>
-            <p class="hero-copy">We turn <em>repeated work</em> into AI-assisted workflows, agents, and automations that fit your tools, permissions, and <strong>review paths</strong>.</p>
+            <div class="hero-kicker">AI enablement + deployment</div>
+            <h1 class="sr-only">altr the way you work.</h1>
+            <div class="ai-gap-card ai-gap-card-hero">
+              <svg
+                id="ai-gap-graphic"
+                class="ai-gap-graphic ai-gap-graphic-desktop"
+                viewBox="0 0 1000 460"
+                preserveAspectRatio="xMidYMid meet"
+                role="img"
+                aria-labelledby="ai-gap-svg-title ai-gap-svg-desc"
+              >
+                <title id="ai-gap-svg-title">The AI adoption gap</title>
+                <desc id="ai-gap-svg-desc">Model capability accelerates much faster than business adoption between 2023 and 2030. altr helps teams close that gap by turning capability into reliable workflows.</desc>
+                <defs>
+                  <linearGradient id="ai-gap-fill" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#C2815C" stop-opacity="0.02" />
+                    <stop offset="100%" stop-color="#C2815C" stop-opacity="0.22" />
+                  </linearGradient>
+                </defs>
+
+                <g class="ai-gap-axis" data-motion="axes" aria-hidden="true">
+                  <line x1="76" y1="380" x2="920" y2="380" />
+                  <line x1="76" y1="54" x2="76" y2="380" />
+                  <line class="ai-gap-gridline" x1="76" y1="288" x2="920" y2="288" />
+                  <line class="ai-gap-gridline" x1="76" y1="196" x2="920" y2="196" />
+                  <line class="ai-gap-gridline" x1="76" y1="104" x2="920" y2="104" />
+                </g>
+
+                <path
+                  class="ai-gap-area"
+                  data-motion="gap"
+                  d="M470 290 C610 235 730 160 900 72 L900 298 C770 320 650 334 470 358 Z"
+                  fill="url(#ai-gap-fill)"
+                  aria-hidden="true"
+                />
+
+                <line class="ai-gap-today" data-motion="today" x1="470" y1="70" x2="470" y2="380" aria-hidden="true" />
+
+                <path
+                  class="ai-gap-curve ai-gap-curve-adoption"
+                  data-motion="adoption"
+                  pathLength="1"
+                  d="M76 380 C260 378 380 366 520 350 C650 334 770 320 900 298"
+                  aria-hidden="true"
+                />
+                <path
+                  class="ai-gap-curve ai-gap-curve-capability"
+                  data-motion="capability"
+                  pathLength="1"
+                  d="M76 380 C220 375 340 340 470 290 C610 235 730 160 900 72"
+                  aria-hidden="true"
+                />
+
+                <g class="ai-gap-chart-label ai-gap-model-label" data-motion="model-label" aria-hidden="true">
+                  <line x1="665" y1="142" x2="696" y2="166" />
+                  <circle cx="701" cy="168" r="3.5" />
+                  <text x="526" y="137">Model capability</text>
+                </g>
+                <g class="ai-gap-chart-label ai-gap-adoption-label" data-motion="adoption-label" aria-hidden="true">
+                  <line x1="650" y1="354" x2="682" y2="331" />
+                  <circle cx="687" cy="328" r="3.5" />
+                  <text x="508" y="365">Business adoption</text>
+                </g>
+                <g class="ai-gap-callout" data-motion="callout" aria-hidden="true">
+                  <text x="650" y="239">
+                    <tspan x="650" dy="0">The gap is where</tspan>
+                    <tspan x="650" dy="24">we get to work.</tspan>
+                  </text>
+                </g>
+
+                <g class="ai-gap-years" data-motion="years" aria-hidden="true">
+                  <text x="76" y="422">2023</text>
+                  <text x="470" y="422" text-anchor="middle" class="ai-gap-today-label">Today</text>
+                  <text x="920" y="422" text-anchor="end">2030</text>
+                </g>
+              </svg>
+              <svg
+                id="ai-gap-graphic-mobile"
+                class="ai-gap-graphic ai-gap-graphic-mobile"
+                viewBox="0 0 390 720"
+                preserveAspectRatio="xMidYMid slice"
+                role="img"
+                aria-labelledby="ai-gap-mobile-title ai-gap-mobile-desc"
+              >
+                <title id="ai-gap-mobile-title">The AI adoption gap</title>
+                <desc id="ai-gap-mobile-desc">Model capability accelerates much faster than business adoption between 2023 and 2030. altr helps teams close that gap by turning capability into reliable workflows.</desc>
+                <defs>
+                  <linearGradient id="ai-gap-fill-mobile" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#C2815C" stop-opacity="0.22" />
+                    <stop offset="100%" stop-color="#C2815C" stop-opacity="0.03" />
+                  </linearGradient>
+                </defs>
+
+                <g class="ai-gap-axis" data-motion="axes" aria-hidden="true">
+                  <line x1="42" y1="600" x2="348" y2="600" />
+                  <line x1="42" y1="72" x2="42" y2="600" />
+                  <line class="ai-gap-gridline" x1="42" y1="470" x2="348" y2="470" />
+                  <line class="ai-gap-gridline" x1="42" y1="320" x2="348" y2="320" />
+                  <line class="ai-gap-gridline" x1="42" y1="170" x2="348" y2="170" />
+                </g>
+
+                <path
+                  class="ai-gap-area"
+                  data-motion="gap"
+                  d="M180 505 C235 430 300 250 348 80 L348 535 C280 550 230 566 180 580 Z"
+                  fill="url(#ai-gap-fill-mobile)"
+                  aria-hidden="true"
+                />
+
+                <line class="ai-gap-today" data-motion="today" x1="180" y1="86" x2="180" y2="600" aria-hidden="true" />
+
+                <path
+                  class="ai-gap-curve ai-gap-curve-adoption"
+                  data-motion="adoption"
+                  pathLength="1"
+                  d="M42 600 C110 598 190 584 260 560 C300 550 325 540 348 535"
+                  aria-hidden="true"
+                />
+                <path
+                  class="ai-gap-curve ai-gap-curve-capability"
+                  data-motion="capability"
+                  pathLength="1"
+                  d="M42 600 C100 590 150 552 180 505 C235 430 300 250 348 80"
+                  aria-hidden="true"
+                />
+
+                <g class="ai-gap-chart-label ai-gap-model-label" data-motion="model-label" aria-hidden="true">
+                  <line x1="172" y1="425" x2="207" y2="459" />
+                  <circle cx="211" cy="463" r="2.8" />
+                  <text x="76" y="416">Model capability</text>
+                </g>
+                <g class="ai-gap-chart-label ai-gap-adoption-label" data-motion="adoption-label" aria-hidden="true">
+                  <line x1="286" y1="536" x2="299" y2="553" />
+                  <circle cx="301" cy="557" r="2.8" />
+                  <text x="330" y="523" text-anchor="end">Business adoption</text>
+                </g>
+
+                <g class="ai-gap-callout" data-motion="callout" aria-hidden="true">
+                  <text x="215" y="480">
+                    <tspan x="215" dy="0">The gap is where</tspan>
+                    <tspan x="215" dy="19">we get to work.</tspan>
+                  </text>
+                </g>
+
+                <g class="ai-gap-years" data-motion="years" aria-hidden="true">
+                  <text x="42" y="668">2023</text>
+                  <text x="180" y="668" text-anchor="middle" class="ai-gap-today-label">Today</text>
+                  <text x="348" y="668" text-anchor="end">2030</text>
+                </g>
+              </svg>
+              <div class="ai-gap-mobile-date-row" aria-hidden="true">
+                <span>2023</span>
+                <span>Today</span>
+                <span>2030</span>
+              </div>
+              <p class="sr-only">From 2023 to 2030, model capability rises sharply while business adoption improves gradually. altr helps teams close that gap by turning AI capability into reliable workflows.</p>
+            </div>
+            <p class="hero-copy">We <em>altr</em> work by helping your business adopt AI-assisted workflows, agents, and automations that fit your existing operations.</p>
             <div class="hero-actions">
               <a class="button primary" href="start-a-conversation.html">Book a workflow intro</a>
               <a class="button secondary" href="impact-studies.html">See the work</a>
@@ -188,9 +343,15 @@
     <section class="modern-proof-band" aria-label="Client proof">
       <p>Partner teams</p>
       <div class="proof-logos">
-        <span><img class="logo-img logo-img-wide logo-tone-flat" src="assets/bebrief-logo-transparent.png" width="300" height="80" loading="lazy" alt="BeBrief" /></span>
-        <span><img class="logo-img logo-img-wide logo-tone-flat" src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" /></span>
-        <span><img class="logo-img logo-img-wide logo-tone-warm" src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs" /></span>
+        <a class="proof-logo-card proof-logo-bebrief" href="impact-bebrief.html" aria-label="Read the BeBrief impact study">
+          <img class="proof-logo-img proof-logo-img-bebrief" src="assets/bebrief-logo-transparent.png" width="300" height="80" loading="lazy" alt="BeBrief" />
+        </a>
+        <a class="proof-logo-card proof-logo-fishin" href="impact-fishin-prints.html" aria-label="Read the Fishin Prints impact study">
+          <img class="proof-logo-img proof-logo-img-fishin" src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" />
+        </a>
+        <a class="proof-logo-card proof-logo-spark" href="impact-spark-labs.html" aria-label="Read the spARK Labs impact study">
+          <img class="proof-logo-img proof-logo-img-spark" src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs" />
+        </a>
       </div>
     </section>
 
@@ -292,5 +453,6 @@
 <script src="intake-modal.js"></script>
 <script src="nav-dropdown.js"></script>
 <script src="site-motion.js"></script>
+<script type="module" src="ai-gap-motion.js?v=20260809-motion13-chart-context"></script>
 </body>
 </html>
