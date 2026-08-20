@@ -4,10 +4,10 @@
 <meta charset="utf-8" />
 <title>Pricing | AI Consulting and Automation | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="What altr charges: workflow audits from $2,500, team workshops from $4,500, pilot builds $4,500-$8,500, phase builds from $15,000, and a $185/hr all-inclusive rate." />
+<meta name="description" content="What altr charges: a free discovery call, team workshops from $3,500, builds scoped as one fixed fee after discovery, embedded engineering at $185/hr all-inclusive." />
 <link rel="canonical" href="https://altrwork.com/pricing.html" />
 <meta property="og:title" content="Pricing | AI Consulting and Automation | altr" />
-<meta property="og:description" content="What altr charges: workflow audits from $2,500, team workshops from $4,500, pilot builds $4,500-$8,500, phase builds from $15,000, and a $185/hr all-inclusive rate." />
+<meta property="og:description" content="What altr charges: a free discovery call, team workshops from $3,500, builds scoped as one fixed fee after discovery, embedded engineering at $185/hr all-inclusive." />
 <meta property="og:url" content="https://altrwork.com/pricing.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Pricing | AI Consulting and Automation | altr" />
-<meta name="twitter:description" content="Workflow audits from $2,500, workshops from $4,500, pilot builds $4,500-$8,500, phase builds from $15,000, $185/hr all-inclusive." />
+<meta name="twitter:description" content="Free discovery call, workshops from $3,500, builds scoped after discovery, $185/hr all-inclusive." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -36,93 +36,143 @@
       "name": "altr pricing",
       "url": "https://altrwork.com/pricing.html",
       "description": "Engagement pricing for AI enablement, workflow audits, automation pilots, and embedded engineering.",
-      "isPartOf": { "@id": "https://altrwork.com/#website" },
-      "about": { "@id": "https://altrwork.com/#business" }
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": {
+        "@id": "https://altrwork.com/#business"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://altrwork.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://altrwork.com/pricing.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pricing",
+          "item": "https://altrwork.com/pricing.html"
+        }
       ]
     },
     {
       "@type": "OfferCatalog",
       "name": "altr engagements",
-      "provider": { "@id": "https://altrwork.com/#business" },
+      "provider": {
+        "@id": "https://altrwork.com/#business"
+      },
       "itemListElement": [
         {
           "@type": "Offer",
-          "name": "Workflow audit",
+          "name": "Discovery call",
           "url": "https://altrwork.com/workflow-audit.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Workflow discovery call",
+            "provider": {
+              "@id": "https://altrwork.com/#business"
+            }
+          },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "price": "2500",
+            "price": "0",
             "priceCurrency": "USD",
             "valueAddedTaxIncluded": false
-          },
-          "itemOffered": { "@type": "Service", "name": "Workflow audit", "provider": { "@id": "https://altrwork.com/#business" } }
+          }
         },
         {
           "@type": "Offer",
           "name": "AI enablement workshop",
           "url": "https://altrwork.com/ai-enablement-workshop.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI enablement workshop",
+            "provider": {
+              "@id": "https://altrwork.com/#business"
+            }
+          },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "price": "4500",
+            "price": "3500",
             "priceCurrency": "USD",
             "valueAddedTaxIncluded": false
-          },
-          "itemOffered": { "@type": "Service", "name": "AI enablement workshop", "provider": { "@id": "https://altrwork.com/#business" } }
+          }
         },
         {
           "@type": "Offer",
           "name": "Automation pilot",
           "url": "https://altrwork.com/custom-agents.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automation pilot",
+            "provider": {
+              "@id": "https://altrwork.com/#business"
+            }
+          },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "4500",
-            "maxPrice": "8500",
             "priceCurrency": "USD",
-            "valueAddedTaxIncluded": false
-          },
-          "itemOffered": { "@type": "Service", "name": "Automation pilot", "provider": { "@id": "https://altrwork.com/#business" } }
+            "description": "Quoted as a fixed fee after the discovery call."
+          }
         },
         {
           "@type": "Offer",
           "name": "Phase build",
           "url": "https://altrwork.com/custom-agents.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Phase build",
+            "provider": {
+              "@id": "https://altrwork.com/#business"
+            }
+          },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "price": "15000",
             "priceCurrency": "USD",
-            "valueAddedTaxIncluded": false
-          },
-          "itemOffered": { "@type": "Service", "name": "Phase build", "provider": { "@id": "https://altrwork.com/#business" } }
+            "description": "Quoted as a fixed fee after the discovery call."
+          }
         },
         {
           "@type": "Offer",
           "name": "Embedded engineering",
           "url": "https://altrwork.com/forward-deployed-engineering.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Forward deployed engineering",
+            "provider": {
+              "@id": "https://altrwork.com/#business"
+            }
+          },
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
             "price": "185",
             "priceCurrency": "USD",
             "unitText": "hour"
-          },
-          "itemOffered": { "@type": "Service", "name": "Forward deployed engineering", "provider": { "@id": "https://altrwork.com/#business" } }
+          }
         },
         {
           "@type": "Offer",
           "name": "Ongoing support",
+          "url": "https://altrwork.com/pricing.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ongoing support and iteration",
+            "provider": {
+              "@id": "https://altrwork.com/#business"
+            }
+          },
           "priceSpecification": {
             "@type": "PriceSpecification",
             "minPrice": "750",
             "maxPrice": "2500",
             "priceCurrency": "USD",
             "valueAddedTaxIncluded": false
-          },
-          "itemOffered": { "@type": "Service", "name": "Ongoing support and iteration", "provider": { "@id": "https://altrwork.com/#business" } }
+          }
         }
       ]
     },
@@ -131,10 +181,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Why are prices ranges instead of fixed?",
+          "name": "What does the discovery call cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because scope drives cost and scope is unknown until the workflow is mapped. Once it is mapped, we quote a fixed fee against a written scope rather than billing open-ended hours. Our recent phase build was quoted as 80 hours at a fixed fee of $15,000, with each workstream listed and its hours named."
+            "text": "Nothing. It is a working conversation about one process you keep doing by hand. We map what actually happens, where the time goes, and whether AI belongs in it at all. You leave with a read on the workflow whether or not you hire us."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is build pricing not listed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because a build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the discovery call you get one fixed fee against written scope, with hours named per workstream."
           }
         },
         {
@@ -155,10 +213,10 @@
         },
         {
           "@type": "Question",
-          "name": "What if the audit says not to build anything?",
+          "name": "What if the call says not to build anything?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Then you pay for the audit and stop. That is a real outcome and it happens. An audit that talks you out of a $15,000 build has paid for itself several times over."
+            "text": "Then there is nothing to buy and we say so. If the process is not ready, the inputs are inconsistent, or the volume does not justify the maintenance, that answer costs you an hour and saves you a build."
           }
         },
         {
@@ -205,10 +263,10 @@
       <div>
         <div class="eyebrow">Pricing</div>
         <h1>What this costs, before you ask.</h1>
-        <p class="page-lede">Scope drives price, so most of these are floors and ranges. They are the numbers from our actual quotes, not aspirational rate cards. Once a workflow is mapped we quote a fixed fee against written scope, with hours named per workstream.</p>
+        <p class="page-lede">Start with a free call. Where we publish a number it is a floor from our actual quotes, not an aspirational rate card. Builds are quoted as one fixed fee against written scope, with hours named per workstream, once the workflow is mapped.</p>
       </div>
       <div class="price-hero-note">
-        <p>Most teams start with a workflow audit. It is bounded, it produces a decision either way, and it is the only engagement we recommend to everyone.</p>
+        <p>Most teams start with the discovery call. It costs nothing, it produces a decision either way, and it is the only thing here we recommend to everyone.</p>
       </div>
     </section>
 
@@ -219,21 +277,21 @@
           <div>
             <div class="price-rung-lead">
               <span class="price-step">01</span>
-              <h2>Workflow audit<span class="price-tag">Start here</span></h2>
+              <h2>Discovery call<span class="price-tag">Start here</span></h2>
             </div>
-            <p>One repeated process mapped end to end before anything is built. The deliverable is a decision, not a proposal.</p>
+            <p>A working conversation about one process you keep doing by hand. We map what actually happens and tell you whether AI belongs in it at all. No charge, and no obligation to build anything.</p>
             <ul>
               <li>The real path the work takes, including the steps that live in someone's head</li>
               <li>Where time, rework, and waiting actually go</li>
-              <li>The control path any future system needs: permissions, review, fallback, logging, ownership</li>
-              <li>A recommendation to enable, automate, or leave it alone, with the reasoning attached</li>
+              <li>The control path any future system would need: permissions, review, fallback, ownership</li>
+              <li>A straight recommendation to enable, automate, or leave it alone</li>
             </ul>
-            <p style="margin-top:14px"><a class="conversation-link" href="workflow-audit.html">How the audit works</a></p>
+            <p style="margin-top:14px"><a class="conversation-link" href="workflow-audit.html">What we look at</a></p>
           </div>
           <div class="price-figure">
-            <span class="price-amount">from $2,500</span>
-            <span class="price-qualifier">fixed fee</span>
-            <span class="price-basis">Bounded scope, one process. Priced off our $185/hr all-inclusive rate.</span>
+            <span class="price-amount">Free</span>
+            <span class="price-qualifier">no obligation</span>
+            <span class="price-basis">You leave with a read on the workflow whether or not you hire us.</span>
           </div>
         </article>
 
@@ -253,7 +311,7 @@
             <p style="margin-top:14px"><a class="conversation-link" href="ai-enablement-workshop.html">What a session covers</a></p>
           </div>
           <div class="price-figure">
-            <span class="price-amount">from $4,500</span>
+            <span class="price-amount">from $3,500</span>
             <span class="price-qualifier">per session</span>
             <span class="price-basis">Full day plus preparation. Scales with team size and number of workflows.</span>
           </div>
@@ -275,9 +333,9 @@
             <p style="margin-top:14px"><a class="conversation-link" href="custom-agents.html">See what we build</a></p>
           </div>
           <div class="price-figure">
-            <span class="price-amount">$4,500&ndash;$8,500</span>
-            <span class="price-qualifier">fixed fee</span>
-            <span class="price-basis">Our standard pilot range. Position in the range depends on document volume, integrations, and review complexity.</span>
+            <span class="price-amount">Scoped</span>
+            <span class="price-qualifier">after discovery</span>
+            <span class="price-basis">Quoted as one fixed fee once we know the inputs, integrations, and review complexity. A pilot is deliberately the smallest version that proves the thing works.</span>
           </div>
         </article>
 
@@ -297,9 +355,9 @@
             <p style="margin-top:14px"><a class="conversation-link" href="impact-studies.html">Read the work</a></p>
           </div>
           <div class="price-figure">
-            <span class="price-amount">from $15,000</span>
-            <span class="price-qualifier">fixed fee</span>
-            <span class="price-basis">Our most recent phase build was 80 hours at a fixed $15,000, split across five named workstreams.</span>
+            <span class="price-amount">Scoped</span>
+            <span class="price-qualifier">after discovery</span>
+            <span class="price-basis">Quoted as one fixed fee with hours named per workstream, so the number does not move because a build took longer than we thought.</span>
           </div>
         </article>
 
@@ -358,7 +416,7 @@
         </article>
         <article class="price-meta">
           <h3>An honest no is a real outcome</h3>
-          <p>If the audit shows the process is not ready, the inputs are inconsistent, or the volume does not justify maintenance, we say so and stop. An audit that prevents a <strong>$15,000</strong> build has paid for itself.</p>
+          <p>If the process is not ready, the inputs are inconsistent, or the volume does not justify the maintenance, we say so on the call and there is nothing to buy. That answer costs you <strong>an hour</strong> and saves you a build.</p>
         </article>
       </div>
     </section>
@@ -374,8 +432,8 @@
       <div class="content-split">
         <article class="content-panel">
           <div class="content-label">Ranges</div>
-          <h3>Why are prices ranges instead of fixed?</h3>
-          <p>Because scope drives cost and scope is unknown until the workflow is mapped. Once it is mapped, we quote a fixed fee against a written scope rather than billing open-ended hours.</p>
+          <h3>Why is build pricing not listed?</h3>
+          <p>Because a build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the discovery call you get one fixed fee against written scope.</p>
         </article>
         <article class="content-panel content-panel-muted">
           <div class="content-label">Rate</div>
@@ -390,7 +448,7 @@
         <article class="content-panel">
           <div class="content-label">Fit</div>
           <h3>What if we are smaller than this?</h3>
-          <p>Then start with the workshop or the audit rather than a build. Both are bounded, and both tend to reveal that the first useful step is smaller and cheaper than expected.</p>
+          <p>Then start with the discovery call, which costs nothing, or the workshop. Both tend to reveal that the first useful step is smaller and cheaper than expected.</p>
         </article>
       </div>
     </section>

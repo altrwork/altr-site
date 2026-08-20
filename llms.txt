@@ -9,15 +9,17 @@ Contact: inquiries@altrwork.com
 
 ## Pricing
 
-- [Pricing](https://altrwork.com/pricing.html): workflow audit from $2,500, workshop from $4,500,
-  automation pilot $4,500-$8,500, phase build from $15,000, embedded engineering at $185/hr
-  all-inclusive, optional support $750-$2,500/month. Model and infrastructure costs are billed
-  by vendors directly to the client, typically $25-$250/month at pilot volume.
+- [Pricing](https://altrwork.com/pricing.html): the discovery call is free. Enablement workshops
+  from $3,500. Automation pilots and phase builds are quoted as one fixed fee after discovery,
+  with hours named per workstream; no build price is published because scope sets it. Embedded
+  engineering at $185/hr all-inclusive. Optional ongoing support $750-$2,500/month. Model and
+  infrastructure costs are billed by vendors directly to the client, typically $25-$250/month
+  at pilot volume.
 
 ## Services
 
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
-- [Workflow audit](https://altrwork.com/workflow-audit.html): mapping one repeated process before anything is built
+- [Workflow discovery](https://altrwork.com/workflow-audit.html): free call mapping one repeated process before anything is built
 - [AI enablement workshop](https://altrwork.com/ai-enablement-workshop.html): hands-on training against a team's own work
 - [Custom AI agents](https://altrwork.com/custom-agents.html): workflow agents, agentic coding systems, automation handoff
 - [Forward deployed engineering](https://altrwork.com/forward-deployed-engineering.html): embedded engineering inside the operating context
