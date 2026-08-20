@@ -2,19 +2,47 @@
 
 Static website for altr.
 
+## Structure
+
+The nav is four items. Everything else is a detail page reached from within
+the content, so it keeps its URL and search rankings without crowding the header.
+
+| Nav item | Page |
+|---|---|
+| What we do | `what-we-do.html` - every engagement with its price on the same line |
+| Work | `impact-studies.html` -> four `impact-*.html` case studies |
+| Writing | `tutorials.html` -> the article pages; `resources.html` canonicals here |
+| About | `about.html`, including the 4D framework; `how-we-altr-work.html` has the full version |
+
+Detail pages not in the nav: the service pages (`custom-agents.html`,
+`forward-deployed-engineering.html`, `workflow-audit.html`,
+`ai-enablement-workshop.html`, `events.html`), the local landing page
+(`ai-consulting-tampa.html`), and `frameworks.html`. `pricing.html` redirects to
+`what-we-do.html`.
+
 ## Files
 
-- `index.html` - primary landing page.
-- `styles.css` - shared site styling.
-- `service-detail-modal.js` - service card detail modal behavior.
+- `index.html` - home page.
+- `styles.css` - the whole design system. Colors are CSS custom properties in
+  `:root`; the theme is warm paper (`#F7F3EC` ground, `#1A1714` ink, 16:1).
 - `intake-modal.js` - booking intake modal behavior.
+- `nav-dropdown.js` - mobile nav toggle.
+- `service-detail-modal.js` - service card modal (no longer used on the home page).
 - `altr-brand-assets/` - source brand assets and brand notes.
-- `assets/` - optimized site assets and social preview images.
+- `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
 - `wireframes.html` - original design exploration reference (noindex, not deployed content).
-- `ai-consulting-tampa.html` - local landing page for Tampa Bay search intent.
-- `workflow-audit.html`, `ai-enablement-workshop.html` - standalone service pages.
 - `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html` - crawl and discovery files.
 - `tools/vcard-qr.py` - generates the vCard contact QR codes in `assets/qr/`.
+
+## Design system notes
+
+- Body copy is a system sans stack (`--text`), Space Grotesk (`--sans`) carries
+  headings, and Lora (`--serif`) is a pull-quote face only.
+- Token names were kept from the previous dark theme so every rule kept
+  resolving through the inversion; only the values changed.
+- Prices live in exactly two places: `what-we-do.html` and the `.price-strip`
+  on the home page. Change both together, plus the `OfferCatalog` schema and
+  `llms.txt`.
 
 ## Contact QR codes
 
