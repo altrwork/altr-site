@@ -32,7 +32,14 @@ Detail pages not in the nav: the service pages (`custom-agents.html`,
 - `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
 - `wireframes.html` - original design exploration reference (noindex, not deployed content).
 - `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html` - crawl and discovery files.
+
+`tools/` holds local build scripts and is gitignored, because this repo is the
+deployment and those scripts should not be served from the site root:
+
 - `tools/vcard-qr.py` - generates the vCard contact QR codes in `assets/qr/`.
+- `tools/social-preview.py` - regenerates `assets/altr_social_preview.png`.
+  Re-run it whenever the home page headline or the headline prices change,
+  or the card goes stale against the site.
 
 ## Design system notes
 
