@@ -23,6 +23,11 @@ Contact: inquiries@altrwork.com
 - [Fishin Prints](https://altrwork.com/impact-fishin-prints.html): catch photo to print-ready artwork workflow
 - [BeBrief](https://altrwork.com/impact-bebrief.html): coding agents inside a full-stack build process
 
+## Frameworks
+
+- [Frameworks](https://altrwork.com/frameworks.html): practical frameworks for deciding where AI belongs
+- [How we altr work](https://altrwork.com/how-we-altr-work.html): the 4D framework behind our engagements
+
 ## Writing
 
 - [Tutorials](https://altrwork.com/tutorials.html): step-by-step guides on MCP, agents, and AI infrastructure
