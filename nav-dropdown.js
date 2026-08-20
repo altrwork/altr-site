@@ -1,18 +1,5 @@
-document.querySelectorAll('.nav-dropdown-panel').forEach(panel => {
-  if (panel.querySelector('a[href$="/frameworks"], a[href$="frameworks.html"]')) return;
-  const link = document.createElement('a');
-  link.href = 'frameworks.html';
-  link.className = 'nav-dropdown-item';
-  link.setAttribute('role', 'menuitem');
-  link.textContent = 'Frameworks';
-  if (location.pathname.endsWith('/frameworks.html') || location.pathname.endsWith('/how-we-altr-work.html')) {
-    link.setAttribute('aria-current', 'page');
-  }
-  const tutorialsLink = panel.querySelector('a[href$="/tutorials"], a[href$="tutorials.html"]');
-  if (tutorialsLink) tutorialsLink.insertAdjacentElement('afterend', link);
-  else panel.appendChild(link);
-});
-
+// The Resources dropdown was removed in the paper redesign; the nav is now
+// four flat links. Only the mobile menu toggle remains.
 document.querySelectorAll('.nav').forEach(nav => {
   const navLinks = nav.querySelector('.nav-links');
 
@@ -50,36 +37,5 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   document.addEventListener('click', event => {
     if (!nav.contains(event.target)) setMenuOpen(false);
-  });
-});
-
-document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
-  const trigger = dropdown.querySelector('.nav-dropdown-trigger');
-
-  trigger.addEventListener('click', e => {
-    e.stopPropagation();
-    const isOpen = dropdown.classList.contains('is-open');
-    document.querySelectorAll('.nav-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
-    if (!isOpen) {
-      dropdown.classList.add('is-open');
-      trigger.setAttribute('aria-expanded', 'true');
-    } else {
-      trigger.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  dropdown.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      dropdown.classList.remove('is-open');
-      trigger.setAttribute('aria-expanded', 'false');
-      trigger.focus();
-    }
-  });
-});
-
-document.addEventListener('click', () => {
-  document.querySelectorAll('.nav-dropdown.is-open').forEach(d => {
-    d.classList.remove('is-open');
-    d.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded', 'false');
   });
 });
