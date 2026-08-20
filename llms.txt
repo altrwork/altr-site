@@ -7,6 +7,13 @@
 
 Contact: inquiries@altrwork.com
 
+## Pricing
+
+- [Pricing](https://altrwork.com/pricing.html): workflow audit from $2,500, workshop from $4,500,
+  automation pilot $4,500-$8,500, phase build from $15,000, embedded engineering at $185/hr
+  all-inclusive, optional support $750-$2,500/month. Model and infrastructure costs are billed
+  by vendors directly to the client, typically $25-$250/month at pilot volume.
+
 ## Services
 
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions

@@ -3008,3 +3008,272 @@ h4 {
     filter: none !important;
   }
 }
+
+/* ============================================================
+   Pricing ladder
+   An editorial price list, not a card grid: hairline rules,
+   oversized tabular numerals, and one accented rung. Built on
+   the same border-as-structure language as the rest of the site.
+   ============================================================ */
+
+.price-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.6fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+  padding: clamp(72px, 9vw, 128px) 0 clamp(38px, 5vw, 62px);
+}
+
+.price-hero h1 {
+  font-size: clamp(46px, 6.4vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.price-hero-note {
+  padding: 22px 24px;
+  border-left: 2px solid var(--copper);
+  background: rgba(194, 129, 92, 0.06);
+}
+
+.price-hero-note p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.price-ladder {
+  border-top: 1px solid var(--line-control);
+}
+
+.price-rung {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.42fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: start;
+  padding: clamp(30px, 3.6vw, 46px) 0;
+  border-bottom: 1px solid var(--line);
+  transition-property: background-color, padding-left;
+  transition-duration: 260ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.price-rung:hover {
+  background: rgba(245, 235, 220, 0.028);
+  padding-left: 14px;
+}
+
+.price-rung-lead {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.price-step {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--steel);
+}
+
+.price-rung h2 {
+  margin: 0;
+  font-size: clamp(25px, 2.5vw, 36px);
+  line-height: 1.08;
+}
+
+.price-rung p {
+  margin: 0 0 14px;
+  max-width: 60ch;
+  font-size: 16px;
+}
+
+.price-rung ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  max-width: 60ch;
+}
+
+.price-rung li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--bone-dim);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.price-rung li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 1px;
+  background: var(--copper);
+}
+
+.price-figure {
+  text-align: right;
+}
+
+.price-amount {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bone);
+}
+
+.price-qualifier {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.price-basis {
+  display: block;
+  margin-top: 12px;
+  max-width: 30ch;
+  margin-left: auto;
+  font-family: var(--serif);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--bone-dim);
+}
+
+.price-rung-start {
+  background: rgba(194, 129, 92, 0.05);
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.price-rung-start .price-amount {
+  color: var(--copper);
+}
+
+.price-tag {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 3px 9px;
+  border: 1px solid rgba(194, 129, 92, 0.42);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--copper);
+  vertical-align: middle;
+}
+
+.price-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-top: clamp(44px, 5vw, 72px);
+  overflow: hidden;
+}
+
+.price-meta {
+  padding: clamp(24px, 3vw, 36px);
+  border-right: 1px solid var(--line);
+}
+
+.price-meta:last-child {
+  border-right: 0;
+}
+
+.price-meta h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.price-meta p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.price-meta strong {
+  color: var(--bone);
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.price-inline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 12px 18px;
+  border: 1px solid var(--line-control);
+  border-radius: var(--radius);
+}
+
+.price-inline-amount {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bone);
+}
+
+.price-inline-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+@media (max-width: 900px) {
+  .price-hero,
+  .price-rung {
+    grid-template-columns: 1fr;
+  }
+
+  .price-hero {
+    align-items: start;
+  }
+
+  .price-figure {
+    text-align: left;
+    padding-top: 6px;
+  }
+
+  .price-basis {
+    margin-left: 0;
+  }
+
+  .price-rung:hover {
+    padding-left: 0;
+  }
+
+  .price-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-meta {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .price-meta:last-child {
+    border-bottom: 0;
+  }
+}
