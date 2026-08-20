@@ -15,27 +15,77 @@
 <meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Journal | AI Consulting and Automation Notes from altr" />
+<meta name="twitter:description" content="Technical and operator-focused notes from altr on AI consulting, AI workflow automation, MCP, RAG evaluation, agentic coding, governance, and AI implementation." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Journal",
+      "description": "Technical notes on practical AI usage, retrieval, agents, and internal AI systems.",
+      "url": "https://altrwork.com/resources.html",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resources",
+          "item": "https://altrwork.com/resources.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Journal",
+          "item": "https://altrwork.com/resources.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -43,7 +93,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="page-hero learning-hero learning-hero-compact learning-hero-simple">
       <div class="learning-hero-copy">
         <h1>Technical notes from the edge of practical AI usage and systems.</h1>
@@ -56,7 +106,7 @@
         <article class="resource-item">
           <span>MCP</span>
           <div>
-            <h3>MCP server design for internal AI tools</h3>
+            <h2>MCP server design for internal AI tools</h2>
             <p>How we scope Model Context Protocol tools around narrow schemas, permissions, audit logs, local testing, and human approval.</p>
           </div>
           <a href="mcp-server-design-internal-ai-tools.html">Read</a>
@@ -64,7 +114,7 @@
         <article class="resource-item">
           <span>Agents</span>
           <div>
-            <h3>MCP agents and function calling</h3>
+            <h2>MCP agents and function calling</h2>
             <p>How tool-calling agents differ from MCP-connected workflows, and where each pattern fits in internal AI systems.</p>
           </div>
           <a href="mcp-agents-function-calling.html">Read</a>
@@ -72,7 +122,7 @@
         <article class="resource-item">
           <span>Audit</span>
           <div>
-            <h3>AI workflow audit for small businesses</h3>
+            <h2>AI workflow audit for small businesses</h2>
             <p>How to map inputs, decisions, tools, memory, outputs, review steps, and failure modes before choosing what to automate.</p>
           </div>
           <a href="ai-workflow-audit-small-business.html">Read</a>
@@ -80,7 +130,7 @@
         <article class="resource-item">
           <span>Context</span>
           <div>
-            <h3>Context engineering for large codebases</h3>
+            <h2>Context engineering for large codebases</h2>
             <p>How coding agents get better when repo instructions, retrieval, dependency maps, and definitions of done are treated as infrastructure.</p>
           </div>
           <a href="context-engineering-large-codebases.html">Read</a>
@@ -88,7 +138,7 @@
         <article class="resource-item">
           <span>Deployment</span>
           <div>
-            <h3>The three phases of AI deployment</h3>
+            <h2>The three phases of AI deployment</h2>
             <p>A practical model for moving from workflow audit to pilot build to controlled rollout without forcing every engagement into the same timeline.</p>
           </div>
           <a href="three-phases-ai-deployment.html">Read</a>
@@ -96,7 +146,7 @@
         <article class="resource-item">
           <span>RAG evals</span>
           <div>
-            <h3>RAG evaluation for internal knowledge bases</h3>
+            <h2>RAG evaluation for internal knowledge bases</h2>
             <p>How to separate retrieval quality, answer quality, source freshness, faithfulness, and human trust before deploying company knowledge AI.</p>
           </div>
           <a href="rag-evaluation-internal-knowledge-bases.html">Read</a>
@@ -104,7 +154,7 @@
         <article class="resource-item">
           <span>Retrieval</span>
           <div>
-            <h3>LLM retrieval for grounded answers</h3>
+            <h2>LLM retrieval for grounded answers</h2>
             <p>How retrieval, citations, context limits, and answer checks work together when teams need AI outputs grounded in source material.</p>
           </div>
           <a href="llm-retrieval-grounded-answers.html">Read</a>
@@ -112,7 +162,7 @@
         <article class="resource-item">
           <span>Governance</span>
           <div>
-            <h3>AI governance lite for SMBs</h3>
+            <h2>AI governance lite for SMBs</h2>
             <p>How smaller teams can set data rules, approval tiers, vendor review, incident paths, logs, and human review without building a bureaucracy.</p>
           </div>
           <a href="ai-governance-lite-smb.html">Read</a>
@@ -120,7 +170,7 @@
         <article class="resource-item">
           <span>Review</span>
           <div>
-            <h3>AI code review with judge agents</h3>
+            <h2>AI code review with judge agents</h2>
             <p>How reviewer agents, severity rules, false-positive tracking, and PR handoff make automated code review useful inside engineering teams.</p>
           </div>
           <a href="ai-code-review-judge-agents.html">Read</a>
@@ -135,11 +185,13 @@
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

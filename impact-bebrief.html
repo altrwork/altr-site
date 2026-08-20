@@ -15,27 +15,88 @@
 <meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BeBrief AI Enablement Impact Study | altr" />
+<meta name="twitter:description" content="How altr helped BeBrief onboard Codex, MCP tools, automated code review, remote agents, and security review workflows." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Codex inside the full-stack build process",
+      "description": "How coding agents read the app, explained features, made focused edits, and ran checks across product work.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Organization",
+        "name": "altr",
+        "@id": "https://altrwork.com/#business"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/impact-bebrief.html"
+      },
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Work",
+          "item": "https://altrwork.com/impact-studies.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Codex inside the full-stack build process",
+          "item": "https://altrwork.com/impact-bebrief.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html" aria-current="page">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -43,7 +104,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="page-hero impact-page-hero">
       <div class="impact-hero-topline">
         <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
@@ -57,26 +118,41 @@
           <p>BeBrief is a pilot briefing and readiness app built around route-level aviation briefings, aircraft profiles, weather and NOTAM review, account data, subscriptions, and Flight Service workflows.</p>
           <p>The AI work was not a chatbot added to the product. It was a better way for the team to build the product. We helped set up Codex as an AI build partner that could read the app, understand the existing structure, help explain features, make focused edits, and run checks across the mobile app, backend, and integrations.</p>
           <p>That included automated code review workflows, security review agents, remote Codex agents the team could control from a phone, and MCP tools that connected the agent to the systems and context it needed. The goal was simple: make full-stack product work easier to start, easier to review, and easier to keep moving.</p>
+          <h2 class="impact-article-heading">What we built</h2>
           <p>Automated code review let Codex inspect proposed changes against the actual repo, call out risky edits, explain what changed, and help the team tighten implementation before release.</p>
           <p>Remote agents made it possible to start and guide Codex work from a phone, so focused implementation, debugging, and review tasks could move without someone sitting at a full workstation.</p>
           <p>Security review agents helped look for sensitive issues across authentication, data access, backend logic, and integration points before changes moved forward.</p>
           <p>MCP tools gave Codex cleaner access to project context and workflows. Onboarding showed the team how to use those tools, review the diffs, and keep ownership of full-stack decisions.</p>
+          <h2 class="impact-article-heading">Where human judgment stayed</h2>
           <p>We also onboarded the team on when to use Codex, how to ask for focused changes, how to review the output, and where human judgment still matters: product decisions, aviation safety context, code review, and releases.</p>
         </div>
+        <p class="impact-related">Background on this pattern: <a href="ai-code-review-judge-agents.html">AI code review with judge agents</a> and <a href="context-engineering-large-codebases.html">context engineering for large codebases</a>.</p>
       </article>
     </section>
-</main>
+    <section class="section">
+      <div class="services-cta modern-final-cta">
+        <div>
+          <div class="section-kicker">Work with altr</div>
+          <h2>Coding agents work best inside a real repo.</h2>
+          <p>If your product team is spending its time on review, triage, and context-gathering, agents can carry the repeatable parts. We embed, build, and transfer ownership.</p>
+        </div>
+        <a class="button primary" href="start-a-conversation.html">Start a conversation</a>
+      </div>
+    </section>
+  </main>
   <footer class="footer">
     <div class="footer-inner">
       <a class="footer-brand" href="index.html" aria-label="altr home">
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

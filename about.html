@@ -15,27 +15,112 @@
 <meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About altr | Tampa AI Enablement and Automation Studio" />
+<meta name="twitter:description" content="Meet altr, a Tampa AI enablement and automation studio helping teams adopt practical AI and automate repeated work." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "name": "About altr",
+      "url": "https://altrwork.com/about.html",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": {
+        "@id": "https://altrwork.com/#business"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://altrwork.com/about.html#alex-britton",
+      "name": "Alex Britton",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "url": "https://altrwork.com/about.html",
+      "image": "https://altrwork.com/assets/alex-britton-headshot.jpg",
+      "knowsAbout": [
+        "AI enablement",
+        "workflow automation",
+        "AI agents",
+        "data engineering",
+        "sports science analytics"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/altrwork/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://altrwork.com/about.html#jarred-robidoux",
+      "name": "Jarred Robidoux",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "url": "https://altrwork.com/about.html",
+      "image": "https://altrwork.com/assets/jarred-robidoux-headshot.jpeg",
+      "knowsAbout": [
+        "AI enablement",
+        "business operations",
+        "applied AI",
+        "workflow design",
+        "automation"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/jarred-robidoux-5ba65b196/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://altrwork.com/about.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -56,9 +141,9 @@
           </p>
         </div>
         <div class="globe-panel about-globe" aria-label="Interactive client locations globe">
-          <canvas id="client-globe" width="620" height="620"></canvas>
+          <canvas id="client-globe" width="620" height="620" role="img" aria-label="Globe showing client locations across the United States">Clients across the United States, based in Tampa, Florida.</canvas>
           <div class="globe-caption">
-            <span>Tampa, FL</span>
+            <a href="ai-consulting-tampa.html">Tampa, FL</a>
           </div>
         </div>
       </div>
@@ -87,7 +172,11 @@
       <div class="founder-grid" aria-label="Founders">
         <article class="founder-card">
           <div class="founder-photo founder-photo-image">
-            <img src="assets/jarred-robidoux-headshot.jpeg" width="1024" height="874" loading="lazy" alt="Jarred Robidoux" />
+            <picture>
+          <source srcset="assets/jarred-robidoux-headshot.webp" type="image/webp" />
+          <source srcset="assets/jarred-robidoux-headshot.jpeg" type="image/jpeg" />
+          <img src="assets/jarred-robidoux-headshot.jpeg" width="1024" height="874" loading="lazy" alt="Jarred Robidoux" />
+        </picture>
           </div>
           <div>
             <h2>Jarred Robidoux</h2>
@@ -96,7 +185,11 @@
         </article>
         <article class="founder-card">
           <div class="founder-photo founder-photo-image">
-            <img src="assets/alex-britton-headshot.png" width="1122" height="1402" loading="lazy" alt="Alex Britton" />
+            <picture>
+          <source srcset="assets/alex-britton-headshot.webp" type="image/webp" />
+          <source srcset="assets/alex-britton-headshot.jpg" type="image/jpeg" />
+          <img src="assets/alex-britton-headshot.jpg" width="1122" height="1402" loading="lazy" alt="Alex Britton" />
+        </picture>
           </div>
           <div>
             <h2>Alex Britton</h2>
@@ -112,11 +205,13 @@
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

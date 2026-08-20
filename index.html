@@ -15,9 +15,15 @@
 <meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
 <meta name="geo.region" content="US-FL" />
 <meta name="geo.placename" content="Tampa" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="altr | Tampa AI Enablement and Automation" />
+<meta name="twitter:description" content="Tampa-based AI enablement and automation studio for practical AI workshops, workflow automations, custom agents, and coding-agent systems for growing teams." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +34,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://altrwork.com/#business",
       "name": "altr",
       "url": "https://altrwork.com/",
@@ -36,6 +42,16 @@
       "image": "https://altrwork.com/assets/altr_social_preview.png",
       "email": "inquiries@altrwork.com",
       "description": "Tampa-based AI enablement and automation studio for practical AI workshops, workflow automations, custom agents, and coding-agent systems for growing teams.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampa",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "founder": [
+        { "@type": "Person", "@id": "https://altrwork.com/about.html#alex-britton", "name": "Alex Britton" },
+        { "@type": "Person", "@id": "https://altrwork.com/about.html#jarred-robidoux", "name": "Jarred Robidoux" }
+      ],
       "foundingLocation": {
         "@type": "Place",
         "name": "Tampa, Florida"
@@ -99,6 +115,7 @@
 </head>
 <body>
 <div class="site-shell" id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand home-brand" href="index.html" aria-label="altr home">
       <span class="brand-mark"></span>
@@ -108,12 +125,13 @@
       <a href="#services">Services</a>
       <a href="impact-studies.html">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -121,7 +139,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="hero hero-redesign">
       <div class="hero-content">
         <div class="hero-main">
@@ -151,7 +169,7 @@
         <article class="service-arm service-product-card" role="button" tabindex="0" data-service-detail="enablement" aria-label="Learn more about AI Enablement">
           <div class="service-badge">Workshops + demos</div>
           <h3>AI Enablement</h3>
-          <p>Practical workshops, <a href="events.html">team demos and events</a>, workflow reviews, and operating guidance that help people use AI with better judgment in the work they already own.</p>
+          <p><a href="ai-enablement-workshop.html">Practical workshops</a>, <a href="events.html">team demos and events</a>, <a href="workflow-audit.html">workflow reviews</a>, and operating guidance that help people use AI with better judgment in the work they already own.</p>
           <a class="conversation-link" href="start-a-conversation.html">Book enablement</a>
         </article>
         <article class="service-arm service-product-card" role="button" tabindex="0" data-service-detail="automation" aria-label="Learn more about AI Automation">
@@ -166,7 +184,7 @@
         <div class="framework-step">
           <span>01</span>
           <strong>Embed</strong>
-          <p>Map the real workflow, tools, team habits, permissions, and review paths through <a href="forward-deployed-engineering.html">forward-deployed engineering</a>.</p>
+          <p>Map the real workflow, tools, team habits, permissions, and review paths through a <a href="workflow-audit.html">workflow audit</a> and <a href="forward-deployed-engineering.html">forward-deployed engineering</a>.</p>
         </div>
         <div class="framework-step">
           <span>02</span>
@@ -190,7 +208,11 @@
       <p>Partner teams</p>
       <div class="proof-logos">
         <span><img class="logo-img logo-img-wide logo-tone-flat" src="assets/bebrief-logo-transparent.png" width="300" height="80" loading="lazy" alt="BeBrief" /></span>
-        <span><img class="logo-img logo-img-wide logo-tone-flat" src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" /></span>
+        <span><picture>
+          <source srcset="assets/fishin-prints-logo-transparent.webp" type="image/webp" />
+          <source srcset="assets/fishin-prints-logo-transparent.png" type="image/png" />
+          <img class="logo-img logo-img-wide logo-tone-flat" src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" />
+        </picture></span>
         <span><img class="logo-img logo-img-wide logo-tone-warm" src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs" /></span>
       </div>
     </section>
@@ -234,11 +256,22 @@
           <span class="case-stat">Intake to review-ready output</span>
         </a>
         <a class="case-card impact-card" href="impact-fishin-prints.html">
-          <div class="impact-card-logo-wrap"><img class="impact-card-logo logo-tone-flat" src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" /></div>
+          <div class="impact-card-logo-wrap"><picture>
+          <source srcset="assets/fishin-prints-logo-transparent.webp" type="image/webp" />
+          <source srcset="assets/fishin-prints-logo-transparent.png" type="image/png" />
+          <img class="impact-card-logo logo-tone-flat" src="assets/fishin-prints-logo-transparent.png" width="1200" height="628" loading="lazy" alt="Fishin Prints" />
+        </picture></div>
           <div class="case-meta">Creative production</div>
           <h3>Turning catch photos into a faster AI-assisted print workflow.</h3>
           <p>Customer photos move through image review, production brief, artwork generation, human review, and final export.</p>
           <span class="case-stat">Upload to production path</span>
+        </a>
+        <a class="case-card impact-card" href="impact-spark-labs-mcp.html">
+          <div class="impact-card-logo-wrap"><img class="impact-card-logo logo-tone-warm" src="assets/spark-labs-logo-dark.svg" width="300" height="120" loading="lazy" alt="spARK Labs" /></div>
+          <div class="case-meta">Internal tooling</div>
+          <h3>A remote MCP server connecting Claude to operations tools.</h3>
+          <p>Member onboarding, building access, and CRM records became one authenticated path with no local software to install.</p>
+          <span class="case-stat">Tools connected to Claude</span>
         </a>
         <a class="case-card impact-card" href="impact-bebrief.html">
           <div class="impact-card-logo-wrap"><img class="impact-card-logo logo-tone-flat" src="assets/bebrief-logo-transparent.png" width="300" height="80" loading="lazy" alt="BeBrief" /></div>
@@ -281,11 +314,13 @@
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

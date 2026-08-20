@@ -15,27 +15,88 @@
 <meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fishin Prints AI Workflow Impact Study | altr" />
+<meta name="twitter:description" content="How altr designed an AI image workflow for Fishin Prints using image generation, computer vision, and automation to improve customer experience." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "From catch photo to custom fish print",
+      "description": "How customer photos move through image review, production brief, artwork generation, human review, and final export.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Organization",
+        "name": "altr",
+        "@id": "https://altrwork.com/#business"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/impact-fishin-prints.html"
+      },
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Work",
+          "item": "https://altrwork.com/impact-studies.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "From catch photo to custom fish print",
+          "item": "https://altrwork.com/impact-fishin-prints.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html" aria-current="page">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -43,7 +104,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="page-hero impact-page-hero">
       <div class="impact-hero-topline">
         <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
@@ -52,7 +113,11 @@
 
     <section class="section impact-primary-section">
       <article class="impact-detail impact-detail-stacked impact-client-fishin">
-        <img class="impact-study-image" src="04_bull_trout_pair.png" width="2200" height="699" loading="lazy" alt="Fishin Prints AI-generated bull trout reference and print example" />
+        <picture>
+          <source srcset="04_bull_trout_pair.webp" type="image/webp" />
+          <source srcset="04_bull_trout_pair.png" type="image/png" />
+          <img class="impact-study-image" src="04_bull_trout_pair.png" width="2200" height="699" loading="lazy" alt="Fishin Prints AI-generated bull trout reference and print example" />
+        </picture>
         <div class="impact-study-copy">
           <div class="content-label">Fishin Prints</div>
           <h1>From catch photo to custom fish print.</h1>
@@ -60,10 +125,17 @@
           <p>The agent reviews the image, pulls out the details an artist would normally have to inspect by hand, and turns that into a clear production brief: species cues, body shape, colors, markings, fins, tail details, and anything missing from the photo.</p>
           <p>That brief then drives the image-generation workflow. Instead of starting from scratch on every order, the team gets a repeatable path from photo to print-ready artwork. This cuts down the time and cost required to produce each piece and gives customers a smoother experience from upload to approval.</p>
         </div>
+        <p class="impact-related">Background on this pattern: <a href="custom-agents.html">custom AI agents</a> and <a href="ai-workflow-audit-small-business.html">how to audit a workflow first</a>.</p>
       </article>
     </section>
 
     <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">How it works</div>
+          <h2>Two parts: a reviewing agent and a repeatable path.</h2>
+        </div>
+      </div>
       <div class="text-block-grid">
         <article class="text-block">
           <h3>The agent</h3>
@@ -75,18 +147,30 @@
         </article>
       </div>
     </section>
-</main>
+    <section class="section">
+      <div class="services-cta modern-final-cta">
+        <div>
+          <div class="section-kicker">Work with altr</div>
+          <h2>Your production workflow can run the same way.</h2>
+          <p>If your team repeats the same review-and-produce loop on every order, that path can be built once and reused. We scope, build, and hand it over.</p>
+        </div>
+        <a class="button primary" href="start-a-conversation.html">Start a conversation</a>
+      </div>
+    </section>
+  </main>
   <footer class="footer">
     <div class="footer-inner">
       <a class="footer-brand" href="index.html" aria-label="altr home">
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

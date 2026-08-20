@@ -19,27 +19,83 @@
 <meta name="twitter:title" content="spARK Labs Remote MCP Server Impact Study | altr" />
 <meta name="twitter:description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
 <meta name="twitter:image" content="https://altrwork.com/assets/operations-mcp.png" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How altr built a remote MCP server to connect Claude to operations tools",
+      "description": "A remote MCP server that connected Claude directly to the tools an operations team already used.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Organization",
+        "name": "altr",
+        "@id": "https://altrwork.com/#business"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "datePublished": "2026-06-02",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/impact-spark-labs-mcp.html"
+      },
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Work",
+          "item": "https://altrwork.com/impact-studies.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How altr built a remote MCP server to connec",
+          "item": "https://altrwork.com/impact-spark-labs-mcp.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html" aria-current="page">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -47,7 +103,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="page-hero impact-page-hero">
       <div class="impact-hero-topline">
         <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
@@ -66,18 +122,27 @@
           <p class="impact-subheading">spARK Labs by ARK Invest manages member intake, physical building access, coworking memberships, and outbound communication across four separate platforms. Getting Claude to help with any of that work meant manually copying information across systems. altr built a single remote MCP server that connects all four platforms to Claude and Claude Cowork behind a secure, Microsoft-authenticated endpoint.</p>
           <p>Most businesses find themselves working across multiple tools. Canva for marketing, HubSpot for CRM, QuickBooks for finance. spARK Labs is similar and uses multiple software tools for different operational tasks, BossHub for intake forms, Verkada for building access control, Nexudus for membership management and room bookings, and Outlook for email. The gap was that none of those systems were connected to Claude.</p>
           <p>Rather than building separate integrations or distributing API keys to each team member, altr deployed a single Cloudflare Worker that exposes all four systems through a secure MCP endpoint. Authentication is handled through Microsoft OAuth, team members log in with their existing Microsoft accounts, and an email allowlist ensures only authorized operators can access the tools. There is nothing to install locally, no keys to manage, and no per user setup.</p>
+          <picture>
+          <source srcset="assets/operations-mcp.webp" type="image/webp" />
+          <source srcset="assets/operations-mcp.png" type="image/png" />
           <img class="impact-article-image" src="assets/operations-mcp.png" width="1456" height="816" loading="lazy" alt="Architecture diagram: Claude Cowork connects through the Cloudflare Worker MCP server to BossHub, Verkada, Nexudus, and Outlook" />
-          <h4 class="impact-article-heading">BossHub: Reading form responses</h4>
+        </picture>
+          <h2 class="impact-article-heading">BossHub: Reading form responses</h2>
           <p>The BossHub tools give Claude read access to the inquiry forms and submissions the spARK Labs team uses to track new member interest, existing member engagement, event ideas, etc. Claude can list available forms, pull recent submissions, or look up a specific inquiry by name or email. In practice, this is where a member activation workflow begins: Claude reads the submission to understand what plan was requested, what company details were provided, and what the member needs before they move in.</p>
-          <h4 class="impact-article-heading">Verkada: Provisioning building access</h4>
+          <h2 class="impact-article-heading">Verkada: Provisioning building access</h2>
           <p>The Verkada tools handle physical building access. Claude can search for an existing Verkada user by email, create a new access user, list available access groups, and add a user to the appropriate group to unlock building entry. These operations write directly to the building access system, so they are gated by both the email allowlist and a dry run flag that lets operators test the workflow without making live changes.</p>
-          <h4 class="impact-article-heading">Nexudus: Managing memberships and bookings</h4>
+          <h2 class="impact-article-heading">Nexudus: Managing memberships and bookings</h2>
           <p>Nexudus is the coworking platform that tracks members, plans, and room reservations. The tools cover both sides of operations: onboarding — looking up an existing coworker, creating a new member with the right plan assigned — and day to day management — listing available resources, creating room bookings, and canceling them when needed. Membership plans are mapped by tariff ID, so Claude can create a member record with the correct access level already in place.</p>
-          <h4 class="impact-article-heading">Outlook: Drafting emails</h4>
+          <h2 class="impact-article-heading">Outlook: Drafting emails</h2>
           <p>The Outlook tool creates email drafts through the Microsoft Graph API. Claude composes the message and places it in the configured sender's mailbox ready to review. Nothing is sent automatically. This keeps a human in the loop on outbound communication while removing the work of composing and addressing the email from scratch.</p>
+          <picture>
+          <source srcset="assets/operations-mcp-sbs.webp" type="image/webp" />
+          <source srcset="assets/operations-mcp-sbs.png" type="image/png" />
           <img class="impact-article-image" src="assets/operations-mcp-sbs.png" width="1536" height="768" loading="lazy" alt="Member activation workflow: BossHub form submission to Nexudus member record to Verkada building access to Outlook welcome email draft" />
+        </picture>
           <p>Together, these tools let spARK Labs team members onboard new members faster, provision building access, and add new members to their CRM. The MCP server runs entirely on Cloudflare Workers and requires no local software. New team members connect in minutes by authenticating with their existing Microsoft accounts.</p>
         </div>
+        <p class="impact-related">Also with this client: <a href="impact-spark-labs.html">automating the work behind expenses and events</a>. Background on the pattern: <a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a>.</p>
       </article>
     </section>
 
@@ -99,11 +164,13 @@
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

@@ -22,27 +22,83 @@
 <meta name="twitter:title" content="spARK Labs AI Enablement Impact Study | altr" />
 <meta name="twitter:description" content="How spARK Labs used Claude Cowork, MCP connectors, and custom skills to automate expense reports and event requests." />
 <meta name="twitter:image" content="https://altrwork.com/assets/impact-spark-labs-og.png?v=20260602" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Automating the work behind expenses and events",
+      "description": "How manual expense submissions and event requests at spARK Labs became reusable AI-assisted workflows with clear review paths.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Organization",
+        "name": "altr",
+        "@id": "https://altrwork.com/#business"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/impact-spark-labs.html"
+      },
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Work",
+          "item": "https://altrwork.com/impact-studies.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Automating the work behind expenses and even",
+          "item": "https://altrwork.com/impact-spark-labs.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html" aria-current="page">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -50,7 +106,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="page-hero impact-page-hero">
       <div class="impact-hero-topline">
         <a class="button secondary impact-back-button" href="impact-studies.html">Back</a>
@@ -75,14 +131,22 @@
           </p>
           <p>To make the workflow repeatable, we packaged the process into Claude Cowork using a combination of MCP connectors and custom skills. The connectors gave Claude access to the tools and files needed to complete the work, while the skill provided the step-by-step instructions, context, and guardrails for each workflow. This allowed members of the spARK Labs team to kick off the process with a simple `/` command inside Claude Cowork and move through expense reports or event requests in a consistent, guided way.
           </p>
-          <h4 class="impact-article-heading">Expense Reports</h4>
+          <h2 class="impact-article-heading">Expense Reports</h2>
           <p>For the expense reporting workflow, the goal was to take a folder of monthly receipt PDFs and turn them into a completed Excel report using the team’s existing template. Instead of manually opening each PDF, copying details, and filling out the report line by line, the workflow gives Claude Cowork the structure it needs to read the scans folder, extract the required information, and organize the output into the correct format.
           </p>
+          <picture>
+          <source srcset="assets/spARK-expense-report.webp" type="image/webp" />
+          <source srcset="assets/spARK-expense-report.png" type="image/png" />
           <img class="impact-article-image" src="assets/spARK-expense-report.png" width="3540" height="1560" loading="lazy" alt="Expense report workflow from monthly PDFs to scans folder to completed Excel report" />
-          <h4 class="impact-article-heading">Event Request</h4>
+        </picture>
+          <h2 class="impact-article-heading">Event Request</h2>
           <p>For event requests, the workflow began with a completed interest form and ended with a review-ready PDF routed through email. Claude Cowork helped bridge the steps in between by using the submitted form details to draft the correct document and prepare the request for review. Instead of manually transferring information from the form into a PDF and coordinating the next step by hand, the team could move from intake to review through a repeatable AI-assisted process.
           </p>
+          <picture>
+          <source srcset="assets/spARK-event-request.webp" type="image/webp" />
+          <source srcset="assets/spARK-event-request.png" type="image/png" />
           <img class="impact-article-image" src="assets/spARK-event-request.png" width="3540" height="1680" loading="lazy" alt="Event request workflow from completed interest form to PDF draft to emailed review" />
+        </picture>
           <p>The result was not just a pair of automations, but a repeatable way for the spARK Labs team to launch and operate these workflows inside Claude Cowork. By packaging the process into skills and connecting the right tools through MCP, the team can move from intake to output with a simple command and a clear set of steps. Watch the video below to see how the workflow is triggered in Claude Cowork and how the process moves from request to completed output.
           </p>
         </div>
@@ -90,20 +154,33 @@
             <source src="uploads/videos/event-request-final-web.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+        <p class="impact-related">Also with this client: <a href="impact-spark-labs-mcp.html">the remote MCP server that connected Claude to their operations tools</a>.</p>
       </article>
     </section>
-</main>
+    <section class="section">
+      <div class="services-cta modern-final-cta">
+        <div>
+          <div class="section-kicker">Work with altr</div>
+          <h2>Intake work is usually the first thing worth automating.</h2>
+          <p>Forms, documents, and approvals that move by hand are where these builds start. Show us one workflow and we will map it.</p>
+        </div>
+        <a class="button primary" href="start-a-conversation.html">Start a conversation</a>
+      </div>
+    </section>
+  </main>
   <footer class="footer">
     <div class="footer-inner">
       <a class="footer-brand" href="index.html" aria-label="altr home">
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

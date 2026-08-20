@@ -15,27 +15,83 @@
 <meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<link rel="icon" type="image/png" sizes="512x512" href="altr-brand-assets/assets/logo-no-background.png" />
+<meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Workshops and Demos in Tampa | altr" />
+<meta name="twitter:description" content="AI workshops, demos, and live enablement sessions from altr for Tampa Bay teams exploring practical AI at work." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "AI enablement workshops and demos",
+      "description": "Practical AI workshops, team demos, and live enablement sessions for Tampa Bay teams.",
+      "serviceType": "AI training and workshops",
+      "provider": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "url": "https://altrwork.com/events.html",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Tampa"
+        },
+        {
+          "@type": "City",
+          "name": "St. Petersburg"
+        },
+        {
+          "@type": "City",
+          "name": "Clearwater"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Events",
+          "item": "https://altrwork.com/events.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html#services">Services</a>
       <a href="impact-studies.html">Work</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
           Resources
           <svg class="nav-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-dropdown-panel" role="menu">
           <a href="tutorials.html" class="nav-dropdown-item" role="menuitem">Tutorials</a>
+          <a href="resources.html" class="nav-dropdown-item" role="menuitem">Journal</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -43,7 +99,7 @@
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
     <section class="page-hero">
       <div class="eyebrow">Events</div>
       <h1>Events</h1>
@@ -51,6 +107,13 @@
     </section>
 
     <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Format</div>
+          <h2>What an altr session actually looks like.</h2>
+        </div>
+        <p>Every session is built around workflows the room already owns. We ask what the team does by hand each week, then work through those examples live rather than demoing a generic use case.</p>
+      </div>
       <div class="content-split">
         <article class="content-panel">
           <div class="content-label">What to expect</div>
@@ -60,8 +123,41 @@
         <article class="content-panel content-panel-muted">
           <div class="content-label">Upcoming</div>
           <h3>New sessions will be posted here.</h3>
-          <p>We are using this page as the home for upcoming demos, talks, and Tampa-area events as dates are finalized.</p>
+          <p>We are using this page as the home for upcoming demos, talks, and Tampa-area events as dates are finalized. To hear about the next one, <a href="start-a-conversation.html">book an intro</a> and say you want the invite.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Three formats</div>
+          <h2>Team workshops, community demos, and workflow reviews.</h2>
+        </div>
+      </div>
+      <div class="engagement-grid">
+        <article class="engagement-item">
+          <h3>Team workshop</h3>
+          <p>A working session with one team, using their own tools and their own repeated work. People leave with prompts and workflows they built during the session, not notes about someone else's example.</p>
+        </article>
+        <article class="engagement-item">
+          <h3>Community demo</h3>
+          <p>A live build in front of a room. We take a real workflow, show what it takes to make an AI system reliable inside it, and answer the questions that come up when something breaks on screen.</p>
+        </article>
+        <article class="engagement-item">
+          <h3>Workflow review</h3>
+          <p>A focused look at one process a team wants to improve, ending in a clear read on whether it needs enablement, a <a href="workflow-audit.html">workflow audit</a>, or an <a href="custom-agents.html">automation</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Bringing us in</div>
+          <h2>Who these sessions are for.</h2>
+        </div>
+        <p>Most of our sessions run for operators and owners at growing companies across Tampa, St. Petersburg, and Clearwater: teams that already bought AI tools and want their people to use them well. We also speak at Tampa Bay community events and meetups. If you organize one, the ask is simple: tell us the audience and the workflow you want covered.</p>
       </div>
     </section>
 
@@ -80,11 +176,13 @@
         <span class="brand-mark"></span>
         <span>AI enablement and automation for teams doing real work.</span>
       </a>
-      <div class="footer-links" aria-label="Footer links">
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="tutorials.html">Tutorials</a>
+        <a href="resources.html">Journal</a>
         <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Tampa, FL</span>
-      </div>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      </nav>
     </div>
   </footer>
 </div>

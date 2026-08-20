@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Space Grotesk";
-  src: url("assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  src: url("assets/fonts/SpaceGrotesk-VariableFont_wght.woff2") format("woff2"),
+       url("assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
   font-family: "Lora";
-  src: url("assets/fonts/Lora-VariableFont_wght.ttf") format("truetype");
+  src: url("assets/fonts/Lora-VariableFont_wght.woff2") format("woff2"),
+       url("assets/fonts/Lora-VariableFont_wght.ttf") format("truetype");
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
@@ -16,7 +18,8 @@
 
 @font-face {
   font-family: "Lora";
-  src: url("assets/fonts/Lora-Italic-VariableFont_wght.ttf") format("truetype");
+  src: url("assets/fonts/Lora-Italic-VariableFont_wght.woff2") format("woff2"),
+       url("assets/fonts/Lora-Italic-VariableFont_wght.ttf") format("truetype");
   font-weight: 400 700;
   font-style: italic;
   font-display: swap;
@@ -34,6 +37,8 @@
   --bone-dim: rgba(245, 235, 220, 0.5);
   --line: rgba(245, 235, 220, 0.13);
   --line-strong: rgba(245, 235, 220, 0.24);
+  /* interactive control boundaries: needs >=3:1, unlike decorative --line */
+  --line-control: rgba(245, 235, 220, 0.38);
   --copper: #C2815C;
   --sage: #9BAE8E;
   --steel: #8BA3AA;
@@ -46,6 +51,11 @@
 
 * {
   box-sizing: border-box;
+}
+
+/* picture wrappers must not become a layout box - the img keeps its own rules */
+picture {
+  display: contents;
 }
 
 html {
@@ -138,6 +148,26 @@ p {
 :focus-visible {
   outline: 3px solid rgba(194, 129, 92, 0.62);
   outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  background: var(--night-3);
+  border: 1px solid var(--line-control);
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-decoration: none;
+  transition: top 0.16s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 16px;
 }
 
 .site-shell {
@@ -352,7 +382,7 @@ p {
 .button.secondary {
   color: var(--bone);
   background: transparent;
-  border-color: var(--line);
+  border-color: var(--line-control);
 }
 
 .button:hover,
@@ -1000,7 +1030,7 @@ h4 {
   margin-bottom: 2px;
 }
 
-.learning-resource-list .resource-item h3 {
+.learning-resource-list .resource-item :is(h2, h3) {
   max-width: 780px;
   margin-bottom: 8px;
 }
@@ -1213,6 +1243,61 @@ h4 {
 
 .article-block p {
   margin-bottom: 18px;
+}
+
+.article-related h2 {
+  font-size: clamp(22px, 2.2vw, 30px);
+}
+
+/* in-article subheads: sized on the class so the tag can stay semantic */
+.impact-article-heading {
+  margin: 34px 0 14px;
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.14;
+}
+
+.impact-related {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--bone-dim);
+}
+
+.impact-related a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-decoration-color: var(--line-control);
+  text-underline-offset: 3px;
+}
+
+.impact-related a:hover {
+  color: var(--copper);
+  text-decoration-color: var(--copper);
+}
+
+.article-related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.article-related li a {
+  display: inline-block;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.4vw, 18px);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-control);
+  padding-bottom: 2px;
+  transition: color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+}
+
+.article-related li a:hover {
+  color: var(--copper);
+  border-color: var(--copper);
 }
 
 .article-body p {
@@ -1717,7 +1802,7 @@ h4 {
 .intake-form input,
 .intake-form textarea {
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-control);
   border-radius: var(--radius);
   background: rgba(245, 235, 220, 0.055);
   color: var(--bone);
@@ -1737,13 +1822,12 @@ h4 {
 
 .intake-form input::placeholder,
 .intake-form textarea::placeholder {
-  color: rgba(245, 235, 220, 0.36);
+  color: rgba(245, 235, 220, 0.56);
 }
 
-.intake-form input:focus,
-.intake-form textarea:focus {
-  border-color: rgba(245, 235, 220, 0.34);
-  outline: none;
+.intake-form input:focus-visible,
+.intake-form textarea:focus-visible {
+  border-color: rgba(245, 235, 220, 0.5);
   box-shadow: 0 0 0 4px rgba(194, 129, 92, 0.14);
 }
 
@@ -2050,11 +2134,16 @@ h4 {
   height: 0;
 }
 
+.tutorials-filter-check:focus-visible ~ .tutorials-check-mark {
+  outline: 3px solid rgba(194, 129, 92, 0.62);
+  outline-offset: 3px;
+}
+
 .tutorials-check-mark {
   flex: 0 0 auto;
   width: 16px;
   height: 16px;
-  border: 1.5px solid var(--line-strong);
+  border: 1.5px solid var(--line-control);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -2144,7 +2233,7 @@ h4 {
   justify-content: center;
   width: 38px;
   height: 38px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-control);
   border-radius: 8px;
   background: none;
   color: var(--bone-dim);

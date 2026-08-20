@@ -6,3 +6,12 @@ build/
 .env.*
 .playwright-mcp/
 uploads/videos/event-request-final.mp4
+
+# superseded by the .jpg + .webp pair; kept on disk locally, not deployed
+assets/alex-britton-headshot.png
+
+# client-confidential and internal: this repo is published, keep these out of it
+proposals/
+research/
+charge_card.py
+tools/

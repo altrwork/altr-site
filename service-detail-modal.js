@@ -103,6 +103,9 @@
   });
 
   document.addEventListener("keydown", (event) => {
+    // links nested inside the card keep their own Enter behavior, same as the click path
+    if (event.target.closest?.("a")) return;
+
     const serviceCard = event.target.closest?.("[data-service-detail]");
     if (serviceCard && (event.key === "Enter" || event.key === " ")) {
       event.preventDefault();

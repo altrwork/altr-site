@@ -1,0 +1,34 @@
+# altr
+
+> AI enablement and automation firm in Tampa, Florida. We help growing teams use AI
+> inside the work they already own, then automate the repeated parts. Founded by
+> Alex Britton and Jarred Robidoux. Serving Tampa, St. Petersburg, Clearwater, and
+> remote clients.
+
+Contact: inquiries@altrwork.com
+
+## Services
+
+- [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
+- [Workflow audit](https://altrwork.com/workflow-audit.html): mapping one repeated process before anything is built
+- [AI enablement workshop](https://altrwork.com/ai-enablement-workshop.html): hands-on training against a team's own work
+- [Custom AI agents](https://altrwork.com/custom-agents.html): workflow agents, agentic coding systems, automation handoff
+- [Forward deployed engineering](https://altrwork.com/forward-deployed-engineering.html): embedded engineering inside the operating context
+- [Events](https://altrwork.com/events.html): workshops, community demos, workflow reviews
+
+## Impact studies
+
+- [spARK Labs, operations intake](https://altrwork.com/impact-spark-labs.html): expense and event request workflows in Claude Cowork
+- [spARK Labs, remote MCP server](https://altrwork.com/impact-spark-labs-mcp.html): Cloudflare Workers MCP server connecting Claude to operations tools
+- [Fishin Prints](https://altrwork.com/impact-fishin-prints.html): catch photo to print-ready artwork workflow
+- [BeBrief](https://altrwork.com/impact-bebrief.html): coding agents inside a full-stack build process
+
+## Writing
+
+- [Tutorials](https://altrwork.com/tutorials.html): step-by-step guides on MCP, agents, and AI infrastructure
+- [Journal](https://altrwork.com/resources.html): technical notes on practical AI systems
+
+## Optional
+
+- [About](https://altrwork.com/about.html): founders and operating principles
+- [Contact](https://altrwork.com/start-a-conversation.html): book an intro
