@@ -2532,11 +2532,40 @@ h4 {
 }
 
 .cre-hero-image img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
   outline: 1px solid rgba(26, 23, 20, 0.08);
   outline-offset: -1px;
+}
+
+.article-inline-media {
+  width: min(760px, 100%);
+  margin: 26px auto 34px;
+}
+
+.article-inline-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 2px);
+  background: #fff;
+}
+
+.article-inline-media figcaption {
+  margin-top: 10px;
+  color: var(--bone-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .cre-source-link {

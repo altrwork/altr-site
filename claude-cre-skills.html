@@ -36,38 +36,74 @@
     <section class="page-hero article-hero cre-article-hero">
       <div class="eyebrow">Real Estate · Part 01</div>
       <h1>Claude in CRE: Skills</h1>
-      <div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-10">August 10, 2026</time><span>5 min read</span></div>
+      <div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-10">August 10, 2026</time><span>8 min read</span></div>
       <p class="page-lede">CRE teams are adopting AI quickly, but most are still using Claude as a first-pass underwriter or OM reviewer. Skills are how teams turn their own process into repeatable work.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/claude-cre-skills.webp" type="image/webp" /><img src="assets/claude-cre-skills.png" width="1584" height="894" alt="AI in Real Estate: Skills, illustrated with industrial, residential, retail, office, and construction properties" /></picture></figure>
     <section class="section article-section">
       <article class="article-body">
-        <div class="article-summary"><span>The gap</span><p>According to research from First American Data &amp; Analytics and DealGround, 66% of CRE professionals use AI weekly or daily, but only 5% trust it enough to inform real decisions.</p></div>
+        <div class="article-summary"><span>The gap</span><p>According to research from <a href="https://dna.firstam.com/ai-in-commercial-real-estate" target="_blank" rel="noopener">First American Data &amp; Analytics</a> and <a href="https://www.dealground.com/" target="_blank" rel="noopener">DealGround</a>, 66% of CRE professionals use AI weekly or daily, but only 5% trust it enough to inform real decisions.</p></div>
         <section class="article-block">
-          <h2>Why usage is not the same as impact</h2>
-          <p>There is a reason for that gap. Most teams do not know about Skills, so their use of Claude starts over with every conversation. Context gets retyped, steps get paraphrased, and the output changes depending on the prompt.</p>
-          <p>altr helps businesses get real value out of AI in two ways: enablement—hands-on work with the team to understand and improve current processes—and deployment—custom agent engineering built around the bottlenecks in the business.</p>
+          <p>There is a reason for this, and this series of articles will help you understand why.</p>
+          <p>But first, why should you listen to us?</p>
+          <h2>Who are we?</h2>
+          <p><strong>altr</strong> is an AI services company that helps businesses get real value out of AI.</p>
+          <figure class="article-inline-media"><img src="assets/linkedin-skills-thesis.png" width="800" height="499" alt="altr thesis showing the gap between model capability and how a business currently uses AI" /><figcaption>The altr thesis: model capability is advancing faster than most businesses can apply it.</figcaption></figure>
+          <p>We do this in two ways:</p>
+          <ol><li><strong>Enablement:</strong> on-site work with you and your team. This helps us understand how you currently work and how we can alter processes with AI.</li><li><strong>Deployment:</strong> agent engineering to accomplish real work. We build custom solutions tailored to your business and the bottlenecks you currently face.</li></ol>
+          <p>Now, let’s understand why Claude is only making 5% of decisions in CRE.</p>
+        </section>
+        <section class="article-block">
+          <h2>The problem</h2>
+          <p>CRE teams are adopting AI at a rapid pace, but they are not using it for anything more than a first-pass underwriter and OM reviewer.</p>
+          <p>Let’s use a common example of how someone in CRE might use Claude:</p>
+          <figure class="article-inline-media"><img src="assets/linkedin-skills-prompt.png" width="1462" height="812" alt="Claude prompt asking for an office condo acquisition cash flow model" /><figcaption>A typical one-off underwriting prompt in Claude.</figcaption></figure>
+          <p>There is nothing wrong with this, but it is one of the reasons CRE teams are not seeing Claude make a <em>real</em> impact.</p>
+          <p>In fact, I had a conversation with the principal of a firm in NYC this weekend. I have underlined our problem:</p>
+          <figure class="article-inline-media"><img src="assets/linkedin-skills-principal-quote.png" width="738" height="246" alt="CRE principal describing repeatedly rewriting the same Claude underwriting instructions" /><figcaption>The repeated-instructions problem.</figcaption></figure>
+          <p>Most teams do not know about <strong>Skills</strong>.</p>
+          <p>But what is a Skill? How can I make one? Can you show me an example?</p>
+          <p>Keep reading.</p>
         </section>
         <section class="article-block">
           <h2>Understanding Skills</h2>
-          <p>A Skill is a reusable set of steps Claude takes while completing a task.</p>
-          <p>Every useful prompt carries two variables: context, the information Claude needs to understand the task; and steps, the process Claude should follow to complete it. Skills package both into a simple markdown file that Claude can trigger whenever the task appears.</p>
-          <p>That means an underwriting process does not have to depend on someone remembering the perfect prompt. The assumptions, checks, sequence, and delivery format can travel together.</p>
+          <p>Skills can be very easily defined as:</p>
+          <blockquote><p>A reusable set of steps Claude takes while completing a task.</p></blockquote>
+          <p>To understand this completely, let’s look back at our example.</p>
+          <figure class="article-inline-media"><img src="assets/linkedin-skills-context-steps.png" width="2022" height="948" alt="Annotated underwriting prompt separating context from the steps Claude should follow" /><figcaption>A prompt contains context and steps. A Skill packages both.</figcaption></figure>
+          <p>Prompting can be defined with two variables:</p>
+          <ul><li><strong>Context:</strong> information you provide Claude so it can understand a task.</li><li><strong>Steps:</strong> the actions you want Claude to take to complete that task.</li></ul>
+          <p><strong>Skills</strong> combine these two variables into a markdown file that Claude can trigger.</p>
+          <p>P.S. Markdown files are just text documents.</p>
         </section>
         <section class="article-block">
-          <h2>Creating a Skill</h2>
-          <p>Claude gives you three ways to start. <strong>Create with Claude</strong> lets you describe the job and have Claude draft the Skill. <strong>Write skill instructions</strong> lets you author the file manually. <strong>Upload a Skill</strong> lets you use a package someone else created.</p>
-          <p>For most teams, Create with Claude is the easiest starting point. Describe the underwriting workflow, answer the follow-up questions, then test the resulting Skill against a real deal.</p>
+          <h2>Creating Skills</h2>
+          <p>Creating Skills is simple in Claude. Once you open the Skills area, you have three options.</p>
+          <h3>Create with Claude</h3>
+          <p>This is where you prompt and Claude generates the Skill for you. If you want to create an underwriting Skill, describe the workflow, the property type, the inputs it should expect, and the model you want it to deliver.</p>
+          <h3>Write skill instructions</h3>
+          <p>I do not recommend starting here. You have to write the instructions manually, and Claude is already capable of drafting them from a clear description of the job.</p>
+          <h3>Upload a Skill</h3>
+          <p>This is the option to select when you want to use a Skill someone else created. You can download our <a href="https://github.com/altrwork/skills/releases/download/nyc-office-condo-underwriting-v1/nyc-office-condo-underwriting.skill">NYC office-condo underwriting Skill</a> and walk through the process yourself.</p>
         </section>
         <section class="article-block">
-          <h2>An underwriting example</h2>
-          <p>A reusable office-condo underwriting Skill might instruct Claude to:</p>
-          <ol><li>Read the offering memorandum.</li><li>Identify what the OM does not cover.</li><li>Confirm missing assumptions.</li><li>Build the ten-year cash flow.</li><li>Deliver the model in the team’s required format.</li></ol>
-          <p>The value is not the checklist alone. The Skill can be tuned to your OM format, due-diligence checklist, investment criteria, and the way your team actually underwrites.</p>
+          <h2>Underwriting example</h2>
+          <p>Let’s look at the <strong>nyc-office-condo-underwriting</strong> Skill to drive it home. In the markdown file, Claude follows the same sequence whenever the Skill is triggered:</p>
+          <ol><li>Read the OM.</li><li>Identify what the OM does not cover.</li><li>Confirm missing assumptions.</li><li>Build the ten-year cash flow.</li><li>Deliver the model.</li></ol>
         </section>
         <section class="article-block">
-          <h2>Next: give the Skill access</h2>
-          <p>A Skill makes the steps reusable. The next part is connecting Claude to the applications and data your team already uses—RentManager, Yardi, AppFolio, CoStar, Argus, your CRM, and the deal tracker—so those steps can operate on live work.</p>
+          <h2>Next steps</h2>
+          <p>Hopefully by now you have learned what Skills are and how to create them for yourself.</p>
+          <p>Next, we are going to discuss how we can combine Skills with another feature in Claude so we can run the same reusable steps with applications we already use.</p>
+          <p>Stay tuned for the next part of this series on <strong>connectors</strong>.</p>
+        </section>
+        <section class="article-block">
+          <h2>Want this built into your workflow?</h2>
+          <p>You just watched us build a working underwriting Skill, for free, in minutes.</p>
+          <p>Now imagine one tuned to your OM format, your DD checklist, and the way your team actually underwrites—not a generic template.</p>
+          <p>That means wiring Claude straight into the systems your team already runs on: RentManager, Yardi, AppFolio, CoStar, and Argus. A Skill does not just follow steps; it can pull your rent roll, check your comps, and update your deal tracker without you touching five different tabs.</p>
+          <p>That is the gap between the 66% using Claude weekly and the 5% trusting it with real decisions, and it is exactly what we close with CRE teams.</p>
+          <p>If you want that built for your firm, book a free workshop with us.</p>
         </section>
         <div class="article-callout"><span>Working idea</span><p>A Skill is the difference between asking Claude to improvise an underwriting process and giving it the playbook your team already trusts.</p></div>
         <p class="cre-source-link">Originally published in the <a href="https://www.linkedin.com/pulse/claude-cre-skills-jarred-robidoux-drnfe/" target="_blank" rel="noopener">altr’d newsletter on LinkedIn</a>.</p>
