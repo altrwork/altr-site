@@ -3822,3 +3822,15 @@ h4 {
 .offer-body {
   min-width: 0;
 }
+
+.statement-sub {
+  max-width: 52ch;
+  margin: 20px 0 0;
+  font-size: 16px;
+  color: var(--bone-dim);
+}
+
+.statement-sub a {
+  color: var(--copper);
+  text-underline-offset: 3px;
+}
