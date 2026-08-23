@@ -11,7 +11,7 @@ the content, so it keeps its URL and search rankings without crowding the header
 |---|---|
 | What we do | `what-we-do.html` - every engagement with its price on the same line |
 | Work | `impact-studies.html` -> four `impact-*.html` case studies |
-| Writing | `tutorials.html` -> the article pages; `resources.html` canonicals here |
+| Blog | `tutorials.html` -> the article pages; `resources.html` canonicals here |
 | About | `about.html`, including the 4D framework; `how-we-altr-work.html` has the full version |
 
 Detail pages not in the nav: the service pages (`custom-agents.html`,
