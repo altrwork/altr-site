@@ -9,13 +9,14 @@ Contact: inquiries@altrwork.com
 
 ## Pricing
 
-- [What we do and what it costs](https://altrwork.com/what-we-do.html): the discovery call is free. Enablement workshops
-  from $3,500. Automation pilots and phase builds are quoted as one fixed fee after discovery,
-  with hours named per workstream; no build price is published because scope sets it. Embedded
-  engineering is scoped and quoted per engagement, separate from contract software builds, which
-  carry their own terms. Optional ongoing support $750-$2,500/month. Model and
-  infrastructure costs are billed by vendors directly to the client, typically $25-$250/month
-  at pilot volume.
+- [What we do and what it costs](https://altrwork.com/what-we-do.html): the discovery call is free. Enablement
+  workshops from $3,500 for four hours with up to ten people, split however the team wants them.
+  Automation pilots and phase builds are quoted as one fixed fee after discovery, with hours named
+  per workstream; no build price is published because scope sets it. Monthly retainer at 10 hours
+  for $2,000, 20 hours for $3,800, or 40 hours for $7,000, covering embedded build time, new
+  automations, maintenance, or advice; unused hours roll one month, cancel with 30 days notice.
+  Model and infrastructure costs are billed by vendors directly to the client, typically
+  $25-$250/month at pilot volume.
 
 ## Services
 

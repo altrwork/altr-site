@@ -47,9 +47,12 @@ deployment and those scripts should not be served from the site root:
   headings, and Lora (`--serif`) is a pull-quote face only.
 - Token names were kept from the previous dark theme so every rule kept
   resolving through the inversion; only the values changed.
-- Prices live in exactly two places: `what-we-do.html` and the `.price-strip`
-  on the home page. Change both together, plus the `OfferCatalog` schema and
-  `llms.txt`.
+- Prices live in five places and have to move together: the offer cards in
+  `what-we-do.html`, the `.price-strip` on the home page, the `OfferCatalog`
+  and `FAQPage` schema in `what-we-do.html`, `llms.txt`, and the
+  `.price-inline` chip on each service page (`ai-enablement-workshop.html`,
+  `custom-agents.html`, `forward-deployed-engineering.html`,
+  `workflow-audit.html`).
 
 ## Contact QR codes
 

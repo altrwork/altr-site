@@ -13,10 +13,10 @@
 <meta charset="utf-8" />
 <title>What we do and what it costs | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Every altr engagement in one place, with prices. Free discovery call, team workshops from $3,500, builds quoted as one fixed fee, embedded engineering scoped per engagement." />
+<meta name="description" content="Every altr engagement in one place, with prices. Free discovery call, four-hour team workshops from $3,500, builds quoted as one fixed fee, monthly retainers from $2,000." />
 <link rel="canonical" href="https://altrwork.com/what-we-do.html" />
 <meta property="og:title" content="What we do and what it costs | altr" />
-<meta property="og:description" content="Every altr engagement in one place, with prices. Free discovery call, team workshops from $3,500, builds quoted as one fixed fee, embedded engineering scoped per engagement." />
+<meta property="og:description" content="Every altr engagement in one place, with prices. Free discovery call, four-hour team workshops from $3,500, builds quoted as one fixed fee, monthly retainers from $2,000." />
 <meta property="og:url" content="https://altrwork.com/what-we-do.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="What we do and what it costs | altr" />
-<meta name="twitter:description" content="Every altr engagement in one place, with prices. Free discovery call, workshops from $3,500, builds quoted as one fixed fee." />
+<meta name="twitter:description" content="Every altr engagement in one place, with prices. Free discovery call, workshops from $3,500, builds quoted as one fixed fee, retainers from $2,000 a month." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -44,7 +44,7 @@
       "@type": "WebPage",
       "name": "What we do and what it costs",
       "url": "https://altrwork.com/what-we-do.html",
-      "description": "Every altr engagement with its price, from the free discovery call through embedded engineering.",
+      "description": "Every altr engagement with its price, from the free discovery call through the monthly retainer.",
       "isPartOf": { "@id": "https://altrwork.com/#website" },
       "about": { "@id": "https://altrwork.com/#business" }
     },
@@ -72,6 +72,7 @@
           "name": "Team workshop",
           "url": "https://altrwork.com/ai-enablement-workshop.html",
           "itemOffered": { "@type": "Service", "name": "AI enablement workshop", "provider": { "@id": "https://altrwork.com/#business" } },
+          "description": "Four hours for up to ten people, split however the team wants them. Larger rooms and longer formats quoted from there.",
           "priceSpecification": { "@type": "PriceSpecification", "price": "3500", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
         },
         {
@@ -83,17 +84,11 @@
         },
         {
           "@type": "Offer",
-          "name": "Embedded engineering",
-          "url": "https://altrwork.com/forward-deployed-engineering.html",
-          "itemOffered": { "@type": "Service", "name": "Forward deployed engineering", "provider": { "@id": "https://altrwork.com/#business" } },
-          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "description": "Scoped and quoted per engagement after the discovery call." }
-        },
-        {
-          "@type": "Offer",
-          "name": "Ongoing support",
+          "name": "Monthly retainer",
           "url": "https://altrwork.com/what-we-do.html",
-          "itemOffered": { "@type": "Service", "name": "Ongoing support and iteration", "provider": { "@id": "https://altrwork.com/#business" } },
-          "priceSpecification": { "@type": "PriceSpecification", "minPrice": "750", "maxPrice": "2500", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
+          "itemOffered": { "@type": "Service", "name": "Monthly AI engineering retainer", "provider": { "@id": "https://altrwork.com/#business" } },
+          "description": "A set number of hours every month: 10 hours at $2,000, 20 hours at $3,800, or 40 hours at $7,000. Hours cover embedded build time, new automations, maintenance, or advice.",
+          "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "maxPrice": "7000", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
         }
       ]
     },
@@ -112,8 +107,8 @@
         },
         {
           "@type": "Question",
-          "name": "How is embedded engineering priced?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Per engagement, after we see the work. Embedding is scoped separately from contract software builds, which carry their own rate, because constructing complex software is different work. Either way you get one written number before anything starts, with hours named per workstream." }
+          "name": "How does the retainer work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You buy a set number of hours each month: 10 hours at $2,000, 20 hours at $3,800, or 40 hours at $7,000. Hours go toward whatever the work needs, including embedded build time, new automations, keeping existing systems running, or advice before your team builds the wrong thing. Unused hours roll one month and you can cancel with 30 days notice." }
         },
         {
           "@type": "Question",
@@ -123,7 +118,7 @@
         {
           "@type": "Question",
           "name": "Do you require a long-term contract?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Every engagement is scoped as a discrete piece of work with a defined end. Support is month to month and optional, because the handoff is built to make us unnecessary." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Projects are scoped as discrete pieces of work with a defined end. The retainer is month to month and cancellable with 30 days notice, because the handoff is built to make us unnecessary." }
         }
       ]
     }
@@ -148,7 +143,7 @@
   <main class="page" id="main">
     <section class="lede-hero">
       <p class="kicker">What we do</p>
-      <h1>Five ways to work with us, and what each one costs.</h1>
+      <h1>Four ways to work with us, and what each one costs.</h1>
       <p class="lede">We help teams use AI inside the work they already do, then automate the parts that should not be redone by hand every week. Start with the free call. Everything after that is scoped against a real workflow.</p>
     </section>
 
@@ -177,13 +172,14 @@
           <p class="offer-price">from $3,500</p>
         </div>
         <div class="offer-body">
-          <p class="offer-what">A full day with your team, run against your tools and your repeated work. Nobody sits through a demo of someone else's use case.</p>
+          <p class="offer-what">Four hours with your team, run against your tools and your repeated work. Nobody sits through a demo of someone else's use case.</p>
           <ul class="offer-gets">
+            <li>Four hours for up to ten people, split however your team wants them</li>
             <li>We collect your team's real repeated tasks before the session</li>
-            <li>People build working prompts and workflows during the day</li>
+            <li>People build working prompts and workflows in the room</li>
             <li>Everything produced stays with your team</li>
           </ul>
-          <p class="offer-fine">On-site across Tampa Bay, or remote. <a href="ai-enablement-workshop.html">What a session covers</a> &middot; <a href="events.html">community demos and events</a></p>
+          <p class="offer-fine">On-site across Tampa Bay, or remote. Bigger rooms and longer formats are quoted from there. <a href="ai-enablement-workshop.html">What a session covers</a> &middot; <a href="events.html">community demos and events</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Ask about a workshop</a>
       </article>
@@ -207,36 +203,19 @@
 
       <article class="offer">
         <div class="offer-head">
-          <h2>Embedded engineering</h2>
-          <p class="offer-price">Scoped per engagement</p>
+          <h2>Monthly retainer</h2>
+          <p class="offer-price">from $2,000 / mo</p>
         </div>
         <div class="offer-body">
-          <p class="offer-what">An engineer working inside your team on a recurring basis. For when the work spans groups and nobody can yet explain the whole process.</p>
+          <p class="offer-what">A set number of hours every month, spent however the work demands: embedded build time, new automations, keeping existing systems running, or answering the question before someone builds the wrong thing. For teams who want us reachable rather than re-scoped every time something comes up.</p>
           <ul class="offer-gets">
-            <li>In your meetings, learning the domain, shipping alongside your people</li>
-            <li>Scoped monthly against a defined set of hours</li>
-            <li>No long-term contract; the engagement has a defined end</li>
+            <li>10 hours a month &mdash; $2,000</li>
+            <li>20 hours a month &mdash; $3,800</li>
+            <li>40 hours a month &mdash; $7,000, effectively an engineer inside the team</li>
           </ul>
-          <p class="offer-fine">Priced after we see the work. Contract software builds are separate work with their own terms. <a href="forward-deployed-engineering.html">How embedding works</a></p>
+          <p class="offer-fine">Unused hours roll one month. Cancel anytime with 30 days notice. <a href="forward-deployed-engineering.html">How embedding works</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Talk it through</a>
-      </article>
-
-      <article class="offer">
-        <div class="offer-head">
-          <h2>Ongoing support</h2>
-          <p class="offer-price">$750&ndash;$2,500 / mo</p>
-        </div>
-        <div class="offer-body">
-          <p class="offer-what">Optional, month to month, and genuinely optional. The handoff is designed so your team can maintain the system without us.</p>
-          <ul class="offer-gets">
-            <li>Monitoring and changes as the workflow changes</li>
-            <li>New cases added as they appear</li>
-            <li>Cancel anytime, no minimum term</li>
-          </ul>
-          <p class="offer-fine">Priced on how many systems and how often the underlying work changes.</p>
-        </div>
-        <a class="offer-cta button secondary" href="start-a-conversation.html">Ask about support</a>
       </article>
 
     </section>
@@ -247,8 +226,8 @@
         <p>Billed by the vendor straight to you, usually <strong>$25&ndash;$250 a month</strong> at pilot volume. We would rather you own those accounts than pay us a markup on them.</p>
       </article>
       <article class="note">
-        <h3>Fixed fees, not open hours</h3>
-        <p>We size work in hours, then bill <strong>one number</strong> against written scope. You see the hours named per piece before anything starts.</p>
+        <h3>Two ways to buy, no third</h3>
+        <p>A defined project is <strong>one fixed fee</strong> against written scope. Open-ended work is <strong>retainer hours</strong>. Nothing gets billed as a surprise line item at the end of a month.</p>
       </article>
       <article class="note">
         <h3>An honest no is a real outcome</h3>
@@ -264,12 +243,16 @@
           <p>A build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the call you get one fixed fee against written scope.</p>
         </div>
         <div class="qa">
+          <h3>Why quote a build if I can just buy hours?</h3>
+          <p>A build is a defined outcome, so it gets one number and we carry the risk of it taking longer. Retainer hours are for work with no defined end yet. Most teams start with a build and move to a retainer once there is something to keep improving.</p>
+        </div>
+        <div class="qa">
           <h3>What is included in a quote?</h3>
           <p>A quote covers the consulting time it names. No separate charges for calls, documentation, or travel within Tampa Bay.</p>
         </div>
         <div class="qa">
           <h3>Do you require a long-term contract?</h3>
-          <p>No. Every engagement is a discrete piece of work with a defined end. Support is month to month and cancellable.</p>
+          <p>No. Projects are discrete pieces of work with a defined end. The retainer is month to month, cancellable with 30 days notice.</p>
         </div>
         <div class="qa">
           <h3>What if we are smaller than this?</h3>
