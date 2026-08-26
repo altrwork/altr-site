@@ -43,8 +43,8 @@ deployment and those scripts should not be served from the site root:
 
 ## Design system notes
 
-- Body copy is a system sans stack (`--text`), Space Grotesk (`--sans`) carries
-  headings, and Lora (`--serif`) is a pull-quote face only.
+- Clash Display carries body copy and headings through Fontshare (`--text` and
+  `--sans`), while Lora (`--serif`) remains a pull-quote face only.
 - Token names were kept from the previous dark theme so every rule kept
   resolving through the inversion; only the values changed.
 - Prices live in exactly two places: `what-we-do.html` and the `.price-strip`
