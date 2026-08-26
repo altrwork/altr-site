@@ -13,10 +13,10 @@
 <meta charset="utf-8" />
 <title>What we do and what it costs | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Every altr engagement in one place, with prices. Free discovery call, team workshops from $3,500, builds quoted as one fixed fee, embedded engineering at $185/hr." />
+<meta name="description" content="Every altr engagement in one place, with prices. Free discovery call, team workshops from $3,500, builds quoted as one fixed fee, embedded engineering scoped per engagement." />
 <link rel="canonical" href="https://altrwork.com/what-we-do.html" />
 <meta property="og:title" content="What we do and what it costs | altr" />
-<meta property="og:description" content="Every altr engagement in one place, with prices. Free discovery call, team workshops from $3,500, builds quoted as one fixed fee, embedded engineering at $185/hr." />
+<meta property="og:description" content="Every altr engagement in one place, with prices. Free discovery call, team workshops from $3,500, builds quoted as one fixed fee, embedded engineering scoped per engagement." />
 <meta property="og:url" content="https://altrwork.com/what-we-do.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -86,7 +86,7 @@
           "name": "Embedded engineering",
           "url": "https://altrwork.com/forward-deployed-engineering.html",
           "itemOffered": { "@type": "Service", "name": "Forward deployed engineering", "provider": { "@id": "https://altrwork.com/#business" } },
-          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "185", "priceCurrency": "USD", "unitText": "hour" }
+          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "description": "Scoped and quoted per engagement after the discovery call." }
         },
         {
           "@type": "Offer",
@@ -112,8 +112,8 @@
         },
         {
           "@type": "Question",
-          "name": "What is the hourly rate?",
-          "acceptedAnswer": { "@type": "Answer", "text": "$185 per hour, all-inclusive. No separate charges for calls, documentation, or travel within Tampa Bay. Most engagements are quoted as a fixed fee derived from that rate rather than billed hourly." }
+          "name": "How is embedded engineering priced?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Per engagement, after we see the work. Embedding is scoped separately from contract software builds, which carry their own rate, because constructing complex software is different work. Either way you get one written number before anything starts, with hours named per workstream." }
         },
         {
           "@type": "Question",
@@ -208,16 +208,16 @@
       <article class="offer">
         <div class="offer-head">
           <h2>Embedded engineering</h2>
-          <p class="offer-price">$185 / hr</p>
+          <p class="offer-price">Scoped per engagement</p>
         </div>
         <div class="offer-body">
           <p class="offer-what">An engineer working inside your team on a recurring basis. For when the work spans groups and nobody can yet explain the whole process.</p>
           <ul class="offer-gets">
             <li>In your meetings, learning the domain, shipping alongside your people</li>
-            <li>Scoped monthly, typically 40 to 80 hours</li>
+            <li>Scoped monthly against a defined set of hours</li>
             <li>No long-term contract; the engagement has a defined end</li>
           </ul>
-          <p class="offer-fine">All-inclusive rate. No separate line items for calls, documentation, or local travel. <a href="forward-deployed-engineering.html">How embedding works</a></p>
+          <p class="offer-fine">Priced after we see the work. Contract software builds are separate work with their own terms. <a href="forward-deployed-engineering.html">How embedding works</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Talk it through</a>
       </article>
@@ -248,7 +248,7 @@
       </article>
       <article class="note">
         <h3>Fixed fees, not open hours</h3>
-        <p>The <strong>$185/hr</strong> rate is how we size work, not how we bill it. Once scope is written you get one number, with hours named per piece.</p>
+        <p>We size work in hours, then bill <strong>one number</strong> against written scope. You see the hours named per piece before anything starts.</p>
       </article>
       <article class="note">
         <h3>An honest no is a real outcome</h3>
@@ -264,8 +264,8 @@
           <p>A build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the call you get one fixed fee against written scope.</p>
         </div>
         <div class="qa">
-          <h3>What does all-inclusive mean?</h3>
-          <p>The $185/hr rate covers standard AI and software consulting time. No separate charges for calls, documentation, or travel within Tampa Bay.</p>
+          <h3>What is included in a quote?</h3>
+          <p>A quote covers the consulting time it names. No separate charges for calls, documentation, or travel within Tampa Bay.</p>
         </div>
         <div class="qa">
           <h3>Do you require a long-term contract?</h3>
