@@ -11,12 +11,14 @@ Contact: inquiries@altrwork.com
 
 - [What we do and what it costs](https://altrwork.com/what-we-do.html): three engagements, no separate
   charge for the intro call. Enablement workshops from $3,500 for four hours with up to ten people,
-  spread however the team wants them. Automation pilots and phase builds are quoted as one fixed fee
-  after discovery, with hours named per workstream; no build price is published because scope sets
-  it. Monthly retainer at 10 hours
-  for $2,000, 20 hours for $3,800, or 40 hours for $7,000, covering embedded build time, new
-  automations, maintenance, or advice; unused hours roll one month, cancel with 30 days notice.
-  Model and infrastructure costs are billed by vendors directly to the client, typically
+  spread however the team wants them; the output is prompts and workflows the team runs by hand.
+  Agent build and deployment is quoted as one fixed fee after discovery, with hours named per
+  workstream; no build price is published because scope sets it. A build means software engineering:
+  multi-step agent orchestrations that act autonomously, MCP servers wiring agents into existing
+  tools and permissions, deployed and monitored rather than run by hand. Consulting retainer is up
+  to ten hours a month of advisory time, $2,400 month to month, $2,200/month on a three-month term,
+  or $2,000/month on six months; unused hours roll one month. Retainer hours are advisory, not a
+  build slot. Model and infrastructure costs are billed by vendors directly to the client, typically
   $25-$250/month at pilot volume.
 
 ## Services

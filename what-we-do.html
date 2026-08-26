@@ -13,10 +13,10 @@
 <meta charset="utf-8" />
 <title>What we do and what it costs | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Every altr engagement in one place, with prices. Four-hour team workshops from $3,500, automation builds quoted as one fixed fee, monthly retainers from $2,000." />
+<meta name="description" content="Every altr engagement in one place, with prices. Four-hour team workshops from $3,500, agent builds quoted as one fixed fee, consulting retainers from $2,000 a month." />
 <link rel="canonical" href="https://altrwork.com/what-we-do.html" />
 <meta property="og:title" content="What we do and what it costs | altr" />
-<meta property="og:description" content="Every altr engagement in one place, with prices. Four-hour team workshops from $3,500, automation builds quoted as one fixed fee, monthly retainers from $2,000." />
+<meta property="og:description" content="Every altr engagement in one place, with prices. Four-hour team workshops from $3,500, agent builds quoted as one fixed fee, consulting retainers from $2,000 a month." />
 <meta property="og:url" content="https://altrwork.com/what-we-do.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="What we do and what it costs | altr" />
-<meta name="twitter:description" content="Every altr engagement in one place, with prices. Workshops from $3,500, builds quoted as one fixed fee, retainers from $2,000 a month." />
+<meta name="twitter:description" content="Every altr engagement in one place, with prices. Workshops from $3,500, agent builds quoted as one fixed fee, retainers from $2,000 a month." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -44,7 +44,7 @@
       "@type": "WebPage",
       "name": "What we do and what it costs",
       "url": "https://altrwork.com/what-we-do.html",
-      "description": "Every altr engagement with its price: team workshops, automation builds, and the monthly retainer.",
+      "description": "Every altr engagement with its price: team workshops, agent builds and deployment, and the consulting retainer.",
       "isPartOf": { "@id": "https://altrwork.com/#website" },
       "about": { "@id": "https://altrwork.com/#business" }
     },
@@ -70,18 +70,19 @@
         },
         {
           "@type": "Offer",
-          "name": "Automation build",
+          "name": "Agent build and deployment",
           "url": "https://altrwork.com/custom-agents.html",
-          "itemOffered": { "@type": "Service", "name": "Workflow automation and custom agents", "provider": { "@id": "https://altrwork.com/#business" } },
+          "itemOffered": { "@type": "Service", "name": "Agent build and deployment", "provider": { "@id": "https://altrwork.com/#business" } },
+          "description": "Multi-step agent orchestrations that act autonomously, MCP servers connecting agents to existing tools and permissions, deployed and handed over. Distinct from workshop output, which is prompts and workflows a team runs by hand.",
           "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "description": "One fixed fee, quoted after the discovery call." }
         },
         {
           "@type": "Offer",
-          "name": "Monthly retainer",
+          "name": "Consulting retainer",
           "url": "https://altrwork.com/what-we-do.html",
-          "itemOffered": { "@type": "Service", "name": "Monthly AI engineering retainer", "provider": { "@id": "https://altrwork.com/#business" } },
-          "description": "A set number of hours every month: 10 hours at $2,000, 20 hours at $3,800, or 40 hours at $7,000. Hours cover embedded build time, new automations, maintenance, or advice.",
-          "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "maxPrice": "7000", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
+          "itemOffered": { "@type": "Service", "name": "AI consulting retainer", "provider": { "@id": "https://altrwork.com/#business" } },
+          "description": "Up to ten hours a month of advisory time. $2,400 month to month, $2,200 a month on a three-month term, $2,000 a month on six months. Unused hours roll one month.",
+          "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "maxPrice": "2400", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
         }
       ]
     },
@@ -96,7 +97,7 @@
         {
           "@type": "Question",
           "name": "How does the retainer work?",
-          "acceptedAnswer": { "@type": "Answer", "text": "You buy a set number of hours each month: 10 hours at $2,000, 20 hours at $3,800, or 40 hours at $7,000. Hours go toward whatever the work needs, including embedded build time, new automations, keeping existing systems running, or advice before your team builds the wrong thing. Unused hours roll one month and you can cancel with 30 days notice." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Up to ten hours a month of advisory time. The rate depends on the term: $2,400 month to month, $2,200 a month if you commit to three months, $2,000 a month on six. The hours are the same either way, and unused hours roll one month. It is advisory time rather than a build slot; anything needing real engineering gets scoped as a build." }
         },
         {
           "@type": "Question",
@@ -106,7 +107,7 @@
         {
           "@type": "Question",
           "name": "Do you require a long-term contract?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Projects are scoped as discrete pieces of work with a defined end. The retainer is month to month and cancellable with 30 days notice, because the handoff is built to make us unnecessary." }
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Builds are scoped as discrete pieces of work with a defined end. The retainer runs month to month if you want it to, cancellable with 30 days notice. Three and six month terms exist because they cost less, not because we require them." }
         }
       ]
     }
@@ -156,34 +157,36 @@
 
       <article class="offer">
         <div class="offer-head">
-          <h2>Automation build</h2>
+          <h2>Agent build and deployment</h2>
           <p class="offer-price">Quoted after the call</p>
         </div>
         <div class="offer-body">
-          <p class="offer-what">One workflow built and running. Narrow on purpose, so it proves itself against real cases before anyone commits to more.</p>
+          <p class="offer-what">Software engineering, deployed into your stack. Systems that run on their own rather than waiting for someone to prompt them.</p>
           <ul class="offer-gets">
-            <li>Built around the tools and permissions you already have</li>
+            <li>Multi-step agent orchestrations that act autonomously against real cases</li>
+            <li>MCP servers connecting agents to the tools, data, and permissions you already run</li>
             <li>Human review points and exception handling designed in, not bolted on</li>
-            <li>The prompts, documentation, and operating notes handed over at the end</li>
+            <li>Deployed, monitored, and handed over with the operating notes to run it</li>
           </ul>
-          <p class="offer-fine">One fixed fee against written scope, with hours named per piece, so the number does not move later. <a href="custom-agents.html">See what we build</a></p>
+          <p class="offer-fine">This is the line: a workshop leaves your team prompts and workflows they run by hand. A build leaves you a system that runs without them. One fixed fee against written scope. <a href="custom-agents.html">See what we build</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Book a call</a>
       </article>
 
       <article class="offer">
         <div class="offer-head">
-          <h2>Monthly retainer</h2>
+          <h2>Consulting retainer</h2>
           <p class="offer-price">from $2,000 / mo</p>
         </div>
         <div class="offer-body">
-          <p class="offer-what">A set number of hours every month, spent however the work demands: embedded build time, new automations, keeping existing systems running, or answering the question before someone builds the wrong thing.</p>
+          <p class="offer-what">Up to ten hours a month of our time, spent however you need it: reviewing what your team built, keeping a deployed system running, or answering the question before someone builds the wrong thing.</p>
           <ul class="offer-gets">
-            <li>10 hours a month &mdash; $2,000</li>
-            <li>20 hours a month &mdash; $3,800</li>
-            <li>40 hours a month &mdash; $7,000, effectively an engineer inside the team</li>
+            <li>Month to month &mdash; $2,400, cancel with 30 days notice</li>
+            <li>Three months &mdash; $2,200 a month</li>
+            <li>Six months &mdash; $2,000 a month</li>
+            <li>Same ten hours either way. Unused hours roll one month.</li>
           </ul>
-          <p class="offer-fine">Unused hours roll one month. Cancel anytime with 30 days notice. <a href="forward-deployed-engineering.html">How embedding works</a></p>
+          <p class="offer-fine">Advisory time, not a build slot. Anything that needs engineering gets scoped as a build. <a href="forward-deployed-engineering.html">How embedding works</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Book a call</a>
       </article>
@@ -196,8 +199,8 @@
         <p>Billed by the vendor straight to you, usually <strong>$25&ndash;$250 a month</strong> at pilot volume. We would rather you own those accounts than pay us a markup on them.</p>
       </article>
       <article class="note">
-        <h3>Two ways to buy, no third</h3>
-        <p>A defined project is <strong>one fixed fee</strong> against written scope. Open-ended work is <strong>retainer hours</strong>. Nothing gets billed as a surprise line item at the end of a month.</p>
+        <h3>Teaching, building, advising</h3>
+        <p>A workshop teaches. A build ships <strong>a system that runs itself</strong>. A retainer keeps us reachable after. Different work, priced differently, never billed as a surprise line item.</p>
       </article>
       <article class="note">
         <h3>An honest no is a real outcome</h3>
@@ -213,8 +216,12 @@
           <p>A build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the call you get one fixed fee against written scope.</p>
         </div>
         <div class="qa">
-          <h3>Why quote a build if I can just buy hours?</h3>
-          <p>A build is a defined outcome, so it gets one number and we carry the risk of it taking longer. Retainer hours are for work with no defined end yet. Most teams start with a build and move to a retainer once there is something to keep improving.</p>
+          <h3>What is the difference between the workshop and a build?</h3>
+          <p>The workshop leaves your team prompts and workflows they run by hand, in tools they already have. A build is software engineering: multi-step agent orchestrations that act on their own, MCP servers wired into your systems, deployed and monitored. Nobody has to sit there and drive it.</p>
+        </div>
+        <div class="qa">
+          <h3>Can I use retainer hours to get something built?</h3>
+          <p>No, and that is deliberate. Ten hours a month is advisory time: reviewing what your team built, keeping a deployed system healthy, or steering a decision before it turns into rework. Real engineering gets scoped as a build so you get one number and we carry the risk of it running long.</p>
         </div>
         <div class="qa">
           <h3>What is included in a quote?</h3>
@@ -222,7 +229,7 @@
         </div>
         <div class="qa">
           <h3>Do you require a long-term contract?</h3>
-          <p>No. Projects are discrete pieces of work with a defined end. The retainer is month to month, cancellable with 30 days notice.</p>
+          <p>No. Builds are discrete pieces of work with a defined end, and the retainer runs month to month if you want. The three and six month terms exist because they cost less, not because we require them.</p>
         </div>
         <div class="qa">
           <h3>What if we are smaller than this?</h3>
