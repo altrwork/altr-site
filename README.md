@@ -71,9 +71,13 @@ deployment and those scripts should not be served from the site root:
   (1-4 people, hands-on, returns a written workflow map) or a team workshop
   (up to 10, broader). Do not write copy that makes the session a prerequisite
   for the workshop - a team that wants the whole office in a room first is a
-  real case. The only ordering claim we make is the credit: if a session leads
-  to a workshop later, the session fee comes off the workshop. That runs one
-  direction only and is not offered in advance.
+  real case.
+- **Session length is not published either.** No hour counts anywhere. The site
+  says length is set with the client on the call; it names scheduling shapes
+  ("one afternoon", "two mornings", "weekly blocks") but never a number.
+- Fees, session length, and any credit or discount mechanics are call-time
+  only. They are sales levers and lose their value in print, so they must not
+  appear on the site, in `llms.txt`, or in schema.
 - The retainer is advisory hours only. It is **not** a workshop allowance and
   **not** forward deployed or embedded engineering time. Additional sessions,
   additional workshops, and any real engineering are scoped and quoted as their
