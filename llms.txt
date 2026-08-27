@@ -9,25 +9,32 @@ Contact: inquiries@altrwork.com
 
 ## Pricing
 
-- [What we do and what it costs](https://altrwork.com/what-we-do.html): three engagements, no separate
-  charge for the intro call. Enablement workshops from $3,500 for four hours with up to ten people,
-  spread however the team wants them; the output is prompts and workflows the team runs by hand.
-  Agent build and deployment is quoted as one fixed fee after discovery, with hours named per
-  workstream; no build price is published because scope sets it. A build means software engineering:
-  multi-step agent orchestrations that act autonomously, MCP servers wiring agents into existing
-  tools and permissions, deployed and monitored rather than run by hand. Consulting retainer is up
-  to ten hours a month of advisory time, $2,400 month to month, $2,200/month on a three-month term,
-  or $2,000/month on six months; unused hours roll one month. Retainer hours are advisory, not a
-  build slot. Model and infrastructure costs are billed by vendors directly to the client, typically
-  $25-$250/month at pilot volume.
+- [What we do and what it costs](https://altrwork.com/what-we-do.html): three engagements in a fixed
+  order, no separate charge for the intro call. Every engagement starts with enablement: four hours
+  from $3,500, run against the team's own tools and spread however the team wants. Enablement comes
+  in two formats at the same price, because the price reflects depth rather than headcount. A working
+  session is hands-on with the one to four people who own a process, and returns a written map of
+  that workflow plus prompts built against real files. A team workshop covers up to ten people more
+  broadly and is less hands-on with each person; everyone leaves with something running, but there is
+  no per-person map. Office-wide rollouts and longer formats are quoted from there. Enablement output
+  is prompts and workflows the team runs by hand. Agent build and deployment is quoted as one fixed
+  fee against written scope after enablement, with hours named per workstream; no build price is
+  published because scope sets it, and the scope comes from the map enablement produced. A build means
+  software engineering: multi-step agent orchestrations that act autonomously, MCP servers wiring
+  agents into existing tools and permissions, deployed and monitored rather than run by hand.
+  Consulting retainer is up to ten hours a month of advisory time and is only available after an
+  enablement engagement or a build; it is not an entry point. $2,400 month to month, $2,200/month on a
+  three-month term, or $2,000/month on six months; unused hours roll one month. Retainer hours are
+  advisory, not a build slot and not embedded headcount. Model and infrastructure costs are billed by
+  vendors directly to the client, typically $25-$250/month at pilot volume.
 
 ## Services
 
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
 - [Workflow discovery](https://altrwork.com/workflow-audit.html): mapping one repeated process before anything is built
-- [AI enablement workshop](https://altrwork.com/ai-enablement-workshop.html): hands-on training against a team's own work
+- [AI enablement](https://altrwork.com/ai-enablement-workshop.html): hands-on work against a team's own tasks, as a small-group working session or a full team workshop
 - [Custom AI agents](https://altrwork.com/custom-agents.html): workflow agents, agentic coding systems, automation handoff
-- [Forward deployed engineering](https://altrwork.com/forward-deployed-engineering.html): embedded engineering inside the operating context
+- [Forward deployed engineering](https://altrwork.com/forward-deployed-engineering.html): the method behind our engagements, building inside the operating context; not sold separately as embedded headcount or engineer-days
 - [Events](https://altrwork.com/events.html): workshops, community demos, workflow reviews
 
 ## Impact studies

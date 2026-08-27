@@ -494,6 +494,21 @@ h4 {
   font-size: 17px;
 }
 
+/* sits where a price chip would on pages that deliberately have no price */
+.page-note {
+  max-width: 62ch;
+  margin: 26px 0 0;
+  padding-left: 14px;
+  border-left: 1px solid var(--line-strong);
+  font-size: 15px;
+  color: var(--bone-dim);
+}
+
+.page-note a {
+  color: var(--copper);
+  text-underline-offset: 3px;
+}
+
 .hero {
   min-height: clamp(650px, calc(100svh - var(--nav-height)), 850px);
   display: grid;
@@ -3269,6 +3284,7 @@ h4 {
 
   .hero-copy,
   .page-lede,
+  .page-note,
   .section-header p,
   .about-copy p,
   .service-arm p,
@@ -3845,6 +3861,17 @@ h4 {
   border-bottom: 1px solid var(--line);
 }
 
+.offer-step {
+  display: block;
+  margin: 0 0 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+
 .offer-head h2 {
   margin: 0 0 8px;
   font-size: clamp(24px, 2.4vw, 32px);
@@ -4014,12 +4041,19 @@ h4 {
 
   .offer-head {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
     gap: 16px;
   }
 
   .offer-head h2 {
+    margin: 0;
+  }
+
+  /* the step label owns its own row so the name and price stay paired */
+  .offer-step {
+    flex: 0 0 100%;
     margin: 0;
   }
 

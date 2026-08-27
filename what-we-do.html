@@ -13,10 +13,10 @@
 <meta charset="utf-8" />
 <title>What we do and what it costs | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Every altr engagement in one place, with prices. Four-hour team workshops from $3,500, agent builds quoted as one fixed fee, consulting retainers from $2,000 a month." />
+<meta name="description" content="Every altr engagement in one place, with prices, in the order they happen. Enablement from $3,500, agent builds quoted as one fixed fee, and a consulting retainer once something is running." />
 <link rel="canonical" href="https://altrwork.com/what-we-do.html" />
 <meta property="og:title" content="What we do and what it costs | altr" />
-<meta property="og:description" content="Every altr engagement in one place, with prices. Four-hour team workshops from $3,500, agent builds quoted as one fixed fee, consulting retainers from $2,000 a month." />
+<meta property="og:description" content="Every altr engagement in one place, with prices, in the order they happen. Enablement from $3,500, agent builds quoted as one fixed fee, and a consulting retainer once something is running." />
 <meta property="og:url" content="https://altrwork.com/what-we-do.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="altr - AI enablement and automation, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="What we do and what it costs | altr" />
-<meta name="twitter:description" content="Every altr engagement in one place, with prices. Workshops from $3,500, agent builds quoted as one fixed fee, retainers from $2,000 a month." />
+<meta name="twitter:description" content="Every altr engagement in one place, with prices, in the order they happen. Enablement from $3,500, builds quoted as one fixed fee, retainer after." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -44,7 +44,7 @@
       "@type": "WebPage",
       "name": "What we do and what it costs",
       "url": "https://altrwork.com/what-we-do.html",
-      "description": "Every altr engagement with its price: team workshops, agent builds and deployment, and the consulting retainer.",
+      "description": "Every altr engagement with its price, in the order they happen: enablement, agent builds and deployment, and the consulting retainer.",
       "isPartOf": { "@id": "https://altrwork.com/#website" },
       "about": { "@id": "https://altrwork.com/#business" }
     },
@@ -62,10 +62,10 @@
       "itemListElement": [
         {
           "@type": "Offer",
-          "name": "Team workshop",
+          "name": "Enablement",
           "url": "https://altrwork.com/ai-enablement-workshop.html",
-          "itemOffered": { "@type": "Service", "name": "AI enablement workshop", "provider": { "@id": "https://altrwork.com/#business" } },
-          "description": "Four hours for up to ten people, split however the team wants them. Larger rooms and longer formats quoted from there.",
+          "itemOffered": { "@type": "Service", "name": "AI enablement", "provider": { "@id": "https://altrwork.com/#business" } },
+          "description": "Four hours run against the team's own tools, in one of two formats. A working session goes deep with the one to four people who own a process and returns a written map of it. A team workshop covers up to ten people more broadly, and everyone leaves with something running. Office-wide rollouts and longer formats quoted from there.",
           "priceSpecification": { "@type": "PriceSpecification", "price": "3500", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
         },
         {
@@ -73,15 +73,15 @@
           "name": "Agent build and deployment",
           "url": "https://altrwork.com/custom-agents.html",
           "itemOffered": { "@type": "Service", "name": "Agent build and deployment", "provider": { "@id": "https://altrwork.com/#business" } },
-          "description": "Multi-step agent orchestrations that act autonomously, MCP servers connecting agents to existing tools and permissions, deployed and handed over. Distinct from workshop output, which is prompts and workflows a team runs by hand.",
-          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "description": "One fixed fee, quoted after the discovery call." }
+          "description": "Multi-step agent orchestrations that act autonomously, MCP servers connecting agents to existing tools and permissions, deployed and handed over. Scoped from what enablement found. Distinct from enablement output, which is prompts and workflows a team runs by hand.",
+          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "description": "One fixed fee, quoted against written scope after enablement." }
         },
         {
           "@type": "Offer",
           "name": "Consulting retainer",
           "url": "https://altrwork.com/what-we-do.html",
           "itemOffered": { "@type": "Service", "name": "AI consulting retainer", "provider": { "@id": "https://altrwork.com/#business" } },
-          "description": "Up to ten hours a month of advisory time. $2,400 month to month, $2,200 a month on a three-month term, $2,000 a month on six months. Unused hours roll one month.",
+          "description": "Up to ten hours a month of advisory time, available after an enablement engagement or a build. $2,400 month to month, $2,200 a month on a three-month term, $2,000 a month on six months. Unused hours roll one month.",
           "priceSpecification": { "@type": "PriceSpecification", "minPrice": "2000", "maxPrice": "2400", "priceCurrency": "USD", "valueAddedTaxIncluded": false }
         }
       ]
@@ -91,13 +91,23 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What is the difference between a working session and a team workshop?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Depth versus breadth, at the same price. A working session is hands-on with the one to four people who own a process; the output is a written map of that workflow plus prompts built against real files. A team workshop is less hands-on with each person because there are up to ten of them; everyone leaves with something running, but there is no per-person map. You are not paying for seats, you are paying for how far into the work we go." }
+        },
+        {
+          "@type": "Question",
           "name": "Why is build pricing not listed?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because a build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the discovery call you get one fixed fee against written scope, with hours named per workstream." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Because a build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. Enablement produces the map, and the build is quoted from it as one fixed fee against written scope, with hours named per workstream." }
         },
         {
           "@type": "Question",
           "name": "How does the retainer work?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Up to ten hours a month of advisory time. The rate depends on the term: $2,400 month to month, $2,200 a month if you commit to three months, $2,000 a month on six. The hours are the same either way, and unused hours roll one month. It is advisory time rather than a build slot; anything needing real engineering gets scoped as a build." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Up to ten hours a month of advisory time, available once you have been through enablement or a build. The rate depends on the term: $2,400 month to month, $2,200 a month if you commit to three months, $2,000 a month on six. The hours are the same either way, and unused hours roll one month. It is advisory time rather than a build slot; anything needing real engineering gets scoped as a build." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we start with the retainer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Advisory hours are only useful once we know how your work actually moves, and that is what enablement produces. Starting with a retainer means paying us to guess. Enablement first, then the retainer is worth buying." }
         },
         {
           "@type": "Question",
@@ -132,33 +142,35 @@
   <main class="page" id="main">
     <section class="lede-hero">
       <p class="kicker">What we do</p>
-      <h1>Three ways to work with us, and what each one costs.</h1>
-      <p class="lede">We help teams use AI inside the work they already do, then automate the parts that should not be redone by hand every week. Everything here is scoped against a real workflow, so start by telling us about one.</p>
+      <h1>Three ways to work with us, in the order they happen.</h1>
+      <p class="lede">Everyone starts with enablement, because nothing should be built or advised on before we understand how the work moves today. What comes after depends on what that finds: a build, a retainer, or nothing at all.</p>
     </section>
 
     <section class="offer-list">
 
       <article class="offer offer-lead">
         <div class="offer-head">
-          <h2>Team workshop</h2>
+          <span class="offer-step">01 &middot; Start here</span>
+          <h2>Enablement</h2>
           <p class="offer-price">from $3,500</p>
         </div>
         <div class="offer-body">
-          <p class="offer-what">Four hours with your team, up to ten people, run against your own tools and your own repeated work. Spread the four hours however you want.</p>
+          <p class="offer-what">Four hours run against your own tools and your own repeated work, split however you want. Two formats at the same price, because what changes is how far into the work we go, not how many seats you buy.</p>
           <ul class="offer-gets">
-            <li>We collect your team's real repeated tasks before the session</li>
-            <li>People build working prompts and workflows in the room</li>
-            <li>Everything produced stays with your team</li>
+            <li><strong>Working session</strong> &mdash; hands-on with the one to four people who own a process. You get a written map of that workflow and prompts built against real files.</li>
+            <li><strong>Team workshop</strong> &mdash; up to ten people, less hands-on with each one. Everyone leaves with something running; no per-person map.</li>
+            <li>We collect the real repeated tasks before either one, and everything produced stays with your team</li>
           </ul>
-          <p class="offer-fine">On-site across Tampa Bay, or remote. <a href="ai-enablement-workshop.html">What a session covers</a></p>
+          <p class="offer-fine">On-site across Tampa Bay, or remote. Office-wide rollouts quoted from there. <a href="ai-enablement-workshop.html">What a session covers</a></p>
         </div>
         <a class="offer-cta button primary" href="start-a-conversation.html">Book a call</a>
       </article>
 
       <article class="offer">
         <div class="offer-head">
+          <span class="offer-step">02 &middot; If enablement finds one</span>
           <h2>Agent build and deployment</h2>
-          <p class="offer-price">Quoted after the call</p>
+          <p class="offer-price">Quoted after enablement</p>
         </div>
         <div class="offer-body">
           <p class="offer-what">Software engineering, deployed into your stack. Systems that run on their own rather than waiting for someone to prompt them.</p>
@@ -168,25 +180,26 @@
             <li>Human review points and exception handling designed in, not bolted on</li>
             <li>Deployed, monitored, and handed over with the operating notes to run it</li>
           </ul>
-          <p class="offer-fine">This is the line: a workshop leaves your team prompts and workflows they run by hand. A build leaves you a system that runs without them. One fixed fee against written scope. <a href="custom-agents.html">See what we build</a></p>
+          <p class="offer-fine">This is the line: enablement leaves your team prompts and workflows they run by hand. A build leaves you a system that runs without them. Scoped from the map enablement produced, then one fixed fee against written scope. <a href="custom-agents.html">See what we build</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Book a call</a>
       </article>
 
       <article class="offer">
         <div class="offer-head">
+          <span class="offer-step">03 &middot; Only after 01 or 02</span>
           <h2>Consulting retainer</h2>
-          <p class="offer-price">from $2,000 / mo</p>
+          <p class="offer-price">$2,000&ndash;$2,400 / mo</p>
         </div>
         <div class="offer-body">
-          <p class="offer-what">Up to ten hours a month of our time, spent however you need it: reviewing what your team built, keeping a deployed system running, or answering the question before someone builds the wrong thing.</p>
+          <p class="offer-what">Up to ten hours a month of our time, spent however you need it: reviewing what your team built, keeping a deployed system running, or answering the question before someone builds the wrong thing. Not an entry point &mdash; it is worth buying once we already know how your work moves.</p>
           <ul class="offer-gets">
             <li>Month to month &mdash; $2,400, cancel with 30 days notice</li>
             <li>Three months &mdash; $2,200 a month</li>
             <li>Six months &mdash; $2,000 a month</li>
             <li>Same ten hours either way. Unused hours roll one month.</li>
           </ul>
-          <p class="offer-fine">Advisory time, not a build slot. Anything that needs engineering gets scoped as a build. <a href="forward-deployed-engineering.html">How embedding works</a></p>
+          <p class="offer-fine">Advisory time, not a build slot and not embedded headcount. Anything that needs engineering gets scoped as a build. <a href="forward-deployed-engineering.html">How we work close to the work</a></p>
         </div>
         <a class="offer-cta button secondary" href="start-a-conversation.html">Book a call</a>
       </article>
@@ -199,8 +212,8 @@
         <p>Billed by the vendor straight to you, usually <strong>$25&ndash;$250 a month</strong> at pilot volume. We would rather you own those accounts than pay us a markup on them.</p>
       </article>
       <article class="note">
-        <h3>Teaching, building, advising</h3>
-        <p>A workshop teaches. A build ships <strong>a system that runs itself</strong>. A retainer keeps us reachable after. Different work, priced differently, never billed as a surprise line item.</p>
+        <h3>Depth, not seats</h3>
+        <p>Two people and ten people cost the same, because you are paying for <strong>how far into your work we go</strong>. Fewer people means a written map of the process. More people means everyone leaves with something running.</p>
       </article>
       <article class="note">
         <h3>An honest no is a real outcome</h3>
@@ -212,12 +225,24 @@
       <h2>Questions people ask about the numbers</h2>
       <div class="qa-list">
         <div class="qa">
-          <h3>Why is build pricing not listed?</h3>
-          <p>A build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. After the call you get one fixed fee against written scope.</p>
+          <h3>Working session or team workshop?</h3>
+          <p>Depth or breadth, at the same price. Pick the working session when one process matters most and the people who own it can be in a room; you get a written map of that workflow. Pick the team workshop when the goal is getting a whole group off zero. If you want both, run the sessions first and the workshop second, built on what the sessions found.</p>
         </div>
         <div class="qa">
-          <h3>What is the difference between the workshop and a build?</h3>
-          <p>The workshop leaves your team prompts and workflows they run by hand, in tools they already have. A build is software engineering: multi-step agent orchestrations that act on their own, MCP servers wired into your systems, deployed and monitored. Nobody has to sit there and drive it.</p>
+          <h3>We are only two people. Is it cheaper?</h3>
+          <p>No, and it is also not the same product. Two people is a working session: we go deeper, and you leave with a map of your process rather than a room full of prompts. You are not buying seats, so there are no unused ones to discount.</p>
+        </div>
+        <div class="qa">
+          <h3>Why is build pricing not listed?</h3>
+          <p>A build costs what its scope costs, and scope is unknown until the workflow is mapped. Quoting a number before that means padding it or walking it back later. Enablement produces the map; the build gets quoted from it as one fixed fee against written scope.</p>
+        </div>
+        <div class="qa">
+          <h3>What is the difference between enablement and a build?</h3>
+          <p>Enablement leaves your team prompts and workflows they run by hand, in tools they already have. A build is software engineering: multi-step agent orchestrations that act on their own, MCP servers wired into your systems, deployed and monitored. Nobody has to sit there and drive it.</p>
+        </div>
+        <div class="qa">
+          <h3>Can we start with the retainer?</h3>
+          <p>No. Advisory hours only pay for themselves once we know how your work actually moves, and that is what enablement produces. Buying the retainer first means paying us to guess. It is the cheapest line on this page and the wrong place to start, which is why it is third.</p>
         </div>
         <div class="qa">
           <h3>Can I use retainer hours to get something built?</h3>
@@ -233,7 +258,7 @@
         </div>
         <div class="qa">
           <h3>What if we are smaller than this?</h3>
-          <p>Start with the workshop. It usually reveals that the first useful step is smaller and cheaper than expected.</p>
+          <p>Start with a working session. Small teams are the easiest case, not the hardest, because the person who owns the process is already in the room. It usually reveals that the first useful step is smaller and cheaper than expected.</p>
         </div>
       </div>
     </section>
