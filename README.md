@@ -9,7 +9,7 @@ the content, so it keeps its URL and search rankings without crowding the header
 
 | Nav item | Page |
 |---|---|
-| What we do | `what-we-do.html` - every engagement with its price on the same line |
+| What we do | `what-we-do.html` - every engagement, in the order they happen |
 | Work | `impact-studies.html` -> four `impact-*.html` case studies |
 | Blog | `tutorials.html` -> the article pages; `resources.html` canonicals here |
 | About | `about.html`, including the 4D framework; `how-we-altr-work.html` has the full version |
@@ -38,8 +38,8 @@ deployment and those scripts should not be served from the site root:
 
 - `tools/vcard-qr.py` - generates the vCard contact QR codes in `assets/qr/`.
 - `tools/social-preview.py` - regenerates `assets/altr_social_preview.png`.
-  Re-run it whenever the home page headline or the headline prices change,
-  or the card goes stale against the site.
+  Re-run it whenever the home page headline changes, or the card goes stale
+  against the site.
 
 ## Design system notes
 
@@ -55,7 +55,7 @@ deployment and those scripts should not be served from the site root:
   page (`ai-enablement-workshop.html`, `custom-agents.html`,
   `workflow-audit.html`).
 - Those slots still exist, they just hold non-numeric values now. `.offer-price`
-  carries a shape ("Two stages", "One fixed fee", "Monthly"), `.ps-when` carries
+  carries a shape ("Two formats", "One fixed fee", "Monthly"), `.ps-when` carries
   sequence ("Start here"), and `.price-inline-amount` carries "Quoted" or
   "Scoped". The `OfferCatalog` entries have no `priceSpecification` at all,
   which is valid schema.org - do not add an empty one back.
@@ -67,11 +67,18 @@ deployment and those scripts should not be served from the site root:
   only if enablement finds one, the retainer only after either. The `01/02/03`
   labels on the offer cards, the `.steps` block on the home page, and the
   price-strip order all encode that. If you reorder one, reorder all three.
-- Enablement itself is two stages, not two options: a paid working session
-  (1-4 people, hands-on, returns a written workflow map) and then a team
-  workshop (up to 10, broader) run against what the session found. The session
-  fee credits toward the workshop. A client can stop after the session and
-  keeps the map and the prompts.
+- Enablement has two formats and **either can come first**: a working session
+  (1-4 people, hands-on, returns a written workflow map) or a team workshop
+  (up to 10, broader). Do not write copy that makes the session a prerequisite
+  for the workshop - a team that wants the whole office in a room first is a
+  real case. The only ordering claim we make is the credit: if a session leads
+  to a workshop later, the session fee comes off the workshop. That runs one
+  direction only and is not offered in advance.
+- The retainer is advisory hours only. It is **not** a workshop allowance and
+  **not** forward deployed or embedded engineering time. Additional sessions,
+  additional workshops, and any real engineering are scoped and quoted as their
+  own thing. This is stated on the offer card, in the FAQ, in the `OfferCatalog`
+  description, and in `llms.txt` - keep all four in sync.
 
 ## Contact QR codes
 

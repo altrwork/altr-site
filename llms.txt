@@ -12,13 +12,14 @@ Contact: inquiries@altrwork.com
 - [What we do](https://altrwork.com/what-we-do.html): three engagements in a fixed order, no separate
   charge for the intro call. Fees are not published; they are quoted on a call and put in writing
   before anything is committed, because the right number depends on the team's size, location, and how
-  far along they already are. Every engagement starts with enablement, which runs in two stages. Stage
-  one is a paid four-hour working session, hands-on with the one to four people who own a process; it
-  returns a written map of that workflow plus prompts built against real files, and what the client
-  pays for it credits toward stage two. Stage two is a team workshop for up to ten people, run against
-  what stage one found rather than starting cold; it is less hands-on with each person and produces no
-  per-person map, but everyone leaves with something running. A client can stop after stage one and
-  still keeps the map and the prompts. Enablement output is prompts and workflows the team runs by
+  far along they already are. Every engagement starts with enablement: four hours run against the
+  team's own tools, in one of two formats, and a team can start with either. A working session is
+  hands-on with the one to four people who own a process; it returns a written map of that workflow
+  plus prompts built against real files. A team workshop covers up to ten people and is less hands-on
+  with each person, producing no per-person map, but everyone leaves with something running. Neither
+  is a prerequisite for the other. If a working session later leads to a team workshop, what the
+  client paid for the session comes off the workshop fee; that credit only works in that direction
+  and is not available in advance. Enablement output is prompts and workflows the team runs by
   hand. Agent build and deployment comes second, only if enablement finds something worth building,
   and is quoted as one fixed fee against written scope with hours named per workstream; the scope comes
   from the map enablement produced. A build means software engineering: multi-step agent orchestrations
@@ -26,7 +27,9 @@ Contact: inquiries@altrwork.com
   monitored rather than run by hand. Consulting retainer is third: up to ten hours a month of advisory
   time, available only after an enablement engagement or a build, never as an entry point. Month to
   month or on a three or six month term, which costs less per month; unused hours roll one month.
-  Retainer hours are advisory, not a build slot and not embedded headcount. Model and infrastructure
+  Retainer hours cover advisory work only. They are not a build slot, not embedded or forward deployed
+  engineering time, and not a workshop allowance; additional sessions, additional workshops, and
+  anything needing real engineering are scoped and quoted separately. Model and infrastructure
   costs are billed by vendors directly to the client and are a small monthly amount at pilot volume.
 
 ## Services
