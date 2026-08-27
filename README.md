@@ -43,16 +43,27 @@ deployment and those scripts should not be served from the site root:
 
 ## Design system notes
 
-- Body copy is a system sans stack (`--text`), Space Grotesk (`--sans`) carries
-  headings, and Lora (`--serif`) is a pull-quote face only.
+- Clash Display carries body copy and headings through Fontshare (`--text` and
+  `--sans`), while Lora (`--serif`) remains a pull-quote face only.
 - Token names were kept from the previous dark theme so every rule kept
   resolving through the inversion; only the values changed.
 - Prices live in five places and have to move together: the offer cards in
   `what-we-do.html`, the `.price-strip` on the home page, the `OfferCatalog`
   and `FAQPage` schema in `what-we-do.html`, `llms.txt`, and the
   `.price-inline` chip on each service page (`ai-enablement-workshop.html`,
-  `custom-agents.html`, `forward-deployed-engineering.html`,
-  `workflow-audit.html`).
+  `custom-agents.html`, `workflow-audit.html`).
+- `forward-deployed-engineering.html` deliberately has no price chip. It
+  describes the method behind enablement and builds; it is not a product, and
+  we do not sell engineer-days or embedded headcount. Keep the `.page-note`
+  that says so.
+- The three engagements are a sequence, not a menu: enablement first, a build
+  only if enablement finds one, the retainer only after either. The `01/02/03`
+  labels on the offer cards, the `.steps` block on the home page, and the
+  price-strip order all encode that. If you reorder one, reorder all three.
+- Enablement has two formats at the same $3,500: a working session (1-4 people,
+  hands-on, returns a written workflow map) and a team workshop (up to 10,
+  broader). The price reflects depth, not headcount, so a smaller group is not
+  cheaper. Shorter formats are quoted case by case and are not published.
 
 ## Contact QR codes
 

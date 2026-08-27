@@ -56,8 +56,8 @@ These are the working production colors for the cream/taupe identity. The logo s
 
 Use a wide, heavy grotesque for headlines and brand moments. Suggested production choices:
 
+- Clash Display (current website face)
 - Inter Display Black / ExtraBold
-- Space Grotesk Bold
 - Neue Haas Grotesk Display Black
 - Obviously Wide / Expanded if available
 
