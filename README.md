@@ -47,11 +47,18 @@ deployment and those scripts should not be served from the site root:
   `--sans`), while Lora (`--serif`) remains a pull-quote face only.
 - Token names were kept from the previous dark theme so every rule kept
   resolving through the inversion; only the values changed.
-- Prices live in five places and have to move together: the offer cards in
-  `what-we-do.html`, the `.price-strip` on the home page, the `OfferCatalog`
-  and `FAQPage` schema in `what-we-do.html`, `llms.txt`, and the
-  `.price-inline` chip on each service page (`ai-enablement-workshop.html`,
-  `custom-agents.html`, `workflow-audit.html`).
+- **No fees are published anywhere on the site.** Everything is quoted on a
+  call. If you are putting a number back, it has to land in all five places at
+  once or the site contradicts itself: the offer cards in `what-we-do.html`, the
+  `.price-strip` on the home page, the `OfferCatalog` and `FAQPage` schema in
+  `what-we-do.html`, `llms.txt`, and the `.price-inline` chip on each service
+  page (`ai-enablement-workshop.html`, `custom-agents.html`,
+  `workflow-audit.html`).
+- Those slots still exist, they just hold non-numeric values now. `.offer-price`
+  carries a shape ("Two stages", "One fixed fee", "Monthly"), `.ps-when` carries
+  sequence ("Start here"), and `.price-inline-amount` carries "Quoted" or
+  "Scoped". The `OfferCatalog` entries have no `priceSpecification` at all,
+  which is valid schema.org - do not add an empty one back.
 - `forward-deployed-engineering.html` deliberately has no price chip. It
   describes the method behind enablement and builds; it is not a product, and
   we do not sell engineer-days or embedded headcount. Keep the `.page-note`
@@ -60,10 +67,11 @@ deployment and those scripts should not be served from the site root:
   only if enablement finds one, the retainer only after either. The `01/02/03`
   labels on the offer cards, the `.steps` block on the home page, and the
   price-strip order all encode that. If you reorder one, reorder all three.
-- Enablement has two formats at the same $3,500: a working session (1-4 people,
-  hands-on, returns a written workflow map) and a team workshop (up to 10,
-  broader). The price reflects depth, not headcount, so a smaller group is not
-  cheaper. Shorter formats are quoted case by case and are not published.
+- Enablement itself is two stages, not two options: a paid working session
+  (1-4 people, hands-on, returns a written workflow map) and then a team
+  workshop (up to 10, broader) run against what the session found. The session
+  fee credits toward the workshop. A client can stop after the session and
+  keeps the map and the prompts.
 
 ## Contact QR codes
 
