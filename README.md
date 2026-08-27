@@ -27,19 +27,29 @@ Detail pages not in the nav: the service pages (`custom-agents.html`,
   `:root`; the theme is warm paper (`#F7F3EC` ground, `#1A1714` ink, 16:1).
 - `intake-modal.js` - booking intake modal behavior.
 - `nav-dropdown.js` - mobile nav toggle.
-- `service-detail-modal.js` - service card modal (no longer used on the home page).
+- `impact-ui.js`, `tutorials-ui.js`, `site-motion.js` - page behavior.
 - `altr-brand-assets/` - source brand assets and brand notes.
 - `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
-- `wireframes.html` - original design exploration reference (noindex, not deployed content).
 - `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html` - crawl and discovery files.
 
 `tools/` holds local build scripts and is gitignored, because this repo is the
 deployment and those scripts should not be served from the site root:
 
-- `tools/vcard-qr.py` - generates the vCard contact QR codes in `assets/qr/`.
 - `tools/social-preview.py` - regenerates `assets/altr_social_preview.png`.
   Re-run it whenever the home page headline changes, or the card goes stale
   against the site.
+
+## This repo is the website and nothing else
+
+Everything client-facing or internal lives in a sibling folder under
+`projects/altr/`, which is a plain local folder and not a repo: agreements and
+invoicing in the private `altr-legal` repo, sales decks in `../decks` with client
+artifacts in `../clients`, lead research in `../research`, and the brand assets
+that documents use in `../brand`.
+
+The `.gitignore` entries for `proposals/`, `research/`, `tools/`, and
+`charge_card.py` stay as guards even though those paths no longer exist here.
+This repo is public; those things must never land in it again.
 
 ## Design system notes
 

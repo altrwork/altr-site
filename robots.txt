@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /wireframes.html
 
 Sitemap: https://altrwork.com/sitemap.xml

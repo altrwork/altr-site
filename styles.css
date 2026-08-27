@@ -102,8 +102,7 @@ body::after {
   animation: ambient-drift 18s var(--ease-in-out) infinite alternate;
 }
 
-body.intake-modal-open,
-body.service-detail-modal-open {
+body.intake-modal-open {
   overflow: hidden;
 }
 
@@ -1962,8 +1961,7 @@ h4 {
   justify-content: space-between;
 }
 
-.intake-modal,
-.service-detail-modal {
+.intake-modal {
   position: fixed;
   inset: 0;
   z-index: 95;
@@ -1971,22 +1969,19 @@ h4 {
   padding: clamp(16px, 3vw, 34px);
 }
 
-.intake-modal.is-open,
-.service-detail-modal.is-open {
+.intake-modal.is-open {
   display: grid;
   place-items: center;
 }
 
-.intake-modal-backdrop,
-.service-detail-backdrop {
+.intake-modal-backdrop {
   position: absolute;
   inset: 0;
   background: rgba(7, 6, 5, 0.72);
   backdrop-filter: blur(8px);
 }
 
-.intake-modal-dialog,
-.service-detail-dialog {
+.intake-modal-dialog {
   position: relative;
   z-index: 1;
   width: min(760px, 100%);
@@ -1999,8 +1994,7 @@ h4 {
   box-shadow: 0 24px 56px rgba(26, 23, 20, 0.14);
 }
 
-.intake-modal-close,
-.service-detail-close {
+.intake-modal-close {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -2014,10 +2008,6 @@ h4 {
   cursor: pointer;
 }
 
-.service-detail-body {
-  display: grid;
-  gap: 14px;
-}
 
 /* ── Impact studies grid ────────────────────────────── */
 
