@@ -17,7 +17,7 @@ the content, so it keeps its URL and search rankings without crowding the header
 Detail pages not in the nav: the service pages (`custom-agents.html`,
 `forward-deployed-engineering.html`, `workflow-audit.html`,
 `ai-enablement-workshop.html`, `events.html`), the local landing page
-(`ai-consulting-tampa.html`), and `frameworks.html`. `pricing.html` redirects to
+(`ai-consulting-tampa.html`). `pricing.html` redirects to
 `what-we-do.html`.
 
 ## Files

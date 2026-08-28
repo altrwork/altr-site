@@ -463,6 +463,12 @@ h1,
   line-height: 0.9;
 }
 
+/* longer two-clause headline (e.g. ai-consulting-tampa.html) needs a smaller
+   scale to stay on its intended two lines instead of wrapping onto four */
+.page-hero h1.hero-title-long {
+  font-size: clamp(17px, 5.4vw, 58px);
+}
+
 h2 {
   margin-bottom: 0;
   font-size: clamp(34px, 5vw, 68px);
@@ -4091,6 +4097,55 @@ h4 {
   gap: 12px;
 }
 
+.home-about {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.home-about .band-inner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-top: clamp(70px, 9vw, 120px);
+  padding-bottom: clamp(70px, 9vw, 120px);
+}
+
+.home-about .kicker {
+  color: var(--sage);
+}
+
+.home-about-statement {
+  max-width: 34ch;
+  min-height: 5em;
+  margin: 0;
+  color: var(--bone);
+  font-size: clamp(24px, 3.2vw, 42px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.home-about-statement.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.08em;
+  height: 0.92em;
+  margin-left: 0.12em;
+  vertical-align: -0.08em;
+  background: var(--sage);
+  animation: home-about-cursor 700ms steps(1, end) infinite;
+}
+
+@keyframes home-about-cursor {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-about-statement.is-typing::after {
+    animation: none;
+  }
+}
+
 .band {
   background: var(--paper-sunk);
   border-top: 1px solid var(--line);
@@ -4320,4 +4375,279 @@ h4 {
 .statement-sub a {
   color: var(--copper);
   text-underline-offset: 3px;
+}
+
+/* ---------- transparent centered site navigation ---------- */
+
+:root {
+  --nav-height: 92px;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  width: min(1440px, calc(100% - 48px));
+  min-height: 88px;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.nav .brand {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  min-width: 84px;
+  transform: translateY(-50%);
+}
+
+.nav .brand-mark {
+  width: 84px;
+  height: 56px;
+}
+
+.nav-links {
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  gap: clamp(2px, 0.7vw, 10px);
+}
+
+.nav-links a:not(.nav-cta) {
+  min-height: 44px;
+  padding-inline: clamp(11px, 1.2vw, 18px);
+  border-radius: 0;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav .nav-dropdown-trigger {
+  min-height: 44px;
+  padding-inline: clamp(11px, 1.2vw, 18px);
+  border-radius: 0;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav .nav-dropdown-trigger:hover,
+.nav .nav-dropdown.is-open .nav-dropdown-trigger,
+.nav .nav-dropdown-trigger[aria-current="page"] {
+  background: transparent;
+}
+
+.nav .nav-dropdown-trigger[aria-current="page"] {
+  box-shadow: inset 0 -1px 0 var(--bone);
+}
+
+.nav .nav-dropdown-chevron {
+  width: 7px;
+  height: 7px;
+  margin: -4px 0 0 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+  transition: transform 180ms var(--ease-out), margin 180ms var(--ease-out);
+}
+
+.nav .nav-dropdown.is-open .nav-dropdown-chevron {
+  margin-top: 3px;
+  transform: rotate(225deg);
+}
+
+.nav .nav-dropdown-panel {
+  top: calc(100% + 8px);
+  right: auto;
+  left: 50%;
+  min-width: 190px;
+  padding: 8px;
+  border-color: var(--line);
+  border-radius: var(--radius);
+  background: rgba(247, 243, 236, 0.98);
+  box-shadow: 0 16px 38px rgba(26, 23, 20, 0.12);
+  backdrop-filter: blur(14px);
+  transform: translate(-50%, -6px);
+}
+
+.nav .nav-dropdown.is-open .nav-dropdown-panel {
+  transform: translate(-50%, 0);
+}
+
+.nav .nav-dropdown-panel .nav-dropdown-item {
+  width: 100%;
+  min-height: 42px;
+  justify-content: flex-start;
+  padding-inline: 12px;
+  border-radius: 5px;
+  color: var(--bone-soft);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav .nav-dropdown-panel .nav-dropdown-item:hover {
+  color: var(--bone);
+  background: rgba(26, 23, 20, 0.06);
+  transform: none;
+}
+
+.nav-links a:not(.nav-cta):hover,
+.nav-links a:not(.nav-cta)[aria-current="page"] {
+  background: transparent;
+}
+
+.nav-links a:not(.nav-cta)[aria-current="page"] {
+  box-shadow: inset 0 -1px 0 var(--bone);
+}
+
+.nav-links .nav-cta {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 0;
+  color: var(--paper);
+  background: var(--bone);
+  font-size: 14px;
+  font-weight: 650;
+  transform: translateY(-50%);
+}
+
+.nav-links .nav-cta::after {
+  content: "\2192";
+  margin-left: 14px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta[aria-current="page"] {
+  color: var(--paper);
+  background: var(--bone);
+  transform: translateY(-50%);
+  filter: brightness(1.14);
+}
+
+@media (min-width: 681px) and (max-width: 920px) {
+  .nav {
+    width: calc(100% - 28px);
+  }
+
+  .nav .brand {
+    min-width: 72px;
+  }
+
+  .nav .brand-mark {
+    width: 72px;
+    height: 50px;
+  }
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-links a:not(.nav-cta) {
+    padding-inline: 9px;
+    font-size: 13px;
+  }
+
+  .nav .nav-dropdown-trigger {
+    padding-inline: 9px;
+    font-size: 13px;
+  }
+
+  .nav-links .nav-cta {
+    min-height: 48px;
+    padding-inline: 16px;
+    font-size: 13px;
+  }
+
+  .nav-links .nav-cta::after {
+    margin-left: 9px;
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --nav-height: 74px;
+  }
+
+  .nav {
+    top: 0;
+    width: calc(100% - 28px);
+    min-height: 70px;
+    padding: 0;
+  }
+
+  .nav .brand {
+    position: static;
+    min-width: 72px;
+    transform: none;
+  }
+
+  .nav .brand-mark {
+    width: 72px;
+    height: 48px;
+  }
+
+  .nav.is-menu-open {
+    background: transparent;
+  }
+
+  .nav-links {
+    width: auto;
+  }
+
+  .nav .nav-dropdown-trigger {
+    width: 100%;
+    min-height: 46px;
+    justify-content: flex-start;
+    padding-inline: 16px;
+    font-size: 15px;
+  }
+
+  .nav .nav-dropdown-panel,
+  .nav .nav-dropdown.is-open .nav-dropdown-panel {
+    position: static;
+    min-width: 0;
+    padding: 0 0 4px 14px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-links .nav-cta,
+  .nav-links .nav-cta:hover,
+  .nav-links .nav-cta[aria-current="page"] {
+    position: static;
+    min-height: 48px;
+    border-radius: var(--radius);
+    transform: none;
+  }
+}
+
+/* Work cards use two columns whenever the available content width supports it. */
+.tutorials-sidebar {
+  top: 24px;
+}
+
+.impact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
 }

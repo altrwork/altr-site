@@ -3,8 +3,6 @@
   if (!grid) return;
 
   const cards = Array.from(grid.querySelectorAll('.impact-card'));
-  const realEstateSection = document.querySelector('.real-estate-section');
-  const realEstateCards = Array.from(document.querySelectorAll('.real-estate-card'));
   const searchInput = document.querySelector('.impact-search');
   const checkboxes = Array.from(document.querySelectorAll('.impact-filter-check'));
   const clearBtn = document.getElementById('impact-clear');
@@ -29,20 +27,6 @@
       if (show) visible++;
     });
 
-    let visibleRealEstate = 0;
-    realEstateCards.forEach(card => {
-      const cat = card.dataset.category;
-      const title = card.dataset.title || '';
-      const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
-      const matchesFilter = activeFilters.size === 0 || activeFilters.has(cat);
-      const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery);
-      const show = matchesFilter && matchesSearch;
-      card.classList.toggle('is-hidden', !show);
-      if (show) visibleRealEstate++;
-    });
-
-    if (realEstateSection) realEstateSection.hidden = visibleRealEstate === 0;
-    visible += visibleRealEstate;
     emptyMsg.hidden = visible > 0;
     if (clearBtn) clearBtn.hidden = activeFilters.size === 0 && !searchQuery;
   }

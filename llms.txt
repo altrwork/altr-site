@@ -34,6 +34,9 @@ Contact: inquiries@altrwork.com
 ## Services
 
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
+- [AI services for real estate](https://altrwork.com/real-estate.html): underwriting, property research, connected systems, local file work, and recurring market monitoring
+- [AI services for nonprofits](https://altrwork.com/nonprofits.html): program intake, funder research, events, reporting, and nonprofit operations
+- [AI services for ecommerce](https://altrwork.com/ecommerce.html): product content, customer request triage, order operations, and repeatable production workflows
 - [Workflow discovery](https://altrwork.com/workflow-audit.html): mapping one repeated process before anything is built
 - [AI enablement](https://altrwork.com/ai-enablement-workshop.html): hands-on work against a team's own tasks, as a small-group working session or a full team workshop
 - [Custom AI agents](https://altrwork.com/custom-agents.html): workflow agents, agentic coding systems, automation handoff
@@ -57,12 +60,11 @@ Contact: inquiries@altrwork.com
 
 ## Frameworks
 
-- [Frameworks](https://altrwork.com/frameworks.html): practical frameworks for deciding where AI belongs
 - [How we altr work](https://altrwork.com/how-we-altr-work.html): the 4D framework behind our engagements
 
-## Writing
+## Blog
 
-- [Tutorials](https://altrwork.com/tutorials.html): step-by-step guides on MCP, agents, and AI infrastructure
+- [Blog](https://altrwork.com/tutorials.html): step-by-step guides on MCP, agents, and AI infrastructure
 - [Journal](https://altrwork.com/resources.html): technical notes on practical AI systems
 
 ## Optional
