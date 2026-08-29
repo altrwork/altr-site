@@ -4078,8 +4078,21 @@ h4 {
   display: block;
 }
 
+/* nowrap holds the desktop line break where the <br> puts it. Below ~628px the
+   font-size clamp pins at 44px, so that unbreakable line measures ~527px and
+   pushes the whole page into horizontal scroll on a phone. Let it wrap there
+   and drop the hard break, which is only there to shape the wide layout. */
 .home-hero h1 > span:first-child {
   white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .home-hero h1 > span:first-child {
+    white-space: normal;
+  }
+  .home-hero h1 br {
+    display: none;
+  }
 }
 
 .home-hero .hero-fix {
