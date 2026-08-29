@@ -20,6 +20,7 @@ document.querySelectorAll('.nav').forEach(nav => {
       </button>
       <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
         <a class="nav-dropdown-item" href="real-estate.html">Real Estate</a>
+        <a class="nav-dropdown-item" href="law-firms.html">Law Firms</a>
         <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
         <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
       </div>
