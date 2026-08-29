@@ -4664,3 +4664,20 @@ h4 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Direct contact line on the intake panel. Carries the same phone and locality
+   as the Google Business Profile, which is what Google cross-references when it
+   decides the site and the profile are the same business. */
+.intake-note .contact-direct {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  color: var(--bone-dim);
+}
+
+.intake-note .contact-direct a {
+  color: var(--bone-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
