@@ -1,5 +1,5 @@
 (function () {
-  const calendlyBaseUrl = "https://calendly.com/jarredrobidoux";
+  const calendlyBaseUrl = "https://calendly.com/altrwork/30min";
   const triggerSelector = 'a[href="start-a-conversation.html"]';
   let lastFocusedElement = null;
 
