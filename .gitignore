@@ -5,6 +5,7 @@ build/
 .env
 .env.*
 .playwright-mcp/
+.firecrawl/
 uploads/videos/event-request-final.mp4
 
 # superseded by the .jpg + .webp pair; kept on disk locally, not deployed

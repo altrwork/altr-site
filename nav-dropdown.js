@@ -4,7 +4,8 @@ document.querySelectorAll('.nav').forEach(nav => {
   if (!navLinks) return;
 
   const servicesLink = Array.from(navLinks.children).find(item =>
-    item.matches('a[href="index.html#who-we-serve"], a[href="#who-we-serve"]')
+    item.matches('a[data-nav-services]') ||
+    (item.matches('a') && item.textContent.trim() === 'Services')
   );
 
   let servicesDropdown = null;
