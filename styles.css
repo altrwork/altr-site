@@ -4596,6 +4596,7 @@ h4 {
 .nav .brand-mark {
   width: 84px;
   height: 56px;
+  background-size: auto 155%;
 }
 
 .nav-links {
@@ -4735,6 +4736,7 @@ h4 {
   .nav .brand-mark {
     width: 72px;
     height: 50px;
+    background-size: auto 155%;
   }
 
   .nav-links {
@@ -4783,6 +4785,7 @@ h4 {
   .nav .brand-mark {
     width: 72px;
     height: 48px;
+    background-size: auto 165%;
   }
 
   .nav.is-menu-open {
