@@ -356,6 +356,18 @@ h4 {
   transition: background 140ms ease;
 }
 
+.nav-dropdown-label {
+  display: block;
+  padding: 8px 12px 6px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
 .nav-dropdown-item:hover {
   background: rgba(26, 23, 20, 0.06);
   transform: none;
@@ -4800,6 +4812,10 @@ h4 {
     opacity: 1;
     visibility: visible;
     transform: none;
+  }
+
+  .nav .nav-dropdown-label {
+    padding: 8px 16px 4px;
   }
 
   .nav-links .nav-cta,

@@ -9,7 +9,7 @@ the content, so it keeps its URL and search rankings without crowding the header
 
 | Nav item | Page |
 |---|---|
-| What we do | `what-we-do.html` - every engagement, in the order they happen |
+| Services | `index.html#who-we-serve` - dropdown links to the four industries served |
 | Work | `impact-studies.html` -> four `impact-*.html` case studies |
 | Blog | `tutorials.html` -> the article pages; `resources.html` canonicals here |
 | About | `about.html`, including the 4D framework; `how-we-altr-work.html` has the full version |
@@ -17,8 +17,8 @@ the content, so it keeps its URL and search rankings without crowding the header
 Detail pages not in the nav: the service pages (`custom-agents.html`,
 `forward-deployed-engineering.html`, `workflow-audit.html`,
 `ai-enablement-workshop.html`, `events.html`), the local landing page
-(`ai-consulting-tampa.html`). `pricing.html` redirects to
-`what-we-do.html`.
+(`ai-consulting-tampa.html`). The retired `what-we-do.html` URL and
+`pricing.html` redirect to `index.html#who-we-serve`.
 
 ## Files
 
@@ -26,7 +26,7 @@ Detail pages not in the nav: the service pages (`custom-agents.html`,
 - `styles.css` - the whole design system. Colors are CSS custom properties in
   `:root`; the theme is warm paper (`#F7F3EC` ground, `#1A1714` ink, 16:1).
 - `intake-modal.js` - booking intake modal behavior.
-- `nav-dropdown.js` - mobile nav toggle.
+- `nav-dropdown.js` - mobile nav toggle and the Services/Who we serve menu.
 - `impact-ui.js`, `tutorials-ui.js`, `site-motion.js` - page behavior.
 - `altr-brand-assets/` - source brand assets and brand notes.
 - `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
@@ -58,25 +58,18 @@ This repo is public; those things must never land in it again.
 - Token names were kept from the previous dark theme so every rule kept
   resolving through the inversion; only the values changed.
 - **No fees are published anywhere on the site.** Everything is quoted on a
-  call. If you are putting a number back, it has to land in all five places at
-  once or the site contradicts itself: the offer cards in `what-we-do.html`, the
-  `.price-strip` on the home page, the `OfferCatalog` and `FAQPage` schema in
-  `what-we-do.html`, `llms.txt`, and the `.price-inline` chip on each service
-  page (`ai-enablement-workshop.html`, `custom-agents.html`,
-  `workflow-audit.html`).
-- Those slots still exist, they just hold non-numeric values now. `.offer-price`
-  carries a shape ("Two formats", "One fixed fee", "Monthly"), `.ps-when` carries
-  sequence ("Start here"), and `.price-inline-amount` carries "Quoted" or
-  "Scoped". The `OfferCatalog` entries have no `priceSpecification` at all,
-  which is valid schema.org - do not add an empty one back.
+  call. If pricing returns, update the homepage, `llms.txt`, structured data,
+  and the service-page price chips together so the site stays consistent.
+- Service-page `.price-inline-amount` chips carry "Quoted" or "Scoped". The
+  homepage `OfferCatalog` has no `priceSpecification`, which is valid
+  schema.org—do not add an empty one back.
 - `forward-deployed-engineering.html` deliberately has no price chip. It
   describes the method behind enablement and builds; it is not a product, and
   we do not sell engineer-days or embedded headcount. Keep the `.page-note`
   that says so.
 - The three engagements are a sequence, not a menu: enablement first, a build
   only if enablement finds one, the retainer only after either. The `01/02/03`
-  labels on the offer cards, the `.steps` block on the home page, and the
-  price-strip order all encode that. If you reorder one, reorder all three.
+  labels in the homepage `.steps` block encode that order.
 - Enablement has two formats and **either can come first**: a working session
   (1-4 people, hands-on, returns a written workflow map) or a team workshop
   (up to 10, broader). Do not write copy that makes the session a prerequisite
@@ -91,8 +84,8 @@ This repo is public; those things must never land in it again.
 - The retainer is advisory hours only. It is **not** a workshop allowance and
   **not** forward deployed or embedded engineering time. Additional sessions,
   additional workshops, and any real engineering are scoped and quoted as their
-  own thing. This is stated on the offer card, in the FAQ, in the `OfferCatalog`
-  description, and in `llms.txt` - keep all four in sync.
+  own thing. Keep the homepage, service pages, structured data, and `llms.txt`
+  in sync.
 
 ## Contact QR codes
 

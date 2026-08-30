@@ -4,7 +4,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   if (!navLinks) return;
 
   const servicesLink = Array.from(navLinks.children).find(item =>
-    item.matches('a[href="what-we-do.html"]')
+    item.matches('a[href="index.html#who-we-serve"], a[href="#who-we-serve"]')
   );
 
   let servicesDropdown = null;
@@ -18,7 +18,8 @@ document.querySelectorAll('.nav').forEach(nav => {
         <span>Services</span>
         <span class="nav-dropdown-chevron" aria-hidden="true"></span>
       </button>
-      <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+      <div class="nav-dropdown-panel" id="services-menu" aria-label="Who we serve">
+        <span class="nav-dropdown-label">Who we serve</span>
         <a class="nav-dropdown-item" href="real-estate.html">Real Estate</a>
         <a class="nav-dropdown-item" href="law-firms.html">Law Firms</a>
         <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
