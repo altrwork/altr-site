@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=20260831a" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,7 +43,7 @@
     {
       "@type": "CollectionPage",
       "name": "AI work and impact studies",
-      "description": "Case studies of AI enablement and automation work across nonprofit, ecommerce, and technology teams.",
+      "description": "Case studies of AI enablement and automation work across real estate, nonprofit, ecommerce, and technology teams.",
       "url": "https://altrwork.com/impact-studies.html",
       "isPartOf": {
         "@id": "https://altrwork.com/#website"
@@ -111,6 +111,11 @@
               </button>
               <div class="tutorials-filter-options">
                 <label class="tutorials-filter-label">
+                  <input type="checkbox" class="tutorials-filter-check impact-filter-check" data-filter="real-estate" />
+                  <span class="tutorials-check-mark"></span>
+                  Real Estate
+                </label>
+                <label class="tutorials-filter-label">
                   <input type="checkbox" class="tutorials-filter-check impact-filter-check" data-filter="nonprofit" />
                   <span class="tutorials-check-mark"></span>
                   Nonprofit
@@ -160,6 +165,26 @@
           </div>
 
           <div class="impact-grid" id="impact-grid">
+
+            <article class="impact-card" data-category="real-estate" data-title="accelerating property research ai powered tools cre harness real estate comparable sales ownership intelligence">
+              <a href="impact-real-estate-property-intelligence.html" class="impact-card-thumb impact-card-image-thumb" tabindex="-1" aria-hidden="true">
+                <picture>
+                  <source srcset="assets/real-estate-case-study-placeholder.webp" type="image/webp" />
+                  <img src="assets/real-estate-case-study-placeholder.png" width="1200" height="630" loading="lazy" alt="" />
+                </picture>
+              </a>
+              <div class="impact-card-body">
+                <div class="impact-card-meta">
+                  <span class="case-meta">Case Study</span>
+                  <span class="impact-date">Real Estate</span>
+                </div>
+                <h2 class="impact-card-title"><a href="impact-real-estate-property-intelligence.html">Accelerating property research with AI-powered tools</a></h2>
+                <p class="impact-card-desc">How cre harness connects property research, comparable sales, ownership intelligence, and branded document production.</p>
+                <div class="impact-card-footer">
+                  <span class="tutorial-card-tag tutorial-tag-real-estate">Real Estate</span>
+                </div>
+              </div>
+            </article>
 
             <article class="impact-card" data-category="nonprofit" data-title="connecting the tools that run a startup accelerator spark labs mcp server">
               <a href="impact-spark-labs-mcp.html" class="impact-card-thumb" tabindex="-1" aria-hidden="true">
