@@ -2,3 +2,46 @@
 /frameworks       /how-we-altr-work.html  301!
 /what-we-do.html  /#who-we-serve  301!
 /what-we-do       /#who-we-serve  301!
+
+# Canonical URL form is .html (matches <link rel=canonical> and sitemap.xml).
+# Netlify serves both /page and /page.html as 200, which splits crawl budget
+# and routes any inbound link through a canonical instead of landing directly.
+/about                                        /about.html                                   301!
+/ai-code-review-judge-agents                  /ai-code-review-judge-agents.html             301!
+/ai-consulting-tampa                          /ai-consulting-tampa.html                     301!
+/ai-enablement-workshop                       /ai-enablement-workshop.html                  301!
+/ai-governance-lite-smb                       /ai-governance-lite-smb.html                  301!
+/ai-in-real-estate-guide-thank-you            /ai-in-real-estate-guide-thank-you.html       301!
+/ai-in-real-estate-guide                      /ai-in-real-estate-guide.html                 301!
+/ai-workflow-audit-small-business             /ai-workflow-audit-small-business.html        301!
+/claude-cre-connectors                        /claude-cre-connectors.html                   301!
+/claude-cre-cowork                            /claude-cre-cowork.html                       301!
+/claude-cre-scheduled-tasks                   /claude-cre-scheduled-tasks.html              301!
+/claude-cre-skills                            /claude-cre-skills.html                       301!
+/claude-skills-vs-mcp                         /claude-skills-vs-mcp.html                    301!
+/context-engineering-large-codebases          /context-engineering-large-codebases.html     301!
+/custom-agents                                /custom-agents.html                           301!
+/ecommerce                                    /ecommerce.html                               301!
+/events                                       /events.html                                  301!
+/forward-deployed-engineering                 /forward-deployed-engineering.html            301!
+/how-we-altr-work                             /how-we-altr-work.html                        301!
+/impact-bebrief                               /impact-bebrief.html                          301!
+/impact-fishin-prints                         /impact-fishin-prints.html                    301!
+/impact-real-estate-property-intelligence     /impact-real-estate-property-intelligence.html301!
+/impact-spark-labs-mcp                        /impact-spark-labs-mcp.html                   301!
+/impact-spark-labs                            /impact-spark-labs.html                       301!
+/impact-studies                               /impact-studies.html                          301!
+/law-firms                                    /law-firms.html                               301!
+/llm-retrieval-grounded-answers               /llm-retrieval-grounded-answers.html          301!
+/mcp-agents-function-calling                  /mcp-agents-function-calling.html             301!
+/mcp-server-design-internal-ai-tools          /mcp-server-design-internal-ai-tools.html     301!
+/nonprofits                                   /nonprofits.html                              301!
+/pricing                                      /pricing.html                                 301!
+/rag-evaluation-internal-knowledge-bases      /rag-evaluation-internal-knowledge-bases.html 301!
+/real-estate                                  /real-estate.html                             301!
+/resources                                    /resources.html                               301!
+/start-a-conversation                         /start-a-conversation.html                    301!
+/three-phases-ai-deployment                   /three-phases-ai-deployment.html              301!
+/tutorials                                    /tutorials.html                               301!
+/workflow-audit                               /workflow-audit.html                          301!
+/writing-a-skill-md                           /writing-a-skill-md.html                      301!
