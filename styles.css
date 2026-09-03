@@ -4129,54 +4129,92 @@ h4 {
   background: var(--paper);
 }
 
+/* The hero is an inset dark panel sitting on the paper page. The panel carries
+   the keycap field drawn by hero-keys.js, so the headline has something with
+   depth behind it instead of bare paper. The nav is already a fixed dark pill
+   at top:16px, so it reads as part of the panel rather than as clutter. */
+/* The hero sits on the same warm paper as the rest of the page. Behind it,
+   hero-keys.js draws a field of keycaps in ink at a few percent opacity, and
+   the scrim below fades that field out from under the copy, so the headline
+   keeps exactly the contrast it has anywhere else on the site. */
 .home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(118px, 12vw, 172px) clamp(20px, 5vw, 48px) clamp(60px, 8vw, 104px);
+}
+
+.hero-keys {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      100deg,
+      var(--paper) 0%,
+      var(--paper) 28%,
+      rgba(247, 243, 236, 0.74) 50%,
+      rgba(247, 243, 236, 0) 84%
+    ),
+    linear-gradient(0deg, var(--paper) 0%, rgba(247, 243, 236, 0) 38%);
+}
+
+.home-hero-inner {
+  position: relative;
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: clamp(70px, 10vw, 140px) clamp(20px, 5vw, 48px) clamp(56px, 7vw, 96px);
 }
 
 .home-hero h1 {
-  max-width: 26ch;
-  margin: 0 0 24px;
-  font-size: clamp(44px, 7vw, 92px);
-  line-height: 1.06;
-  letter-spacing: 0.01em;
-}
-
-.home-hero h1 > span {
-  display: block;
-}
-
-/* nowrap holds the desktop line break where the <br> puts it. Below ~628px the
-   font-size clamp pins at 44px, so that unbreakable line measures ~527px and
-   pushes the whole page into horizontal scroll on a phone. Let it wrap there
-   and drop the hard break, which is only there to shape the wide layout. */
-.home-hero h1 > span:first-child {
-  white-space: nowrap;
-}
-
-@media (max-width: 680px) {
-  .home-hero h1 > span:first-child {
-    white-space: normal;
-  }
-  .home-hero h1 br {
-    display: none;
-  }
-}
-
-.home-hero .hero-fix {
-  margin-top: 0.65em;
+  max-width: 22ch;
+  margin: 0 0 22px;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 .home-hero .lede {
-  max-width: 58ch;
-  margin-bottom: 34px;
+  max-width: 52ch;
+  margin: 0 0 34px;
 }
 
 .home-hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+@media (max-width: 680px) {
+  .home-hero {
+    padding-top: 106px;
+  }
+
+  /* on a phone the copy spans the full width, so the field fades from the top
+     down instead of from the left across */
+  .home-hero::after {
+    background: linear-gradient(
+      178deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.86) 46%,
+      rgba(247, 243, 236, 0.62) 100%
+    );
+  }
+
+  .home-hero-actions .button {
+    flex: 1 1 100%;
+  }
 }
 
 .home-main .home-about {
@@ -4331,10 +4369,6 @@ h4 {
 }
 
 @media (max-width: 640px) {
-  .home-hero h1 > span:first-child {
-    white-space: normal;
-  }
-
   .home-chat-user {
     width: 88%;
   }
