@@ -2615,6 +2615,20 @@ h4 {
   outline-offset: -1px;
 }
 
+.workshop-hero-image {
+  width: min(1100px, 100%);
+  margin: 0 auto clamp(28px, 5vw, 52px);
+}
+
+.workshop-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
 .article-inline-media {
   width: min(760px, 100%);
   margin: 26px auto 34px;
