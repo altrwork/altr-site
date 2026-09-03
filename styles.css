@@ -1523,6 +1523,91 @@ h4 {
   border-right: 0;
 }
 
+.workshop-topics-section {
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.workshop-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.workshop-topic-card {
+  min-width: 0;
+  padding: clamp(28px, 4vw, 46px);
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(247, 243, 236, 0.22)),
+    var(--paper);
+}
+
+.workshop-topic-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: clamp(22px, 3vw, 34px);
+  color: var(--steel);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.workshop-topic-number {
+  flex: 0 0 auto;
+  color: var(--copper);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.workshop-topic-card h3 {
+  max-width: 18ch;
+  margin-bottom: 14px;
+  font-size: clamp(28px, 3.2vw, 43px);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.workshop-topic-card > p {
+  max-width: 60ch;
+  margin-bottom: 0;
+  color: var(--bone-soft);
+  font-size: 16px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.workshop-topic-card .workshop-topic-outcome {
+  margin-bottom: 18px;
+  color: var(--copper);
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.workshop-topic-list {
+  display: grid;
+  gap: 10px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workshop-topic-list li {
+  margin: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--line-strong);
+  color: var(--bone-soft);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
 .narrative-copy {
   max-width: 920px;
 }
@@ -3115,6 +3200,12 @@ h4 {
 
   .learning-tabs {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .workshop-topic-grid {
+    grid-template-columns: 1fr;
   }
 }
 
