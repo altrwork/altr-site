@@ -13,10 +13,10 @@
 <meta charset="utf-8" />
 <title>Claude Skills vs MCP: when to use each | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Skills and MCP both extend what Claude can do, but solve different problems. A practical guide to choosing packaged know-how or live tool access." />
+<meta name="description" content="Claude Skills package how Claude should do a task. MCP is how Claude reaches live tools. A practical guide to Claude Skills, MCP Claude setups, and when you need both." />
 <link rel="canonical" href="https://altrwork.com/claude-skills-vs-mcp.html" />
 <meta property="og:title" content="Claude Skills vs MCP: when to use each | altr" />
-<meta property="og:description" content="Skills and MCP both extend what Claude can do, but they solve different problems. A practical guide to choosing between packaged know-how and live tool access." />
+<meta property="og:description" content="Claude Skills package how Claude should do a task. MCP is how Claude reaches live tools. When to write a Skill, when to stand up MCP, and when you need both." />
 <meta property="og:url" content="https://altrwork.com/claude-skills-vs-mcp.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -27,14 +27,14 @@
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Claude Skills vs MCP: when to use each | altr" />
-<meta name="twitter:description" content="Skills and MCP both extend what Claude can do, but they solve different problems. A practical guide to choosing between packaged know-how and live tool access." />
+<meta name="twitter:description" content="Claude Skills package how Claude should do a task. MCP is how Claude reaches live tools. When to write a Skill, when to stand up MCP, and when you need both." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Claude Skills vs MCP: when to use each",
-  "description": "Skills and MCP both extend what Claude can do, but they solve different problems. A practical guide to choosing between packaged know-how and live tool access.",
+  "description": "Claude Skills package how Claude should do a task. MCP is how Claude reaches live tools. A practical guide to choosing between the two and when you need both.",
   "image": "https://altrwork.com/assets/altr_social_preview.png",
   "author": {
     "@type": "Organization",
@@ -48,7 +48,7 @@
     "@id": "https://altrwork.com/claude-skills-vs-mcp.html"
   },
   "datePublished": "2026-06-30",
-  "dateModified": "2026-08-20",
+  "dateModified": "2026-09-03",
   "isPartOf": {
     "@id": "https://altrwork.com/#website"
   }
@@ -79,8 +79,8 @@
   <main class="page" id="main">
     <section class="page-hero article-hero">
       <div class="eyebrow">Extending Claude</div>
-      <h1>Skills and MCP both extend Claude. They aren't the same lever.</h1>
-      <p class="page-lede">As teams build more on top of Claude, the question of "do we write a Skill or stand up an MCP server" comes up constantly. The honest answer is that they answer different questions: what Claude knows how to do, versus what Claude can reach.</p>
+      <h1>Claude Skills and MCP both extend Claude. They aren't the same lever.</h1>
+      <p class="page-lede">As teams build more on top of Claude, the question of "do we write a Claude Skill or stand up MCP so Claude can reach a system" comes up constantly. The honest answer is that they answer different questions: what Claude knows how to do, versus what Claude can reach.</p>
     </section>
 
     <section class="section article-section">
@@ -91,15 +91,15 @@
         </div>
 
         <section class="article-block">
-          <h2>Skills package how, not what.</h2>
-          <p>A Skill is a folder with a SKILL.md file and, optionally, supporting scripts or reference material. It doesn't grant Claude any new ability to reach the outside world — it teaches Claude how to do something well within the tools it already has: a house style for commit messages, a checklist for running an audit, a template for drafting a weekly report.</p>
-          <p>Skills are model-loaded context, not infrastructure. There's no server to deploy, no auth flow, no uptime to manage. That makes them cheap to write and cheap to iterate on.</p>
+          <h2>Claude Skills package how, not what.</h2>
+          <p>A Claude Skill is a folder with a SKILL.md file and, optionally, supporting scripts or reference material. It doesn't grant Claude any new ability to reach the outside world — it teaches Claude how to do something well within the tools it already has: a house style for commit messages, a checklist for running an audit, a template for drafting a weekly report.</p>
+          <p>Skills are model-loaded context, not infrastructure. There's no server to deploy, no auth flow, no uptime to manage. That makes them cheap to write and cheap to iterate on. If the Skill never triggers, the body quality doesn't matter — start with <a href="writing-a-skill-md.html">how to write a SKILL.md that actually gets used</a>.</p>
         </section>
 
         <section class="article-block">
-          <h2>MCP grants reach.</h2>
-          <p>MCP servers expose live tools and resources — read a database, call an internal API, send a Slack message, query a CRM. They're the layer that lets Claude act on systems outside the conversation, with real authentication and real side effects.</p>
-          <p>That comes with the obligations of any service: deployment, secrets management, rate limits, and a security boundary around what the tool is allowed to touch.</p>
+          <h2>MCP is how Claude reaches a live system.</h2>
+          <p>MCP servers expose live tools and resources — read a database, call an internal API, send a Slack message, query a CRM. They're the layer that lets Claude act on systems outside the conversation, with real authentication and real side effects. When people say "MCP Claude," this is usually what they mean: Claude talking to a tool you actually run, not a chat that only knows what you pasted.</p>
+          <p>That comes with the obligations of any service: deployment, secrets management, rate limits, and a security boundary around what the tool is allowed to touch. The Spark Labs impact study is the concrete version: <a href="impact-spark-labs-mcp.html">one remote MCP connection across intake, membership, access, and email</a>.</p>
         </section>
 
         <section class="article-block">
@@ -110,8 +110,9 @@
         </section>
 
         <section class="article-block">
-          <h2>They compose.</h2>
+          <h2>They compose. Cowork is a third place the work can live.</h2>
           <p>A well-designed Skill often references an MCP tool by name, instructing Claude on the right sequence, the right arguments, and the right judgment calls when using it. The Skill is the playbook; the MCP server is the equipment. Neither replaces the other.</p>
+          <p><a href="claude-cowork.html">Claude Cowork</a> is not a Skill and not MCP. It is Claude working inside an approved local folder so the file never has to bounce through upload and download. Skills still tell it how. MCP still opens doors to systems you own. Cowork is where the deliverable sits on disk. For CRE, that split is the four-part field guide: <a href="claude-cre-skills.html">Skills</a>, <a href="claude-cre-connectors.html">Connectors</a>, <a href="claude-cre-cowork.html">Cowork</a>, <a href="claude-cre-scheduled-tasks.html">Scheduled Tasks</a>.</p>
         </section>
 
         <div class="article-callout">
@@ -122,7 +123,9 @@
           <h2>Related reading</h2>
           <ul>
           <li><a href="writing-a-skill-md.html">How to write a SKILL.md that gets used</a></li>
+          <li><a href="claude-cowork.html">Claude Cowork: what it is and how a team uses it</a></li>
           <li><a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a></li>
+          <li><a href="impact-spark-labs-mcp.html">Spark Labs: MCP across four tools</a></li>
           <li><a href="mcp-agents-function-calling.html">MCP, agents, and function calling</a></li>
           </ul>
         </section>
@@ -157,7 +160,7 @@
     </div>
   </footer>
 </div>
-<script src="nav-dropdown.js?v=20260830a"></script>
+<script src="nav-dropdown.js?v=20260903d"></script>
 <script src="intake-modal.js"></script>
 </body>
 </html>

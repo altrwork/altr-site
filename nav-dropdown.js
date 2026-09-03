@@ -25,6 +25,9 @@ document.querySelectorAll('.nav').forEach(nav => {
         <a class="nav-dropdown-item" href="law-firms.html">Law Firms</a>
         <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
         <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        <span class="nav-dropdown-label">How we work</span>
+        <a class="nav-dropdown-item" href="ai-workshop.html">Claude SMB Workshops</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Team Workshops</a>
       </div>
     `;
 

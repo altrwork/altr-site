@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://altrwork.com/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/about.html</loc>
@@ -14,11 +14,11 @@
   </url>
   <url>
     <loc>https://altrwork.com/ai-consulting-tampa.html</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/ai-enablement-workshop.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/ai-governance-lite-smb.html</loc>
@@ -33,24 +33,36 @@
     <lastmod>2026-08-30</lastmod>
   </url>
   <url>
+    <loc>https://altrwork.com/ai-workshop.html</loc>
+    <lastmod>2026-09-03</lastmod>
+  </url>
+  <url>
+    <loc>https://altrwork.com/can-claude-connect-to-costar.html</loc>
+    <lastmod>2026-09-03</lastmod>
+  </url>
+  <url>
+    <loc>https://altrwork.com/claude-cowork.html</loc>
+    <lastmod>2026-09-03</lastmod>
+  </url>
+  <url>
     <loc>https://altrwork.com/claude-cre-connectors.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/claude-cre-cowork.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/claude-cre-scheduled-tasks.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/claude-cre-skills.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/claude-skills-vs-mcp.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/context-engineering-large-codebases.html</loc>
@@ -62,11 +74,11 @@
   </url>
   <url>
     <loc>https://altrwork.com/ecommerce.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/events.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/forward-deployed-engineering.html</loc>
@@ -102,7 +114,7 @@
   </url>
   <url>
     <loc>https://altrwork.com/law-firms.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/llm-retrieval-grounded-answers.html</loc>
@@ -118,7 +130,7 @@
   </url>
   <url>
     <loc>https://altrwork.com/nonprofits.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/rag-evaluation-internal-knowledge-bases.html</loc>
@@ -126,7 +138,7 @@
   </url>
   <url>
     <loc>https://altrwork.com/real-estate.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/start-a-conversation.html</loc>
@@ -138,7 +150,7 @@
   </url>
   <url>
     <loc>https://altrwork.com/tutorials.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://altrwork.com/workflow-audit.html</loc>
@@ -146,6 +158,6 @@
   </url>
   <url>
     <loc>https://altrwork.com/writing-a-skill-md.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
 </urlset>
