@@ -34,7 +34,7 @@ Contact: inquiries@altrwork.com
 ## Services
 
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
-- [AI services for real estate](https://altrwork.com/real-estate.html): underwriting, property research, connected systems, local file work, and recurring market monitoring
+- [AI workflows for commercial real estate teams](https://altrwork.com/real-estate.html): the central CRE hub for brokerage, acquisitions, underwriting, asset and property operations, development diligence, connected systems, controlled file work, and recurring market monitoring
 - [AI services for nonprofits](https://altrwork.com/nonprofits.html): program intake, funder research, events, reporting, and nonprofit operations
 - [AI services for ecommerce](https://altrwork.com/ecommerce.html): product content, customer request triage, order operations, and repeatable production workflows
 - [Workflow discovery](https://altrwork.com/workflow-audit.html): mapping one repeated process before anything is built
@@ -52,7 +52,7 @@ Contact: inquiries@altrwork.com
 
 ## Real estate field guide
 
-- [AI in Real Estate: From Chatbot to Operating Layer](https://altrwork.com/ai-in-real-estate-guide.html): free 12-page guide to playbooks, connected systems, local file work, recurring routines, workflow readiness, and a 30-day pilot plan
+- [AI in Real Estate: From Chatbot to Operating Layer](https://altrwork.com/ai-in-real-estate-guide.html): free 18-page guide to playbooks, connected systems, local file work, recurring routines, workflow readiness, and a 30-day pilot plan
 - [Claude in CRE: Skills](https://altrwork.com/claude-cre-skills.html): packaging underwriting context and steps into a reusable playbook
 - [Claude in CRE: Connectors](https://altrwork.com/claude-cre-connectors.html): connecting AI to CRM, property systems, and local market data
 - [Claude in CRE: Cowork](https://altrwork.com/claude-cre-cowork.html): working directly inside approved local underwriting files

@@ -73,6 +73,52 @@ class SeoIntegrityTests(unittest.TestCase):
             empty = re.findall(r'<img\b[^>]*\balt=""[^>]*>', html)
             self.assertFalse(empty, f"{name} contains empty image alt text")
 
+    def test_commercial_real_estate_hub_has_pillar_structure(self):
+        html = (ROOT / "real-estate.html").read_text()
+        visible = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", html, flags=re.S)
+        visible = re.sub(r"<[^>]+>", " ", visible)
+        words = re.findall(r"\b[\w'-]+\b", visible)
+
+        title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S).group(1)
+        self.assertIn("Commercial Real Estate", title)
+        self.assertIn("commercial real estate", re.sub(r"<[^>]+>", "", h1).lower())
+        self.assertGreaterEqual(len(words), 900)
+
+        required_spokes = {
+            "claude-cre-skills.html",
+            "claude-cre-connectors.html",
+            "claude-cre-cowork.html",
+            "claude-cre-scheduled-tasks.html",
+            "can-claude-connect-to-costar.html",
+            "impact-real-estate-property-intelligence.html",
+            "ai-in-real-estate-guide.html",
+        }
+        links = set(re.findall(r'href="([^"]+)"', html))
+        self.assertTrue(required_spokes.issubset(links))
+
+        blocks = re.findall(
+            r'<script\s+type="application/ld\+json">(.*?)</script>', html, re.S
+        )
+        schema = [json.loads(block) for block in blocks]
+        schema_text = json.dumps(schema)
+        self.assertIn('"FAQPage"', schema_text)
+        self.assertEqual(6, schema_text.count('"Question"'))
+
+    def test_cre_spokes_link_back_to_hub(self):
+        spokes = (
+            "claude-cre-skills.html",
+            "claude-cre-connectors.html",
+            "claude-cre-cowork.html",
+            "claude-cre-scheduled-tasks.html",
+            "can-claude-connect-to-costar.html",
+            "impact-real-estate-property-intelligence.html",
+            "ai-in-real-estate-guide.html",
+        )
+        for name in spokes:
+            html = (ROOT / name).read_text()
+            self.assertRegex(html, r'href="real-estate\.html"', name)
+
 
 if __name__ == "__main__":
     unittest.main()
