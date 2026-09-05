@@ -2,6 +2,7 @@
 /frameworks       /how-we-altr-work.html  301!
 /what-we-do.html  /#who-we-serve  301!
 /what-we-do       /#who-we-serve  301!
+/index.html       /               301!
 
 # Canonical URL form is .html (matches <link rel=canonical> and sitemap.xml).
 # Netlify serves both /page and /page.html as 200, which splits crawl budget
@@ -30,7 +31,7 @@
 /how-we-altr-work                             /how-we-altr-work.html                        301!
 /impact-bebrief                               /impact-bebrief.html                          301!
 /impact-fishin-prints                         /impact-fishin-prints.html                    301!
-/impact-real-estate-property-intelligence     /impact-real-estate-property-intelligence.html301!
+/impact-real-estate-property-intelligence     /impact-real-estate-property-intelligence.html 301!
 /impact-spark-labs-mcp                        /impact-spark-labs-mcp.html                   301!
 /impact-spark-labs                            /impact-spark-labs.html                       301!
 /impact-studies                               /impact-studies.html                          301!

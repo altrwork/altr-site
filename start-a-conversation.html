@@ -146,6 +146,29 @@
   const companyName = document.getElementById("company-name");
   const projectInterest = document.getElementById("project-interest");
 
+  function trackLeadAndNavigate(destination) {
+    let navigated = false;
+    const navigate = () => {
+      if (navigated) return;
+      navigated = true;
+      window.location.assign(destination);
+    };
+
+    if (typeof window.gtag !== "function") {
+      navigate();
+      return;
+    }
+
+    window.gtag("event", "generate_lead", {
+      lead_type: "consultation",
+      form_location: "start_a_conversation",
+      transport_type: "beacon",
+      event_callback: navigate,
+      event_timeout: 1200
+    });
+    window.setTimeout(navigate, 1400);
+  }
+
   intakeForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!intakeForm.reportValidity()) return;
@@ -160,7 +183,7 @@
       interest: projectInterest.value.trim()
     });
 
-    window.location.href = `${calendlyBaseUrl}?${params.toString()}`;
+    trackLeadAndNavigate(`${calendlyBaseUrl}?${params.toString()}`);
   });
 </script>
 <script src="nav-dropdown.js?v=20260903d"></script>

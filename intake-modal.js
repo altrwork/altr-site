@@ -74,6 +74,29 @@
     return `${calendlyBaseUrl}?${params.toString()}`;
   }
 
+  function trackLeadAndNavigate(destination) {
+    let navigated = false;
+    const navigate = () => {
+      if (navigated) return;
+      navigated = true;
+      window.location.assign(destination);
+    };
+
+    if (typeof window.gtag !== "function") {
+      navigate();
+      return;
+    }
+
+    window.gtag("event", "generate_lead", {
+      lead_type: "consultation",
+      form_location: "intake_modal",
+      transport_type: "beacon",
+      event_callback: navigate,
+      event_timeout: 1200
+    });
+    window.setTimeout(navigate, 1400);
+  }
+
   document.addEventListener("click", (event) => {
     const trigger = event.target.closest(triggerSelector);
     if (trigger) {
@@ -94,7 +117,7 @@
 
     const company = document.getElementById("intake-modal-company").value.trim();
     const interest = document.getElementById("intake-modal-interest").value.trim();
-    window.location.href = calendlyUrl(company, interest);
+    trackLeadAndNavigate(calendlyUrl(company, interest));
   });
 
   document.addEventListener("keydown", (event) => {
