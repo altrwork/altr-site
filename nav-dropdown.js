@@ -21,13 +21,13 @@ document.querySelectorAll('.nav').forEach(nav => {
       </button>
       <div class="nav-dropdown-panel" id="services-menu" aria-label="Who we serve">
         <span class="nav-dropdown-label">Who we serve</span>
-        <a class="nav-dropdown-item" href="real-estate.html">Real Estate</a>
-        <a class="nav-dropdown-item" href="law-firms.html">Law Firms</a>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
         <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
         <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
-        <span class="nav-dropdown-label">How we work</span>
-        <a class="nav-dropdown-item" href="ai-workshop.html">Claude SMB Workshops</a>
+        <span class="nav-dropdown-label">Ways to work with us</span>
+        <a class="nav-dropdown-item" href="workflow-audit.html">Workflow Discovery</a>
         <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Team Workshops</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Custom AI Systems</a>
       </div>
     `;
 

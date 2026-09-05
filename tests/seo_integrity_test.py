@@ -119,6 +119,40 @@ class SeoIntegrityTests(unittest.TestCase):
             html = (ROOT / name).read_text()
             self.assertRegex(html, r'href="real-estate\.html"', name)
 
+    def test_primary_positioning_matches_supported_services(self):
+        homepage = (ROOT / "index.html").read_text()
+        navigation = (ROOT / "nav-dropdown.js").read_text()
+        sitemap = (ROOT / "sitemap.xml").read_text()
+        law_page = (ROOT / "law-firms.html").read_text()
+
+        self.assertNotIn('href="law-firms.html"', homepage)
+        self.assertNotIn('href="law-firms.html"', navigation)
+        self.assertNotIn("law-firms.html", sitemap)
+        self.assertRegex(
+            law_page,
+            r'<meta\s+name="robots"\s+content="noindex, follow"\s*/?>',
+        )
+
+        self.assertIn("Commercial Real Estate", homepage)
+        self.assertIn("Commercial Real Estate", navigation)
+        self.assertIn("Ways to work with us", navigation)
+        for href in (
+            "workflow-audit.html",
+            "ai-enablement-workshop.html",
+            "custom-agents.html",
+        ):
+            self.assertIn(f'href="{href}"', navigation)
+
+    def test_homepage_explains_the_engagement_method(self):
+        homepage = (ROOT / "index.html").read_text()
+        for phrase in (
+            "From one repeated workflow to a system your team can trust.",
+            "Map the workflow",
+            "Prove it with the team",
+            "Deploy what earns a role",
+        ):
+            self.assertIn(phrase, homepage)
+
 
 if __name__ == "__main__":
     unittest.main()
