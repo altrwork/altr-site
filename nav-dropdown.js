@@ -3,6 +3,9 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   if (!navLinks) return;
 
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const isResourcesPage = ['events.html', 'ai-workshop.html', 'tutorials.html'].includes(currentPage);
+
   const servicesLink = Array.from(navLinks.children).find(item =>
     item.matches('a[data-nav-services]') ||
     (item.matches('a') && item.textContent.trim() === 'Services')
@@ -10,6 +13,8 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   let servicesDropdown = null;
   let servicesTrigger = null;
+  let resourcesDropdown = null;
+  let resourcesTrigger = null;
 
   if (servicesLink) {
     servicesDropdown = document.createElement('div');
@@ -30,10 +35,60 @@ document.querySelectorAll('.nav').forEach(nav => {
     `;
 
     servicesTrigger = servicesDropdown.querySelector('.nav-dropdown-trigger');
-    if (servicesLink.getAttribute('aria-current') === 'page') {
+    if (!isResourcesPage && servicesLink.getAttribute('aria-current') === 'page') {
       servicesTrigger.setAttribute('aria-current', 'page');
     }
     servicesLink.replaceWith(servicesDropdown);
+  }
+
+  const portfolioLink = Array.from(navLinks.children).find(item =>
+    item.matches('a[href="impact-studies.html"]')
+  );
+  const blogLink = Array.from(navLinks.children).find(item =>
+    item.matches('a[href="tutorials.html"]')
+  );
+  let eventsLink = Array.from(navLinks.children).find(item =>
+    item.matches('a[data-nav-events]')
+  );
+
+  if (portfolioLink) portfolioLink.textContent = 'Work';
+
+  if (!eventsLink) {
+    eventsLink = document.createElement('a');
+    eventsLink.dataset.navEvents = '';
+    eventsLink.href = 'events.html';
+    eventsLink.textContent = 'Events';
+
+    if (isResourcesPage) eventsLink.setAttribute('aria-current', 'page');
+  }
+
+  if (eventsLink || blogLink) {
+    resourcesDropdown = document.createElement('div');
+    resourcesDropdown.className = 'nav-dropdown';
+    resourcesDropdown.innerHTML = `
+      <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu">
+        <span>Resources</span>
+        <span class="nav-dropdown-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <span class="nav-dropdown-label">Explore</span>
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+      </div>
+    `;
+
+    resourcesTrigger = resourcesDropdown.querySelector('.nav-dropdown-trigger');
+    if (isResourcesPage) resourcesTrigger.setAttribute('aria-current', 'page');
+
+    eventsLink?.remove();
+    blogLink?.remove();
+    if (portfolioLink) {
+      portfolioLink.insertAdjacentElement('afterend', resourcesDropdown);
+    } else if (servicesDropdown) {
+      servicesDropdown.insertAdjacentElement('afterend', resourcesDropdown);
+    } else {
+      navLinks.prepend(resourcesDropdown);
+    }
   }
 
   const menuToggle = document.createElement('button');
@@ -56,9 +111,22 @@ document.querySelectorAll('.nav').forEach(nav => {
     servicesTrigger.setAttribute('aria-expanded', String(isOpen));
   };
 
+  const setResourcesOpen = isOpen => {
+    if (!resourcesDropdown || !resourcesTrigger) return;
+    resourcesDropdown.classList.toggle('is-open', isOpen);
+    resourcesTrigger.setAttribute('aria-expanded', String(isOpen));
+  };
+
   servicesTrigger?.addEventListener('click', event => {
     event.stopPropagation();
+    setResourcesOpen(false);
     setServicesOpen(!servicesDropdown.classList.contains('is-open'));
+  });
+
+  resourcesTrigger?.addEventListener('click', event => {
+    event.stopPropagation();
+    setServicesOpen(false);
+    setResourcesOpen(!resourcesDropdown.classList.contains('is-open'));
   });
 
   menuToggle.addEventListener('click', event => {
@@ -69,6 +137,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   navLinks.addEventListener('click', event => {
     if (event.target.closest('a')) {
       setServicesOpen(false);
+      setResourcesOpen(false);
       setMenuOpen(false);
     }
   });
@@ -78,6 +147,9 @@ document.querySelectorAll('.nav').forEach(nav => {
       if (servicesDropdown?.classList.contains('is-open')) {
         setServicesOpen(false);
         servicesTrigger.focus();
+      } else if (resourcesDropdown?.classList.contains('is-open')) {
+        setResourcesOpen(false);
+        resourcesTrigger.focus();
       } else if (nav.classList.contains('is-menu-open')) {
         setMenuOpen(false);
         menuToggle.focus();
@@ -87,6 +159,7 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   document.addEventListener('click', event => {
     if (!servicesDropdown?.contains(event.target)) setServicesOpen(false);
+    if (!resourcesDropdown?.contains(event.target)) setResourcesOpen(false);
     if (!nav.contains(event.target)) setMenuOpen(false);
   });
 });

@@ -265,7 +265,12 @@
   updateSize();
   window.addEventListener("resize", updateSize);
 
-  const globe = createGlobe(canvas, {
+  const webglProbe = document.createElement("canvas");
+  const canRenderGlobe = Boolean(
+    webglProbe.getContext("webgl") || webglProbe.getContext("experimental-webgl")
+  );
+
+  const globe = canRenderGlobe ? createGlobe(canvas, {
     devicePixelRatio: 2,
     width: width * 2,
     height: width * 2,
@@ -290,7 +295,7 @@
       state.width = width * 2;
       state.height = width * 2;
     }
-  });
+  }) : null;
 
   panel.addEventListener("pointerdown", (event) => {
     pointerInteraction = {
@@ -320,10 +325,10 @@
 
   panel.addEventListener("pointerup", endGlobeInteraction);
   panel.addEventListener("pointercancel", endGlobeInteraction);
-  window.addEventListener("beforeunload", () => globe.destroy());
+  window.addEventListener("beforeunload", () => globe?.destroy());
 </script>
 <script src="intake-modal.js"></script>
-<script src="nav-dropdown.js?v=20260903d"></script>
+<script src="nav-dropdown.js?v=20260905b"></script>
 <script src="site-motion.js"></script>
 </body>
 </html>

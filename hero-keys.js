@@ -8,10 +8,11 @@
 
   const ctx = canvas.getContext("2d");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const strategyVariant = canvas.dataset.heroKeysVariant === "strategy";
 
-  const CELL = 58;
-  const GAP = 9;
-  const RADIUS = 8;
+  const CELL = strategyVariant ? 72 : 58;
+  const GAP = strategyVariant ? 12 : 9;
+  const RADIUS = strategyVariant ? 10 : 8;
   const INK = "26, 23, 20";
   const COPPER = "166, 85, 41";
 
@@ -70,18 +71,19 @@
         const y = row * CELL - CELL + inset;
 
         // one diagonal band of pressed keys sweeping down and right
-        const phase = (x + y * 1.35) / 640 - elapsed * 0.13;
+        const phase = (x + y * (strategyVariant ? 1.12 : 1.35)) / (strategyVariant ? 780 : 640)
+          - elapsed * (strategyVariant ? 0.1 : 0.13);
         const wave = Math.max(0, Math.sin(phase * Math.PI * 2));
         let press = wave * wave * wave;
 
         const dx = x + size / 2 - poolX;
         const dy = y + size / 2 - poolY;
-        const reach = 1 - Math.min(1, Math.hypot(dx, dy) / 210);
-        press = Math.min(1, press + reach * reach * 0.85);
+        const reach = 1 - Math.min(1, Math.hypot(dx, dy) / (strategyVariant ? 250 : 210));
+        press = Math.min(1, press + reach * reach * (strategyVariant ? 0.68 : 0.85));
 
-        const drop = press * 3;
-        const face = 0.018 + press * 0.042;
-        const edge = 0.045 + press * 0.1;
+        const drop = press * (strategyVariant ? 2.5 : 3);
+        const face = (strategyVariant ? 0.012 : 0.018) + press * (strategyVariant ? 0.032 : 0.042);
+        const edge = (strategyVariant ? 0.035 : 0.045) + press * (strategyVariant ? 0.075 : 0.1);
 
         keycap(
           x,
@@ -98,8 +100,8 @@
             x,
             y + drop,
             size,
-            `rgba(${COPPER}, ${(heat * 0.05).toFixed(3)})`,
-            `rgba(${COPPER}, ${(heat * 0.16).toFixed(3)})`
+            `rgba(${COPPER}, ${(heat * (strategyVariant ? 0.035 : 0.05)).toFixed(3)})`,
+            `rgba(${COPPER}, ${(heat * (strategyVariant ? 0.12 : 0.16)).toFixed(3)})`
           );
         }
       }

@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260904b" />
+<link rel="stylesheet" href="styles.css?v=20260905e" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,35 +59,23 @@
 
   <main id="main">
     <section class="strategy-hero">
-      <div class="strategy-field" aria-hidden="true">
-        <div class="strategy-field-grid"></div>
-        <span class="strategy-route strategy-route-a"></span>
-        <span class="strategy-route strategy-route-b"></span>
-        <span class="strategy-route strategy-route-c"></span>
-        <span class="strategy-node strategy-node-a">01</span>
-        <span class="strategy-node strategy-node-b">02</span>
-        <span class="strategy-node strategy-node-c">03</span>
-        <span class="strategy-node strategy-node-d">04</span>
-        <span class="strategy-signal strategy-signal-a"></span>
-        <span class="strategy-signal strategy-signal-b"></span>
-      </div>
+      <canvas class="hero-keys strategy-hero-keys" id="hero-keys" data-hero-keys-variant="strategy" aria-hidden="true"></canvas>
       <div class="strategy-hero-copy" data-strategy-reveal>
         <div class="eyebrow">AI strategy</div>
-        <h1>Find the work where AI earns a role.</h1>
-        <p>Start with the work, the people who own it, and the result the business needs. Then decide what to improve, what to protect, and what is actually worth building.</p>
+        <h1><span>Find where AI</span><span>improves your business</span></h1>
+        <p>A 7-day audit that maps where AI saves hours, improves margin, and unlocks revenue, we give you the playbook to capture it.</p>
         <div class="page-hero-actions">
           <a class="button primary" href="start-a-conversation.html">Map a workflow</a>
           <a class="button secondary strategy-button-secondary" href="#strategy-engagement">See the approach</a>
         </div>
       </div>
-      <div class="strategy-scroll-cue" aria-hidden="true"><span></span>Follow the signal</div>
     </section>
 
     <section class="strategy-section" id="strategy-engagement" data-strategy-reveal>
       <div class="strategy-section-heading">
         <div>
           <div class="section-kicker">The engagement</div>
-          <h2>Three decisions before a deployment.</h2>
+          <h2>Three phases</h2>
         </div>
         <p>A useful strategy makes the path smaller and clearer. It identifies the work that matters, tests the assumptions with the team, and gives technology a defined job.</p>
       </div>
@@ -95,111 +83,133 @@
         <li data-strategy-reveal>
           <span>01</span>
           <h3>Map</h3>
-          <p>Document the trigger, sources, decisions, handoffs, exceptions, and reviewer behind a workflow your team already runs.</p>
+          <p>We sit with you and your team to understand how work gets done today, then decide how AI moves time, margin, and revenue.</p>
         </li>
         <li data-strategy-reveal>
           <span>02</span>
-          <h3>Prove</h3>
-          <p>Run the improved process on real work, compare it with the current baseline, and make the guardrails visible.</p>
+          <h3>Build</h3>
+          <p>Our engineers build it, connect it to the systems you already use, and put it into production. Each build is priced up front and you approve it before it starts.</p>
         </li>
         <li data-strategy-reveal>
           <span>03</span>
-          <h3>Sequence</h3>
-          <p>Choose what the team can adopt now, what needs a custom system, and what should stay out of the plan entirely.</p>
+          <h3>Adoption</h3>
+          <p>We train the team that has to use it and stay until its part of their daily job.</p>
         </li>
       </ol>
+      <p class="strategy-adoption-note">After launch, most clients keep us on as their embedded engineering team.</p>
     </section>
 
     <section class="strategy-section strategy-outputs" data-strategy-reveal>
       <div class="strategy-section-heading">
         <div>
           <div class="section-kicker">What strategy produces</div>
-          <h2>A ranked opportunity map and a path to act.</h2>
+          <h2>Two deliverables that turn AI into a plan</h2>
         </div>
-        <p>The deliverables are working tools, not a stack of recommendations. They show where value may exist, what has to be true, and which move should come first.</p>
+        <p>Where AI improves margin, drives revenue, helps you close more deals, and frees your team. Ranked by impact, with a playbook to run.</p>
       </div>
 
       <article class="strategy-output-row">
         <div class="strategy-output-copy" data-strategy-reveal>
           <span class="strategy-output-number">01</span>
           <h3>The Opportunity Map</h3>
-          <p>A short list of workflows ranked by business value, feasibility, risk, and the amount of human judgment they require.</p>
+          <p>Your top 5 opportunities, ranked by impact and tagged by the pain that pulls: lost margin, unrealized revenue, or hours taken away from your team.</p>
         </div>
         <div class="strategy-demo strategy-scan-demo" data-strategy-scan aria-label="Animated example opportunity map">
           <div class="strategy-demo-head">
-            <span>Opportunity map</span>
-            <span class="strategy-demo-status">Scanning workflows</span>
+            <strong>Opportunity map</strong>
+            <span class="strategy-sample-tag">Sample output</span>
           </div>
-          <div class="strategy-scan-line" aria-hidden="true"></div>
+          <div class="strategy-scan-progress" aria-hidden="true"><i></i></div>
+          <p class="strategy-scan-summary">Analysis complete <span>5 workflows ranked</span></p>
           <ol>
-            <li class="is-active"><span>01</span><strong>Property research</strong><em>Revenue</em><small>Prove</small></li>
-            <li><span>02</span><strong>Recurring reporting</strong><em>Hours</em><small>Adopt</small></li>
-            <li><span>03</span><strong>Document intake</strong><em>Capacity</em><small>Build</small></li>
-            <li><span>04</span><strong>Portfolio review</strong><em>Margin</em><small>Explore</small></li>
+            <li class="is-active">
+              <span class="strategy-workflow-rank">01</span>
+              <div class="strategy-workflow-copy">
+                <strong>Pipeline research</strong>
+                <p>Build a decision-ready brief before every sales call.</p>
+              </div>
+              <div class="strategy-workflow-tags"><em>Revenue</em><small>Implement</small></div>
+            </li>
+            <li>
+              <span class="strategy-workflow-rank">02</span>
+              <div class="strategy-workflow-copy">
+                <strong>Weekly client reporting</strong>
+                <p>Turn source data into a ready-to-review operating update.</p>
+              </div>
+              <div class="strategy-workflow-tags"><em>Hours</em><small>Implement</small></div>
+            </li>
+            <li>
+              <span class="strategy-workflow-rank">03</span>
+              <div class="strategy-workflow-copy">
+                <strong>Document intake</strong>
+                <p>Extract, classify, and route every incoming file.</p>
+              </div>
+              <div class="strategy-workflow-tags"><em>Capacity</em><small>Build</small></div>
+            </li>
+            <li>
+              <span class="strategy-workflow-rank">04</span>
+              <div class="strategy-workflow-copy">
+                <strong>Proposal assembly</strong>
+                <p>Draft scopes and pricing from approved service rules.</p>
+              </div>
+              <div class="strategy-workflow-tags"><em>Margin</em><small>Prove</small></div>
+            </li>
+            <li>
+              <span class="strategy-workflow-rank">05</span>
+              <div class="strategy-workflow-copy">
+                <strong>Client onboarding</strong>
+                <p>Create the handoff, workspace, and kickoff brief automatically.</p>
+              </div>
+              <div class="strategy-workflow-tags"><em>Hours</em><small>Adopt</small></div>
+            </li>
           </ol>
-          <div class="strategy-demo-foot"><span>Ranked by value and readiness</span><i></i></div>
+          <div class="strategy-demo-foot"><span>Your top five, ranked by impact and readiness</span><i></i></div>
         </div>
       </article>
 
       <article class="strategy-output-row strategy-output-row-reverse">
         <div class="strategy-output-copy" data-strategy-reveal>
           <span class="strategy-output-number">02</span>
-          <h3>The Deployment Sequence</h3>
-          <p>A staged plan that moves from a controlled first workflow to adoption and, only where justified, connected software.</p>
+          <h3>The 30-day Roadmap</h3>
+          <p>A 30-day plan to an AI-native operation. We sequence the work into phases that compound, so the business isn't scattered with scattered pilots.</p>
         </div>
         <div class="strategy-demo strategy-roadmap-demo" data-strategy-roadmap aria-label="Animated example deployment sequence">
           <div class="strategy-demo-head">
             <span>Deployment sequence</span>
-            <span class="strategy-demo-status">Building the path</span>
+            <span class="strategy-demo-status" data-roadmap-status>Days 0–10</span>
           </div>
           <div class="strategy-roadmap-track">
-            <span></span><span></span><span></span>
+            <i aria-hidden="true"></i>
           </div>
           <ol>
-            <li><span>Now</span><strong>Prove one workflow</strong><small>Real work · named reviewer</small></li>
-            <li><span>Next</span><strong>Build team adoption</strong><small>Playbook · controls · measurement</small></li>
-            <li><span>Then</span><strong>Connect the system</strong><small>Tools · permissions · monitoring</small></li>
+            <li class="is-active"><span>Days 0–10</span><strong>Prove the priority workflow</strong><small>Baseline · pilot · named reviewer</small></li>
+            <li><span>Days 11–20</span><strong>Build the operating system</strong><small>Playbook · controls · integrations</small></li>
+            <li><span>Days 21–30</span><strong>Launch team adoption</strong><small>Training · measurement · ownership</small></li>
           </ol>
           <div class="strategy-demo-foot"><span>Sequenced by evidence and dependency</span><i></i></div>
         </div>
       </article>
     </section>
 
-    <section class="strategy-section strategy-lens" data-strategy-reveal>
-      <div class="strategy-section-heading">
-        <div>
-          <div class="section-kicker">The decision lens</div>
-          <h2>Four questions keep the strategy honest.</h2>
-        </div>
-        <p>The altr 4D framework keeps the conversation centered on outcomes and human responsibility while the workflow changes.</p>
-      </div>
-      <div class="strategy-lens-grid">
-        <article><span>01</span><h3>Define</h3><p>What does a successful result look like?</p></article>
-        <article><span>02</span><h3>Describe</h3><p>How does the work actually happen today?</p></article>
-        <article><span>03</span><h3>Delegate</h3><p>What should AI prepare, and what should people own?</p></article>
-        <article><span>04</span><h3>Discern</h3><p>Did the new process meet the standard?</p></article>
-      </div>
-    </section>
-
     <section class="strategy-section strategy-cadence" data-strategy-reveal>
       <div class="strategy-section-heading">
         <div>
           <div class="section-kicker">A practical cadence</div>
-          <h2>Enough structure to make a decision.</h2>
+          <h2>How we run the assessment.</h2>
         </div>
-        <p>The exact timing changes with scope. The shape stays consistent: align leadership, learn from the people doing the work, synthesize the opportunities, and decide what happens next.</p>
+        <p>We scope the working sessions in kickoff so discovery is spent on the workflows that matter most. </p>
       </div>
       <ol class="strategy-timeline">
-        <li><span>Start</span><div><h3>Kickoff and priorities</h3><p>Choose the business outcomes, teams, and workflows worth examining.</p></div><em>Leadership</em></li>
-        <li><span>Learn</span><div><h3>Workflow sessions</h3><p>Map the work beside the people responsible for doing and reviewing it.</p></div><em>Workflow owners</em></li>
-        <li><span>Shape</span><div><h3>Analysis and sequencing</h3><p>Rank the opportunities, expose dependencies, and draft the path forward.</p></div><em>altr</em></li>
-        <li><span>Decide</span><div><h3>Strategy readout</h3><p>Review the evidence and choose what to adopt, build, defer, or reject.</p></div><em>Leadership + team</em></li>
+        <li><span>Day 1</span><div><h3>Kickoff and priorities</h3><p>Outline goals with leadership, and decide together which teams and workflows we focus on.</p></div><em>Leadership</em></li>
+        <li><span>Days 2-3</span><div><h3>Workflow sessions</h3><p>Meet with workflow owner, mapping how the job gets done today and where the time and money go.</p></div><em>Workflow owners</em></li>
+        <li><span>Days 3-6</span><div><h3>Analysis and sequencing</h3><p>We evaluate the opportunites and build the opportunity map and 30-day roadmap.</p></div><em>altr</em></li>
+        <li><span>Day 7</span><div><h3>Leadership walkthrough</h3><p>We present the opportunity map and 30-day roadmap, then agree on what it costs to build.</p></div><em>Leadership + team</em></li>
       </ol>
     </section>
 
     <section class="cta-section strategy-final-cta" data-strategy-reveal>
       <div><h2>Start with one process.</h2><p>Bring the work your team keeps repeating. We will help you determine whether it needs a better playbook, a connected system, or no AI at all.</p></div>
-      <a class="button primary" href="start-a-conversation.html">Map a workflow</a>
+      <a class="button primary" href="start-a-conversation.html">Book free consultation</a>
     </section>
   </main>
 
@@ -215,7 +225,8 @@
     </nav>
   </div></footer>
 </div>
-<script src="nav-dropdown.js?v=20260904b"></script>
-<script src="ai-strategy.js?v=20260904a"></script>
+<script src="nav-dropdown.js?v=20260905b"></script>
+<script src="hero-keys.js?v=20260905a"></script>
+<script src="ai-strategy.js?v=20260905b"></script>
 </body>
 </html>

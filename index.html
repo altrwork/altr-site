@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260904a" />
+<link rel="stylesheet" href="styles.css?v=20260905g" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -117,6 +117,7 @@
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a data-nav-services href="index.html#who-we-serve">Services</a>
+      <a data-nav-events href="events.html">Events</a>
       <a href="impact-studies.html">Work</a>
       <a href="tutorials.html">Blog</a>
       <a href="about.html">About</a>
@@ -126,13 +127,24 @@
 
   <main class="home-main" id="main">
 
-    <section class="home-hero">
-      <canvas class="hero-keys" id="hero-keys" aria-hidden="true"></canvas>
-      <div class="home-hero-inner">
-        <p class="kicker">Software and AI strategy / Tampa</p>
-        <h1>Software that does the work your team does by hand.</h1>
-        <p class="lede">altr is a software and AI strategy firm in Tampa. We work with operations-heavy teams to get the manual work out of the week, so your best people spend those hours on the deals instead of the paperwork.</p>
-        <div class="home-hero-actions">
+    <section class="band band-quiet home-about home-about-hero" aria-labelledby="ask-altr-heading">
+      <div class="band-inner">
+        <p class="kicker" id="ask-altr-heading">Ask altr</p>
+        <div class="home-about-chat">
+          <div class="home-chat-message home-chat-user">
+            <span class="home-chat-label">You</span>
+            <h1 class="home-chat-prompt" data-prompt-typewriter aria-label="Who is altr?">Who is altr?</h1>
+          </div>
+          <div class="home-chat-message home-chat-assistant">
+            <span class="home-chat-model-mark" aria-hidden="true">altr</span>
+            <div class="home-chat-answer">
+              <span class="home-chat-label">altr</span>
+              <p class="home-chat-thinking" data-thinking role="status" aria-label="Thinking..." hidden>Thinking<span aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p>
+              <p class="home-about-statement" data-typewriter aria-label="We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.">We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.</p>
+            </div>
+          </div>
+        </div>
+        <div class="home-hero-actions home-about-actions">
           <a class="button primary" href="start-a-conversation.html">Book free consultation</a>
           <a class="button secondary" href="impact-studies.html">See our work</a>
         </div>
@@ -164,26 +176,6 @@
             <h3>More volume, same team</h3>
             <p>You take on more without hiring for it, and the cost of carrying each deal comes down.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band band-quiet home-about" aria-labelledby="about-us-heading">
-      <div class="band-inner">
-        <p class="kicker" id="about-us-heading">About us</p>
-        <div class="home-about-chat">
-          <div class="home-chat-message home-chat-user">
-            <span class="home-chat-label">You</span>
-            <p>who is altr</p>
-          </div>
-          <div class="home-chat-message home-chat-assistant">
-            <span class="home-chat-model-mark" aria-hidden="true">altr</span>
-            <div class="home-chat-answer">
-              <span class="home-chat-label">altr</span>
-              <p class="home-chat-thinking" data-thinking role="status" aria-label="Thinking..." hidden>Thinking<span aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p>
-              <p class="home-about-statement" data-typewriter aria-label="We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.">We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -282,8 +274,7 @@
   </footer>
 </div>
 <script src="intake-modal.js"></script>
-<script src="nav-dropdown.js?v=20260903d"></script>
-<script src="home-typewriter.js?v=20260829b"></script>
-<script src="hero-keys.js?v=20260903a"></script>
+<script src="nav-dropdown.js?v=20260905b"></script>
+<script src="home-typewriter.js?v=20260905a"></script>
 </body>
 </html>
