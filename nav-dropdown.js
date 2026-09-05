@@ -3,8 +3,12 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   if (!navLinks) return;
 
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const isResourcesPage = ['events.html', 'ai-workshop.html', 'tutorials.html'].includes(currentPage);
+  const currentPage = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
+  const isResourcesPage = ['events', 'ai-workshop', 'tutorials'].includes(currentPage);
+  const normalizedLinkPath = link => {
+    const path = new URL(link.getAttribute('href'), document.baseURI).pathname.replace(/\/$/, '');
+    return path.replace(/\.html$/, '');
+  };
 
   const servicesLink = Array.from(navLinks.children).find(item =>
     item.matches('a[data-nav-services]') ||
@@ -42,10 +46,10 @@ document.querySelectorAll('.nav').forEach(nav => {
   }
 
   const portfolioLink = Array.from(navLinks.children).find(item =>
-    item.matches('a[href="impact-studies.html"]')
+    item.matches('a') && normalizedLinkPath(item) === '/impact-studies'
   );
   const blogLink = Array.from(navLinks.children).find(item =>
-    item.matches('a[href="tutorials.html"]')
+    item.matches('a') && normalizedLinkPath(item) === '/tutorials'
   );
   let eventsLink = Array.from(navLinks.children).find(item =>
     item.matches('a[data-nav-events]')
