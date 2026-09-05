@@ -135,13 +135,8 @@ class SeoIntegrityTests(unittest.TestCase):
 
         self.assertIn("Commercial Real Estate", homepage)
         self.assertIn("Commercial Real Estate", navigation)
-        self.assertIn("Ways to work with us", navigation)
-        for href in (
-            "workflow-audit.html",
-            "ai-enablement-workshop.html",
-            "custom-agents.html",
-        ):
-            self.assertIn(f'href="{href}"', navigation)
+        self.assertIn("How we altr work", navigation)
+        self.assertIn('href="how-we-altr-work.html"', navigation)
 
     def test_homepage_explains_the_engagement_method(self):
         homepage = (ROOT / "index.html").read_text()
@@ -152,6 +147,30 @@ class SeoIntegrityTests(unittest.TestCase):
             "Deploy what earns a role",
         ):
             self.assertIn(phrase, homepage)
+
+    def test_navigation_has_one_ai_strategy_path(self):
+        navigation = (ROOT / "nav-dropdown.js").read_text()
+        self.assertIn("How we altr work", navigation)
+        self.assertIn(
+            '<a class="nav-dropdown-item" href="how-we-altr-work.html">AI Strategy</a>',
+            navigation,
+        )
+        self.assertEqual(1, navigation.count('href="how-we-altr-work.html"'))
+        self.assertNotIn("Workflow Discovery", navigation)
+        self.assertNotIn("Team Workshops", navigation)
+        self.assertNotIn("Custom AI Systems", navigation)
+
+    def test_ai_strategy_page_has_animated_strategy_structure(self):
+        html = (ROOT / "how-we-altr-work.html").read_text()
+        styles = (ROOT / "styles.css").read_text()
+
+        self.assertIn("AI Strategy", re.search(r"<title>(.*?)</title>", html, re.S).group(1))
+        self.assertIn("AI strategy", html)
+        self.assertIn("ai-strategy.js", html)
+        self.assertGreaterEqual(html.count('data-strategy-reveal'), 4)
+        self.assertIn('data-strategy-scan', html)
+        self.assertIn('data-strategy-roadmap', html)
+        self.assertIn("prefers-reduced-motion: reduce", styles)
 
 
 if __name__ == "__main__":

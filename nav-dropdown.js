@@ -24,10 +24,8 @@ document.querySelectorAll('.nav').forEach(nav => {
         <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
         <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
         <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
-        <span class="nav-dropdown-label">Ways to work with us</span>
-        <a class="nav-dropdown-item" href="workflow-audit.html">Workflow Discovery</a>
-        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Team Workshops</a>
-        <a class="nav-dropdown-item" href="custom-agents.html">Custom AI Systems</a>
+        <span class="nav-dropdown-label">How we altr work</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html">AI Strategy</a>
       </div>
     `;
 
