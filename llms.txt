@@ -43,7 +43,7 @@ Contact: inquiries@altrwork.com
 - [Forward deployed engineering](https://altrwork.com/forward-deployed-engineering.html): the method behind our engagements, building inside the operating context; not sold separately as embedded headcount or engineer-days
 - [Events](https://altrwork.com/events.html): workshops, community demos, workflow reviews
 
-## Impact studies
+## Case studies
 
 - [spARK Labs, operations intake](https://altrwork.com/impact-spark-labs.html): expense and event request workflows in Claude Cowork
 - [spARK Labs, remote MCP server](https://altrwork.com/impact-spark-labs-mcp.html): Cloudflare Workers MCP server connecting Claude to operations tools

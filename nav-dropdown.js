@@ -5,6 +5,7 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   const currentPage = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
   const isResourcesPage = ['events', 'ai-workshop', 'tutorials'].includes(currentPage);
+  const isWorkPage = ['case-studies', 'internal-products'].includes(currentPage) || currentPage.startsWith('impact-');
   const normalizedLinkPath = link => {
     const path = new URL(link.getAttribute('href'), document.baseURI).pathname.replace(/\/$/, '');
     return path.replace(/\.html$/, '');
@@ -17,6 +18,8 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   let servicesDropdown = null;
   let servicesTrigger = null;
+  let workDropdown = null;
+  let workTrigger = null;
   let resourcesDropdown = null;
   let resourcesTrigger = null;
 
@@ -46,7 +49,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   }
 
   const portfolioLink = Array.from(navLinks.children).find(item =>
-    item.matches('a') && normalizedLinkPath(item) === '/impact-studies'
+    item.matches('a') && normalizedLinkPath(item) === '/case-studies'
   );
   const blogLink = Array.from(navLinks.children).find(item =>
     item.matches('a') && normalizedLinkPath(item) === '/tutorials'
@@ -55,7 +58,30 @@ document.querySelectorAll('.nav').forEach(nav => {
     item.matches('a[data-nav-events]')
   );
 
-  if (portfolioLink) portfolioLink.textContent = 'Work';
+  if (portfolioLink) {
+    workDropdown = document.createElement('div');
+    workDropdown.className = 'nav-dropdown';
+    workDropdown.innerHTML = `
+      <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu">
+        <span>Work</span>
+        <span class="nav-dropdown-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case Studies</span>
+          <small>High-impact projects we've delivered on</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="internal-products.html">
+          <span>Internal Products</span>
+          <small>AI tools and experiments from our studio</small>
+        </a>
+      </div>
+    `;
+
+    workTrigger = workDropdown.querySelector('.nav-dropdown-trigger');
+    if (isWorkPage) workTrigger.setAttribute('aria-current', 'page');
+    portfolioLink.replaceWith(workDropdown);
+  }
 
   if (!eventsLink) {
     eventsLink = document.createElement('a');
@@ -75,7 +101,6 @@ document.querySelectorAll('.nav').forEach(nav => {
         <span class="nav-dropdown-chevron" aria-hidden="true"></span>
       </button>
       <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
-        <span class="nav-dropdown-label">Explore</span>
         <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
         <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
       </div>
@@ -86,8 +111,8 @@ document.querySelectorAll('.nav').forEach(nav => {
 
     eventsLink?.remove();
     blogLink?.remove();
-    if (portfolioLink) {
-      portfolioLink.insertAdjacentElement('afterend', resourcesDropdown);
+    if (workDropdown) {
+      workDropdown.insertAdjacentElement('afterend', resourcesDropdown);
     } else if (servicesDropdown) {
       servicesDropdown.insertAdjacentElement('afterend', resourcesDropdown);
     } else {
@@ -121,15 +146,30 @@ document.querySelectorAll('.nav').forEach(nav => {
     resourcesTrigger.setAttribute('aria-expanded', String(isOpen));
   };
 
+  const setWorkOpen = isOpen => {
+    if (!workDropdown || !workTrigger) return;
+    workDropdown.classList.toggle('is-open', isOpen);
+    workTrigger.setAttribute('aria-expanded', String(isOpen));
+  };
+
   servicesTrigger?.addEventListener('click', event => {
     event.stopPropagation();
+    setWorkOpen(false);
     setResourcesOpen(false);
     setServicesOpen(!servicesDropdown.classList.contains('is-open'));
+  });
+
+  workTrigger?.addEventListener('click', event => {
+    event.stopPropagation();
+    setServicesOpen(false);
+    setResourcesOpen(false);
+    setWorkOpen(!workDropdown.classList.contains('is-open'));
   });
 
   resourcesTrigger?.addEventListener('click', event => {
     event.stopPropagation();
     setServicesOpen(false);
+    setWorkOpen(false);
     setResourcesOpen(!resourcesDropdown.classList.contains('is-open'));
   });
 
@@ -141,6 +181,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   navLinks.addEventListener('click', event => {
     if (event.target.closest('a')) {
       setServicesOpen(false);
+      setWorkOpen(false);
       setResourcesOpen(false);
       setMenuOpen(false);
     }
@@ -151,6 +192,9 @@ document.querySelectorAll('.nav').forEach(nav => {
       if (servicesDropdown?.classList.contains('is-open')) {
         setServicesOpen(false);
         servicesTrigger.focus();
+      } else if (workDropdown?.classList.contains('is-open')) {
+        setWorkOpen(false);
+        workTrigger.focus();
       } else if (resourcesDropdown?.classList.contains('is-open')) {
         setResourcesOpen(false);
         resourcesTrigger.focus();
@@ -163,6 +207,7 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   document.addEventListener('click', event => {
     if (!servicesDropdown?.contains(event.target)) setServicesOpen(false);
+    if (!workDropdown?.contains(event.target)) setWorkOpen(false);
     if (!resourcesDropdown?.contains(event.target)) setResourcesOpen(false);
     if (!nav.contains(event.target)) setMenuOpen(false);
   });

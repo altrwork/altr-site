@@ -10,7 +10,7 @@ the content, so it keeps its URL and search rankings without crowding the header
 | Nav item | Page |
 |---|---|
 | Services | `index.html#who-we-serve` - dropdown links to the four industries served |
-| Work | `impact-studies.html` -> four `impact-*.html` case studies |
+| Work | `case-studies.html` -> four `impact-*.html` case studies |
 | Blog | `tutorials.html` -> the article pages; `resources.html` canonicals here |
 | About | `about.html`, including the 4D framework; `how-we-altr-work.html` has the full version |
 

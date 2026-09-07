@@ -68,7 +68,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn("generate_lead", (ROOT / "lead-magnet-form.js").read_text())
 
     def test_content_card_images_have_alt_text(self):
-        for name in ("tutorials.html", "impact-studies.html"):
+        for name in ("tutorials.html", "case-studies.html"):
             html = (ROOT / name).read_text()
             empty = re.findall(r'<img\b[^>]*\balt=""[^>]*>', html)
             self.assertFalse(empty, f"{name} contains empty image alt text")
