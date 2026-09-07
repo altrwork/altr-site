@@ -93,6 +93,7 @@ class SeoIntegrityTests(unittest.TestCase):
             "can-claude-connect-to-costar.html",
             "impact-real-estate-property-intelligence.html",
             "ai-in-real-estate-guide.html",
+            "mortr.html",
         }
         links = set(re.findall(r'href="([^"]+)"', html))
         self.assertTrue(required_spokes.issubset(links))
@@ -105,6 +106,43 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn('"FAQPage"', schema_text)
         self.assertEqual(6, schema_text.count('"Question"'))
 
+    def test_mortr_page_targets_owner_lookup_not_appraiser_nav(self):
+        html = (ROOT / "mortr.html").read_text()
+        visible = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", html, flags=re.S)
+        visible = re.sub(r"<[^>]+>", " ", visible)
+        title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
+        h1 = re.sub(r"<[^>]+>", "", re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S).group(1))
+        description = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', html).group(1)
+
+        for haystack in (title, h1, description):
+            self.assertNotIn("property appraiser", haystack.lower())
+        self.assertIn("property owner", title.lower())
+        self.assertIn("look up a florida property owner", h1.lower())
+        self.assertIn("dated public records", description.lower())
+        self.assertIn("dated public records", visible.lower())
+        self.assertIn("dated servicer", visible.lower())
+        self.assertIn("agency debt may be absent", visible.lower())
+        self.assertIn("not a live or real time feed", visible.lower())
+
+        links = set(re.findall(r'href="([^"]+)"', html))
+        self.assertTrue(
+            {
+                "real-estate.html",
+                "claude-cre-connectors.html",
+                "ai-in-real-estate-guide.html",
+                "start-a-conversation.html",
+            }.issubset(links)
+        )
+        self.assertIn("assets/mortr/mortr-chat-demo.gif", html)
+        self.assertIn("assets/mortr/mortr-securitized-loans.png", html)
+        for src in (
+            "assets/mortr/mortr-chat-demo.gif",
+            "assets/mortr/mortr-securitized-loans.png",
+        ):
+            match = re.search(rf'<img\b[^>]*\bsrc="{re.escape(src)}"[^>]*>', html)
+            self.assertIsNotNone(match, f"missing img for {src}")
+            self.assertRegex(match.group(0), r'\balt="[^"]+"')
+
     def test_cre_spokes_link_back_to_hub(self):
         spokes = (
             "claude-cre-skills.html",
@@ -114,6 +152,7 @@ class SeoIntegrityTests(unittest.TestCase):
             "can-claude-connect-to-costar.html",
             "impact-real-estate-property-intelligence.html",
             "ai-in-real-estate-guide.html",
+            "mortr.html",
         )
         for name in spokes:
             html = (ROOT / name).read_text()

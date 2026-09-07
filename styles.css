@@ -6019,3 +6019,28 @@ h4 {
     transition: none;
   }
 }
+
+.product-demo-figure {
+  width: min(980px, 100%);
+  margin: 8px auto 0;
+}
+
+.product-demo-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #161412;
+  box-shadow: 0 14px 32px rgba(26, 23, 20, 0.07);
+}
+
+.product-demo-figure figcaption {
+  margin-top: 12px;
+  color: var(--bone-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

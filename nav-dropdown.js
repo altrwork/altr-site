@@ -5,7 +5,7 @@ document.querySelectorAll('.nav').forEach(nav => {
 
   const currentPage = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
   const isResourcesPage = ['events', 'ai-workshop', 'tutorials'].includes(currentPage);
-  const isWorkPage = ['case-studies', 'internal-products'].includes(currentPage) || currentPage.startsWith('impact-');
+  const isWorkPage = ['case-studies', 'internal-products', 'mortr'].includes(currentPage) || currentPage.startsWith('impact-');
   const normalizedLinkPath = link => {
     const path = new URL(link.getAttribute('href'), document.baseURI).pathname.replace(/\/$/, '');
     return path.replace(/\.html$/, '');
