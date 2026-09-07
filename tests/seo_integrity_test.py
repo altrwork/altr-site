@@ -134,10 +134,10 @@ class SeoIntegrityTests(unittest.TestCase):
             }.issubset(links)
         )
         self.assertIn("assets/mortr/mortr-chat-demo.gif", html)
-        self.assertIn("assets/mortr/mortr-securitized-loans.png", html)
+        self.assertIn("assets/mortr/mortr-securitized-loans.jpg", html)
         for src in (
             "assets/mortr/mortr-chat-demo.gif",
-            "assets/mortr/mortr-securitized-loans.png",
+            "assets/mortr/mortr-securitized-loans.jpg",
         ):
             match = re.search(rf'<img\b[^>]*\bsrc="{re.escape(src)}"[^>]*>', html)
             self.assertIsNotNone(match, f"missing img for {src}")
