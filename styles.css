@@ -2773,6 +2773,23 @@ h4 {
   border-radius: var(--radius);
 }
 
+.workshop-calendar {
+  margin-top: clamp(34px, 6vw, 64px);
+}
+
+.workshop-calendar h3 {
+  margin: 10px 0 18px;
+}
+
+.workshop-calendar iframe {
+  display: block;
+  width: 100%;
+  height: clamp(450px, 65vh, 620px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
 .article-inline-media {
   width: min(760px, 100%);
   margin: 26px auto 34px;
