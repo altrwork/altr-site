@@ -199,6 +199,38 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertNotIn("Team Workshops", navigation)
         self.assertNotIn("Custom AI Systems", navigation)
 
+    def test_workflow_automation_tampa_page_does_not_cannibalize_ai_consulting(self):
+        automation = (ROOT / "workflow-automation-consultant-tampa.html").read_text()
+        consulting = (ROOT / "ai-consulting-tampa.html").read_text()
+
+        def title_of(html):
+            return re.search(r"<title>(.*?)</title>", html, re.S).group(1).strip()
+
+        def h1_of(html):
+            raw = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S).group(1)
+            text = re.sub(r"<[^>]+>", " ", raw)
+            return re.sub(r"\s+", " ", text).strip()
+
+        auto_title = title_of(automation)
+        auto_h1 = h1_of(automation)
+        consult_title = title_of(consulting)
+        consult_h1 = h1_of(consulting)
+
+        self.assertNotEqual(auto_title, consult_title)
+        self.assertNotEqual(auto_h1.lower(), consult_h1.lower())
+        self.assertIn("workflow automation consultant", auto_title.lower())
+        self.assertIn("workflow automation consultant", auto_h1.lower())
+        self.assertNotIn("ai consultant", auto_title.lower())
+        self.assertIn("ai consulting", consult_title.lower())
+        self.assertIn('href="ai-consulting-tampa.html"', automation)
+        self.assertIn('href="workflow-automation-consultant-tampa.html"', consulting)
+        self.assertIn("workflow-automation-consultant-tampa.html", (ROOT / "llms.txt").read_text())
+        self.assertIn("workflow-automation-consultant-tampa.html", (ROOT / "sitemap.xml").read_text())
+        self.assertIn(
+            "/workflow-automation-consultant-tampa",
+            (ROOT / "_redirects").read_text(),
+        )
+
     def test_ai_strategy_page_has_animated_strategy_structure(self):
         html = (ROOT / "how-we-altr-work.html").read_text()
         styles = (ROOT / "styles.css").read_text()
