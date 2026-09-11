@@ -16,8 +16,22 @@ and resized to 1400px wide. The originals are unaltered on Commons.
 | `plate-shop.webp` | Tourneur - a turner's shop lit by one window | [Encyclopedie volume 9-170](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-170.png) |
 | `plate-wide.webp` | Sellier-Carossier - a carriage in elevation with its parts separated | [Encyclopedie volume 8-030](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-030.png) |
 
-`plate-hero` and `plate-process` are in use on the homepage. The other three are
-staged for the pages that need them.
+## Cutouts
+
+Five alpha cutouts, one per page family, each taken from a line-art plate. Every
+pixel lighter than the plate's own paper is transparent, so the drawing carries
+no ground and sits directly on the page.
+
+| File | Plate | Used on | Source |
+|---|---|---|---|
+| `cut-lathe.webp` | Tourneur - lathes and turning tools | Home | [Encyclopedie volume 9-198](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-198.png) |
+| `cut-barrels.webp` | Tonnelier - casks, tubs and vessels | Non-profits | [Encyclopedie volume 9-142](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-142.png) |
+| `cut-frames.webp` | Tabletier-Cornetier - saws and frames | Ecommerce | [Encyclopedie volume 8-128](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-128.png) |
+| `cut-carriage.webp` | Sellier-Carossier - a carriage and its parts | Commercial real estate | [Encyclopedie volume 8-030](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-030.png) |
+| `cut-machine.webp` | Serrurerie - a martinet, one stage of its operation | Law firms | [Encyclopedie volume 8-100](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-100.png) |
+
+`bg-workshop.webp` and `bg-shop.webp` are the soft washes used behind the
+argument sections. `plate-pattern.webp` supplies the six blog thumbnails.
 
 ## Why these
 

@@ -1238,7 +1238,7 @@ select:focus {
   gap: clamp(24px, 4vw, 56px);
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: clamp(28px, 3.4vw, 52px) var(--gutter) clamp(48px, 6vw, 84px);
+  padding: clamp(20px, 2.4vw, 36px) var(--gutter) clamp(32px, 4vw, 56px);
   min-height: 0;
   overflow: visible;
 }
@@ -1247,9 +1247,9 @@ select:focus {
   position: relative;
   inset: auto;
   z-index: 0;
-  align-self: center;
-  aspect-ratio: 1888 / 982;
-  background: url("assets/plates/cut-machine.webp") center / contain no-repeat;
+  align-self: stretch;
+  min-height: 300px;
+  background: url("assets/plates/cut-lathe.webp") center / contain no-repeat;
 }
 
 .hero-plate-bg::after {
@@ -1479,5 +1479,121 @@ a.ledger-row:hover h3 {
   .service-arm-grid,
   .text-block-grid {
     grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===================================================================
+   The wash band
+   -------------------------------------------------------------------
+   An engraving sunk so far back it reads as tone rather than picture.
+   One per page, on the section that carries the argument, so a page
+   has a single moment where the material shows through.
+   =================================================================== */
+
+.wash,
+.home-why,
+.cta-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.wash::before,
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("assets/plates/bg-shop.webp") center 38% / cover no-repeat;
+}
+
+.wash::after,
+.cta-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.96) 40%,
+      rgba(247, 243, 236, 0.74) 66%,
+      rgba(247, 243, 236, 0.62) 100%),
+    linear-gradient(180deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.58) 28%,
+      rgba(247, 243, 236, 0.58) 70%,
+      var(--paper) 100%);
+}
+
+/* the workshop plate on alternate page families, so the wash is not
+   the same picture on every page of the site */
+.home-why .home-why-bg,
+.wash-workshop::before {
+  background-image: url("assets/plates/bg-workshop.webp");
+}
+
+.cta-section {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-top: var(--air-m);
+  padding-bottom: var(--air-m);
+}
+
+@media (max-width: 900px) {
+  .wash::after,
+  .cta-section::after {
+    background: linear-gradient(180deg,
+      rgba(247, 243, 236, 0.95) 0%,
+      rgba(247, 243, 236, 0.9) 60%,
+      var(--paper) 100%);
+  }
+}
+
+/* -- the cutout library, one mark per page family ----------------- */
+/* a plate belongs to a page rather than floating across the site, so
+   an industry is recognisable by its engraving */
+.page-hero-cut {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  /* column gap only: a shared gap would space the copy stack apart too */
+  column-gap: clamp(24px, 4vw, 64px);
+  row-gap: 0;
+  align-content: start;
+  grid-auto-rows: min-content;
+}
+
+.page-hero-cut > *:not(.hero-cut) {
+  grid-column: 1;
+}
+
+.hero-cut {
+  grid-column: 2;
+  grid-row: 1 / span 99;
+  align-self: center;
+  min-height: 260px;
+  height: 100%;
+  max-height: 420px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.hero-cut-lathe    { background-image: url("assets/plates/cut-lathe.webp"); }
+.hero-cut-barrels  { background-image: url("assets/plates/cut-barrels.webp"); }
+.hero-cut-frames   { background-image: url("assets/plates/cut-frames.webp"); }
+.hero-cut-carriage { background-image: url("assets/plates/cut-carriage.webp"); }
+.hero-cut-machine  { background-image: url("assets/plates/cut-machine.webp"); }
+
+@media (max-width: 900px) {
+  .page-hero-cut {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cut {
+    grid-column: 1;
+    grid-row: auto;
+    max-height: 260px;
+    margin-top: 24px;
   }
 }

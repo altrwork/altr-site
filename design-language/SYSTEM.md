@@ -84,12 +84,21 @@ ticker are off; nothing animates for longer than 150ms.
 
 ## Imagery
 
-Five duotoned Encyclopedie plates, credited in
-[../assets/plates/CREDITS.md](../assets/plates/CREDITS.md). Two soft washes for
-hero backgrounds, three high-contrast plates for figures and textures.
+Two kinds of engraving, credited in
+[../assets/plates/CREDITS.md](../assets/plates/CREDITS.md).
 
-Rationed deliberately: full-bleed on the eight plate-hero pages, detail crops
-as captioned figures at most once per page elsewhere, and **none at all on
+**Cutouts** are the foreground: five alpha-cut engravings, one per page family,
+so an industry is recognisable by its mark. Home is the lathe, non-profits the
+casks, ecommerce the saws, real estate the carriage, law firms the martinet.
+A cutout sits beside the headline and is sized to the copy column's height, so
+the two sides of the hero balance.
+
+**Washes** are the background: the same engravings sunk so far back they read as
+tone rather than picture, one per page, on the section carrying the argument.
+It is the quietest thing on the page and the only place the material shows
+through twice.
+
+Rationed deliberately: one cutout and one wash per page, and **none at all on
 roughly thirty of the fifty pages**. Blog thumbnails are six crops of one
 plate, so a category reads as a region of a known engraving rather than as a
 color.
