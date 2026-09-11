@@ -1483,3 +1483,66 @@ body::before {
 *:not(.button):not(.nav-cta) {
   transition-duration: 150ms;
 }
+
+/* -- touch targets ------------------------------------------------ */
+/* Measured at 375px: footer links rendered 18px tall, the work-index
+   filter toggle 28px, and the Engineering page's booking link 22px.
+   Anything a thumb has to hit gets 44px, which is the smallest target
+   both Apple and Google publish. Links inside prose are left alone --
+   they are read, not aimed at. */
+@media (max-width: 680px) {
+  .footer-links a,
+  .conversation-link,
+  .tutorials-filter-group-toggle,
+  .tutorials-view-btn,
+  .impact-view-btn {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* the footer is a wrapping row, so the targets are widened in place:
+     the padding grows the hit box, the negative margin keeps the gap
+     looking the same */
+  .footer-links a {
+    padding: 0 10px;
+    margin: 0 -10px;
+  }
+
+  .conversation-link {
+    justify-content: center;
+    min-width: 44px;
+  }
+
+  /* 10px is below what a phone renders legibly */
+  .step-num,
+  .home-how .step-num {
+    font-size: 11px;
+  }
+}
+
+/* A card is one destination, so the card is the target. The thumbnail
+   already links to the same page and is hidden from assistive tech, so
+   stretching the title link over the card adds no second announcement. */
+.impact-card,
+.tutorial-card {
+  position: relative;
+}
+
+.impact-card-title a::after,
+.tutorial-card-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+/* -- images keep their own shape ---------------------------------- */
+/* An <img> width/height attribute is a presentational hint, so any rule
+   that sets width but not height leaves the attribute height standing:
+   the guide cover stretched to 327x1590 from a 1224x1584 original, and
+   two case-study images sat letterboxed in a 420px box. A bare element
+   selector loses to every class rule, so the three images deliberately
+   cropped with object-fit: cover keep their height: 100%. */
+img {
+  height: auto;
+}
