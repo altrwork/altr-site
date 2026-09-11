@@ -22,9 +22,10 @@ does not need a badge on every page to feel like one site.
 ## Three heroes, not ten
 
 **Wash hero.** The shop floor behind the type: the workshop scene runs the
-full width behind the headline, blurred 3px and washed down until it reads as
-tone rather than picture. It is the same treatment as the wash band lower on
-the page, so the top and the bottom of a page rhyme. Home only.
+full width behind the headline. Not blurred and not faded to a mist - the
+engraving is levelled hard so the line work stays line work, with defined
+darks and clean paper whites, and a paper scrim carries it from opaque under
+the copy to open on the image side. Home only.
 
 **Cut hero.** An alpha-cut engraving standing beside the copy, sized to the
 copy column's height so both sides of the hero end together. Every pixel
@@ -96,8 +97,9 @@ casks, ecommerce the saws, real estate the carriage, law firms the martinet.
 A cutout sits beside the headline and is sized to the copy column's height, so
 the two sides of the hero balance.
 
-**Washes** are the background: the same engravings sunk so far back they read as
-tone rather than picture, one per page, on the section carrying the argument.
+**Washes** are the background: the same engravings behind the type, levelled
+for contrast rather than softened, one per page, on the hero and on the
+section carrying the argument.
 It is the quietest thing on the page and the only place the material shows
 through twice.
 
