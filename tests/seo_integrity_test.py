@@ -167,13 +167,13 @@ class SeoIntegrityTests(unittest.TestCase):
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         law_page = (ROOT / "law-firms.html").read_text(encoding="utf-8")
 
-        self.assertNotIn('href="law-firms.html"', homepage)
-        self.assertNotIn('href="law-firms.html"', navigation)
-        self.assertNotIn("law-firms.html", sitemap)
-        self.assertRegex(
-            law_page,
-            r'<meta\s+name="robots"\s+content="noindex, follow"\s*/?>',
-        )
+        # law-firms.html is published: it is the only industry page with a
+        # real differentiator (the Florida Bar opinion section), so it is
+        # indexed, in the sitemap and in the nav rather than orphaned
+        self.assertIn('href="law-firms.html"', homepage)
+        self.assertIn('href="law-firms.html"', navigation)
+        self.assertIn("law-firms.html", sitemap)
+        self.assertNotIn("noindex", law_page)
 
         self.assertIn("Commercial Real Estate", homepage)
         self.assertIn("Commercial Real Estate", navigation)
