@@ -25,9 +25,10 @@ in [../design-language/IMAGERY.md](../design-language/IMAGERY.md).
 
 | File | Plate | Used on | Source |
 |---|---|---|---|
-| `wash-facade.webp` | Architecture - elevation of the Bibliotheque Royale, one bay repeated | Home hero | [volume 1-214](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-214.png) |
+| `wash-facade.webp` | Architecture - elevation of the Bibliotheque Royale, one bay repeated | staged for the case index | [volume 1-214](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-214.png) |
 | `wash-brick.webp` | Architecture, Maconnerie - brick coursing and wall sections | Home closing band | [volume 1-244](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-244.png) |
-| `wash-quarry.webp` | Architecture, Maconnerie - a plaster quarry | staged, unused | [volume 1-256](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-256.png) |
+| `wash-quarry.webp` | Architecture, Maconnerie - a plaster quarry, cropped to the landscape | staged, unused | [volume 1-256](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-256.png) |
+| `wash-workshop.webp` | Tailleur d'Habits - a tailoring workshop | Home hero | [volume 8-156](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-156.png) |
 | `bg-shop.webp` | Tourneur - a turner's shop lit by one window | closing bands sitewide | [volume 9-170](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-170.png) |
 
 ### Cutouts (beside the copy)

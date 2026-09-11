@@ -31,12 +31,13 @@ client family is commercial real estate, and these are drawings of buildings.
 
 | Section | What the words say | Image | Treatment |
 |---|---|---|---|
-| Hero | "We find the work your team repeats every week, and build the system that handles the rest" | Elevation of the Bibliotheque Royale - a long facade of identical bays | Wash behind the type |
+| Hero | "We find the work your team repeats every week, and build the system that handles the rest" | A tailoring workshop: several people, each at a different stage of one job | Wash behind the type |
 | How we work | Map, prove, deploy | none | The ledger carries it |
 | Why teams call us | "making them reliable inside work your team already depends on" | Brick coursing and wall sections | Wash behind the type |
 
-The hero is a finished building whose order comes from one bay repeated. That
-is the argument of the headline, in a drawing.
+The hero is a shop floor with several people at different stages of one job,
+which is the half of the headline about work your team repeats. The facade
+plate is kept for the case index, where finished work belongs.
 
 The closing band is brickwork: load-bearing, unglamorous, the thing the
 building actually depends on. That is the argument of "reliable inside work

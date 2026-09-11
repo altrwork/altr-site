@@ -1243,7 +1243,7 @@ select:focus {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/wash-facade.webp") center 72% / cover no-repeat;
+  background: url("assets/plates/wash-workshop.webp") 68% center / cover no-repeat;
 }
 
 .hero-plate-bg::after {
