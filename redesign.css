@@ -988,3 +988,187 @@ select:focus {
       var(--paper) 100%);
   }
 }
+
+/* ===================================================================
+   Sitewide system, part 1: strip the decoration
+   -------------------------------------------------------------------
+   styles.css carries 25 gradients and 40 box-shadows. Diagonal copper
+   gradients over translucent fills, with a radius and a drop shadow,
+   are the house style of generic SaaS - the opposite of raw. Flat
+   ground, hairline rules, square corners; contrast comes from type and
+   structure, not from simulated light.
+   =================================================================== */
+
+:root {
+  /* square everything. the only rounded things on the site are the
+     ones you can press, because the keycap is the brand. */
+  --radius: 0px;
+}
+
+/* no panel keeps a gradient fill or a drop shadow */
+.content-split,
+.intake-panel,
+.impact-detail,
+.featured-work-card,
+.trust-panel,
+.founder-card,
+.workshop-topic-card,
+.real-estate-card,
+.impact-card,
+.tutorial-card,
+.learning-feature-card,
+.learning-brief {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* hover states move the border, not a shadow */
+.impact-card:hover,
+.tutorial-card:hover,
+.real-estate-card:hover,
+.workshop-topic-card:hover,
+.featured-work-card:hover,
+.learning-feature-card:hover {
+  border-color: var(--line-control);
+  box-shadow: none;
+  transform: none;
+}
+
+/* the nav pill is the one place a soft shadow was doing real work
+   (lifting a floating bar off the page); everything else loses it */
+.cta-section,
+.conversation-section,
+.article-related,
+.impact-primary-section,
+.strategy-outputs,
+.guide-highlights {
+  box-shadow: none;
+}
+
+/* -- blog thumbnails: plate, not pastel --------------------------- */
+/* six colored diagonal gradients, three of them off-palette, were the
+   loudest break in the site. One engraving - the Serrurerie catalogue
+   of forms - supplies all six, cropped to a different region each, so
+   the categories still read apart while belonging to one system. */
+.tutorial-card-thumb {
+  position: relative;
+  height: 150px;
+  background: var(--paper-sunk);
+  border-bottom: 1px solid var(--rule);
+  background-image: url("assets/plates/plate-pattern.webp");
+  background-size: 260% auto;
+  background-repeat: no-repeat;
+  opacity: 0.74;
+}
+
+.tutorial-thumb-mcp {
+  background-position: 6% 14%;
+}
+
+.tutorial-thumb-agents {
+  background-position: 38% 30%;
+}
+
+.tutorial-thumb-strategy {
+  background-position: 70% 20%;
+}
+
+.tutorial-thumb-rag {
+  background-position: 18% 62%;
+}
+
+.tutorial-thumb-automation {
+  background-position: 52% 74%;
+}
+
+.tutorial-thumb-skills {
+  background-position: 86% 56%;
+}
+
+/* one copper rule under every thumb, and the label carries the category.
+   Six tint families were doing a job that one word already does. */
+.tutorial-card-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--copper);
+  opacity: 0.55;
+}
+
+/* ===================================================================
+   Sitewide system, part 2: one vertical rhythm
+   -------------------------------------------------------------------
+   Six section wrappers each set their own padding, so the rhythm
+   changed from page to page. They all run on --section-air now.
+   =================================================================== */
+
+.product-page-section,
+.article-section,
+.strategy-section,
+.tutorials-section,
+.real-estate-section,
+.workshop-topics-section,
+.learning-index-section,
+.impact-primary-section,
+.conversation-section,
+.guide-highlights,
+.guide-positioning,
+.about-beliefs,
+.about-who,
+.about-mission {
+  padding-top: var(--section-air);
+  padding-bottom: 0;
+}
+
+/* a rule between sections, not a gap - the grid stays visible */
+.product-page-section + .product-page-section,
+.article-section + .article-section {
+  border-top: 1px solid var(--rule);
+}
+
+/* category labels: mono, no pill, no tint - including the lavender,
+   amber and cornflower that belonged to no palette on the site */
+.tutorial-card-tag,
+.impact-card-featured,
+.tutorial-tag-mcp,
+.tutorial-tag-agents,
+.tutorial-tag-strategy,
+.tutorial-tag-rag,
+.tutorial-tag-automation,
+.tutorial-tag-skills,
+.tutorial-tag-nonprofit,
+.tutorial-tag-real-estate,
+.tutorial-tag-ecommerce,
+.tutorial-tag-technology {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--bone-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tutorial-card:hover .tutorial-card-tag,
+.impact-card:hover .tutorial-card-tag {
+  color: var(--copper);
+}
+
+/* "Featured" is the one label that should still read as a flag */
+.impact-card-featured {
+  color: var(--copper);
+}
+
+.impact-card-footer {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+}
