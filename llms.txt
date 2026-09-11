@@ -10,26 +10,26 @@ Contact: inquiries@altrwork.com
 ## Engagements
 
 - [Who we serve](https://altrwork.com/#who-we-serve): industry-specific service pages and three engagements in a fixed order, with no separate
-  charge for the intro call. Fees are not published; they are quoted on a call and put in writing
-  before anything is committed, because the right number depends on the team's size, location, and how
-  far along they already are. Every engagement starts with enablement: hands-on work run against the
-  team's own tools, in one of two formats, and a team can start with either. A working session is
-  hands-on with the one to four people who own a process; it returns a written map of that workflow
-  plus prompts built against real files. A team workshop covers up to ten people and is less hands-on
-  with each person, producing no per-person map, but everyone leaves with something running. Neither
-  is a prerequisite for the other. Session length is set with the client on the call and split however
-  suits the team. Enablement output is prompts and workflows the team runs by
-  hand. Agent build and deployment comes second, only if enablement finds something worth building,
-  and is quoted as one fixed fee against written scope with hours named per workstream; the scope comes
-  from the map enablement produced. A build means software engineering: multi-step agent orchestrations
-  that act autonomously, MCP servers wiring agents into existing tools and permissions, deployed and
-  monitored rather than run by hand. Consulting retainer is third: up to ten hours a month of advisory
-  time, available only after an enablement engagement or a build, never as an entry point. Month to
-  month or on a three or six month term, which costs less per month; unused hours roll one month.
-  Retainer hours cover advisory work only. They are not a build slot, not embedded or forward deployed
-  engineering time, and not a workshop allowance; additional sessions, additional workshops, and
-  anything needing real engineering are scoped and quoted separately. Model and infrastructure
-  costs are billed by vendors directly to the client and are a small monthly amount at pilot volume.
+ charge for the intro call. Fees are not published; they are quoted on a call and put in writing
+ before anything is committed, because the right number depends on the team's size, location, and how
+ far along they already are. Every engagement starts with enablement: hands-on work run against the
+ team's own tools, in one of two formats, and a team can start with either. A working session is
+ hands-on with the one to four people who own a process; it returns a written map of that workflow
+ plus prompts built against real files. A team workshop covers up to ten people and is less hands-on
+ with each person, producing no per-person map, but everyone leaves with something running. Neither
+ is a prerequisite for the other. Session length is set with the client on the call and split however
+ suits the team. Enablement output is prompts and workflows the team runs by
+ hand. Agent build and deployment comes second, only if enablement finds something worth building,
+ and is quoted as one fixed fee against written scope with hours named per workstream; the scope comes
+ from the map enablement produced. A build means software engineering: multi-step agent orchestrations
+ that act autonomously, MCP servers wiring agents into existing tools and permissions, deployed and
+ monitored rather than run by hand. Consulting retainer is third: up to ten hours a month of advisory
+ time, available only after an enablement engagement or a build, never as an entry point. Month to
+ month or on a three or six month term, which costs less per month; unused hours roll one month.
+ Retainer hours cover advisory work only. They are not a build slot, not embedded or forward deployed
+ engineering time, and not a workshop allowance; additional sessions, additional workshops, and
+ anything needing real engineering are scoped and quoted separately. Model and infrastructure
+ costs are billed by vendors directly to the client and are a small monthly amount at pilot volume.
 
 ## Services
 

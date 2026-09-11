@@ -4,11 +4,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  gtag('config', 'G-RHG020FK51');
+ gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
 <title>Can Claude connect to CoStar? | altr</title>
@@ -114,7 +114,7 @@
       <div class="eyebrow">Real Estate · Journal</div>
       <h1>Can Claude connect to CoStar?</h1>
       <div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-30">August 30, 2026</time></div>
-      <p class="page-lede">“Can you just hook Claude up to CoStar?” I hear some version of that in almost every CRE conversation. The short answer is no. The useful answer is why, and what your team should do instead.</p>
+      <p class="page-lede">"Can you just hook Claude up to CoStar?" I hear some version of that in almost every CRE conversation. The short answer is no. The useful answer is why, and what your team should do instead.</p>
     </section>
 
     <section class="section article-section">
@@ -135,20 +135,20 @@
         </section>
 
         <section class="article-block">
-          <h2>What “connect” would actually mean</h2>
-          <p>This is not legal advice. Their signed license binds them. CoStar’s public <a href="https://www.costar.com/about/termsofuse" target="_blank" rel="noopener">Terms of Use</a> (last revised July 6, 2026) are the source for the three refusals below.</p>
+          <h2>What "connect" would actually mean</h2>
+          <p>This is not legal advice. Their signed license binds them. CoStar's public <a href="https://www.costar.com/about/termsofuse" target="_blank" rel="noopener">Terms of Use</a> (last revised July 6, 2026) are the source for the three refusals below.</p>
           <ol>
             <li><strong>Share the login with Claude or an AI agent. Do not.</strong> The terms say passcodes may not be shared with third-party AI services, including, without limitation, artificial intelligence agents.</li>
             <li><strong>Scrape it. Also no.</strong> The same terms prohibit scraping, data-mining, extraction tools, robots, and spiders. A custom CoStar connector that pretends to be a user is the thing teams ask altr to build, and the thing altr will not build.</li>
             <li><strong>Export a slice and paste it into Claude. Do not treat that as fine either.</strong> Public terms also say you may not expose the licensed product to AI tools outside CoStar, or use data generated from it as input to generative AI or retrieval-augmented generation.</li>
           </ol>
-          <p>“Just connect it” is not a product gap Claude forgot to fill. The data vendor does not want that product to exist.</p>
+          <p>"Just connect it" is not a product gap Claude forgot to fill. The data vendor does not want that product to exist.</p>
         </section>
 
         <section class="article-block">
           <h2>What to do instead</h2>
           <p>Connect Claude to systems the team owns. CRM. Yardi. The files already on disk. That is the <a href="claude-cre-connectors.html">connectors</a> work, and it is allowed because those systems are theirs.</p>
-          <p>Use public records for comps and owners — county deeds, Sunbiz — through a custom connector, not CoStar. We described that pattern in the connectors note: napkin math still happens, but the automated path is the public source, not a licensed screen.</p>
+          <p>Use public records for comps and owners  - county deeds, Sunbiz  - through a custom connector, not CoStar. We described that pattern in the connectors note: napkin math still happens, but the automated path is the public source, not a licensed screen.</p>
           <p>Put their own process in a <a href="claude-cre-skills.html">Skill</a> using files they already have: an OM, a rent roll from their system, tour notes. Run the file work in <a href="claude-cre-cowork.html">Cowork</a> so the model lives on disk. Put the recurring research on <a href="claude-cre-scheduled-tasks.html">Scheduled Tasks</a> against sources they are allowed to automate.</p>
           <p>Someone still opens CoStar when they need CoStar. Claude does the repeatable work around it.</p>
           <p>This is not saying CoStar is useless or to cancel it. Not legal advice. If Claude only works when someone pastes CoStar into chat, they do not have a CoStar problem. They have a workflow problem.</p>

@@ -4,11 +4,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  gtag('config', 'G-RHG020FK51');
+ gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
 <title>Book a Call | altr Tampa</title>
@@ -174,49 +174,49 @@
 </div>
 
 <script>
-  const calendlyBaseUrl = "https://calendly.com/altrwork/30min";
-  const intakeForm = document.getElementById("intake-form");
-  const companyName = document.getElementById("company-name");
-  const projectInterest = document.getElementById("project-interest");
+ const calendlyBaseUrl = "https://calendly.com/altrwork/30min";
+ const intakeForm = document.getElementById("intake-form");
+ const companyName = document.getElementById("company-name");
+ const projectInterest = document.getElementById("project-interest");
 
-  function trackLeadAndNavigate(destination) {
-    let navigated = false;
-    const navigate = () => {
-      if (navigated) return;
-      navigated = true;
-      window.location.assign(destination);
+ function trackLeadAndNavigate(destination) {
+ let navigated = false;
+ const navigate = () => {
+ if (navigated) return;
+ navigated = true;
+ window.location.assign(destination);
     };
 
-    if (typeof window.gtag !== "function") {
-      navigate();
-      return;
+ if (typeof window.gtag !== "function") {
+ navigate();
+ return;
     }
 
-    window.gtag("event", "generate_lead", {
-      lead_type: "consultation",
-      form_location: "start_a_conversation",
-      transport_type: "beacon",
-      event_callback: navigate,
-      event_timeout: 1200
+ window.gtag("event", "generate_lead", {
+ lead_type: "consultation",
+ form_location: "start_a_conversation",
+ transport_type: "beacon",
+ event_callback: navigate,
+ event_timeout: 1200
     });
-    window.setTimeout(navigate, 1400);
+ window.setTimeout(navigate, 1400);
   }
 
-  intakeForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!intakeForm.reportValidity()) return;
+ intakeForm.addEventListener("submit", (event) => {
+ event.preventDefault();
+ if (!intakeForm.reportValidity()) return;
 
-    const params = new URLSearchParams({
-      utm_source: "altr_site",
-      utm_medium: "intake_form",
-      utm_campaign: "start_a_conversation",
-      utm_content: companyName.value.trim(),
-      utm_term: projectInterest.value.trim(),
-      company: companyName.value.trim(),
-      interest: projectInterest.value.trim()
+ const params = new URLSearchParams({
+ utm_source: "altr_site",
+ utm_medium: "intake_form",
+ utm_campaign: "start_a_conversation",
+ utm_content: companyName.value.trim(),
+ utm_term: projectInterest.value.trim(),
+ company: companyName.value.trim(),
+ interest: projectInterest.value.trim()
     });
 
-    trackLeadAndNavigate(`${calendlyBaseUrl}?${params.toString()}`);
+ trackLeadAndNavigate(`${calendlyBaseUrl}?${params.toString()}`);
   });
 </script>
 <script src="nav.js"></script>

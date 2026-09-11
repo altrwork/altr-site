@@ -8,9 +8,9 @@
    all 50 pages already use, so the whole site moves at once.
 
    Three ideas carry the look:
-     1. Archival engravings, duotoned to paper + ink, as editorial plates.
-     2. The keycap from the brand guide, as a real press interaction.
-     3. Mono labels against large display type, with a lot of quiet.
+   1. Archival engravings, duotoned to paper + ink, as editorial plates.
+   2. The keycap from the brand guide, as a real press interaction.
+   3. Mono labels against large display type, with a lot of quiet.
    =================================================================== */
 
 :root {
@@ -52,7 +52,7 @@ h1,
   font-size: clamp(2.35rem, 4.5vw, 4rem);
   line-height: 1.0;
   /* display type set across the full 1180px column reads as a banner,
-     not a sentence - two or three shortish lines hold together better */
+   not a sentence - two or three shortish lines hold together better */
   max-width: min(21ch, 100%);
 }
 
@@ -164,7 +164,7 @@ h2,
   font-weight: 500;
   letter-spacing: -0.01em;
   transition: transform 120ms var(--ease-out), box-shadow 120ms var(--ease-out),
-    background 160ms var(--ease-out), color 160ms var(--ease-out);
+  background 160ms var(--ease-out), color 160ms var(--ease-out);
 }
 
 .button.primary {
@@ -462,17 +462,17 @@ main > section:first-of-type > .band-inner {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.98) 33%,
-      rgba(247, 243, 236, 0.9) 47%,
-      rgba(247, 243, 236, 0.62) 66%,
-      rgba(247, 243, 236, 0.5) 100%),
-    linear-gradient(180deg,
-      rgba(247, 243, 236, 0.6) 0%,
-      rgba(247, 243, 236, 0.12) 20%,
-      rgba(247, 243, 236, 0.12) 72%,
-      var(--paper) 100%);
+  linear-gradient(90deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.98) 33%,
+  rgba(247, 243, 236, 0.9) 47%,
+  rgba(247, 243, 236, 0.62) 66%,
+  rgba(247, 243, 236, 0.5) 100%),
+  linear-gradient(180deg,
+  rgba(247, 243, 236, 0.6) 0%,
+  rgba(247, 243, 236, 0.12) 20%,
+  rgba(247, 243, 236, 0.12) 72%,
+  var(--paper) 100%);
 }
 
 .hero-plate-inner {
@@ -507,15 +507,15 @@ main > section:first-of-type > .band-inner {
     align-items: stretch;
   }
 
-  /* on narrow screens the copy covers the whole frame, so the scrim
-     has to work top-to-bottom instead of left-to-right */
-  .hero-plate-bg::after {
-    background:
-      linear-gradient(180deg,
-        rgba(247, 243, 236, 0.95) 0%,
-        rgba(247, 243, 236, 0.9) 62%,
-        var(--paper) 100%);
-  }
+/* on narrow screens the copy covers the whole frame, so the scrim
+   has to work top-to-bottom instead of left-to-right */
+.hero-plate-bg::after {
+  background:
+  linear-gradient(180deg,
+  rgba(247, 243, 236, 0.95) 0%,
+  rgba(247, 243, 236, 0.9) 62%,
+  var(--paper) 100%);
+}
 
 }
 
@@ -639,19 +639,19 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .hero-plate {
-    max-width: 460px;
-  }
+.hero-plate {
+  max-width: 460px;
+}
 
-  .process-plate {
-    position: static;
-    max-width: 460px;
-  }
+.process-plate {
+  position: static;
+  max-width: 460px;
+}
 
-  .gap-grid,
-  .home-industry-grid {
-    grid-template-columns: 1fr;
-  }
+.gap-grid,
+.home-industry-grid {
+  grid-template-columns: 1fr;
+}
 }
 
 @media (max-width: 860px) {
@@ -753,16 +753,16 @@ select:focus {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.96) 38%,
-      rgba(247, 243, 236, 0.72) 62%,
-      rgba(247, 243, 236, 0.6) 100%),
-    linear-gradient(180deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.55) 26%,
-      rgba(247, 243, 236, 0.55) 72%,
-      var(--paper) 100%);
+  linear-gradient(90deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.96) 38%,
+  rgba(247, 243, 236, 0.72) 62%,
+  rgba(247, 243, 236, 0.6) 100%),
+  linear-gradient(180deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.55) 26%,
+  rgba(247, 243, 236, 0.55) 72%,
+  var(--paper) 100%);
 }
 
 .home-why .why-split {
@@ -788,7 +788,7 @@ select:focus {
   background: var(--paper-sunk);
   padding: clamp(56px, 6.6vw, 96px) var(--gutter);
   /* one centred column holds every child, so the pages that wrap their
-     closer and the pages that do not both land in the page grid */
+   closer and the pages that do not both land in the page grid */
   display: grid;
   grid-template-columns: minmax(0, var(--page-max));
   justify-content: center;
@@ -875,12 +875,12 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .home-why-bg::after {
-    background: linear-gradient(180deg,
-      rgba(247, 243, 236, 0.95) 0%,
-      rgba(247, 243, 236, 0.9) 60%,
-      var(--paper) 100%);
-  }
+.home-why-bg::after {
+  background: linear-gradient(180deg,
+  rgba(247, 243, 236, 0.95) 0%,
+  rgba(247, 243, 236, 0.9) 60%,
+  var(--paper) 100%);
+}
 
 }
 
@@ -896,7 +896,7 @@ select:focus {
 
 :root {
   /* square everything. the only rounded things on the site are the
-     ones you can press, because the keycap is the brand. */
+   ones you can press, because the keycap is the brand. */
   --radius: 0px;
 }
 
@@ -1109,16 +1109,16 @@ select:focus {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.94) 32%,
-      rgba(247, 243, 236, 0.62) 54%,
-      rgba(247, 243, 236, 0.34) 100%),
-    linear-gradient(180deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.24) 22%,
-      rgba(247, 243, 236, 0.24) 72%,
-      var(--paper) 100%);
+  linear-gradient(90deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.94) 32%,
+  rgba(247, 243, 236, 0.62) 54%,
+  rgba(247, 243, 236, 0.34) 100%),
+  linear-gradient(180deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.24) 22%,
+  rgba(247, 243, 236, 0.24) 72%,
+  var(--paper) 100%);
 }
 
 .hero-plate-inner {
@@ -1263,27 +1263,27 @@ select:focus {
     min-height: 0;
   }
 
-  .hero-plate-bg::after {
-    background: linear-gradient(180deg,
-      rgba(247, 243, 236, 0.94) 0%,
-      rgba(247, 243, 236, 0.9) 62%,
-      var(--paper) 100%);
-  }
+.hero-plate-bg::after {
+  background: linear-gradient(180deg,
+  rgba(247, 243, 236, 0.94) 0%,
+  rgba(247, 243, 236, 0.9) 62%,
+  var(--paper) 100%);
+}
 
-  .ledger-row,
-  .home-how .step {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
+.ledger-row,
+.home-how .step {
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
 
-  .gap-grid,
-  .home-industry-grid,
-  .engagement-grid,
-  .engagement-grid-2up,
-  .service-arm-grid,
-  .text-block-grid {
-    grid-template-columns: 1fr !important;
-  }
+.gap-grid,
+.home-industry-grid,
+.engagement-grid,
+.engagement-grid-2up,
+.service-arm-grid,
+.text-block-grid {
+  grid-template-columns: 1fr !important;
+}
 
 }
 
@@ -1319,16 +1319,16 @@ select:focus {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.96) 40%,
-      rgba(247, 243, 236, 0.74) 66%,
-      rgba(247, 243, 236, 0.62) 100%),
-    linear-gradient(180deg,
-      var(--paper) 0%,
-      rgba(247, 243, 236, 0.58) 28%,
-      rgba(247, 243, 236, 0.58) 70%,
-      var(--paper) 100%);
+  linear-gradient(90deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.96) 40%,
+  rgba(247, 243, 236, 0.74) 66%,
+  rgba(247, 243, 236, 0.62) 100%),
+  linear-gradient(180deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.58) 28%,
+  rgba(247, 243, 236, 0.58) 70%,
+  var(--paper) 100%);
 }
 
 /* the workshop plate on alternate page families, so the wash is not
@@ -1349,9 +1349,9 @@ select:focus {
   .wash::after,
   .cta-section::after {
     background: linear-gradient(180deg,
-      rgba(247, 243, 236, 0.95) 0%,
-      rgba(247, 243, 236, 0.9) 60%,
-      var(--paper) 100%);
+    rgba(247, 243, 236, 0.95) 0%,
+    rgba(247, 243, 236, 0.9) 60%,
+    var(--paper) 100%);
   }
 
 }
@@ -1395,11 +1395,91 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .hero-cut {
-    grid-column: 1;
-    grid-row: auto;
-    max-height: 260px;
-    margin-top: 24px;
-  }
+.hero-cut {
+  grid-column: 1;
+  grid-row: auto;
+  max-height: 260px;
+  margin-top: 24px;
+}
 
+}
+
+/* ===================================================================
+   House rules, enforced rather than enumerated
+   -------------------------------------------------------------------
+   SYSTEM.md says one shadow and one radius. Enumerating components was
+   never going to hold: styles.css still carried 19 soft drop shadows
+   and 21 different radius values on components this layer had not
+   named.
+
+   These use !important because a universal selector has specificity
+   zero, so `* { box-shadow: none }` loses to `.nav { box-shadow: ... }`
+   no matter which file loads last. Stating the law needs the same
+   weight as the exceptions to it.
+
+   Soft drop shadows are the clearest "generated template" tell on a
+   page. Printed matter has edges, not glows.
+   =================================================================== */
+
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  animation: none !important;
+}
+
+/* the keycap press is the one shadow, because it is the brand doing
+   something real: the button travels and the shadow compresses */
+.button,
+.nav-links .nav-cta,
+.brand-mark,
+input,
+textarea,
+select {
+  border-radius: var(--radius) !important;
+}
+
+.button.primary,
+.nav-links .nav-cta {
+  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.28) !important;
+}
+
+.button.secondary {
+  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.12) !important;
+}
+
+.button:hover,
+.nav-links .nav-cta:hover {
+  box-shadow: 0 2px 0 rgba(26, 23, 20, 0.24) !important;
+}
+
+.button:active {
+  box-shadow: 0 0 0 rgba(26, 23, 20, 0.2) !important;
+}
+
+.home-main > .closer .button.secondary {
+  box-shadow: 0 3px 0 rgba(247, 243, 236, 0.16) !important;
+}
+
+/* a focus ring is not decoration */
+:focus-visible {
+  box-shadow: 0 0 0 3px rgba(166, 85, 41, 0.22) !important;
+}
+
+/* the current page is marked with a rule, not a glow */
+.nav .nav-dropdown-trigger[aria-current="page"],
+.nav-links a:not(.nav-cta)[aria-current="page"] {
+  box-shadow: inset 0 -1px 0 var(--bone) !important;
+}
+
+/* -- no ambient anything ----------------------------------------- */
+body::after,
+body::before {
+  content: none !important;
+}
+
+/* -- nothing transitions for longer than the key press ------------ */
+*:not(.button):not(.nav-cta) {
+  transition-duration: 150ms;
 }

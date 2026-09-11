@@ -4,11 +4,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  gtag('config', 'G-RHG020FK51');
+ gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
 <title>spARK Labs Remote MCP Server Impact Study | altr</title>
@@ -165,7 +165,7 @@
           <h2 class="impact-article-heading">Verkada: Provisioning building access</h2>
           <p>The Verkada tools handle physical building access. Claude can search for an existing Verkada user by email, create a new access user, list available access groups, and add a user to the appropriate group to unlock building entry. These operations write directly to the building access system, so they are gated by both the email allowlist and a dry run flag that lets operators test the workflow without making live changes.</p>
           <h2 class="impact-article-heading">Nexudus: Managing memberships and bookings</h2>
-          <p>Nexudus is the coworking platform that tracks members, plans, and room reservations. The tools cover both sides of operations: onboarding — looking up an existing coworker, creating a new member with the right plan assigned — and day to day management — listing available resources, creating room bookings, and canceling them when needed. Membership plans are mapped by tariff ID, so Claude can create a member record with the correct access level already in place.</p>
+          <p>Nexudus is the coworking platform that tracks members, plans, and room reservations. The tools cover both sides of operations: onboarding  - looking up an existing coworker, creating a new member with the right plan assigned  - and day to day management  - listing available resources, creating room bookings, and canceling them when needed. Membership plans are mapped by tariff ID, so Claude can create a member record with the correct access level already in place.</p>
           <h2 class="impact-article-heading">Outlook: Drafting emails</h2>
           <p>The Outlook tool creates email drafts through the Microsoft Graph API. Claude composes the message and places it in the configured sender's mailbox ready to review. Nothing is sent automatically. This keeps a human in the loop on outbound communication while removing the work of composing and addressing the email from scratch.</p>
           <picture>

@@ -4,11 +4,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  gtag('config', 'G-RHG020FK51');
+ gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
 <title>How to write a SKILL.md that actually gets used | altr</title>
@@ -131,19 +131,19 @@
 
         <section class="article-block">
           <h2>Keep the body procedural, not informational.</h2>
-          <p>SKILL.md isn't a wiki page. It's a set of instructions a capable reader executes once, right now, on a real task. Background, history, and rationale belong in a comment or a linked reference file — not the main body, where every paragraph competes for the model's attention.</p>
+          <p>SKILL.md isn't a wiki page. It's a set of instructions a capable reader executes once, right now, on a real task. Background, history, and rationale belong in a comment or a linked reference file  - not the main body, where every paragraph competes for the model's attention.</p>
           <p>Lead with what to do. State constraints and conventions as rules, not prose. If a step has a fixed sequence, number it.</p>
         </section>
 
         <section class="article-block">
           <h2>Push detail into referenced files, not inline.</h2>
-          <p>Skills can ship supporting scripts, templates, and reference docs alongside SKILL.md. Anything that's only needed in an edge case — a full schema, a long example, a rarely used flag — belongs in a separate file that gets read on demand, not loaded by default with every invocation.</p>
+          <p>Skills can ship supporting scripts, templates, and reference docs alongside SKILL.md. Anything that's only needed in an edge case  - a full schema, a long example, a rarely used flag  - belongs in a separate file that gets read on demand, not loaded by default with every invocation.</p>
           <p>This keeps the default load small and fast while still making deep detail available when the task actually calls for it.</p>
         </section>
 
         <section class="article-block">
           <h2>Test the trigger, not just the output.</h2>
-          <p>It's easy to validate that a Skill produces the right output once you've manually invoked it. The harder, more important test is whether it fires on its own from a natural request — the phrasing a real user would actually type, not the phrasing you used while building it.</p>
+          <p>It's easy to validate that a Skill produces the right output once you've manually invoked it. The harder, more important test is whether it fires on its own from a natural request  - the phrasing a real user would actually type, not the phrasing you used while building it.</p>
           <p>If a Skill never triggers under its intended phrasing, the body quality doesn't matter. Fix the description first.</p>
         </section>
 
