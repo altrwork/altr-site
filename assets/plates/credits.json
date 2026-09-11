@@ -1,0 +1,37 @@
+[
+ {
+  "file": "assets/plates/plate-hero.webp",
+  "caption": "Tailleur d'Habits: a tailoring workshop with its bench, and the trade's tools drawn below.",
+  "source_title": "File:Encyclopedie volume 8-156.png",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-156.png",
+  "license": "Public domain"
+ },
+ {
+  "file": "assets/plates/plate-process.webp",
+  "caption": "Serrurerie: one machine drawn three times, once for each stage of its operation.",
+  "source_title": "File:Encyclopedie volume 8-100.png",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-100.png",
+  "license": "Public domain"
+ },
+ {
+  "file": "assets/plates/plate-pattern.webp",
+  "caption": "Serrurerie: a catalogue of forms, each one drawn to the same standard.",
+  "source_title": "File:Encyclopedie volume 8-072.png",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-072.png",
+  "license": "Public domain"
+ },
+ {
+  "file": "assets/plates/plate-shop.webp",
+  "caption": "Tourneur: a turner's shop lit by one window, with the tools of the trade below.",
+  "source_title": "File:Encyclopedie volume 9-170.png",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-170.png",
+  "license": "Public domain"
+ },
+ {
+  "file": "assets/plates/plate-wide.webp",
+  "caption": "Sellier-Carossier: a four-wheeled carriage drawn in elevation, with its parts separated out.",
+  "source_title": "File:Encyclopedie volume 8-030.png",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-030.png",
+  "license": "Public domain"
+ }
+]

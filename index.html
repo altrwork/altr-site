@@ -38,6 +38,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20260906b" />
+<link rel="stylesheet" href="redesign.css?v=20260910a" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,29 +128,29 @@
 
   <main class="home-main" id="main">
 
-    <section class="band band-quiet home-about home-about-hero" aria-labelledby="ask-altr-heading">
-      <div class="band-inner">
-        <p class="kicker" id="ask-altr-heading">Ask altr</p>
-        <div class="home-about-chat">
-          <div class="home-chat-message home-chat-user">
-            <span class="home-chat-label">You</span>
-            <h1 class="home-chat-prompt" data-prompt-typewriter aria-label="Who is altr?">Who is altr?</h1>
-          </div>
-          <div class="home-chat-message home-chat-assistant">
-            <span class="home-chat-model-mark" aria-hidden="true">altr</span>
-            <div class="home-chat-answer">
-              <span class="home-chat-label">altr</span>
-              <p class="home-chat-thinking" data-thinking role="status" aria-label="Thinking..." hidden>Thinking<span aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p>
-              <p class="home-about-statement" data-typewriter aria-label="We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.">We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.</p>
-            </div>
+    <section class="band band-quiet hero-editorial" aria-labelledby="home-headline">
+      <div class="band-inner hero-split">
+        <div class="hero-col">
+          <p class="kicker">Software and AI strategy &middot; Tampa, FL</p>
+          <h1 class="two-tone" id="home-headline"><b>We find the work your team repeats every week,</b> and build the system that <em>handles the rest</em>.</h1>
+          <p class="hero-lede">altr works with operations-heavy teams. We map how the job actually gets done, train the people doing it, and deploy software only where the work has proven it needs some.</p>
+          <div class="home-hero-actions">
+            <a class="button primary" href="start-a-conversation.html">Book free consultation</a>
+            <a class="button secondary" href="case-studies.html">See our work</a>
           </div>
         </div>
-        <div class="home-hero-actions home-about-actions">
-          <a class="button primary" href="start-a-conversation.html">Book free consultation</a>
-          <a class="button secondary" href="case-studies.html">See our work</a>
-        </div>
+        <figure class="plate plate-tall hero-plate">
+          <img src="assets/plates/plate-hero.webp" width="900" height="1200" alt="Eighteenth-century engraving of a workshop floor, with tools laid out and several people at separate stations." loading="eager" decoding="async">
+          <figcaption class="plate-caption">Plate from the Encyclopedie of Diderot and d'Alembert, 1751-1772. Public domain.</figcaption>
+        </figure>
       </div>
     </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div>
+        <span>Map the workflow</span><i>^</i><span>Prove it with the team</span><i>^</i><span>Deploy what earns a role</span><i>^</i><span>Map the workflow</span><i>^</i><span>Prove it with the team</span><i>^</i><span>Deploy what earns a role</span><i>^</i><span>Map the workflow</span><i>^</i><span>Prove it with the team</span><i>^</i><span>Deploy what earns a role</span><i>^</i>
+      </div>
+    </div>
 
     <section class="band" id="who-this-is-for" aria-labelledby="who-this-is-for-heading">
       <div class="band-inner">
@@ -158,8 +159,8 @@
             <p class="kicker">Who this is for</p>
             <h2 id="who-this-is-for-heading">Operations-heavy teams.</h2>
           </div>
+          <p class="aside-note">If the week runs on spreadsheets, PDFs, inboxes, and the same analysis repeated on every deal, that is the work we take on.</p>
         </div>
-        <p class="statement">If the week runs on spreadsheets, PDFs, inboxes, and the same analysis repeated on every deal, that is the work we take on.</p>
         <div class="gap-grid">
           <article>
             <span>Revenue</span>
@@ -181,30 +182,32 @@
     </section>
 
     <section class="band home-how" id="how-it-works">
-      <div class="band-inner">
-        <div class="section-top">
-          <div>
-            <p class="kicker">How we work</p>
-            <h2>From one repeated workflow to a system your team can trust.</h2>
+      <div class="band-inner process-split">
+        <div class="process-col">
+          <p class="kicker">How we work</p>
+          <h2 class="two-tone"><b>From one repeated workflow</b> to a system your team can <em>trust</em>.</h2>
+          <div class="steps steps-stacked">
+            <div class="step">
+              <span class="step-num">01</span>
+              <h3>Map the workflow</h3>
+              <p>Identify the trigger, sources, decisions, handoffs, exceptions, and person responsible for reviewing the result.</p>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <h3>Prove it with the team</h3>
+              <p>Run the improved workflow on real work, establish the guardrails, and document a playbook the team can repeat.</p>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <h3>Deploy what earns a role</h3>
+              <p>Build the connector, agent, or internal tool only when the validated workflow requires software to run reliably.</p>
+            </div>
           </div>
         </div>
-        <div class="steps">
-          <div class="step">
-            <span class="step-num">01</span>
-            <h3>Map the workflow</h3>
-            <p>Identify the trigger, sources, decisions, handoffs, exceptions, and person responsible for reviewing the result.</p>
-          </div>
-          <div class="step">
-            <span class="step-num">02</span>
-            <h3>Prove it with the team</h3>
-            <p>Run the improved workflow on real work, establish the guardrails, and document a playbook the team can repeat.</p>
-          </div>
-          <div class="step">
-            <span class="step-num">03</span>
-            <h3>Deploy what earns a role</h3>
-            <p>Build the connector, agent, or internal tool only when the validated workflow requires software to run reliably.</p>
-          </div>
-        </div>
+        <figure class="plate plate-tall process-plate">
+          <img src="assets/plates/plate-process.webp" width="900" height="1200" alt="Eighteenth-century engraving of a craft process broken into numbered stages, with the tools for each stage drawn beneath." loading="lazy" decoding="async">
+          <figcaption class="plate-caption">Plate from the Encyclopedie of Diderot and d'Alembert, 1751-1772. Public domain.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -241,17 +244,21 @@
     </section>
 
     <section class="band home-why">
-      <div class="band-inner">
-        <p class="kicker">Why teams call us</p>
-        <p class="statement">AI tools are easy to buy. The hard part is making them reliable inside work your team already depends on.</p>
-        <p class="statement-sub">We work on-site with teams across Tampa Bay and remotely with everyone else. Start with an <a href="ai-consulting-tampa.html">AI consultant in Tampa</a>.</p>
+      <div class="band-inner why-split">
+        <div>
+          <p class="kicker">Why teams call us</p>
+          <p class="statement two-tone"><b>AI tools are easy to buy.</b> The hard part is making them <em>reliable</em> inside work your team already depends on.</p>
+        </div>
+        <p class="aside-note">We work on-site with teams across Tampa Bay and remotely with everyone else. Start with an <a href="ai-consulting-tampa.html">AI consultant in Tampa</a>.</p>
       </div>
     </section>
 
     <section class="closer">
+      <p class="kicker">Start here</p>
       <h2>Start with one process.</h2>
       <p>Bring one process your team keeps doing by hand. You will get a straight read on whether it needs training, a build, or nothing at all.</p>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
+      <div class="connector" aria-hidden="true"></div>
     </section>
   </main>
 
@@ -266,15 +273,15 @@
         <a href="case-studies.html">Work</a>
         <a href="tutorials.html">Blog</a>
         <a href="about.html">About</a>
-
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="ai-consulting-tampa.html">Tampa, FL</a>
-      <a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
     </div>
   </footer>
 </div>
 <script src="intake-modal.js"></script>
 <script src="nav-dropdown.js?v=20260906b"></script>
-<script src="home-typewriter.js?v=20260905a"></script>
 </body>
 </html>
