@@ -190,6 +190,33 @@ class SeoIntegrityTests(unittest.TestCase):
         ):
             self.assertIn(phrase, visible)
 
+    def test_faq_schema_answers_appear_on_the_page(self):
+        """Google drops FAQ rich results when the schema text is not on the page.
+
+        Edits to a visible answer must land in the JSON-LD too, and an anchor
+        that closes right before a period leaves a stray space once tags are
+        stripped, which is enough to break the match.
+        """
+        for file in sorted(ROOT.glob("*.html")):
+            html = file.read_text(encoding="utf-8")
+            for raw in re.findall(
+                r'<script type="application/ld\+json">(.*?)</script>', html, re.S
+            ):
+                graph = json.loads(raw)
+                nodes = graph.get("@graph", [graph])
+                for node in nodes:
+                    if node.get("@type") != "FAQPage":
+                        continue
+                    visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html))
+                    for entry in node["mainEntity"]:
+                        answer = re.sub(r"\s+", " ", entry["acceptedAnswer"]["text"])
+                        self.assertIn(
+                            answer, visible,
+                            f"{file.name}: FAQ answer missing from page text for "
+                            f"{entry['name']!r}",
+                        )
+
+
     def test_navigation_has_one_ai_strategy_path(self):
         navigation = (ROOT / "nav-dropdown.js").read_text(encoding="utf-8")
         self.assertIn("How we altr work", navigation)
