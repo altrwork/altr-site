@@ -639,8 +639,12 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
+/* 460px was chosen for phones, but this block starts at 980px, so on a
+   768px tablet the plate stopped short and left a third of the row empty
+   with the wash image cut off mid-page. Once the layout is one column the
+   plate should fill it. */
 .hero-plate {
-  max-width: 460px;
+  max-width: 100%;
 }
 
 .process-plate {
@@ -1552,4 +1556,13 @@ body::before {
    cropped with object-fit: cover keep their height: 100%. */
 img {
   height: auto;
+}
+
+/* The long two-clause headline is clamped to keep it on two lines on a wide
+   screen, but the 17px floor meant that at 375px the h1 rendered at 20px
+   while the h2s below it were 30px: the most important line on the page was
+   the smallest. The floor now sits above the h2 floor. The desktop cap is
+   unchanged, so the two-line headline is unaffected. */
+.page-hero h1.hero-title-long {
+  font-size: clamp(36px, 5.4vw, 58px);
 }
