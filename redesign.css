@@ -18,7 +18,7 @@
   --rule-ink: rgba(26, 23, 20, 0.28);
   --plate-ground: #EDE4D6;
   --bay: #2F4A52;
-  --section-air: clamp(72px, 10vw, 148px);
+  --section-air: clamp(60px, 7.2vw, 112px);
   --gutter: clamp(20px, 5vw, 48px);
 }
 
@@ -52,12 +52,16 @@ h1,
 .page-hero h1 {
   font-size: clamp(2.35rem, 4.5vw, 4rem);
   line-height: 1.0;
+  /* display type set across the full 1180px column reads as a banner,
+     not a sentence - two or three shortish lines hold together better */
+  max-width: min(21ch, 100%);
 }
 
 h2,
 .section-top h2 {
   font-size: clamp(1.9rem, 4vw, 3.2rem);
   line-height: 1.03;
+  max-width: min(24ch, 100%);
 }
 
 /* mono labels: the brand guide asks for these on eyebrows, metadata,
@@ -84,24 +88,20 @@ h2,
 .section-kicker,
 .eyebrow {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 12px;
   margin: 0 0 20px;
 }
 
-/* the caret from the keycap face, used as the section bug */
+/* labels stand on their own - no glyph in front of them */
 .kicker::before,
 .section-kicker::before,
 .eyebrow::before {
-  content: "^";
-  font-size: 13px;
-  line-height: 1;
-  color: var(--copper);
-  transform: translateY(1px);
+  content: none;
 }
 
 .statement {
-  max-width: 22ch;
+  max-width: min(22ch, 100%);
   font-family: var(--sans);
   font-size: clamp(1.6rem, 3.4vw, 2.9rem);
   line-height: 1.14;
@@ -133,7 +133,7 @@ h2,
   line-height: 1.5;
   letter-spacing: -0.01em;
   color: var(--bone-soft);
-  max-width: 38ch;
+  max-width: min(38ch, 100%);
 }
 
 /* -- rhythm ------------------------------------------------------- */
@@ -291,7 +291,7 @@ h2,
   font-size: 15.5px;
   line-height: 1.62;
   color: var(--bone-soft);
-  max-width: 40ch;
+  max-width: min(40ch, 100%);
 }
 
 .work-more {
@@ -413,12 +413,12 @@ h2,
 }
 
 .closer h2 {
-  max-width: 16ch;
+  max-width: min(16ch, 100%);
   margin-bottom: 16px;
 }
 
 .closer p {
-  max-width: 46ch;
+  max-width: min(46ch, 100%);
   margin-bottom: 28px;
 }
 
@@ -438,6 +438,147 @@ h2,
 
 .footer-links a:hover {
   color: var(--copper);
+}
+
+/* -- start at the top --------------------------------------------- */
+/* .site-shell already reserves the nav height, and page heroes were
+   stacking another ~130px on top of it, so every page opened with the
+   headline sitting near the middle of the viewport */
+.page-hero,
+.lede-hero,
+.learning-hero,
+.learning-hero-compact {
+  padding-top: clamp(20px, 2.4vw, 38px);
+  padding-bottom: clamp(34px, 4.4vw, 62px);
+}
+
+main > .band:first-child > .band-inner,
+main > section:first-of-type > .band-inner {
+  padding-top: clamp(22px, 2.6vw, 40px);
+}
+
+/* the two one-off heroes carry their own padding and their own gutter,
+   which left them both low on the page and out of line with every
+   section under them */
+.strategy-hero,
+.lead-magnet-hero {
+  align-content: center;
+  min-height: 0;
+  padding: clamp(24px, 3vw, 44px) var(--gutter) clamp(44px, 5.5vw, 76px);
+}
+
+.strategy-hero-copy {
+  align-self: center;
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+/* the remaining page-specific first sections each carried their own
+   top padding on top of the shell's nav offset */
+.about-simple,
+.impact-hero-topline,
+.legal,
+.guide-thank-you,
+.lead-magnet-copy {
+  padding-top: clamp(20px, 2.4vw, 38px);
+}
+
+.about-page-simple {
+  min-height: 0;
+}
+
+/* the globe is taller than the copy beside it; centring left the
+   headline floating in the middle of the band */
+.about-intro-grid {
+  align-items: start;
+}
+
+/* an explicit px cap here beat the global measure rule */
+.about-beliefs h2 {
+  max-width: min(26ch, 100%);
+}
+
+/* -- full-bleed hero plate ---------------------------------------- */
+/* one engraving, running the full width behind the headline, with a
+   paper scrim carrying it from opaque on the copy side to open on the
+   image side. no framed thumbnails - the picture is the ground */
+.hero-plate {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: min(74vh, 660px);
+  overflow: hidden;
+}
+
+.hero-plate-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("assets/plates/bg-workshop.webp") 72% center / cover no-repeat;
+}
+
+.hero-plate-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.97) 32%,
+      rgba(247, 243, 236, 0.82) 45%,
+      rgba(247, 243, 236, 0.24) 62%,
+      rgba(247, 243, 236, 0) 82%),
+    linear-gradient(180deg,
+      rgba(247, 243, 236, 0.45) 0%,
+      rgba(247, 243, 236, 0) 18%,
+      rgba(247, 243, 236, 0) 74%,
+      var(--paper) 100%);
+}
+
+.hero-plate-inner {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: clamp(36px, 5vw, 68px) var(--gutter);
+}
+
+.hero-plate-inner h1 {
+  max-width: min(17ch, 100%);
+  margin: 0 0 22px;
+}
+
+/* image attribution lives at the very bottom of the page, under the
+   footer links, not over the artwork */
+.plate-credit-foot {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  color: var(--bone-dim);
+}
+
+@media (max-width: 900px) {
+  .hero-plate {
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* on narrow screens the copy covers the whole frame, so the scrim
+     has to work top-to-bottom instead of left-to-right */
+  .hero-plate-bg::after {
+    background:
+      linear-gradient(180deg,
+        rgba(247, 243, 236, 0.95) 0%,
+        rgba(247, 243, 236, 0.9) 62%,
+        var(--paper) 100%);
+  }
+
 }
 
 /* -- form fields -------------------------------------------------- */
@@ -474,7 +615,7 @@ select:focus {
 }
 
 .page-lede {
-  max-width: 58ch;
+  max-width: min(58ch, 100%);
   font-size: clamp(1.02rem, 1.35vw, 1.16rem);
   line-height: 1.58;
 }
@@ -501,7 +642,7 @@ select:focus {
 }
 
 .hero-lede {
-  max-width: 46ch;
+  max-width: min(46ch, 100%);
   margin: 0 0 32px;
   font-size: clamp(1.02rem, 1.35vw, 1.16rem);
   line-height: 1.58;
@@ -551,7 +692,7 @@ select:focus {
 }
 
 .steps-stacked .step p {
-  max-width: 52ch;
+  max-width: min(52ch, 100%);
 }
 
 .process-plate {
