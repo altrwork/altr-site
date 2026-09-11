@@ -526,14 +526,14 @@ main > section:first-of-type > .band-inner {
   background:
     linear-gradient(90deg,
       var(--paper) 0%,
-      rgba(247, 243, 236, 0.97) 32%,
-      rgba(247, 243, 236, 0.82) 45%,
-      rgba(247, 243, 236, 0.24) 62%,
-      rgba(247, 243, 236, 0) 82%),
+      rgba(247, 243, 236, 0.98) 33%,
+      rgba(247, 243, 236, 0.9) 47%,
+      rgba(247, 243, 236, 0.62) 66%,
+      rgba(247, 243, 236, 0.5) 100%),
     linear-gradient(180deg,
-      rgba(247, 243, 236, 0.45) 0%,
-      rgba(247, 243, 236, 0) 18%,
-      rgba(247, 243, 236, 0) 74%,
+      rgba(247, 243, 236, 0.6) 0%,
+      rgba(247, 243, 236, 0.12) 20%,
+      rgba(247, 243, 236, 0.12) 72%,
       var(--paper) 100%);
 }
 
@@ -749,5 +749,242 @@ select:focus {
 
   .plate-bleed {
     margin-inline: 0;
+  }
+}
+
+/* ===================================================================
+   Home: giving each section its own shape
+   -------------------------------------------------------------------
+   Four sections in a row all built from hairline-topped cards read as
+   one undifferentiated block. Each one now gets a distinct treatment
+   so the page can be scanned: outcomes as a light row, the process as
+   a sunk numbered block, industries as real bordered cards, and the
+   argument as a full-bleed band over the second engraving.
+   =================================================================== */
+
+/* -- 1. outcomes: light, wide, no card furniture ------------------- */
+.home-main #who-this-is-for .gap-grid {
+  gap: clamp(24px, 3.4vw, 52px);
+}
+
+.home-main #who-this-is-for .gap-grid article {
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 20px;
+}
+
+.home-main #who-this-is-for .gap-grid h3 {
+  font-size: clamp(1.15rem, 1.6vw, 1.38rem);
+}
+
+/* -- 2. process: sunk ground, numerals carry it -------------------- */
+.home-how {
+  background: var(--paper-sunk);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.home-how .steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3.4vw, 52px);
+  margin-top: clamp(30px, 4vw, 48px);
+}
+
+.home-how .step {
+  position: relative;
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 26px;
+}
+
+/* the numeral is the landmark, not a label */
+.home-how .step-num {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--sans);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: none;
+  color: var(--copper);
+  opacity: 0.42;
+}
+
+.home-how .step h3 {
+  margin: 0 0 10px;
+}
+
+/* -- 3. industries: real cards, with an affordance ----------------- */
+.home-industry-grid .work-card {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: clamp(22px, 2.4vw, 30px);
+  background: var(--paper-raised);
+  transition: border-color 200ms var(--ease-out), transform 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out);
+}
+
+.home-industry-grid .work-card:hover {
+  border-color: var(--line-control);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(26, 23, 20, 0.06);
+}
+
+.home-industry-grid .work-card h3 {
+  margin: 12px 0 10px;
+}
+
+.home-industry-grid .work-more::after {
+  content: " \2192";
+}
+
+/* -- 4. the argument: full-bleed over the second engraving --------- */
+.home-why {
+  position: relative;
+  isolation: isolate;
+  border-top: 0;
+  overflow: hidden;
+}
+
+.home-why-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("assets/plates/bg-shop.webp") center 34% / cover no-repeat;
+}
+
+.home-why-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.96) 38%,
+      rgba(247, 243, 236, 0.72) 62%,
+      rgba(247, 243, 236, 0.6) 100%),
+    linear-gradient(180deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.55) 26%,
+      rgba(247, 243, 236, 0.55) 72%,
+      var(--paper) 100%);
+}
+
+.home-why .why-split {
+  align-items: center;
+}
+
+.home-why .statement {
+  max-width: min(20ch, 100%);
+}
+
+/* -- 5. closer: full-bleed dark finale ---------------------------- */
+/* the ink ground is the site's existing close, and it is the right
+   idea - it was the centred text inside a floating rounded card that
+   made it look like a stray banner. Full width, left aligned, copy on
+   one side and the call on the other. */
+.closer {
+  max-width: none;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--rule-ink);
+  border-radius: 0;
+  text-align: left;
+  background: var(--paper-sunk);
+  padding: clamp(56px, 6.6vw, 96px) var(--gutter);
+  /* one centred column holds every child, so the pages that wrap their
+     closer and the pages that do not both land in the page grid */
+  display: grid;
+  grid-template-columns: minmax(0, var(--page-max));
+  justify-content: center;
+}
+
+.closer-inner {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: end;
+}
+
+/* a bare button as a grid child stretches the whole column */
+.closer > .button,
+.closer .closer-actions {
+  justify-self: start;
+}
+
+/* inside main.page the column is already constrained, so the band does
+   not need the page gutter on top of it */
+.page > .closer {
+  padding-left: clamp(22px, 2.6vw, 40px);
+  padding-right: clamp(22px, 2.6vw, 40px);
+  border-radius: 10px;
+}
+
+.page > .closer h2 {
+  margin-bottom: 16px;
+}
+
+.page > .closer p {
+  margin-bottom: 28px;
+}
+
+.home-main > .closer .kicker {
+  color: rgba(247, 243, 236, 0.62);
+}
+
+.closer h2 {
+  max-width: min(14ch, 100%);
+  margin: 0 0 16px;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height: 1.0;
+}
+
+.closer p {
+  max-width: min(46ch, 100%);
+  margin: 0;
+  font-size: clamp(1.02rem, 1.35vw, 1.14rem);
+  line-height: 1.58;
+}
+
+.closer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* the outline button has to invert on the ink ground */
+.home-main > .closer .button.secondary {
+  color: var(--paper);
+  background: transparent;
+  border-color: rgba(247, 243, 236, 0.42);
+  box-shadow: 0 3px 0 rgba(247, 243, 236, 0.16);
+}
+
+.home-main > .closer .button.secondary:hover {
+  border-color: var(--paper);
+  box-shadow: 0 2px 0 rgba(247, 243, 236, 0.16);
+}
+
+.home-main > .closer .closer-note {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 236, 0.5);
+}
+
+@media (max-width: 860px) {
+  .home-how .steps,
+  .home-main #who-this-is-for .gap-grid,
+  .closer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .home-why-bg::after {
+    background: linear-gradient(180deg,
+      rgba(247, 243, 236, 0.95) 0%,
+      rgba(247, 243, 236, 0.9) 60%,
+      var(--paper) 100%);
   }
 }
