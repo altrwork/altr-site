@@ -19,21 +19,24 @@ What holds the site together instead is the material - one hairline weight,
 one radius, one accent, one label style, two heroes, two list shapes. A site
 does not need a badge on every page to feel like one site.
 
-## Two heroes, not ten
+## Three heroes, not ten
 
-**Plate hero.** The engraving is a true alpha cutout: every pixel lighter than
-the plate's own paper is transparent, so the drawing carries no ground and
-sits directly on the page. No box, no panel, no scrim, nothing to blend -
-the way a statue photographed on no background has nothing behind it.
+**Wash hero.** The shop floor behind the type: the workshop scene runs the
+full width behind the headline, blurred 3px and washed down until it reads as
+tone rather than picture. It is the same treatment as the wash band lower on
+the page, so the top and the bottom of a page rhyme. Home only.
 
-Making one: crop a figure from a line-art plate, force everything above the
-paper threshold to full transparency, map what is left onto warm ink, drop
-every connected component under ~900px to clear the plate's stray labels and
-foxing, then trim to the bounding box. `cut-machine.webp` is the worked
-example.
+**Cut hero.** An alpha-cut engraving standing beside the copy, sized to the
+copy column's height so both sides of the hero end together. Every pixel
+lighter than the plate's own paper is transparent, so the drawing carries no
+ground - the way a statue photographed on no background has nothing behind it.
+The four industry pages, one mark each.
 
-Reserved for **eight pages**: Home, the four industry pages, the case index,
-About, and How we work. Nowhere else.
+Making a cutout: crop a figure from a line-art plate, force everything above
+the paper threshold to full transparency, map what is left onto warm ink, drop
+every connected component under ~1500px to clear the engraver's figure labels
+and the foxing, then trim the plate's frame rule and scale bar and crop to the
+bounding box.
 
 **Ruled hero.** Kicker, headline, lede, buttons, hairline underneath. No image.
 Every other page.

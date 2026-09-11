@@ -1226,52 +1226,58 @@ select:focus {
   color: var(--bone-dim);
 }
 
-/* -- A. Plate hero: the drawing sits on the paper, no ground ------ */
-/* the engraving is a true alpha cutout: every pixel lighter than the
-   plate's paper is transparent, so the machine carries no ground of
-   its own and sits on whatever is behind it. No box, no panel, no
-   scrim, nothing to blend. */
+/* -- A. Plate hero: the shop floor behind the type ---------------- */
+/* the workshop scene runs full width behind the headline, blurred back
+   and washed down to tone - the same treatment as the wash band lower
+   on the page, so the hero and the closing section rhyme */
 .hero-plate {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  isolation: isolate;
+  display: flex;
   align-items: center;
-  gap: clamp(24px, 4vw, 56px);
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: clamp(20px, 2.4vw, 36px) var(--gutter) clamp(32px, 4vw, 56px);
-  min-height: 0;
-  overflow: visible;
+  min-height: min(62vh, 540px);
+  overflow: hidden;
 }
 
 .hero-plate-bg {
-  position: relative;
-  inset: auto;
-  z-index: 0;
-  align-self: stretch;
-  min-height: 300px;
-  background: url("assets/plates/cut-lathe.webp") center / contain no-repeat;
+  position: absolute;
+  inset: -3%;
+  z-index: -1;
+  background: url("assets/plates/bg-workshop.webp") 68% center / cover no-repeat;
+  filter: blur(3px);
 }
 
 .hero-plate-bg::after {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.95) 34%,
+      rgba(247, 243, 236, 0.78) 56%,
+      rgba(247, 243, 236, 0.62) 100%),
+    linear-gradient(180deg,
+      var(--paper) 0%,
+      rgba(247, 243, 236, 0.5) 24%,
+      rgba(247, 243, 236, 0.5) 70%,
+      var(--paper) 100%);
 }
 
 .hero-plate-inner {
-  position: static;
-  display: block;
-  height: auto;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  order: -1;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: clamp(44px, 5.5vw, 76px) var(--gutter);
 }
 
 .hero-plate-panel {
   width: 100%;
-  margin: 0;
-  padding: 0;
   background: transparent;
   border: 0;
+  padding: 0;
 }
 
 .hero-plate-panel h1 {
@@ -1459,11 +1465,14 @@ a.ledger-row:hover h3 {
 
 @media (max-width: 900px) {
   .hero-plate {
-    grid-template-columns: 1fr;
+    min-height: 0;
   }
 
-  .hero-plate-bg {
-    max-width: 420px;
+  .hero-plate-bg::after {
+    background: linear-gradient(180deg,
+      rgba(247, 243, 236, 0.94) 0%,
+      rgba(247, 243, 236, 0.9) 62%,
+      var(--paper) 100%);
   }
 
   .ledger-row,
