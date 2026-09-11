@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class SeoIntegrityTests(unittest.TestCase):
     def test_redirect_file_has_valid_three_column_rules(self):
         rules = []
-        for number, raw in enumerate((ROOT / "_redirects").read_text().splitlines(), 1):
+        for number, raw in enumerate((ROOT / "_redirects").read_text(encoding="utf-8").splitlines(), 1):
             line = raw.strip()
             if not line or line.startswith("#"):
                 continue
@@ -32,13 +32,13 @@ class SeoIntegrityTests(unittest.TestCase):
             path = urlparse(url).path
             file = ROOT / ("index.html" if path == "/" else path.lstrip("/"))
             self.assertTrue(file.exists(), f"Sitemap URL has no source file: {url}")
-            html = file.read_text(errors="replace")
+            html = file.read_text(encoding="utf-8", errors="replace")
             match = re.search(r'<link\s+rel="canonical"\s+href="([^"]+)"', html)
             self.assertIsNotNone(match, f"Missing canonical: {file.name}")
             self.assertEqual(url, match.group(1), f"Canonical mismatch: {file.name}")
 
     def test_cre_case_study_has_article_and_breadcrumb_schema(self):
-        html = (ROOT / "impact-real-estate-property-intelligence.html").read_text()
+        html = (ROOT / "impact-real-estate-property-intelligence.html").read_text(encoding="utf-8")
         blocks = re.findall(
             r'<script\s+type="application/ld\+json">(.*?)</script>', html, re.S
         )
@@ -63,18 +63,18 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn("BreadcrumbList", types)
 
     def test_primary_forms_emit_generate_lead_events(self):
-        self.assertIn("generate_lead", (ROOT / "intake-modal.js").read_text())
-        self.assertIn("generate_lead", (ROOT / "start-a-conversation.html").read_text())
-        self.assertIn("generate_lead", (ROOT / "lead-magnet-form.js").read_text())
+        self.assertIn("generate_lead", (ROOT / "intake-modal.js").read_text(encoding="utf-8"))
+        self.assertIn("generate_lead", (ROOT / "start-a-conversation.html").read_text(encoding="utf-8"))
+        self.assertIn("generate_lead", (ROOT / "lead-magnet-form.js").read_text(encoding="utf-8"))
 
     def test_content_card_images_have_alt_text(self):
         for name in ("tutorials.html", "case-studies.html"):
-            html = (ROOT / name).read_text()
+            html = (ROOT / name).read_text(encoding="utf-8")
             empty = re.findall(r'<img\b[^>]*\balt=""[^>]*>', html)
             self.assertFalse(empty, f"{name} contains empty image alt text")
 
     def test_commercial_real_estate_hub_has_pillar_structure(self):
-        html = (ROOT / "real-estate.html").read_text()
+        html = (ROOT / "real-estate.html").read_text(encoding="utf-8")
         visible = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", html, flags=re.S)
         visible = re.sub(r"<[^>]+>", " ", visible)
         words = re.findall(r"\b[\w'-]+\b", visible)
@@ -107,7 +107,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertEqual(6, schema_text.count('"Question"'))
 
     def test_mortr_page_targets_owner_lookup_not_appraiser_nav(self):
-        html = (ROOT / "mortr.html").read_text()
+        html = (ROOT / "mortr.html").read_text(encoding="utf-8")
         visible = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", html, flags=re.S)
         visible = re.sub(r"<[^>]+>", " ", visible)
         title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
@@ -155,14 +155,14 @@ class SeoIntegrityTests(unittest.TestCase):
             "mortr.html",
         )
         for name in spokes:
-            html = (ROOT / name).read_text()
+            html = (ROOT / name).read_text(encoding="utf-8")
             self.assertRegex(html, r'href="real-estate\.html"', name)
 
     def test_primary_positioning_matches_supported_services(self):
-        homepage = (ROOT / "index.html").read_text()
-        navigation = (ROOT / "nav-dropdown.js").read_text()
-        sitemap = (ROOT / "sitemap.xml").read_text()
-        law_page = (ROOT / "law-firms.html").read_text()
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        navigation = (ROOT / "nav-dropdown.js").read_text(encoding="utf-8")
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        law_page = (ROOT / "law-firms.html").read_text(encoding="utf-8")
 
         self.assertNotIn('href="law-firms.html"', homepage)
         self.assertNotIn('href="law-firms.html"', navigation)
@@ -178,17 +178,20 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn('href="how-we-altr-work.html"', navigation)
 
     def test_homepage_explains_the_engagement_method(self):
-        homepage = (ROOT / "index.html").read_text()
+        # assert against rendered text, not raw source: headlines carry inline
+        # <b>/<em> for the two-tone treatment, which a raw substring test breaks
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", homepage))
         for phrase in (
             "From one repeated workflow to a system your team can trust.",
             "Map the workflow",
             "Prove it with the team",
             "Deploy what earns a role",
         ):
-            self.assertIn(phrase, homepage)
+            self.assertIn(phrase, visible)
 
     def test_navigation_has_one_ai_strategy_path(self):
-        navigation = (ROOT / "nav-dropdown.js").read_text()
+        navigation = (ROOT / "nav-dropdown.js").read_text(encoding="utf-8")
         self.assertIn("How we altr work", navigation)
         self.assertIn(
             '<a class="nav-dropdown-item" href="how-we-altr-work.html">AI Strategy</a>',
@@ -200,8 +203,8 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertNotIn("Custom AI Systems", navigation)
 
     def test_workflow_automation_tampa_page_does_not_cannibalize_ai_consulting(self):
-        automation = (ROOT / "workflow-automation-consultant-tampa.html").read_text()
-        consulting = (ROOT / "ai-consulting-tampa.html").read_text()
+        automation = (ROOT / "workflow-automation-consultant-tampa.html").read_text(encoding="utf-8")
+        consulting = (ROOT / "ai-consulting-tampa.html").read_text(encoding="utf-8")
 
         def title_of(html):
             return re.search(r"<title>(.*?)</title>", html, re.S).group(1).strip()
@@ -224,16 +227,16 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn("ai consulting", consult_title.lower())
         self.assertIn('href="ai-consulting-tampa.html"', automation)
         self.assertIn('href="workflow-automation-consultant-tampa.html"', consulting)
-        self.assertIn("workflow-automation-consultant-tampa.html", (ROOT / "llms.txt").read_text())
-        self.assertIn("workflow-automation-consultant-tampa.html", (ROOT / "sitemap.xml").read_text())
+        self.assertIn("workflow-automation-consultant-tampa.html", (ROOT / "llms.txt").read_text(encoding="utf-8"))
+        self.assertIn("workflow-automation-consultant-tampa.html", (ROOT / "sitemap.xml").read_text(encoding="utf-8"))
         self.assertIn(
             "/workflow-automation-consultant-tampa",
-            (ROOT / "_redirects").read_text(),
+            (ROOT / "_redirects").read_text(encoding="utf-8"),
         )
 
     def test_ai_strategy_page_has_animated_strategy_structure(self):
-        html = (ROOT / "how-we-altr-work.html").read_text()
-        styles = (ROOT / "styles.css").read_text()
+        html = (ROOT / "how-we-altr-work.html").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
 
         self.assertIn("AI Strategy", re.search(r"<title>(.*?)</title>", html, re.S).group(1))
         self.assertIn("AI strategy", html)

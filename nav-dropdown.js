@@ -71,7 +71,7 @@ document.querySelectorAll('.nav').forEach(nav => {
           <span>Case Studies</span>
           <small>High-impact projects we've delivered on</small>
         </a>
-        <a class="nav-dropdown-item nav-dropdown-item-described" href="internal-products.html">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
           <span>Internal Products</span>
           <small>AI tools and experiments from our studio</small>
         </a>
@@ -86,7 +86,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   if (!eventsLink) {
     eventsLink = document.createElement('a');
     eventsLink.dataset.navEvents = '';
-    eventsLink.href = 'events.html';
+    eventsLink.href = 'ai-workshop.html';
     eventsLink.textContent = 'Events';
 
     if (isResourcesPage) eventsLink.setAttribute('aria-current', 'page');
