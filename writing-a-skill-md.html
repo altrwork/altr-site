@@ -68,10 +68,41 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
     <nav class="nav-links" aria-label="Primary navigation">
-      <a data-nav-services href="index.html#who-we-serve">Services</a>
-      <a href="case-studies.html">Work</a>
-      <a href="tutorials.html" aria-current="page">Blog</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="services-menu"><span>Services</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+        <span class="nav-dropdown-label">What we do</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html">Strategy</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Enablement</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Engineering</a>
+        <span class="nav-dropdown-label">Who we serve</span>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
+        <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
+        <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu"><span>Work</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case studies</span>
+          <small>Projects we have delivered</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
+          <span>Internal products</span>
+          <small>Tools built in our own studio</small>
+        </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
       <a href="https://calendly.com/altrwork/30min" class="nav-cta">Book a call</a>
     </nav>
@@ -158,7 +189,7 @@
     </div>
   </footer>
 </div>
-<script src="nav-dropdown.js?v=20260906b"></script>
+<script src="nav.js"></script>
 <script src="intake-modal.js"></script>
 </body>
 </html>

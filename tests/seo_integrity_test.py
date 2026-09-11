@@ -160,7 +160,10 @@ class SeoIntegrityTests(unittest.TestCase):
 
     def test_primary_positioning_matches_supported_services(self):
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
-        navigation = (ROOT / "nav-dropdown.js").read_text(encoding="utf-8")
+        # the nav is static markup now, so read it from a page
+        navigation = re.search(
+            r'<header class="nav">.*?</header>', homepage, re.S
+        ).group(0)
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         law_page = (ROOT / "law-firms.html").read_text(encoding="utf-8")
 
@@ -174,7 +177,6 @@ class SeoIntegrityTests(unittest.TestCase):
 
         self.assertIn("Commercial Real Estate", homepage)
         self.assertIn("Commercial Real Estate", navigation)
-        self.assertIn("How we altr work", navigation)
         self.assertIn('href="how-we-altr-work.html"', navigation)
 
     def test_homepage_explains_the_engagement_method(self):
@@ -217,17 +219,28 @@ class SeoIntegrityTests(unittest.TestCase):
                         )
 
 
-    def test_navigation_has_one_ai_strategy_path(self):
-        navigation = (ROOT / "nav-dropdown.js").read_text(encoding="utf-8")
-        self.assertIn("How we altr work", navigation)
-        self.assertIn(
-            '<a class="nav-dropdown-item" href="how-we-altr-work.html">AI Strategy</a>',
-            navigation,
+    def test_navigation_is_static_html_on_every_page(self):
+        """The nav used to be rebuilt by JavaScript, so crawlers that do not
+        execute JS saw different internal links than users did. It is static
+        markup now: every page must carry the same links to the three
+        services and the three industries."""
+        required = (
+            'href="how-we-altr-work.html"',
+            'href="ai-enablement-workshop.html"',
+            'href="custom-agents.html"',
+            'href="real-estate.html"',
+            'href="nonprofits.html"',
+            'href="ecommerce.html"',
+            'href="case-studies.html"',
+            'href="tutorials.html"',
         )
-        self.assertEqual(1, navigation.count('href="how-we-altr-work.html"'))
-        self.assertNotIn("Workflow Discovery", navigation)
-        self.assertNotIn("Team Workshops", navigation)
-        self.assertNotIn("Custom AI Systems", navigation)
+        for file in sorted(ROOT.glob("*.html")):
+            html = file.read_text(encoding="utf-8")
+            match = re.search(r'<header class="nav">.*?</header>', html, re.S)
+            self.assertIsNotNone(match, f"{file.name}: no nav")
+            nav = match.group(0)
+            for link in required:
+                self.assertIn(link, nav, f"{file.name}: nav missing {link}")
 
     def test_workflow_automation_tampa_page_does_not_cannibalize_ai_consulting(self):
         automation = (ROOT / "workflow-automation-consultant-tampa.html").read_text(encoding="utf-8")

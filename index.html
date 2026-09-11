@@ -116,11 +116,41 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
     <nav class="nav-links" aria-label="Primary navigation">
-      <a data-nav-services href="index.html#who-we-serve">Services</a>
-      <a data-nav-events href="ai-workshop.html">Events</a>
-      <a href="case-studies.html">Work</a>
-      <a href="tutorials.html">Blog</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="services-menu"><span>Services</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+        <span class="nav-dropdown-label">What we do</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html">Strategy</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Enablement</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Engineering</a>
+        <span class="nav-dropdown-label">Who we serve</span>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
+        <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
+        <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu"><span>Work</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case studies</span>
+          <small>Projects we have delivered</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
+          <span>Internal products</span>
+          <small>Tools built in our own studio</small>
+        </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
       <a href="https://calendly.com/altrwork/30min" class="nav-cta">Book a call</a>
     </nav>
@@ -168,6 +198,38 @@
             <h3>More volume, same team</h3>
             <p>You take on more without hiring for it, and the cost of carrying each deal comes down.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band home-what" id="what-we-do">
+      <div class="band-inner">
+        <div class="section-top">
+          <div>
+            <p class="kicker">What we do</p>
+            <h2 class="two-tone"><b>Zero to one, then one to ten.</b> Three services, in the order they <em>earn</em> their place.</h2>
+          </div>
+          <p class="aside-note">Most teams start at one of these and grow into the next. You can also start in the middle if you already know where the work is.</p>
+        </div>
+        <div class="gap-grid home-service-grid">
+          <a class="work-card" href="how-we-altr-work.html">
+            <span class="work-tag">01 &middot; Zero to one</span>
+            <h3>Strategy</h3>
+            <p>Find where AI actually fits before anyone builds anything. No six-week discovery and no 200-slide deck: one workflow mapped, and a straight answer on whether it needs training, software, or nothing at all.</p>
+            <span class="work-more">How we work</span>
+          </a>
+          <a class="work-card" href="ai-enablement-workshop.html">
+            <span class="work-tag">02 &middot; One</span>
+            <h3>Enablement</h3>
+            <p>Your team runs the improved workflow on real work, in the tools they already use, and keeps the prompts and the playbook. People leave using it, not holding notes about someone else's use case.</p>
+            <span class="work-more">See the workshop</span>
+          </a>
+          <a class="work-card" href="custom-agents.html">
+            <span class="work-tag">03 &middot; One to ten</span>
+            <h3>Engineering</h3>
+            <p>When a proven workflow needs software to run reliably, we build the connector, agent, or internal tool around it, with the review points, the permissions, and the owner already decided.</p>
+            <span class="work-more">See what we build</span>
+          </a>
         </div>
       </div>
     </section>
@@ -276,6 +338,6 @@
   </footer>
 </div>
 <script src="intake-modal.js"></script>
-<script src="nav-dropdown.js?v=20260906b"></script>
+<script src="nav.js"></script>
 </body>
 </html>

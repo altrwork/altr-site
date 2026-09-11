@@ -49,10 +49,41 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
     <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
     <nav class="nav-links" aria-label="Primary navigation">
-      <a data-nav-services href="index.html#who-we-serve" aria-current="page">Services</a>
-      <a href="case-studies.html">Work</a>
-      <a href="tutorials.html">Blog</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="services-menu" aria-current="page"><span>Services</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+        <span class="nav-dropdown-label">What we do</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html" aria-current="page">Strategy</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Enablement</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Engineering</a>
+        <span class="nav-dropdown-label">Who we serve</span>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
+        <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
+        <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu"><span>Work</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case studies</span>
+          <small>Projects we have delivered</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
+          <span>Internal products</span>
+          <small>Tools built in our own studio</small>
+        </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
       <a href="https://calendly.com/altrwork/30min" class="nav-cta">Book a call</a>
     </nav>
@@ -64,7 +95,7 @@
       <div class="strategy-hero-copy" data-strategy-reveal>
         <div class="eyebrow">AI strategy</div>
         <h1><span>Find where AI</span> <span>improves your business</span></h1>
-        <p>A 7-day audit that maps where AI saves hours, improves margin, and unlocks revenue, we give you the playbook to capture it.</p>
+        <p>We map one repeated workflow, prove the improved version with your team, and build only what the work has earned. You get the playbook either way.</p>
         <div class="page-hero-actions">
           <a class="button primary" href="start-a-conversation.html">Book a call</a>
           <a class="button secondary strategy-button-secondary" href="#strategy-engagement">See the approach</a>
@@ -88,16 +119,16 @@
         </li>
         <li data-strategy-reveal>
           <span>02</span>
-          <h3>Build</h3>
-          <p>Our engineers build it, connect it to the systems you already use, and put it into production. Each build is priced up front and you approve it before it starts.</p>
+          <h3>Prove</h3>
+          <p>We run the improved workflow on real work with the people who own it, set the guardrails, and document a playbook the team can repeat.</p>
         </li>
         <li data-strategy-reveal>
           <span>03</span>
-          <h3>Adoption</h3>
-          <p>We train the team that has to use it and stay until its part of their daily job.</p>
+          <h3>Deploy</h3>
+          <p>We build the connector, agent, or internal tool only once the workflow has proven it needs one to run reliably, and your team keeps the prompts and the operating notes.</p>
         </li>
       </ol>
-      <p class="strategy-adoption-note">After launch, most clients keep us on as their embedded engineering team.</p>
+      <p class="strategy-adoption-note">After launch, some teams keep us on in an advisory retainer. Most do not need to.</p>
     </section>
 
     <section class="strategy-section strategy-outputs" data-strategy-reveal>
@@ -226,7 +257,7 @@
     <a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
   </div></footer>
 </div>
-<script src="nav-dropdown.js?v=20260906b"></script>
+<script src="nav.js"></script>
 <script src="hero-keys.js?v=20260905a"></script>
 <script src="ai-strategy.js?v=20260905b"></script>
 </body>
