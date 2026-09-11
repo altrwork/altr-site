@@ -64,3 +64,9 @@
 /internal-products                            /mortr.html                                  301!
 /pricing.html                                 /#who-we-serve                               301!
 /pricing                                      /#who-we-serve                               301!
+
+# design-language/ holds internal working notes: the debt and slop audits,
+# the competitor design study, and the plate and hero scratch pages. The
+# repo is published, so the directory has to be kept out of the site while
+# staying in version control.
+/design-language/*                            /404.html                                    404!
