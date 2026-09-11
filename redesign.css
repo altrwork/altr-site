@@ -288,9 +288,28 @@ h2,
 .step p,
 .service-arm p {
   font-size: 15.5px;
-  line-height: 1.62;
+  line-height: 1.64;
   color: var(--bone-soft);
-  max-width: min(40ch, 100%);
+  max-width: min(42ch, 100%);
+}
+
+/* panels that hold prose need the same room as the cells */
+.content-split,
+.intake-panel,
+.impact-detail,
+.featured-work-card,
+.trust-panel,
+.founder-card,
+.workshop-topic-card,
+.real-estate-card,
+.learning-feature-card,
+.learning-brief {
+  padding: clamp(26px, 2.6vw, 40px) clamp(24px, 2.4vw, 38px);
+}
+
+.impact-card-body,
+.tutorial-card-body {
+  padding: clamp(22px, 2.2vw, 30px) clamp(22px, 2.2vw, 30px) clamp(24px, 2.4vw, 32px);
 }
 
 .work-more {
@@ -1207,23 +1226,30 @@ select:focus {
   color: var(--bone-dim);
 }
 
-/* -- A. Plate hero: a hard-edged paper panel, not a scrim --------- */
-/* the 9-stop gradient was the single most "editorial, not raw" thing
-   on the page. A solid paper panel with one rule on its right edge
-   overlaps the engraving instead, so the join is an edge you can see */
+/* -- A. Plate hero: the drawing sits on the paper, no ground ------ */
+/* the engraving is a true alpha cutout: every pixel lighter than the
+   plate's paper is transparent, so the machine carries no ground of
+   its own and sits on whatever is behind it. No box, no panel, no
+   scrim, nothing to blend. */
 .hero-plate {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: clamp(28px, 3.4vw, 52px) var(--gutter) clamp(48px, 6vw, 84px);
   min-height: 0;
-  height: 560px;
-  position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-plate-bg {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
   z-index: 0;
-  background: url("assets/plates/bg-workshop.webp") 72% center / cover no-repeat;
+  align-self: center;
+  aspect-ratio: 1888 / 982;
+  background: url("assets/plates/cut-machine.webp") center / contain no-repeat;
 }
 
 .hero-plate-bg::after {
@@ -1231,28 +1257,21 @@ select:focus {
 }
 
 .hero-plate-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
+  position: static;
+  display: block;
+  height: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  order: -1;
 }
 
-.hero-plate-inner > * {
-  width: 100%;
-}
-
-/* the panel itself */
 .hero-plate-panel {
-  --bleed: calc((100vw - var(--page-max)) / 2 + var(--gutter));
-  width: calc(56% + var(--bleed));
-  margin-left: calc(var(--bleed) * -1);
-  padding: 40px 48px 44px max(var(--bleed), var(--gutter));
-  background: var(--paper);
-  border-right: 1px solid var(--rule-ink);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
 .hero-plate-panel h1 {
@@ -1263,22 +1282,6 @@ select:focus {
 .hero-plate-panel .hero-lede {
   max-width: min(44ch, 100%);
   margin-bottom: 28px;
-}
-
-/* the plate is labelled the way a figure is labelled */
-.plate-mark {
-  position: absolute;
-  z-index: 1;
-  top: 20px;
-  right: max(var(--gutter), calc((100vw - var(--page-max)) / 2 + var(--gutter)));
-  padding: 4px 8px;
-  border: 1px solid var(--rule-ink);
-  background: var(--paper);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--bone-dim);
 }
 
 /* -- D. Ledger: a list is a list, not a row of cards -------------- */
@@ -1407,7 +1410,7 @@ a.ledger-row:hover h3 {
 .service-arm-grid > *,
 .text-block-grid > * {
   margin: 0;
-  padding: 28px 30px;
+  padding: clamp(26px, 2.6vw, 40px) clamp(24px, 2.4vw, 38px);
   border: 0;
   border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
@@ -1456,25 +1459,11 @@ a.ledger-row:hover h3 {
 
 @media (max-width: 900px) {
   .hero-plate {
-    height: auto;
-    min-height: 420px;
+    grid-template-columns: 1fr;
   }
 
-  .hero-plate-panel {
-    width: 100%;
-    padding: 32px 0 36px;
-    border-right: 0;
-    box-shadow: none;
-    background: transparent;
-  }
-
-  .hero-plate-inner {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
-  .plate-mark {
-    display: none;
+  .hero-plate-bg {
+    max-width: 420px;
   }
 
   .ledger-row,

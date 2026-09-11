@@ -6,25 +6,31 @@ Everything lives in one file, `redesign.css`, loaded after `styles.css`.
 
 ## The spine
 
-Three things appear on every page, in this order, and nothing else is allowed
-to sit between the nav and the content.
+Nav, then hero, then content. Nothing sits between them.
 
-1. **Nav.** Unchanged.
-2. **Register line.** A 32px band under the nav: page type and index on the
-   left in copper mono, one datum on the right in dim mono, hairline
-   underneath. `HOME`, `INDUSTRY 01`, `SERVICE 08`, `CASE 05`, `GUIDE 12`,
-   `INDEX`, `DOC`. This is the signature move. It costs nothing, survives the
-   404 and the legal pages, and it carries the numbering that ties services,
-   cases and guides to each other.
-3. **Hero**, in one of two shapes only.
+The research proposed a "register line" under the nav carrying a page type and
+index (`HOME`, `INDUSTRY 01`, `CASE 05`). It was built across all 50 pages and
+then cut: in practice it read as a caption on a page that had not asked for
+one, and it was the loudest of several labels competing before the reader
+reached the headline. Cut with it: the plate mark in the hero corner, the
+scrolling ticker, and the mono line under the closer buttons.
+
+What holds the site together instead is the material - one hairline weight,
+one radius, one accent, one label style, two heroes, two list shapes. A site
+does not need a badge on every page to feel like one site.
 
 ## Two heroes, not ten
 
-**Plate hero.** Fixed 560px. The engraving runs full-bleed; a solid paper
-panel bleeds off the left edge and stops against it with a hard vertical rule.
-No gradient scrim - the join is an edge you can see, which is the single
-biggest step from "editorial" to "raw". The plate carries a boxed mono mark in
-its top-right corner: `PL. 01 / DIDEROT, TAILLEUR D'HABITS`.
+**Plate hero.** The engraving is a true alpha cutout: every pixel lighter than
+the plate's own paper is transparent, so the drawing carries no ground and
+sits directly on the page. No box, no panel, no scrim, nothing to blend -
+the way a statue photographed on no background has nothing behind it.
+
+Making one: crop a figure from a line-art plate, force everything above the
+paper threshold to full transparency, map what is left onto warm ink, drop
+every connected component under ~900px to clear the plate's stray labels and
+foxing, then trim to the bounding box. `cut-machine.webp` is the worked
+example.
 
 Reserved for **eight pages**: Home, the four industry pages, the case index,
 About, and How we work. Nowhere else.
@@ -65,16 +71,16 @@ two-tone word in a headline, the active and hover state, and the register
 label. Nothing else is colored. The second accent `--bay` is gone, and so are
 the lavender, amber and cornflower category tints.
 
-**A closed label system.** Mono, 11px, 0.15em, uppercase, dim ink. Kickers,
-category labels, ledger indices, plate marks, the register line, the colophon.
-Nothing else on the site is uppercase or monospace - that is what keeps the
-labels reading as a system rather than as decoration.
+**A closed label system, used sparingly.** Mono, 11px, 0.15em, uppercase, dim
+ink: section kickers, category labels, ledger indices, the colophon. Nothing
+else on the site is uppercase or monospace. One label per section, and none
+that only restates what the heading beside it already says.
 
 **Three spacing steps.** `--air-s` 40-64px, `--air-m` 64-112px, `--air-l`
 96-176px. Nothing in between. Rules sit on top of sections, never underneath.
 
 **Motion is one thing.** The key press. Scroll reveals, blur-ins and the
-marquee are off; nothing animates for longer than 150ms.
+ticker are off; nothing animates for longer than 150ms.
 
 ## Imagery
 
