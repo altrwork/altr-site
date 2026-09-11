@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>altr hero variants</title>
+<link rel="stylesheet" href="../styles.css?v=20260906b">
+<link rel="stylesheet" href="../redesign.css?v=20260911a">
+<style>
+  /* variants only - nothing here ships until one is picked */
+  body { padding-bottom: 80px; }
+  .v-label {
+    max-width: var(--page-max); margin: 0 auto; padding: 56px var(--gutter) 12px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--copper);
+  }
+  .v-note {
+    max-width: var(--page-max); margin: 0 auto; padding: 0 var(--gutter) 20px;
+    font-family: var(--serif); font-style: italic; color: var(--bone-soft);
+    max-width: min(70ch, 100%);
+  }
+  .v-wrap { border-top: 1px solid var(--rule-ink); }
+
+  /* ---- B. Frieze: the building as a ground line under the type ---- */
+  .vB { max-width: var(--page-max); margin: 0 auto; padding: clamp(40px,5vw,72px) var(--gutter) 0; }
+  .vB h1 { max-width: min(19ch,100%); margin: 0 0 20px; }
+  .vB .hero-lede { max-width: min(52ch,100%); margin: 0 0 28px; }
+  .vB-frieze {
+    margin-top: clamp(36px,5vw,64px);
+    height: clamp(150px, 20vw, 260px);
+    background: url("../assets/plates/wash-facade.webp") center bottom / cover no-repeat;
+    border-bottom: 1px solid var(--rule-ink);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 26%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 26%, #000 100%);
+  }
+
+  /* ---- C. Sequence: the argument, drawn, in three figures ---- */
+  .vC { max-width: var(--page-max); margin: 0 auto; padding: clamp(40px,5vw,72px) var(--gutter) clamp(40px,5vw,64px); }
+  .vC h1 { max-width: min(19ch,100%); margin: 0 0 20px; }
+  .vC .hero-lede { max-width: min(52ch,100%); margin: 0 0 36px; }
+  .vC-seq { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--rule-ink); }
+  .vC-seq figure {
+    margin: 0; padding: 22px 24px 20px 0;
+    border-right: 1px solid var(--rule);
+    display: grid; grid-template-rows: auto 1fr auto; gap: 12px;
+  }
+  .vC-seq figure:last-child { border-right: 0; }
+  .vC-seq .n { font-family: var(--mono); font-size: 11px; letter-spacing: .15em; color: var(--copper); }
+  .vC-seq .img { height: clamp(120px,14vw,180px); background-position: left center;
+                 background-size: contain; background-repeat: no-repeat; }
+  .vC-seq figcaption { font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+                       text-transform: uppercase; color: var(--bone-dim); }
+  .vC-1 .img { background-image: url("../assets/plates/cut-plan.webp"); }
+  .vC-2 .img { background-image: url("../assets/plates/cut-vault.webp"); }
+  .vC-3 .img { background-image: url("../assets/plates/cut-stone.webp"); }
+
+  /* ---- D. Plan as the ground the page stands on ---- */
+  .vD { position: relative; isolation: isolate; overflow: hidden; }
+  .vD-bg {
+    position: absolute; inset: 0; z-index: -1;
+    background: url("../assets/plates/cut-plan.webp") center / 118% auto no-repeat;
+    opacity: .30;
+  }
+  .vD-inner { max-width: var(--page-max); margin: 0 auto;
+              padding: clamp(56px,7vw,104px) var(--gutter); }
+  .vD h1 { max-width: min(17ch,100%); margin: 0 0 20px; }
+  .vD .hero-lede { max-width: min(44ch,100%); margin: 0 0 28px; }
+
+  @media (max-width: 900px) {
+    .vC-seq { grid-template-columns: 1fr; }
+    .vC-seq figure { border-right: 0; border-bottom: 1px solid var(--rule); }
+  }
+</style>
+</head>
+<body>
+<div class="site-shell">
+<main class="home-main">
+
+  <p class="v-label">A &mdash; Facade wash (what is live now)</p>
+  <p class="v-note">The building sits behind the type, levelled hard so the line work reads. Safe, and it already works.</p>
+  <div class="v-wrap">
+    <section class="hero-plate">
+      <div class="hero-plate-bg" aria-hidden="true"></div>
+      <div class="hero-plate-inner">
+        <div class="hero-plate-panel">
+          <p class="kicker">Software and AI strategy &middot; Tampa, FL</p>
+          <h1 class="two-tone"><b>We find the work your team repeats every week,</b> and build the system that <em>handles the rest</em>.</h1>
+          <p class="hero-lede">altr works with operations-heavy teams. We map how the job actually gets done, train the people doing it, and deploy software only where the work has proven it needs some.</p>
+          <div class="home-hero-actions">
+            <a class="button primary" href="#">Book free consultation</a>
+            <a class="button secondary" href="#">See our work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <p class="v-label">B &mdash; Frieze</p>
+  <p class="v-note">The facade becomes a ground line. Type sits on clean paper above it at full contrast, and the building runs edge to edge underneath like something the page is standing on. Nothing competes with the headline.</p>
+  <div class="v-wrap">
+    <section class="vB">
+      <p class="kicker">Software and AI strategy &middot; Tampa, FL</p>
+      <h1 class="two-tone"><b>We find the work your team repeats every week,</b> and build the system that <em>handles the rest</em>.</h1>
+      <p class="hero-lede">altr works with operations-heavy teams. We map how the job actually gets done, train the people doing it, and deploy software only where the work has proven it needs some.</p>
+      <div class="home-hero-actions">
+        <a class="button primary" href="#">Book free consultation</a>
+        <a class="button secondary" href="#">See our work</a>
+      </div>
+      <div class="vB-frieze" aria-hidden="true"></div>
+    </section>
+  </div>
+
+  <p class="v-label">C &mdash; Sequence</p>
+  <p class="v-note">The hero does the argument instead of decorating it: survey the plan, raise the structure, set the stone. Three drawings, three numerals, the same three steps the page goes on to explain.</p>
+  <div class="v-wrap">
+    <section class="vC">
+      <p class="kicker">Software and AI strategy &middot; Tampa, FL</p>
+      <h1 class="two-tone"><b>We find the work your team repeats every week,</b> and build the system that <em>handles the rest</em>.</h1>
+      <p class="hero-lede">altr works with operations-heavy teams. We map how the job actually gets done, train the people doing it, and deploy software only where the work has proven it needs some.</p>
+      <div class="home-hero-actions" style="margin-bottom:8px">
+        <a class="button primary" href="#">Book free consultation</a>
+        <a class="button secondary" href="#">See our work</a>
+      </div>
+      <div class="vC-seq">
+        <figure class="vC-1"><span class="n">01</span><span class="img"></span><figcaption>Map the workflow</figcaption></figure>
+        <figure class="vC-2"><span class="n">02</span><span class="img"></span><figcaption>Prove it with the team</figcaption></figure>
+        <figure class="vC-3"><span class="n">03</span><span class="img"></span><figcaption>Deploy what earns a role</figcaption></figure>
+      </div>
+    </section>
+  </div>
+
+  <p class="v-label">D &mdash; Plan as ground</p>
+  <p class="v-note">A single floor plan, blown up past the edges of the page, with the copy sitting inside it. The most literal reading of "we map how the job actually gets done" and the most unusual of the four.</p>
+  <div class="v-wrap">
+    <section class="vD">
+      <div class="vD-bg" aria-hidden="true"></div>
+      <div class="vD-inner">
+        <p class="kicker">Software and AI strategy &middot; Tampa, FL</p>
+        <h1 class="two-tone"><b>We find the work your team repeats every week,</b> and build the system that <em>handles the rest</em>.</h1>
+        <p class="hero-lede">altr works with operations-heavy teams. We map how the job actually gets done, train the people doing it, and deploy software only where the work has proven it needs some.</p>
+        <div class="home-hero-actions">
+          <a class="button primary" href="#">Book free consultation</a>
+          <a class="button secondary" href="#">See our work</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+</div>
+</body>
+</html>
