@@ -1,17 +1,25 @@
+/* Card grid filtering, search and list/grid toggle.
+   One file for both the work index and the blog index: they were the same
+   75 lines twice, differing only in selector prefixes. */
 (() => {
-  const grid = document.getElementById('impact-grid');
-  if (!grid) return;
+  const VARIANTS = [
+    { grid: 'impact-grid', card: 'impact-card', prefix: 'impact' },
+    { grid: 'tutorials-grid', card: 'tutorial-card', prefix: 'tutorials' }
+  ];
+  const v = VARIANTS.find(x => document.getElementById(x.grid));
+  if (!v) return;
 
-  const cards = Array.from(grid.querySelectorAll('.impact-card'));
-  const searchInput = document.querySelector('.impact-search');
-  const checkboxes = Array.from(document.querySelectorAll('.impact-filter-check'));
-  const clearBtn = document.getElementById('impact-clear');
-  const viewBtns = document.querySelectorAll('.impact-view-btn');
+  const grid = document.getElementById(v.grid);
+  const cards = Array.from(grid.querySelectorAll('.' + v.card));
+  const searchInput = document.querySelector('.' + v.prefix + '-search');
+  const checkboxes = Array.from(document.querySelectorAll('.' + v.prefix + '-filter-check'));
+  const clearBtn = document.getElementById(v.prefix + '-clear');
+  const viewBtns = document.querySelectorAll('.' + v.prefix + '-view-btn');
   const emptyMsg = document.querySelector('.tutorials-empty');
   const filterGroupToggle = document.querySelector('.tutorials-filter-group-toggle');
   const filterOptions = document.querySelector('.tutorials-filter-options');
 
-  let activeFilters = new Set();
+  const activeFilters = new Set();
   let searchQuery = '';
 
   function applyFilters() {
@@ -19,7 +27,7 @@
     cards.forEach(card => {
       const cat = card.dataset.category;
       const title = card.dataset.title || '';
-      const desc = card.querySelector('.impact-card-desc')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.' + v.card + '-desc')?.textContent.toLowerCase() || '';
       const matchesFilter = activeFilters.size === 0 || activeFilters.has(cat);
       const matchesSearch = !searchQuery || title.includes(searchQuery) || desc.includes(searchQuery);
       const show = matchesFilter && matchesSearch;
@@ -27,7 +35,7 @@
       if (show) visible++;
     });
 
-    emptyMsg.hidden = visible > 0;
+    if (emptyMsg) emptyMsg.hidden = visible > 0;
     if (clearBtn) clearBtn.hidden = activeFilters.size === 0 && !searchQuery;
   }
 
@@ -42,7 +50,7 @@
   clearBtn?.addEventListener('click', () => {
     activeFilters.clear();
     checkboxes.forEach(cb => { cb.checked = false; });
-    searchInput.value = '';
+    if (searchInput) searchInput.value = '';
     searchQuery = '';
     applyFilters();
   });
