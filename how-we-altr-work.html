@@ -93,7 +93,7 @@
   <main id="main">
     <section class="strategy-hero">
       <canvas class="hero-keys strategy-hero-keys" id="hero-keys" data-hero-keys-variant="strategy" aria-hidden="true"></canvas>
-      <div class="strategy-hero-copy" data-strategy-reveal>
+      <div class="strategy-hero-copy">
         <div class="eyebrow">AI strategy</div>
         <h1><span>Find where AI</span> <span>improves your business</span></h1>
         <p>We map one repeated workflow, prove the improved version with your team, and build only what the work has earned. You get the playbook either way.</p>
@@ -104,7 +104,7 @@
       </div>
     </section>
 
-    <section class="strategy-section" id="strategy-engagement" data-strategy-reveal>
+    <section class="strategy-section" id="strategy-engagement">
       <div class="strategy-section-heading">
         <div>
           <div class="section-kicker">The engagement</div>
@@ -113,17 +113,17 @@
         <p>A useful strategy makes the path smaller and clearer. It identifies the work that matters, tests the assumptions with the team, and gives technology a defined job.</p>
       </div>
       <ol class="strategy-phase-list">
-        <li data-strategy-reveal>
+        <li>
           <span>01</span>
           <h3>Map</h3>
           <p>We sit with you and your team to understand how work gets done today, then decide how AI moves time, margin, and revenue.</p>
         </li>
-        <li data-strategy-reveal>
+        <li>
           <span>02</span>
           <h3>Prove</h3>
           <p>We run the improved workflow on real work with the people who own it, set the guardrails, and document a playbook the team can repeat.</p>
         </li>
-        <li data-strategy-reveal>
+        <li>
           <span>03</span>
           <h3>Deploy</h3>
           <p>We build the connector, agent, or internal tool only once the workflow has proven it needs one to run reliably, and your team keeps the prompts and the operating notes.</p>
@@ -132,115 +132,22 @@
       <p class="strategy-adoption-note">After launch, some teams keep us on in an advisory retainer. Most do not need to.</p>
     </section>
 
-    <section class="strategy-section strategy-outputs" data-strategy-reveal>
+    <section class="strategy-section">
       <div class="strategy-section-heading">
         <div>
-          <div class="section-kicker">What strategy produces</div>
-          <h2>Two deliverables that turn AI into a plan</h2>
+          <div class="section-kicker">What you leave with</div>
+          <h2>One workflow, mapped, and a straight answer.</h2>
         </div>
-        <p>Where AI improves margin, drives revenue, helps you close more deals, and frees your team. Ranked by impact, with a playbook to run.</p>
-      </div>
-
-      <article class="strategy-output-row">
-        <div class="strategy-output-copy" data-strategy-reveal>
-          <span class="strategy-output-number">01</span>
-          <h3>The Opportunity Map</h3>
-          <p>Your top 5 opportunities, ranked by impact and tagged by the pain that pulls: lost margin, unrealized revenue, or hours taken away from your team.</p>
-        </div>
-        <div class="strategy-demo strategy-scan-demo" data-strategy-scan aria-label="Animated example opportunity map">
-          <div class="strategy-demo-head">
-            <strong>Opportunity map</strong>
-            <span class="strategy-sample-tag">Sample output</span>
-          </div>
-          <div class="strategy-scan-progress" aria-hidden="true"><i></i></div>
-          <p class="strategy-scan-summary">Analysis complete <span>5 workflows ranked</span></p>
-          <ol>
-            <li class="is-active">
-              <span class="strategy-workflow-rank">01</span>
-              <div class="strategy-workflow-copy">
-                <strong>Pipeline research</strong>
-                <p>Build a decision-ready brief before every sales call.</p>
-              </div>
-              <div class="strategy-workflow-tags"><em>Revenue</em><small>Implement</small></div>
-            </li>
-            <li>
-              <span class="strategy-workflow-rank">02</span>
-              <div class="strategy-workflow-copy">
-                <strong>Weekly client reporting</strong>
-                <p>Turn source data into a ready-to-review operating update.</p>
-              </div>
-              <div class="strategy-workflow-tags"><em>Hours</em><small>Implement</small></div>
-            </li>
-            <li>
-              <span class="strategy-workflow-rank">03</span>
-              <div class="strategy-workflow-copy">
-                <strong>Document intake</strong>
-                <p>Extract, classify, and route every incoming file.</p>
-              </div>
-              <div class="strategy-workflow-tags"><em>Capacity</em><small>Build</small></div>
-            </li>
-            <li>
-              <span class="strategy-workflow-rank">04</span>
-              <div class="strategy-workflow-copy">
-                <strong>Proposal assembly</strong>
-                <p>Draft scopes and pricing from approved service rules.</p>
-              </div>
-              <div class="strategy-workflow-tags"><em>Margin</em><small>Prove</small></div>
-            </li>
-            <li>
-              <span class="strategy-workflow-rank">05</span>
-              <div class="strategy-workflow-copy">
-                <strong>Client onboarding</strong>
-                <p>Create the handoff, workspace, and kickoff brief automatically.</p>
-              </div>
-              <div class="strategy-workflow-tags"><em>Hours</em><small>Adopt</small></div>
-            </li>
-          </ol>
-          <div class="strategy-demo-foot"><span>Your top five, ranked by impact and readiness</span><i></i></div>
-        </div>
-      </article>
-
-      <article class="strategy-output-row strategy-output-row-reverse">
-        <div class="strategy-output-copy" data-strategy-reveal>
-          <span class="strategy-output-number">02</span>
-          <h3>The 30-day Roadmap</h3>
-          <p>A 30-day plan to an AI-native operation. We sequence the work into phases that compound, so the business isn't scattered across disconnected pilots.</p>
-        </div>
-        <div class="strategy-demo strategy-roadmap-demo" data-strategy-roadmap aria-label="Animated example deployment sequence">
-          <div class="strategy-demo-head">
-            <span>Deployment sequence</span>
-            <span class="strategy-demo-status" data-roadmap-status>Days 0–10</span>
-          </div>
-          <div class="strategy-roadmap-track">
-            <i aria-hidden="true"></i>
-          </div>
-          <ol>
-            <li class="is-active"><span>Days 0–10</span><strong>Prove the priority workflow</strong><small>Baseline · pilot · named reviewer</small></li>
-            <li><span>Days 11–20</span><strong>Build the operating system</strong><small>Playbook · controls · integrations</small></li>
-            <li><span>Days 21–30</span><strong>Launch team adoption</strong><small>Training · measurement · ownership</small></li>
-          </ol>
-          <div class="strategy-demo-foot"><span>Sequenced by evidence and dependency</span><i></i></div>
-        </div>
-      </article>
-    </section>
-
-    <section class="strategy-section strategy-cadence" data-strategy-reveal>
-      <div class="strategy-section-heading">
-        <div>
-          <div class="section-kicker">A practical cadence</div>
-          <h2>How we run the assessment.</h2>
-        </div>
-        <p>We scope the working sessions in kickoff so discovery is spent on the workflows that matter most. </p>
+        <p>Not a deck. The work your team repeats, written down the way it actually runs, and a recommendation you can act on.</p>
       </div>
       <ol class="strategy-timeline">
-        <li><span>Day 1</span><div><h3>Kickoff and priorities</h3><p>Outline goals with leadership, and decide together which teams and workflows we focus on.</p></div><em>Leadership</em></li>
-        <li><span>Days 2-3</span><div><h3>Workflow sessions</h3><p>Meet with workflow owner, mapping how the job gets done today and where the time and money go.</p></div><em>Workflow owners</em></li>
-        <li><span>Days 3-6</span><div><h3>Analysis and sequencing</h3><p>We evaluate the opportunities and build the opportunity map and 30-day roadmap.</p></div><em>altr</em></li>
-        <li><span>Day 7</span><div><h3>Leadership walkthrough</h3><p>We present the opportunity map and 30-day roadmap, then agree on what it costs to build.</p></div><em>Leadership + team</em></li>
+        <li><span>01</span><div><h3>The workflow, written down</h3><p>The trigger, the sources, the decisions, the handoffs, the exceptions, and the person who reviews the result.</p></div><em>Yours to keep</em></li>
+        <li><span>02</span><div><h3>A recommendation, either way</h3><p>Whether the answer is training, a build, or leaving the process alone. We will tell you when it is the last one.</p></div><em>Yours to keep</em></li>
+        <li><span>03</span><div><h3>A scope, if there is one</h3><p>If the work has earned software, you get what it does, who owns it, and what it costs, quoted in writing before anything starts.</p></div><em>Only if earned</em></li>
       </ol>
     </section>
 
-    <section class="cta-section strategy-final-cta" data-strategy-reveal>
+    <section class="cta-section strategy-final-cta">
       <div><h2>Start with one process.</h2><p>Bring the work your team keeps repeating. We will help you determine whether it needs a better playbook, a connected system, or no AI at all.</p></div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>
@@ -260,6 +167,5 @@
 </div>
 <script src="nav.js"></script>
 <script src="hero-keys.js?v=20260905a"></script>
-<script src="ai-strategy.js?v=20260905b"></script>
 </body>
 </html>

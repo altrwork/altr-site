@@ -274,17 +274,29 @@ class SeoIntegrityTests(unittest.TestCase):
             (ROOT / "_redirects").read_text(encoding="utf-8"),
         )
 
-    def test_ai_strategy_page_has_animated_strategy_structure(self):
+    def test_ai_strategy_page_sells_what_the_rest_of_the_site_sells(self):
+        """The page used to sell a 7-day audit, two named deliverables and an
+        embedded engineering team, none of which altr does. It also carried
+        two animated fake demos. Keep it aligned and keep it honest."""
         html = (ROOT / "how-we-altr-work.html").read_text(encoding="utf-8")
-        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
 
         self.assertIn("AI Strategy", re.search(r"<title>(.*?)</title>", html, re.S).group(1))
         self.assertIn("AI strategy", html)
-        self.assertIn("ai-strategy.js", html)
-        self.assertGreaterEqual(html.count('data-strategy-reveal'), 4)
-        self.assertIn('data-strategy-scan', html)
-        self.assertIn('data-strategy-roadmap', html)
-        self.assertIn("prefers-reduced-motion: reduce", styles)
+        for phase in ("Map", "Prove", "Deploy"):
+            self.assertIn(f"<h3>{phase}</h3>", html)
+        for retired in ("7-day", "seven-day", "priced up front",
+                        "embedded engineering", "30-day Roadmap", "Opportunity Map"):
+            self.assertNotIn(retired, html, f"retired claim back on the page: {retired}")
+        self.assertNotRegex(html, r"Days? \d", "published day counts are back")
+
+    def test_workshops_are_still_offered(self):
+        """Enablement is one of the three services and the workshops are real.
+        Nothing in the slop cleanup should take them off the site."""
+        for name in ("ai-enablement-workshop.html", "ai-workshop.html"):
+            self.assertTrue((ROOT / name).exists(), f"{name} is missing")
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('href="ai-enablement-workshop.html"', homepage)
+        self.assertIn("Enablement", homepage)
 
 
 if __name__ == "__main__":
