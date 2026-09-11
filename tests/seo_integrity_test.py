@@ -289,6 +289,27 @@ class SeoIntegrityTests(unittest.TestCase):
             self.assertNotIn(retired, html, f"retired claim back on the page: {retired}")
         self.assertNotRegex(html, r"Days? \d", "published day counts are back")
 
+    def test_retired_claims_are_gone_from_every_page(self):
+        """The 7-day audit, up-front pricing and the embedded engineering team
+        were removed from the strategy page but survived on four others and in
+        llms.txt, because the original guard only checked one file. Check the
+        whole site. about.html keeps 'forward deployed engineer' as a person's
+        job title in their bio, which is a description of someone rather than
+        a service being sold."""
+        retired = ("7-day", "seven-day", "priced up front", "embedded engineering",
+                   "embedded headcount", "30-day Roadmap", "Opportunity Map",
+                   "forward deployed engineering", "forward-deployed engineering")
+        targets = sorted(ROOT.glob("*.html")) + [ROOT / "llms.txt"]
+        for path in targets:
+            text = path.read_text(encoding="utf-8")
+            for claim in retired:
+                if path.name == "about.html" and claim.startswith("forward"):
+                    continue
+                self.assertNotIn(
+                    claim.lower(), text.lower(),
+                    f"retired claim back on {path.name}: {claim}",
+                )
+
     def test_workshops_are_still_offered(self):
         """Enablement is one of the three services and the workshops are real.
         Nothing in the slop cleanup should take them off the site."""

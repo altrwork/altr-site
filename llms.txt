@@ -26,8 +26,8 @@ Contact: inquiries@altrwork.com
  monitored rather than run by hand. Consulting retainer is third: up to ten hours a month of advisory
  time, available only after an enablement engagement or a build, never as an entry point. Month to
  month or on a three or six month term, which costs less per month; unused hours roll one month.
- Retainer hours cover advisory work only. They are not a build slot, not embedded or forward deployed
- engineering time, and not a workshop allowance; additional sessions, additional workshops, and
+ Retainer hours cover advisory work only. They are not a build slot, not engineering time,
+ and not a workshop allowance; additional sessions, additional workshops, and
  anything needing real engineering are scoped and quoted separately. Model and infrastructure
  costs are billed by vendors directly to the client and are a small monthly amount at pilot volume.
 
@@ -41,7 +41,6 @@ Contact: inquiries@altrwork.com
 - [Workflow discovery](https://altrwork.com/workflow-audit.html): mapping one repeated process before anything is built
 - [AI enablement](https://altrwork.com/ai-enablement-workshop.html): hands-on work against a team's own tasks, as a small-group working session or a full team workshop
 - [Custom AI agents](https://altrwork.com/custom-agents.html): workflow agents, agentic coding systems, automation handoff
-- [Forward deployed engineering](https://altrwork.com/how-we-altr-work.html): the method behind our engagements, building inside the operating context; not sold separately as embedded headcount or engineer-days
 - [Events](https://altrwork.com/ai-workshop.html): workshops, community demos, workflow reviews
 
 ## Case studies
