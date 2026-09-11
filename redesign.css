@@ -1243,7 +1243,7 @@ select:focus {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/wash-workshop.webp") 68% center / cover no-repeat;
+  background: url("assets/plates/wash-facade.webp") center 72% / cover no-repeat;
 }
 
 .hero-plate-bg::after {
@@ -1536,9 +1536,9 @@ a.ledger-row:hover h3 {
 
 /* the workshop plate on alternate page families, so the wash is not
    the same picture on every page of the site */
-.home-why .home-why-bg,
-.wash-workshop::before {
-  background-image: url("assets/plates/bg-workshop.webp");
+.home-why .home-why-bg {
+  background-image: url("assets/plates/wash-brick.webp");
+  background-position: center 30%;
 }
 
 .cta-section {
@@ -1587,11 +1587,10 @@ a.ledger-row:hover h3 {
   background-repeat: no-repeat;
 }
 
-.hero-cut-lathe    { background-image: url("assets/plates/cut-lathe.webp"); }
-.hero-cut-barrels  { background-image: url("assets/plates/cut-barrels.webp"); }
-.hero-cut-frames   { background-image: url("assets/plates/cut-frames.webp"); }
-.hero-cut-carriage { background-image: url("assets/plates/cut-carriage.webp"); }
-.hero-cut-machine  { background-image: url("assets/plates/cut-machine.webp"); }
+.hero-cut-plan   { background-image: url("assets/plates/cut-plan.webp"); }
+.hero-cut-vault  { background-image: url("assets/plates/cut-vault.webp"); }
+.hero-cut-window { background-image: url("assets/plates/cut-window.webp"); }
+.hero-cut-stone  { background-image: url("assets/plates/cut-stone.webp"); }
 
 @media (max-width: 900px) {
   .page-hero-cut {

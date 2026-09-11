@@ -16,22 +16,39 @@ and resized to 1400px wide. The originals are unaltered on Commons.
 | `plate-shop.webp` | Tourneur - a turner's shop lit by one window | [Encyclopedie volume 9-170](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-170.png) |
 | `plate-wide.webp` | Sellier-Carossier - a carriage in elevation with its parts separated | [Encyclopedie volume 8-030](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-030.png) |
 
-## Cutouts
+## Architecture set
 
-Five alpha cutouts, one per page family, each taken from a line-art plate. Every
-pixel lighter than the plate's own paper is transparent, so the drawing carries
-no ground and sits directly on the page.
+The working set, chosen so the drawing argues what the page argues. The plan is
+in [../design-language/IMAGERY.md](../design-language/IMAGERY.md).
+
+### Washes (behind type)
 
 | File | Plate | Used on | Source |
 |---|---|---|---|
-| `cut-lathe.webp` | Tourneur - lathes and turning tools | Home | [Encyclopedie volume 9-198](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-198.png) |
-| `cut-barrels.webp` | Tonnelier - casks, tubs and vessels | Non-profits | [Encyclopedie volume 9-142](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-142.png) |
-| `cut-frames.webp` | Tabletier-Cornetier - saws and frames | Ecommerce | [Encyclopedie volume 8-128](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-128.png) |
-| `cut-carriage.webp` | Sellier-Carossier - a carriage and its parts | Commercial real estate | [Encyclopedie volume 8-030](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-030.png) |
-| `cut-machine.webp` | Serrurerie - a martinet, one stage of its operation | Law firms | [Encyclopedie volume 8-100](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-100.png) |
+| `wash-facade.webp` | Architecture - elevation of the Bibliotheque Royale, one bay repeated | Home hero | [volume 1-214](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-214.png) |
+| `wash-brick.webp` | Architecture, Maconnerie - brick coursing and wall sections | Home closing band | [volume 1-244](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-244.png) |
+| `wash-quarry.webp` | Architecture, Maconnerie - a plaster quarry | staged, unused | [volume 1-256](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-256.png) |
+| `bg-shop.webp` | Tourneur - a turner's shop lit by one window | closing bands sitewide | [volume 9-170](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_9-170.png) |
 
-`bg-workshop.webp` and `bg-shop.webp` are the soft washes used behind the
-argument sections. `plate-pattern.webp` supplies the six blog thumbnails.
+### Cutouts (beside the copy)
+
+Alpha-cut: every pixel lighter than the plate's own paper is transparent, so the
+drawing carries no ground.
+
+| File | Plate | Used on | Source |
+|---|---|---|---|
+| `cut-plan.webp` | Architecture - ground-floor plan of a large hotel | Commercial real estate | [volume 1-217](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-217.png) |
+| `cut-vault.webp` | Architecture - vaults, arches and their sections | Non-profits | [volume 1-259](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-259.png) |
+| `cut-window.webp` | Architecture - window and door bays with entablature | Ecommerce | [volume 1-202](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-202.png) |
+| `cut-stone.webp` | Architecture, Coupe des Pierres - stone-cutting setting-out | Law firms | [volume 1-235](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_1-235.png) |
+
+### Trade set (earlier, still on disk)
+
+`cut-lathe`, `cut-barrels`, `cut-frames`, `cut-carriage`, `cut-machine`,
+`plate-hero`, `plate-process`, `plate-shop`, `plate-wide`, `wash-workshop`,
+`bg-workshop`. Sources for these are listed in the table at the top.
+`plate-pattern.webp` ([volume 8-072](https://commons.wikimedia.org/wiki/File:Encyclopedie_volume_8-072.png))
+supplies the six blog thumbnails.
 
 ## Why these
 
