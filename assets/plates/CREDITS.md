@@ -64,3 +64,23 @@ rather than as decoration.
 converts to greyscale, autocontrasts, and maps through a four-stop ramp from warm
 near-black to paper white. Whites stay pure so `mix-blend-mode: multiply` lets the
 page's paper show through untouched.
+
+## Scene set
+
+Scenes rather than object plates: places with architecture and people in them.
+All are **public domain** etchings from the Metropolitan Museum of Art's open
+access collection, duotoned to altr's paper and ink, trimmed of their plate
+borders and caption strips, and cropped to the panel they sit in.
+
+| File | Plate | Page | Source |
+|---|---|---|---|
+| `scene-colosseum.webp` | Piranesi, *Veduta dell'Anfiteatro Flavio detto il Colosseo*, from *Vedute di Roma* | real-estate.html | [Met 360270](https://www.metmuseum.org/art/collection/search/360270) |
+| `scene-port.webp` | Piranesi, *View of the Port of Ripa Grande*, from *Vedute di Roma* | ecommerce.html | [Met 363078](https://www.metmuseum.org/art/collection/search/363078) |
+| `scene-piazza.webp` | Piranesi, *View of St. Peter's Basilica and Piazza in the Vatican*, from *Vedute di Roma* | nonprofits.html | [Met 363079](https://www.metmuseum.org/art/collection/search/363079) |
+| `scene-basilica.webp` | Piranesi, *View of the Facade of the Basilica of S. Croce in Gerusalemme* | law-firms.html | [Met 363080](https://www.metmuseum.org/art/collection/search/363080) |
+| `scene-forum.webp` | Piranesi, *Ancient Roman forum surrounded by porticoes, with loggias* | ai-enablement-workshop.html | [Met 365403](https://www.metmuseum.org/art/collection/search/365403) |
+| `scene-bridge.webp` | Piranesi, *Magnificent bridge with loggias and arches erected by a Roman Emperor* | custom-agents.html | [Met 365485](https://www.metmuseum.org/art/collection/search/365485) |
+| `scene-road.webp`, `scene-road-wide.webp` | Piranesi, *Part of the ancient Appian Way*, plate 19 | how-we-altr-work.html | [Met 412428](https://www.metmuseum.org/art/collection/search/412428) |
+
+`scene-road-wide.webp` is the lower band of the same plate, mirrored so the
+arches fall on the side of the hero the paper veil leaves open.

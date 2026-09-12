@@ -1616,3 +1616,40 @@ h2 + p {
 .intake-form {
   background-color: var(--paper-sunk);
 }
+
+.hero-cut-forum  { background-image: url("assets/plates/scene-forum.webp"); }
+.hero-cut-bridge { background-image: url("assets/plates/scene-bridge.webp"); }
+.hero-cut-road   { background-image: url("assets/plates/scene-road.webp"); }
+
+/* -- the strategy hero ------------------------------------------- */
+/* It ran a canvas of pale rounded keycaps drifting behind the headline:
+   ambient motion with no referent, in JavaScript where the house rule
+   against animation cannot reach it, drawing the one radius the system
+   reserves for buttons. The Appian Way replaces it. A route already worn
+   into the ground is what the page is about. */
+.strategy-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("assets/plates/scene-road-wide.webp") center / cover no-repeat;
+}
+
+.strategy-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* the etching is light and its left third is open sky, so the veil can
+     come off much earlier than the workshop hero needs */
+  background:
+  linear-gradient(90deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.96) 26%,
+  rgba(247, 243, 236, 0.8) 42%,
+  rgba(247, 243, 236, 0.4) 62%,
+  rgba(247, 243, 236, 0.18) 100%),
+  linear-gradient(180deg,
+  rgba(247, 243, 236, 0.6) 0%,
+  rgba(247, 243, 236, 0.12) 20%,
+  rgba(247, 243, 236, 0.12) 72%,
+  var(--paper) 100%);
+}
