@@ -16,6 +16,11 @@
 :root {
   --rule: rgba(26, 23, 20, 0.13);
   --rule-ink: rgba(26, 23, 20, 0.28);
+
+  /* styles.css carries a third hairline at 0.11 and uses it on 70 borders.
+     The system allows one weight, plus a heavier one to open a block, so
+     --line is aliased rather than left as a second opinion. */
+  --line: var(--rule);
   --plate-ground: #EDE4D6;
   --section-air: clamp(60px, 7.2vw, 112px);
   --gutter: clamp(20px, 5vw, 48px);
@@ -258,7 +263,11 @@ h2,
 .workshop-topic-card,
 .real-estate-card,
 .learning-feature-card,
-.learning-brief {
+.learning-brief,
+/* these two kept their own padding, 48px and 32px, which made three card
+   paddings where the system allows one */
+.content-panel,
+.article-callout {
   padding: clamp(26px, 2.6vw, 40px) clamp(24px, 2.4vw, 38px);
 }
 
@@ -1576,4 +1585,26 @@ img {
    more. Class rules still win, so deliberate spacing is untouched. */
 h2 + p {
   margin-top: 16px;
+}
+
+/* -- one accent, and no diagonal wash ------------------------------ */
+/* The callout carried a 2px sage rule on 17 pages, which is a second
+   accent on a system that declares one. The intake panels and the
+   strategy hero still painted a 135deg translucent copper gradient,
+   the pattern the slop pass was meant to remove; the other gradients
+   in styles.css are dead, overridden here already. */
+.article-callout {
+  border-left-color: var(--copper);
+  background-image: none;
+}
+
+.intake-note,
+.intake-form,
+.strategy-hero {
+  background-image: none;
+}
+
+.intake-note,
+.intake-form {
+  background-color: var(--paper-sunk);
 }
