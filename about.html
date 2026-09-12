@@ -170,8 +170,8 @@
  altr works with businesses who want AI to become part of the way their teams actually work. We run practical workshops, build demos around real workflows, and deploy automations close to the people who will use them.
           </p>
         </div>
-        <div class="globe-panel about-globe" aria-label="Interactive client locations globe">
-          <canvas id="client-globe" width="620" height="620" role="img" aria-label="Globe showing client locations across the United States">Clients across the United States, based in Tampa, Florida.</canvas>
+        <div class="globe-panel about-globe" aria-label="Globe marking altr's base in Tampa, Florida">
+          <canvas id="client-globe" width="620" height="620" role="img" aria-label="Globe marking Tampa, Florida">altr is based in Tampa, Florida.</canvas>
           <div class="globe-caption">
             <a href="ai-consulting-tampa.html">Tampa, FL</a>
           </div>
@@ -292,7 +292,7 @@
 
  const canvas = document.getElementById("client-globe");
  const panel = canvas.parentElement;
- let phi = 4.95;
+ let phi = 6.65;
  let theta = 0.32;
  let width = 0;
  let pointerInteraction = null;
@@ -332,8 +332,7 @@
       { location: [27.9506, -82.4572], size: 0.08 }
     ],
  onRender: (state) => {
- if (!pointerInteraction) phi += 0.003;
- state.phi = phi + pointerInteractionMovementX;
+  state.phi = phi + pointerInteractionMovementX;
  state.theta = theta + pointerInteractionMovementY;
  state.width = width * 2;
  state.height = width * 2;
