@@ -1656,66 +1656,66 @@ h2 + p {
   var(--paper) 100%);
 }
 
-/* -- index ledger -------------------------------------------------- */
-/* The work and blog indexes carried a filter sidebar, a search box and a
-   list/grid toggle to manage five and thirteen items. That machinery made
-   a narrow left rail, an awkward column of dead space beside it, and two
-   more card formats. SYSTEM.md already said an index page is a ledger:
-   full-width rows, shared hairlines, no gap, and the mark carries the
-   category so no coloured chip has to. */
-.index-ledger {
-  border-top: 1px solid var(--rule-ink);
-}
-
-.ledger-row {
+/* -- index grid ---------------------------------------------------- */
+/* Three columns, shared hairlines, no gap: the cell grid the system
+   already specifies for a set. Each cell carries the scene for its
+   category as its mark, and the whole cell is the link. */
+.index-grid {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr) auto;
-  align-items: start;
-  column-gap: clamp(18px, 2.4vw, 34px);
-  padding: clamp(24px, 2.8vw, 38px) 0;
-  border-bottom: 1px solid var(--rule);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--rule-ink);
+  border-left: 1px solid var(--rule);
+}
+
+.index-cell {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2vw, 28px);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
-.ledger-row:last-child {
-  border-bottom: 1px solid var(--rule-ink);
-}
-
-.ledger-mark {
-  width: 84px;
-  height: 84px;
-  background-color: var(--paper-sunk);
+.cell-mark {
+  display: block;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  background-color: var(--plate-ground);
   background-size: cover;
   background-repeat: no-repeat;
   border: 1px solid var(--rule);
 }
 
-.ledger-row h2 {
+.index-cell h2 {
   margin: 6px 0 0;
-  font-size: clamp(21px, 2.1vw, 28px);
-  line-height: 1.18;
+  font-size: clamp(19px, 1.5vw, 23px);
+  line-height: 1.2;
 }
 
-.ledger-row h2 a {
+.index-cell h2 a {
   color: var(--bone);
   text-decoration: none;
 }
 
-.ledger-row:hover h2 a {
+.index-cell:hover h2 a {
   color: var(--copper);
 }
 
-/* the row is one destination, so the row is the target */
-.ledger-row h2 a::after {
+.index-cell h2 a::after {
   content: "";
   position: absolute;
   inset: 0;
 }
 
-.ledger-row p {
+.index-cell p {
   margin: 8px 0 0;
-  max-width: 68ch;
+  font-size: 15px;
   color: var(--bone-soft);
+}
+
+.index-cell .ledger-date {
+  margin-top: auto;
+  padding-top: 14px;
 }
 
 .ledger-meta,
@@ -1728,13 +1728,7 @@ h2 + p {
   color: var(--bone-dim);
 }
 
-.ledger-date {
-  white-space: nowrap;
-  padding-top: 2px;
-}
-
-/* a scene per category, cropped to the mark: the same places that carry
-   the pages they point at, not a sheet of isolated objects */
+/* a scene per category, cropped to the mark */
 .mark-real-estate { background-image: url("assets/plates/scene-colosseum.webp"); background-position: 50% 40%; }
 .mark-nonprofit   { background-image: url("assets/plates/scene-piazza.webp");    background-position: 50% 55%; }
 .mark-ecommerce   { background-image: url("assets/plates/scene-port.webp");      background-position: 62% 60%; }
@@ -1746,92 +1740,48 @@ h2 + p {
 .mark-skills      { background-image: url("assets/plates/scene-forum.webp");     background-position: 72% 48%; }
 .mark-automation  { background-image: url("assets/plates/scene-port.webp");      background-position: 28% 55%; }
 
-@media (max-width: 680px) {
-  .ledger-row {
-    grid-template-columns: 56px minmax(0, 1fr);
-    row-gap: 4px;
+@media (max-width: 900px) {
+  .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* One column on a phone, but stacking a 16:9 plate over every card makes
+   the blog index nine screens long. The cell becomes a row instead: the
+   plate as a square mark on the left, the text beside it. */
+@media (max-width: 620px) {
+  .index-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .ledger-mark {
-    width: 56px;
-    height: 56px;
+  .index-cell {
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
   }
 
-  .ledger-date {
+  .cell-mark {
+    aspect-ratio: 1;
+    margin-bottom: 0;
+    grid-row: 1 / span 99;
+    align-self: start;
+  }
+
+  .index-cell .ledger-meta,
+  .index-cell h2,
+  .index-cell p,
+  .index-cell .ledger-date {
     grid-column: 2;
   }
+
+  .index-cell .ledger-date {
+    margin-top: 10px;
+    padding-top: 0;
+  }
 }
 
-/* an index is a list under its own title: it does not need a section's
-   opening air on top of the hero's closing air */
-.index-section {
-  padding-top: 0;
-}
-
-/* -- one label style ---------------------------------------------- */
-/* styles.css defines the mono label three times over, each using --steel
-   (a blue-grey that is a second accent the system does not allow) at
-   weight 800, while the labels redesign.css had already normalised use
-   --bone-dim at 500. Same size, same family, two different colours and
-   weights. The system says one label style. */
-.content-label,
-.impact-date,
-.case-meta,
-.tutorials-filter-heading,
-.resource-item span,
-.service-badge,
-.framework-step span,
-.gap-grid span,
-.learning-brief span,
-.learning-feature-card span,
-.learning-tabs span,
-.article-callout span,
-.article-summary span,
-.article-block > span,
-.real-estate-card-meta,
-.real-estate-card-meta span,
-.real-estate-card-meta time {
-  color: var(--bone-dim);
-  font-weight: 500;
-}
-
-/* the blue-grey and the green were a second and third accent */
-:root {
-  --steel: var(--bone-dim);
-  --sage: var(--copper);
-}
-
-/* -- four weights ------------------------------------------------- */
-/* Seven weights were rendering: 400, 500, 600, 650, 700, 760 and 800.
-   650 and 760 are variable-font settings nobody can name, and 800 was
-   doing the same job as 700. The scale is 400 body, 500 label, 600
-   emphasis, 700 heading and button. */
-.button,
-.footer-brand,
-.about-mission h3 {
-  font-weight: 700;
-}
-
-.article-summary p,
-.workshop-topic-card .workshop-topic-outcome,
-.nav-links .nav-cta {
-  font-weight: 600;
-}
-
-/* the rest of the 800s are mono labels, which share the label weight */
-.conversation-link,
-.resource-item a,
-.work-list-action,
-.case-stat,
-.workshop-topic-meta,
-.about-mission cite,
-.globe-caption,
-.intake-form label span,
-.impact-card-featured,
-.lead-email-label,
-.guide-highlight-grid article > span,
-.tutorial-card-tag {
-  font-weight: 500;
+/* the services menu was wrapping "Commercial Real Estate" onto two lines */
+.nav .nav-dropdown-panel {
+  min-width: 232px;
 }
 
 /* -- a scene behind every hero ------------------------------------ */
@@ -2004,3 +1954,39 @@ body {
    var(--paper). Swapping the tokens turns it into a paper band at the
    foot of an ink site, which is the same idea the other way up, so it
    is left alone. */
+
+/* -- surfaces styles.css hardcoded --------------------------------- */
+/* These were written as literal paper and white rather than tokens, so the
+   theme swap left them light with light type on top. The nav dropdown was
+   the worst of it: a near-opaque paper panel carrying #F2EDE4 links. */
+.nav .nav-dropdown-panel {
+  background: rgba(var(--veil-rgb), 0.98);
+  border-color: var(--line-strong);
+}
+
+.nav.is-menu-open,
+.workshop-topic-grid {
+  background: rgba(var(--veil-rgb), 0.98);
+}
+
+.workshop-topic-card {
+  background: var(--paper-raised);
+}
+
+/* Two cells in the same category share a plate, which put identical
+   thumbnails side by side. Varying the zoom as well as the position over
+   a six-cell cycle keeps the category readable while making neighbours
+   plainly different pictures. */
+/* the y values stay in the lower half, where the architecture is; the top
+   of these plates is open sky and crops to an empty rectangle */
+.index-cell:nth-child(6n+1) .cell-mark { background-size: 170% auto; background-position: 24% 58%; }
+.index-cell:nth-child(6n+2) .cell-mark { background-size: 240% auto; background-position: 76% 64%; }
+.index-cell:nth-child(6n+3) .cell-mark { background-size: 190% auto; background-position: 50% 70%; }
+.index-cell:nth-child(6n+4) .cell-mark { background-size: 260% auto; background-position: 14% 62%; }
+.index-cell:nth-child(6n+5) .cell-mark { background-size: 155% auto; background-position: 88% 55%; }
+.index-cell:nth-child(6n)   .cell-mark { background-size: 210% auto; background-position: 38% 76%; }
+
+/* the index sits under its own hero, with one air step between them */
+.index-section {
+  padding-top: var(--air-s);
+}
