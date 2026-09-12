@@ -1831,3 +1831,79 @@ h2 + p {
 .tutorial-card-tag {
   font-weight: 500;
 }
+
+/* -- a scene behind every hero ------------------------------------ */
+/* The plates are toned deep ink through copper to paper, so they carry
+   colour and hold their line rather than sitting back as a grey wash.
+   The veil clears the left, where the type sits, and lets the drawing
+   run at full strength across the rest. */
+.page-hero.hero-scene,
+.article-hero.hero-scene,
+.about-simple.hero-scene,
+.lead-magnet-hero.hero-scene,
+.guide-thank-you.hero-scene {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-scene::before,
+.hero-scene::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  transform: translateX(-50%);
+}
+
+.hero-scene::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  background-position: 62% 45%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-scene::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background:
+  linear-gradient(90deg,
+  var(--paper) 0%,
+  rgba(247, 243, 236, 0.97) 30%,
+  rgba(247, 243, 236, 0.78) 46%,
+  rgba(247, 243, 236, 0.34) 66%,
+  rgba(247, 243, 236, 0.14) 100%),
+  linear-gradient(180deg,
+  rgba(247, 243, 236, 0.5) 0%,
+  rgba(247, 243, 236, 0.06) 22%,
+  rgba(247, 243, 236, 0.06) 70%,
+  var(--paper) 100%);
+}
+
+.hero-scene > * {
+  position: relative;
+}
+
+/* on a phone the type runs the full width, so the veil turns vertical */
+@media (max-width: 680px) {
+  .hero-scene::after {
+    background:
+    linear-gradient(180deg,
+    rgba(247, 243, 236, 0.88) 0%,
+    rgba(247, 243, 236, 0.82) 52%,
+    rgba(247, 243, 236, 0.3) 78%,
+    var(--paper) 100%);
+  }
+}
+
+.scene-workshop::before  { background-image: url("assets/plates/scene-workshop.webp"); }
+.scene-colosseum::before { background-image: url("assets/plates/scene-colosseum.webp"); }
+.scene-port::before      { background-image: url("assets/plates/scene-port.webp"); }
+.scene-piazza::before    { background-image: url("assets/plates/scene-piazza.webp"); }
+.scene-basilica::before  { background-image: url("assets/plates/scene-basilica.webp"); }
+.scene-forum::before     { background-image: url("assets/plates/scene-forum.webp"); }
+.scene-bridge::before    { background-image: url("assets/plates/scene-bridge.webp"); }
+.scene-road::before      { background-image: url("assets/plates/scene-road.webp"); }

@@ -84,3 +84,15 @@ borders and caption strips, and cropped to the panel they sit in.
 
 `scene-road-wide.webp` is the lower band of the same plate, mirrored so the
 arches fall on the side of the hero the paper veil leaves open.
+
+
+## Tone
+
+The scene plates are toned deep ink (18,14,11) through copper (166,85,41) in
+the midtones to paper (253,250,244), with autocontrast at a 2.5% cutoff and a
+1.35 contrast lift. That is what gives them colour and holds the engraved line,
+rather than the flat sepia wash the first set used. `scene-workshop.webp` is the
+tailoring plate re-fetched from Commons at 2400px and toned the same way.
+
+The `cut-*` cutouts and the unplaced `wash-facade` / `wash-quarry` plates were
+removed when the scenes replaced them.
