@@ -1653,3 +1653,115 @@ h2 + p {
   rgba(247, 243, 236, 0.12) 72%,
   var(--paper) 100%);
 }
+
+/* -- index ledger -------------------------------------------------- */
+/* The work and blog indexes carried a filter sidebar, a search box and a
+   list/grid toggle to manage five and thirteen items. That machinery made
+   a narrow left rail, an awkward column of dead space beside it, and two
+   more card formats. SYSTEM.md already said an index page is a ledger:
+   full-width rows, shared hairlines, no gap, and the mark carries the
+   category so no coloured chip has to. */
+.index-ledger {
+  border-top: 1px solid var(--rule-ink);
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: clamp(18px, 2.4vw, 34px);
+  padding: clamp(24px, 2.8vw, 38px) 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.ledger-row:last-child {
+  border-bottom: 1px solid var(--rule-ink);
+}
+
+.ledger-mark {
+  width: 84px;
+  height: 84px;
+  background-color: var(--paper-sunk);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid var(--rule);
+}
+
+.ledger-row h2 {
+  margin: 6px 0 0;
+  font-size: clamp(21px, 2.1vw, 28px);
+  line-height: 1.18;
+}
+
+.ledger-row h2 a {
+  color: var(--bone);
+  text-decoration: none;
+}
+
+.ledger-row:hover h2 a {
+  color: var(--copper);
+}
+
+/* the row is one destination, so the row is the target */
+.ledger-row h2 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.ledger-row p {
+  margin: 8px 0 0;
+  max-width: 68ch;
+  color: var(--bone-soft);
+}
+
+.ledger-meta,
+.ledger-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+
+.ledger-date {
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* a scene per category, cropped to the mark: the same places that carry
+   the pages they point at, not a sheet of isolated objects */
+.mark-real-estate { background-image: url("assets/plates/scene-colosseum.webp"); background-position: 50% 40%; }
+.mark-nonprofit   { background-image: url("assets/plates/scene-piazza.webp");    background-position: 50% 55%; }
+.mark-ecommerce   { background-image: url("assets/plates/scene-port.webp");      background-position: 62% 60%; }
+.mark-technology  { background-image: url("assets/plates/scene-bridge.webp");    background-position: 46% 50%; }
+.mark-mcp         { background-image: url("assets/plates/scene-bridge.webp");    background-position: 78% 62%; }
+.mark-agents      { background-image: url("assets/plates/scene-forum.webp");     background-position: 40% 58%; }
+.mark-strategy    { background-image: url("assets/plates/scene-road.webp");      background-position: 30% 62%; }
+.mark-rag         { background-image: url("assets/plates/scene-basilica.webp");  background-position: 40% 55%; }
+.mark-skills      { background-image: url("assets/plates/scene-forum.webp");     background-position: 72% 48%; }
+.mark-automation  { background-image: url("assets/plates/scene-port.webp");      background-position: 28% 55%; }
+
+@media (max-width: 680px) {
+  .ledger-row {
+    grid-template-columns: 56px minmax(0, 1fr);
+    row-gap: 4px;
+  }
+
+  .ledger-mark {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ledger-date {
+    grid-column: 2;
+  }
+}
+
+/* an index is a list under its own title: it does not need a section's
+   opening air on top of the hero's closing air */
+.index-section {
+  padding-top: 0;
+}
