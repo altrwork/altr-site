@@ -42,24 +42,29 @@
   "@graph": [
     {
       "@type": "EventSeries",
+      "@id": "https://altrwork.com/ai-workshop.html#upcoming",
       "name": "Claude Workshops for Tampa Bay Small Businesses",
       "description": "Free, in-person Claude workshops for Tampa Bay small business owners. Participants bring a repetitive task and build practical prompts and a reusable workflow.",
       "url": "https://altrwork.com/ai-workshop.html",
       "image": "https://altrwork.com/assets/claude-small-business-workshop-header.png",
       "organizer": { "@id": "https://altrwork.com/#business" },
       "isAccessibleForFree": true,
-      "audience": { "@type": "BusinessAudience", "name": "Tampa Bay small business owners and operators" }
+      "audience": { "@type": "BusinessAudience", "name": "Tampa Bay small business owners and operators" },
+      "subEvent": { "@id": "https://altrwork.com/ai-workshop.html#session-1" }
     },
     {
       "@type": "Event",
-      "name": "Claude AI for Small Business Workshop",
-      "description": "A free, hands-on workshop where Tampa Bay small business owners and operators build practical Claude AI workflows around real business tasks.",
-      "url": "https://luma.com/i0re04ey",
+      "@id": "https://altrwork.com/ai-workshop.html#session-1",
+      "name": "Claude AI for Small Business",
+      "description": "A free, in-person Claude workshop for Tampa Bay small business owners and operators. Bring a real task. Leave with practical prompts and a reusable workflow.",
+      "url": "https://altrwork.com/ai-workshop.html",
+      "sameAs": "https://luma.com/i0re04ey",
       "image": "https://altrwork.com/assets/claude-small-business-workshop-header.png",
       "startDate": "2026-09-22T18:00:00-04:00",
       "endDate": "2026-09-22T20:30:00-04:00",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
+      "superEvent": { "@id": "https://altrwork.com/ai-workshop.html#upcoming" },
       "location": {
         "@type": "Place",
         "name": "ARK Innovation Center",
@@ -76,7 +81,8 @@
       "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
-        "price": "0",
+        "name": "Free registration",
+        "price": 0,
         "priceCurrency": "USD",
         "url": "https://luma.com/i0re04ey",
         "availability": "https://schema.org/InStock"
@@ -87,6 +93,68 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://altrwork.com/" },
         { "@type": "ListItem", "position": 2, "name": "Claude Workshops for Tampa Bay Small Businesses", "item": "https://altrwork.com/ai-workshop.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://altrwork.com/ai-workshop.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the workshop free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Session 1 is free to attend. Registration is on Luma and subject to host approval."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is it for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Small business owners and operators across professional services, home services, healthcare, and other local industries. You do not need a technical background."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where and when is Session 1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tuesday, September 22, 2026, from 6:00 to 8:30 PM at ARK Innovation Center, 1101 4th St S, St. Petersburg, FL 33701."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to bring anything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bring a recurring task and sample material you can safely work with: an email, document, report, request, or process that keeps showing up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I register?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Request to join on Luma at https://luma.com/i0re04ey. Additional Tampa Bay dates will be posted as they are confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a community or Facebook group?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Join the Tampa / St. Pete Claude SMB Training community on Facebook to hear about later session dates: https://www.facebook.com/groups/1381608380707265"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I want a private team workshop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Need a private session for your team? Paid enablement workshops are scoped separately from the free public sessions."
+          }
+        }
       ]
     }
   ]
@@ -138,6 +206,7 @@
           <h3>Session #1 · Claude AI for Small Business</h3>
           <p><strong>Tuesday, September 22, 2026</strong><br />6:00–8:30 PM<br />ARK Innovation Center<br />1101 4th St S, St. Petersburg, FL 33701</p>
           <p><a href="https://luma.com/i0re04ey" target="_blank" rel="noopener">Request to join on Luma</a></p>
+          <p><a href="https://www.facebook.com/groups/1381608380707265" target="_blank" rel="noopener">Join the Tampa / St. Pete Claude SMB Training community on Facebook.</a></p>
         </article>
         <article class="engagement-item">
           <h3>Who it is for</h3>
@@ -199,10 +268,51 @@
       </div>
     </section>
 
+    <section class="section product-page-section" id="faq" aria-labelledby="workshop-faq">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Common questions</div>
+          <h2 id="workshop-faq">What to know before you request a seat.</h2>
+        </div>
+        <p>Session 1 is the first public Claude workshop in this series. Later Tampa Bay dates will be posted as they are confirmed.</p>
+      </div>
+      <div class="content-split">
+        <article class="content-panel">
+          <h3>Is the workshop free?</h3>
+          <p>Yes. Session 1 is free to attend. Registration is on Luma and subject to host approval.</p>
+        </article>
+        <article class="content-panel">
+          <h3>Who is it for?</h3>
+          <p>Small business owners and operators across professional services, home services, healthcare, and other local industries. You do not need a technical background.</p>
+        </article>
+        <article class="content-panel">
+          <h3>Where and when is Session 1?</h3>
+          <p>Tuesday, September 22, 2026, from 6:00 to 8:30 PM at ARK Innovation Center, 1101 4th St S, St. Petersburg, FL 33701.</p>
+        </article>
+        <article class="content-panel">
+          <h3>Do I need to bring anything?</h3>
+          <p>Bring a recurring task and sample material you can safely work with: an email, document, report, request, or process that keeps showing up.</p>
+        </article>
+        <article class="content-panel">
+          <h3>How do I register?</h3>
+          <p><a href="https://luma.com/i0re04ey" target="_blank" rel="noopener">Request to join on Luma</a>. Additional Tampa Bay dates will be posted as they are confirmed.</p>
+        </article>
+        <article class="content-panel">
+          <h3>Is there a community or Facebook group?</h3>
+          <p>Yes. <a href="https://www.facebook.com/groups/1381608380707265" target="_blank" rel="noopener">Join the Tampa / St. Pete Claude SMB Training community on Facebook</a> to hear about later session dates.</p>
+        </article>
+        <article class="content-panel">
+          <h3>What if I want a private team workshop?</h3>
+          <p>Need a private session for your team? Paid enablement workshops are scoped separately from the free public sessions.</p>
+        </article>
+      </div>
+      <p><a href="https://www.facebook.com/groups/1381608380707265" target="_blank" rel="noopener">Join the Tampa / St. Pete Claude SMB Training community on Facebook.</a></p>
+    </section>
+
     <section class="cta-section">
       <div>
         <h2>Join us September 22 in St. Petersburg.</h2>
-        <p>Registration is free and subject to host approval. Need a private session for your team? Our paid enablement workshops are scoped separately.</p>
+        <p>Registration is free and subject to host approval. Need a private session for your team? Our paid enablement workshops are scoped separately. You can also <a href="https://www.facebook.com/groups/1381608380707265" target="_blank" rel="noopener">join the Tampa / St. Pete Claude SMB Training community on Facebook</a>.</p>
       </div>
       <a class="button primary" href="https://luma.com/i0re04ey" target="_blank" rel="noopener">Request to join</a>
     </section>
