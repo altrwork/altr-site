@@ -29,7 +29,12 @@ is 404'd there so it is not served.
 
 - `index.html` - home page.
 - `styles.css` - the base stylesheet. Colors are CSS custom properties in
-  `:root`; the theme is warm paper (`#F7F3EC` ground, `#1A1714` ink, 16:1).
+  `:root`. The site is dark: `#14110E` ground, `#F2EDE4` type, 16.1:1. The
+  token names (`--paper`, `--bone`, `--night`) were never renamed from the
+  original dark theme, so the whole palette is a value swap at the bottom of
+  `redesign.css` rather than a second stylesheet. `--veil-rgb` and `--ink-rgb`
+  carry the two colours that gradients and hairlines are built from, so a
+  theme change does not mean editing 53 gradient stops.
 - `redesign.css` - the design layer, loaded after `styles.css` and holding the
   house rules: one hairline, one radius, one shadow (the keycap press), one
   accent. The rules are stated once with their exceptions listed rather than
@@ -69,8 +74,17 @@ This repo is public; those things must never land in it again.
 
 - Clash Display carries body copy and headings through Fontshare (`--text` and
   `--sans`), while Lora (`--serif`) remains a pull-quote face only.
-- Token names were kept from the previous dark theme so every rule kept
-  resolving through the inversion; only the values changed.
+- Token names were kept through both inversions, so every rule keeps
+  resolving; only the values change. The accent is lifted to `#C2703A` on
+  the dark ground, because `#A65529` only reaches 3.54:1 there and fails
+  body text.
+- The closing band inverts on purpose: `background: var(--bone)` with
+  `color: var(--paper)`. On a dark site that makes it a paper band at the
+  foot of the page, which is the same idea the other way up. Do not
+  "fix" it to match the ground.
+- The scene plates are toned for the ground they sit on. The dark set caps
+  its highlights around `#D4C1A8` so the engraved paper reads as warm stone
+  rather than a lamp.
 - **No fees are published anywhere on the site.** Everything is quoted on a
   call. If pricing returns, update the homepage, `llms.txt`, structured data,
   and the service-page price chips together so the site stays consistent.

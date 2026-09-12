@@ -14,8 +14,10 @@
    =================================================================== */
 
 :root {
-  --rule: rgba(26, 23, 20, 0.13);
-  --rule-ink: rgba(26, 23, 20, 0.28);
+  --veil-rgb: 247, 243, 236;
+  --ink-rgb: 26, 23, 20;
+  --rule: rgba(var(--ink-rgb), 0.13);
+  --rule-ink: rgba(var(--ink-rgb), 0.28);
 
   /* styles.css carries a third hairline at 0.11 and uses it on 70 borders.
      The system allows one weight, plus a heavier one to open a block, so
@@ -176,24 +178,24 @@ h2,
   background: var(--bone);
   color: var(--paper);
   border: 1px solid var(--bone);
-  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.28);
+  box-shadow: 0 3px 0 rgba(var(--ink-rgb), 0.28);
 }
 
 .button.secondary {
   background: var(--paper-raised);
   color: var(--bone);
   border: 1px solid var(--line-control);
-  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.12);
+  box-shadow: 0 3px 0 rgba(var(--ink-rgb), 0.12);
 }
 
 .button:hover {
   transform: translateY(1px);
-  box-shadow: 0 2px 0 rgba(26, 23, 20, 0.24);
+  box-shadow: 0 2px 0 rgba(var(--ink-rgb), 0.24);
 }
 
 .button:active {
   transform: translateY(3px);
-  box-shadow: 0 0 0 rgba(26, 23, 20, 0.2);
+  box-shadow: 0 0 0 rgba(var(--ink-rgb), 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -341,13 +343,13 @@ h2,
 
 .nav-links .nav-cta {
   border-radius: var(--radius);
-  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.22);
+  box-shadow: 0 3px 0 rgba(var(--ink-rgb), 0.22);
   transition: transform 120ms var(--ease-out), box-shadow 120ms var(--ease-out);
 }
 
 .nav-links .nav-cta:hover {
   transform: translateY(1px);
-  box-shadow: 0 2px 0 rgba(26, 23, 20, 0.2);
+  box-shadow: 0 2px 0 rgba(var(--ink-rgb), 0.2);
 }
 
 /* -- closer ------------------------------------------------------- */
@@ -473,14 +475,14 @@ main > section:first-of-type > .band-inner {
   background:
   linear-gradient(90deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.98) 33%,
-  rgba(247, 243, 236, 0.9) 47%,
-  rgba(247, 243, 236, 0.62) 66%,
-  rgba(247, 243, 236, 0.5) 100%),
+  rgba(var(--veil-rgb), 0.98) 33%,
+  rgba(var(--veil-rgb), 0.9) 47%,
+  rgba(var(--veil-rgb), 0.62) 66%,
+  rgba(var(--veil-rgb), 0.5) 100%),
   linear-gradient(180deg,
-  rgba(247, 243, 236, 0.6) 0%,
-  rgba(247, 243, 236, 0.12) 20%,
-  rgba(247, 243, 236, 0.12) 72%,
+  rgba(var(--veil-rgb), 0.6) 0%,
+  rgba(var(--veil-rgb), 0.12) 20%,
+  rgba(var(--veil-rgb), 0.12) 72%,
   var(--paper) 100%);
 }
 
@@ -521,8 +523,8 @@ main > section:first-of-type > .band-inner {
 .hero-plate-bg::after {
   background:
   linear-gradient(180deg,
-  rgba(247, 243, 236, 0.95) 0%,
-  rgba(247, 243, 236, 0.9) 62%,
+  rgba(var(--veil-rgb), 0.95) 0%,
+  rgba(var(--veil-rgb), 0.9) 62%,
   var(--paper) 100%);
 }
 
@@ -768,13 +770,13 @@ select:focus {
   background:
   linear-gradient(90deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.96) 38%,
-  rgba(247, 243, 236, 0.72) 62%,
-  rgba(247, 243, 236, 0.6) 100%),
+  rgba(var(--veil-rgb), 0.96) 38%,
+  rgba(var(--veil-rgb), 0.72) 62%,
+  rgba(var(--veil-rgb), 0.6) 100%),
   linear-gradient(180deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.55) 26%,
-  rgba(247, 243, 236, 0.55) 72%,
+  rgba(var(--veil-rgb), 0.55) 26%,
+  rgba(var(--veil-rgb), 0.55) 72%,
   var(--paper) 100%);
 }
 
@@ -836,7 +838,7 @@ select:focus {
 }
 
 .home-main > .closer .kicker {
-  color: rgba(247, 243, 236, 0.62);
+  color: rgba(var(--veil-rgb), 0.62);
 }
 
 .closer h2 {
@@ -863,13 +865,13 @@ select:focus {
 .home-main > .closer .button.secondary {
   color: var(--paper);
   background: transparent;
-  border-color: rgba(247, 243, 236, 0.42);
-  box-shadow: 0 3px 0 rgba(247, 243, 236, 0.16);
+  border-color: rgba(var(--veil-rgb), 0.42);
+  box-shadow: 0 3px 0 rgba(var(--veil-rgb), 0.16);
 }
 
 .home-main > .closer .button.secondary:hover {
   border-color: var(--paper);
-  box-shadow: 0 2px 0 rgba(247, 243, 236, 0.16);
+  box-shadow: 0 2px 0 rgba(var(--veil-rgb), 0.16);
 }
 
 .home-main > .closer .closer-note {
@@ -878,7 +880,7 @@ select:focus {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(247, 243, 236, 0.5);
+  color: rgba(var(--veil-rgb), 0.5);
 }
 
 @media (max-width: 860px) {
@@ -890,8 +892,8 @@ select:focus {
 
 .home-why-bg::after {
   background: linear-gradient(180deg,
-  rgba(247, 243, 236, 0.95) 0%,
-  rgba(247, 243, 236, 0.9) 60%,
+  rgba(var(--veil-rgb), 0.95) 0%,
+  rgba(var(--veil-rgb), 0.9) 60%,
   var(--paper) 100%);
 }
 
@@ -1124,13 +1126,13 @@ select:focus {
   background:
   linear-gradient(90deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.94) 32%,
-  rgba(247, 243, 236, 0.62) 54%,
-  rgba(247, 243, 236, 0.34) 100%),
+  rgba(var(--veil-rgb), 0.94) 32%,
+  rgba(var(--veil-rgb), 0.62) 54%,
+  rgba(var(--veil-rgb), 0.34) 100%),
   linear-gradient(180deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.24) 22%,
-  rgba(247, 243, 236, 0.24) 72%,
+  rgba(var(--veil-rgb), 0.24) 22%,
+  rgba(var(--veil-rgb), 0.24) 72%,
   var(--paper) 100%);
 }
 
@@ -1278,8 +1280,8 @@ select:focus {
 
 .hero-plate-bg::after {
   background: linear-gradient(180deg,
-  rgba(247, 243, 236, 0.94) 0%,
-  rgba(247, 243, 236, 0.9) 62%,
+  rgba(var(--veil-rgb), 0.94) 0%,
+  rgba(var(--veil-rgb), 0.9) 62%,
   var(--paper) 100%);
 }
 
@@ -1334,13 +1336,13 @@ select:focus {
   background:
   linear-gradient(90deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.96) 40%,
-  rgba(247, 243, 236, 0.74) 66%,
-  rgba(247, 243, 236, 0.62) 100%),
+  rgba(var(--veil-rgb), 0.96) 40%,
+  rgba(var(--veil-rgb), 0.74) 66%,
+  rgba(var(--veil-rgb), 0.62) 100%),
   linear-gradient(180deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.58) 28%,
-  rgba(247, 243, 236, 0.58) 70%,
+  rgba(var(--veil-rgb), 0.58) 28%,
+  rgba(var(--veil-rgb), 0.58) 70%,
   var(--paper) 100%);
 }
 
@@ -1364,8 +1366,8 @@ select:focus {
   .wash::after,
   .cta-section::after {
     background: linear-gradient(180deg,
-    rgba(247, 243, 236, 0.95) 0%,
-    rgba(247, 243, 236, 0.9) 60%,
+    rgba(var(--veil-rgb), 0.95) 0%,
+    rgba(var(--veil-rgb), 0.9) 60%,
     var(--paper) 100%);
   }
 
@@ -1465,24 +1467,24 @@ select {
 
 .button.primary,
 .nav-links .nav-cta {
-  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.28) !important;
+  box-shadow: 0 3px 0 rgba(var(--ink-rgb), 0.28) !important;
 }
 
 .button.secondary {
-  box-shadow: 0 3px 0 rgba(26, 23, 20, 0.12) !important;
+  box-shadow: 0 3px 0 rgba(var(--ink-rgb), 0.12) !important;
 }
 
 .button:hover,
 .nav-links .nav-cta:hover {
-  box-shadow: 0 2px 0 rgba(26, 23, 20, 0.24) !important;
+  box-shadow: 0 2px 0 rgba(var(--ink-rgb), 0.24) !important;
 }
 
 .button:active {
-  box-shadow: 0 0 0 rgba(26, 23, 20, 0.2) !important;
+  box-shadow: 0 0 0 rgba(var(--ink-rgb), 0.2) !important;
 }
 
 .home-main > .closer .button.secondary {
-  box-shadow: 0 3px 0 rgba(247, 243, 236, 0.16) !important;
+  box-shadow: 0 3px 0 rgba(var(--veil-rgb), 0.16) !important;
 }
 
 /* a focus ring is not decoration */
@@ -1643,14 +1645,14 @@ h2 + p {
   background:
   linear-gradient(90deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.96) 26%,
-  rgba(247, 243, 236, 0.8) 42%,
-  rgba(247, 243, 236, 0.4) 62%,
-  rgba(247, 243, 236, 0.18) 100%),
+  rgba(var(--veil-rgb), 0.96) 26%,
+  rgba(var(--veil-rgb), 0.8) 42%,
+  rgba(var(--veil-rgb), 0.4) 62%,
+  rgba(var(--veil-rgb), 0.18) 100%),
   linear-gradient(180deg,
-  rgba(247, 243, 236, 0.6) 0%,
-  rgba(247, 243, 236, 0.12) 20%,
-  rgba(247, 243, 236, 0.12) 72%,
+  rgba(var(--veil-rgb), 0.6) 0%,
+  rgba(var(--veil-rgb), 0.12) 20%,
+  rgba(var(--veil-rgb), 0.12) 72%,
   var(--paper) 100%);
 }
 
@@ -1872,14 +1874,14 @@ h2 + p {
   background:
   linear-gradient(90deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.97) 30%,
-  rgba(247, 243, 236, 0.78) 46%,
-  rgba(247, 243, 236, 0.34) 66%,
-  rgba(247, 243, 236, 0.14) 100%),
+  rgba(var(--veil-rgb), 0.97) 30%,
+  rgba(var(--veil-rgb), 0.78) 46%,
+  rgba(var(--veil-rgb), 0.34) 66%,
+  rgba(var(--veil-rgb), 0.14) 100%),
   linear-gradient(180deg,
-  rgba(247, 243, 236, 0.5) 0%,
-  rgba(247, 243, 236, 0.06) 22%,
-  rgba(247, 243, 236, 0.06) 70%,
+  rgba(var(--veil-rgb), 0.5) 0%,
+  rgba(var(--veil-rgb), 0.06) 22%,
+  rgba(var(--veil-rgb), 0.06) 70%,
   var(--paper) 100%);
 }
 
@@ -1892,9 +1894,9 @@ h2 + p {
   .hero-scene::after {
     background:
     linear-gradient(180deg,
-    rgba(247, 243, 236, 0.88) 0%,
-    rgba(247, 243, 236, 0.82) 52%,
-    rgba(247, 243, 236, 0.3) 78%,
+    rgba(var(--veil-rgb), 0.88) 0%,
+    rgba(var(--veil-rgb), 0.82) 52%,
+    rgba(var(--veil-rgb), 0.3) 78%,
     var(--paper) 100%);
   }
 }
@@ -1907,3 +1909,98 @@ h2 + p {
 .scene-forum::before     { background-image: url("assets/plates/scene-forum.webp"); }
 .scene-bridge::before    { background-image: url("assets/plates/scene-bridge.webp"); }
 .scene-road::before      { background-image: url("assets/plates/scene-road.webp"); }
+
+/* =================================================================
+   Dark. The token names were never changed from the original dark
+   theme, so this is a value swap rather than a second stylesheet.
+   ================================================================= */
+:root {
+  --veil-rgb: 20, 17, 14;
+  --ink-rgb: 242, 237, 228;
+
+  --paper: #14110E;
+  --paper-sunk: #0E0C0A;
+  --paper-raised: #1C1815;
+  --night: #0E0C0A;
+  --night-2: #14110E;
+  --night-3: #1C1815;
+
+  --bone: #F2EDE4;
+  --bone-soft: #D6CEC2;
+  --bone-dim: #A79C8D;
+
+  /* #A65529 manages only 3.54:1 on this ground, so the accent is lifted
+     to 5.08:1 and stays copper rather than turning orange */
+  --copper: #C2703A;
+  --sage: var(--copper);
+  --steel: var(--bone-dim);
+
+  --line-strong: rgba(var(--ink-rgb), 0.24);
+  --line-control: rgba(var(--ink-rgb), 0.42);
+  --plate-ground: #1C1815;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--bone);
+}
+
+/* the keycap is pressed out of paper, so on ink it needs the cream cut */
+.brand-mark {
+  background-image: url("assets/altr_key_logo_cream_taupe_transparent.png");
+}
+
+/* a keycap on a dark ground presses the other way: light cap, dark legend */
+.button.primary,
+.nav-links .nav-cta {
+  background: var(--bone);
+  color: var(--paper);
+  border-color: var(--bone);
+}
+
+.button.primary:hover,
+.nav-links .nav-cta:hover {
+  background: #FFFFFF;
+  color: var(--paper);
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--bone);
+  border-color: var(--line-control);
+}
+
+.button.secondary:hover {
+  border-color: var(--bone);
+}
+
+/* images sat on a literal white card, which is a lamp on this ground */
+.real-estate-card-image,
+.cre-hero-image img,
+.workshop-hero-image img,
+.article-inline-media img {
+  background: var(--plate-ground);
+}
+
+.workshop-calendar iframe {
+  background: var(--paper-raised);
+}
+
+/* the mobile menu was opaque white */
+@media (max-width: 680px) {
+  .nav-links {
+    background: var(--paper-raised);
+    border-color: var(--line-strong);
+  }
+}
+
+/* the nav sits over a scene now, so it needs its own ground */
+.nav {
+  background: rgba(var(--veil-rgb), 0.82);
+}
+
+/* The closing band already inverts: background var(--bone), color
+   var(--paper). Swapping the tokens turns it into a paper band at the
+   foot of an ink site, which is the same idea the other way up, so it
+   is left alone. */
