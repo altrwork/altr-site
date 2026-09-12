@@ -1248,8 +1248,8 @@ select:focus {
 
 /* -- H. Press band: the closer, already built, retuned ------------ */
 .closer {
-  padding-top: var(--air-l);
-  padding-bottom: var(--air-l);
+  padding-top: var(--air-m);
+  padding-bottom: var(--air-m);
 }
 
 /* -- motion: nothing over 150ms except the key press -------------- */
@@ -1345,8 +1345,10 @@ select:focus {
 .cta-section {
   padding-left: var(--gutter);
   padding-right: var(--gutter);
-  padding-top: var(--air-m);
-  padding-bottom: var(--air-m);
+  /* a band holding one line and a button does not need the air a full
+     section gets: measured at 363px tall for 173 characters, 62% padding */
+  padding-top: var(--air-s);
+  padding-bottom: var(--air-s);
 }
 
 @media (max-width: 900px) {
@@ -1565,4 +1567,13 @@ img {
    unchanged, so the two-line headline is unaffected. */
 .page-hero h1.hero-title-long {
   font-size: clamp(36px, 5.4vw, 58px);
+}
+
+/* h2 carries margin-bottom: 0 so section headers can control their own
+   spacing, but where an h2 is followed directly by body copy that left a
+   51px headline sitting 0px above its paragraph, in every closing band.
+   The body rhythm is 12px under a 20px h3; a headline this size needs
+   more. Class rules still win, so deliberate spacing is untouched. */
+h2 + p {
+  margin-top: 16px;
 }
