@@ -1400,10 +1400,18 @@ select:focus {
   background-repeat: no-repeat;
 }
 
-.hero-cut-plan   { background-image: url("assets/plates/cut-plan.webp"); }
-.hero-cut-vault  { background-image: url("assets/plates/cut-vault.webp"); }
-.hero-cut-window { background-image: url("assets/plates/cut-window.webp"); }
-.hero-cut-stone  { background-image: url("assets/plates/cut-stone.webp"); }
+/* Scenes, not object plates: each industry gets a place with people and
+   buildings in it rather than a sheet of sections and elevations. These
+   fill their panel, so the image is a wall rather than a floating mark. */
+.hero-cut {
+  background-size: cover;
+  border: 1px solid var(--rule);
+}
+
+.hero-cut-plan   { background-image: url("assets/plates/scene-colosseum.webp"); }
+.hero-cut-vault  { background-image: url("assets/plates/scene-piazza.webp"); }
+.hero-cut-window { background-image: url("assets/plates/scene-port.webp"); }
+.hero-cut-stone  { background-image: url("assets/plates/scene-basilica.webp"); }
 
 @media (max-width: 900px) {
   .page-hero-cut {
