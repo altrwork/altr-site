@@ -68,6 +68,21 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn("generate_lead", (ROOT / "start-a-conversation.html").read_text(encoding="utf-8"))
         self.assertIn("generate_lead", (ROOT / "lead-magnet-form.js").read_text(encoding="utf-8"))
 
+    def test_field_guide_form_has_capture_and_download_fallbacks(self):
+        html = (ROOT / "ai-in-real-estate-guide.html").read_text(encoding="utf-8")
+        script = (ROOT / "lead-magnet-form.js").read_text(encoding="utf-8")
+
+        self.assertIn('name="subject"', html)
+        self.assertIn('data-remove-prefix', html)
+        self.assertIn('id="lead-form-status"', html)
+        self.assertIn("fetch('/',", script)
+        self.assertIn("output/pdf/ai-in-real-estate-field-guide.pdf", script)
+
+    def test_field_guide_pdf_is_forced_to_download(self):
+        headers = (ROOT / "_headers").read_text(encoding="utf-8")
+        self.assertIn("/output/pdf/ai-in-real-estate-field-guide.pdf", headers)
+        self.assertIn('Content-Disposition: attachment; filename="AI-in-Real-Estate-Field-Guide.pdf"', headers)
+
     def test_content_card_images_have_alt_text(self):
         for name in ("tutorials.html", "case-studies.html"):
             html = (ROOT / name).read_text(encoding="utf-8")

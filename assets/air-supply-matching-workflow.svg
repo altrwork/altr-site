@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">AIR Supply founder-advisor matching and follow-up workflow</title>
+  <desc id="desc">BossHub intake forms feed a Claude matchmaker skill. A team member reviews the proposed pairs before they are added to a shared Slack List. A second skill uses that list for monthly Slack check-ins and quarterly BossHub feedback.</desc>
+  <rect width="1920" height="1080" fill="#fbf8f3"/>
+
+  <image href="spark-labs-logo-dark.svg" x="56" y="38" width="130" height="69"/>
+  <text x="1864" y="69" text-anchor="end" fill="#77747d" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="2">AIR SUPPLY WORKFLOW</text>
+
+  <text x="92" y="215" fill="#1C1B29" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800">From introductions to an active advisor network</text>
+  <text x="92" y="286" fill="#66636d" font-family="Arial, Helvetica, sans-serif" font-size="28">Matching, shared records, and follow-up in one system the spARK Labs team can run.</text>
+
+  <rect x="34" y="365" width="1852" height="365" fill="#1C1B29" fill-opacity="0.07"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g transform="translate(92 405)">
+      <rect width="320" height="250" rx="8" fill="#fff" stroke="#dedbe0" stroke-width="2"/>
+      <rect x="26" y="26" width="104" height="36" rx="18" fill="#fbf8f3"/>
+      <text x="78" y="50" text-anchor="middle" fill="#E52E71" font-size="16" font-weight="700">BOSSHUB</text>
+      <text x="26" y="111" fill="#1C1B29" font-size="28" font-weight="800">Collect needs</text>
+      <text x="26" y="153" fill="#66636d" font-size="20">
+        <tspan x="26" dy="0">Founders and advisors</tspan>
+        <tspan x="26" dy="28">submit structured forms.</tspan>
+      </text>
+    </g>
+
+    <path d="M426 530h30" stroke="#FFB347" stroke-width="7" stroke-linecap="round"/>
+    <path d="m448 518 14 12-14 12" fill="none" stroke="#FFB347" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(468 405)">
+      <rect width="320" height="250" rx="8" fill="#fff" stroke="#dedbe0" stroke-width="2"/>
+      <rect x="26" y="26" width="96" height="36" rx="18" fill="#fbf8f3"/>
+      <text x="74" y="50" text-anchor="middle" fill="#E52E71" font-size="16" font-weight="700">CLAUDE</text>
+      <text x="26" y="111" fill="#1C1B29" font-size="28" font-weight="800">Score the fit</text>
+      <text x="26" y="153" fill="#66636d" font-size="20">
+        <tspan x="26" dy="0">A skill scores needs, offers,</tspan>
+        <tspan x="26" dy="28">context, and advisor load.</tspan>
+      </text>
+    </g>
+
+    <path d="M802 530h30" stroke="#FFB347" stroke-width="7" stroke-linecap="round"/>
+    <path d="m824 518 14 12-14 12" fill="none" stroke="#FFB347" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(844 405)">
+      <rect width="320" height="250" rx="8" fill="#fff" stroke="#dedbe0" stroke-width="2"/>
+      <rect x="26" y="26" width="128" height="36" rx="18" fill="#fff3da"/>
+      <text x="90" y="50" text-anchor="middle" fill="#9a641c" font-size="16" font-weight="700">TEAM REVIEW</text>
+      <text x="26" y="111" fill="#1C1B29" font-size="28" font-weight="800">Confirm pairs</text>
+      <text x="26" y="153" fill="#66636d" font-size="20">
+        <tspan x="26" dy="0">An operator reviews matches</tspan>
+        <tspan x="26" dy="28">before introductions go out.</tspan>
+      </text>
+    </g>
+
+    <path d="M1178 530h30" stroke="#FFB347" stroke-width="7" stroke-linecap="round"/>
+    <path d="m1200 518 14 12-14 12" fill="none" stroke="#FFB347" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(1220 405)">
+      <rect width="320" height="250" rx="8" fill="#fff" stroke="#dedbe0" stroke-width="2"/>
+      <rect x="26" y="26" width="78" height="36" rx="18" fill="#fbf8f3"/>
+      <text x="65" y="50" text-anchor="middle" fill="#E52E71" font-size="16" font-weight="700">SLACK</text>
+      <text x="26" y="111" fill="#1C1B29" font-size="28" font-weight="800">Share the record</text>
+      <text x="26" y="153" fill="#66636d" font-size="20">
+        <tspan x="26" dy="0">Introductions and status live</tspan>
+        <tspan x="26" dy="28">in one shared Slack List.</tspan>
+      </text>
+    </g>
+
+    <path d="M1554 530h30" stroke="#FFB347" stroke-width="7" stroke-linecap="round"/>
+    <path d="m1576 518 14 12-14 12" fill="none" stroke="#FFB347" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(1596 405)">
+      <rect width="232" height="250" rx="8" fill="#fff" stroke="#dedbe0" stroke-width="2"/>
+      <rect x="26" y="26" width="134" height="36" rx="18" fill="#fbf8f3"/>
+      <text x="93" y="50" text-anchor="middle" fill="#E52E71" font-size="16" font-weight="700">SLACK + FORMS</text>
+      <text x="26" y="111" fill="#1C1B29" font-size="28" font-weight="800">Keep it active</text>
+      <text x="26" y="153" fill="#66636d" font-size="20">
+        <tspan x="26" dy="0">Monthly check-ins.</tspan>
+        <tspan x="26" dy="28">Quarterly feedback.</tspan>
+      </text>
+    </g>
+  </g>
+
+  <rect x="92" y="810" width="1736" height="126" rx="8" fill="#E52E71" fill-opacity="0.08" stroke="#E52E71" stroke-opacity="0.45" stroke-width="2"/>
+  <text x="126" y="858" fill="#E52E71" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing="1.5">OPERATING PRINCIPLE</text>
+  <text x="126" y="903" fill="#1C1B29" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">The team approves every match; the system preserves the record and prompts the follow-through.</text>
+
+  <text x="92" y="1028" fill="#77747d" font-family="Arial, Helvetica, sans-serif" font-size="17">BossHub intake → Claude skills → human review → Slack List → recurring follow-up</text>
+</svg>

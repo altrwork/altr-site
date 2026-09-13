@@ -1734,6 +1734,18 @@ to {
   accent-color: var(--copper);
 }
 
+.lead-form-status {
+  margin: 14px 0 0;
+  color: var(--bone);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.lead-form-status a {
+  color: var(--copper);
+  font-weight: 700;
+}
+
 .lead-form-note {
   margin: 14px 0 0;
   color: var(--bone-dim);
