@@ -66,12 +66,10 @@ Contact: inquiries@altrwork.com
 
 ## Frameworks
 
-- [AI Strategy](https://altrwork.com/how-we-altr-work.html): how altr maps, proves, and sequences AI workflow opportunities using the 4D decision framework
 
 ## Blog
 
 - [Blog](https://altrwork.com/tutorials.html): step-by-step guides on MCP, agents, and AI infrastructure
-- [Journal](https://altrwork.com/tutorials.html): technical notes on practical AI systems
 
 ## Optional
 

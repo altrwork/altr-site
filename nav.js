@@ -7,7 +7,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   const setOpen = (dropdown, isOpen) => {
     dropdown.classList.toggle('is-open', isOpen);
     dropdown.querySelector('.nav-dropdown-trigger')
-      .setAttribute('aria-expanded', String(isOpen));
+      ?.setAttribute('aria-expanded', String(isOpen));
   };
   const closeAll = except => dropdowns.forEach(d => { if (d !== except) setOpen(d, false); });
 
@@ -43,9 +43,10 @@ document.querySelectorAll('.nav').forEach(nav => {
     const open = dropdowns.find(d => d.classList.contains('is-open'));
     if (open) {
       setOpen(open, false);
-      open.querySelector('.nav-dropdown-trigger').focus();
-    } else {
+      open.querySelector('.nav-dropdown-trigger')?.focus();
+    } else if (nav.classList.contains('is-menu-open')) {
       setMenuOpen(false);
+      toggle?.focus();
     }
   });
 

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
 
 /* ===================================================================
    altr - editorial design layer
@@ -24,7 +23,6 @@
      --line is aliased rather than left as a second opinion. */
   --line: var(--rule);
   --plate-ground: #EDE4D6;
-  --section-air: clamp(60px, 7.2vw, 112px);
   --gutter: clamp(20px, 5vw, 48px);
 }
 
@@ -273,11 +271,6 @@ h2,
   padding: clamp(26px, 2.6vw, 40px) clamp(24px, 2.4vw, 38px);
 }
 
-.impact-card-body,
-.tutorial-card-body {
-  padding: clamp(22px, 2.2vw, 30px) clamp(22px, 2.2vw, 30px) clamp(24px, 2.4vw, 32px);
-}
-
 .work-more {
   display: inline-block;
   margin-top: 16px;
@@ -461,30 +454,6 @@ main > section:first-of-type > .band-inner {
   overflow: hidden;
 }
 
-.hero-plate-bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("assets/plates/bg-workshop.webp") 72% center / cover no-repeat;
-}
-
-.hero-plate-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-  linear-gradient(90deg,
-  var(--paper) 0%,
-  rgba(var(--veil-rgb), 0.98) 33%,
-  rgba(var(--veil-rgb), 0.9) 47%,
-  rgba(var(--veil-rgb), 0.62) 66%,
-  rgba(var(--veil-rgb), 0.5) 100%),
-  linear-gradient(180deg,
-  rgba(var(--veil-rgb), 0.6) 0%,
-  rgba(var(--veil-rgb), 0.12) 20%,
-  rgba(var(--veil-rgb), 0.12) 72%,
-  var(--paper) 100%);
-}
 
 .hero-plate-inner {
   width: 100%;
@@ -909,11 +878,6 @@ select:focus {
    structure, not from simulated light.
    =================================================================== */
 
-:root {
-  /* square everything. the only rounded things on the site are the
-   ones you can press, because the keycap is the brand. */
-  --radius: 0px;
-}
 
 /* no panel keeps a gradient fill or a drop shadow */
 .content-split,
@@ -957,55 +921,6 @@ select:focus {
   box-shadow: none;
 }
 
-/* -- blog thumbnails: plate, not pastel --------------------------- */
-/* six colored diagonal gradients, three of them off-palette, were the
-   loudest break in the site. One engraving - the Serrurerie catalogue
-   of forms - supplies all six, cropped to a different region each, so
-   the categories still read apart while belonging to one system. */
-.tutorial-card-thumb {
-  position: relative;
-  height: 150px;
-  background: var(--paper-sunk);
-  border-bottom: 1px solid var(--rule);
-  background-image: url("assets/plates/plate-pattern.webp");
-  background-size: 260% auto;
-  background-repeat: no-repeat;
-  opacity: 0.74;
-}
-
-.tutorial-thumb-mcp {
-  background-position: 6% 14%;
-}
-
-.tutorial-thumb-agents {
-  background-position: 38% 30%;
-}
-
-.tutorial-thumb-strategy {
-  background-position: 70% 20%;
-}
-
-.tutorial-thumb-rag {
-  background-position: 18% 62%;
-}
-
-.tutorial-thumb-skills {
-  background-position: 86% 56%;
-}
-
-/* one copper rule under every thumb, and the label carries the category.
-   Six tint families were doing a job that one word already does. */
-.tutorial-card-thumb::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 2px;
-  background: var(--copper);
-  opacity: 0.55;
-}
-
 /* ===================================================================
    Sitewide system, part 2: one vertical rhythm
    -------------------------------------------------------------------
@@ -1035,48 +950,6 @@ select:focus {
 .product-page-section + .product-page-section,
 .article-section + .article-section {
   border-top: 1px solid var(--rule);
-}
-
-/* category labels: mono, no pill, no tint - including the lavender,
-   amber and cornflower that belonged to no palette on the site */
-.tutorial-card-tag,
-.impact-card-featured,
-.tutorial-tag-mcp,
-.tutorial-tag-agents,
-.tutorial-tag-strategy,
-.tutorial-tag-rag,
-.tutorial-tag-automation,
-.tutorial-tag-skills,
-.tutorial-tag-nonprofit,
-.tutorial-tag-real-estate,
-.tutorial-tag-ecommerce,
-.tutorial-tag-technology {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--bone-dim);
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.tutorial-card:hover .tutorial-card-tag,
-.impact-card:hover .tutorial-card-tag {
-  color: var(--copper);
-}
-
-/* "Featured" is the one label that should still read as a flag */
-.impact-card-featured {
-  color: var(--copper);
-}
-
-.impact-card-footer {
-  display: flex;
-  gap: 18px;
-  align-items: baseline;
 }
 
 /* ===================================================================
@@ -1373,62 +1246,6 @@ select:focus {
 
 }
 
-/* -- the cutout library, one mark per page family ----------------- */
-/* a plate belongs to a page rather than floating across the site, so
-   an industry is recognisable by its engraving */
-.page-hero-cut {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  /* column gap only: a shared gap would space the copy stack apart too */
-  column-gap: clamp(24px, 4vw, 64px);
-  row-gap: 0;
-  align-content: start;
-  grid-auto-rows: min-content;
-}
-
-.page-hero-cut > *:not(.hero-cut) {
-  grid-column: 1;
-}
-
-.hero-cut {
-  grid-column: 2;
-  grid-row: 1 / span 99;
-  align-self: center;
-  min-height: 260px;
-  height: 100%;
-  max-height: 420px;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/* Scenes, not object plates: each industry gets a place with people and
-   buildings in it rather than a sheet of sections and elevations. These
-   fill their panel, so the image is a wall rather than a floating mark. */
-.hero-cut {
-  background-size: cover;
-  border: 1px solid var(--rule);
-}
-
-.hero-cut-plan   { background-image: url("assets/plates/scene-colosseum.webp"); }
-.hero-cut-vault  { background-image: url("assets/plates/scene-piazza.webp"); }
-.hero-cut-window { background-image: url("assets/plates/scene-port.webp"); }
-.hero-cut-stone  { background-image: url("assets/plates/scene-basilica.webp"); }
-
-@media (max-width: 900px) {
-  .page-hero-cut {
-    grid-template-columns: 1fr;
-  }
-
-.hero-cut {
-  grid-column: 1;
-  grid-row: auto;
-  max-height: 260px;
-  margin-top: 24px;
-}
-
-}
-
 /* ===================================================================
    House rules, enforced rather than enumerated
    -------------------------------------------------------------------
@@ -1487,9 +1304,13 @@ select {
   box-shadow: 0 3px 0 rgba(var(--veil-rgb), 0.16) !important;
 }
 
-/* a focus ring is not decoration */
+/* A focus ring is not decoration, and it has to clear 3:1 against the
+   ground it sits on (WCAG 2.2 SC 1.4.11). The old ring hardcoded the
+   light-theme copper at 0.22 alpha, which composites to 1.22:1 on ink
+   and is invisible. Solid accent, which measures 5.08:1. */
 :focus-visible {
-  box-shadow: 0 0 0 3px rgba(166, 85, 41, 0.22) !important;
+  box-shadow: 0 0 0 3px var(--copper) !important;
+  outline-color: var(--copper) !important;
 }
 
 /* the current page is marked with a rule, not a glow */
@@ -1553,21 +1374,6 @@ body::before {
   }
 }
 
-/* A card is one destination, so the card is the target. The thumbnail
-   already links to the same page and is hidden from assistive tech, so
-   stretching the title link over the card adds no second announcement. */
-.impact-card,
-.tutorial-card {
-  position: relative;
-}
-
-.impact-card-title a::after,
-.tutorial-card-title a::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-
 /* -- images keep their own shape ---------------------------------- */
 /* An <img> width/height attribute is a presentational hint, so any rule
    that sets width but not height leaves the attribute height standing:
@@ -1618,10 +1424,6 @@ h2 + p {
 .intake-form {
   background-color: var(--paper-sunk);
 }
-
-.hero-cut-forum  { background-image: url("assets/plates/scene-forum.webp"); }
-.hero-cut-bridge { background-image: url("assets/plates/scene-bridge.webp"); }
-.hero-cut-road   { background-image: url("assets/plates/scene-road.webp"); }
 
 /* -- the strategy hero ------------------------------------------- */
 /* It ran a canvas of pale rounded keycaps drifting behind the headline:
@@ -1738,10 +1540,10 @@ h2 + p {
 .mark-strategy    { background-image: url("assets/plates/scene-road.webp");      background-position: 30% 62%; }
 .mark-rag         { background-image: url("assets/plates/scene-basilica.webp");  background-position: 40% 55%; }
 .mark-skills      { background-image: url("assets/plates/scene-forum.webp");     background-position: 72% 48%; }
-.mark-automation  { background-image: url("assets/plates/scene-port.webp");      background-position: 28% 55%; }
 
 @media (max-width: 900px) {
   .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
 }
 
 /* One column on a phone, but stacking a 16:9 plate over every card makes
@@ -1892,6 +1694,10 @@ h2 + p {
 
 html,
 body {
+  /* without this the UA keeps light defaults for what it paints itself:
+     Chrome's autofill fill goes pale behind cream text on the intake form,
+     and scrollbars and select popups stay light against the ink page */
+  color-scheme: dark;
   background: var(--paper);
   color: var(--bone);
 }

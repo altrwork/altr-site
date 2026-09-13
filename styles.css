@@ -154,7 +154,7 @@ h4 {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(166, 85, 41, 0.62);
+  outline: 3px solid var(--copper);
   outline-offset: 4px;
 }
 
@@ -516,13 +516,6 @@ h4 {
   text-underline-offset: 3px;
 }
 
-.hero {
-  min-height: clamp(650px, calc(100svh - var(--nav-height)), 850px);
-  display: grid;
-  place-items: center;
-  padding: clamp(78px, 10vw, 148px) 0 clamp(68px, 8vw, 108px);
-}
-
 .hero-actions,
 .page-hero-actions {
   display: flex;
@@ -651,33 +644,6 @@ to {
   margin-bottom: 42px;
 }
 
-.impact-grid,
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.impact-card {
-  min-height: 430px;
-  display: flex;
-  flex-direction: column;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(var(--ink-rgb), 0.055);
-  transition-property: transform, border-color, background-color, box-shadow;
-  transition-duration: 220ms;
-  transition-timing-function: var(--ease-out);
-}
-
-.impact-card:hover,
-.featured-work-card:hover,
-.work-list-item:hover,
-.resource-item:hover {
-  border-color: var(--line-strong);
-}
-
 .impact-card:hover,
 .featured-work-card:hover,
 .work-list-item:hover,
@@ -689,15 +655,6 @@ to {
   transform: translateY(-4px);
   background-color: rgba(var(--ink-rgb), 0.07);
   box-shadow: 0 14px 32px rgba(var(--ink-rgb), 0.08);
-}
-
-.impact-card:hover .impact-card-logo-wrap {
-  transform: translateY(-2px) scale(1.01);
-  background-color: rgba(var(--ink-rgb), 0.055);
-}
-
-.impact-card h3 {
-  font-size: clamp(24px, 2.6vw, 34px);
 }
 
 .trust-panel,
@@ -1641,154 +1598,6 @@ to {
   cursor: pointer;
 }
 
-/* ── Case studies grid ──────────────────────────────── */
-
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.impact-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 180ms ease, transform 180ms ease;
-}
-
-.impact-card.is-hidden {
-  display: none;
-}
-
-.impact-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-
-.impact-card-thumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 140px;
-  padding: 28px;
-  background: #1A1510;
-  border-bottom: 1px solid var(--line);
-  text-decoration: none;
-  flex: 0 0 auto;
-}
-
-.impact-card-thumb img {
-  max-width: 100%;
-  max-height: 68px;
-  width: auto;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-.impact-card-image-thumb {
-  padding: 0;
-  background: var(--paper);
-}
-
-.impact-card-image-thumb picture {
-  width: 100%;
-  height: 100%;
-}
-
-.impact-card-image-thumb img {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  object-fit: cover;
-}
-
-.impact-card-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 18px;
-}
-
-.impact-card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.impact-card-title {
-  margin: 0 0 10px;
-  font-size: 16px;
-  line-height: 1.3;
-}
-
-.impact-card-title a {
-  color: var(--bone);
-  text-decoration: none;
-  transition: color 140ms ease;
-}
-
-.impact-card-title a:hover {
-  color: var(--copper);
-}
-
-.impact-card-desc {
-  margin: 0 0 16px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--bone-dim);
-  flex: 1;
-}
-
-.impact-card-footer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.impact-card-featured {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--copper);
-  padding: 3px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(166, 85, 41, 0.3);
-}
-
-/* Industry tags */
-.tutorial-tag-nonprofit  { background: rgba(79, 107, 67, 0.18); color: var(--sage); }
-.tutorial-tag-ecommerce  { background: rgba(166, 85, 41, 0.18); color: var(--copper); }
-.tutorial-tag-technology { background: rgba(78, 104, 112, 0.18); color: var(--steel); }
-.tutorial-tag-real-estate { background: rgba(127, 91, 48, 0.18); color: #9a6635; }
-
-/* Impact list view */
-.impact-grid.is-list {
-  grid-template-columns: 1fr;
-}
-
-.impact-grid.is-list .impact-card {
-  flex-direction: row;
-}
-
-.impact-grid.is-list .impact-card-thumb {
-  width: 180px;
-  flex: 0 0 180px;
-  height: auto;
-  min-height: 120px;
-  border-bottom: none;
-  border-right: 1px solid var(--line);
-}
-
-.impact-grid.is-list .impact-card-body {
-  padding: 20px;
-}
-
 /* ── Real estate field guides ─────────────────────── */
 
 .real-estate-section {
@@ -2270,363 +2079,6 @@ to {
 
 }
 
-/* ── Tutorials page ─────────────────────────────────── */
-
-.tutorials-section {
-  padding-top: 0;
-}
-
-.tutorials-layout {
-  display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 64px);
-  align-items: start;
-}
-
-/* Sidebar */
-.tutorials-sidebar {
-  position: sticky;
-  top: calc(var(--nav-height) + 24px);
-}
-
-.tutorials-filter-heading {
-  margin: 0 0 16px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--steel);
-}
-
-.tutorials-filter-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.tutorials-filter-heading {
-  margin: 0;
-}
-
-.tutorials-filter-clear {
-  border: none;
-  background: none;
-  color: var(--copper);
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 0;
-  transition: opacity 140ms ease;
-}
-
-.tutorials-filter-clear:hover {
-  opacity: 0.72;
-}
-
-.tutorials-filter-group-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 0 10px;
-  border: none;
-  border-bottom: 1px solid var(--line);
-  background: none;
-  color: var(--bone);
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 8px;
-}
-
-.tutorials-filter-group-toggle svg {
-  transition: transform 200ms ease;
-}
-
-.tutorials-filter-options {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.tutorials-filter-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 10px;
-  border-radius: 6px;
-  color: var(--bone-soft);
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 140ms ease, color 140ms ease;
-  user-select: none;
-}
-
-.tutorials-filter-label:hover {
-  background: rgba(var(--ink-rgb), 0.06);
-  color: var(--bone);
-}
-
-.tutorials-filter-check {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.tutorials-filter-check:focus-visible ~ .tutorials-check-mark {
-  outline: 3px solid rgba(166, 85, 41, 0.62);
-  outline-offset: 3px;
-}
-
-.tutorials-check-mark {
-  flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid var(--line-control);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 140ms ease, border-color 140ms ease;
-  background: transparent;
-}
-
-.tutorials-filter-check:checked ~ .tutorials-check-mark {
-  background: var(--copper);
-  border-color: var(--copper);
-}
-
-.tutorials-filter-label:has(.tutorials-filter-check:checked) {
-  color: var(--bone);
-  font-weight: 700;
-}
-
-.tutorials-check-mark::after {
-  content: "";
-  display: none;
-  width: 9px;
-  height: 5px;
-  border-left: 1.5px solid var(--night);
-  border-bottom: 1.5px solid var(--night);
-  transform: rotate(-45deg) translateY(-1px);
-}
-
-.tutorials-filter-check:checked ~ .tutorials-check-mark::after {
-  display: block;
-}
-
-/* Controls bar */
-.tutorials-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
-}
-
-.tutorials-search-wrap {
-  position: relative;
-  flex: 1;
-}
-
-.tutorials-search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--bone-dim);
-  pointer-events: none;
-}
-
-.tutorials-search {
-  width: 100%;
-  height: 42px;
-  padding: 0 16px 0 42px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(var(--ink-rgb), 0.04);
-  color: var(--bone);
-  font-family: var(--sans);
-  font-size: 14px;
-  outline: none;
-  transition: border-color 160ms ease;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.tutorials-search::placeholder {
-  color: var(--bone-dim);
-}
-
-.tutorials-search:focus {
-  border-color: var(--line-strong);
-}
-
-.tutorials-view-toggle {
-  display: flex;
-  gap: 4px;
-}
-
-.tutorials-view-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--line-control);
-  border-radius: 8px;
-  background: none;
-  color: var(--bone-dim);
-  cursor: pointer;
-  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
-}
-
-.tutorials-view-btn:hover,
-.tutorials-view-btn.is-active {
-  background: rgba(var(--ink-rgb), 0.08);
-  color: var(--bone);
-  border-color: var(--line-strong);
-}
-
-/* Grid */
-.tutorials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-/* List view */
-.tutorials-grid.is-list {
-  grid-template-columns: 1fr;
-}
-
-.tutorials-grid.is-list .tutorial-card {
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  border-radius: var(--radius);
-}
-
-.tutorials-grid.is-list .tutorial-card-thumb {
-  height: 100%;
-  min-height: 110px;
-  border-radius: var(--radius) 0 0 var(--radius);
-}
-
-.tutorials-grid.is-list .tutorial-card-body {
-  border-radius: 0 var(--radius) var(--radius) 0;
-  border-top: none;
-  border-left: none;
-}
-
-/* Card */
-.tutorial-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 180ms ease, transform 180ms ease;
-}
-
-.tutorial-card.is-hidden {
-  display: none;
-}
-
-.tutorial-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-
-.tutorial-card-thumb {
-  display: block;
-  height: 140px;
-  flex: 0 0 auto;
-  text-decoration: none;
-}
-
-.tutorial-thumb-mcp {
-  background: linear-gradient(135deg, rgba(166, 85, 41, 0.35) 0%, rgba(166, 85, 41, 0.12) 100%);
-}
-
-.tutorial-thumb-agents {
-  background: linear-gradient(135deg, rgba(79, 107, 67, 0.35) 0%, rgba(79, 107, 67, 0.12) 100%);
-}
-
-.tutorial-thumb-strategy {
-  background: linear-gradient(135deg, rgba(78, 104, 112, 0.35) 0%, rgba(78, 104, 112, 0.12) 100%);
-}
-
-.tutorial-thumb-rag {
-  background: linear-gradient(135deg, rgba(180, 140, 200, 0.28) 0%, rgba(180, 140, 200, 0.08) 100%);
-}
-
-.tutorial-thumb-skills {
-  background: linear-gradient(135deg, rgba(143, 168, 212, 0.32) 0%, rgba(143, 168, 212, 0.1) 100%);
-}
-
-.tutorial-card-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 18px;
-  border-top: 1px solid var(--line);
-}
-
-.tutorial-card-title {
-  margin: 0 0 8px;
-  font-size: 15px;
-  line-height: 1.3;
-}
-
-.tutorial-card-title a {
-  color: var(--bone);
-  text-decoration: none;
-  transition: color 140ms ease;
-}
-
-.tutorial-card-title a:hover {
-  color: var(--copper);
-}
-
-.tutorial-card-desc {
-  margin: 0 0 14px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--bone-dim);
-  flex: 1;
-}
-
-.tutorial-card-tag {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 3px 9px;
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.tutorial-tag-mcp      { background: rgba(166, 85, 41, 0.18); color: var(--copper); }
-.tutorial-tag-agents   { background: rgba(79, 107, 67, 0.18); color: var(--sage); }
-.tutorial-tag-strategy { background: rgba(78, 104, 112, 0.18); color: var(--steel); }
-.tutorial-tag-rag      { background: rgba(180, 140, 200, 0.18); color: #b48cc8; }
-.tutorial-tag-skills    { background: rgba(143, 168, 212, 0.18); color: #8fa8d4; }
-
-.tutorials-empty {
-  padding: 40px 0;
-  text-align: center;
-  color: var(--bone-dim);
-  font-family: var(--sans);
-}
-
 @media (max-width: 980px) {
   .nav {
     width: min(760px, calc(100% - 24px));
@@ -2717,75 +2169,10 @@ to {
 
 }
 
-@media (max-width: 980px) {
-  .tutorials-layout {
-    grid-template-columns: 1fr;
-  }
-
-.tutorials-sidebar {
-  position: static;
-}
-
-.tutorials-filter-options {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.tutorials-filter-label {
-  padding: 5px 10px;
-}
-
-.tutorials-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.tutorials-grid.is-list .tutorial-card {
-  grid-template-columns: 120px minmax(0, 1fr);
-}
-
-.impact-grid {
-  grid-template-columns: 1fr;
-}
-
-.impact-grid.is-list .impact-card {
-  flex-direction: column;
-}
-
-.impact-grid.is-list .impact-card-thumb {
-  width: 100%;
-  flex: none;
-  height: 130px;
-  border-right: none;
-  border-bottom: 1px solid var(--line);
-}
-
-}
-
 @media (max-width: 680px) {
   :root {
     --nav-height: 78px;
   }
-
-.tutorials-grid,
-.tutorials-grid.is-list {
-  grid-template-columns: 1fr;
-}
-
-.tutorials-grid.is-list .tutorial-card {
-  grid-template-columns: 1fr;
-}
-
-.tutorials-grid.is-list .tutorial-card-thumb {
-  height: 120px;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-.tutorials-grid.is-list .tutorial-card-body {
-  border-top: 1px solid var(--line);
-  border-left: none;
-  border-radius: 0 0 var(--radius) var(--radius);
-}
 
 .page,
 .footer-inner {
@@ -2912,11 +2299,6 @@ to {
 
 .nav-dropdown-item {
   min-height: 42px !important;
-}
-
-.hero {
-  min-height: 620px;
-  padding: 64px 0;
 }
 
 .hero-copy,
@@ -3226,15 +2608,6 @@ h4 {
   position: relative;
   z-index: 1;
   background: var(--paper);
-}
-
-.hero-keys {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  max-width: none;
 }
 
 .home-hero-actions {
@@ -3764,22 +3137,6 @@ h4 {
 
 }
 
-/* Work cards use two columns whenever the available content width supports it. */
-.tutorials-sidebar {
-  top: 24px;
-}
-
-.impact-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-@media (max-width: 720px) {
-  .impact-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
 /* Direct contact line on the intake panel. Carries the same phone and locality
    as the Google Business Profile, which is what Google cross-references when it
    decides the site and the profile are the same business. */
@@ -3877,10 +3234,6 @@ h4 {
   color: var(--bone);
   border-color: var(--line-control);
   background: transparent;
-}
-
-.strategy-hero-keys {
-  opacity: 0.86;
 }
 
 .strategy-section {
@@ -3996,29 +3349,6 @@ h4 {
   white-space: nowrap;
 }
 
-.strategy-scan-demo li.is-active {
-  border-color: var(--line-strong);
-  background: var(--paper-sunk);
-  box-shadow: inset 3px 0 0 var(--strategy-copper);
-}
-
-.strategy-motion-ready .strategy-scan-demo.is-running li.is-active {
-  opacity: 1;
-  transform: translateX(4px);
-}
-
-.strategy-scan-demo li.is-active .strategy-workflow-tags em {
-  background: var(--bone);
-  color: var(--paper);
-}
-
-.strategy-motion-ready .strategy-roadmap-demo li.is-active {
-  opacity: 1;
-  transform: translateY(-4px) scale(1.025);
-  background: var(--paper-sunk);
-  box-shadow: 0 14px 30px rgba(45, 37, 29, 0.09);
-}
-
 .strategy-timeline {
   border-top: 1px solid var(--line-strong);
 }
@@ -4127,10 +3457,6 @@ h4 {
   white-space: normal;
 }
 
-.strategy-motion-ready .strategy-roadmap-demo li.is-active {
-  transform: translateY(-3px);
-}
-
 .strategy-timeline li {
   grid-template-columns: 64px 1fr;
   align-items: start;
@@ -4140,18 +3466,6 @@ h4 {
   grid-column: 2;
   text-align: left;
 }
-
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .strategy-motion-ready .strategy-roadmap-demo li,
-  .strategy-motion-ready .strategy-roadmap-demo li.is-active,
-  .strategy-motion-ready .strategy-roadmap-demo li.is-complete {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 
 }
 
