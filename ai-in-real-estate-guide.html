@@ -103,9 +103,10 @@
         <h1>Move AI from the chat window into the way your real estate team works.</h1>
         <p class="page-lede">A practical guide to reusable playbooks, connected systems, local file work, and recurring routines - for teams using Claude, ChatGPT, or a mix of tools.</p>
 
-        <form class="lead-magnet-form" name="ai-real-estate-guide" action="/ai-in-real-estate-guide-thank-you.html" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="lead-magnet-form" name="ai-real-estate-guide" action="/ai-in-real-estate-guide-thank-you.html" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="ai-real-estate-guide" />
           <input type="hidden" name="source" value="ai-real-estate-field-guide" />
+          <input type="hidden" name="subject" value="New AI in Real Estate field guide lead" data-remove-prefix />
           <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
           <label class="lead-email-label" for="guide-email">Work email</label>
           <div class="lead-email-row">
@@ -117,6 +118,7 @@
             <span>I agree to receive the guide and occasional practical AI updates from altr. Unsubscribe anytime. See our <a href="privacy.html">Privacy Policy</a>.</span>
           </label>
           <p class="lead-form-note">No invented benchmarks. No generic AI hype. Get four applied CRE workflows, a readiness scorecard, and a reusable workflow canvas.</p>
+          <p class="lead-form-status" id="lead-form-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
 
