@@ -1702,9 +1702,19 @@ body {
   color: var(--bone);
 }
 
-/* the keycap is pressed out of paper, so on ink it needs the cream cut */
-.brand-mark {
-  background-image: url("assets/altr_key_logo_cream_taupe_transparent.png");
+/* The keycap is the brand, so it is a real object rather than a flat mark:
+   a carved stone cap, cut off its backdrop. The marble is the one that holds
+   on ink; the basalt cut disappears into it. The other three cuts sit beside
+   it in assets/logo/ to swap in. */
+.brand-mark,
+.nav .brand-mark,
+.footer-brand .brand-mark {
+  background-image: url("assets/logo/altr-key-marble.webp");
+  /* the old mark was a PNG with padding baked in, so four rules zoomed it
+     to 155-205% to crop that away. This cut is trimmed to the cap, so any
+     zoom above 100% crops the cap itself. */
+  background-size: contain;
+  background-position: center;
 }
 
 /* a keycap on a dark ground presses the other way: light cap, dark legend */
