@@ -2,6 +2,7 @@
 """Small, dependency-free checks for the site's search-critical invariants."""
 
 import json
+from html import unescape
 import re
 import unittest
 from pathlib import Path
@@ -209,9 +210,22 @@ class SeoIntegrityTests(unittest.TestCase):
                 for node in nodes:
                     if node.get("@type") != "FAQPage":
                         continue
-                    visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html))
+                    # The JSON-LD lives in a <script>, so stripping tags over
+                    # the whole file leaves the schema text in the haystack and
+                    # every answer trivially matches itself. Drop scripts and
+                    # styles first, or this test asserts nothing.
+                    body = re.sub(
+                        r"<script[^>]*>.*?</script>|<style[^>]*>.*?</style>",
+                        " ", html, flags=re.S,
+                    )
+                    visible = re.sub(
+                        r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", body))
+                    )
                     for entry in node["mainEntity"]:
-                        answer = re.sub(r"\s+", " ", entry["acceptedAnswer"]["text"])
+                        answer = re.sub(
+                            r"\s+", " ",
+                            unescape(re.sub(r"<[^>]+>", " ", entry["acceptedAnswer"]["text"])),
+                        ).strip()
                         self.assertIn(
                             answer, visible,
                             f"{file.name}: FAQ answer missing from page text for "
