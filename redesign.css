@@ -465,7 +465,7 @@ main > section:first-of-type > .band-inner {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/plate-engine.webp") 72% center / cover no-repeat;
+  background: url("assets/plates/bg-workshop.webp") 72% center / cover no-repeat;
 }
 
 .hero-plate-bg::after {
@@ -760,7 +760,7 @@ select:focus {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/plate-engine-two.webp") center 34% / cover no-repeat;
+  background: url("assets/plates/bg-shop.webp") center 34% / cover no-repeat;
 }
 
 .home-why-bg::after {
@@ -967,7 +967,7 @@ select:focus {
   height: 150px;
   background: var(--paper-sunk);
   border-bottom: 1px solid var(--rule);
-  background-image: url("assets/plates/plate-engine.webp");
+  background-image: url("assets/plates/plate-pattern.webp");
   background-size: 260% auto;
   background-repeat: no-repeat;
   opacity: 0.74;
@@ -1116,7 +1116,7 @@ select:focus {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/plate-engine.webp") 68% center / cover no-repeat;
+  background: url("assets/plates/wash-workshop.webp") 68% center / cover no-repeat;
 }
 
 .hero-plate-bg::after {
@@ -1324,7 +1324,7 @@ select:focus {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/plate-engine-two.webp") center 38% / cover no-repeat;
+  background: url("assets/plates/bg-shop.webp") center 38% / cover no-repeat;
 }
 
 .wash::after,
@@ -1349,7 +1349,7 @@ select:focus {
 /* the workshop plate on alternate page families, so the wash is not
    the same picture on every page of the site */
 .home-why .home-why-bg {
-  background-image: url("assets/plates/plate-turbinehall.webp");
+  background-image: url("assets/plates/wash-brick.webp");
   background-position: center 30%;
 }
 
@@ -1410,10 +1410,10 @@ select:focus {
   border: 1px solid var(--rule);
 }
 
-.hero-cut-plan   { background-image: url("assets/plates/plate-powerhouse.webp"); }
-.hero-cut-vault  { background-image: url("assets/plates/plate-generators.webp"); }
-.hero-cut-window { background-image: url("assets/plates/plate-engineroom.webp"); }
-.hero-cut-stone  { background-image: url("assets/plates/plate-generatorroom.webp"); }
+.hero-cut-plan   { background-image: url("assets/plates/scene-colosseum.webp"); }
+.hero-cut-vault  { background-image: url("assets/plates/scene-piazza.webp"); }
+.hero-cut-window { background-image: url("assets/plates/scene-port.webp"); }
+.hero-cut-stone  { background-image: url("assets/plates/scene-basilica.webp"); }
 
 @media (max-width: 900px) {
   .page-hero-cut {
@@ -1619,9 +1619,9 @@ h2 + p {
   background-color: var(--paper-sunk);
 }
 
-.hero-cut-forum  { background-image: url("assets/plates/plate-turbinehall-two.webp"); }
-.hero-cut-bridge { background-image: url("assets/plates/plate-turbinehall.webp"); }
-.hero-cut-road   { background-image: url("assets/plates/plate-engine.webp"); }
+.hero-cut-forum  { background-image: url("assets/plates/scene-forum.webp"); }
+.hero-cut-bridge { background-image: url("assets/plates/scene-bridge.webp"); }
+.hero-cut-road   { background-image: url("assets/plates/scene-road.webp"); }
 
 /* -- the strategy hero ------------------------------------------- */
 /* It ran a canvas of pale rounded keycaps drifting behind the headline:
@@ -1633,7 +1633,7 @@ h2 + p {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url("assets/plates/plate-engine.webp") 34% center / cover no-repeat;
+  background: url("assets/plates/scene-passage.webp") 34% center / cover no-repeat;
 }
 
 .strategy-hero-bg::after {
@@ -1729,16 +1729,16 @@ h2 + p {
 }
 
 /* a scene per category, cropped to the mark */
-.mark-real-estate { background-image: url("assets/plates/plate-powerhouse.webp"); background-position: 50% 40%; }
-.mark-nonprofit   { background-image: url("assets/plates/plate-generators.webp");    background-position: 50% 55%; }
-.mark-ecommerce   { background-image: url("assets/plates/plate-engineroom.webp");      background-position: 62% 60%; }
-.mark-technology  { background-image: url("assets/plates/plate-turbinehall.webp");    background-position: 46% 50%; }
-.mark-mcp         { background-image: url("assets/plates/plate-turbinehall.webp");    background-position: 78% 62%; }
-.mark-agents      { background-image: url("assets/plates/plate-engine-two.webp");     background-position: 40% 58%; }
-.mark-strategy    { background-image: url("assets/plates/plate-engine.webp");      background-position: 30% 62%; }
-.mark-rag         { background-image: url("assets/plates/plate-generatorroom.webp");  background-position: 40% 55%; }
-.mark-skills      { background-image: url("assets/plates/plate-engine-two.webp");     background-position: 72% 48%; }
-.mark-automation  { background-image: url("assets/plates/plate-engineroom.webp");      background-position: 28% 55%; }
+.mark-real-estate { background-image: url("assets/plates/scene-colosseum.webp"); background-position: 50% 40%; }
+.mark-nonprofit   { background-image: url("assets/plates/scene-piazza.webp");    background-position: 50% 55%; }
+.mark-ecommerce   { background-image: url("assets/plates/scene-port.webp");      background-position: 62% 60%; }
+.mark-technology  { background-image: url("assets/plates/scene-bridge.webp");    background-position: 46% 50%; }
+.mark-mcp         { background-image: url("assets/plates/scene-bridge.webp");    background-position: 78% 62%; }
+.mark-agents      { background-image: url("assets/plates/scene-forum.webp");     background-position: 40% 58%; }
+.mark-strategy    { background-image: url("assets/plates/scene-road.webp");      background-position: 30% 62%; }
+.mark-rag         { background-image: url("assets/plates/scene-basilica.webp");  background-position: 40% 55%; }
+.mark-skills      { background-image: url("assets/plates/scene-forum.webp");     background-position: 72% 48%; }
+.mark-automation  { background-image: url("assets/plates/scene-port.webp");      background-position: 28% 55%; }
 
 @media (max-width: 900px) {
   .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1851,14 +1851,14 @@ h2 + p {
   }
 }
 
-.scene-workshop::before  { background-image: url("assets/plates/plate-engine.webp"); }
-.scene-colosseum::before { background-image: url("assets/plates/plate-powerhouse.webp"); }
-.scene-port::before      { background-image: url("assets/plates/plate-engineroom.webp"); }
-.scene-piazza::before    { background-image: url("assets/plates/plate-generators.webp"); }
-.scene-basilica::before  { background-image: url("assets/plates/plate-generatorroom.webp"); }
-.scene-forum::before     { background-image: url("assets/plates/plate-turbinehall-two.webp"); }
-.scene-bridge::before    { background-image: url("assets/plates/plate-turbinehall.webp"); }
-.scene-road::before      { background-image: url("assets/plates/plate-engine.webp"); }
+.scene-workshop::before  { background-image: url("assets/plates/scene-workshop.webp"); }
+.scene-colosseum::before { background-image: url("assets/plates/scene-colosseum.webp"); }
+.scene-port::before      { background-image: url("assets/plates/scene-port.webp"); }
+.scene-piazza::before    { background-image: url("assets/plates/scene-piazza.webp"); }
+.scene-basilica::before  { background-image: url("assets/plates/scene-basilica.webp"); }
+.scene-forum::before     { background-image: url("assets/plates/scene-forum.webp"); }
+.scene-bridge::before    { background-image: url("assets/plates/scene-bridge.webp"); }
+.scene-road::before      { background-image: url("assets/plates/scene-road.webp"); }
 
 /* =================================================================
    Dark. The token names were never changed from the original dark
