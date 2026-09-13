@@ -16,11 +16,15 @@ Each is 512px wide, PNG and WebP, alpha-cut and trimmed to the cap.
 
 Colour-distance keying fails on these: the marble cap against its cream
 backdrop has almost no colour separation, and region-growing leaks through
-the low-contrast edge into the cap. What works is that the cap has a hard
-edge all the way round while the backdrop and its drop shadow are smooth.
-The mask is built from gradient energy, spanning each row and column between
-its outermost strong edges, so interior stone texture cannot punch holes in
-it, then closed and rounded before feathering.
+the low-contrast edge into the cap. Tracing the contour does not work either: the span-based silhouette bulges
+wherever the edge detector fires slightly outside the cap, which left a
+ragged stepped halo around the mark.
+
+What works is fitting the shape. The span-based silhouette gives an
+unreliable contour but a reliable bounding box, and the cap is a rounded
+rectangle, so the alpha is a rounded rect drawn into that box at 4x and
+downsampled. Edges come out even, and a 2% inset keeps the feathered edge on
+the cap rather than on the backdrop behind it.
 
 The drop shadow is deliberately not kept. The house rule is one shadow, the
 keycap press, and the mark is 84x56 in the nav where a shadow is mud.
