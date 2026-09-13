@@ -34,10 +34,10 @@
   --bone: #1A1714;
   --bone-soft: #3B342B;
   --bone-dim: #5C544B;
-  --line: rgba(26, 23, 20, 0.11);
-  --line-strong: rgba(26, 23, 20, 0.2);
+  --line: rgba(var(--ink-rgb), 0.11);
+  --line-strong: rgba(var(--ink-rgb), 0.2);
   /* interactive control boundaries: needs >=3:1, unlike decorative --line */
-  --line-control: rgba(26, 23, 20, 0.36);
+  --line-control: rgba(var(--ink-rgb), 0.36);
   --copper: #A65529;
   --sage: #4F6B43;
   --steel: #4E6870;
@@ -85,7 +85,7 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-  linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 30%);
+  linear-gradient(180deg, rgba(var(--veil-rgb), 0.5), transparent 30%);
 }
 
 body::after {
@@ -204,7 +204,7 @@ h4 {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(18, 15, 12, 0.76);
-  box-shadow: 0 18px 40px rgba(26, 23, 20, 0.1);
+  box-shadow: 0 18px 40px rgba(var(--ink-rgb), 0.1);
   backdrop-filter: blur(18px);
   transform: translateX(-50%);
 }
@@ -261,7 +261,7 @@ h4 {
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--bone);
-  background: rgba(26, 23, 20, 0.08);
+  background: rgba(var(--ink-rgb), 0.08);
 }
 
 .nav-links a:hover {
@@ -306,7 +306,7 @@ h4 {
 .nav-dropdown-trigger:hover,
 .nav-dropdown.is-open .nav-dropdown-trigger {
   color: var(--bone);
-  background: rgba(26, 23, 20, 0.08);
+  background: rgba(var(--ink-rgb), 0.08);
   transform: translateY(-1px);
 }
 
@@ -330,7 +330,7 @@ h4 {
   border-radius: 12px;
   background: rgba(18, 15, 12, 0.96);
   backdrop-filter: blur(18px);
-  box-shadow: 0 16px 38px rgba(26, 23, 20, 0.12);
+  box-shadow: 0 16px 38px rgba(var(--ink-rgb), 0.12);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -365,7 +365,7 @@ h4 {
 }
 
 .nav-dropdown-item:hover {
-  background: rgba(26, 23, 20, 0.06);
+  background: rgba(var(--ink-rgb), 0.06);
   transform: none;
 }
 
@@ -398,7 +398,7 @@ h4 {
 .button.primary {
   color: var(--night);
   background: var(--bone);
-  box-shadow: 0 10px 24px rgba(26, 23, 20, 0.08);
+  box-shadow: 0 10px 24px rgba(var(--ink-rgb), 0.08);
 }
 
 .button.secondary {
@@ -665,7 +665,7 @@ to {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(26, 23, 20, 0.055);
+  background: rgba(var(--ink-rgb), 0.055);
   transition-property: transform, border-color, background-color, box-shadow;
   transition-duration: 220ms;
   transition-timing-function: var(--ease-out);
@@ -687,13 +687,13 @@ to {
 .text-block:hover,
 .founder-card:hover {
   transform: translateY(-4px);
-  background-color: rgba(26, 23, 20, 0.07);
-  box-shadow: 0 14px 32px rgba(26, 23, 20, 0.08);
+  background-color: rgba(var(--ink-rgb), 0.07);
+  box-shadow: 0 14px 32px rgba(var(--ink-rgb), 0.08);
 }
 
 .impact-card:hover .impact-card-logo-wrap {
   transform: translateY(-2px) scale(1.01);
-  background-color: rgba(26, 23, 20, 0.055);
+  background-color: rgba(var(--ink-rgb), 0.055);
 }
 
 .impact-card h3 {
@@ -709,7 +709,7 @@ to {
   border-radius: var(--radius);
   background:
   linear-gradient(135deg, rgba(166, 85, 41, 0.12), transparent 34%),
-  linear-gradient(180deg, rgba(26, 23, 20, 0.055), rgba(26, 23, 20, 0.025));
+  linear-gradient(180deg, rgba(var(--ink-rgb), 0.055), rgba(var(--ink-rgb), 0.025));
 }
 
 .services-cta,
@@ -816,7 +816,7 @@ to {
   border-radius: var(--radius);
   background:
   linear-gradient(135deg, rgba(79, 107, 67, 0.11), transparent 40%),
-  rgba(26, 23, 20, 0.045);
+  rgba(var(--ink-rgb), 0.045);
 }
 
 .learning-brief span,
@@ -913,7 +913,7 @@ to {
 
 /* in-article subheads: sized on the class so the tag can stay semantic */
 .impact-article-image {
-  outline: 1px solid rgba(26, 23, 20, 0.1);
+  outline: 1px solid rgba(var(--ink-rgb), 0.1);
   outline-offset: -1px;
   border-radius: var(--radius);
 }
@@ -1059,7 +1059,7 @@ to {
   border-radius: var(--radius);
   background:
   linear-gradient(135deg, rgba(166, 85, 41, 0.09), transparent 32%),
-  rgba(26, 23, 20, 0.045);
+  rgba(var(--ink-rgb), 0.045);
 }
 
 .content-split {
@@ -1104,7 +1104,7 @@ to {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: 1px solid var(--line-strong);
   border-left: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(var(--veil-rgb), 0.18);
 }
 
 .workshop-topic-card {
@@ -1113,7 +1113,7 @@ to {
   border-right: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line-strong);
   background:
-  linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(247, 243, 236, 0.22)),
+  linear-gradient(145deg, rgba(var(--veil-rgb), 0.62), rgba(var(--veil-rgb), 0.22)),
   var(--paper);
 }
 
@@ -1345,7 +1345,7 @@ to {
   padding: clamp(18px, 3vw, 24px);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(26, 23, 20, 0.045);
+  background: rgba(var(--ink-rgb), 0.045);
   transition-property: transform, background-color, border-color, box-shadow;
   transition-duration: 220ms;
   transition-timing-function: var(--ease-out);
@@ -1539,7 +1539,7 @@ to {
   gap: 18px;
   background:
   linear-gradient(135deg, rgba(166, 85, 41, 0.1), transparent 34%),
-  rgba(26, 23, 20, 0.045);
+  rgba(var(--ink-rgb), 0.045);
 }
 
 .intake-form label {
@@ -1561,7 +1561,7 @@ to {
   width: 100%;
   border: 1px solid var(--line-control);
   border-radius: var(--radius);
-  background: rgba(26, 23, 20, 0.055);
+  background: rgba(var(--ink-rgb), 0.055);
   color: var(--bone);
   font: inherit;
 }
@@ -1624,7 +1624,7 @@ to {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper);
-  box-shadow: 0 24px 56px rgba(26, 23, 20, 0.14);
+  box-shadow: 0 24px 56px rgba(var(--ink-rgb), 0.14);
 }
 
 .intake-modal-close {
@@ -1862,7 +1862,7 @@ to {
 .lead-magnet-cover img {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) + 2px);
-  box-shadow: 0 24px 52px rgba(26, 23, 20, 0.14), 0 2px 7px rgba(26, 23, 20, 0.08);
+  box-shadow: 0 24px 52px rgba(var(--ink-rgb), 0.14), 0 2px 7px rgba(var(--ink-rgb), 0.08);
 }
 
 .lead-magnet-form {
@@ -1897,7 +1897,7 @@ to {
   padding: 0 16px;
   border: 1px solid var(--line-control);
   border-radius: var(--radius);
-  background: rgba(26, 23, 20, 0.055);
+  background: rgba(var(--ink-rgb), 0.055);
   color: var(--bone);
   font: inherit;
 }
@@ -2079,7 +2079,7 @@ to {
 .real-estate-card:hover {
   transform: translateY(-2px);
   border-color: var(--line-strong);
-  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.07);
+  box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.07);
 }
 
 .real-estate-card-image {
@@ -2189,7 +2189,7 @@ to {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
-  outline: 1px solid rgba(26, 23, 20, 0.08);
+  outline: 1px solid rgba(var(--ink-rgb), 0.08);
   outline-offset: -1px;
 }
 
@@ -2369,7 +2369,7 @@ to {
 }
 
 .tutorials-filter-label:hover {
-  background: rgba(26, 23, 20, 0.06);
+  background: rgba(var(--ink-rgb), 0.06);
   color: var(--bone);
 }
 
@@ -2450,7 +2450,7 @@ to {
   padding: 0 16px 0 42px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(26, 23, 20, 0.04);
+  background: rgba(var(--ink-rgb), 0.04);
   color: var(--bone);
   font-family: var(--sans);
   font-size: 14px;
@@ -2489,7 +2489,7 @@ to {
 
 .tutorials-view-btn:hover,
 .tutorials-view-btn.is-active {
-  background: rgba(26, 23, 20, 0.08);
+  background: rgba(var(--ink-rgb), 0.08);
   color: var(--bone);
   border-color: var(--line-strong);
 }
@@ -2821,7 +2821,7 @@ to {
   border: 0;
   border-radius: 999px;
   color: var(--bone);
-  background: rgba(26, 23, 20, 0.08);
+  background: rgba(var(--ink-rgb), 0.08);
   cursor: pointer;
 }
 
@@ -2835,7 +2835,7 @@ to {
 
 .nav.is-menu-open {
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(var(--veil-rgb), 0.98);
 }
 
 .nav.is-menu-open .nav-menu-toggle span:first-child {
@@ -2857,8 +2857,8 @@ to {
   gap: 2px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 18px 44px rgba(26, 23, 20, 0.12);
+  background: rgba(var(--veil-rgb), 0.98);
+  box-shadow: 0 18px 44px rgba(var(--ink-rgb), 0.12);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -3116,7 +3116,7 @@ h4 {
 
 /* the nav was a translucent bar over a dark page; on paper it needs an edge */
 .nav {
-  background: rgba(247, 243, 236, 0.86);
+  background: rgba(var(--veil-rgb), 0.86);
   backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -3127,11 +3127,11 @@ h4 {
 .impact-detail,
 .price-meta-grid {
   background: var(--paper-raised);
-  box-shadow: 0 1px 2px rgba(26, 23, 20, 0.04);
+  box-shadow: 0 1px 2px rgba(var(--ink-rgb), 0.04);
 }
 
 .impact-article-image {
-  outline: 1px solid rgba(26, 23, 20, 0.1);
+  outline: 1px solid rgba(var(--ink-rgb), 0.1);
   background: var(--paper-raised);
 }
 
@@ -3434,7 +3434,7 @@ h4 {
 .work-card:hover {
   transform: translateY(-2px);
   border-color: var(--line-strong);
-  box-shadow: 0 12px 28px rgba(26, 23, 20, 0.07);
+  box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.07);
 }
 
 .work-tag {
@@ -3570,8 +3570,8 @@ h4 {
   padding: 8px;
   border-color: var(--line);
   border-radius: var(--radius);
-  background: rgba(247, 243, 236, 0.98);
-  box-shadow: 0 16px 38px rgba(26, 23, 20, 0.12);
+  background: rgba(var(--veil-rgb), 0.98);
+  box-shadow: 0 16px 38px rgba(var(--ink-rgb), 0.12);
   backdrop-filter: blur(14px);
   transform: translate(-50%, -6px);
 }
@@ -3593,7 +3593,7 @@ h4 {
 
 .nav .nav-dropdown-panel .nav-dropdown-item:hover {
   color: var(--bone);
-  background: rgba(26, 23, 20, 0.06);
+  background: rgba(var(--ink-rgb), 0.06);
   transform: none;
 }
 
@@ -3834,10 +3834,10 @@ h4 {
   102deg,
   var(--paper) 0%,
   var(--paper) 30%,
-  rgba(247, 243, 236, 0.8) 54%,
-  rgba(247, 243, 236, 0.14) 92%
+  rgba(var(--veil-rgb), 0.8) 54%,
+  rgba(var(--veil-rgb), 0.14) 92%
   ),
-  linear-gradient(0deg, var(--paper) 0%, rgba(247, 243, 236, 0) 42%);
+  linear-gradient(0deg, var(--paper) 0%, rgba(var(--veil-rgb), 0) 42%);
   pointer-events: none;
 }
 
@@ -4097,8 +4097,8 @@ h4 {
   background: linear-gradient(
   178deg,
   var(--paper) 0%,
-  rgba(247, 243, 236, 0.86) 48%,
-  rgba(247, 243, 236, 0.58) 100%
+  rgba(var(--veil-rgb), 0.86) 48%,
+  rgba(var(--veil-rgb), 0.58) 100%
   );
 }
 
@@ -4167,7 +4167,7 @@ h4 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #161412;
-  box-shadow: 0 14px 32px rgba(26, 23, 20, 0.07);
+  box-shadow: 0 14px 32px rgba(var(--ink-rgb), 0.07);
 }
 
 .product-demo-figure figcaption {
