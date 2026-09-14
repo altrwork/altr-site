@@ -306,9 +306,10 @@ class SeoIntegrityTests(unittest.TestCase):
     def test_homepage_and_about_do_not_cannibalize_tampa_consulting(self):
         """GSC: homepage ranks ~pos 2-3 for 'ai consulting tampa' / 'ai
         consultant tampa'; the dedicated page sits ~pos 33-36 with 0 clicks.
-        Homepage and About titles/meta must not lead with those head terms.
-        The dedicated page owns them; homepage hands off with commercial
-        anchors instead of competing as a second consulting landing page."""
+        Homepage title may say AI consulting for ops teams, but must not use
+        'AI consulting Tampa' / 'AI consultant Tampa' as the primary phrase.
+        The dedicated page owns those local head terms; homepage hands off
+        with commercial Tampa anchors."""
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         about = (ROOT / "about.html").read_text(encoding="utf-8")
         consulting = (ROOT / "ai-consulting-tampa.html").read_text(encoding="utf-8")
@@ -321,18 +322,25 @@ class SeoIntegrityTests(unittest.TestCase):
                 r'<meta\s+name="description"\s+content="([^"]+)"', html
             ).group(1)
 
-        home_title = title_of(homepage).lower()
-        home_meta = meta_of(homepage).lower()
+        home_title = title_of(homepage)
+        home_meta = meta_of(homepage)
+        home_title_l = home_title.lower()
+        home_meta_l = home_meta.lower()
         about_title = title_of(about).lower()
         about_meta = meta_of(about).lower()
         consult_title = title_of(consulting).lower()
 
-        for haystack in (home_title, home_meta):
-            self.assertNotIn("consulting", haystack)
-            self.assertNotIn("consultant", haystack)
-        self.assertIn("ops", home_title)
-        self.assertIn("tampa bay", home_title)
-        self.assertIn("enablement", home_meta)
+        self.assertEqual("altr | AI consulting for ops teams", home_title)
+        self.assertIn('content="altr | AI consulting for ops teams"', homepage)
+        self.assertIn("ai consulting", home_title_l)
+        self.assertIn("ops", home_title_l)
+        for phrase in ("ai consulting tampa", "ai consultant tampa"):
+            self.assertNotIn(phrase, home_title_l)
+            self.assertNotIn(phrase, home_meta_l)
+        self.assertNotIn("consultant", home_title_l)
+        self.assertIn("consulting", home_meta_l)
+        self.assertIn("enablement", home_meta_l)
+        self.assertIn("workflow", home_meta_l)
         self.assertIn("ai consulting", consult_title)
         self.assertIn("ai consultant", consult_title)
 
