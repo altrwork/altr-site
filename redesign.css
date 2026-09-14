@@ -596,7 +596,8 @@ select:focus {
   align-items: end;
 }
 
-.why-split .aside-note a {
+.why-split .aside-note a,
+.hero-plate-panel .aside-note a {
   color: var(--copper);
   text-underline-offset: 3px;
 }
