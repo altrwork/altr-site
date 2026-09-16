@@ -55,7 +55,7 @@ Contact: inquiries@altrwork.com
 
 ## Products
 
-- [mortr](https://altrwork.com/mortr.html): chat for Florida property owner lookup, Florida parcel lookup, comparable recorded sales, owner portfolios, and loan maturity flags from dated public records. Coverage today: Hillsborough, Pinellas, Pasco, and Polk. Not a live feed; agency debt may be absent. Request access through the contact page.
+- [mortr](https://altrwork.com/mortr.html): CRM for commercial real estate teams with county property appraiser record lookup, contacts, a deal pipeline, and BOV generation in your firm’s branding. Property record coverage: Pinellas, Hillsborough, and Pasco counties, Florida. Uses dated public records. Book a demo through the contact page.
 
 ## Real estate field guide
 

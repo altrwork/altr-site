@@ -122,7 +122,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn('"FAQPage"', schema_text)
         self.assertEqual(6, schema_text.count('"Question"'))
 
-    def test_mortr_page_targets_owner_lookup_not_appraiser_nav(self):
+    def test_mortr_page_describes_current_crm_and_bov_product(self):
         html = (ROOT / "mortr.html").read_text(encoding="utf-8")
         visible = re.sub(r"<script\b.*?</script>|<style\b.*?</style>", " ", html, flags=re.S)
         visible = re.sub(r"<[^>]+>", " ", visible)
@@ -130,15 +130,17 @@ class SeoIntegrityTests(unittest.TestCase):
         h1 = re.sub(r"<[^>]+>", "", re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S).group(1))
         description = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', html).group(1)
 
-        for haystack in (title, h1, description):
-            self.assertNotIn("property appraiser", haystack.lower())
-        self.assertIn("property owner", title.lower())
-        self.assertIn("look up a florida property owner", h1.lower())
-        self.assertIn("dated public records", description.lower())
+        self.assertIn("crm", title.lower())
+        self.assertIn("bovs", title.lower())
+        self.assertIn("crm", h1.lower())
+        self.assertIn("bovs", h1.lower())
+        self.assertIn("property owner", description.lower())
         self.assertIn("dated public records", visible.lower())
         self.assertIn("dated servicer", visible.lower())
-        self.assertIn("agency debt may be absent", visible.lower())
-        self.assertIn("not a live or real time feed", visible.lower())
+        self.assertNotIn("polk", html.lower())
+        self.assertIn("Pinellas", visible)
+        self.assertIn("Hillsborough", visible)
+        self.assertIn("Pasco", visible)
 
         links = set(re.findall(r'href="([^"]+)"', html))
         self.assertTrue(
@@ -154,6 +156,7 @@ class SeoIntegrityTests(unittest.TestCase):
         for src in (
             "assets/mortr/mortr-chat-demo.gif",
             "assets/mortr/mortr-securitized-loans.jpg",
+            "assets/mortr/mortr-bov-branding.png",
         ):
             match = re.search(rf'<img\b[^>]*\bsrc="{re.escape(src)}"[^>]*>', html)
             self.assertIsNotNone(match, f"missing img for {src}")
