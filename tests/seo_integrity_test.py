@@ -306,6 +306,59 @@ class SeoIntegrityTests(unittest.TestCase):
             (ROOT / "_redirects").read_text(encoding="utf-8"),
         )
 
+    def test_homepage_and_about_do_not_cannibalize_tampa_consulting(self):
+        """GSC: homepage ranks ~pos 2-3 for 'ai consulting tampa' / 'ai
+        consultant tampa'; the dedicated page sits ~pos 33-36 with 0 clicks.
+        Homepage title may say AI consulting for ops teams, but must not use
+        'AI consulting Tampa' / 'AI consultant Tampa' as the primary phrase.
+        The dedicated page owns those local head terms; homepage hands off
+        with commercial Tampa anchors."""
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        about = (ROOT / "about.html").read_text(encoding="utf-8")
+        consulting = (ROOT / "ai-consulting-tampa.html").read_text(encoding="utf-8")
+
+        def title_of(html):
+            return re.search(r"<title>(.*?)</title>", html, re.S).group(1).strip()
+
+        def meta_of(html):
+            return re.search(
+                r'<meta\s+name="description"\s+content="([^"]+)"', html
+            ).group(1)
+
+        home_title = title_of(homepage)
+        home_meta = meta_of(homepage)
+        home_title_l = home_title.lower()
+        home_meta_l = home_meta.lower()
+        about_title = title_of(about).lower()
+        about_meta = meta_of(about).lower()
+        consult_title = title_of(consulting).lower()
+
+        self.assertEqual("altr | AI consulting for ops teams", home_title)
+        self.assertIn('content="altr | AI consulting for ops teams"', homepage)
+        self.assertIn("ai consulting", home_title_l)
+        self.assertIn("ops", home_title_l)
+        for phrase in ("ai consulting tampa", "ai consultant tampa"):
+            self.assertNotIn(phrase, home_title_l)
+            self.assertNotIn(phrase, home_meta_l)
+        self.assertNotIn("consultant", home_title_l)
+        self.assertIn("consulting", home_meta_l)
+        self.assertIn("enablement", home_meta_l)
+        self.assertIn("workflow", home_meta_l)
+        self.assertIn("ai consulting", consult_title)
+        self.assertIn("ai consultant", consult_title)
+
+        self.assertNotIn("consulting", about_title)
+        self.assertNotIn("consultant", about_title)
+        self.assertNotIn("tampa ai automation", about_title)
+        self.assertNotIn("consulting", about_meta)
+        self.assertNotIn("consultant", about_meta)
+
+        self.assertIn("If you searched for an AI consultant in Tampa", consulting)
+        self.assertIn('href="ai-consulting-tampa.html"', homepage)
+        self.assertIn(">AI consulting in Tampa</a>", homepage)
+        self.assertIn(">AI consultant in Tampa</a>", homepage)
+        self.assertIn('href="ai-consulting-tampa.html"', about)
+
     def test_ai_strategy_page_sells_what_the_rest_of_the_site_sells(self):
         """The page used to sell a 7-day audit, two named deliverables and an
         embedded engineering team, none of which altr does. It also carried
