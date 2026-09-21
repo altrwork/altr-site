@@ -1,126 +1,244 @@
 /* Ask altr chat hero, recovered from commit afffae1 (styles.css:4401-4610),
-   the last state before e1c41b9 "Redesign the site" removed it.
-   Kept in its own file so it does not collide with the current design. */
+   the last state before e1c41b9 "Redesign the site" removed it, then
+   reshaped as a message thread on the current dark palette.
+
+   Three things the original did not do: it sat on flat paper, it wore
+   pre-dark colours, and it reserved a full hero's worth of bottom air.
+   All three are corrected here. Kept in its own file so it does not
+   collide with the rest of the design. */
 
 .home-main .home-about {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: var(--paper-sunk);
-  border-bottom: 1px solid var(--line);
+  background: var(--paper);
 }
 
+/* -- the plate ----------------------------------------------------- */
+/* the same workshop scene the headline hero stands on. Its veil is cut
+   for type pinned left, so the gradient is re-aimed at a centred thread
+   and pulled down harder - bubbles need a quieter ground than a
+   headline does. */
+.home-about-hero {
+  position: relative;
+}
+
+.chat-plate-bg {
+  background-position: center center;
+}
+
+.chat-plate-bg::after {
+  background:
+    linear-gradient(180deg,
+      var(--paper) 0%,
+      rgba(var(--veil-rgb), 0.70) 22%,
+      rgba(var(--veil-rgb), 0.70) 74%,
+      var(--paper) 100%),
+    radial-gradient(ellipse 80% 70% at 50% 50%,
+      rgba(var(--veil-rgb), 0.34) 0%,
+      rgba(var(--veil-rgb), 0.86) 100%);
+}
+
+/* -- the frame ----------------------------------------------------- */
+/* the hero was 680-860px tall with 104-132px under the buttons, which
+   put the fold below the thread. Shorter, and the bottom air is now the
+   smallest step in the scale. */
 .home-main .home-about-hero {
   display: grid;
   align-items: center;
-  min-height: clamp(680px, calc(100svh - var(--nav-height)), 860px);
+  min-height: min(72vh, 620px);
   border-top: 0;
-  background: var(--paper);
+  background: transparent;
 }
 
 .home-about .band-inner {
   display: grid;
   justify-items: center;
-  padding-top: clamp(70px, 9vw, 120px);
-  padding-bottom: clamp(70px, 9vw, 120px);
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(56px, 7vw, 96px);
 }
 
 .home-about-hero .band-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  padding-top: clamp(84px, 8vw, 110px);
-  padding-bottom: clamp(104px, 10vw, 132px);
+  padding-top: clamp(48px, 6vw, 84px);
+  padding-bottom: clamp(24px, 3vw, 40px);
 }
 
 .home-about .kicker {
   text-align: center;
+  margin-bottom: clamp(20px, 2.6vw, 30px);
 }
 
+/* -- the thread ---------------------------------------------------- */
+/* the container holds the finished height so the page does not jump
+   when the answer bubble grows out of the typing dots */
 .home-about-chat {
-  width: min(900px, 100%);
+  width: min(760px, 100%);
   display: grid;
-  gap: clamp(18px, 2.5vw, 28px);
+  align-content: start;
+  gap: 10px;
+  min-height: clamp(240px, 27vw, 290px);
 }
 
 .home-chat-message {
-  border: 1px solid var(--line);
+  position: relative;
+  border: 0;
 }
 
+/* the accent at full strength is the outgoing fill: #A65529 under cream
+   is 4.53:1, where the lifted #C2703A used for text would be 3.1:1 */
 .home-chat-user {
-  width: min(520px, 82%);
   justify-self: end;
-  padding: 18px 22px;
-  border-radius: 22px 22px 4px 22px;
-  background: var(--bone);
-  color: var(--paper);
+  width: auto;
+  max-width: min(520px, 78%);
+  padding: 13px 19px;
+  border-radius: 21px 21px 5px 21px;
+  background: #A65529;
+  color: var(--bone);
 }
 
+/* the tail is drawn rather than masked: the ground behind it is a
+   photograph, so the usual two-pseudo-element cut-out has nothing solid
+   to hide against */
+.home-chat-user::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+  width: 15px;
+  height: 17px;
+  background: #A65529;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+/* the assistant row is no longer the bubble - it is the avatar plus the
+   bubble, the way a thread reads */
 .home-chat-assistant {
+  justify-self: start;
   display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 16px;
-  padding: clamp(22px, 3.2vw, 34px);
-  border-radius: 4px 22px 22px 22px;
-  background: var(--paper);
-  box-shadow: 0 18px 48px rgba(26, 23, 20, 0.06);
-}
-
-.home-chat-label {
-  display: block;
-  margin-bottom: 7px;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.64;
-}
-
-.home-chat-user p,
-.home-chat-user h1 {
-  margin: 0;
-  color: var(--paper);
-  font-size: clamp(18px, 2vw, 23px);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.home-chat-prompt {
-  min-height: 1.3em;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: end;
+  gap: 10px;
+  width: auto;
+  max-width: min(600px, 86%);
+  padding: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .home-chat-model-mark {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  align-self: end;
+  width: 30px;
+  height: 30px;
   border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  background: var(--paper-sunk);
+  border-radius: 50%;
+  background: var(--paper-raised);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: -0.04em;
-  color: var(--bone);
+  color: var(--copper);
 }
 
 .home-chat-answer {
+  position: relative;
   min-width: 0;
+  padding: 13px 19px;
+  border-radius: 21px 21px 21px 5px;
+  background: var(--paper-raised);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
 }
 
+.home-chat-answer::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  bottom: 0;
+  width: 15px;
+  height: 17px;
+  background: var(--paper-raised);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* a thread does not caption who is speaking; the side and the colour do
+   that. The labels stay for screen readers. */
+.home-chat-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -- the message type ---------------------------------------------- */
+/* both sides set at one size: 32px display copy in a bubble reads as a
+   headline that happens to be round */
+.home-chat-user p,
+.home-chat-user h1,
+.home-about-statement {
+  margin: 0;
+  font-size: clamp(17px, 1.9vw, 21px);
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: -0.012em;
+}
+
+.home-chat-user p,
+.home-chat-user h1 {
+  color: var(--bone);
+  font-weight: 500;
+}
+
+.home-chat-prompt {
+  min-height: 1.42em;
+}
+
+.home-about-statement {
+  max-width: 48ch;
+  color: var(--bone);
+}
+
+/* collapsed rather than hidden-in-place, so the bubble hugs the dots
+   while it waits and then grows into the answer */
+.home-about-statement.is-waiting {
+  display: none;
+}
+
+/* -- typing indicator ---------------------------------------------- */
+/* the word "Thinking" is zeroed out rather than removed: the element
+   carries the aria-label and the live region */
 .home-chat-thinking {
-  min-height: 1.6em;
-  margin: 12px 0 0;
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--steel);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 1.42em;
+  margin: 0;
+  font-size: 0;
 }
 
 .home-chat-thinking[hidden] {
   display: none;
 }
 
+.home-chat-thinking span {
+  display: flex;
+  gap: 5px;
+}
+
 .home-chat-thinking i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bone-dim);
   font-style: normal;
   animation: home-thinking-dot 1.05s ease-in-out infinite;
 }
@@ -133,46 +251,23 @@
   animation-delay: 280ms;
 }
 
-.home-about-statement {
-  max-width: 42ch;
-  min-height: 4.8em;
-  margin: 0;
-  color: var(--bone);
-  font-size: clamp(20px, 2.5vw, 32px);
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-}
-
-.home-about-statement.is-waiting {
-  visibility: hidden;
-}
-
-.home-about-statement.is-typing::after {
-  content: "";
-  display: inline-block;
-  width: 0.08em;
-  height: 0.92em;
-  margin-left: 0.12em;
-  vertical-align: -0.08em;
-  background: var(--sage);
-  animation: home-about-cursor 700ms steps(1, end) infinite;
-}
-
+/* -- carets -------------------------------------------------------- */
+.home-about-statement.is-typing::after,
 .home-chat-prompt.is-typing::after {
   content: "";
   display: inline-block;
-  width: 0.08em;
+  width: 0.09em;
   height: 0.92em;
   margin-left: 0.12em;
-  vertical-align: -0.08em;
-  background: var(--paper);
+  vertical-align: -0.1em;
+  background: currentColor;
   animation: home-about-cursor 700ms steps(1, end) infinite;
 }
 
 .home-about-actions {
-  width: min(900px, 100%);
+  width: min(760px, 100%);
   justify-content: center;
-  margin-top: clamp(24px, 3vw, 34px);
+  margin-top: clamp(22px, 2.6vw, 30px);
 }
 
 @keyframes home-about-cursor {
@@ -193,22 +288,27 @@
 }
 
 @media (max-width: 640px) {
+  .home-main .home-about-hero {
+    min-height: 0;
+  }
+
+  .home-about-chat {
+    min-height: 330px;
+  }
+
   .home-chat-user {
-    width: 88%;
+    max-width: 86%;
   }
 
   .home-chat-assistant {
-    grid-template-columns: 36px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 26px minmax(0, 1fr);
+    max-width: 94%;
+    gap: 8px;
   }
 
   .home-chat-model-mark {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-  }
-
-  .home-about-statement {
-    min-height: 7.3em;
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
   }
 }
