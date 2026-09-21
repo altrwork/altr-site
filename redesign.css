@@ -656,34 +656,51 @@ select:focus {
    =================================================================== */
 
 /* -- 1. outcomes: light, wide, no card furniture ------------------- */
+/* Four treatments of .gap-grid stack up by the time this row renders:
+   the shared-border table in styles.css, the flush hairline cards at
+   "cards" above, section E's cell grid below, and this. They disagree
+   about whether the cells touch - E gives the grid a border-left and the
+   cells a border-right on the assumption of no gap, and this row has a
+   gap, so those rules became hairlines hanging in space. The cells also
+   took `padding: 24px 0 0` from "cards", whose `.gap-grid article`
+   (0,1,1) outranks E's `.gap-grid > *` (0,1,0), which is why the copy
+   ran the full width of the column with the border-left against it.
+
+   So this states the row outright - grid, borders, padding, measure -
+   rather than adding another correction to the pile. Everything it
+   needs is here; nothing above it is relied on. */
 .home-main #who-this-is-for .gap-grid {
-  gap: clamp(24px, 3.4vw, 52px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(32px, 4.4vw, 72px);
+  margin-top: 34px;
+  border: 0;
 }
 
+/* one rule per column, and the copy sits inside it rather than on it */
 .home-main #who-this-is-for .gap-grid article {
+  border: 0;
   border-top: 1px solid var(--rule-ink);
-  padding-top: 20px;
+  padding: 20px clamp(20px, 2vw, 30px) 0;
 }
 
 .home-main #who-this-is-for .gap-grid h3 {
   font-size: clamp(1.15rem, 1.6vw, 1.38rem);
 }
 
-/* `.gap-grid article` (0,1,1) at the cards block above outranks the cell
-   grid's `.gap-grid > *` (0,1,0), so these three took its `24px 0 0` and
-   ran the copy the full width of the column. The rule stays flush to the
-   page grid on the left, under the h2; the air goes on the right, where
-   the line was breaking against the next column. */
-.home-main #who-this-is-for .gap-grid {
-  gap: clamp(32px, 4.4vw, 72px);
-}
-
-.home-main #who-this-is-for .gap-grid article {
-  padding: 20px clamp(18px, 1.8vw, 28px) 0 0;
-}
-
 .home-main #who-this-is-for .gap-grid p {
   max-width: 34ch;
+}
+
+/* "More deals through the door" takes two lines in the padded column
+   while the other two take one, which dropped its paragraph below
+   theirs. Two lines' worth of room for all three levels the baseline and
+   survives a copy change either way - but only while they are side by
+   side; stacked, it is just a hole under a one-line heading. */
+@media (min-width: 861px) {
+  .home-main #who-this-is-for .gap-grid h3 {
+    min-height: 2.2em;
+  }
 }
 
 /* -- 2. process: sunk ground, numerals carry it -------------------- */
