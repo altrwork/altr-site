@@ -47,6 +47,8 @@ Contact: inquiries@altrwork.com
 
 ## Case studies
 
+- [Tampa property records connector](https://altrwork.com/impact-cre-county-records-connector.html): Hillsborough, Pinellas, Pasco and Polk county records inside Claude, with branded valuations
+- [Slice of Heaven Cakes](https://altrwork.com/impact-slice-of-heaven-cakes.html): website orders and quote requests into one pipeline with automatic confirmations and quoting
 - [Manhattan office condo registry](https://altrwork.com/impact-manhattan-office-condo-registry.html): every Manhattan office condominium assembled from ACRIS, the Digital Tax Map and the DOF assessment roll
 - [spARK Labs, operations intake](https://altrwork.com/impact-spark-labs.html): expense and event request workflows in Claude Cowork
 - [spARK Labs, remote MCP server](https://altrwork.com/impact-spark-labs-mcp.html): Cloudflare Workers MCP server connecting Claude to operations tools

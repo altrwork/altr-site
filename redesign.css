@@ -1593,6 +1593,8 @@ h2 + p {
 .mark-spark-mcp          { background-image: url("assets/operations-mcp.webp");              background-color: #F3F1ED; }
 .mark-spark-ops          { background-image: url("assets/spARK-expense-report.webp");        background-color: #F7F3ED; }
 .mark-manhattan-registry { background-image: url("assets/case-manhattan-registry.webp");     background-color: #14110E; }
+.mark-cre-connector      { background-image: url("assets/case-cre-connector.webp");         background-color: #14110E; }
+.mark-slice-of-heaven    { background-image: url("assets/case-slice-of-heaven.webp"); }
 
 @media (max-width: 900px) {
   .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1867,10 +1869,13 @@ body {
 .index-cell .cell-mark.mark-cre-research  { background-size: cover; background-position: 50% 46%; }
 .index-cell .cell-mark.mark-fishin-prints { background-size: cover; background-position: 50% 50%; }
 
+.index-cell .cell-mark.mark-slice-of-heaven { background-size: cover; background-position: 50% 50%; }
+
 .index-cell .cell-mark.mark-air-supply,
 .index-cell .cell-mark.mark-spark-mcp,
 .index-cell .cell-mark.mark-spark-ops,
-.index-cell .cell-mark.mark-manhattan-registry {
+.index-cell .cell-mark.mark-manhattan-registry,
+.index-cell .cell-mark.mark-cre-connector {
   background-size: contain;
   background-position: center;
 }
