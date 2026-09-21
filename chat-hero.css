@@ -1,0 +1,357 @@
+/* Ask altr chat hero, recovered from commit afffae1 (styles.css:4401-4610),
+   the last state before e1c41b9 "Redesign the site" removed it, then
+   reshaped as a message thread on the current dark palette.
+
+   Three things the original did not do: it sat on flat paper, it wore
+   pre-dark colours, and it reserved a full hero's worth of bottom air.
+   All three are corrected here. Kept in its own file so it does not
+   collide with the rest of the design. */
+
+.home-main .home-about {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--paper);
+}
+
+/* -- the plate ----------------------------------------------------- */
+/* the same workshop scene the headline hero stands on. Its veil is cut
+   for type pinned left, so the gradient is re-aimed at a centred thread
+   and pulled down harder - bubbles need a quieter ground than a
+   headline does. */
+.home-about-hero {
+  position: relative;
+}
+
+.chat-plate-bg {
+  background-position: center center;
+}
+
+.chat-plate-bg::after {
+  background:
+    linear-gradient(180deg,
+      var(--paper) 0%,
+      rgba(var(--veil-rgb), 0.70) 22%,
+      rgba(var(--veil-rgb), 0.70) 74%,
+      var(--paper) 100%),
+    radial-gradient(ellipse 80% 70% at 50% 50%,
+      rgba(var(--veil-rgb), 0.34) 0%,
+      rgba(var(--veil-rgb), 0.86) 100%);
+}
+
+/* -- the frame ----------------------------------------------------- */
+/* the hero was 680-860px tall with 104-132px under the buttons, which
+   put the fold below the thread. Shorter, and the bottom air is now the
+   smallest step in the scale. */
+.home-main .home-about-hero {
+  display: grid;
+  align-items: center;
+  min-height: min(72vh, 620px);
+  border-top: 0;
+  background: transparent;
+}
+
+.home-about .band-inner {
+  display: grid;
+  justify-items: center;
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(56px, 7vw, 96px);
+}
+
+.home-about-hero .band-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: clamp(48px, 6vw, 84px);
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.home-about .kicker {
+  text-align: center;
+  margin-bottom: clamp(20px, 2.6vw, 30px);
+}
+
+/* -- the thread ---------------------------------------------------- */
+/* the container holds the finished height so the page does not jump
+   when the answer bubble grows out of the typing dots */
+.home-about-chat {
+  width: min(760px, 100%);
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: clamp(240px, 27vw, 290px);
+}
+
+.home-chat-message {
+  position: relative;
+  border: 0;
+}
+
+/* the accent at full strength is the outgoing fill: #A65529 under cream
+   is 4.53:1, where the lifted #C2703A used for text would be 3.1:1 */
+.home-chat-user {
+  justify-self: end;
+  width: auto;
+  max-width: min(520px, 78%);
+  padding: 13px 19px;
+  border-radius: 21px 21px 5px 21px;
+  background: #A65529;
+  color: var(--bone);
+}
+
+/* the tail is drawn rather than masked: the ground behind it is a
+   photograph, so the usual two-pseudo-element cut-out has nothing solid
+   to hide against */
+.home-chat-user::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+  width: 15px;
+  height: 17px;
+  background: #A65529;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+/* the assistant row is no longer the bubble - it is the avatar plus the
+   bubble, the way a thread reads */
+.home-chat-assistant {
+  justify-self: start;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: end;
+  gap: 14px;
+  width: auto;
+  max-width: min(600px, 86%);
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.home-chat-model-mark {
+  display: grid;
+  place-items: center;
+  align-self: end;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--paper-raised);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--copper);
+}
+
+.home-chat-answer {
+  position: relative;
+  min-width: 0;
+  padding: 13px 19px;
+  border-radius: 21px 21px 21px 5px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-ink);
+}
+
+.home-chat-answer::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  bottom: 0;
+  width: 15px;
+  height: 17px;
+  background: var(--paper-raised);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* a thread does not caption who is speaking; the side and the colour do
+   that. The labels stay for screen readers. */
+.home-chat-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -- the message type ---------------------------------------------- */
+/* both sides set at one size: 32px display copy in a bubble reads as a
+   headline that happens to be round */
+.home-chat-user p,
+.home-chat-user h1,
+.home-about-statement {
+  margin: 0;
+  font-size: clamp(17px, 1.9vw, 21px);
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: -0.012em;
+}
+
+.home-chat-user p,
+.home-chat-user h1 {
+  color: var(--bone);
+  font-weight: 500;
+}
+
+.home-chat-prompt {
+  min-height: 1.42em;
+}
+
+.home-about-statement {
+  max-width: 42ch;
+  color: var(--bone);
+}
+
+/* collapsed rather than hidden-in-place, so the bubble hugs the dots
+   while it waits and then grows into the answer */
+.home-about-statement.is-waiting {
+  display: none;
+}
+
+/* -- typing indicator ---------------------------------------------- */
+/* the word "Thinking" is zeroed out rather than removed: the element
+   carries the aria-label and the live region */
+.home-chat-thinking {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 1.42em;
+  margin: 0;
+  font-size: 0;
+}
+
+.home-chat-thinking[hidden] {
+  display: none;
+}
+
+.home-chat-thinking span {
+  display: flex;
+  gap: 5px;
+}
+
+.home-chat-thinking i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bone-dim);
+  font-style: normal;
+  animation: home-thinking-dot 1.05s ease-in-out infinite;
+}
+
+.home-chat-thinking i:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.home-chat-thinking i:nth-child(3) {
+  animation-delay: 280ms;
+}
+
+/* -- carets -------------------------------------------------------- */
+.home-about-statement.is-typing::after,
+.home-chat-prompt.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.09em;
+  height: 0.92em;
+  margin-left: 0.12em;
+  vertical-align: -0.1em;
+  background: currentColor;
+  animation: home-about-cursor 700ms steps(1, end) infinite;
+}
+
+.home-about-actions {
+  width: min(760px, 100%);
+  justify-content: center;
+  margin-top: clamp(22px, 2.6vw, 30px);
+}
+
+@keyframes home-about-cursor {
+  50% { opacity: 0; }
+}
+
+@keyframes home-thinking-dot {
+  0%, 60%, 100% { opacity: 0.28; }
+  30% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-about-statement.is-typing::after,
+  .home-chat-prompt.is-typing::after,
+  .home-chat-thinking i {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-main .home-about-hero {
+    min-height: 0;
+  }
+
+  .home-about-chat {
+    min-height: 330px;
+  }
+
+  .home-chat-user {
+    max-width: 86%;
+  }
+
+  .home-chat-assistant {
+    grid-template-columns: 26px minmax(0, 1fr);
+    max-width: 94%;
+    gap: 8px;
+  }
+
+  .home-chat-model-mark {
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+  }
+}
+
+
+/* -- exceptions to the no-radius law ------------------------------- */
+/* redesign.css ends with a deliberate `*, *::before, *::after {
+   border-radius: 0 !important; box-shadow: none !important;
+   animation: none !important }` - "printed matter has edges, not
+   glows". A message bubble is the one thing on the site that cannot
+   obey it: square bubbles read as tooltips, and the law had also
+   silenced the caret and the typing dots.
+
+   The exception is opened for the bubbles, the avatar and the two
+   animations only. The shadow stays off - the incoming bubble is
+   separated by a hairline instead, which is what the rest of the site
+   uses. */
+.home-chat-user {
+  border-radius: 21px 21px 5px 21px !important;
+}
+
+.home-chat-answer {
+  border-radius: 21px 21px 21px 5px !important;
+}
+
+.home-chat-model-mark {
+  border-radius: 50% !important;
+}
+
+.home-chat-thinking i {
+  border-radius: 50% !important;
+  animation: home-thinking-dot 1.05s ease-in-out infinite !important;
+}
+
+.home-about-statement.is-typing::after,
+.home-chat-prompt.is-typing::after {
+  animation: home-about-cursor 700ms steps(1, end) infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-chat-thinking i,
+  .home-about-statement.is-typing::after,
+  .home-chat-prompt.is-typing::after {
+    animation: none !important;
+  }
+}

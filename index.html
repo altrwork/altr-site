@@ -39,6 +39,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20260913a" />
 <link rel="stylesheet" href="redesign.css?v=20260913a" />
+<link rel="stylesheet" href="chat-hero.css" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,6 +48,8 @@
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://altrwork.com/#business",
       "name": "altr",
+      "legalName": "Uncreated LLC",
+      "alternateName": "Uncreated LLC d/b/a altr",
       "url": "https://altrwork.com/",
       "logo": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png",
       "image": "https://altrwork.com/assets/altr_social_preview.png",
@@ -158,17 +161,28 @@
 
   <main class="home-main" id="main">
 
-    <section class="hero-plate" aria-labelledby="home-headline">
-      <div class="hero-plate-bg" aria-hidden="true"></div>
-      <div class="hero-plate-inner">
-        <div class="hero-plate-panel">
-        <p class="kicker">Software and AI strategy &middot; Tampa, FL</p>
-        <h1 class="two-tone" id="home-headline"><b>We find the work your team repeats every week,</b> and build the system that <em>handles the rest</em>.</h1>
-        <p class="hero-lede">altr works with operations-heavy teams. We map how the job actually gets done, train the people doing it, and deploy software only where the work has proven it needs some.</p>
-        <div class="home-hero-actions">
-          <a class="button primary" href="start-a-conversation.html">Book a call</a>
-          <a class="button secondary" href="case-studies.html">See our work</a>
+    <!-- "Ask altr" chat hero, recovered from afffae1 (removed by e1c41b9).
+         Styles in chat-hero.css, animation in home-typewriter.js. -->
+    <section class="band band-quiet home-about home-about-hero" aria-labelledby="home-headline">
+      <div class="hero-plate-bg chat-plate-bg" aria-hidden="true"></div>
+      <div class="band-inner">
+        <div class="home-about-chat">
+          <div class="home-chat-message home-chat-user">
+            <span class="home-chat-label">You</span>
+            <h1 class="home-chat-prompt" id="home-headline" data-prompt-typewriter aria-label="Who is altr?">Who is altr?</h1>
+          </div>
+          <div class="home-chat-message home-chat-assistant">
+            <span class="home-chat-model-mark" aria-hidden="true">altr</span>
+            <div class="home-chat-answer">
+              <span class="home-chat-label">altr</span>
+              <p class="home-chat-thinking" data-thinking role="status" aria-label="Thinking..." hidden>Thinking<span aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p>
+              <p class="home-about-statement" data-typewriter aria-label="We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.">We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.</p>
+            </div>
+          </div>
         </div>
+        <div class="home-hero-actions home-about-actions">
+          <a class="button primary" href="start-a-conversation.html">Book free consultation</a>
+          <a class="button secondary" href="case-studies.html">See our work</a>
         </div>
       </div>
     </section>
@@ -335,5 +349,6 @@
 </div>
 <script src="intake-modal.js"></script>
 <script src="nav.js"></script>
+<script src="home-typewriter.js"></script>
 </body>
 </html>

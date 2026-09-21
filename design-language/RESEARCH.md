@@ -623,7 +623,7 @@ For altr the spine should be five things:
 4. Press Band: identical on every page except Conversion and Utility. One
    sentence, one keycap.
 5. Footer with colophon: link columns, then a mono colophon line with the
-   plate credit, the build date, and "altr LLC, Tampa, FL". Identical
+   plate credit, the build date, and "Uncreated LLC d/b/a altr, Tampa, FL". Identical
    everywhere.
 
 If a page has all five, it belongs to the site even if its middle is unusual.
@@ -774,7 +774,7 @@ H. Press Band
 
 Footer (not counted as an archetype because it is spine): link columns as
 Ledgers without indices, then a colophon line in mono 10-11px: plate
-credit, "Built 2026-09-10", "altr LLC / Tampa, FL". The existing
+credit, "Built 2026-09-10", "Uncreated LLC d/b/a altr / Tampa, FL". The existing
 `.plate-credit-foot` becomes this line.
 
 Buttons across all archetypes: the keycap. Radius 2px (4px maximum). Label
