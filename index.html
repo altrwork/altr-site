@@ -39,6 +39,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20260913a" />
 <link rel="stylesheet" href="redesign.css?v=20260913a" />
+<link rel="stylesheet" href="chat-hero.css" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -157,6 +158,33 @@
   </header>
 
   <main class="home-main" id="main">
+
+    <!-- RECOVERED: "Ask altr" chat hero, from commit afffae1 (removed by e1c41b9).
+         Styles in chat-hero.css, animation in home-typewriter.js.
+         The old <h1> is demoted to <p> here so the page keeps one h1. -->
+    <section class="band band-quiet home-about home-about-hero" aria-labelledby="ask-altr-heading">
+      <div class="band-inner">
+        <p class="kicker" id="ask-altr-heading">Ask altr</p>
+        <div class="home-about-chat">
+          <div class="home-chat-message home-chat-user">
+            <span class="home-chat-label">You</span>
+            <p class="home-chat-prompt" data-prompt-typewriter aria-label="Who is altr?">Who is altr?</p>
+          </div>
+          <div class="home-chat-message home-chat-assistant">
+            <span class="home-chat-model-mark" aria-hidden="true">altr</span>
+            <div class="home-chat-answer">
+              <span class="home-chat-label">altr</span>
+              <p class="home-chat-thinking" data-thinking role="status" aria-label="Thinking..." hidden>Thinking<span aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p>
+              <p class="home-about-statement" data-typewriter aria-label="We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.">We are a software and AI strategy firm in Tampa. We work with operations-heavy teams: we find the work they repeat every week, train their people, and build the systems that handle the rest.</p>
+            </div>
+          </div>
+        </div>
+        <div class="home-hero-actions home-about-actions">
+          <a class="button primary" href="start-a-conversation.html">Book free consultation</a>
+          <a class="button secondary" href="case-studies.html">See our work</a>
+        </div>
+      </div>
+    </section>
 
     <section class="hero-plate" aria-labelledby="home-headline">
       <div class="hero-plate-bg" aria-hidden="true"></div>
@@ -335,5 +363,6 @@
 </div>
 <script src="intake-modal.js"></script>
 <script src="nav.js"></script>
+<script src="home-typewriter.js"></script>
 </body>
 </html>
