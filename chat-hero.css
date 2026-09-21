@@ -288,12 +288,22 @@
 }
 
 @media (max-width: 640px) {
+  /* the thread sat 22px under the nav with 121px of dead plate between it
+     and the buttons, because the container reserved 330px for 209px of
+     content. The reserve is trimmed to what the thread actually occupies,
+     and the hero gets a real height again so the base rule's align-items
+     can centre the thread in it rather than hanging it from the top. */
   .home-main .home-about-hero {
-    min-height: 0;
+    min-height: min(76svh, 560px);
   }
 
   .home-about-chat {
-    min-height: 330px;
+    min-height: 215px;
+  }
+
+  .home-about-hero .band-inner {
+    padding-top: clamp(36px, 9vw, 56px);
+    padding-bottom: clamp(28px, 7vw, 44px);
   }
 
   .home-chat-user {

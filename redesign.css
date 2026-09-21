@@ -1575,6 +1575,25 @@ h2 + p {
 .mark-rag         { background-image: url("assets/plates/scene-basilica.webp");  background-position: 40% 55%; }
 .mark-skills      { background-image: url("assets/plates/scene-forum.webp");     background-position: 72% 48%; }
 
+/* A case study shows the thing that was built. The plates above stay for
+   the tutorial and blog indexes, where there is no artifact to show -
+   but on this index they were keyed to the category, not the study, so
+   the three nonprofit cells all wore the same piazza and none of the six
+   said anything about the work. Each study now carries its own.
+
+   Two rules for how they sit in the cell. A photograph may be cropped to
+   fill it. A diagram may not - `cover` was cutting the labels off the
+   workflow screenshots, which is the only part of them worth showing -
+   so those are sized to fit on a ground sampled from the image itself,
+   and the letterbox disappears into the artwork. */
+.mark-cre-research  { background-image: url("assets/case-real-estate-facade.webp"); background-position: 50% 46%; }
+.mark-fishin-prints { background-image: url("assets/04_bull_trout_pair.webp");      background-position: 50% 50%; }
+
+.mark-air-supply         { background-image: url("assets/air-supply-matching-workflow.png"); background-color: #FBF8F3; }
+.mark-spark-mcp          { background-image: url("assets/operations-mcp.webp");              background-color: #F3F1ED; }
+.mark-spark-ops          { background-image: url("assets/spARK-expense-report.webp");        background-color: #F7F3ED; }
+.mark-manhattan-registry { background-image: url("assets/case-manhattan-registry.webp");     background-color: #14110E; }
+
 @media (max-width: 900px) {
   .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
@@ -1835,6 +1854,26 @@ body {
 .index-cell:nth-child(6n+4) .cell-mark { background-size: 260% auto; background-position: 14% 62%; }
 .index-cell:nth-child(6n+5) .cell-mark { background-size: 155% auto; background-position: 88% 55%; }
 .index-cell:nth-child(6n)   .cell-mark { background-size: 210% auto; background-position: 38% 76%; }
+
+/* The zoom above exists so six cells drawn from eight shared plates do not
+   read as the same picture six times, and it is right for a plate. It is
+   wrong for a real artifact: 155-260% was cutting the labels off the
+   workflow screenshots, which is the only part of them worth showing. The
+   studies that carry their own image opt out here rather than upstream,
+   because these selectors are (0,3,0) and so is anything that would try.
+
+   A photograph may be cropped to fill the cell. A diagram is sized to fit,
+   on a ground sampled from the image, so the letterbox disappears. */
+.index-cell .cell-mark.mark-cre-research  { background-size: cover; background-position: 50% 46%; }
+.index-cell .cell-mark.mark-fishin-prints { background-size: cover; background-position: 50% 50%; }
+
+.index-cell .cell-mark.mark-air-supply,
+.index-cell .cell-mark.mark-spark-mcp,
+.index-cell .cell-mark.mark-spark-ops,
+.index-cell .cell-mark.mark-manhattan-registry {
+  background-size: contain;
+  background-position: center;
+}
 
 /* the index sits under its own hero, with one air step between them */
 .index-section {

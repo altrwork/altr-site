@@ -47,6 +47,7 @@ Contact: inquiries@altrwork.com
 
 ## Case studies
 
+- [Manhattan office condo registry](https://altrwork.com/impact-manhattan-office-condo-registry.html): every Manhattan office condominium assembled from ACRIS, the Digital Tax Map and the DOF assessment roll
 - [spARK Labs, operations intake](https://altrwork.com/impact-spark-labs.html): expense and event request workflows in Claude Cowork
 - [spARK Labs, remote MCP server](https://altrwork.com/impact-spark-labs-mcp.html): Cloudflare Workers MCP server connecting Claude to operations tools
 - [spARK Labs, AIR Supply](https://altrwork.com/impact-spark-labs-air-supply.html): founder-advisor matching, shared records, monthly check-ins, and quarterly feedback
