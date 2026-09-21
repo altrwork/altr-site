@@ -300,16 +300,23 @@
     max-width: 86%;
   }
 
-  .home-chat-assistant {
-    grid-template-columns: 26px minmax(0, 1fr);
-    max-width: 94%;
-    gap: 8px;
+  /* the avatar held the left 34px of the row, so the answer bubble sat at
+     54 from the left against 20 from the right - the thread was centred
+     but the bubble in it was not. On a phone the column is too narrow to
+     spend on a mark that says what the copper already says, so it goes,
+     and the bubble takes the same gutters as the buttons under it. */
+  .home-chat-model-mark {
+    display: none;
   }
 
-  .home-chat-model-mark {
-    width: 26px;
-    height: 26px;
-    font-size: 8px;
+  .home-chat-assistant {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .home-chat-user {
+    max-width: 82%;
   }
 }
 
