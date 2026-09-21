@@ -120,7 +120,7 @@
   display: grid;
   grid-template-columns: 30px minmax(0, 1fr);
   align-items: end;
-  gap: 10px;
+  gap: 14px;
   width: auto;
   max-width: min(600px, 86%);
   padding: 0;
@@ -150,7 +150,7 @@
   padding: 13px 19px;
   border-radius: 21px 21px 21px 5px;
   background: var(--paper-raised);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--rule-ink);
 }
 
 .home-chat-answer::after {
@@ -202,7 +202,7 @@
 }
 
 .home-about-statement {
-  max-width: 48ch;
+  max-width: 42ch;
   color: var(--bone);
 }
 
@@ -310,5 +310,48 @@
     width: 26px;
     height: 26px;
     font-size: 8px;
+  }
+}
+
+
+/* -- exceptions to the no-radius law ------------------------------- */
+/* redesign.css ends with a deliberate `*, *::before, *::after {
+   border-radius: 0 !important; box-shadow: none !important;
+   animation: none !important }` - "printed matter has edges, not
+   glows". A message bubble is the one thing on the site that cannot
+   obey it: square bubbles read as tooltips, and the law had also
+   silenced the caret and the typing dots.
+
+   The exception is opened for the bubbles, the avatar and the two
+   animations only. The shadow stays off - the incoming bubble is
+   separated by a hairline instead, which is what the rest of the site
+   uses. */
+.home-chat-user {
+  border-radius: 21px 21px 5px 21px !important;
+}
+
+.home-chat-answer {
+  border-radius: 21px 21px 21px 5px !important;
+}
+
+.home-chat-model-mark {
+  border-radius: 50% !important;
+}
+
+.home-chat-thinking i {
+  border-radius: 50% !important;
+  animation: home-thinking-dot 1.05s ease-in-out infinite !important;
+}
+
+.home-about-statement.is-typing::after,
+.home-chat-prompt.is-typing::after {
+  animation: home-about-cursor 700ms steps(1, end) infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-chat-thinking i,
+  .home-about-statement.is-typing::after,
+  .home-chat-prompt.is-typing::after {
+    animation: none !important;
   }
 }

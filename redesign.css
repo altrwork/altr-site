@@ -669,6 +669,23 @@ select:focus {
   font-size: clamp(1.15rem, 1.6vw, 1.38rem);
 }
 
+/* `.gap-grid article` (0,1,1) at the cards block above outranks the cell
+   grid's `.gap-grid > *` (0,1,0), so these three took its `24px 0 0` and
+   ran the copy the full width of the column. The rule stays flush to the
+   page grid on the left, under the h2; the air goes on the right, where
+   the line was breaking against the next column. */
+.home-main #who-this-is-for .gap-grid {
+  gap: clamp(32px, 4.4vw, 72px);
+}
+
+.home-main #who-this-is-for .gap-grid article {
+  padding: 20px clamp(18px, 1.8vw, 28px) 0 0;
+}
+
+.home-main #who-this-is-for .gap-grid p {
+  max-width: 34ch;
+}
+
 /* -- 2. process: sunk ground, numerals carry it -------------------- */
 .home-how {
   background: var(--paper-sunk);
