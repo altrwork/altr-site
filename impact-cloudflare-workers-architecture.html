@@ -161,20 +161,12 @@
           <p>The one design decision worth spelling out is that the connector is stateless. There is a common assumption that an AI server needs to hold a session per user, and Cloudflare offers Durable Objects for exactly that kind of stateful coordination. We had one early on and took it out. The connector now builds a fresh server for every request, which sounds wasteful and is the opposite: because nothing is held between requests, the same Worker can expose a completely different set of tools on each route — valuation, investment sales, debt, property management, or all of them — without a class per variant. Opening a route for a new team is one line in a table and a redeploy.</p>
           <p>It also removes a whole category of problem. There is no long-lived object to leak memory, wedge itself, or need migrating between versions, and every request starts from the same known state. Durable Objects are the right tool when clients genuinely need to coordinate with each other — a shared document, a live room, an exact counter. A broker asking what a building sold for is not that, and pretending otherwise costs you complexity you then have to maintain.</p>
           <p>The honest summary is that two people are running a product with scheduled ingest from a state registry, its own auth, billing, document generation and an AI connector, and almost none of our week goes into keeping it up. That is the whole reason to build this way. The time it saves does not go into more infrastructure. It goes into the next conversation with the next client.</p>
+          <p class="built-on-line">
+            <span>Built on</span>
+            <a href="https://www.cloudflare.com" rel="noopener nofollow" target="_blank"><img class="built-on-art built-on-art-cloudflare" src="assets/brand/cloudflare-lockup.png" alt="Cloudflare" /></a>
+          </p>
         </div>
       </article>
-    </section>
-
-    <section class="section">
-      <div class="built-on">
-        <p class="built-on-label">Built on</p>
-        <ul class="built-on-list">
-          <li>
-            <a class="built-on-art" href="https://www.cloudflare.com" rel="noopener nofollow" target="_blank"><img src="assets/brand/cloudflare-mark.png" alt="" width="245" height="111" /><span class="built-on-name">Cloudflare</span></a>
-            <span class="built-on-what">Workers, D1, DNS and email</span>
-          </li>
-        </ul>
-      </div>
     </section>
 
     <section class="section">

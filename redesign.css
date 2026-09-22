@@ -1871,22 +1871,23 @@ body {
 
 .index-cell .cell-mark.mark-slice-of-heaven { background-size: cover; background-position: 50% 50%; }
 
-/* -- "Built on" attribution --------------------------------------- */
-/* Credit for the platforms a study is built on, using each vendor's own
-   artwork. Stripe ship a white wordmark, which is the one that belongs on
-   this ground. Cloudflare's lockup sets the name in black and disappears
-   here, so it is their logomark at its own colours with the name in ours -
-   nothing recoloured, nothing redrawn. Swap in their reversed lockup if
-   one is downloaded and this becomes a wordmark like Stripe's. */
-.built-on {
-  display: grid;
-  gap: 20px;
-  padding-top: 26px;
+/* -- "Built on" credit -------------------------------------------- */
+/* One line at the foot of the article. This was a full-height band with a
+   label, a logo and a caption stacked inside it, which is a lot of page
+   for a credit. The vendors supply their own artwork: Stripe a white
+   wordmark, Cloudflare their lockup with the wordmark reversed to cream
+   the way their own dark-background version sets it. Optical sizes
+   differ, so the heights are set per mark rather than shared. */
+.built-on-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2.2em;
+  padding-top: 20px;
   border-top: 1px solid var(--rule-ink);
 }
 
-.built-on-label {
-  margin: 0;
+.built-on-line span {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
@@ -1895,52 +1896,30 @@ body {
   color: var(--bone-dim);
 }
 
-.built-on-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(28px, 4vw, 56px);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.built-on-list li {
-  display: grid;
-  gap: 10px;
-}
-
-.built-on-art {
+.built-on-line a {
   display: flex;
   align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  opacity: 0.92;
+  opacity: 0.9;
   transition: opacity 200ms var(--ease-out);
 }
 
-.built-on-art:hover {
+.built-on-line a:hover {
   opacity: 1;
 }
 
-/* one optical height for artwork of different proportions */
-.built-on-art img {
+.built-on-art {
   display: block;
   width: auto;
-  height: 26px;
 }
 
-.built-on-name {
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-  font-weight: 500;
-  letter-spacing: -0.028em;
-  color: var(--bone);
+.built-on-art-stripe {
+  height: 22px;
 }
 
-.built-on-what {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: var(--bone-dim);
+/* the lockup carries a cloud above the word, so it needs more height to
+   set the word itself at the same size as Stripe's */
+.built-on-art-cloudflare {
+  height: 34px;
 }
 
 .mark-stripe-invoicing   { background-image: url("assets/case-stripe-invoicing.webp");        background-color: #14110E; }

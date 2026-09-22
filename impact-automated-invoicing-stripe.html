@@ -160,20 +160,12 @@
           <p>There is one more piece running where nobody is watching. For clients on a subscription, Stripe tells our platform whenever something changes — a payment succeeds, a plan lapses. Occasionally that message never arrives, and Stripe stops retrying after a while, which would leave someone permanently in the wrong state: a paying firm locked out of what it bought, or a cancelled one served forever, with nothing in the system aware of it.</p>
           <p>So every night at 04:40 a job asks Stripe directly what each subscription actually is, and repairs anything that disagrees. It reads, compares, writes only where there is a difference, and never writes back to Stripe. It is deliberately boring. Boring is the point: it is the kind of job that earns its keep about twice a year, on the two mornings it quietly prevents an awkward email.</p>
           <p>None of this is clever engineering. It is a couple of hundred lines against an API that was already good. What it buys a two-person company is that billing is no longer a task anybody schedules, dreads, or forgets — it happens in the thirty seconds after the work finishes, while the details are still fresh, which happens to be exactly when a client is most ready to pay. The hours we get back go into the only thing that actually grows the business, which is talking to the next client.</p>
+          <p class="built-on-line">
+            <span>Built on</span>
+            <a href="https://stripe.com" rel="noopener nofollow" target="_blank"><img class="built-on-art built-on-art-stripe" src="assets/brand/stripe-wordmark.svg" alt="Stripe" /></a>
+          </p>
         </div>
       </article>
-    </section>
-
-    <section class="section">
-      <div class="built-on">
-        <p class="built-on-label">Built on</p>
-        <ul class="built-on-list">
-          <li>
-            <a class="built-on-art" href="https://stripe.com" rel="noopener nofollow" target="_blank"><img src="assets/brand/stripe-wordmark.svg" alt="Stripe" width="120" height="50" /></a>
-            <span class="built-on-what">invoicing, subscriptions and billing</span>
-          </li>
-        </ul>
-      </div>
     </section>
 
     <section class="section">
