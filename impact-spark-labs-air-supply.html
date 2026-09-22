@@ -152,6 +152,10 @@
             <div class="impact-date">Sep 12, 2026</div>
           </div>
           <h1>AIR Supply: automating founder-advisor matching for a startup accelerator</h1>
+          <picture>
+            <source srcset="assets/air-supply-matching-workflow.svg" type="image/svg+xml" />
+            <img class="impact-article-image" src="assets/air-supply-matching-workflow.png" width="1920" height="1080" loading="lazy" alt="AIR Supply workflow: BossHub intake feeds a Claude matching skill, the team reviews proposed pairs, confirmed matches are stored in a shared Slack List, and recurring skills send monthly check-ins and quarterly feedback forms" />
+          </picture>
           <div class="impact-article-divider" aria-hidden="true"></div>
           <p class="impact-subheading">spARK Labs by ARK Invest gives founders and entrepreneurs the insights, intelligence, and resources to help new ideas take form. AIR Supply is its advisor matching program: founders describe what they need, advisors describe what they can offer, and the program pairs them up. This project turned that matching process—and the follow-up after it—into a system the spARK Labs team can run and maintain on its own.</p>
           <p>The existing process relied on the team manually reviewing form submissions, matching founders to advisors by hand, and reaching out on Slack to introduce each pair. It worked, but nothing about it survived past the moment it happened. There was no lasting record of who was matched to whom, and every follow-up after an introduction was manual. In partnership with <strong>altr</strong>, spARK Labs turned the process into a repeatable system built with Claude skills, a shared Slack List, and structured BossHub feedback forms.</p>
@@ -164,10 +168,6 @@
           <p>The earlier process had no durable record of its matches. Founder and advisor submissions live in BossHub, but nothing tied a founder to the advisor they'd actually been paired with once that decision was made. The only lasting trace of who was paired with whom was scattered across old Slack messages, so reconstructing the program meant searching chat history instead of checking a single source of truth.</p>
           <p>The fix was <strong>AIR Supply Matches</strong>, a Slack List visible and editable by anyone at spARK Labs rather than tied to one person's Claude account. Every confirmed match, its status, and every check-in and feedback date now lives in one shared table instead of a person's memory or a chat history.</p>
 
-          <picture>
-            <source srcset="assets/air-supply-matching-workflow.svg" type="image/svg+xml" />
-            <img class="impact-article-image" src="assets/air-supply-matching-workflow.png" width="1920" height="1080" loading="lazy" alt="AIR Supply workflow: BossHub intake feeds a Claude matching skill, the team reviews proposed pairs, confirmed matches are stored in a shared Slack List, and recurring skills send monthly check-ins and quarterly feedback forms" />
-          </picture>
 
           <h2 class="impact-article-heading">Monthly check-ins on both sides of the match</h2>
           <p>A second skill runs on its own every month: a recurring scheduled task wakes it up with no one at spARK Labs needing to ask for it, and it checks the Slack List for any match that hasn't had a recent check-in. It messages the advisor and founder separately with a short, direct question about how the connection is going. Each message logs its own date back to the Slack List, so the next run knows exactly who is due and who isn't. An advisor with several founders gets one message covering all of them instead of a flood of separate pings.</p>

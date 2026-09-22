@@ -1953,3 +1953,15 @@ body {
 .impact-article .impact-study-copy p + p {
   margin-top: 1.15em;
 }
+
+
+/* -- case study: headline first ------------------------------------ */
+/* The stacked layout opened with a full-width image, which put the
+   headline 832px down the page against 338 on the older studies. The
+   artwork now follows the headline, and on the two studies whose artwork
+   is just the platform's logo it is gone entirely - the article credits
+   them at the foot already. */
+.impact-detail-stacked .impact-study-copy .impact-study-image {
+  margin: 26px 0 30px;
+  border: 1px solid var(--rule);
+}
