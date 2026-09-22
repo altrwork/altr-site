@@ -1872,14 +1872,15 @@ body {
 .index-cell .cell-mark.mark-slice-of-heaven { background-size: cover; background-position: 50% 50%; }
 
 /* -- "Built on" attribution --------------------------------------- */
-/* Credit for the platforms a study is built on. Set in the brand mono
-   rather than in vendor logos: full-colour marks fight a dark engraving
-   page, and a wordmark we set ourselves cannot go stale or imply a
-   partnership nobody agreed to. Drop official artwork in here when it is
-   downloaded from the press kit under their brand terms. */
+/* Credit for the platforms a study is built on, using each vendor's own
+   artwork. Stripe ship a white wordmark, which is the one that belongs on
+   this ground. Cloudflare's lockup sets the name in black and disappears
+   here, so it is their logomark at its own colours with the name in ours -
+   nothing recoloured, nothing redrawn. Swap in their reversed lockup if
+   one is downloaded and this becomes a wordmark like Stripe's. */
 .built-on {
   display: grid;
-  gap: 18px;
+  gap: 20px;
   padding-top: 26px;
   border-top: 1px solid var(--rule-ink);
 }
@@ -1897,7 +1898,7 @@ body {
 .built-on-list {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(24px, 4vw, 56px);
+  gap: clamp(28px, 4vw, 56px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1905,51 +1906,34 @@ body {
 
 .built-on-list li {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  column-gap: 14px;
-  row-gap: 2px;
+  gap: 10px;
+}
+
+.built-on-art {
+  display: flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  opacity: 0.92;
+  transition: opacity 200ms var(--ease-out);
 }
 
-/* the vendor glyph, inlined so it takes the page's own ink rather than
-   arriving as a colour that fights the plate */
-.built-on-mark {
-  grid-row: 1 / span 2;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  color: var(--bone);
+.built-on-art:hover {
+  opacity: 1;
 }
 
-.built-on-mark svg {
-  width: 26px;
+/* one optical height for artwork of different proportions */
+.built-on-art img {
+  display: block;
+  width: auto;
   height: 26px;
 }
 
-.built-on-list li:hover .built-on-mark {
-  color: var(--copper);
-}
-
-.built-on-what {
-  align-self: start;
-}
-
-.built-on-list a {
-  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+.built-on-name {
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
   font-weight: 500;
   letter-spacing: -0.028em;
   color: var(--bone);
-  text-decoration: none;
-  border-bottom: 1px solid var(--rule-ink);
-  padding-bottom: 2px;
-  transition: border-color 200ms var(--ease-out);
-}
-
-.built-on-list a:hover {
-  border-bottom-color: var(--copper);
-  color: var(--copper);
 }
 
 .built-on-what {
@@ -1976,4 +1960,17 @@ body {
 /* the index sits under its own hero, with one air step between them */
 .index-section {
   padding-top: var(--air-s);
+}
+
+
+/* -- article-shaped studies ---------------------------------------- */
+/* These read as a piece of writing rather than a spec sheet, so the copy
+   gets a measure. Anything past about 70 characters a line starts costing
+   the reader the return sweep. */
+.impact-article .impact-study-copy p {
+  max-width: 68ch;
+}
+
+.impact-article .impact-study-copy p + p {
+  margin-top: 1.15em;
 }
