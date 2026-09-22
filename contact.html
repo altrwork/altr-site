@@ -11,13 +11,13 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>Book a Call | altr Tampa</title>
+<title>Contact altr | AI Consulting in Tampa</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Book a call with altr. Tell us about one process your team repeats and get a straight recommendation on AI automation or enablement in Tampa Bay." />
-<link rel="canonical" href="https://altrwork.com/start-a-conversation.html" />
-<meta property="og:title" content="Book a Call | altr Tampa" />
-<meta property="og:description" content="Book a call with altr. Tell us about one process your team repeats and get a straight recommendation on workflow automation, AI enablement, or custom agents in Tampa Bay." />
-<meta property="og:url" content="https://altrwork.com/start-a-conversation.html" />
+<meta name="description" content="Tell us what your team keeps repeating and we will tell you whether AI belongs in it. Email, phone, or book a free 30 minute call with altr in Tampa." />
+<link rel="canonical" href="https://altrwork.com/contact.html" />
+<meta property="og:title" content="Contact altr | AI Consulting in Tampa" />
+<meta property="og:description" content="Tell us what your team keeps repeating and we will tell you whether AI belongs in it. Email, phone, or book a free 30 minute call with altr in Tampa." />
+<meta property="og:url" content="https://altrwork.com/contact.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
 <meta property="og:locale" content="en_US" />
@@ -26,8 +26,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Book a Call | altr Tampa" />
-<meta name="twitter:description" content="Book a call with altr. Tell us about one process your team repeats and get a straight recommendation on workflow automation, AI enablement, or custom agents in Tampa Bay." />
+<meta name="twitter:title" content="Contact altr | AI Consulting in Tampa" />
+<meta name="twitter:description" content="Tell us what your team keeps repeating and we will tell you whether AI belongs in it. Email, phone, or book a free 30 minute call with altr in Tampa." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -40,36 +40,19 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ContactPage",
-      "name": "Book a call with altr",
-      "url": "https://altrwork.com/start-a-conversation.html",
-      "isPartOf": {
-        "@id": "https://altrwork.com/#website"
-      },
-      "about": {
-        "@id": "https://altrwork.com/#business"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://altrwork.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Contact",
-          "item": "https://altrwork.com/start-a-conversation.html"
-        }
-      ]
-    }
-  ]
+  "@type": "ContactPage",
+  "name": "Contact altr",
+  "url": "https://altrwork.com/contact.html",
+  "mainEntity": {
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://altrwork.com/#business",
+    "name": "altr",
+    "legalName": "Uncreated LLC",
+    "email": "jarred@altrwork.com",
+    "telephone": "+1-484-631-5985",
+    "url": "https://altrwork.com/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Tampa", "addressRegion": "FL", "addressCountry": "US" }
+  }
 }
 </script>
 </head>
@@ -121,33 +104,66 @@
   </header>
 
   <main class="page" id="main">
-    <section class="page-hero hero-scene scene-workshop">
-      <h1>Book a call</h1>
-      <p class="page-lede">Tell us about one process your team keeps doing by hand and you will get a straight answer on whether AI belongs in it at all. Share a little context first; Calendly handles the time after that.</p>
+    <section class="page-hero">
+      <h1>Get in touch.</h1>
+      <p class="page-lede">Tell us what your team keeps repeating every week and we will tell you honestly whether AI belongs in it. There are two of us and we answer everything ourselves, usually the same day.</p>
     </section>
 
     <section class="section">
-      <div class="intake-panel">
-        <form class="intake-form" id="intake-form">
-          <label>
-            <span>Company name</span>
-            <input id="company-name" name="company" type="text" autocomplete="organization" placeholder="Company or team name" required />
-          </label>
+      <div class="contact-grid">
+        <form class="contact-form" name="contact" action="/contact-thank-you.html" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="subject" value="New enquiry from altrwork.com" />
+          <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
-          <label>
-            <span>What are you interested in discussing?</span>
-            <textarea id="project-interest" name="interest" rows="7" placeholder="Describe the workflow, agentic coding system, demo, or AI enablement need you want to discuss." required></textarea>
-          </label>
+          <div class="contact-field">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required />
+          </div>
 
-          <button class="button primary" type="submit">Continue to pick a time</button>
+          <div class="contact-field">
+            <label for="contact-email">Work email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-company">Company <span>optional</span></label>
+            <input id="contact-company" name="company" type="text" autocomplete="organization" />
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-message">What is the work you keep repeating?</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button class="button primary" type="submit">Send it</button>
+          <p class="contact-note">No newsletter, no sequence. It goes straight to us.</p>
         </form>
 
-        <aside class="intake-note">
-          <div>
-            <h2>Pick a time after the intake.</h2>
-          </div>
-          <p>After you share the company and topic, you can choose a time on Calendly. Calendly will collect your contact details.</p>
-    <p class="contact-direct">Or reach us directly: <a href="tel:+14846315985">(484) 631-5985</a> &middot; <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a><br />Tampa, FL &middot; serving Tampa Bay, St. Petersburg, Clearwater, Orlando, and Lakeland.</p>
+        <aside class="contact-direct">
+          <h2>Or reach us directly</h2>
+          <ul class="contact-ways">
+            <li>
+              <span class="contact-way-label">Email</span>
+              <a href="mailto:jarred@altrwork.com">jarred@altrwork.com</a>
+            </li>
+            <li>
+              <span class="contact-way-label">Phone</span>
+              <a href="tel:+14846315985">(484) 631-5985</a>
+            </li>
+            <li>
+              <span class="contact-way-label">Book a call</span>
+              <a href="https://calendly.com/altrwork/30min">30 minutes, free</a>
+            </li>
+            <li>
+              <span class="contact-way-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">@altrwork</a>
+            </li>
+            <li>
+              <span class="contact-way-label">Where we are</span>
+              <a href="ai-consulting-tampa.html">Tampa, FL, and remote</a>
+            </li>
+          </ul>
         </aside>
       </div>
     </section>
@@ -167,57 +183,11 @@
 
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="ai-consulting-tampa.html">Tampa, FL</a>
-      <a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+      <a href="tel:+14846315985">(484) 631-5985</a><a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
     </div>
   </footer>
 </div>
-
-<script>
- const calendlyBaseUrl = "https://calendly.com/altrwork/30min";
- const intakeForm = document.getElementById("intake-form");
- const companyName = document.getElementById("company-name");
- const projectInterest = document.getElementById("project-interest");
-
- function trackLeadAndNavigate(destination) {
- let navigated = false;
- const navigate = () => {
- if (navigated) return;
- navigated = true;
- window.location.assign(destination);
-    };
-
- if (typeof window.gtag !== "function") {
- navigate();
- return;
-    }
-
- window.gtag("event", "generate_lead", {
- lead_type: "consultation",
- form_location: "start_a_conversation",
- transport_type: "beacon",
- event_callback: navigate,
- event_timeout: 1200
-    });
- window.setTimeout(navigate, 1400);
-  }
-
- intakeForm.addEventListener("submit", (event) => {
- event.preventDefault();
- if (!intakeForm.reportValidity()) return;
-
- const params = new URLSearchParams({
- utm_source: "altr_site",
- utm_medium: "intake_form",
- utm_campaign: "start_a_conversation",
- utm_content: companyName.value.trim(),
- utm_term: projectInterest.value.trim(),
- company: companyName.value.trim(),
- interest: projectInterest.value.trim()
-    });
-
- trackLeadAndNavigate(`${calendlyBaseUrl}?${params.toString()}`);
-  });
-</script>
 <script src="nav.js"></script>
+<script src="intake-modal.js"></script>
 </body>
 </html>
