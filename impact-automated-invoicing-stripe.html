@@ -21,14 +21,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:image" content="https://altrwork.com/assets/case-stripe-invoicing.webp" />
+<meta property="og:image" content="https://altrwork.com/assets/share/automated-invoicing-stripe.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Stripe" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How We Invoice by Talking, on Stripe | altr" />
 <meta name="twitter:description" content="A working session ends, we say who to bill and for how much, and the invoice is drafted in Stripe a second later. Here is how the whole billing side of our sales cycle runs on one sentence." />
-<meta name="twitter:image" content="https://altrwork.com/assets/case-stripe-invoicing.webp" />
+<meta name="twitter:image" content="https://altrwork.com/assets/share/automated-invoicing-stripe.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
@@ -45,7 +45,7 @@
       "@type": "Article",
       "headline": "We bill clients by saying who to bill.",
       "description": "A working session ends, we say who to bill and for how much, and the invoice is drafted in Stripe a second later. Here is how the whole billing side of our sales cycle runs on one sentence.",
-      "image": "https://altrwork.com/assets/case-stripe-invoicing.webp",
+      "image": "https://altrwork.com/assets/share/automated-invoicing-stripe.png",
       "author": {
         "@type": "Organization",
         "name": "altr",
@@ -149,7 +149,11 @@
         <div class="impact-study-copy">
           <div class="content-label">How we work</div>
           <h1>We bill clients by saying who to bill.</h1>
-          <p>A working session ends. Somebody has to bill for it, and that somebody is one of two people who would rather be on the next call. So instead of opening a dashboard we just say it: invoice them a thousand dollars for the enablement session. The invoice exists a second later, drafted and priced, with a link to read.</p>
+        <picture>
+          <source srcset="assets/case-stripe-invoicing.webp" type="image/webp" />
+          <img class="impact-study-image" src="assets/case-stripe-invoicing.webp" width="1200" height="675" loading="lazy" alt="Stripe" />
+        </picture>
+          <p>A working session ends and somebody has to bill for it. There are two of us and no back office, so that somebody is whichever of us is less busy, and both of us would rather be on the next call. So instead of opening a dashboard we just say it: invoice them a thousand dollars for the enablement session. The invoice exists a second later, drafted and priced, with a link to read.</p>
           <p>That is the whole interaction. Typed or spoken, one sentence. It is not that the old way was hard, it was fiddly enough to postpone. Find the client, start an invoice, type the amount, pick the terms, check every field, wonder whether this firm is already in there from last quarter. Six small steps, none of them difficult, all of them easy to push to Friday.</p>
           <p>The good part is what gets decided underneath without anybody choosing it. It looks the client up by email and reuses the record, so a firm we bill monthly builds one history instead of twelve near duplicates. It puts ACH ahead of card, so the payment page opens on bank transfer. That is $5 in fees on a $1,000 invoice instead of $29.30, on every invoice, without anyone remembering to set it.</p>
           <p>Then it stops, on purpose. The script cannot finalise an invoice and cannot email one. Drafting is the tedious part and should be instant. Sending is where a wrong number reaches a client, so the last click is human. A separate job runs overnight and checks our records against Stripe in case a payment notification went missing. It is boring, and it earns its keep about twice a year.</p>

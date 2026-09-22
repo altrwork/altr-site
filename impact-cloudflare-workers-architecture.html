@@ -21,14 +21,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:image" content="https://altrwork.com/assets/case-cloudflare-architecture.webp" />
+<meta property="og:image" content="https://altrwork.com/assets/share/cloudflare-workers-architecture.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Cloudflare" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How We Deploy MCP Servers on Cloudflare Workers | altr" />
 <meta name="twitter:description" content="An MCP server is the piece that lets Claude reach a company's own records. Here is how we write them, deploy them to Cloudflare Workers with one command, and how clients connect." />
-<meta name="twitter:image" content="https://altrwork.com/assets/case-cloudflare-architecture.webp" />
+<meta name="twitter:image" content="https://altrwork.com/assets/share/cloudflare-workers-architecture.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
@@ -45,7 +45,7 @@
       "@type": "Article",
       "headline": "How we deploy MCP servers on Cloudflare Workers.",
       "description": "An MCP server is the piece that lets Claude reach a company's own records. Here is how we write them, deploy them to Cloudflare Workers with one command, and how clients connect.",
-      "image": "https://altrwork.com/assets/case-cloudflare-architecture.webp",
+      "image": "https://altrwork.com/assets/share/cloudflare-workers-architecture.png",
       "author": {
         "@type": "Organization",
         "name": "altr",
@@ -149,8 +149,12 @@
         <div class="impact-study-copy">
           <div class="content-label">Engineering</div>
           <h1>How we deploy MCP servers on Cloudflare Workers.</h1>
+        <picture>
+          <source srcset="assets/case-cloudflare-architecture.webp" type="image/webp" />
+          <img class="impact-study-image" src="assets/case-cloudflare-architecture.webp" width="1200" height="675" loading="lazy" alt="Cloudflare" />
+        </picture>
           <p>Most of our client work is a connector. An MCP server is the piece that lets Claude reach a company's own records, so it can answer a real question about their buildings, their orders or their contracts instead of guessing. We write them in TypeScript and deploy them to Cloudflare Workers.</p>
-          <p>Deploying is one command. <code>wrangler deploy</code> pushes the server and it is live on a URL in seconds, running in a few hundred cities. There is no machine to provision, no container to build, nothing to keep patched. If the connector needs a database we add a D1 binding and get SQL in the same config file. If it needs to run on a schedule we add a cron line. If it needs its own domain we point one, in the same account, without leaving Cloudflare.</p>
+          <p>There are two of us, so engineering hours are the scarcest thing we have and none of them can go on running servers. That is most of why we build here. Deploying is one command. <code>wrangler deploy</code> pushes the server and it is live on a URL in seconds, running in a few hundred cities. There is no machine to provision, no container to build, nothing to keep patched. If the connector needs a database we add a D1 binding and get SQL in the same config file. If it needs to run on a schedule we add a cron line. If it needs its own domain we point one, in the same account, without leaving Cloudflare.</p>
           <p>Connecting is the part clients actually notice. They paste the URL into Claude, click connect, and sign in through a browser. There is no API key to generate and no token to paste into a config file, so nothing sensitive ends up in a text file on somebody's laptop. Because the connection knows who signed in, the assistant can write as well as read: log the deal, create the contact, produce the document, all as that person.</p>
           <p>One deployment can serve several teams at once. Our servers hold nothing between requests, so the same server offers a different set of tools depending on which route you connect to. Valuation gets valuation tools, capital markets gets recorded debt, property management gets its own. Adding a team is a line in a table and another deploy.</p>
           <p>All of it runs on the $5 Workers plan, which includes ten million requests a month. Two of us keep connectors in production for several clients and spend almost no time keeping them up. That is what lets us quote a connector in days instead of a month, hand it over with a sign-in link instead of a setup guide, and spend the rest of the week on the next client.</p>
