@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>How We Deploy MCP Servers on Cloudflare Workers | altr</title>
+<title>Why We Deploy Our MCP Servers on Cloudflare Workers | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="An MCP server is the piece that lets Claude reach a company's own records. Here is how we write them, deploy them to Cloudflare Workers with one command, and how clients connect." />
+<meta name="description" content="Every connector we build for a client is an MCP server, and they all go to the same place. Here is why a two-person team deploys them on Cloudflare Workers." />
 <link rel="canonical" href="https://altrwork.com/impact-cloudflare-workers-architecture.html" />
-<meta property="og:title" content="How We Deploy MCP Servers on Cloudflare Workers | altr" />
-<meta property="og:description" content="An MCP server is the piece that lets Claude reach a company's own records. Here is how we write them, deploy them to Cloudflare Workers with one command, and how clients connect." />
+<meta property="og:title" content="Why We Deploy Our MCP Servers on Cloudflare Workers | altr" />
+<meta property="og:description" content="Every connector we build for a client is an MCP server, and they all go to the same place. Here is why a two-person team deploys them on Cloudflare Workers." />
 <meta property="og:url" content="https://altrwork.com/impact-cloudflare-workers-architecture.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,8 +26,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Cloudflare" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How We Deploy MCP Servers on Cloudflare Workers | altr" />
-<meta name="twitter:description" content="An MCP server is the piece that lets Claude reach a company's own records. Here is how we write them, deploy them to Cloudflare Workers with one command, and how clients connect." />
+<meta name="twitter:title" content="Why We Deploy Our MCP Servers on Cloudflare Workers | altr" />
+<meta name="twitter:description" content="Every connector we build for a client is an MCP server, and they all go to the same place. Here is why a two-person team deploys them on Cloudflare Workers." />
 <meta name="twitter:image" content="https://altrwork.com/assets/share/cloudflare-workers-architecture.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -43,8 +43,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "How we deploy MCP servers on Cloudflare Workers.",
-      "description": "An MCP server is the piece that lets Claude reach a company's own records. Here is how we write them, deploy them to Cloudflare Workers with one command, and how clients connect.",
+      "headline": "Why we deploy our MCP servers on Cloudflare Workers.",
+      "description": "Every connector we build for a client is an MCP server, and they all go to the same place. Here is why a two-person team deploys them on Cloudflare Workers.",
       "image": "https://altrwork.com/assets/share/cloudflare-workers-architecture.png",
       "author": {
         "@type": "Organization",
@@ -148,16 +148,16 @@
       <article class="impact-detail impact-detail-stacked impact-article">
         <div class="impact-study-copy">
           <div class="content-label">Engineering</div>
-          <h1>How we deploy MCP servers on Cloudflare Workers.</h1>
+          <h1>Why we deploy our MCP servers on Cloudflare Workers.</h1>
         <picture>
           <source srcset="assets/case-cloudflare-architecture.webp" type="image/webp" />
           <img class="impact-study-image" src="assets/case-cloudflare-architecture.webp" width="1200" height="675" loading="lazy" alt="Cloudflare" />
         </picture>
-          <p>Most of our client work is a connector. An MCP server is the piece that lets Claude reach a company's own records, so it can answer a real question about their buildings, their orders or their contracts instead of guessing. We write them in TypeScript and deploy them to Cloudflare Workers.</p>
-          <p>There are two of us, so engineering hours are the scarcest thing we have and none of them can go on running servers. That is most of why we build here. Deploying is one command. <code>wrangler deploy</code> pushes the server and it is live on a URL in seconds, running in a few hundred cities. There is no machine to provision, no container to build, nothing to keep patched. If the connector needs a database we add a D1 binding and get SQL in the same config file. If it needs to run on a schedule we add a cron line. If it needs its own domain we point one, in the same account, without leaving Cloudflare.</p>
-          <p>Connecting is the part clients actually notice. They paste the URL into Claude, click connect, and sign in through a browser. There is no API key to generate and no token to paste into a config file, so nothing sensitive ends up in a text file on somebody's laptop. Because the connection knows who signed in, the assistant can write as well as read: log the deal, create the contact, produce the document, all as that person.</p>
-          <p>One deployment can serve several teams at once. Our servers hold nothing between requests, so the same server offers a different set of tools depending on which route you connect to. Valuation gets valuation tools, capital markets gets recorded debt, property management gets its own. Adding a team is a line in a table and another deploy.</p>
-          <p>All of it runs on the $5 Workers plan, which includes ten million requests a month. Two of us keep connectors in production for several clients and spend almost no time keeping them up. That is what lets us quote a connector in days instead of a month, hand it over with a sign-in link instead of a setup guide, and spend the rest of the week on the next client.</p>
+          <p>Every connector we build for a client is an MCP server. It is the thing that lets Claude reach their records and answer a real question about their buildings, their orders or their contracts instead of guessing. We have built a handful now, and they all go to the same place: Cloudflare Workers. Here is why.</p>
+          <p>Start with the obvious constraint. There are two of us. Engineering hours are the scarcest thing we have and none of them can go on babysitting servers. A connector used to mean a box to run it on, a deploy pipeline, monitoring, and somebody to notice when it fell over at the weekend. On Workers it is one command. We run <code>wrangler deploy</code> and it is live on a URL in seconds, in a few hundred cities, with nothing to patch and nobody on call.</p>
+          <p>The rest of what a connector needs is already in the same account. Need a database? That is a D1 binding, a few lines in the config file. Need it to run every night? Add a cron line. Need it on its own domain? Point one, same dashboard. We have never had to leave Cloudflare to finish a connector, and we have never spent an evening getting two vendors' credentials to agree with each other.</p>
+          <p>The part clients actually feel is connecting to the thing. They paste a URL into Claude, click connect, and sign in through a browser. There is no API key to generate and no token to paste into a config file, so nothing sensitive ends up in a text file on somebody's laptop. And because the connection knows who signed in, the assistant can write as well as read. It can log the deal, create the contact and produce the document, all as that person.</p>
+          <p>One more thing we did not expect to like as much as we do: a single deployment can serve several teams at once. Our servers hold nothing between requests, so the same server hands out a different set of tools depending on which route you connect to. Valuation gets valuation tools, capital markets gets recorded debt, property management gets its own. Adding a team is a line in a table and another deploy. All of it sits on the $5 Workers plan with ten million requests a month included, which is more than any of our clients has come close to using. That is the whole reason we can quote a connector in days.</p>
           <p class="built-on-line">
             <span>Built on</span>
             <a href="https://www.cloudflare.com" rel="noopener nofollow" target="_blank"><img class="built-on-art built-on-art-cloudflare" src="assets/brand/cloudflare-lockup.png" alt="Cloudflare" /></a>

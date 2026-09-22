@@ -1965,3 +1965,28 @@ body {
   margin: 26px 0 30px;
   border: 1px solid var(--rule);
 }
+
+
+/* -- case study: content starts at the Back button ------------------ */
+/* The Back control sat at the top of the page and the article began
+   264px below it, behind an empty scene band and three stacked paddings.
+   The band keeps its engraving but loses the height it was not using,
+   and the card starts directly under the control that belongs to it. */
+.impact-page-hero {
+  padding: clamp(18px, 2.4vw, 26px) 0 clamp(16px, 2vw, 22px);
+}
+
+/* the control was lifted out of the flow so it could float over a tall
+   scene band. With the band down to its real height it has to take up
+   room again, or it lands on top of the card beneath it. */
+.impact-page-hero .impact-hero-topline {
+  position: static;
+}
+
+.impact-primary-section {
+  padding-top: 0;
+}
+
+.impact-detail {
+  padding-top: clamp(26px, 3vw, 38px);
+}
