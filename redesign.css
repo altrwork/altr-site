@@ -1871,11 +1871,76 @@ body {
 
 .index-cell .cell-mark.mark-slice-of-heaven { background-size: cover; background-position: 50% 50%; }
 
+/* -- "Built on" attribution --------------------------------------- */
+/* Credit for the platforms a study is built on. Set in the brand mono
+   rather than in vendor logos: full-colour marks fight a dark engraving
+   page, and a wordmark we set ourselves cannot go stale or imply a
+   partnership nobody agreed to. Drop official artwork in here when it is
+   downloaded from the press kit under their brand terms. */
+.built-on {
+  display: grid;
+  gap: 18px;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule-ink);
+}
+
+.built-on-label {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+
+.built-on-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(24px, 4vw, 56px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.built-on-list li {
+  display: grid;
+  gap: 4px;
+}
+
+.built-on-list a {
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  color: var(--bone);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-ink);
+  padding-bottom: 2px;
+  transition: border-color 200ms var(--ease-out);
+}
+
+.built-on-list a:hover {
+  border-bottom-color: var(--copper);
+  color: var(--copper);
+}
+
+.built-on-list span {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--bone-dim);
+}
+
+.mark-stripe-invoicing   { background-image: url("assets/case-stripe-invoicing.webp");        background-color: #14110E; }
+.mark-cloudflare-arch    { background-image: url("assets/case-cloudflare-architecture.webp"); background-color: #14110E; }
+
 .index-cell .cell-mark.mark-air-supply,
 .index-cell .cell-mark.mark-spark-mcp,
 .index-cell .cell-mark.mark-spark-ops,
 .index-cell .cell-mark.mark-manhattan-registry,
-.index-cell .cell-mark.mark-cre-connector {
+.index-cell .cell-mark.mark-cre-connector,
+.index-cell .cell-mark.mark-stripe-invoicing,
+.index-cell .cell-mark.mark-cloudflare-arch {
   background-size: contain;
   background-position: center;
 }

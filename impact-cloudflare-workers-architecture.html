@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-RHG020FK51');
+</script>
+<meta charset="utf-8" />
+<title>Running a Property Platform on Cloudflare Workers | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request." />
+<link rel="canonical" href="https://altrwork.com/impact-cloudflare-workers-architecture.html" />
+<meta property="og:title" content="Running a Property Platform on Cloudflare Workers | altr" />
+<meta property="og:description" content="The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request." />
+<meta property="og:url" content="https://altrwork.com/impact-cloudflare-workers-architecture.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/case-cloudflare-architecture.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Runs on Cloudflare: two Workers, two D1 databases, zero servers, stateless by design" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Running a Property Platform on Cloudflare Workers | altr" />
+<meta name="twitter:description" content="The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request." />
+<meta name="twitter:image" content="https://altrwork.com/assets/case-cloudflare-architecture.webp" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260913a" />
+<link rel="stylesheet" href="redesign.css?v=20260913a" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "A property platform with no servers behind it.",
+      "description": "The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request.",
+      "image": "https://altrwork.com/assets/case-cloudflare-architecture.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "altr",
+        "@id": "https://altrwork.com/#business"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/impact-cloudflare-workers-architecture.html"
+      },
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Work",
+          "item": "https://altrwork.com/case-studies.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "A property platform with no servers behind it.",
+          "item": "https://altrwork.com/impact-cloudflare-workers-architecture.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="services-menu"><span>Services</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+        <span class="nav-dropdown-label">What we do</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html">Strategy</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Enablement</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Engineering</a>
+        <span class="nav-dropdown-label">Who we serve</span>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
+        <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
+        <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        <a class="nav-dropdown-item" href="law-firms.html">Law firms</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu" aria-current="page"><span>Work</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case studies</span>
+          <small>Projects we have delivered</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
+          <span>Internal products</span>
+          <small>Tools built in our own studio</small>
+        </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="https://calendly.com/altrwork/30min" class="nav-cta">Book a call</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="page-hero impact-page-hero hero-scene scene-bridge">
+      <div class="impact-hero-topline">
+        <a class="button secondary impact-back-button" href="case-studies.html">Back</a>
+      </div>
+    </section>
+
+    <section class="section impact-primary-section">
+      <article class="impact-detail impact-detail-stacked">
+        <picture>
+          <source srcset="assets/case-cloudflare-architecture.webp" type="image/webp" />
+          <img class="impact-study-image" src="assets/case-cloudflare-architecture.webp" width="1200" height="675" loading="lazy" alt="Runs on Cloudflare: two Workers, two D1 databases, zero servers, stateless by design" />
+        </picture>
+        <div class="impact-study-copy">
+          <div class="content-label">Engineering</div>
+          <h1>A property platform with no servers behind it.</h1>
+          <p>mortr and the connector that feeds it run entirely on Cloudflare Workers. There is no machine to patch, no capacity to plan for, and no region to pick. The code runs in whichever Cloudflare city the request arrives in, so a broker in Tampa and one in Manhattan are served from equally close by.</p>
+          <p>It is two Workers. One serves the application and its screens on its own domain; the other is the records connector that AI clients speak to. They reach each other over a service binding rather than a public HTTP call, so an internal request never leaves Cloudflare’s network, never crosses the public internet, and costs nothing in latency.</p>
+          <p>State lives in two D1 databases: one for accounts, billing and documents, one holding the Florida corporate registry the ownership lookups run against. Sign-in links are sent by the platform itself through an email binding, so there is no mail vendor in the path either.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Scheduled work, on two different clocks.</h2>
+        </div>
+        <p>The same Workers wake up on cron triggers and do the jobs nobody should have to remember.</p>
+      </div>
+      <div class="text-block-grid">
+        <article class="text-block">
+          <h3>The registry, weekly</h3>
+          <p>Florida publishes one corporate-filing file per day. A Sunday run walks the previous eight days in one pass, with margin so a late publish is caught rather than missed. The thing it is looking for is an LLC formed to buy a building, which takes weeks to close, so a weekly cadence catches it comfortably.</p>
+        </article>
+        <article class="text-block">
+          <h3>Billing, nightly</h3>
+          <p>A second trigger reconciles the platform’s billing state against Stripe every morning at 04:40, repairing anything a missed webhook left wrong.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Stateless on purpose.</h2>
+        </div>
+        <p>The connector builds a fresh server for every request instead of keeping one alive per user.</p>
+      </div>
+      <div class="text-block-grid">
+        <article class="text-block">
+          <h3>One Worker, five tool sets</h3>
+          <p>Because nothing is held between requests, the same Worker can expose a different set of tools on each route — valuation, sales, debt, property management, or everything. Adding a route for a new team is one entry in a table and a redeploy.</p>
+        </article>
+        <article class="text-block">
+          <h3>Less to go wrong</h3>
+          <p>There is no long-lived object to leak, wedge, or migrate between versions. Every request starts from the same known state, which is the cheapest correctness guarantee available.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="built-on">
+        <p class="built-on-label">Built on</p>
+        <ul class="built-on-list">
+        <li><a href="https://www.cloudflare.com" rel="noopener nofollow" target="_blank">Cloudflare</a><span>Workers, D1 and Email Service</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="services-cta modern-final-cta">
+        <div>
+          <h2>Most software does not need a server any more.</h2>
+          <p>If your product is an API, a scheduled job, a database and some screens, this shape costs less, fails in fewer ways, and is faster everywhere. We build them and hand them over.</p>
+        </div>
+        <a class="button primary" href="start-a-conversation.html">Book a call</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI services for teams who want to do real work</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="index.html#who-we-serve">Services</a>
+        <a href="case-studies.html">Work</a>
+        <a href="tutorials.html">Blog</a>
+        <a href="about.html">About</a>
+
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      <a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+    </div>
+  </footer>
+</div>
+<script src="intake-modal.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>
