@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>Automated Invoicing on Stripe | altr</title>
+<title>Invoicing by Sentence, on Stripe | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How altr drafts every invoice from one command, offers ACH ahead of card, and runs a nightly job that repairs any billing state a missed webhook left behind." />
+<meta name="description" content="altr bills clients by describing the invoice in a sentence. It drafts in Stripe, reuses the client record, puts ACH ahead of card, and hands back a link to review and send." />
 <link rel="canonical" href="https://altrwork.com/impact-automated-invoicing-stripe.html" />
-<meta property="og:title" content="Automated Invoicing on Stripe | altr" />
-<meta property="og:description" content="How altr drafts every invoice from one command, offers ACH ahead of card, and runs a nightly job that repairs any billing state a missed webhook left behind." />
+<meta property="og:title" content="Invoicing by Sentence, on Stripe | altr" />
+<meta property="og:description" content="altr bills clients by describing the invoice in a sentence. It drafts in Stripe, reuses the client record, puts ACH ahead of card, and hands back a link to review and send." />
 <meta property="og:url" content="https://altrwork.com/impact-automated-invoicing-stripe.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,8 +26,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Invoicing on Stripe: $5 ACH fee against $29.30 by card on a $1,000 invoice, and nothing sent unreviewed" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Automated Invoicing on Stripe | altr" />
-<meta name="twitter:description" content="How altr drafts every invoice from one command, offers ACH ahead of card, and runs a nightly job that repairs any billing state a missed webhook left behind." />
+<meta name="twitter:title" content="Invoicing by Sentence, on Stripe | altr" />
+<meta name="twitter:description" content="altr bills clients by describing the invoice in a sentence. It drafts in Stripe, reuses the client record, puts ACH ahead of card, and hands back a link to review and send." />
 <meta name="twitter:image" content="https://altrwork.com/assets/case-stripe-invoicing.webp" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -43,8 +43,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "Every invoice drafts itself. None of them send by accident.",
-      "description": "How altr drafts every invoice from one command, offers ACH ahead of card, and runs a nightly job that repairs any billing state a missed webhook left behind.",
+      "headline": "We bill clients by saying who to bill.",
+      "description": "altr bills clients by describing the invoice in a sentence. It drafts in Stripe, reuses the client record, puts ACH ahead of card, and hands back a link to review and send.",
       "image": "https://altrwork.com/assets/case-stripe-invoicing.webp",
       "author": {
         "@type": "Organization",
@@ -54,8 +54,8 @@
       "publisher": {
         "@id": "https://altrwork.com/#business"
       },
-      "datePublished": "2026-09-21",
-      "dateModified": "2026-09-21",
+      "datePublished": "2026-09-22",
+      "dateModified": "2026-09-22",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://altrwork.com/impact-automated-invoicing-stripe.html"
@@ -82,7 +82,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Every invoice drafts itself. None of them send by accident.",
+          "name": "We bill clients by saying who to bill.",
           "item": "https://altrwork.com/impact-automated-invoicing-stripe.html"
         }
       ]
@@ -152,10 +152,10 @@
         </picture>
         <div class="impact-study-copy">
           <div class="content-label">How we work</div>
-          <h1>Every invoice drafts itself. None of them send by accident.</h1>
-          <p>Billing a client used to mean opening a dashboard, finding or retyping the customer, entering the amount, picking the terms, and checking every field twice. One command now does all of it: it finds the customer by email so a repeat client stays on one record, creates the invoice, attaches the line item, and prints a link to review it.</p>
-          <p>It stops exactly there. The script cannot finalise an invoice and cannot email one — that is a deliberate limit, not a missing feature. A wrong number sent to a client is the one thing in this process a machine should never be able to do on its own, so the last step is a person reading the invoice and pressing send.</p>
-          <p>It also opens ACH ahead of card, so the payment page leads with bank transfer. On a $1,000 invoice that is $5 instead of $29.30. Nothing to remember, nothing to set per invoice — the cheaper option is simply the one the client sees first.</p>
+          <h1>We bill clients by saying who to bill.</h1>
+          <p>A working session ends. Instead of opening a dashboard, finding the client, starting an invoice, typing the amount, choosing the terms and checking every field, we say what happened: invoice them a thousand dollars for the enablement session. The invoice exists a second later, drafted and priced, with a link to read it.</p>
+          <p>That is the whole interaction. No forms, no tab hunting, no wondering whether this client already has a record — typed or spoken, one sentence carries everything the invoice needs, and the parts nobody should have to think about are decided underneath it.</p>
+          <p>The result is that billing stops being a task you schedule. It happens in the thirty seconds after the work finishes, while the details are still in your head, which is also when a client is most ready to pay.</p>
         </div>
       </article>
     </section>
@@ -163,18 +163,18 @@
     <section class="section">
       <div class="section-header">
         <div>
-          <h2>The part that runs while nobody is watching.</h2>
+          <h2>What the sentence decides for you.</h2>
         </div>
-        <p>Stripe tells the platform when a subscription changes. Every so often that message does not arrive.</p>
+        <p>Three things that used to be a checklist are now simply true every time.</p>
       </div>
       <div class="text-block-grid">
         <article class="text-block">
-          <h3>Why a missed message matters</h3>
-          <p>A webhook is the only thing that writes a customer’s plan status, and Stripe stops retrying after a window. Miss one and a paying firm can be locked out of what it bought, or a cancelled one served forever. Nothing in the system would notice.</p>
+          <h3>The client stays one client</h3>
+          <p>It looks the client up by email first and reuses the record if it exists, so a firm you bill monthly builds one history rather than twelve near-duplicates. Nobody has to remember whether they were set up last quarter.</p>
         </article>
         <article class="text-block">
-          <h3>So we ask Stripe every night</h3>
-          <p>A job runs at 04:40 and asks Stripe directly what every subscription is, then repairs anything that disagrees. Stripe is the authority; the platform corrects itself against it. It reads, compares, writes only on a difference, and logs every repair.</p>
+          <h3>Bank transfer leads, every time</h3>
+          <p>ACH is offered ahead of card, so the payment page opens on bank transfer. On a $1,000 invoice that is $5 instead of $29.30. It is not a setting anyone toggles per invoice; it is just how they go out.</p>
         </article>
       </div>
     </section>
@@ -182,18 +182,18 @@
     <section class="section">
       <div class="section-header">
         <div>
-          <h2>Careful about what counts as cancelled.</h2>
+          <h2>You still read it before it goes.</h2>
         </div>
-        <p>Most billing bugs that reach a customer are a status read too bluntly.</p>
+        <p>Drafting is the slow part. Sending is the part worth a pair of eyes.</p>
       </div>
       <div class="text-block-grid">
         <article class="text-block">
-          <h3>An unpaid first invoice is not a cancellation</h3>
-          <p>A subscription that has not settled yet, or one with collection paused, is treated as past due rather than gone. Reading either as cancelled is exactly how a paying firm loses access. Only a real cancellation and an expired incomplete are terminal.</p>
+          <h3>It cannot send on its own</h3>
+          <p>Every invoice lands as a draft with a review link. You read the number, then send it. Describing an invoice in a sentence should be fast; putting a wrong number in front of a client should stay impossible.</p>
         </article>
         <article class="text-block">
-          <h3>It never writes back to Stripe</h3>
-          <p>The job creates nothing and cancels nothing. It moves in one direction, which means the worst it can do on a bad night is leave a record untouched for another day.</p>
+          <h3>And it checks itself overnight</h3>
+          <p>Subscriptions can drift if a payment notification goes missing. A job runs every night, asks Stripe what each account actually is, and fixes anything that disagrees, so nobody gets locked out of what they paid for.</p>
         </article>
       </div>
     </section>
@@ -202,7 +202,11 @@
       <div class="built-on">
         <p class="built-on-label">Built on</p>
         <ul class="built-on-list">
-        <li><a href="https://stripe.com" rel="noopener nofollow" target="_blank">Stripe</a><span>invoicing, subscriptions and billing</span></li>
+          <li>
+            <span class="built-on-mark"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg></span>
+            <a href="https://stripe.com" rel="noopener nofollow" target="_blank">Stripe</a>
+            <span class="built-on-what">invoicing, subscriptions and billing</span>
+          </li>
         </ul>
       </div>
     </section>
@@ -210,8 +214,8 @@
     <section class="section">
       <div class="services-cta modern-final-cta">
         <div>
-          <h2>Your billing should not need a person to remember it.</h2>
-          <p>Invoicing, renewals and the checks that catch what slipped are the kind of work that is invisible until it goes wrong. We build the automation and leave the judgement where it belongs.</p>
+          <h2>This is the easiest part of your sales cycle to fix.</h2>
+          <p>Quoting, invoicing and chasing are pure overhead, and they are the first thing worth handing to something you can talk to. We build it around the tools you already bill through.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>

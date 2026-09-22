@@ -1905,7 +1905,35 @@ body {
 
 .built-on-list li {
   display: grid;
-  gap: 4px;
+  grid-template-columns: 30px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 14px;
+  row-gap: 2px;
+  align-items: center;
+}
+
+/* the vendor glyph, inlined so it takes the page's own ink rather than
+   arriving as a colour that fights the plate */
+.built-on-mark {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--bone);
+}
+
+.built-on-mark svg {
+  width: 26px;
+  height: 26px;
+}
+
+.built-on-list li:hover .built-on-mark {
+  color: var(--copper);
+}
+
+.built-on-what {
+  align-self: start;
 }
 
 .built-on-list a {
@@ -1924,7 +1952,7 @@ body {
   color: var(--copper);
 }
 
-.built-on-list span {
+.built-on-what {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.04em;

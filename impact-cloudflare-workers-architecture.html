@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>Running a Property Platform on Cloudflare Workers | altr</title>
+<title>Building a CRE Chatbot on Cloudflare Workers | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request." />
+<meta name="description" content="How altr builds a commercial real estate chat assistant on Cloudflare Workers, programming and deploying the whole stack through the Cloudflare API in natural language." />
 <link rel="canonical" href="https://altrwork.com/impact-cloudflare-workers-architecture.html" />
-<meta property="og:title" content="Running a Property Platform on Cloudflare Workers | altr" />
-<meta property="og:description" content="The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request." />
+<meta property="og:title" content="Building a CRE Chatbot on Cloudflare Workers | altr" />
+<meta property="og:description" content="How altr builds a commercial real estate chat assistant on Cloudflare Workers, programming and deploying the whole stack through the Cloudflare API in natural language." />
 <meta property="og:url" content="https://altrwork.com/impact-cloudflare-workers-architecture.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,8 +26,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Runs on Cloudflare: two Workers, two D1 databases, zero servers, stateless by design" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Running a Property Platform on Cloudflare Workers | altr" />
-<meta name="twitter:description" content="The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request." />
+<meta name="twitter:title" content="Building a CRE Chatbot on Cloudflare Workers | altr" />
+<meta name="twitter:description" content="How altr builds a commercial real estate chat assistant on Cloudflare Workers, programming and deploying the whole stack through the Cloudflare API in natural language." />
 <meta name="twitter:image" content="https://altrwork.com/assets/case-cloudflare-architecture.webp" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -43,8 +43,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "A property platform with no servers behind it.",
-      "description": "The architecture behind mortr: two Cloudflare Workers joined by a service binding, two D1 databases, scheduled ingest, and a stateless MCP server built per request.",
+      "headline": "A commercial real estate chatbot, built and deployed by describing it.",
+      "description": "How altr builds a commercial real estate chat assistant on Cloudflare Workers, programming and deploying the whole stack through the Cloudflare API in natural language.",
       "image": "https://altrwork.com/assets/case-cloudflare-architecture.webp",
       "author": {
         "@type": "Organization",
@@ -54,8 +54,8 @@
       "publisher": {
         "@id": "https://altrwork.com/#business"
       },
-      "datePublished": "2026-09-21",
-      "dateModified": "2026-09-21",
+      "datePublished": "2026-09-22",
+      "dateModified": "2026-09-22",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://altrwork.com/impact-cloudflare-workers-architecture.html"
@@ -82,7 +82,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "A property platform with no servers behind it.",
+          "name": "A commercial real estate chatbot, built and deployed by describing it.",
           "item": "https://altrwork.com/impact-cloudflare-workers-architecture.html"
         }
       ]
@@ -152,10 +152,10 @@
         </picture>
         <div class="impact-study-copy">
           <div class="content-label">Engineering</div>
-          <h1>A property platform with no servers behind it.</h1>
-          <p>mortr and the connector that feeds it run entirely on Cloudflare Workers. There is no machine to patch, no capacity to plan for, and no region to pick. The code runs in whichever Cloudflare city the request arrives in, so a broker in Tampa and one in Manhattan are served from equally close by.</p>
-          <p>It is two Workers. One serves the application and its screens on its own domain; the other is the records connector that AI clients speak to. They reach each other over a service binding rather than a public HTTP call, so an internal request never leaves Cloudflare’s network, never crosses the public internet, and costs nothing in latency.</p>
-          <p>State lives in two D1 databases: one for accounts, billing and documents, one holding the Florida corporate registry the ownership lookups run against. Sign-in links are sent by the platform itself through an email binding, so there is no mail vendor in the path either.</p>
+          <h1>A commercial real estate chatbot, built and deployed by describing it.</h1>
+          <p>We are building a chat assistant for commercial real estate: ask it who owns a building, what the debt on it is, what it is worth, and get an answer drawn from county records rather than from memory. All of it runs on Cloudflare Workers.</p>
+          <p>The reason we build there is that the platform itself is programmable the same way the product is. Cloudflare exposes everything through an API, so creating a worker, adding a database, pointing a domain at it, setting a nightly schedule or reading back what is deployed are all things we describe in a sentence and watch happen. The infrastructure is edited in the same conversation as the code.</p>
+          <p>It is also all in one place. Compute, databases, DNS, the domains themselves and outbound email are native to one account, so there is no stitching four vendors together and no afternoon lost to making their credentials agree.</p>
         </div>
       </article>
     </section>
@@ -163,18 +163,37 @@
     <section class="section">
       <div class="section-header">
         <div>
-          <h2>Scheduled work, on two different clocks.</h2>
+          <h2>The shape of the thing.</h2>
         </div>
-        <p>The same Workers wake up on cron triggers and do the jobs nobody should have to remember.</p>
+        <p>Two Workers, two databases, and no server anywhere in the picture.</p>
       </div>
       <div class="text-block-grid">
         <article class="text-block">
-          <h3>The registry, weekly</h3>
-          <p>Florida publishes one corporate-filing file per day. A Sunday run walks the previous eight days in one pass, with margin so a late publish is caught rather than missed. The thing it is looking for is an LLC formed to buy a building, which takes weeks to close, so a weekly cadence catches it comfortably.</p>
+          <h3>An app and a connector</h3>
+          <p>One Worker serves the product and its screens on its own domain. The other is the records connector that AI clients speak to. They reach each other over a service binding, so an internal call never leaves Cloudflare’s network or crosses the public internet.</p>
         </article>
         <article class="text-block">
-          <h3>Billing, nightly</h3>
-          <p>A second trigger reconciles the platform’s billing state against Stripe every morning at 04:40, repairing anything a missed webhook left wrong.</p>
+          <h3>Two databases and a mailbox</h3>
+          <p>One database holds accounts, billing and documents; the other holds the Florida corporate registry the ownership lookups run against. Sign-in links go out through the platform’s own email binding, so there is no mail vendor in the path.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Work that happens while nobody is awake.</h2>
+        </div>
+        <p>The same Workers wake on a schedule and do the jobs a person would forget.</p>
+      </div>
+      <div class="text-block-grid">
+        <article class="text-block">
+          <h3>The registry refreshes itself</h3>
+          <p>Florida publishes one corporate-filing file a day. A Sunday run walks the previous eight days in a single pass, with enough margin that a late publish is caught rather than missed.</p>
+        </article>
+        <article class="text-block">
+          <h3>Billing reconciles itself</h3>
+          <p>A second schedule checks the platform’s billing against Stripe every morning and repairs anything that drifted overnight.</p>
         </article>
       </div>
     </section>
@@ -189,11 +208,11 @@
       <div class="text-block-grid">
         <article class="text-block">
           <h3>One Worker, five tool sets</h3>
-          <p>Because nothing is held between requests, the same Worker can expose a different set of tools on each route — valuation, sales, debt, property management, or everything. Adding a route for a new team is one entry in a table and a redeploy.</p>
+          <p>Because nothing is held between requests, the same Worker offers a different set of tools on each route — valuation, sales, debt, property management, or everything at once. Opening a route for a new team is one line in a table and a redeploy.</p>
         </article>
         <article class="text-block">
           <h3>Less to go wrong</h3>
-          <p>There is no long-lived object to leak, wedge, or migrate between versions. Every request starts from the same known state, which is the cheapest correctness guarantee available.</p>
+          <p>There is no long-lived object to leak, wedge or migrate between versions. Every request starts from the same known state, which is the cheapest correctness guarantee there is.</p>
         </article>
       </div>
     </section>
@@ -202,7 +221,11 @@
       <div class="built-on">
         <p class="built-on-label">Built on</p>
         <ul class="built-on-list">
-        <li><a href="https://www.cloudflare.com" rel="noopener nofollow" target="_blank">Cloudflare</a><span>Workers, D1 and Email Service</span></li>
+          <li>
+            <span class="built-on-mark"><svg aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg></span>
+            <a href="https://www.cloudflare.com" rel="noopener nofollow" target="_blank">Cloudflare</a>
+            <span class="built-on-what">Workers, D1, DNS and Email</span>
+          </li>
         </ul>
       </div>
     </section>
@@ -211,7 +234,7 @@
       <div class="services-cta modern-final-cta">
         <div>
           <h2>Most software does not need a server any more.</h2>
-          <p>If your product is an API, a scheduled job, a database and some screens, this shape costs less, fails in fewer ways, and is faster everywhere. We build them and hand them over.</p>
+          <p>An API, a scheduled job, a database and some screens is a shape that costs less, fails in fewer ways, and is fast everywhere. We build them and hand them over.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>
