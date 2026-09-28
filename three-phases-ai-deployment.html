@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>The Three Phases of AI Deployment | altr</title>
+<title>The three phases of AI deployment: audit, pilot, rollout | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="A practical AI deployment roadmap in three phases: workflow audit, pilot build, and controlled rollout with owners, metrics, training, and risk controls." />
+<meta name="description" content="An AI deployment roadmap in three phases: audit one workflow, pilot it on real work against a baseline, then roll out with owners, training and review rules." />
 <link rel="canonical" href="https://altrwork.com/three-phases-ai-deployment.html" />
-<meta property="og:title" content="The Three Phases of AI Deployment | altr" />
-<meta property="og:description" content="A practical AI deployment roadmap covering three phases: workflow audit, pilot build, and controlled rollout with owners, metrics, training, and risk controls." />
+<meta property="og:title" content="The three phases of AI deployment: audit, pilot, rollout | altr" />
+<meta property="og:description" content="An AI deployment roadmap in three phases: audit one workflow, pilot it on real work against a baseline, then roll out with owners, training and review rules." />
 <meta property="og:url" content="https://altrwork.com/three-phases-ai-deployment.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,32 +26,120 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Three Phases of AI Deployment | altr" />
-<meta name="twitter:description" content="A practical AI deployment roadmap covering three phases: workflow audit, pilot build, and controlled rollout with owners, metrics, training, and risk controls." />
+<meta name="twitter:title" content="The three phases of AI deployment: audit, pilot, rollout | altr" />
+<meta name="twitter:description" content="An AI deployment roadmap in three phases: audit one workflow, pilot it on real work against a baseline, then roll out with owners, training and review rules." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "The Three Phases of AI Deployment",
-  "description": "A practical AI deployment roadmap covering three phases: workflow audit, pilot build, and controlled rollout with owners, metrics, training, and risk controls.",
-  "image": "https://altrwork.com/assets/altr_social_preview.png",
-  "author": {
-    "@type": "Organization",
-    "name": "altr"
-  },
-  "publisher": {
-    "@id": "https://altrwork.com/#business"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://altrwork.com/three-phases-ai-deployment.html"
-  },
-  "datePublished": "2026-06-16",
-  "dateModified": "2026-08-20",
-  "isPartOf": {
-    "@id": "https://altrwork.com/#website"
-  }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "The three phases of AI deployment: audit, pilot, rollout",
+      "description": "An AI deployment roadmap in three phases: audit one workflow, pilot it on real work against a baseline, then roll out with owners, training and review rules.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/three-phases-ai-deployment.html"
+      },
+      "datePublished": "2026-06-16",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI deployment"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI pilot"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI rollout"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI deployment roadmap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A plan for moving AI from interest to daily use in three phases: audit one workflow and record a baseline, pilot an improved version on real work, then roll out what the pilot proved with owners, training and review rules. Each phase ends with a test before the next begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many workflows should an AI pilot cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One. A pilot is meant to prove that a specific change beats the current way on real work. Several workflows at once split attention, blur the measurement and make it hard to say what worked."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you know an AI pilot succeeded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It beats the baseline you recorded in the audit on time, rework or errors, the reviewer is sending back less output over time, and the owner would object if it were taken away. Enthusiasm without those numbers is not a result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI projects fail after the pilot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually because the rollout skipped something the pilot had: a named owner, a reviewer, training on real examples or a clear data rule. Scaling a pilot that was never measured against the old way is the other common cause."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the three-phase approach work for any AI tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The phases are about the work, not the software. The same audit, pilot and rollout apply whether the change is a shared prompt, a Zapier automation, a Claude Skill or a custom agent."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The three phases of AI deployment: audit, pilot, rollout",
+          "item": "https://altrwork.com/three-phases-ai-deployment.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -112,50 +200,99 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-road">
-      <h1>The three phases of AI deployment.</h1>
-      <p class="page-lede">A useful AI deployment roadmap turns interest into controlled operating changes. The exact timeline depends on the workflow, data, integrations, and team capacity. The sequence should stay clear.</p>
+      <h1>The three phases of AI deployment: audit, pilot, rollout.</h1>
+      <p class="page-lede">Most AI projects that stall skipped a phase: they built before anyone mapped the work, or rolled out a pilot nobody had measured. The sequence below works for any tool and any size of team. What changes is how long each phase takes, not the order.</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
-          <p>We use three phases for practical AI deployment: audit, pilot, and rollout. Each phase has a named owner, a short list of workflows, success metrics, training needs, and risks that leadership can inspect.</p>
+          <span>Short answer</span>
+          <p>AI deployment runs in three phases. Audit: map one repeated workflow and record a baseline. Pilot: run the improved version on real work with the people who own it, with a test set and a reviewer. Rollout: widen only after the pilot beats the baseline, with named owners, training and a way to report problems. Each phase has an exit test.</p>
         </div>
 
         <section class="article-block">
-          <h2>Phase 1: audit the work and choose the first pilot.</h2>
-          <p>The first phase is for discovery and selection. Interview the people doing the work. Review the tools they use. Collect examples of inputs, outputs, rework, delays, handoffs, approvals, and recurring exceptions.</p>
-          <p>The output should be a short AI pilot roadmap. It should name the workflow, business owner, technical owner, users, source systems, review process, expected savings, risk level, and the first metric that proves progress.</p>
+          <h2>What are the three phases of AI deployment?</h2>
+          <p>Audit, pilot and rollout. Each one answers a different question, and each ends with a test that decides whether you move on.</p>
+          <div class="article-table-wrap"><table class="article-table">
+            <thead>
+              <tr><th>Phase</th><th>Question it answers</th><th>What it produces</th><th>Exit test</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Audit</td><td>Which work is worth changing, and how?</td><td>A map of one workflow, a baseline, a marked list of steps</td><td>You can name the input, rule, output, reviewer and failure mode of every step you plan to change</td></tr>
+              <tr><td>Pilot</td><td>Does the new version beat the old one on real work?</td><td>A working prompt, Skill, automation or agent, plus results against the baseline</td><td>The owner would object if you took it away</td></tr>
+              <tr><td>Rollout</td><td>Can the rest of the team run it without the pilot group?</td><td>Named owners, training, a runbook, a feedback route</td><td>It keeps working a month later with nobody from the pilot watching</td></tr>
+            </tbody>
+          </table></div>
+          <p>altr runs the same sequence under the names Map, Prove and Deploy; the method is on <a href="how-we-altr-work.html">how we altr work</a>.</p>
         </section>
 
         <section class="article-block">
-          <h2>Phase 2: build and test the pilot.</h2>
-          <p>The second phase is for building a narrow pilot. Keep the workflow specific. Examples include call summary to CRM, invoice exception routing, support ticket triage, proposal draft generation, lead research, or internal knowledge search.</p>
-          <p>Define the test set before launch. Include normal cases, edge cases, sensitive cases, and examples where the system should ask for human review. The pilot should produce logs, review status, user feedback, and a comparison against the current process.</p>
+          <h2>Phase 1: how do you audit the work and choose the pilot?</h2>
+          <p>Pick one workflow that repeats weekly, has a single owner and produces something checkable. Walk a real recent instance with the person who does it, write down every step, and time a few instances so you have a baseline.</p>
+          <p>The audit ends with a short written choice: the workflow, its owner, the steps to change and how, the data involved, who reviews the output, and the one metric that will show progress. The full worksheet is in <a href="ai-workflow-audit-small-business.html">how to run an AI workflow audit yourself</a>.</p>
+          <p><strong>Common failure:</strong> auditing five workflows at once. You end up with a list and no pilot.</p>
         </section>
 
         <section class="article-block">
-          <h2>Phase 3: roll out with owners, metrics, and training.</h2>
-          <p>The third phase is for controlled rollout. Assign an operating owner who is accountable for adoption, a system owner who handles changes, and a reviewer who checks quality. Make the handoff between those roles explicit.</p>
-          <p>Track metrics that leadership can act on. Useful measures include cycle time, manual touches, rework rate, error rate, adoption, reviewer edits, customer impact, and dollars saved or protected. Training should use the team's real examples and current workflow language.</p>
+          <h2>Phase 2: how do you run a pilot that proves something?</h2>
+          <p>Keep it narrow and run it on real work, not a demo. The pilot is the smallest version that could replace the current way: a shared Project and a few prompts, a single automation, or one agent step with a person approving its output.</p>
+          <ol>
+            <li><strong>Build a test set before you start.</strong> Ten to twenty real past instances: normal cases, awkward ones, and at least one where the right answer is "a person should handle this".</li>
+            <li><strong>Name a reviewer</strong> who checks every output during the pilot and records what they changed.</li>
+            <li><strong>Run it on live work for two to four weeks</strong> alongside or instead of the old way.</li>
+            <li><strong>Compare against the baseline</strong>: time per instance, how often output was sent back, errors caught in review.</li>
+            <li><strong>Fix the instructions, not the people.</strong> Each rejected output is a change to the prompt, the Skill or the rule.</li>
+          </ol>
+          <p><strong>Common failure:</strong> judging the pilot on how impressive it looked rather than on the baseline.</p>
         </section>
 
         <section class="article-block">
-          <h2>Manage the risks before scaling.</h2>
-          <p>AI implementation fails when the company scales a weak pilot, ignores data quality, skips training, or treats ownership as a technical detail. The deployment process should expose those risks while the blast radius is small.</p>
-          <p>Before expanding, confirm that users know when to trust the system, when to edit, when to escalate, and where to report issues. A good AI consulting roadmap leaves the team with working software, an operating model, and clear ownership after launch.</p>
+          <h2>Phase 3: how do you roll out without losing control?</h2>
+          <p>Widen only what the pilot proved, to the people who do that work, with the same review rule.</p>
+          <ul>
+            <li><strong>Three named roles:</strong> an operating owner accountable for use, a system owner who makes changes, and a reviewer who samples output.</li>
+            <li><strong>Training on the team's own examples</strong>, using the pilot's prompts and test cases. See <a href="ai-training-for-employees.html">AI training for employees</a>.</li>
+            <li><strong>A one-page runbook:</strong> what it does, where it runs, what to check when it fails, who to tell.</li>
+            <li><strong>A policy that covers it</strong>: approved accounts, data rules and review points. <a href="ai-governance-lite-smb.html">AI governance for small business</a> has a template.</li>
+            <li><strong>Metrics leadership can act on:</strong> use on the target task, cycle time, rework rate, errors caught, and the owner's verdict.</li>
+          </ul>
+          <p>If the tool is Claude, <a href="how-to-roll-out-claude-to-a-team.html">how to roll out Claude to a team</a> covers the plan, Projects, Skills and connector settings for this phase.</p>
+          <p><strong>Common failure:</strong> rolling out company-wide on the strength of one enthusiastic pilot user.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>How long does each phase take?</h2>
+          <p>It depends on the workflow, not a calendar. A single-owner process in one system can go from audit to rollout in weeks. A process that crosses teams or needs a custom connection to a live system takes longer, mostly in the audit and in security review. Be wary of any plan that fixes the dates before anyone has mapped the work.</p>
+          <p>After the first workflow holds for a month, start the next audit. The second cycle is faster because the policy, the review habit and the training format already exist.</p>
         </section>
 
         <div class="article-callout">
           <span>Working rule</span>
-          <p>Do one narrow pilot well, measure it against the current process, then scale from evidence.</p>
+          <p>Do one narrow pilot well, measure it against the old way, then scale from evidence. A phase you skip comes back as a problem in the next one.</p>
         </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>What is an AI deployment roadmap?</h3>
+          <p>A plan for moving AI from interest to daily use in three phases: audit one workflow and record a baseline, pilot an improved version on real work, then roll out what the pilot proved with owners, training and review rules. Each phase ends with a test before the next begins.</p>
+          <h3>How many workflows should an AI pilot cover?</h3>
+          <p>One. A pilot is meant to prove that a specific change beats the current way on real work. Several workflows at once split attention, blur the measurement and make it hard to say what worked.</p>
+          <h3>How do you know an AI pilot succeeded?</h3>
+          <p>It beats the baseline you recorded in the audit on time, rework or errors, the reviewer is sending back less output over time, and the owner would object if it were taken away. Enthusiasm without those numbers is not a result.</p>
+          <h3>Why do AI projects fail after the pilot?</h3>
+          <p>Usually because the rollout skipped something the pilot had: a named owner, a reviewer, training on real examples or a clear data rule. Scaling a pilot that was never measured against the old way is the other common cause.</p>
+          <h3>Does the three-phase approach work for any AI tool?</h3>
+          <p>Yes. The phases are about the work, not the software. The same audit, pilot and rollout apply whether the change is a shared prompt, a Zapier automation, a Claude Skill or a custom agent.</p>
+        </section>
+
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
-          <li><a href="ai-workflow-audit-small-business.html">How to audit a small business workflow</a></li>
-          <li><a href="ai-governance-lite-smb.html">AI governance lite for small business teams</a></li>
+          <li><a href="ai-workflow-audit-small-business.html">How to run an AI workflow audit yourself</a></li>
+          <li><a href="how-to-roll-out-claude-to-a-team.html">How to roll out Claude to a team</a></li>
+          <li><a href="ai-governance-lite-smb.html">AI governance for small business</a></li>
+          <li><a href="how-we-altr-work.html">How we altr work: Map, Prove, Deploy</a></li>
           <li><a href="custom-agents.html">Custom AI agents</a></li>
           </ul>
         </section>
@@ -166,7 +303,7 @@
     <section class="cta-section">
       <div>
         <h2>Need a practical AI deployment plan?</h2>
-        <p>Bring the workflows, tools, and business goals. We will help turn them into a pilot roadmap your team can operate.</p>
+        <p>Bring one workflow and the people who own it. We will help you audit it, prove the change and roll out only what earns it.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

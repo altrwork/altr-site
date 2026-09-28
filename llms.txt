@@ -76,13 +76,17 @@ Contact: inquiries@altrwork.com
 
 - [Learning center](https://altrwork.com/learn.html): every plain-answer page in one index, grouped as below
 
+### What changed this month
+
+- [AI news for business owners: September 2026](https://altrwork.com/ai-news-for-business-september-2026.html): Meta Muse, Instinct, custom GPTs retiring, Cowork merging into Claude, the new MCP spec, and what each means for a small team.
+
 ### Commercial real estate
 
 - [How commercial real estate brokers use AI](https://altrwork.com/ai-for-commercial-real-estate-brokers.html): Prospecting from public record, BOVs, comps, CRM hygiene, and market updates, with what not to hand to a model.
 - [MCP server for commercial real estate](https://altrwork.com/mcp-server-for-commercial-real-estate.html): What it does for a brokerage, what data can sit behind it, and the quiet failures to design against.
 - [What is a broker opinion of value (BOV)?](https://altrwork.com/what-is-a-broker-opinion-of-value.html): What goes in one, how it differs from an appraisal, and what Florida law says it may not be called.
 - [What Florida property appraiser data tells you](https://altrwork.com/florida-property-appraiser-data.html): Just value, DOR use codes, qualified sales, $100 deeds, portfolio sales, and what the roll never carries.
-- [AI rent roll and lease abstraction](https://altrwork.com/ai-rent-roll-and-lease-abstraction.html): The fields to pull, how to check them, and where a person still has to read the lease.
+- [AI lease and rent roll abstraction](https://altrwork.com/ai-rent-roll-and-lease-abstraction.html): The fields to pull, how to check them, and where a person still has to read the lease.
 - [AI in CRE underwriting: what it can and can't do](https://altrwork.com/ai-cre-underwriting.html): Normalizing T-12s and rent rolls, drafting memos, and why the value conclusion stays with the analyst.
 - [AI tools for commercial real estate](https://altrwork.com/ai-tools-for-commercial-real-estate.html): A map by job to be done: assistants, data platforms, abstraction, underwriting, CRM, and public record.
 - [Can Claude connect to CoStar?](https://altrwork.com/can-claude-connect-to-costar.html): There is no official connector, and CoStar's terms restrict AI access. What to automate instead.
@@ -95,6 +99,7 @@ Contact: inquiries@altrwork.com
 
 - [What is an MCP server?](https://altrwork.com/what-is-an-mcp-server.html): The Model Context Protocol for a business reader and a technical one: tools, resources, auth, and the security boundary.
 - [What is an AI agent?](https://altrwork.com/what-is-an-ai-agent.html): Agent vs chatbot vs automation, the loop an agent runs, and where a person has to stay in it.
+- [Personal AI agents like Meta Muse and Instinct](https://altrwork.com/personal-ai-agents-for-business.html): What consumer agents that act across your email, calendar and browser mean for a business, and the policy to set.
 - [Claude Skills vs MCP](https://altrwork.com/claude-skills-vs-mcp.html): Skills package how Claude does a task. MCP is how it reaches a live system.
 - [What is Claude Cowork?](https://altrwork.com/claude-cowork.html): Claude working inside an approved local folder so the deliverable stays on disk.
 - [How to write a SKILL.md that gets used](https://altrwork.com/writing-a-skill-md.html): A sharp description, a lean body, and reference files loaded on demand.
@@ -110,8 +115,8 @@ Contact: inquiries@altrwork.com
 - [How to roll out Claude to a team](https://altrwork.com/how-to-roll-out-claude-to-a-team.html): One workflow first, then Projects, Skills, connectors, a data policy, and training.
 - [AI training for employees: what sticks](https://altrwork.com/ai-training-for-employees.html): Train on the team's own tasks, not a feature tour, and measure what people keep using.
 - [Claude prompts for small business owners](https://altrwork.com/claude-prompts-for-small-business.html): Copy-paste prompts from our free workshops, and how to turn a good one into a Skill.
-- [AI governance for small and mid-size businesses](https://altrwork.com/ai-governance-lite-smb.html): Policy, access, and audit trails without a compliance department.
-- [How to run a workflow audit before you automate](https://altrwork.com/ai-workflow-audit-small-business.html): Map inputs, decisions, tools, outputs, and failure modes first.
+- [AI governance for small and mid-size businesses](https://altrwork.com/ai-governance-lite-smb.html): A two-page AI policy, including a rule for personal AI agents like Meta Muse.
+- [How to run an AI workflow audit yourself](https://altrwork.com/ai-workflow-audit-small-business.html): Map inputs, decisions, tools, outputs, and failure modes first.
 - [The three phases of AI deployment](https://altrwork.com/three-phases-ai-deployment.html): Audit, pilot, controlled rollout.
 
 ### Buying AI services

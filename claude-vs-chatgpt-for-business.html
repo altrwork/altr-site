@@ -79,7 +79,7 @@
           "name": "Is Claude or ChatGPT better for business?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Neither is better across the board. As of September 2026 both handle office files, connectors, reusable Skills and agentic tasks. Claude publishes larger chat context windows and has Cowork for local files; ChatGPT has workspace agents and a larger installed base. Test both on your own real work."
+            "text": "Neither is better across the board. As of September 2026 both handle office files, connectors, reusable Skills and agentic tasks. Claude publishes larger chat context windows and does local file work through Cowork; ChatGPT has workspace agents and a larger installed base. Test both on your own real work."
           }
         },
         {
@@ -208,7 +208,7 @@
       <article class="article-body">
         <div class="article-summary">
           <span>Short answer</span>
-          <p>As of September 2026, Claude and ChatGPT both create and edit office files, connect to business systems over MCP, support reusable Skills, run agentic tasks, and exclude business-plan data from training by default. Claude publishes larger chat context windows and has Cowork for local file work. ChatGPT has workspace agents and a broader consumer ecosystem. Many teams run both.</p>
+          <p>As of September 2026, Claude and ChatGPT both create and edit office files, connect to business systems over MCP, support reusable Skills, run agentic tasks, and exclude business-plan data from training by default. Claude publishes larger chat context windows and does local file work through Cowork, now merging into the main Claude app. ChatGPT has workspace agents and a broader consumer ecosystem. Many teams run both.</p>
         </div>
 
         <div class="article-callout">
@@ -226,9 +226,9 @@
             <tbody>
               <tr><td>Office files</td><td>Creates and edits Excel, Word, PowerPoint and PDF files in chat.</td><td>ChatGPT Work creates and edits documents, spreadsheets and presentations.</td></tr>
               <tr><td>Long context</td><td>Help center lists up to 1M tokens in chat on paid plans for several current models.</td><td>Limits vary by model and plan; published on OpenAI's models-and-limits pages.</td></tr>
-              <tr><td>Connectors and MCP</td><td>Custom connectors over remote MCP on every plan; Team and Enterprise owners add them for the organization.</td><td>Apps and full MCP support through developer mode, in beta for Business, Enterprise and Edu.</td></tr>
+              <tr><td>Connectors and MCP</td><td>Custom connectors over remote MCP on every plan; Team and Enterprise owners add them for the organization.</td><td>Apps, plus full MCP support with write actions through developer mode (beta on Business, Enterprise and Edu; also on Plus and Pro).</td></tr>
               <tr><td>Reusable workflows</td><td>Skills (SKILL.md folders), provisioned organization-wide by Team and Enterprise admins.</td><td>Skills on the same open standard, plus workspace agents; custom GPTs are being retired.</td></tr>
-              <tr><td>Agentic desktop work</td><td>Claude Cowork, generally available on paid plans for macOS and Windows.</td><td>ChatGPT agent, workspace agents, and the Codex desktop app.</td></tr>
+              <tr><td>Agentic desktop work</td><td>Claude Cowork, generally available on paid plans for macOS and Windows; merging into the main Claude app from September 2026.</td><td>ChatGPT Work, ChatGPT agent, workspace agents, and the Codex desktop app.</td></tr>
               <tr><td>Training on business data</td><td>Not used by default on commercial products.</td><td>Not used by default on Business and Enterprise.</td></tr>
             </tbody>
           </table></div>
@@ -237,7 +237,7 @@
         <section class="article-block">
           <h2>Which is better for documents and files?</h2>
           <p>Both can now hand back a finished file rather than text you paste into one. The difference is mostly where the work lives.</p>
-          <p>Anthropic's help center describes Claude creating Excel spreadsheets with working formulas, Word documents, PowerPoint decks and PDFs in a conversation, on every plan. OpenAI describes ChatGPT Work creating and editing documents, spreadsheets, presentations and reports from instructions and attached source material.</p>
+          <p>Anthropic's help center describes Claude creating Excel spreadsheets with working formulas, Word documents, PowerPoint decks and PDFs in a conversation, on every plan. OpenAI describes ChatGPT Work creating and editing documents, spreadsheets, presentations and reports from instructions and attached source material, including native Google Docs, Sheets and Slides when Google Workspace is connected.</p>
           <p>Claude also has <a href="claude-cowork.html">Cowork</a>, which works inside a folder on your computer that you approve, so a model or memo is edited in place rather than uploaded and downloaded. If your team's work is mostly files on disk, try both on the same real file before deciding. That test tells you more than any feature list.</p>
         </section>
 
@@ -249,23 +249,23 @@
 
         <section class="article-block">
           <h2>How do connectors and MCP compare?</h2>
-          <p>Both now speak MCP, the open protocol for connecting an assistant to live tools. The difference is rollout and who can set it up.</p>
+          <p>Both now speak MCP, the open protocol for connecting an assistant to live tools. Anthropic created it and in December 2025 donated it to the Agentic AI Foundation, a Linux Foundation fund that OpenAI co-founded, so neither vendor controls the standard. The difference is rollout and who can set it up.</p>
           <p>Claude supports custom connectors over remote MCP on all plans, including free with a limit of one. On Team and Enterprise, an owner adds the connector for the organization and each person then signs in with their own credentials, so Claude sees only what that person can see. There is also a directory of ready-made connectors.</p>
-          <p>ChatGPT offers apps across common tools, and full MCP support with write actions through developer mode, in beta for Business, Enterprise and Edu. An admin enables developer mode, creates and tests the app, then publishes it to the workspace. If you are building your own connector, <a href="what-is-an-mcp-server.html">what an MCP server is</a> explains the moving parts, and one well-built server can usually serve both assistants.</p>
+          <p>ChatGPT offers apps across common tools, and full MCP support with read and write actions through developer mode, in beta for Business, Enterprise and Edu workspaces and also available to Plus and Pro accounts on the web. In a workspace, an admin enables developer mode, creates and tests the app, then publishes it to the workspace. If you are building your own connector, <a href="what-is-an-mcp-server.html">what an MCP server is</a> explains the moving parts, and one well-built server can usually serve both assistants.</p>
         </section>
 
         <section class="article-block">
           <h2>Skills or custom GPTs: how do reusable workflows compare?</h2>
           <p>This area has converged. Claude Skills are folders with a SKILL.md file of instructions plus optional scripts and reference files, loaded when a task matches. Team and Enterprise admins can provision Skills to everyone. See <a href="claude-skills-vs-mcp.html">Skills vs MCP</a> for where they fit.</p>
-          <p>OpenAI now documents Skills in ChatGPT for Business, Enterprise, Healthcare and Edu, built on the same open Agent Skills standard, so a well-written skill can move between products. OpenAI's help center also says custom GPTs are scheduled for retirement, with December 11, 2026 given for affected Enterprise workspaces, and that a GPT's instructions migrate into a Skill inside a plugin. If your team runs on custom GPTs, plan that migration now, whichever assistant you choose.</p>
-          <p>ChatGPT also has workspace agents: agents a team builds, tests and shares, which can connect to apps, run on a schedule or work from Slack.</p>
+          <p>OpenAI now documents Skills in ChatGPT for Business, Enterprise, Healthcare and Edu, built on the same open Agent Skills standard, so a well-written skill can move between products. OpenAI's help center also says custom GPTs are scheduled for retirement, with December 11, 2026 given for affected Enterprise workspaces, and that a GPT's instructions migrate into a Skill inside a plugin. Custom actions do not carry over in the migration and have to be rebuilt as connectors or MCP servers. If your team runs on custom GPTs, plan that migration now, whichever assistant you choose.</p>
+          <p>ChatGPT also has workspace agents, launched in April 2026 as a research preview for Business, Enterprise and Edu: agents a team builds, tests and shares, which can connect to apps, run on a schedule or work from Slack.</p>
         </section>
 
         <section class="article-block">
           <h2>How do the agentic desktop features compare?</h2>
           <p>Both vendors now ship an assistant that carries out multi-step tasks, not just answers. They are packaged differently.</p>
-          <p>Claude Cowork reached general availability on paid plans for macOS and Windows in April 2026. It reads and writes files in folders you approve, uses connectors, Skills and plugins, and can run scheduled tasks. Anthropic also documents web and mobile access in beta.</p>
-          <p>On the OpenAI side, ChatGPT agent carries out tasks with confirmation before high-impact actions, workspace agents cover shared team automations, and the Codex desktop app for macOS and Windows runs longer agent tasks in parallel. Whichever you use, keep the scope narrow: one folder, one process, one person who reviews the output.</p>
+          <p>Claude Cowork reached general availability on paid plans for macOS and Windows in April 2026. It reads and writes files in folders you approve, uses connectors, Skills and plugins, and can run scheduled tasks. Anthropic also documents web and mobile access in beta. On September 16, 2026, Anthropic announced that Cowork and chat are merging into one Claude app, rolling out to Pro and Max first, then Team and Free, with at least 30 days' notice for Enterprise; existing chats, projects, connectors and Skills carry over.</p>
+          <p>OpenAI splits the same ground across several products. ChatGPT Work, announced in July 2026, is pitched as an agent that works across your apps and files and can stay with a project for hours. ChatGPT agent carries out tasks and asks for confirmation before high-impact actions. Workspace agents cover shared team automations, and the Codex desktop app for macOS and Windows runs longer agent tasks in parallel. Whichever you use, keep the scope narrow: one folder, one process, one person who reviews the output.</p>
         </section>
 
         <section class="article-block">
@@ -283,7 +283,7 @@
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>Is Claude or ChatGPT better for business?</h3>
-          <p>Neither is better across the board. As of September 2026 both handle office files, connectors, reusable Skills and agentic tasks. Claude publishes larger chat context windows and has Cowork for local files; ChatGPT has workspace agents and a larger installed base. Test both on your own real work.</p>
+          <p>Neither is better across the board. As of September 2026 both handle office files, connectors, reusable Skills and agentic tasks. Claude publishes larger chat context windows and does local file work through Cowork; ChatGPT has workspace agents and a larger installed base. Test both on your own real work.</p>
           <h3>Do Claude and ChatGPT train on business data?</h3>
           <p>Both vendors state that data from their business and enterprise plans is not used for model training by default. Consumer plans have different defaults, so check which plan your staff are actually on.</p>
           <h3>Are custom GPTs going away?</h3>

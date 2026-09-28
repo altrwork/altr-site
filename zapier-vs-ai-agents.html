@@ -263,7 +263,7 @@
         <section class="article-block">
           <h2>What does a hybrid workflow look like?</h2>
           <p>Most production setups mix the two, in one of two directions.</p>
-          <p><strong>The automation calls the model.</strong> Zapier's AI by Zapier step sits inside a Zap: you write a prompt, map in data from earlier steps, and use the output in later steps. Zapier's help center says that when you give that step tools, it can reason and act across them. Make offers Claude and OpenAI modules and its own AI agents inside scenarios. The trigger and the final action stay deterministic; only the judgment step is a model.</p>
+          <p><strong>The automation calls the model.</strong> Zapier's AI by Zapier step sits inside a Zap: you write a prompt, map in data from earlier steps, and use the output in later steps. Zapier's help center says that when you give that step tools, it can reason and act across them; since July 15, 2026 that is also where Zapier's former standalone Agents product lives. Make offers Claude and OpenAI modules and its own AI agents inside scenarios. The trigger and the final action stay deterministic; only the judgment step is a model.</p>
           <p><strong>The agent calls the tools.</strong> An assistant such as Claude or ChatGPT is given access to your systems through MCP. That can be Zapier MCP, which Zapier describes as exposing actions across its app catalog to MCP clients with credentials held on Zapier's side, or a custom <a href="what-is-an-mcp-server.html">MCP server</a> built for your own systems. Here a person starts the work in conversation and the agent reaches out for data or actions.</p>
           <p>A useful default: automation for anything that runs unattended, agents for work a person starts and reviews. Our own invoicing is an example of keeping the last step human. A sentence produces a draft invoice in Stripe, and the script <a href="impact-automated-invoicing-stripe.html">cannot finalize or send one</a>.</p>
         </section>
@@ -272,7 +272,7 @@
           <h2>How do cost and maintenance compare?</h2>
           <p>Deterministic automations cost little per run and need attention only when an app changes its fields or an authentication expires. Agent steps cost model usage on every run and need a different kind of upkeep.</p>
           <ul>
-            <li><strong>Usage.</strong> Automation platforms meter runs on their own plans. Model calls are metered by the model vendor. A model step inside a high-volume Zap multiplies both.</li>
+            <li><strong>Usage.</strong> Automation platforms meter runs on their own plans, and model calls are metered too. Since June 15, 2026, an AI by Zapier step costs one, three or five times a standard task depending on the model tier you pick, and each tool call it makes adds to that. A model step inside a high-volume Zap multiplies quickly.</li>
             <li><strong>Testing.</strong> A Zap is tested once. An agent needs a small set of real examples you re-run when you change the prompt or the model changes underneath you.</li>
             <li><strong>Ownership.</strong> Both need a named person who gets the failure email. Agents also need someone who reads a sample of outputs each week.</li>
           </ul>

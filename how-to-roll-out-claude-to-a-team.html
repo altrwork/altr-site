@@ -87,7 +87,7 @@
           "name": "Do we need Claude Enterprise or is Team enough?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Team is enough for most small and mid-sized businesses. Enterprise adds SCIM provisioning, audit logs, a Compliance API, custom data retention, fine-grained role-based permissions and a HIPAA-ready option, which matter for larger or regulated organizations. Check Anthropic's current plan page before deciding."
+            "text": "Team is enough for most small and mid-sized businesses. Enterprise adds SCIM provisioning, audit logs, a Compliance API, custom data retention, fine-grained role-based permissions, spend limits, IP allowlisting and a HIPAA-ready option, which matter for larger or regulated organizations. Check Anthropic's current plan page before deciding."
           }
         },
         {
@@ -226,21 +226,25 @@
               <tr><th>Capability</th><th>Team</th><th>Enterprise</th></tr>
             </thead>
             <tbody>
-              <tr><td>Single sign-on and domain capture</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Single sign-on (SSO)</td><td>Yes</td><td>Yes</td></tr>
               <tr><td>Central billing and administration</td><td>Yes</td><td>Yes</td></tr>
               <tr><td>Shared Projects</td><td>Yes</td><td>Yes</td></tr>
               <tr><td>Organization-wide Skills deployment</td><td>Yes</td><td>Yes</td></tr>
               <tr><td>Admin controls for connectors</td><td>Yes</td><td>Yes</td></tr>
-              <tr><td>Claude Cowork and Claude Code</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Cowork (folder and file work) and Claude Code</td><td>Yes</td><td>Yes</td></tr>
               <tr><td>No model training on your content by default</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Usage analytics and org-wide instructions</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Domain capture</td><td>No</td><td>Yes</td></tr>
               <tr><td>SCIM user provisioning</td><td>No</td><td>Yes</td></tr>
               <tr><td>Audit logs and a Compliance API</td><td>No</td><td>Yes</td></tr>
               <tr><td>Custom data retention controls</td><td>No</td><td>Yes</td></tr>
               <tr><td>Fine-grained role-based permissions</td><td>No</td><td>Yes</td></tr>
+              <tr><td>User and organization spend limits</td><td>No</td><td>Yes</td></tr>
+              <tr><td>IP allowlisting and network-level access control</td><td>No</td><td>Yes</td></tr>
               <tr><td>HIPAA-ready offering</td><td>No</td><td>Available</td></tr>
             </tbody>
           </table></div>
-          <p>The practical questions: do you need to provision and remove accounts from an identity system automatically, do you need an audit trail for compliance, and do you handle health information? If all three answers are no, start on Team. Avoid individual consumer accounts for company work; they sit outside your admin controls.</p>
+          <p>The practical questions: do you need to provision and remove accounts from an identity system automatically, do you need an audit trail or spend limits per person, and do you handle health information? If all three answers are no, start on Team. Avoid individual consumer accounts for company work; they sit outside your admin controls.</p>
         </section>
 
         <section class="article-block">
@@ -259,7 +263,7 @@
           <h2>Which connectors should you turn on, and where does Cowork fit?</h2>
           <p>Turn on only the connectors the pilot workflow needs. Every connector is access to company data, so treat each one as a decision, not a default.</p>
           <p>Connectors let Claude reach systems such as email, calendar, file storage or a CRM. On Team and Enterprise, Owners control which connectors are available, and only an Owner can add a custom connector built on a remote <a href="what-is-an-mcp-server.html">MCP server</a>. Each person then connects and signs in individually, so Claude sees only what that person could already see. If a system your workflow depends on has no connector, that is the point where a custom one is worth scoping.</p>
-          <p><a href="claude-cowork.html">Claude Cowork</a>, in the Claude Desktop app, is for work that lives in files. Claude reads and writes inside a folder you approve, so a spreadsheet or memo is built in place rather than uploaded and downloaded. Give it the project folder it needs, not the whole machine.</p>
+          <p><a href="claude-cowork.html">Claude Cowork</a>, in the Claude desktop app for macOS and Windows, is for work that lives in files. Claude reads and writes inside a folder you approve, so a spreadsheet or memo is built in place rather than uploaded and downloaded. Give it the project folder it needs, not the whole machine. Owners switch Cowork on or off for the organization under Organization settings, and as of September 2026 Team plans also have cloud sessions, which run tasks on Anthropic's infrastructure, turned on by default. Decide whether you want that before the pilot starts. On September 16, 2026, Anthropic announced that Cowork and chat are merging into one Claude app, rolling out to Pro and Max first, then Team and Free, with at least 30 days' notice for Enterprise; existing chats, projects, connectors and Skills carry over. Expect the Cowork name to disappear from the interface while the folder access and admin settings stay.</p>
         </section>
 
         <section class="article-block">
@@ -270,6 +274,7 @@
             <li>Data tiers: fine to use, needs a manager's approval, never. Name the categories: customer records, employee files, financial data, contracts, credentials, anything regulated.</li>
             <li>Review rules: anything customer-facing, financial or legal gets a human check before it is sent.</li>
             <li>Connector approval: who decides a new connector is allowed, and who owns it.</li>
+            <li>Personal AI agents: none connected to company email, calendars or files unless approved. Consumer agents now ask for exactly that access.</li>
             <li>What to do when something goes wrong, and who to tell.</li>
           </ul>
           <p>Our <a href="ai-governance-lite-smb.html">AI governance lite guide</a> has a fuller template sized for small teams.</p>
@@ -304,7 +309,7 @@
           <h3>How long does it take to roll out Claude to a team?</h3>
           <p>The first workflow can be set up and trained in a matter of weeks. Give the pilot group two to four weeks of real use before judging it, then add workflows one at a time rather than all at once.</p>
           <h3>Do we need Claude Enterprise or is Team enough?</h3>
-          <p>Team is enough for most small and mid-sized businesses. Enterprise adds SCIM provisioning, audit logs, a Compliance API, custom data retention, fine-grained role-based permissions and a HIPAA-ready option, which matter for larger or regulated organizations. Check Anthropic's current plan page before deciding.</p>
+          <p>Team is enough for most small and mid-sized businesses. Enterprise adds SCIM provisioning, audit logs, a Compliance API, custom data retention, fine-grained role-based permissions, spend limits, IP allowlisting and a HIPAA-ready option, which matter for larger or regulated organizations. Check Anthropic's current plan page before deciding.</p>
           <h3>Does Anthropic train on our company's data?</h3>
           <p>Anthropic's plan page states that Team and Enterprise plans do not use your content for model training by default. Read the current commercial terms and your admin settings to confirm how your workspace is configured.</p>
           <h3>Should everyone get access on day one?</h3>
