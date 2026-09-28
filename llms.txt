@@ -101,7 +101,7 @@ Contact: inquiries@altrwork.com
 - [What is an AI agent?](https://altrwork.com/what-is-an-ai-agent.html): Agent vs chatbot vs automation, the loop an agent runs, and where a person has to stay in it.
 - [Personal AI agents like Meta Muse and Instinct](https://altrwork.com/personal-ai-agents-for-business.html): What consumer agents that act across your email, calendar and browser mean for a business, and the policy to set.
 - [Claude Skills vs MCP](https://altrwork.com/claude-skills-vs-mcp.html): Skills package how Claude does a task. MCP is how it reaches a live system.
-- [What is Claude Cowork?](https://altrwork.com/claude-cowork.html): Claude working inside an approved local folder so the deliverable stays on disk.
+- [What is Claude Cowork?](https://altrwork.com/claude-cowork.html): Claude working inside an approved local folder, and what changed when Cowork began merging into Claude in September 2026.
 - [How to write a SKILL.md that gets used](https://altrwork.com/writing-a-skill-md.html): A sharp description, a lean body, and reference files loaded on demand.
 - [MCP server design for internal AI tools](https://altrwork.com/mcp-server-design-internal-ai-tools.html): Tool boundaries, read vs write, schemas as contracts, approval and audit.
 - [MCP agents and function calling](https://altrwork.com/mcp-agents-function-calling.html): Where tool-calling agents and MCP-connected workflows each fit.
