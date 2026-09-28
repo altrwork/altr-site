@@ -1522,22 +1522,26 @@ h2 + p {
   border: 1px solid var(--rule);
 }
 
-.index-cell h2 {
+.index-cell h2,
+.index-cell h3 {
   margin: 6px 0 0;
   font-size: clamp(19px, 1.5vw, 23px);
   line-height: 1.2;
 }
 
-.index-cell h2 a {
+.index-cell h2 a,
+.index-cell h3 a {
   color: var(--bone);
   text-decoration: none;
 }
 
-.index-cell:hover h2 a {
+.index-cell:hover h2 a,
+.index-cell:hover h3 a {
   color: var(--copper);
 }
 
-.index-cell h2 a::after {
+.index-cell h2 a::after,
+.index-cell h3 a::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1625,6 +1629,7 @@ h2 + p {
 
   .index-cell .ledger-meta,
   .index-cell h2,
+  .index-cell h3,
   .index-cell p,
   .index-cell .ledger-date {
     grid-column: 2;
@@ -1939,6 +1944,11 @@ body {
 /* the index sits under its own hero, with one air step between them */
 .index-section {
   padding-top: var(--air-s);
+}
+
+/* the learning center stacks several grids, each under its own heading */
+.index-section .section-top + .index-grid {
+  margin-top: 18px;
 }
 
 

@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>AI Code Review With Judge Agents | altr</title>
+<title>AI code review with judge agents: how to set it up | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership." />
+<meta name="description" content="How AI code review with judge agents works: finder and verifier roles, a severity rubric, evidence rules, cost, and keeping the merge decision human." />
 <link rel="canonical" href="https://altrwork.com/ai-code-review-judge-agents.html" />
-<meta property="og:title" content="AI Code Review With Judge Agents | altr" />
-<meta property="og:description" content="A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership." />
+<meta property="og:title" content="AI code review with judge agents: how to set it up | altr" />
+<meta property="og:description" content="How AI code review with judge agents works: finder and verifier roles, a severity rubric, evidence rules, cost, and keeping the merge decision human." />
 <meta property="og:url" content="https://altrwork.com/ai-code-review-judge-agents.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,32 +26,120 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AI Code Review With Judge Agents | altr" />
-<meta name="twitter:description" content="A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership." />
+<meta name="twitter:title" content="AI code review with judge agents: how to set it up | altr" />
+<meta name="twitter:description" content="How AI code review with judge agents works: finder and verifier roles, a severity rubric, evidence rules, cost, and keeping the merge decision human." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "AI Code Review With Judge Agents",
-  "description": "A practical guide to AI code review with judge agents, covering reviewer roles, severity rubrics, false-positive tracking, PR handoff, and human ownership.",
-  "image": "https://altrwork.com/assets/altr_social_preview.png",
-  "author": {
-    "@type": "Organization",
-    "name": "altr"
-  },
-  "publisher": {
-    "@id": "https://altrwork.com/#business"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://altrwork.com/ai-code-review-judge-agents.html"
-  },
-  "datePublished": "2026-06-16",
-  "dateModified": "2026-08-20",
-  "isPartOf": {
-    "@id": "https://altrwork.com/#website"
-  }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "AI code review with judge agents: how to set it up",
+      "description": "How AI code review with judge agents works: finder and verifier roles, a severity rubric, evidence rules, cost, and keeping the merge decision human.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/ai-code-review-judge-agents.html"
+      },
+      "datePublished": "2026-06-16",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI code review"
+        },
+        {
+          "@type": "Thing",
+          "name": "LLM as a judge"
+        },
+        {
+          "@type": "Thing",
+          "name": "Pull request review"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can an AI agent approve a pull request?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can be wired to, but it should not be the approver. Anthropic's managed Code Review deliberately never approves or blocks a PR, and its check run always completes as neutral. Use AI findings as input, gate merges on your own tests and rules, and keep a person as the approver."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does AI code review cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the size of the change and how often reviews run. As of September 2026, Anthropic's docs put its managed Code Review at an average of $15 to $25 per review, billed on usage. Running a reviewer in your own CI costs the API tokens it uses. Reviewing on every push multiplies the cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a judge agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A judge agent is a language model given a specific job of evaluating something, such as a code change, against a written rubric and returning a verdict with evidence. In code review, several judges usually look for different problems, and a separate verifier checks their findings before anything is posted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does AI code review replace human reviewers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It is good at catching specific classes of bug early and at reading every line consistently. It does not know the product intent, the trade-offs the team made, or what the customer needs. Human review moves toward design and intent, and the merge decision stays with a person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you reduce false positives in AI code review?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add a verification step that checks each finding against the actual code, require a file and line for every serious finding, tell the reviewer what not to report, cap minor comments, and track which findings were dismissed so you can tighten the rubric."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI code review with judge agents: how to set it up",
+          "item": "https://altrwork.com/ai-code-review-judge-agents.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -60,8 +148,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260913a" />
-<link rel="stylesheet" href="redesign.css?v=20260913a" />
+<link rel="stylesheet" href="styles.css?v=20260928a" />
+<link rel="stylesheet" href="redesign.css?v=20260928a" />
 </head>
 <body>
 <div class="site-shell">
@@ -101,7 +189,7 @@
         <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu" aria-current="page"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
         <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
         <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
-        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        <a class="nav-dropdown-item" href="learn.html">Learning center</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -112,50 +200,125 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-basilica">
-      <h1>AI code review with judge agents.</h1>
-      <p class="page-lede">Automated pull request review works best when judge agents have narrow reviewer roles, a shared severity rubric, and a clear handoff to the human owner of the change.</p>
+      <h1>AI code review with judge agents: several narrow reviewers, one verifier, and a human who merges.</h1>
+      <p class="page-lede">An AI reviewer that comments on everything gets muted within a week. One that finds a real bug and proves it gets read. The difference is almost entirely in how the review is structured, not which model runs it.</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
-          <p>We use AI code review as a triage layer for engineering managers and reviewers. The judge agent flags risks, groups duplicates, cites evidence, and leaves ownership with the humans who approve and ship the PR.</p>
+          <span>Short answer</span>
+          <p>AI code review with judge agents runs several model reviewers over a pull request, each looking for one class of problem, then passes their findings to a verifier that checks each against the actual code and drops what it cannot confirm. What survives is ranked by severity and posted with file and line evidence. The agents flag. A person still decides whether to merge.</p>
         </div>
 
         <section class="article-block">
-          <h2>Give each reviewer a role.</h2>
-          <p>A judge agent should know what kind of review it owns. Roles can include security, data integrity, test coverage, API compatibility, frontend behavior, migration safety, or operational risk.</p>
-          <p>Each role needs concrete inputs: the diff, relevant files, tests, changed contracts, ownership rules, and any issue or spec attached to the pull request. The output should be a short finding with file evidence and a proposed next action.</p>
+          <h2>How does a judge-agent review work?</h2>
+          <p>Split the review into roles, the way a senior team would.</p>
+          <ol>
+            <li><strong>Finders.</strong> Several agents read the diff and the code around it, each with one focus: logic errors, security, data integrity, API compatibility, migration safety.</li>
+            <li><strong>Verifier.</strong> A separate pass checks every candidate finding against the code's actual behavior and discards what it cannot confirm. This is the step that keeps false positives down.</li>
+            <li><strong>Reporter.</strong> Duplicates are merged, findings are ranked by severity, and each is posted on the line it concerns, with a summary at the top.</li>
+          </ol>
+          <p>Anthropic's managed Code Review for Claude Code works this way. As of September 2026 it is a research preview for Team and Enterprise plans: several agents analyze the pull request in parallel, a verification step filters false positives, and findings are tagged Important, Nit or Pre-existing. It never approves or blocks a pull request. Its check run always finishes neutral, so any merge gate is one you build yourself.</p>
         </section>
 
         <section class="article-block">
-          <h2>Use a severity rubric reviewers can enforce.</h2>
-          <p>AI code review needs a shared rubric for blockers, high-risk issues, medium concerns, and notes. A blocker should describe a likely production defect, security exposure, data loss, failed test path, or broken contract.</p>
-          <p>The rubric keeps automated pull request review from becoming a stream of preferences. Findings should explain impact, affected users or systems, reproduction path, and the check that would prove the fix.</p>
+          <h2>What severity rubric should an AI reviewer use?</h2>
+          <p>A short one, written down, that the humans already agree with. Without it, review becomes a stream of preferences.</p>
+          <div class="article-table-wrap"><table class="article-table">
+            <thead>
+              <tr><th>Level</th><th>Means</th><th>Examples</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Important</td><td>Fix before merge</td><td>Wrong logic, data loss, a query not scoped to the tenant, secrets or personal data in logs, a migration that cannot roll back</td></tr>
+              <tr><td>Nit</td><td>Worth fixing, not blocking</td><td>Misleading names, a missed edge case in a helper, a rule from the repo's instructions broken</td></tr>
+              <tr><td>Pre-existing</td><td>A real bug this PR did not introduce</td><td>Report once, route to the backlog, do not hold the PR</td></tr>
+              <tr><td>Do not report</td><td>Anything CI already enforces</td><td>Formatting, lint, type errors, generated files, lockfiles</td></tr>
+            </tbody>
+          </table></div>
+          <p>Require evidence for every Important finding: the file and line, what happens, and how to reproduce or check it. A finding inferred from a function's name, rather than its code, is the usual false positive.</p>
         </section>
 
         <section class="article-block">
-          <h2>Track false positives and duplicate findings.</h2>
-          <p>Managers need to know whether judge agent comments are useful. Track accepted findings, dismissed findings, false positives, duplicates, severity changes, and time saved during review.</p>
-          <p>Dedupe matters because agents often spot the same issue from multiple angles. The PR handoff should group related comments under one finding, keep the clearest evidence, and remove noise before the human reviewer sees it.</p>
+          <h2>How do you tune what the reviewer flags?</h2>
+          <p>Put review rules in the repository, next to the code. Claude's Code Review reads the repo's <code>CLAUDE.md</code> as general context and a <code>REVIEW.md</code> at the root as review-only instructions. The same content works as the system prompt for a reviewer you run in your own CI.</p>
+          <pre><code># Review instructions
+
+## Important means
+Incorrect logic, unscoped database queries, personal data in logs,
+and migrations that are not backward compatible. Style is Nit at most.
+
+## Limits
+Report at most five Nits. Mention the rest as a count in the summary.
+After the first review, post new Important findings only.
+
+## Do not report
+Lint, formatting, type errors. Anything under src/gen/ or any *.lock file.
+
+## Always check
+New API routes have an integration test.
+Behavior claims cite file:line in the source, not a guess from a name.</code></pre>
+          <p>Keep it short. Anthropic's own guidance is that a long review file dilutes the rules that matter.</p>
         </section>
 
         <section class="article-block">
-          <h2>Keep human ownership explicit.</h2>
-          <p>A judge agent can identify risk, but the accountable owner is still the engineer, reviewer, or manager responsible for the pull request. The system should mark which findings require a human decision.</p>
-          <p>The final handoff should include reviewed scope, skipped files, tool errors, unresolved risks, tests observed, and questions for the reviewer. That lets the human approve, request changes, or escalate with the right context.</p>
+          <h2>What does AI code review cost, and how do you run it?</h2>
+          <ul>
+            <li><strong>Managed.</strong> Claude's Code Review is billed on token use, separately from plan allowances, and Anthropic's docs put the average at $15 to $25 per review as of September 2026, rising with the size of the change. Reviewing on every push multiplies that by the number of pushes, so many teams review once per PR or on request with <code>@claude review</code>.</li>
+            <li><strong>In your own CI.</strong> Run Claude in GitHub Actions or GitLab CI/CD with your own rubric and pay only for the API use.</li>
+            <li><strong>Before pushing.</strong> In Claude Code, the <code>/code-review</code> command reviews your local diff in the terminal.</li>
+          </ul>
+        </section>
+
+        <section class="article-block">
+          <h2>How do you know the reviewer is worth keeping?</h2>
+          <p>Measure it like any other reviewer, for a month, before deciding.</p>
+          <ul>
+            <li><strong>Acceptance rate</strong>: findings that led to a code change, out of findings posted.</li>
+            <li><strong>False positives</strong>: findings dismissed as wrong. Thumbs-down reactions on comments are a cheap way to count them.</li>
+            <li><strong>Escaped defects</strong>: bugs found after merge in code the reviewer saw. This is the number that justifies the cost.</li>
+            <li><strong>Noise</strong>: comments per PR, and how many were Nits. Rising nits with flat acceptance means the rubric needs tightening.</li>
+          </ul>
+          <p>If acceptance is low after a month of tuning, narrow the reviewer to the one class of bug it catches reliably, or turn it off.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Where does AI review go wrong?</h2>
+          <ul>
+            <li><strong>Nit floods</strong> that train the team to ignore every comment, including the real one.</li>
+            <li><strong>Endless re-review</strong>, where each push produces new style comments on a one-line fix.</li>
+            <li><strong>Reviewing code nobody wrote</strong>: generated clients, vendored code, lockfiles.</li>
+            <li><strong>Untrusted pull requests.</strong> A PR from outside can carry text aimed at the reviewer. Claude's Code Review reviews a fork's PR only when a maintainer asks it to, which is a sensible default for any setup.</li>
+            <li><strong>Treating silence as approval.</strong> "No issues found" means none the reviewer could verify, not that the change is safe.</li>
+          </ul>
         </section>
 
         <div class="article-callout">
           <span>Working rule</span>
-          <p>Let judge agents reduce review load, while humans retain the decision to merge.</p>
+          <p>Let judge agents find and prove problems. Keep the decision to merge with the engineer who owns the change.</p>
         </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>Can an AI agent approve a pull request?</h3>
+          <p>It can be wired to, but it should not be the approver. Anthropic's managed Code Review deliberately never approves or blocks a PR, and its check run always completes as neutral. Use AI findings as input, gate merges on your own tests and rules, and keep a person as the approver.</p>
+          <h3>How much does AI code review cost?</h3>
+          <p>It depends on the size of the change and how often reviews run. As of September 2026, Anthropic's docs put its managed Code Review at an average of $15 to $25 per review, billed on usage. Running a reviewer in your own CI costs the API tokens it uses. Reviewing on every push multiplies the cost.</p>
+          <h3>What is a judge agent?</h3>
+          <p>A judge agent is a language model given a specific job of evaluating something, such as a code change, against a written rubric and returning a verdict with evidence. In code review, several judges usually look for different problems, and a separate verifier checks their findings before anything is posted.</p>
+          <h3>Does AI code review replace human reviewers?</h3>
+          <p>No. It is good at catching specific classes of bug early and at reading every line consistently. It does not know the product intent, the trade-offs the team made, or what the customer needs. Human review moves toward design and intent, and the merge decision stays with a person.</p>
+          <h3>How do you reduce false positives in AI code review?</h3>
+          <p>Add a verification step that checks each finding against the actual code, require a file and line for every serious finding, tell the reviewer what not to report, cap minor comments, and track which findings were dismissed so you can tighten the rubric.</p>
+        </section>
+
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
           <li><a href="context-engineering-large-codebases.html">Context engineering for large codebases</a></li>
-          <li><a href="custom-agents.html">Custom AI agents</a></li>
+          <li><a href="rag-evaluation-internal-knowledge-bases.html">RAG evaluation for internal knowledge bases</a></li>
+          <li><a href="what-is-an-ai-agent.html">What is an AI agent?</a></li>
+          <li><a href="custom-agents.html">Custom AI agents and automation</a></li>
           </ul>
         </section>
 
@@ -164,8 +327,8 @@
 
     <section class="cta-section">
       <div>
-        <h2>Want AI review that engineering managers can trust?</h2>
-        <p>Bring the pull request patterns, review rules, and failure modes your team wants caught earlier.</p>
+        <h2>Want AI review your engineers will actually read?</h2>
+        <p>Bring your pull request patterns and the bugs you wish had been caught. We will help you set up the rubric, the reviewer and the measurement.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>
@@ -180,7 +343,7 @@
       <nav class="footer-links" aria-label="Footer links">
         <a href="index.html#who-we-serve">Services</a>
         <a href="case-studies.html">Work</a>
-        <a href="tutorials.html">Blog</a>
+        <a href="learn.html">Learn</a>
         <a href="about.html">About</a>
 
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>

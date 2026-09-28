@@ -1,6 +1,7 @@
 # altr site
 
-Static website for altr.
+Static website for altr, live at **https://altrwork.com**. This repository is
+public and ranks for the brand name, so the first link here is the site.
 
 ## Structure
 
@@ -50,6 +51,14 @@ is 404'd there so it is not served.
 - `altr-brand-assets/` - source brand assets and brand notes.
 - `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
 - `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html` - crawl and discovery files.
+- `learn.html` - the learning center: every plain-answer page, grouped. A new
+  learning page goes in four places in the same commit: `learn.html`,
+  `sitemap.xml`, `llms.txt` and an extensionless rule in `_redirects`.
+  `tests/seo_integrity_test.py` checks all four.
+- `tests/answer_engine_sim.py` - an offline proxy for how an AI answer engine
+  picks a passage to cite, scored against `tests/answer_engine_queries.json`.
+  Run it after any content change; it cannot measure domain trust, which is
+  off-site.
 
 `tools/` holds local build scripts and is gitignored, because this repo is the
 deployment and those scripts should not be served from the site root:

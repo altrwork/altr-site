@@ -45,10 +45,30 @@
 /real-estate                                  /real-estate.html                             301!
 /start-a-conversation                         /start-a-conversation.html                    301!
 /three-phases-ai-deployment                   /three-phases-ai-deployment.html              301!
-/tutorials                                    /tutorials.html                               301!
+/tutorials                                    /learn.html                                   301!
+/tutorials.html                               /learn.html                                   301!
 /workflow-audit                               /workflow-audit.html                          301!
 /workflow-automation-consultant-tampa         /workflow-automation-consultant-tampa.html    301!
 /writing-a-skill-md                           /writing-a-skill-md.html                      301!
+/learn                                        /learn.html                                   301!
+/mcp-server-for-commercial-real-estate        /mcp-server-for-commercial-real-estate.html   301!
+/what-is-a-broker-opinion-of-value            /what-is-a-broker-opinion-of-value.html       301!
+/florida-property-appraiser-data              /florida-property-appraiser-data.html         301!
+/ai-for-commercial-real-estate-brokers        /ai-for-commercial-real-estate-brokers.html   301!
+/ai-rent-roll-and-lease-abstraction           /ai-rent-roll-and-lease-abstraction.html      301!
+/ai-cre-underwriting                          /ai-cre-underwriting.html                     301!
+/ai-tools-for-commercial-real-estate          /ai-tools-for-commercial-real-estate.html     301!
+/what-is-an-mcp-server                        /what-is-an-mcp-server.html                   301!
+/what-is-an-ai-agent                          /what-is-an-ai-agent.html                     301!
+/how-to-roll-out-claude-to-a-team             /how-to-roll-out-claude-to-a-team.html        301!
+/claude-prompts-for-small-business            /claude-prompts-for-small-business.html       301!
+/ai-training-for-employees                    /ai-training-for-employees.html               301!
+/ai-consulting-cost                           /ai-consulting-cost.html                      301!
+/how-to-choose-an-ai-consultant               /how-to-choose-an-ai-consultant.html          301!
+/claude-vs-chatgpt-for-business               /claude-vs-chatgpt-for-business.html          301!
+/zapier-vs-ai-agents                          /zapier-vs-ai-agents.html                     301!
+/ai-news-for-business-september-2026          /ai-news-for-business-september-2026.html     301!
+/personal-ai-agents-for-business              /personal-ai-agents-for-business.html         301!
 /privacy                                      /privacy.html                                 301!
 /terms                                        /terms.html                                   301!
 /website-terms                                /website-terms.html                           301!
@@ -58,8 +78,8 @@
 /events                                       /ai-workshop.html                            301!
 /forward-deployed-engineering.html            /how-we-altr-work.html                       301!
 /forward-deployed-engineering                 /how-we-altr-work.html                       301!
-/resources.html                               /tutorials.html                              301!
-/resources                                    /tutorials.html                              301!
+/resources.html                               /learn.html   301!
+/resources                                    /learn.html   301!
 /internal-products.html                       /mortr.html                                  301!
 /internal-products                            /mortr.html                                  301!
 /pricing.html                                 /#who-we-serve                               301!
@@ -70,3 +90,6 @@
 # repo is published, so the directory has to be kept out of the site while
 # staying in version control.
 /design-language/*                            /404.html                                    404!
+
+# tests/ holds the site's own checks, not content.
+/tests/*                                      /404.html                                    404!

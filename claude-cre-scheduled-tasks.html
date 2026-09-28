@@ -11,14 +11,126 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>Claude in CRE: Scheduled Tasks | altr</title>
+<title>Claude Scheduled Tasks for CRE Market Monitoring | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How commercial real estate teams can use Claude Scheduled Tasks to monitor local sales and recurring market work." />
+<meta name="description" content="Set up a Claude scheduled task that reports each week&#x27;s recorded commercial sales: setup steps, a prompt, cadence options, and why recent weeks read low." />
 <link rel="canonical" href="https://altrwork.com/claude-cre-scheduled-tasks.html" />
-<meta property="og:title" content="Claude in CRE: Scheduled Tasks | altr" /><meta property="og:description" content="Build recurring CRE market and pipeline routines that run whether or not you are at your computer." /><meta property="og:url" content="https://altrwork.com/claude-cre-scheduled-tasks.html" /><meta property="og:type" content="article" /><meta property="og:site_name" content="altr" /><meta property="og:image" content="https://altrwork.com/assets/claude-cre-scheduled-tasks.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="https://altrwork.com/assets/claude-cre-scheduled-tasks.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" /><link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" /><link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css?v=20260913a" />
-<link rel="stylesheet" href="redesign.css?v=20260913a" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Claude in CRE: Scheduled Tasks","description":"How commercial real estate teams can use Claude Scheduled Tasks to monitor local sales and recurring market work.","image":"https://altrwork.com/assets/claude-cre-scheduled-tasks.webp","author":{"@type":"Person","name":"Jarred Robidoux"},"publisher":{"@id":"https://altrwork.com/#business"},"datePublished":"2026-08-13","dateModified":"2026-08-21","mainEntityOfPage":"https://altrwork.com/claude-cre-scheduled-tasks.html"}</script>
+<meta property="og:title" content="Claude Scheduled Tasks for CRE Market Monitoring | altr" /><meta property="og:description" content="Use Claude scheduled tasks to track recorded commercial sales each week: setup steps, a prompt, cadence options and the recording-lag trap." /><meta property="og:url" content="https://altrwork.com/claude-cre-scheduled-tasks.html" /><meta property="og:type" content="article" /><meta property="og:site_name" content="altr" /><meta property="og:image" content="https://altrwork.com/assets/claude-cre-scheduled-tasks.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="https://altrwork.com/assets/claude-cre-scheduled-tasks.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" /><link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" /><link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css?v=20260928a" />
+<link rel="stylesheet" href="redesign.css?v=20260928a" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Claude in CRE: Scheduled tasks for market monitoring",
+      "description": "How commercial real estate teams use Claude scheduled tasks to track recorded sales and other recurring market work, with setup steps and a prompt.",
+      "image": "https://altrwork.com/assets/claude-cre-scheduled-tasks.webp",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#jarred-robidoux",
+        "name": "Jarred Robidoux",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/claude-cre-scheduled-tasks.html"
+      },
+      "datePublished": "2026-08-13",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Claude scheduled tasks"
+        },
+        {
+          "@type": "Thing",
+          "name": "Commercial real estate market monitoring"
+        },
+        {
+          "@type": "Thing",
+          "name": "Recorded sales"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do Claude scheduled tasks run when my computer is off?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, as of September 2026. Scheduled tasks run in Anthropic's cloud, so they keep their cadence when your computer is asleep or the Claude app is closed. The trade-off is that a cloud task cannot read a local folder. It works through connectors and cloud-saved files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Claude plans include scheduled tasks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pro, Max, Team and Enterprise. Scheduled tasks are fully available in the desktop app and in beta on the web and mobile apps for Pro, Max and Team. Enterprise workspaces get the web and mobile versions when an admin turns them on."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often can a Claude scheduled task run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hourly, daily, on weekdays, weekly, or only when you start it. You can also run any task on demand from the Scheduled page, which is the best way to test the prompt before it starts running on its own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a scheduled task pull from CoStar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. CoStar has no Claude connector, and its public Terms of Use bar sharing logins with AI agents and using its data with generative AI. Schedule tasks against sources you are allowed to automate, such as county records, your CRM and your own files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my weekly sales digest undercount?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deeds reach the county record some time after a sale closes, so the newest weeks always look thin. In the Florida county files we work with, the latest 30 to 45 days read low. Print the source file date on every digest and judge trends on older periods."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Claude in CRE: Scheduled tasks for market monitoring",
+          "item": "https://altrwork.com/claude-cre-scheduled-tasks.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body><div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -57,7 +169,7 @@
         <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu" aria-current="page"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
         <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
         <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
-        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        <a class="nav-dropdown-item" href="learn.html">Learning center</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -66,66 +178,94 @@
     </nav>
   </header>
   <main class="page" id="main">
-    <section class="page-hero article-hero cre-article-hero hero-scene scene-piazza"><div class="eyebrow">Real Estate · Part 04</div><h1>Claude in CRE: Scheduled Tasks</h1><div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-13">August 13, 2026</time><span>6 min read</span></div><p class="page-lede">Commercial real estate has always been a data game. Scheduled Tasks make it possible to keep a pulse on capital and local markets without starting the same research from scratch.</p></section>
+    <section class="page-hero article-hero cre-article-hero hero-scene scene-piazza"><div class="eyebrow">Real Estate · Part 04</div><h1>Claude in CRE: Scheduled tasks for market monitoring</h1><div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-13">August 13, 2026</time><span>Updated September 28, 2026</span><span>6 min read</span></div><p class="page-lede">Commercial real estate has always been a data game. A scheduled task lets Claude check the same sources on a cadence, so the weekly market read arrives without anyone starting the research from scratch.</p></section>
     <figure class="cre-hero-image"><picture><source srcset="assets/claude-cre-scheduled-tasks.webp" type="image/webp" /><img src="assets/claude-cre-scheduled-tasks.webp" width="1526" height="854" alt="AI in Real Estate: Scheduled Tasks, illustrated with industrial, residential, retail, office, and construction properties" /></picture></figure>
     <section class="section article-section"><article class="article-body">
-      <div class="article-summary"><span>The routine</span><p>Scheduled Tasks let Claude run automatically on a recurring basis or on demand. Describe the job once, connect the right data, and let the routine produce the next digest.</p></div>
+      <div class="article-summary"><span>Short answer</span><p>A Claude scheduled task runs a job you describe once on a cadence: hourly, daily, weekdays, weekly or on demand. Open Scheduled in the Claude sidebar, choose Create with Claude, and name the source, filters and output. Tasks run in Anthropic&#x27;s cloud, so they use connectors and cloud files, not local folders. Available on Pro, Max, Team and Enterprise.</p></div>
       <section class="article-block">
-        <p>Commercial real estate has always been a data game.</p>
-        <p>Just ask CoStar. They have built a monopoly from it. That does not mean Claude can log into it. <a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a> No. Recurring research still belongs on sources you are allowed to automate.</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-costar.png" width="571" height="412" alt="CoStar Group stock chart shown in the original article" / loading="lazy" decoding="async"><figcaption>CoStar Group stock shown in the original article on August 12, 2026.</figcaption></figure>
-        <p>It has never been easier to keep a pulse on capital and local markets with Claude.</p>
-        <p>Consider a conversation I had with a CEO running a multifamily firm in Florida:</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-ceo-quote.png" width="728" height="176" alt="Multifamily CEO explaining that the team actively tracks recent sales through AI" / loading="lazy" decoding="async"><figcaption>"We actively track recent sales through AI."</figcaption></figure>
-        <p>In 2026, that might be the broadest statement of all time.</p>
-        <p>So today, I am going to show you how to use Claude Scheduled Tasks to track your local market.</p>
+        <h2>Why put market research on a schedule?</h2>
+        <p>Because the same questions come back every week: what sold, who bought it, which loans are coming due. CoStar built one of the largest businesses in the industry on exactly that demand.</p>
+        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-costar.png" width="571" height="412" alt="CoStar Group stock chart shown in the original article" loading="lazy" decoding="async" /><figcaption>CoStar Group stock, as shown in the original article on August 12, 2026.</figcaption></figure>
+        <p>That does not mean Claude can log into CoStar. It cannot (<a href="can-claude-connect-to-costar.html">here is why</a>), so recurring research has to run on sources you are allowed to automate.</p>
+        <p>A CEO running a multifamily firm in Florida told me:</p>
+        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-ceo-quote.png" width="728" height="176" alt="Multifamily CEO explaining that the team actively tracks recent sales through AI" loading="lazy" decoding="async" /><figcaption>&quot;We actively track recent sales through AI.&quot;</figcaption></figure>
+        <p>In practice that usually means someone typing "pull recent sales from the county site" into a chat window every week. A scheduled task writes that request down once and runs it.</p>
+        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-before-after.png" width="1830" height="614" alt="Before and after diagram showing a repeated recent-sales prompt becoming an automatic scheduled task" loading="lazy" decoding="async" /><figcaption>Describe the task once, then run it on the cadence you choose.</figcaption></figure>
       </section>
       <section class="article-block">
-        <h2>What are Scheduled Tasks?</h2>
-        <p>Scheduled Tasks allow Claude to run automatically on a recurring basis or on demand.</p>
-        <p>Instead of starting each task from scratch with "Pull all recent sales data from the county appraiser's site," you describe the task once and let Claude handle it on a schedule.</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-before-after.png" width="1830" height="614" alt="Before and after diagram showing a repeated recent-sales prompt becoming an automatic scheduled task" / loading="lazy" decoding="async"><figcaption>Describe the task once, then run it automatically on the cadence you choose.</figcaption></figure>
-        <p>Let's look at how to set up Scheduled Tasks.</p>
+        <h2>How do you create a scheduled task in Claude?</h2>
+        <ol>
+          <li><strong>Open Scheduled</strong> in the left sidebar. It is fully available in Claude Desktop, and in beta on the web and mobile apps.</li>
+          <li><strong>Choose Create with Claude</strong>, or Set up manually if you already know exactly what you want. In the merged Claude rolling out since September 16, 2026, you can also describe the job in any conversation and Claude will offer to schedule it.</li>
+          <li><strong>Answer Claude&#x27;s questions</strong> about cadence, source, output and limits.</li>
+          <li><strong>Name the connector and the tool</strong> the task should use.</li>
+          <li><strong>Run it once on demand</strong> and read the output before letting it run on its own.</li>
+        </ol>
+        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-menu.png" width="1488" height="807" alt="Scheduled option highlighted in the Claude navigation" loading="lazy" decoding="async" /><figcaption>Scheduled in the Claude sidebar.</figcaption></figure>
+        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-create.png" width="1488" height="958" alt="Claude Scheduled Tasks screen with Create with Claude highlighted" loading="lazy" decoding="async" /><figcaption>Create with Claude builds the task conversationally.</figcaption></figure>
+        <p>Tasks can use the same connected tools, Skills and plugins as any other Cowork task. What they cannot do is read a folder on your computer, because they run in the cloud. Put the inputs behind a connector or in cloud-saved files. Source: <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Anthropic help, September 2026</a>.</p>
       </section>
       <section class="article-block">
-        <h2>Creating Scheduled Tasks</h2>
-        <p>From the home menu of Claude.ai or Claude Desktop, select <strong>Scheduled</strong>.</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-menu.png" width="1488" height="807" alt="Scheduled option highlighted in the Claude navigation" / loading="lazy" decoding="async"><figcaption>Open Scheduled from the Claude home menu.</figcaption></figure>
-        <p>Selecting <strong>Create with Claude</strong> is the best starting point.</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-create.png" width="1488" height="958" alt="Claude Scheduled Tasks screen with Create with Claude highlighted" / loading="lazy" decoding="async"><figcaption>Create the routine conversationally instead of building it from scratch.</figcaption></figure>
-        <p>Similar to creating Skills, we can create Scheduled Tasks by prompting Claude.</p>
-        <p>For our local-market example, I am using a custom connector we built for commercial real estate teams. It already connects to the county appraiser's site and pulls sales history.</p>
-        <p>Once I select <strong>Create with Claude</strong>, Claude asks questions that help it understand exactly what should run on a recurring schedule.</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-questions.png" width="1159" height="1000" alt="Claude asking setup questions while creating a new scheduled task" / loading="lazy" decoding="async"><figcaption>Claude gathers the cadence, source, output, and operating limits.</figcaption></figure>
-        <p>As the process continues, Claude asks what source to use. This is where I specify the <strong>cre-harness</strong> connector.</p>
-        <p>Since the connector is already set up, Claude asks which tool in the harness should run. To track local sales, we use the <strong>recent sales</strong> tool.</p>
-        <p>After answering the questions, Claude finishes the Scheduled Task and it is ready to run.</p>
+        <h2>Example: a weekly recent-sales digest</h2>
+        <p>For this example I used the county records connector we built for commercial real estate teams, which reads county property appraiser and deed records in four counties around Tampa. When Claude asked for a source I named the <strong>cre-harness</strong> connector, and when it asked which tool, the <strong>recent sales</strong> tool.</p>
+        <figure class="article-inline-media"><img src="assets/linkedin-scheduled-questions.png" width="1159" height="1000" alt="Claude asking setup questions while creating a new scheduled task" loading="lazy" decoding="async" /><figcaption>Claude gathers the cadence, source, output and limits.</figcaption></figure>
+        <p>In the original run, the digest found 18 properties recorded as sold between August 6 and August 13, 2026. A prompt that holds up better week to week:</p>
+        <pre><code>Every Monday at 7am, use the county records connector's
+recent sales tool to list commercial sales recorded in the last
+7 days in [county], for [property types], above $[minimum].
+
+For each sale: address, price, buyer, seller, recording date,
+and price per square foot only where one deed conveyed one parcel.
+List $100 deeds and multi-parcel deals separately. Do not treat
+them as prices.
+
+End with the date of the source file.</code></pre>
+        <p>The $100 line is specific to Florida, where a nominal $100 deed usually marks a transfer that is not a sale. The multi-parcel line matters everywhere: one price can cover several parcels, and dividing it by one building&#x27;s square footage gives a number that means nothing. More on both in <a href="florida-property-appraiser-data.html">what Florida property appraiser data tells you</a>.</p>
       </section>
       <section class="article-block">
-        <h2>Manually running Scheduled Tasks</h2>
-        <p>Scheduled Tasks allow Claude to start doing real work and do not require you to be at the computer.</p>
-        <p>You can manually run a task whenever the question is urgent or let it operate on its normal schedule.</p>
-        <p>One of the best things about Scheduled Tasks is that they run across devices. Once a task finishes, you can receive the output on your phone.</p>
-        <p>In the article example, the digest recognized <strong>18 properties</strong> sold during the previous week, from August 6 through August 13.</p>
+        <h2>Why does last week always look slow?</h2>
+        <p>Recording lag. A deed is recorded after the closing, and a county&#x27;s bulk file is only as fresh as the day it was published. In the Florida county files we load, the most recent 30 to 45 days always read low. That is not the market slowing down.</p>
+        <p>Two rules follow. Put the source file date on every digest. And judge trends on periods at least 45 days old, using the latest week only to spot new names.</p>
       </section>
       <section class="article-block">
-        <h2>Next steps</h2>
-        <p>Hopefully by now you can see how Scheduled Tasks put work the team does every day onto a recurring cadence.</p>
-        <p>Here are examples we see teams use:</p>
-        <ul><li>Track capital-market updates.</li><li>Manage client pipelines with email summaries and follow-up.</li><li>Prepare mortgage-loan maturity summaries.</li></ul>
+        <h2>What else is worth scheduling?</h2>
+        <ul>
+          <li>A capital-markets summary each Monday from sources you license for AI use.</li>
+          <li>A pipeline digest from your CRM: deals with no activity in 14 days and the follow-ups due this week.</li>
+          <li>A loan-maturity watchlist for owners you track, from sources that carry maturity dates.</li>
+        </ul>
+        <p>Give each task one named reader. A digest nobody owns is a digest nobody reads.</p>
       </section>
-      <section class="article-block">
-        <h2>Want this built into your workflow?</h2>
-        <p>You just watched us connect Claude to a Scheduled Task, for free, in minutes.</p>
-        <p>The same applies to every system your team runs on, driven by tasks that surface important details to you and your team every day.</p>
-        <p>That is altr. We help CRE teams get real value from AI through hands-on enablement and custom deployment work built around the business.</p>
-        <p>If your team is using Claude but it is not making a real impact, book a call with us.</p>
-      </section>
-      <div class="article-callout"><span>Working idea</span><p>If your team checks the same source on the same cadence, it is a candidate for a Scheduled Task.</p></div>
-      <p class="cre-source-link">Continue with the <a href="real-estate.html">commercial real estate AI workflow hub</a>, or read the original version in the <a href="https://www.linkedin.com/pulse/claude-cre-scheduled-tasks-jarred-robidoux-7athe/" target="_blank" rel="noopener">altr'd newsletter on LinkedIn</a>.</p>
+      <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>Do Claude scheduled tasks run when my computer is off?</h3>
+          <p>Yes, as of September 2026. Scheduled tasks run in Anthropic's cloud, so they keep their cadence when your computer is asleep or the Claude app is closed. The trade-off is that a cloud task cannot read a local folder. It works through connectors and cloud-saved files.</p>
+          <h3>Which Claude plans include scheduled tasks?</h3>
+          <p>Pro, Max, Team and Enterprise. Scheduled tasks are fully available in the desktop app and in beta on the web and mobile apps for Pro, Max and Team. Enterprise workspaces get the web and mobile versions when an admin turns them on.</p>
+          <h3>How often can a Claude scheduled task run?</h3>
+          <p>Hourly, daily, on weekdays, weekly, or only when you start it. You can also run any task on demand from the Scheduled page, which is the best way to test the prompt before it starts running on its own.</p>
+          <h3>Can a scheduled task pull from CoStar?</h3>
+          <p>No. CoStar has no Claude connector, and its public Terms of Use bar sharing logins with AI agents and using its data with generative AI. Schedule tasks against sources you are allowed to automate, such as county records, your CRM and your own files.</p>
+          <h3>Why does my weekly sales digest undercount?</h3>
+          <p>Deeds reach the county record some time after a sale closes, so the newest weeks always look thin. In the Florida county files we work with, the latest 30 to 45 days read low. Print the source file date on every digest and judge trends on older periods.</p>
+        </section>
+      <div class="article-callout"><span>Working idea</span><p>If your team checks the same source on the same cadence, it is a candidate for a scheduled task.</p></div>
+      <section class="article-block article-related">
+          <h2>Related reading</h2>
+          <ul>
+          <li><a href="claude-cre-connectors.html">Claude in CRE: Connectors</a></li>
+          <li><a href="claude-cre-cowork.html">Claude in CRE: Cowork for underwriting</a></li>
+          <li><a href="florida-property-appraiser-data.html">What Florida property appraiser data tells you</a></li>
+          <li><a href="impact-cre-county-records-connector.html">Case study: a county property records connector</a></li>
+          <li><a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a></li>
+          <li><a href="real-estate.html">AI workflows for commercial real estate teams</a></li>
+          </ul>
+        </section>
+      <p class="cre-source-link">Continue with the <a href="real-estate.html">commercial real estate AI workflow hub</a>, or read the original version in the <a href="https://www.linkedin.com/pulse/claude-cre-scheduled-tasks-jarred-robidoux-7athe/" target="_blank" rel="noopener">altr&#x27;d newsletter on LinkedIn</a>.</p>
     </article></section>
-    <section class="cta-section"><div><h2>Want a recurring CRE workflow built around your market?</h2><p>We connect the data, package the routine, and make the result useful to the people who act on it.</p></div><a class="button primary" href="start-a-conversation.html">Book a call</a></section>
+    <section class="cta-section"><div><h2>Want a recurring CRE workflow built around your market?</h2><p>We connect the data, write the routine with your team, and make the result useful to the person who acts on it.</p></div><a class="button primary" href="start-a-conversation.html">Book a call</a></section>
   </main>
-  <footer class="footer"><div class="footer-inner"><a class="footer-brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span><span>AI services for teams who want to do real work</span></a><nav class="footer-links" aria-label="Footer links"><a href="index.html#who-we-serve">Services</a><a href="case-studies.html">Work</a><a href="tutorials.html">Blog</a><a href="about.html">About</a><a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a><a href="ai-consulting-tampa.html">Tampa, FL</a><a href="tel:+14846315985">(484) 631-5985</a><a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav></div></footer>
+  <footer class="footer"><div class="footer-inner"><a class="footer-brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span><span>AI services for teams who want to do real work</span></a><nav class="footer-links" aria-label="Footer links"><a href="index.html#who-we-serve">Services</a><a href="case-studies.html">Work</a>
+        <a href="learn.html">Learn</a><a href="about.html">About</a><a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a><a href="ai-consulting-tampa.html">Tampa, FL</a><a href="tel:+14846315985">(484) 631-5985</a><a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav></div></footer>
 </div><script src="nav.js"></script><script src="intake-modal.js"></script></body>
 </html>

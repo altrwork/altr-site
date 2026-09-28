@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>Context Engineering for Large Codebases | altr</title>
+<title>Context engineering for large codebases: CLAUDE.md and AGENTS.md | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria." />
+<meta name="description" content="How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done." />
 <link rel="canonical" href="https://altrwork.com/context-engineering-large-codebases.html" />
-<meta property="og:title" content="Context Engineering for Large Codebases | altr" />
-<meta property="og:description" content="A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria." />
+<meta property="og:title" content="Context engineering for large codebases: CLAUDE.md and AGENTS.md | altr" />
+<meta property="og:description" content="How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done." />
 <meta property="og:url" content="https://altrwork.com/context-engineering-large-codebases.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,32 +26,124 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Context Engineering for Large Codebases | altr" />
-<meta name="twitter:description" content="A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria." />
+<meta name="twitter:title" content="Context engineering for large codebases: CLAUDE.md and AGENTS.md | altr" />
+<meta name="twitter:description" content="How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Context Engineering for Large Codebases",
-  "description": "A practical guide to context engineering for AI coding agents in large codebases, including repo instructions, retrieval, maps, stale docs, and done criteria.",
-  "image": "https://altrwork.com/assets/altr_social_preview.png",
-  "author": {
-    "@type": "Organization",
-    "name": "altr"
-  },
-  "publisher": {
-    "@id": "https://altrwork.com/#business"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://altrwork.com/context-engineering-large-codebases.html"
-  },
-  "datePublished": "2026-06-16",
-  "dateModified": "2026-08-20",
-  "isPartOf": {
-    "@id": "https://altrwork.com/#website"
-  }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Context engineering for large codebases: CLAUDE.md and AGENTS.md",
+      "description": "How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/context-engineering-large-codebases.html"
+      },
+      "datePublished": "2026-06-16",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Context engineering"
+        },
+        {
+          "@type": "Thing",
+          "name": "CLAUDE.md"
+        },
+        {
+          "@type": "Thing",
+          "name": "AGENTS.md"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI coding agents"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between CLAUDE.md and AGENTS.md?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are Markdown files of project instructions for AI coding agents. CLAUDE.md is Claude Code's own file. AGENTS.md is a cross-tool convention read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. Claude Code reads AGENTS.md when there is no CLAUDE.md, and a CLAUDE.md can import AGENTS.md so every tool shares one set of instructions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should a CLAUDE.md file be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anthropic's Claude Code documentation targets under 200 lines per file. Longer files use more of the context window and are followed less consistently. Move rules that apply to one part of the codebase into nested files or path-scoped rules so they load only when relevant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will an AI coding agent always follow the instructions file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The file is context the model reads, not a setting it must obey, and conflicting or vague rules are followed inconsistently. For anything that must never happen, such as running a production migration, enforce it with a hook, permissions or CI rather than a sentence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I let the AI write the instructions file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a reasonable first draft. Claude Code's init command reads the repository and proposes a CLAUDE.md. Then cut it hard: remove anything a linter enforces, anything obvious from the code, and anything you cannot check, and add the rules only your team knows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a definition of done for an AI coding task?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A short list the agent can check before it hands over: which tests must pass, which checks must be clean, what must be added, such as an integration test for a new endpoint, and what the pull request must say, including what was not tested. It turns a vague finish into a verifiable one."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Context engineering for large codebases: CLAUDE.md and AGENTS.md",
+          "item": "https://altrwork.com/context-engineering-large-codebases.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -60,8 +152,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260913a" />
-<link rel="stylesheet" href="redesign.css?v=20260913a" />
+<link rel="stylesheet" href="styles.css?v=20260928a" />
+<link rel="stylesheet" href="redesign.css?v=20260928a" />
 </head>
 <body>
 <div class="site-shell">
@@ -101,7 +193,7 @@
         <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu" aria-current="page"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
         <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
         <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
-        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        <a class="nav-dropdown-item" href="learn.html">Learning center</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -112,50 +204,112 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-basilica">
-      <h1>Context engineering for large codebases.</h1>
-      <p class="page-lede">AI coding agents work better when the repository gives them current instructions, relevant files, dependency context, and a clear definition of done before they start changing code.</p>
+      <h1>Context engineering for large codebases: make the right context easier to find than the wrong one.</h1>
+      <p class="page-lede">A coding agent in a large repository fails the way a new hire does. It edits the file in front of it, misses the caller three packages away, and follows a setup doc that stopped being true last spring. Context engineering is fixing what it reads first.</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
-          <p>We treat context engineering as part of engineering operations. The goal is to help AI coding agents find the right codebase context retrieval path, spend context budget on useful evidence, and hand off changes in a form humans can review.</p>
+          <span>Short answer</span>
+          <p>Context engineering for a large codebase means controlling what an AI coding agent reads. Keep one short instruction file, CLAUDE.md or AGENTS.md, with the commands, boundaries and rules it cannot guess. Load narrower rules only for the paths they cover. Let the agent search instead of preloading files. End every task with a checkable definition of done, and delete stale docs.</p>
         </div>
 
         <section class="article-block">
-          <h2>Write repo instructions as working constraints.</h2>
-          <p>Large codebases need a short source of truth for agent behavior. It should name the test commands, package managers, architecture boundaries, generated files, migration rules, review expectations, and files the agent should avoid changing.</p>
-          <p>The owner is usually the engineering team that owns the repository. The output is a maintained instruction file that answers the first questions an engineer would ask before making a change.</p>
+          <h2>What is context engineering?</h2>
+          <p>It is deciding what goes into the model's context window, and what stays out, for the whole run and not just the first prompt. Anthropic frames it as finding the smallest set of high-signal tokens that gets the outcome you want. In a large repository, the risk is rarely too little information. It is the wrong information, loaded first and followed confidently.</p>
+          <p>Three layers to manage:</p>
+          <ul>
+            <li><strong>Standing instructions</strong> that load every session.</li>
+            <li><strong>Scoped rules</strong> that load only when the agent touches certain paths.</li>
+            <li><strong>Evidence</strong> the agent finds for itself during the task: the file, its callers, its tests, the logs.</li>
+          </ul>
         </section>
 
         <section class="article-block">
-          <h2>Spend context budget on evidence.</h2>
-          <p>Context engineering starts with choosing what the agent reads. Useful inputs include the target file, nearby tests, shared interfaces, call sites, error logs, product requirements, and recent commits that explain current behavior.</p>
-          <p>The failure mode is easy to spot. The agent edits from a narrow view, misses a caller, and breaks behavior outside the file it touched. Good code retrieval makes hidden dependencies visible before implementation.</p>
+          <h2>CLAUDE.md and AGENTS.md best practices: what belongs in the file?</h2>
+          <p>What an experienced engineer would tell a new colleague before their first change, and nothing a linter already enforces. Claude Code reads <code>CLAUDE.md</code>. <code>AGENTS.md</code> is the cross-tool convention started by OpenAI, now stewarded by the Agentic AI Foundation, and read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. As of September 2026, Claude Code also reads <code>AGENTS.md</code> when a repository has no <code>CLAUDE.md</code>, and a <code>CLAUDE.md</code> can import it with <code>@AGENTS.md</code> so there is one source for every tool.</p>
+          <pre><code># Payments service
+
+## Commands
+- Test one package: pnpm test --filter @acme/ledger
+- Typecheck before any commit: pnpm typecheck
+- Never run migrate:prod. Migrations go through the release job.
+
+## Boundaries
+- packages/ledger is the only code that writes to the ledger tables.
+- src/gen/ is generated from openapi.yaml. Edit the spec, then run pnpm gen.
+- Changes under infra/ need a platform reviewer. Say so in the PR.
+
+## Done means
+- Tests for the changed package pass and typecheck is clean.
+- New endpoints have an integration test.
+- The PR description lists what you did not test.</code></pre>
+          <ul>
+            <li><strong>Keep it short.</strong> Anthropic's Claude Code docs target under 200 lines per <code>CLAUDE.md</code>, because longer files use more context and reduce how well the rules are followed.</li>
+            <li><strong>Write rules as rules</strong>, with the exact command, path or name.</li>
+            <li><strong>Remove contradictions.</strong> If two rules disagree, the agent may pick either.</li>
+          </ul>
         </section>
 
         <section class="article-block">
-          <h2>Use maps for dependencies and ownership.</h2>
-          <p>Dependency maps help agents understand where changes travel. They can show package boundaries, API consumers, database tables, job queues, feature flags, and services that share a contract.</p>
-          <p>Ownership maps are just as useful. They tell the agent when a change needs review from platform, data, security, product, or infrastructure. That prevents quiet edits to code with a wider blast radius.</p>
+          <h2>How do you scale instructions across a monorepo?</h2>
+          <ul>
+            <li><strong>Nest instruction files.</strong> A <code>CLAUDE.md</code> or <code>AGENTS.md</code> inside a package applies when the agent works there. Keep the root file for what is true everywhere.</li>
+            <li><strong>Scope rules to paths.</strong> Claude Code's <code>.claude/rules/</code> files can carry a <code>paths</code> field so, for example, database rules load only when the agent opens migration files.</li>
+            <li><strong>Exclude what is not yours.</strong> Claude Code's <code>claudeMdExcludes</code> setting skips other teams' instruction files that are irrelevant to your work.</li>
+            <li><strong>Remember imports are not lazy.</strong> A file pulled in with <code>@path</code> loads at launch like the file that imports it. Use it for organization, not to save context.</li>
+          </ul>
         </section>
 
         <section class="article-block">
-          <h2>Keep stale docs out of the critical path.</h2>
-          <p>Old docs can be worse than missing docs because agents tend to follow them confidently. Teams should label deprecated instructions, remove obsolete setup steps, and connect docs to the tests or systems that prove they still apply.</p>
-          <p>Every agent task should end with a definition of done. That can include passing tests, screenshots, schema checks, lint results, manual verification, migration notes, and a clear PR handoff for the human reviewer.</p>
+          <h2>How should an agent spend its context on a task?</h2>
+          <p>On evidence it finds, not on files you guessed it would need. Preloading a dozen files fills the window with material the agent may not use.</p>
+          <ul>
+            <li><strong>Point, do not paste.</strong> Name the entry file, the failing test or the ticket, and let the agent search for callers and interfaces.</li>
+            <li><strong>Ask for the plan before the edit</strong> on anything that crosses a package boundary, and read it.</li>
+            <li><strong>Send exploration to a sub-agent</strong> where the tool supports it. In Claude Code a sub-agent has its own context window and returns a summary, so a wide search does not crowd the main task.</li>
+            <li><strong>Start fresh between unrelated tasks</strong> instead of carrying one long session across all of them.</li>
+          </ul>
+        </section>
+
+        <section class="article-block">
+          <h2>Why are stale docs worse than missing ones?</h2>
+          <p>An agent follows a wrong instruction with the same confidence as a right one. A missing doc makes it search. An outdated doc sends it the wrong way.</p>
+          <ul>
+            <li>Delete obsolete setup steps rather than marking them old.</li>
+            <li>Link each rule to the test, script or config that proves it, so it breaks visibly when it stops being true.</li>
+            <li>Review instruction files when a pull request changes what they describe. Claude's Code Review flags code changes that make a <code>CLAUDE.md</code> statement outdated.</li>
+            <li>Remember instructions are context, not enforcement. Anthropic's docs say to use a hook when an action must be blocked whatever the model decides.</li>
+          </ul>
         </section>
 
         <div class="article-callout">
           <span>Working rule</span>
-          <p>Make the right context easier to find than the wrong context.</p>
+          <p>Every line in a standing instruction file is read on every task. Keep only the lines that would change what the agent does, and make each one checkable.</p>
         </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>What is the difference between CLAUDE.md and AGENTS.md?</h3>
+          <p>Both are Markdown files of project instructions for AI coding agents. CLAUDE.md is Claude Code's own file. AGENTS.md is a cross-tool convention read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. Claude Code reads AGENTS.md when there is no CLAUDE.md, and a CLAUDE.md can import AGENTS.md so every tool shares one set of instructions.</p>
+          <h3>How long should a CLAUDE.md file be?</h3>
+          <p>Anthropic's Claude Code documentation targets under 200 lines per file. Longer files use more of the context window and are followed less consistently. Move rules that apply to one part of the codebase into nested files or path-scoped rules so they load only when relevant.</p>
+          <h3>Will an AI coding agent always follow the instructions file?</h3>
+          <p>No. The file is context the model reads, not a setting it must obey, and conflicting or vague rules are followed inconsistently. For anything that must never happen, such as running a production migration, enforce it with a hook, permissions or CI rather than a sentence.</p>
+          <h3>Should I let the AI write the instructions file?</h3>
+          <p>It is a reasonable first draft. Claude Code's init command reads the repository and proposes a CLAUDE.md. Then cut it hard: remove anything a linter enforces, anything obvious from the code, and anything you cannot check, and add the rules only your team knows.</p>
+          <h3>What is a definition of done for an AI coding task?</h3>
+          <p>A short list the agent can check before it hands over: which tests must pass, which checks must be clean, what must be added, such as an integration test for a new endpoint, and what the pull request must say, including what was not tested. It turns a vague finish into a verifiable one.</p>
+        </section>
+
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
           <li><a href="ai-code-review-judge-agents.html">AI code review with judge agents</a></li>
           <li><a href="writing-a-skill-md.html">How to write a SKILL.md that gets used</a></li>
+          <li><a href="llm-retrieval-grounded-answers.html">How RAG works: retrieval and grounded answers</a></li>
+          <li><a href="claude-skills-vs-mcp.html">Claude Skills vs MCP: when to use each</a></li>
           </ul>
         </section>
 
@@ -164,8 +318,8 @@
 
     <section class="cta-section">
       <div>
-        <h2>Want AI coding agents to work inside your repo?</h2>
-        <p>Bring the codebase, review rules, and recurring engineering tasks that need a clearer context path.</p>
+        <h2>Want AI coding agents to work well inside your repository?</h2>
+        <p>Bring the codebase and the tasks you want to hand off. We will help you set up the instructions, rules and checks that keep the agent on the right path.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>
@@ -180,7 +334,7 @@
       <nav class="footer-links" aria-label="Footer links">
         <a href="index.html#who-we-serve">Services</a>
         <a href="case-studies.html">Work</a>
-        <a href="tutorials.html">Blog</a>
+        <a href="learn.html">Learn</a>
         <a href="about.html">About</a>
 
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>

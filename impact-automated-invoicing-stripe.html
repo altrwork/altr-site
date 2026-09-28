@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>How We Use Stripe to Close Out Sales Faster | altr</title>
+<title>Automating Stripe Invoices: One Sentence to a Draft | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="The slowest part of a small consulting business is not the work, it is everything after it. Here is how one sentence turned our invoicing into a thirty second job." />
+<meta name="description" content="How a two-person consultancy drafts Stripe invoices from one sentence: client record, terms and line item filled in automatically, and a person clicks send." />
 <link rel="canonical" href="https://altrwork.com/impact-automated-invoicing-stripe.html" />
-<meta property="og:title" content="How We Use Stripe to Close Out Sales Faster | altr" />
-<meta property="og:description" content="The slowest part of a small consulting business is not the work, it is everything after it. Here is how one sentence turned our invoicing into a thirty second job." />
+<meta property="og:title" content="Automating Stripe Invoices: One Sentence to a Draft | altr" />
+<meta property="og:description" content="How a two-person consultancy drafts Stripe invoices from one sentence: client record, terms and line item filled in automatically, and a person clicks send." />
 <meta property="og:url" content="https://altrwork.com/impact-automated-invoicing-stripe.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,8 +26,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Stripe" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How We Use Stripe to Close Out Sales Faster | altr" />
-<meta name="twitter:description" content="The slowest part of a small consulting business is not the work, it is everything after it. Here is how one sentence turned our invoicing into a thirty second job." />
+<meta name="twitter:title" content="Automating Stripe Invoices: One Sentence to a Draft | altr" />
+<meta name="twitter:description" content="How a two-person consultancy drafts Stripe invoices from one sentence: client record, terms and line item filled in automatically, and a person clicks send." />
 <meta name="twitter:image" content="https://altrwork.com/assets/share/automated-invoicing-stripe.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -35,8 +35,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260913a" />
-<link rel="stylesheet" href="redesign.css?v=20260913a" />
+<link rel="stylesheet" href="styles.css?v=20260928a" />
+<link rel="stylesheet" href="redesign.css?v=20260928a" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,7 +44,7 @@
     {
       "@type": "Article",
       "headline": "How we use Stripe to close out a sale faster.",
-      "description": "The slowest part of a small consulting business is not the work, it is everything after it. Here is how one sentence turned our invoicing into a thirty second job.",
+      "description": "How a two-person consultancy drafts Stripe invoices from one sentence: client record, terms and line item filled in automatically, and a person clicks send.",
       "image": "https://altrwork.com/assets/share/automated-invoicing-stripe.png",
       "author": {
         "@type": "Organization",
@@ -55,7 +55,7 @@
         "@id": "https://altrwork.com/#business"
       },
       "datePublished": "2026-09-04",
-      "dateModified": "2026-09-04",
+      "dateModified": "2026-09-28",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://altrwork.com/impact-automated-invoicing-stripe.html"
@@ -129,7 +129,7 @@
         <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
         <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
         <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
-        <a class="nav-dropdown-item" href="tutorials.html">Blog</a>
+        <a class="nav-dropdown-item" href="learn.html">Learning center</a>
         </div>
       </div>
       <a href="about.html">About</a>
@@ -155,16 +155,17 @@
           <img class="impact-study-image" src="assets/case-stripe-invoicing.webp" width="1200" height="675" loading="lazy" alt="Stripe" />
         </picture>
           <p>The slowest part of a small consulting business is not the work. It is everything after the work. The session ends, the invoice does not get written until Friday, the client pays a couple of weeks after that, and a job you finished on the 3rd turns into money on the 25th.</p>
-          <p>So we made the invoice part instant. A session ends and we just say it: invoice them a thousand dollars for the enablement session. One sentence, typed or spoken. The invoice exists a second later in Stripe, drafted and priced, with a link to read it.</p>
+          <p>So we made the invoice part instant. A session ends and we just say it: invoice them for today’s enablement session. One sentence, typed or spoken. A second later the invoice exists in Stripe as a draft, priced and addressed, with a link to review it.</p>
           <p>There are two of us and no back office, so the old routine was never hard, just fiddly enough to put off. Find the client, start an invoice, type the amount, pick the terms, check every field, wonder whether this firm is already in there from last quarter. All of that now happens underneath the sentence. It finds the client by email and reuses the record, so a firm we bill monthly keeps one history instead of twelve near duplicates. It sets the terms, writes the line item and picks the payment options, the same way every time, without anyone having to remember any of it.</p>
-          <p>It stops at a draft on purpose. The script cannot finalise an invoice and cannot email one. Drafting is the tedious part and should be instant, but sending is where a wrong number reaches a client, so the last click stays ours. There is also a job that runs overnight and checks our records against Stripe in case a payment notification went missing and somebody is sitting in the wrong state. It is boring and it earns its keep about twice a year.</p>
+          <p>It stops at a draft on purpose. The script cannot finalize an invoice and cannot email one. Drafting is the tedious part and should be instant, but sending is where a wrong number reaches a client, so the last click stays ours. There is also a job that runs overnight and checks our records against Stripe in case a payment notification went missing and somebody is sitting in the wrong state. It is boring and it earns its keep about twice a year.</p>
           <p>A side effect we did not plan for is that neither of us has ever felt pressure to go and hire someone to run the books. Every invoice sits on one client record, every payment lands in the same place, and the overnight check means the picture is right when we look at it in the morning rather than after somebody reconciles it by hand. Plenty of firms our size take on a fractional CFO or a bookkeeper just to keep that straight. We have not needed to, and that is a whole role two people have not had to pay for.</p>
-          <p>The point of all of it is timing. Billing now happens in the thirty seconds after the work finishes rather than on Friday, so the client gets the invoice while the session is still fresh in their head, which is exactly when they are most ready to pay it. For a two person company that is the difference between a sale that closes and one that drags into next month.</p>
+          <p>The point of all of it is timing. Billing now happens in the thirty seconds after the work finishes rather than on Friday, so the client gets the invoice while the session is still fresh in their head, which is exactly when they are most ready to pay it. For a two-person company that is the difference between a sale that closes and one that drags into next month.</p>
           <p class="built-on-line">
             <span>Built on</span>
             <a href="https://stripe.com" rel="noopener nofollow" target="_blank"><img class="built-on-art built-on-art-stripe" src="assets/brand/stripe-wordmark.svg" alt="Stripe" /></a>
           </p>
         </div>
+        <p class="impact-related">Related: <a href="zapier-vs-ai-agents.html">when a plain automation is enough and when you need an agent</a> and <a href="ai-workflow-audit-small-business.html">how to audit a workflow before automating it</a>.</p>
       </article>
     </section>
 
@@ -187,7 +188,7 @@
       <nav class="footer-links" aria-label="Footer links">
         <a href="index.html#who-we-serve">Services</a>
         <a href="case-studies.html">Work</a>
-        <a href="tutorials.html">Blog</a>
+        <a href="learn.html">Learn</a>
         <a href="about.html">About</a>
 
         <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>

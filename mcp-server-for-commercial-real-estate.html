@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-RHG020FK51');
+</script>
+<meta charset="utf-8" />
+<title>MCP Server for Commercial Real Estate: What It Does and How to Build One | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one." />
+<link rel="canonical" href="https://altrwork.com/mcp-server-for-commercial-real-estate.html" />
+<meta property="og:title" content="MCP Server for Commercial Real Estate: What It Does and How to Build One | altr" />
+<meta property="og:description" content="An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one." />
+<meta property="og:url" content="https://altrwork.com/mcp-server-for-commercial-real-estate.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="altr - AI strategy and consulting, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MCP Server for Commercial Real Estate: What It Does and How to Build One | altr" />
+<meta name="twitter:description" content="An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "MCP server for commercial real estate: what it does and how to build one",
+      "description": "An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/mcp-server-for-commercial-real-estate.html"
+      },
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Model Context Protocol"
+        },
+        {
+          "@type": "Thing",
+          "name": "Commercial real estate data"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://altrwork.com/mcp-server-for-commercial-real-estate.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an MCP server for commercial real estate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a small service that exposes property data and your firm's own records to an AI assistant as named tools, such as finding a parcel by address, listing an owner's other buildings, or pulling comparable sales. The assistant calls the tool and answers from the result instead of from memory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI assistants can use a CRE MCP server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any client that supports the Model Context Protocol, which includes Claude, ChatGPT, Microsoft Copilot, Gemini and developer tools such as Cursor and VS Code. A remote server with sign-in is added once by an administrator and then used by everyone on the team under their own login."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an MCP server connect to CoStar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not legitimately. CoStar has no official connector and its terms restrict sharing logins with AI agents and exposing licensed data to generative AI. Public record, your CRM and data you license for that use are what belong behind a CRE MCP server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What public data can a CRE MCP server use in Florida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "County property appraiser rolls and sales files, the Florida Department of Revenue assessment files, the Sunbiz corporate registry, clerk recording indexes where the county publishes one, SEC filings for securitized loans, and federal SBA 504 loan data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on how many sources and write actions it needs. A read-only server over one clean source is a small build. Several counties, entity resolution, debt records and write access to a CRM is real software engineering, scoped in writing before it starts."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "MCP server for commercial real estate",
+          "item": "https://altrwork.com/mcp-server-for-commercial-real-estate.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260928a" />
+<link rel="stylesheet" href="redesign.css?v=20260928a" />
+</head>
+<body>
+<div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="services-menu"><span>Services</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+        <span class="nav-dropdown-label">What we do</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html">Strategy</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Enablement</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Engineering</a>
+        <span class="nav-dropdown-label">Who we serve</span>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
+        <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
+        <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        <a class="nav-dropdown-item" href="law-firms.html">Law firms</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu"><span>Work</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case studies</span>
+          <small>Projects we have delivered</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
+          <span>Internal products</span>
+          <small>Tools built in our own studio</small>
+        </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu" aria-current="page"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="learn.html">Learning center</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-contact">Contact us</a>
+      <a href="https://calendly.com/altrwork/30min" class="nav-cta">Book a call</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="page-hero article-hero hero-scene scene-forum">
+      <h1>An MCP server puts property records inside the assistant your brokers already use.</h1>
+      <p class="page-lede">Commercial real estate runs on lookups: who owns this, what did it trade for, what is the debt, what are the comps. An MCP server is how an AI assistant runs those lookups against the record instead of answering from memory.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>Short answer</span>
+          <p>An MCP server for commercial real estate is a small service that lets an AI assistant such as Claude query parcels, owners, sales, recorded debt and your own CRM through named tools, with sign-in and permissions. The assistant answers from the record it just read, so a broker gets the owner, the sale history and the comparables instead of a plausible guess.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>What does an MCP server do for a CRE team?</h2>
+          <p>It turns the lookups a broker or analyst repeats all day into tools the assistant can call. Instead of opening the county appraiser site, searching a parcel, copying figures into a spreadsheet and doing it again for every comparable, the person asks one question and the assistant runs the lookups.</p>
+          <p>A useful CRE server usually exposes a short list of tools:</p>
+          <ul>
+            <li>Find a parcel from an address, and return the owner of record, the use code, the building area and the assessed value.</li>
+            <li>Resolve an LLC owner to the people behind it through the state corporate registry, and list everything else that entity owns.</li>
+            <li>Pull comparable sales with the screens a careful analyst would apply, and say what was excluded and why.</li>
+            <li>Show recorded debt where the county publishes it, and say plainly where it does not.</li>
+            <li>Read and write the firm's own contacts, deals and documents, so research becomes a record rather than a chat transcript.</li>
+          </ul>
+          <p>The Model Context Protocol is the open standard that makes those tools usable from any compatible assistant. Anthropic created it and in December 2025 donated it to the Agentic AI Foundation, part of the Linux Foundation, so no single vendor controls it. <a href="what-is-an-mcp-server.html">What an MCP server is</a> covers the protocol itself.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>What data can sit behind it?</h2>
+          <p>Three kinds, and the licence decides which. Public record is free to use and is where most of the value for owner research sits. Your own CRM and files are yours. Licensed data belongs behind the server only when the licence allows AI access.</p>
+          <div class="article-table-wrap">
+          <table class="article-table">
+            <thead><tr><th>Source</th><th>What it answers</th><th>What to watch</th></tr></thead>
+            <tbody>
+              <tr><td>County property appraiser roll</td><td>Owner of record, mailing address, use code, building area, assessed and just value</td><td>The roll is dated. Print the file date with every answer.</td></tr>
+              <tr><td>County sales file</td><td>Sale price, date, instrument, qualification code</td><td>Nominal $100 deeds and multi-parcel portfolio sales are not comparables.</td></tr>
+              <tr><td>State corporate registry (Sunbiz in Florida)</td><td>Officers and registered agent behind an LLC</td><td>Some entities need not register. An unmatched name is not a finding.</td></tr>
+              <tr><td>Clerk recording index</td><td>Mortgages, satisfactions, lenders, maturities</td><td>Access differs county by county. An empty result can mean no index, not no debt.</td></tr>
+              <tr><td>SEC filings for securitized loans, SBA 504 data</td><td>Loan balances, maturities, federally guaranteed lending</td><td>Partial by construction. A 504 loan is usually a second behind a bank first.</td></tr>
+              <tr><td>Your CRM and documents</td><td>Relationships, deal stage, what was sent and when</td><td>Scope permissions per person, and log every write.</td></tr>
+              <tr><td>Licensed platforms</td><td>Whatever the licence permits</td><td>Many forbid AI access. <a href="can-claude-connect-to-costar.html">CoStar is the common example</a>.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <section class="article-block">
+          <h2>What goes wrong when one is built carelessly?</h2>
+          <p>The failures are quiet. The assistant still answers, fluently, and the answer is wrong. These are the ones we have seen in our own build and designed against:</p>
+          <ul>
+            <li>Matching a house number as a substring, so a search for 715 returns 1715 on the same street.</li>
+            <li>Treating a nominal $100 deed as a sale, or dividing a portfolio price across one building's square feet.</li>
+            <li>Reading the last few weeks of sales as a market slowdown, when it is the lag between a closing and its recording.</li>
+            <li>Returning an empty debt list for a county that publishes no mortgage index, which reads as a building with no debt.</li>
+            <li>Letting a layer that is down fail the whole request instead of falling back to the stored record and saying so.</li>
+          </ul>
+          <p>Each of these is a design rule, not a model problem. The server has to say what it does not know, date what it does, and refuse inputs that would fabricate a result.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Should you build one or use a vendor's?</h2>
+          <p>Use a vendor's server for data you already license from that vendor, if they publish one. Build one for public record in your own market and for your own CRM, because nobody else will model your counties or your pipeline the way you work them.</p>
+          <p>The build is ordinary software engineering: a hosted service, sign-in so the server knows who is asking, read tools separated from write tools, rate limits, and tests that pin the cases that went wrong once. We build ours on Cloudflare Workers; <a href="impact-cloudflare-workers-architecture.html">the architecture is written up here</a>.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>How does a team add one to Claude or ChatGPT?</h2>
+          <p>As a remote connector, once, by an administrator. As of September 2026:</p>
+          <ul>
+            <li><strong>Claude.</strong> On Team and Enterprise plans, an owner adds the server's URL under Organization settings, Connectors. Each person then connects and signs in with their own account. On Pro and Max plans, individuals add it themselves under Connectors.</li>
+            <li><strong>ChatGPT.</strong> Custom MCP servers are added as apps through developer mode, which a Business or Enterprise admin may have to turn on for the workspace first.</li>
+          </ul>
+          <p>Before it goes to the whole team, give it to one broker for a week and read what it returned. Check three things: that each answer names its source and file date, that an address with a unit number returns the right parcel, and that a county with no mortgage index says so instead of reporting no debt.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>What does one look like in practice?</h2>
+          <p>Our own is the <a href="impact-cre-county-records-connector.html">Tampa property records connector</a>: Hillsborough, Pinellas, Pasco and Polk county records inside the chat window, with ownership resolved to people, recorded debt where it exists, screened comparables, and a branded valuation summary at the end. The same records power <a href="mortr.html">mortr</a>, our CRM for commercial real estate teams, so the chat and the CRM read and write one store.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>If a broker on your team is copying an answer out of a public system by hand, that lookup is a tool waiting to be written. Start with the one they repeat most, and make it say what it could not find.</p>
+        </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>What is an MCP server for commercial real estate?</h3>
+          <p>It is a small service that exposes property data and your firm's own records to an AI assistant as named tools, such as finding a parcel by address, listing an owner's other buildings, or pulling comparable sales. The assistant calls the tool and answers from the result instead of from memory.</p>
+          <h3>Which AI assistants can use a CRE MCP server?</h3>
+          <p>Any client that supports the Model Context Protocol, which includes Claude, ChatGPT, Microsoft Copilot, Gemini and developer tools such as Cursor and VS Code. A remote server with sign-in is added once by an administrator and then used by everyone on the team under their own login.</p>
+          <h3>Can an MCP server connect to CoStar?</h3>
+          <p>Not legitimately. CoStar has no official connector and its terms restrict sharing logins with AI agents and exposing licensed data to generative AI. Public record, your CRM and data you license for that use are what belong behind a CRE MCP server.</p>
+          <h3>What public data can a CRE MCP server use in Florida?</h3>
+          <p>County property appraiser rolls and sales files, the Florida Department of Revenue assessment files, the Sunbiz corporate registry, clerk recording indexes where the county publishes one, SEC filings for securitized loans, and federal SBA 504 loan data.</p>
+          <h3>How long does it take to build one?</h3>
+          <p>It depends on how many sources and write actions it needs. A read-only server over one clean source is a small build. Several counties, entity resolution, debt records and write access to a CRM is real software engineering, scoped in writing before it starts.</p>
+        </section>
+
+        <section class="article-block article-related">
+          <h2>Related reading</h2>
+          <ul>
+          <li><a href="what-is-an-mcp-server.html">What is an MCP server?</a></li>
+          <li><a href="claude-cre-connectors.html">Claude in CRE: Connectors</a></li>
+          <li><a href="florida-property-appraiser-data.html">What Florida property appraiser data tells you</a></li>
+          <li><a href="what-is-a-broker-opinion-of-value.html">What is a broker opinion of value?</a></li>
+          <li><a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a></li>
+          <li><a href="impact-cre-county-records-connector.html">Tampa property records connector</a></li>
+          </ul>
+        </section>
+
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Want the records your team looks up every day inside Claude?</h2>
+        <p>We will map the lookups your brokers repeat and tell you which ones a connector can take over.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Book a call</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI services for teams who want to do real work</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="index.html#who-we-serve">Services</a>
+        <a href="case-studies.html">Work</a>
+        <a href="learn.html">Learn</a>
+        <a href="about.html">About</a>
+
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      <a href="tel:+14846315985">(484) 631-5985</a><a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+    </div>
+  </footer>
+</div>
+<script src="nav.js"></script>
+<script src="intake-modal.js"></script>
+</body>
+</html>
