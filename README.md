@@ -73,6 +73,9 @@ deployment and those scripts should not be served from the site root:
 - `tools/social-preview.py` - regenerates `assets/altr_social_preview.png`.
   Re-run it whenever the home page headline changes, or the card goes stale
   against the site.
+- `tools/indexnow.py` - submits the sitemap (or named pages) to IndexNow, which
+  Bing and the other IndexNow engines read. Run it after a batch of new pages.
+  Its key is the 32-hex `.txt` file at the site root, which must stay deployed.
 
 ## This repo is the website and nothing else
 
