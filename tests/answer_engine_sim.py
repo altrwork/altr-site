@@ -140,6 +140,13 @@ def score(pages, query):
     # the engine retrieves by relevance, then judges what it retrieved
     best.sort(key=lambda r: (-r[0], -r[1]))
     top = best[:8]
+    # engines index titles too: a page whose title and H1 carry nearly all of
+    # the query is a candidate even when its body passages rank lower
+    seen = {r[2] for r in top}
+    for r in best:
+        if r[2] not in seen and sum(t in pages[r[2]]["heads_title"] for t in q) >= 0.8 * len(q):
+            top.append(r)
+            seen.add(r[2])
     top.sort(key=lambda r: -r[1])
     winner = top[0]
     rivals = sorted({r[2] for r in top if r[2] != winner[2] and r[1] >= winner[1] - 0.05})
@@ -159,7 +166,16 @@ def score(pages, query):
 def run():
     pages = load_site()
     queries = json.loads((ROOT / "tests" / "answer_engine_queries.json").read_text())
-    return [dict(score(pages, item["q"]), group=item["group"]) for item in queries]
+    out = []
+    for item in queries:
+        r = dict(score(pages, item["q"]), group=item["group"])
+        # a query may name the page that should own it; landing anywhere else
+        # is a miss however well the other page scores
+        if item.get("expect") and r["page"] != item["expect"]:
+            r["verdict"] = "wrong-page"
+            r["expected"] = item["expect"]
+        out.append(r)
+    return out
 
 
 def main():
@@ -172,7 +188,7 @@ def main():
         rivals = f"  (close: {', '.join(r['rivals'])})" if r["rivals"] else ""
         print(f"{r['verdict']:<8} {r['score']:.2f}  {r['query']:<{width}}  -> {r['page']} [{r['passage']}]{rivals}")
     counts = Counter(r["verdict"] for r in results)
-    print(f"\n{counts['strong']} strong, {counts['weak']} weak, {counts['missing']} missing of {len(results)} queries")
+    print(f"\n{counts['strong']} strong, {counts['weak']} weak, {counts['missing']} missing, {counts['wrong-page']} wrong page, of {len(results)} queries")
 
 
 if __name__ == "__main__":

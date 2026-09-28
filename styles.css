@@ -1018,6 +1018,48 @@ to {
   color: var(--bone-dim);
 }
 
+/* the monthly news series: one quiet row of links, and a catalog that
+   reads as a list of months rather than another grid of cards */
+.news-pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: clamp(38px, 6vw, 58px);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.news-pager a,
+.news-past a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-decoration-color: var(--line-control);
+  text-underline-offset: 3px;
+}
+
+.news-pager a:hover,
+.news-past a:hover {
+  color: var(--copper);
+  text-decoration-color: var(--copper);
+}
+
+.news-past {
+  margin: 14px 0 0;
+  font-size: 15px;
+  color: var(--bone-dim);
+}
+
+.news-archive li p {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: var(--bone-soft);
+}
+
+.news-archive li + li {
+  margin-top: 18px;
+}
+
 .article-faq h3 {
   margin: 28px 0 10px;
   font-size: clamp(19px, 1.8vw, 23px);

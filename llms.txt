@@ -78,7 +78,7 @@ Contact: inquiries@altrwork.com
 
 ### What changed this month
 
-- [AI news for business owners: September 2026](https://altrwork.com/ai-news-for-business-september-2026.html): Meta Muse, Instinct, custom GPTs retiring, Cowork merging into Claude, the new MCP spec, and what each means for a small team.
+- [AI news for business owners: September 2026](https://altrwork.com/ai-news-for-business-september-2026.html): Meta Muse, Instinct, custom GPTs retiring, Cowork merging into Claude, GPT-6 and Opus 5.5, and what each means for a small team.
 
 ### Commercial real estate
 
@@ -125,6 +125,16 @@ Contact: inquiries@altrwork.com
 - [How to choose an AI consultant](https://altrwork.com/how-to-choose-an-ai-consultant.html): Questions to ask, what good deliverables look like, and the red flags.
 - [Claude vs ChatGPT for business teams](https://altrwork.com/claude-vs-chatgpt-for-business.html): A dated comparison of the things a team actually decides on.
 - [Zapier vs AI agents](https://altrwork.com/zapier-vs-ai-agents.html): Deterministic automation vs judgment steps, and when to combine them.
+
+## AI news archive
+
+- [AI news for business owners: every month](https://altrwork.com/ai-news-archive.html): the monthly digest, newest first
+- [September 2026](https://altrwork.com/ai-news-for-business-september-2026.html): Meta Muse brought personal agents to everyone, custom GPTs began retiring, Cowork began merging into Claude, and Claude Opus 5.5 and GPT-6 shipped.
+- [August 2026](https://altrwork.com/ai-news-for-business-august-2026.html): EU AI Act transparency rules took effect, Claude gained memory and a browser, Salesforce and Anthropic announced Claudeforce, and ChatGPT added Premium seats.
+- [July 2026](https://altrwork.com/ai-news-for-business-july-2026.html): Agents moved into everyday tools: ChatGPT Work, Claude Opus 5, Cowork on web, Zapier Agents inside Zaps, stateless MCP, and CoStar barred AI logins.
+- [June 2026](https://altrwork.com/ai-news-for-business-june-2026.html): Claude Fable 5 launched, paused and returned, Sonnet 5 became the default, Copilot Cowork went GA, Zapier repriced AI steps, and the EU delayed high-risk rules.
+- [May 2026](https://altrwork.com/ai-news-for-business-may-2026.html): Agents got admin controls, Anthropic packaged Claude for small business and finance, Google unveiled Gemini Spark, and the EU and Colorado reworked AI rules.
+- [April 2026](https://altrwork.com/ai-news-for-business-april-2026.html): Claude Cowork went GA, ChatGPT launched workspace agents, Google rebuilt Vertex AI for agents, and GPT-5.5 and Opus 4.7 shipped.
 
 ## Optional
 

@@ -55,6 +55,13 @@ is 404'd there so it is not served.
   learning page goes in four places in the same commit: `learn.html`,
   `sitemap.xml`, `llms.txt` and an extensionless rule in `_redirects`.
   `tests/seo_integrity_test.py` checks all four.
+- `ai-news-for-business-<month>-2026.html` and `ai-news-archive.html` - the
+  monthly digest. Only the newest month sits on `learn.html`; the rest live in
+  the archive. A new month means: the page, a row at the top of the archive,
+  moving the learn.html card to it and updating the "Past months" line, the
+  Previous/All/Next pager on it and on the month before, and the sitemap,
+  llms.txt and `_redirects` entries. `test_news_months_are_catalogued_and_chained`
+  checks all of it.
 - `tests/answer_engine_sim.py` - an offline proxy for how an AI answer engine
   picks a passage to cite, scored against `tests/answer_engine_queries.json`.
   Run it after any content change; it cannot measure domain trust, which is
