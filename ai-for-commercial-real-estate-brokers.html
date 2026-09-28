@@ -105,6 +105,14 @@
         },
         {
           "@type": "Question",
+          "name": "Should a broker use a personal AI agent like Meta Muse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For personal marketing, it is worth testing: turning a checked market summary into social posts for accounts and groups the broker already runs. Keep client files, owner lists and licensed data out of it unless the firm has approved it, and read every post before it is published."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "How long should an AI pilot at a brokerage run?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -217,7 +225,7 @@
               <tr><th>Use case</th><th>Input</th><th>What AI does</th><th>What the broker checks</th></tr>
             </thead>
             <tbody>
-              <tr><td>Owner prospecting</td><td>County roll, Sunbiz</td><td>Finds owners by type, size, hold period; resolves LLCs to people</td><td>Who to call and what to say</td></tr>
+              <tr><td>Owner prospecting</td><td>County assessor roll, state corporate registry</td><td>Finds owners by type, size, hold period; resolves LLCs to people</td><td>Who to call and what to say</td></tr>
               <tr><td>BOV assembly</td><td>Parcel, sales history, firm branding</td><td>Pulls and screens comps, drafts the property section, formats the document</td><td>The value conclusion</td></tr>
               <tr><td>OM drafting</td><td>Rent roll, photos, broker notes</td><td>First draft of property, location and tenant sections</td><td>Every figure and every claim</td></tr>
               <tr><td>Comps</td><td>Sales file, use codes</td><td>Screens out nominal and portfolio deeds, groups by submarket</td><td>Whether each comp is really comparable</td></tr>
@@ -230,8 +238,8 @@
 
         <section class="article-block">
           <h2>How do brokers use AI to prospect owners?</h2>
-          <p>By asking questions of the county roll that the county website cannot answer. Florida property appraisers publish owner of record, mailing address, use code, size, just value and sale history for every parcel. Connected to an AI assistant, that becomes a query: industrial buildings between 20,000 and 60,000 square feet in one county, held more than ten years, owned by an LLC with an out-of-state mailing address.</p>
-          <p>The second step is the person behind the entity. The Florida Division of Corporations lists officers and registered agents, so the model can go from an LLC on the deed to the names on its filing, and from there to everything else those names own. This is the work our <a href="impact-cre-county-records-connector.html">county records connector</a> does inside Claude across Hillsborough, Pinellas, Pasco and Polk.</p>
+          <p>By asking questions of the county roll that the county website cannot answer. Most county assessors publish the owner of record, the tax-bill mailing address, a use classification, building size, an assessed or market value and at least the last sale for every parcel; what else they publish, and in what format, varies by county and state. Loaded into a database an AI assistant can query, that becomes one question: industrial buildings between 20,000 and 60,000 square feet in one county, held more than ten years, owned by an LLC with an out-of-state mailing address.</p>
+          <p>The second step is the person behind the entity. Each state's corporate registry lists an LLC's registered agent, and many list its managers or officers too, so the model can go from the name on the deed to the names on the filing, and from there to everything else those names own. Some filings name only a registered agent or a law firm, and an LLC formed in another state may show nothing useful in yours, so treat an unmatched name as unknown rather than as a finding. In Florida the registry is Sunbiz; this is the work our <a href="impact-cre-county-records-connector.html">county records connector</a> does inside Claude across Hillsborough, Pinellas, Pasco and Polk.</p>
           <p>Keep it to sources you are allowed to automate. Licensed platforms usually restrict automated access and AI use in their terms; <a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a> covers why, and what to do instead.</p>
         </section>
 
@@ -249,7 +257,13 @@
             <li><strong>Market updates.</strong> A <a href="claude-cre-scheduled-tasks.html">scheduled task</a> can pull the week's recorded sales in a submarket each Monday and draft a short summary. Read it before it goes anywhere.</li>
             <li><strong>Follow-up.</strong> After a meeting, the model drafts the follow-up email and the CRM note from your notes. It drafts. You send.</li>
           </ul>
-          <p>For file-heavy work such as rent rolls and underwriting models, <a href="claude-cre-cowork.html">Cowork</a> lets Claude work inside an approved folder on your computer instead of bouncing files through a browser.</p>
+          <p>For file-heavy work such as rent rolls and underwriting models, <a href="claude-cre-cowork.html">Cowork</a>, generally available on paid Claude plans for macOS and Windows as of September 2026, lets Claude work inside an approved folder on your computer instead of bouncing files through a browser.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Where do personal AI agents like Meta's Muse fit?</h2>
+          <p>On the broker's own marketing, not on firm data. A personal agent works for one person across that person's accounts. Meta launched Muse in the US on September 8, 2026, with a free tier and paid plans; it runs tasks in a cloud browser you can watch. Instinct, a similar assistant reached by text message, is still invite-only as of September 2026.</p>
+          <p>The useful job is the one a broker already does by hand: turning a weekly submarket summary or a closed-deal announcement, drafted and checked in Claude, into posts for the Facebook and Instagram accounts and neighborhood or business groups the broker already works. Two limits apply. Meta does not document direct posting to Facebook or Instagram as of September 2026, so test what it will do in your own accounts before you rely on it. And a consumer agent is not a place for client files, owner lists or licensed data unless your firm has approved it. Read every post before it goes out, and each group's rules on promotion. <a href="personal-ai-agents-for-business.html">Personal AI agents for business</a> covers the category.</p>
         </section>
 
         <section class="article-block">
@@ -298,6 +312,8 @@ last 24 months, and state the date of the sales file you used.</code></pre>
           <p>Only in accounts with data controls your firm has approved. Use a business or team plan with the retention and training settings you have reviewed, and keep confidential material out of personal consumer accounts.</p>
           <h3>Can AI pull comps from CoStar?</h3>
           <p>Not in a way the terms allow. CoStar's public terms restrict sharing access with AI agents, scraping, and using its data as input to generative AI. Public records such as county sales files are the source a broker can automate.</p>
+          <h3>Should a broker use a personal AI agent like Meta Muse?</h3>
+          <p>For personal marketing, it is worth testing: turning a checked market summary into social posts for accounts and groups the broker already runs. Keep client files, owner lists and licensed data out of it unless the firm has approved it, and read every post before it is published.</p>
           <h3>How long should an AI pilot at a brokerage run?</h3>
           <p>About 30 days is enough for one workflow. Spend the first week mapping the process, the second running it on live properties, the third making it repeatable, and the fourth measuring time and errors against the baseline.</p>
         </section>

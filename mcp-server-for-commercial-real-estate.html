@@ -84,7 +84,7 @@
           "name": "Which AI assistants can use a CRE MCP server?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Any client that supports the Model Context Protocol, which includes Claude and a growing list of other assistants and developer tools. A remote server with sign-in can be added once as a connector and then used by everyone on the team."
+            "text": "Any client that supports the Model Context Protocol, which includes Claude, ChatGPT, Microsoft Copilot, Gemini and developer tools such as Cursor and VS Code. A remote server with sign-in is added once by an administrator and then used by everyone on the team under their own login."
           }
         },
         {
@@ -219,7 +219,7 @@
             <li>Show recorded debt where the county publishes it, and say plainly where it does not.</li>
             <li>Read and write the firm's own contacts, deals and documents, so research becomes a record rather than a chat transcript.</li>
           </ul>
-          <p>The Model Context Protocol is the standard that makes those tools usable from any compatible assistant. <a href="what-is-an-mcp-server.html">What an MCP server is</a> covers the protocol itself.</p>
+          <p>The Model Context Protocol is the open standard that makes those tools usable from any compatible assistant. Anthropic created it and in December 2025 donated it to the Agentic AI Foundation, part of the Linux Foundation, so no single vendor controls it. <a href="what-is-an-mcp-server.html">What an MCP server is</a> covers the protocol itself.</p>
         </section>
 
         <section class="article-block">
@@ -261,6 +261,16 @@
         </section>
 
         <section class="article-block">
+          <h2>How does a team add one to Claude or ChatGPT?</h2>
+          <p>As a remote connector, once, by an administrator. As of September 2026:</p>
+          <ul>
+            <li><strong>Claude.</strong> On Team and Enterprise plans, an owner adds the server's URL under Organization settings, Connectors. Each person then connects and signs in with their own account. On Pro and Max plans, individuals add it themselves under Connectors.</li>
+            <li><strong>ChatGPT.</strong> Custom MCP servers are added as apps through developer mode, which a Business or Enterprise admin may have to turn on for the workspace first.</li>
+          </ul>
+          <p>Before it goes to the whole team, give it to one broker for a week and read what it returned. Check three things: that each answer names its source and file date, that an address with a unit number returns the right parcel, and that a county with no mortgage index says so instead of reporting no debt.</p>
+        </section>
+
+        <section class="article-block">
           <h2>What does one look like in practice?</h2>
           <p>Our own is the <a href="impact-cre-county-records-connector.html">Tampa property records connector</a>: Hillsborough, Pinellas, Pasco and Polk county records inside the chat window, with ownership resolved to people, recorded debt where it exists, screened comparables, and a branded valuation summary at the end. The same records power <a href="mortr.html">mortr</a>, our CRM for commercial real estate teams, so the chat and the CRM read and write one store.</p>
         </section>
@@ -275,7 +285,7 @@
           <h3>What is an MCP server for commercial real estate?</h3>
           <p>It is a small service that exposes property data and your firm's own records to an AI assistant as named tools, such as finding a parcel by address, listing an owner's other buildings, or pulling comparable sales. The assistant calls the tool and answers from the result instead of from memory.</p>
           <h3>Which AI assistants can use a CRE MCP server?</h3>
-          <p>Any client that supports the Model Context Protocol, which includes Claude and a growing list of other assistants and developer tools. A remote server with sign-in can be added once as a connector and then used by everyone on the team.</p>
+          <p>Any client that supports the Model Context Protocol, which includes Claude, ChatGPT, Microsoft Copilot, Gemini and developer tools such as Cursor and VS Code. A remote server with sign-in is added once by an administrator and then used by everyone on the team under their own login.</p>
           <h3>Can an MCP server connect to CoStar?</h3>
           <p>Not legitimately. CoStar has no official connector and its terms restrict sharing logins with AI agents and exposing licensed data to generative AI. Public record, your CRM and data you license for that use are what belong behind a CRE MCP server.</p>
           <h3>What public data can a CRE MCP server use in Florida?</h3>

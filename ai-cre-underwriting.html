@@ -230,6 +230,13 @@
             <li>Annualized figures say which months they were annualized from.</li>
             <li>Rental income on the T-12 is within a stated tolerance of the rent roll's annual rent, and the gap is explained.</li>
           </ul>
+          <p>A starting instruction:</p>
+          <pre><code>Map every line of t12.xlsx to the line items in chart.md, using the rules
+in rules.md. Write the mapped statement to a new tab called Inputs, with a
+source column giving the original line name and month. Do not change any
+existing tab. List every line you reclassified, excluded or were unsure
+about, with its amount and reason. Confirm that mapped revenue, expenses
+and NOI equal the seller's totals, using formulas in the sheet.</code></pre>
         </section>
 
         <section class="article-block">
@@ -272,7 +279,7 @@
         <section class="article-block">
           <h2>Why should Excel stay the system of record?</h2>
           <p>Because the model is what your team, your lenders and your investors already audit. A spreadsheet shows every formula and every input; a chat transcript does not. Use AI to prepare inputs and explain outputs, and let the workbook hold the math.</p>
-          <p><a href="claude-cre-cowork.html">Claude Cowork</a> fits this well: it works on the workbook in an approved folder on your computer, so the file stays in Excel instead of being uploaded, rebuilt in a chat and downloaded again.</p>
+          <p><a href="claude-cre-cowork.html">Claude Cowork</a>, generally available on paid Claude plans for macOS and Windows as of September 2026, fits this well: it works on the workbook in an approved folder on your computer, so the file stays in Excel instead of being uploaded, rebuilt in a chat and downloaded again.</p>
           <div class="article-table-wrap"><table class="article-table">
             <thead>
               <tr><th>Task</th><th>AI's role</th><th>The underwriter's role</th></tr>
@@ -312,7 +319,7 @@
           <ul>
           <li><a href="claude-cre-skills.html">Claude in CRE: Skills</a></li>
           <li><a href="claude-cre-cowork.html">Claude in CRE: Cowork</a></li>
-          <li><a href="ai-rent-roll-and-lease-abstraction.html">AI rent roll and lease abstraction: what works</a></li>
+          <li><a href="ai-rent-roll-and-lease-abstraction.html">AI lease and rent roll abstraction for commercial real estate</a></li>
           <li><a href="what-is-a-broker-opinion-of-value.html">What is a broker opinion of value (BOV)?</a></li>
           <li><a href="ai-for-commercial-real-estate-brokers.html">How commercial real estate brokers use AI</a></li>
           <li><a href="real-estate.html">AI workflows for commercial real estate teams</a></li>
