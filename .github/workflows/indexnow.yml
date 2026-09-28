@@ -1,0 +1,38 @@
+name: IndexNow
+
+# Netlify deploys every push to main. Once it has had time to go live, tell
+# IndexNow which listed pages changed so Bing recrawls them without waiting.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "sitemap.xml"
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Wait for the Netlify deploy
+        run: sleep 120
+
+      - name: Submit changed pages
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          # A manual run, a new branch or a force push has no usable "before".
+          if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            BEFORE=$(git rev-parse HEAD~1)
+          fi
+          python .github/indexnow.py --changed-since "$BEFORE"
