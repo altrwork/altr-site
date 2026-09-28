@@ -36,10 +36,10 @@
   {"q": "AI consulting for nonprofits", "group": "industry"},
   {"q": "AI for law firms", "group": "industry"},
   {"q": "AI for ecommerce operations", "group": "industry"},
-  {"q": "what is Meta Muse", "group": "news"},
-  {"q": "what is Instinct AI", "group": "news"},
+  {"q": "what is Meta Muse", "group": "news", "expect": "personal-ai-agents-for-business.html"},
+  {"q": "what is Instinct AI", "group": "news", "expect": "personal-ai-agents-for-business.html"},
   {"q": "personal AI agent for business", "group": "news"},
-  {"q": "AI news for business owners September 2026", "group": "news"},
+  {"q": "AI news for business owners September 2026", "group": "news", "expect": "ai-news-for-business-september-2026.html"},
   {"q": "AI acceptable use policy small business", "group": "learn"},
   {"q": "AI deployment roadmap", "group": "learn"},
   {"q": "what happened to Claude Cowork", "group": "learn"},
@@ -47,5 +47,11 @@
   {"q": "MCP server design best practices", "group": "learn"},
   {"q": "how does RAG work", "group": "learn"},
   {"q": "CLAUDE.md best practices", "group": "learn"},
-  {"q": "AI consultant for commercial real estate firms", "group": "learn"}
+  {"q": "AI consultant for commercial real estate firms", "group": "learn"},
+  {"q": "AI news for business owners April 2026", "group": "news", "expect": "ai-news-for-business-april-2026.html"},
+  {"q": "AI news for business owners May 2026", "group": "news", "expect": "ai-news-for-business-may-2026.html"},
+  {"q": "AI news for business owners June 2026", "group": "news", "expect": "ai-news-for-business-june-2026.html"},
+  {"q": "AI news for business owners July 2026", "group": "news", "expect": "ai-news-for-business-july-2026.html"},
+  {"q": "AI news for business owners August 2026", "group": "news", "expect": "ai-news-for-business-august-2026.html"},
+  {"q": "AI news archive for business owners", "group": "news", "expect": "ai-news-archive.html"}
 ]

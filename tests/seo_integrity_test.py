@@ -399,5 +399,25 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertEqual([], weak, "queries without a strong answer page")
 
 
+    def test_news_months_are_catalogued_and_chained(self):
+        """Monthly digests live behind one archive page, not in the hub grid.
+        Every month must be in the archive, the sitemap, llms.txt and the
+        redirects, and link back to the archive."""
+        archive = (ROOT / "ai-news-archive.html").read_text(encoding="utf-8")
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
+        redirects = (ROOT / "_redirects").read_text(encoding="utf-8")
+        months = sorted(ROOT.glob("ai-news-for-business-*-2026.html"))
+        self.assertGreaterEqual(len(months), 6)
+        for file in months:
+            name = file.name
+            self.assertIn(f'href="{name}"', archive, f"{name} missing from the archive")
+            self.assertIn(f"https://altrwork.com/{name}", sitemap)
+            self.assertIn(f"https://altrwork.com/{name}", llms)
+            self.assertRegex(redirects, rf"(?m)^/{re.escape(name[:-5])}\s+/{re.escape(name)}\s+301!")
+            self.assertIn('href="ai-news-archive.html"', file.read_text(encoding="utf-8"), name)
+        self.assertIn('href="ai-news-archive.html"', (ROOT / "learn.html").read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()
