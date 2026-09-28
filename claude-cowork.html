@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>Claude Cowork: what it is and how a team uses it | altr</title>
+<title>What is Claude Cowork, and what happened to it? | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Claude Cowork lets Claude work in an approved local folder instead of a chat upload loop. What it is, how a team uses it, and a CRE example." />
+<meta name="description" content="Claude Cowork is Claude doing multi-step work in your files and tools. Anthropic is merging it into chat from Sep 2026. What changes and how teams use it." />
 <link rel="canonical" href="https://altrwork.com/claude-cowork.html" />
-<meta property="og:title" content="Claude Cowork: what it is and how a team uses it | altr" />
-<meta property="og:description" content="Claude Cowork lets Claude work in an approved local folder instead of a chat upload loop. What it is, how a team uses it, and a CRE example." />
+<meta property="og:title" content="What is Claude Cowork, and what happened to it? | altr" />
+<meta property="og:description" content="Claude Cowork is Claude doing multi-step work in your files and tools. Anthropic is merging it into chat from Sep 2026. What changes and how teams use it." />
 <meta property="og:url" content="https://altrwork.com/claude-cowork.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,32 +26,128 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Claude Cowork: what it is and how a team uses it | altr" />
-<meta name="twitter:description" content="Claude Cowork lets Claude work in an approved local folder instead of a chat upload loop." />
+<meta name="twitter:title" content="What is Claude Cowork, and what happened to it? | altr" />
+<meta name="twitter:description" content="Claude Cowork is Claude doing multi-step work in your files and tools. Anthropic is merging it into chat from Sep 2026. What changes and how teams use it." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Claude Cowork: what it is and how a team uses it",
-  "description": "Claude Cowork lets Claude work in an approved local folder instead of a chat upload loop. What it is, how a team uses it, and a CRE example.",
-  "image": "https://altrwork.com/assets/altr_social_preview.png",
-  "author": {
-    "@type": "Organization",
-    "name": "altr"
-  },
-  "publisher": {
-    "@id": "https://altrwork.com/#business"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://altrwork.com/claude-cowork.html"
-  },
-  "datePublished": "2026-09-03",
-  "dateModified": "2026-09-03",
-  "isPartOf": {
-    "@id": "https://altrwork.com/#website"
-  }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "What is Claude Cowork, and what happened to it?",
+      "description": "Claude Cowork is Claude doing multi-step work in your files and tools. Anthropic is merging it into chat from Sep 2026. What changes and how teams use it.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/claude-cowork.html"
+      },
+      "datePublished": "2026-09-03",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Claude Cowork"
+        },
+        {
+          "@type": "Thing",
+          "name": "Claude Desktop"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI agents"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Claude Cowork being discontinued?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not the capability, only the separate mode. From September 16, 2026, Anthropic is merging Cowork into ordinary Claude conversations, starting with Pro and Max plans, then Team and Free, with Enterprise admins given 30 days' notice. Existing projects, connectors and Skills carry over, and Claude decides per request whether to answer or run a task."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Claude Cowork free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. As of September 2026, Cowork is included with paid Claude plans: Pro, Max, Team and Enterprise. It is available in Claude Desktop on macOS and Windows on all of them, and on the web and mobile for Pro, Max and Team, and for Enterprise where an admin turns it on."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my computer need to stay on for Cowork to work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only when the task needs something on that computer, such as a local folder or your browser, in which case Claude Desktop must be open and connected. Cloud sessions and scheduled tasks run on Anthropic's servers, so they keep going while your laptop is closed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Cowork delete or change my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can read and write only in folders you have connected, and Anthropic says it asks for explicit permission before permanently deleting any file. Edits inside a connected folder are real edits, so connect a working folder rather than the only copy of something important."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Claude Cowork and Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They share the same agent approach. Claude Code is built for software work in a terminal, an editor or the desktop app. Cowork applies it to general knowledge work such as documents, spreadsheets, research and file organization, for people who do not write code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Cowork use our internal business systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, through connectors. Cowork uses the connectors your organization has enabled, including custom remote MCP servers that an Owner adds on Team and Enterprise plans. If a system has no connector, Cowork cannot reach it, and that is usually the case for building one."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is Claude Cowork, and what happened to it?",
+          "item": "https://altrwork.com/claude-cowork.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -112,62 +208,118 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-forum">
-      <h1>Claude Cowork is Claude working in your files, not a chat window.</h1>
-      <p class="page-lede">If the workflow is upload, prompt, download, open, revise, and upload again, the team is still carrying the work between systems. Cowork is the mode that removes those handoffs.</p>
+      <h1>Claude Cowork is Claude doing the task, not just answering about it, and it is becoming part of every conversation.</h1>
+      <p class="page-lede">In a normal chat you carry every file and every step between Claude and your other tools. In Cowork you describe the outcome, and Claude plans the steps, works in the folders and systems you connect, and hands back the finished file.</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
-          <p>Claude in a browser answers questions about uploaded files. Claude Cowork, in the Claude Desktop app, can create and edit files inside an approved project folder on the computer. Same model. Different place the work lives.</p>
+          <span>Short answer</span>
+          <p>Claude Cowork is Claude carrying out a multi-step task for you: working in folders you connect, using your connectors, and returning a finished document or spreadsheet. It launched as a separate mode. On September 16, 2026, Anthropic began merging it into ordinary Claude chat, starting with Pro and Max, so any conversation can hand Claude a task. Team, Free and Enterprise follow.</p>
         </div>
 
+
         <section class="article-block">
-          <h2>What Claude Cowork is</h2>
-          <p>Cowork is a workspace in Claude Desktop. You choose a project or folder. Claude can read and write inside that scope. The output stays on the machine, in the files your team already opens in Excel, Word, or a deal folder.</p>
-          <p>That is the whole distinction. claude.ai is a conversation that can receive an attachment. Cowork is a conversation that can keep working on the attachment after the chat ends, because the file never left the folder.</p>
-          <p>Keep the scope deliberate. Give it the folder it needs, not the entire machine.</p>
+          <h2>What happened to Claude Cowork?</h2>
+          <p>It is being folded into Claude itself. On September 16, 2026, Anthropic announced that <a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">Claude Cowork and chat are becoming one Claude</a>: you ask for what you need in one message box, and Claude decides whether that is a quick answer or a longer task.</p>
+          <ul>
+            <li><strong>Pro and Max</strong> get the merged experience first, rolling out over several weeks across web, desktop and mobile. If your message box no longer offers a choice between Chat and Cowork, you have it.</li>
+            <li><strong>Team and Free</strong> follow after that.</li>
+            <li><strong>Enterprise</strong> admins get 30 days' notice before the change reaches their organization.</li>
+          </ul>
+          <p>Nothing is lost in the move. Anthropic says existing chats, projects, artifacts, connectors and Skills stay where they were. Until the change reaches your plan, the Cowork selector is still in the bottom left of the message box, and everything below applies to both versions. The capability is the same. What goes away is the separate door.</p>
         </section>
 
         <section class="article-block">
-          <h2>Files and local work</h2>
-          <p>Most teams think they are having Claude do real work when they are still using it like a browser chatbot. The file goes up. A result comes down. Someone reopens it, fixes a formula, and sends it back in.</p>
-          <p>With Cowork, you create a project, drop the source files in, and ask Claude to build or edit the deliverable in place. The underwriting model, the memo, the checklist  - it exists on disk. The next person on the team can open it without reconstructing the chat.</p>
-          <p>Cowork does not replace judgment. A person still owns the output. It replaces the shuttle between tabs.</p>
+          <h2>How is Cowork different from a normal Claude chat?</h2>
+          <p>In chat, you do the handoffs. In Cowork, Claude does them. Anthropic describes Cowork as bringing Claude Code's agentic abilities to general knowledge work. After the merge, the right-hand column is simply what Claude does when a request needs it.</p>
+          <div class="article-table-wrap"><table class="article-table">
+            <thead>
+              <tr><th></th><th>Claude chat</th><th>Claude Cowork</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>How you ask</td><td>One message, one reply</td><td>Describe the outcome, Claude plans the steps</td></tr>
+              <tr><td>Files</td><td>You upload, then download the result</td><td>Claude reads and writes in folders you connect</td></tr>
+              <tr><td>Other systems</td><td>Connectors, while you steer each turn</td><td>Connectors, across many steps without prompting</td></tr>
+              <tr><td>While it works</td><td>You wait for each reply</td><td>You can leave and come back to finished work</td></tr>
+              <tr><td>Repeating it</td><td>Paste the prompt again</td><td>Schedule it with <code>/schedule</code></td></tr>
+              <tr><td>Best for</td><td>Questions, drafts, quick analysis</td><td>Deliverables with several steps and several sources</td></tr>
+            </tbody>
+          </table></div>
         </section>
 
         <section class="article-block">
-          <h2>How a team actually uses it</h2>
-          <p>The useful version is not "everyone opens Cowork and sees what happens." It is one process, one folder, one person accountable for the result.</p>
-          <p>A working pattern:</p>
+          <h2>Where does Cowork run, and what can it reach?</h2>
+          <p>As of September 2026, Cowork runs in Claude Desktop for macOS and Windows, on the web and on mobile. What it can touch is decided by what you connect, and that has not changed with the merge.</p>
+          <ul>
+            <li><strong>Cloud sessions.</strong> Anthropic's help center says Cowork can run tasks in the cloud, in an isolated environment on Anthropic's servers, with sessions saved to your account so you can pick them up on another device. This is still labelled beta.</li>
+            <li><strong>Your computer.</strong> Claude can only read and write in folders you have connected. A cloud session reaches those folders only while the Claude Desktop app is open on that computer and the session was started on desktop. The same applies to your browser and computer use.</li>
+            <li><strong>Connectors.</strong> Cowork uses the same connectors as chat, including Google Workspace, Microsoft 365, GitHub and custom <a href="what-is-an-mcp-server.html">MCP servers</a> your organization adds. Local MCP servers work only from the desktop app.</li>
+            <li><strong>Scheduled tasks.</strong> Tasks set with <code>/schedule</code> run in the cloud, so your laptop does not need to be awake.</li>
+            <li><strong>Plugins and Skills.</strong> A plugin bundles Skills, connectors and sub-agents. A Skill tells Cowork how your team does a task, so it does it the same way each time.</li>
+          </ul>
+          <p>You also choose how often it stops to ask. Manual mode asks before each action, auto mode approves actions it judges safe after a safety check, and Claude asks for explicit permission before permanently deleting any file.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>How should a team start using Cowork?</h2>
+          <p>Start with one recurring deliverable, one folder and one person who owns the result. "Everyone try Cowork" produces a week of demos and no change in how work gets done.</p>
           <ol>
-            <li>Pick a recurring deliverable with a known file shape: a model, a research memo, a first-pass review.</li>
-            <li>Put the inputs the team already has into a project folder. Not licensed data you are not allowed to share. Files you own.</li>
-            <li>Write or load a <a href="claude-skills-vs-mcp.html">Skill</a> so Claude follows the same steps every time, instead of improvising.</li>
-            <li>Run the work in Cowork. Review the file. Keep the file.</li>
+            <li><strong>Pick a deliverable with a known shape</strong>: a weekly report, a first-pass contract review, a model built from the same inputs each month.</li>
+            <li><strong>Make a folder for it</strong> with the inputs you own. Connect that folder, not your whole drive, and do not put in licensed data you are not allowed to share.</li>
+            <li><strong>Write the procedure down</strong> as folder instructions or a <a href="writing-a-skill-md.html">Skill</a>: the steps, the checks and what "done" looks like.</li>
+            <li><strong>Connect the live systems it needs</strong>, and leave write-capable tools on approval until you trust the pattern.</li>
+            <li><strong>Run it, review the file, fix the instructions</strong>, and run it again. After three clean runs, consider scheduling it.</li>
           </ol>
-          <p>If the process also needs a live system  - CRM, property management, internal tools  - that is MCP, not Cowork. Cowork is local files. MCP is reach. <a href="claude-skills-vs-mcp.html">Skills tell Claude how; MCP is the door</a>.</p>
+          <p>On Team and Enterprise plans, Owners control Cowork in Organization settings. Anthropic's help center lists toggles for Cowork itself, cloud sessions (on by default for Team, off for Enterprise), the built-in browser, auto-approve mode and "Always allow" for connector tools, which is off by default so write tools ask each time. Rolling it out to a whole team is covered in <a href="how-to-roll-out-claude-to-a-team.html">how to roll out Claude to a team</a>.</p>
         </section>
 
         <section class="article-block">
-          <h2>CRE example</h2>
-          <p>Commercial real estate teams underwriting on claude.ai still bounce a spreadsheet through download and re-upload. In Cowork, the same request can create the model directly in the project folder and keep editing it there.</p>
-          <p>We walked through that setup, including how to create the project and run an office-condo underwriting request against local files, in <a href="claude-cre-cowork.html">Claude in CRE: Cowork</a>. That note is part of the four-part CRE field guide, alongside <a href="claude-cre-skills.html">Skills</a>, <a href="claude-cre-connectors.html">Connectors</a>, and <a href="claude-cre-scheduled-tasks.html">Scheduled Tasks</a>.</p>
-          <p>The CRE version is the same rule in a deal folder: Claude sits in the files the analyst already uses. Someone still reviews the model before it goes to a principal.</p>
+          <h2>Where does Cowork go wrong?</h2>
+          <ul>
+            <li><strong>Usage runs faster.</strong> Every step spends tokens, so a long task uses more of your plan's allowance than a chat. Keep tasks focused and start a new session for unrelated work.</li>
+            <li><strong>Too much access.</strong> A connected home folder or an always-approved write tool turns a small mistake into a large one.</li>
+            <li><strong>Instructions hidden in content.</strong> A web page or document Cowork reads can contain text aimed at the model. Keep approval on for anything that sends, pays or deletes.</li>
+            <li><strong>Nobody reviews.</strong> A finished-looking file is not a checked file. The person who owns the deliverable signs off on it.</li>
+          </ul>
+        </section>
+
+        <section class="article-block">
+          <h2>What does Cowork look like in commercial real estate?</h2>
+          <p>An analyst who underwrites in chat still bounces a spreadsheet through download and re-upload. In Cowork, the same request builds the model in the deal folder and keeps editing it there, and the next person on the deal opens the file without reconstructing the conversation.</p>
+          <p>We walk through that setup, including an office-condo underwriting request against local files, in <a href="claude-cre-cowork.html">Claude in CRE: Cowork</a>, part of a four-part field guide with <a href="claude-cre-skills.html">Skills</a>, <a href="claude-cre-connectors.html">Connectors</a> and <a href="claude-cre-scheduled-tasks.html">Scheduled Tasks</a>.</p>
         </section>
 
         <div class="article-callout">
-          <span>Working idea</span>
-          <p>The real upgrade is not a better answer. It is a model that can continue working on the same approved files your team will actually use.</p>
+          <span>Working rule</span>
+          <p>Give Cowork one deliverable, the narrowest folder and connectors it needs, and a written definition of done. Widen its access only after it has earned it.</p>
         </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>Is Claude Cowork being discontinued?</h3>
+          <p>Not the capability, only the separate mode. From September 16, 2026, Anthropic is merging Cowork into ordinary Claude conversations, starting with Pro and Max plans, then Team and Free, with Enterprise admins given 30 days' notice. Existing projects, connectors and Skills carry over, and Claude decides per request whether to answer or run a task.</p>
+          <h3>Is Claude Cowork free?</h3>
+          <p>No. As of September 2026, Cowork is included with paid Claude plans: Pro, Max, Team and Enterprise. It is available in Claude Desktop on macOS and Windows on all of them, and on the web and mobile for Pro, Max and Team, and for Enterprise where an admin turns it on.</p>
+          <h3>Does my computer need to stay on for Cowork to work?</h3>
+          <p>Only when the task needs something on that computer, such as a local folder or your browser, in which case Claude Desktop must be open and connected. Cloud sessions and scheduled tasks run on Anthropic's servers, so they keep going while your laptop is closed.</p>
+          <h3>Can Cowork delete or change my files?</h3>
+          <p>It can read and write only in folders you have connected, and Anthropic says it asks for explicit permission before permanently deleting any file. Edits inside a connected folder are real edits, so connect a working folder rather than the only copy of something important.</p>
+          <h3>What is the difference between Claude Cowork and Claude Code?</h3>
+          <p>They share the same agent approach. Claude Code is built for software work in a terminal, an editor or the desktop app. Cowork applies it to general knowledge work such as documents, spreadsheets, research and file organization, for people who do not write code.</p>
+          <h3>Can Cowork use our internal business systems?</h3>
+          <p>Yes, through connectors. Cowork uses the connectors your organization has enabled, including custom remote MCP servers that an Owner adds on Team and Enterprise plans. If a system has no connector, Cowork cannot reach it, and that is usually the case for building one.</p>
+        </section>
+
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
           <li><a href="claude-cre-cowork.html">Claude in CRE: Cowork</a></li>
           <li><a href="claude-skills-vs-mcp.html">Claude Skills vs MCP: when to use each</a></li>
-          <li><a href="writing-a-skill-md.html">How to write a SKILL.md that actually gets used</a></li>
-          <li><a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a></li>
+          <li><a href="writing-a-skill-md.html">How to write a SKILL.md that gets used</a></li>
+          <li><a href="what-is-an-ai-agent.html">What is an AI agent?</a></li>
+          <li><a href="how-to-roll-out-claude-to-a-team.html">How to roll out Claude to a team</a></li>
           </ul>
         </section>
 
@@ -176,8 +328,8 @@
 
     <section class="cta-section">
       <div>
-        <h2>Want Cowork running against a process your team already owns?</h2>
-        <p>A <a href="ai-enablement-workshop.html">paid team workshop</a> is the fastest way to put it on real files. Or book a call and bring one folder.</p>
+        <h2>Have a deliverable your team rebuilds by hand every week?</h2>
+        <p>Bring the files and the steps. We will help you set it up in Cowork with the right folder, Skill and connectors.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

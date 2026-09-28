@@ -11,12 +11,12 @@
  gtag('config', 'G-RHG020FK51');
 </script>
 <meta charset="utf-8" />
-<title>RAG Evaluation for Internal Knowledge Bases | altr</title>
+<title>RAG evaluation for internal knowledge bases | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks." />
+<meta name="description" content="How to evaluate a RAG system on an internal knowledge base: build a golden set, score retrieval and answers separately, and gate every change on it." />
 <link rel="canonical" href="https://altrwork.com/rag-evaluation-internal-knowledge-bases.html" />
-<meta property="og:title" content="RAG Evaluation for Internal Knowledge Bases | altr" />
-<meta property="og:description" content="A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks." />
+<meta property="og:title" content="RAG evaluation for internal knowledge bases | altr" />
+<meta property="og:description" content="How to evaluate a RAG system on an internal knowledge base: build a golden set, score retrieval and answers separately, and gate every change on it." />
 <meta property="og:url" content="https://altrwork.com/rag-evaluation-internal-knowledge-bases.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -26,32 +26,120 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="RAG Evaluation for Internal Knowledge Bases | altr" />
-<meta name="twitter:description" content="A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks." />
+<meta name="twitter:title" content="RAG evaluation for internal knowledge bases | altr" />
+<meta name="twitter:description" content="How to evaluate a RAG system on an internal knowledge base: build a golden set, score retrieval and answers separately, and gate every change on it." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "RAG Evaluation for Internal Knowledge Bases",
-  "description": "A practical guide to RAG evaluation for internal knowledge bases, including golden sets, RAG metrics, context precision, faithfulness, reports, and CI checks.",
-  "image": "https://altrwork.com/assets/altr_social_preview.png",
-  "author": {
-    "@type": "Organization",
-    "name": "altr"
-  },
-  "publisher": {
-    "@id": "https://altrwork.com/#business"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://altrwork.com/rag-evaluation-internal-knowledge-bases.html"
-  },
-  "datePublished": "2026-06-16",
-  "dateModified": "2026-08-20",
-  "isPartOf": {
-    "@id": "https://altrwork.com/#website"
-  }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "RAG evaluation for internal knowledge bases",
+      "description": "How to evaluate a RAG system on an internal knowledge base: build a golden set, score retrieval and answers separately, and gate every change on it.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/rag-evaluation-internal-knowledge-bases.html"
+      },
+      "datePublished": "2026-06-16",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "RAG evaluation"
+        },
+        {
+          "@type": "Thing",
+          "name": "Retrieval-augmented generation"
+        },
+        {
+          "@type": "Thing",
+          "name": "LLM evaluation"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many questions do you need to evaluate a RAG system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with about 50 real questions that cover common requests, exact identifiers, recent changes and questions with no answer in the sources. That is enough to catch large regressions. Grow the set toward a few hundred as production failures show you what it is missing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is faithfulness in RAG evaluation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Faithfulness measures whether every claim in an answer is supported by the passages the system retrieved. An answer can be correct in general and still unfaithful, if it adds facts the sources do not contain. It is the main measure of whether the system is grounded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an LLM judge RAG answers reliably?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reliably enough to run on every change, once calibrated. Have people score a sample, compare with the model's scores, and fix the rubric where they disagree. Ask the grader to cite the unsupported sentence, and keep the grader model fixed between runs you compare."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should you run a RAG evaluation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Before every change to the prompt, the model, chunking, the index, the retriever or source permissions, and on a schedule even when nothing changed, because the documents themselves change. Treat a drop on critical questions as a failed release."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between retrieval metrics and answer metrics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Retrieval metrics, such as recall at k and context precision, measure whether the right passages reached the model. Answer metrics, such as faithfulness and completeness, measure what the model did with them. Scoring them separately tells you which part of the system to fix."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RAG evaluation for internal knowledge bases",
+          "item": "https://altrwork.com/rag-evaluation-internal-knowledge-bases.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -112,50 +200,119 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-basilica">
-      <h1>RAG evaluation for internal knowledge bases.</h1>
-      <p class="page-lede">A retrieval system can look useful in a demo and still fail on daily questions. Evaluation gives technical leaders a way to measure whether the system retrieves the right context and answers from it faithfully.</p>
+      <h1>RAG evaluation for internal knowledge bases: test retrieval and answers separately.</h1>
+      <p class="page-lede">A knowledge assistant that looks good in a demo can still be wrong on a third of the questions staff actually ask. Evaluation is how you find out before they do, and how you know whether this week's change made it better or worse.</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
-          <span>In practice</span>
-          <p>We build RAG evaluation around real questions, expected sources, answer requirements, and failure categories. The outputs are RAG metrics, examples, trend reports, and release checks that data and engineering teams can act on.</p>
+          <span>Short answer</span>
+          <p>To evaluate RAG on an internal knowledge base, collect real questions with the source that answers each one, then score two things separately. Did retrieval find the right passage, and did the answer stay faithful to it? Include questions the system should decline. Rerun the same set after every change to prompts, models, chunking or permissions, and treat a drop as a failed release.</p>
         </div>
 
         <section class="article-block">
-          <h2>Build golden sets from real work.</h2>
-          <p>A golden set should include questions people actually ask the knowledge base. Each item needs the question, acceptable source documents, required facts, answer constraints, owner, and review date.</p>
-          <p>The set should cover common requests, edge cases, recent policy changes, ambiguous wording, and questions the system should refuse. This gives the team a stable input for regression checks.</p>
+          <h2>What should a RAG evaluation measure?</h2>
+          <p>Two stages, scored apart, because they fail for different reasons and are fixed by different people. If the right passage never reached the model, no prompt change will help.</p>
+          <div class="article-table-wrap"><table class="article-table">
+            <thead>
+              <tr><th>Metric</th><th>Question it answers</th><th>How to score it</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Recall at k</td><td>Was the right source in the top k results?</td><td>Automatic, against the expected source IDs</td></tr>
+              <tr><td>Context precision</td><td>How much of what was retrieved was relevant?</td><td>Model grader or labels</td></tr>
+              <tr><td>Faithfulness</td><td>Is every claim in the answer supported by the retrieved text?</td><td>Model grader, checked against people</td></tr>
+              <tr><td>Completeness</td><td>Did the answer include the facts it had to?</td><td>Checklist of required facts per question</td></tr>
+              <tr><td>Citation accuracy</td><td>Do the citations point at the passage that supports the claim?</td><td>Automatic where citations carry IDs</td></tr>
+              <tr><td>Correct refusal</td><td>Did it decline when the sources do not answer, or the asker may not see them?</td><td>Automatic, on the unanswerable items</td></tr>
+            </tbody>
+          </table></div>
+          <p>Open-source libraries such as Ragas implement several of these under the names context precision, context recall, faithfulness and response relevancy. The names differ between tools, so define each metric in your own report.</p>
         </section>
 
         <section class="article-block">
-          <h2>Measure retrieval before the answer.</h2>
-          <p>Retrieval metrics show whether the right context reached the model. Useful checks include recall at k, context precision, duplicate rate, stale-source rate, and whether the top result came from an approved source.</p>
-          <p>These metrics isolate failures. If the source never appears in retrieved context, prompt changes will have limited value. The retrieval owner needs to inspect chunking, metadata, filters, permissions, and ranking.</p>
+          <h2>How do you build a golden set?</h2>
+          <p>From real questions, not invented ones. Pull them from the help desk, the team chat channel where people ask "does anyone know", and the assistant's own logs.</p>
+          <ul>
+            <li><strong>Start with about 50 questions</strong> and grow toward a few hundred as failures teach you what to add.</li>
+            <li><strong>Cover the hard cases on purpose</strong>: exact identifiers, questions whose answer changed recently, ambiguous wording, answers spread across two documents, and questions with no answer in the sources.</li>
+            <li><strong>Add permission cases</strong>: a question only managers may have answered, asked as someone who is not a manager.</li>
+            <li><strong>Give every item an owner</strong> who can say what the right answer is, and a review date so the set does not go stale with the documents.</li>
+          </ul>
+          <pre><code>id: pto-carryover-2026
+question: How many unused PTO days can I carry into next year?
+expected_sources: [handbook-2026#time-off]
+must_include: ["5 days", "must be used by March 31"]
+must_not_include: ["10 days"]        # the 2025 policy
+asked_as: employee
+owner: people-ops
+review_by: 2027-01-15</code></pre>
         </section>
 
         <section class="article-block">
-          <h2>Judge answers against sources.</h2>
-          <p>Answer metrics should evaluate faithfulness, completeness, citation accuracy, refusal behavior, and usefulness for the task. The expected output is a scored result with the source passages used to justify the score.</p>
-          <p>Faithfulness matters because an answer can sound correct while adding claims the source does not support. A good eval report shows the unsupported sentence, the missing source, and the likely cause.</p>
+          <h2>Can a language model grade the answers?</h2>
+          <p>Yes, for faithfulness and relevance, if you check it. A model grader reads the question, the retrieved passages and the answer, and scores against a written rubric. It is fast and cheap enough to run on every change.</p>
+          <ul>
+            <li><strong>Calibrate it.</strong> Have a person score a sample of 30 to 50 items and compare. Where the grader and the person disagree, fix the rubric.</li>
+            <li><strong>Make it show its work.</strong> Ask for the unsupported sentence and the passage it checked, not just a score.</li>
+            <li><strong>Prefer exact checks where they exist.</strong> Whether a source ID is in the top five does not need a model to judge.</li>
+            <li><strong>Keep the grader fixed</strong> between runs you compare. A new grader model changes the scores by itself.</li>
+          </ul>
         </section>
 
         <section class="article-block">
-          <h2>Turn reports into release checks.</h2>
-          <p>RAG evaluation should run before changes to prompts, models, retrievers, chunking, indexes, or source permissions. CI checks can block releases when critical questions regress or when source quality drops below a threshold.</p>
-          <p>The report should name the changed component, passing and failing examples, metric deltas, owners, and next actions. That makes evaluation a maintenance system instead of a one-time scorecard.</p>
+          <h2>How do you turn evaluation into a release check?</h2>
+          <p>Run the set before any change to the prompt, the model, chunking, the index, the retriever or source permissions. Compare against the last accepted run.</p>
+          <ol>
+            <li>Block the release if any critical item regresses, such as a permission case or a safety answer.</li>
+            <li>Block it if a headline metric drops past a threshold you set in advance.</li>
+            <li>Report what changed, the metric deltas, the items that newly pass and newly fail, and who owns each failure.</li>
+          </ol>
+        </section>
+
+        <section class="article-block">
+          <h2>What does each failure usually mean?</h2>
+          <div class="article-table-wrap"><table class="article-table">
+            <thead>
+              <tr><th>Symptom</th><th>Likely cause</th><th>Owner</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Right source never retrieved</td><td>Chunking, missing keyword search, bad metadata</td><td>Retrieval</td></tr>
+              <tr><td>Old policy cited</td><td>Stale or duplicate documents in the index</td><td>Content owner</td></tr>
+              <tr><td>Source retrieved, answer wrong</td><td>Prompt, too much noise in context, model</td><td>Application</td></tr>
+              <tr><td>Answers when it should decline</td><td>No "not in the sources" instruction, or it is not tested</td><td>Application</td></tr>
+              <tr><td>Restricted content in an answer</td><td>Permissions filtered after retrieval, or not at all</td><td>Security</td></tr>
+            </tbody>
+          </table></div>
+          <p>How retrieval works, and why keyword search and reranking move these numbers, is in <a href="llm-retrieval-grounded-answers.html">how RAG works</a>.</p>
         </section>
 
         <div class="article-callout">
           <span>Working rule</span>
-          <p>Evaluate retrieval and answer quality separately, then make the failure owner obvious.</p>
+          <p>Score retrieval and answers separately, keep the question set fixed between runs, and make every failure someone's to fix.</p>
         </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>How many questions do you need to evaluate a RAG system?</h3>
+          <p>Start with about 50 real questions that cover common requests, exact identifiers, recent changes and questions with no answer in the sources. That is enough to catch large regressions. Grow the set toward a few hundred as production failures show you what it is missing.</p>
+          <h3>What is faithfulness in RAG evaluation?</h3>
+          <p>Faithfulness measures whether every claim in an answer is supported by the passages the system retrieved. An answer can be correct in general and still unfaithful, if it adds facts the sources do not contain. It is the main measure of whether the system is grounded.</p>
+          <h3>Can an LLM judge RAG answers reliably?</h3>
+          <p>Reliably enough to run on every change, once calibrated. Have people score a sample, compare with the model's scores, and fix the rubric where they disagree. Ask the grader to cite the unsupported sentence, and keep the grader model fixed between runs you compare.</p>
+          <h3>How often should you run a RAG evaluation?</h3>
+          <p>Before every change to the prompt, the model, chunking, the index, the retriever or source permissions, and on a schedule even when nothing changed, because the documents themselves change. Treat a drop on critical questions as a failed release.</p>
+          <h3>What is the difference between retrieval metrics and answer metrics?</h3>
+          <p>Retrieval metrics, such as recall at k and context precision, measure whether the right passages reached the model. Answer metrics, such as faithfulness and completeness, measure what the model did with them. Scoring them separately tells you which part of the system to fix.</p>
+        </section>
+
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
-          <li><a href="llm-retrieval-grounded-answers.html">How LLM retrieval grounds answers</a></li>
-          <li><a href="ai-governance-lite-smb.html">AI governance lite for small business teams</a></li>
+          <li><a href="llm-retrieval-grounded-answers.html">How RAG works: retrieval and grounded answers</a></li>
+          <li><a href="ai-code-review-judge-agents.html">AI code review with judge agents</a></li>
+          <li><a href="ai-governance-lite-smb.html">AI governance for small and mid-size businesses</a></li>
+          <li><a href="context-engineering-large-codebases.html">Context engineering for large codebases</a></li>
           </ul>
         </section>
 
@@ -164,8 +321,8 @@
 
     <section class="cta-section">
       <div>
-        <h2>Need a RAG evaluation loop for internal knowledge?</h2>
-        <p>Bring the knowledge base, real questions, and the failures your team needs to stop repeating.</p>
+        <h2>Need to know whether your knowledge assistant can be trusted?</h2>
+        <p>Bring the knowledge base and the questions your team asks. We will help you build the test set and the release check.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

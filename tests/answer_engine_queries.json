@@ -35,5 +35,17 @@
   {"q": "AI governance for small business", "group": "learn"},
   {"q": "AI consulting for nonprofits", "group": "industry"},
   {"q": "AI for law firms", "group": "industry"},
-  {"q": "AI for ecommerce operations", "group": "industry"}
+  {"q": "AI for ecommerce operations", "group": "industry"},
+  {"q": "what is Meta Muse", "group": "news"},
+  {"q": "what is Instinct AI", "group": "news"},
+  {"q": "personal AI agent for business", "group": "news"},
+  {"q": "AI news for business owners September 2026", "group": "news"},
+  {"q": "AI acceptable use policy small business", "group": "learn"},
+  {"q": "AI deployment roadmap", "group": "learn"},
+  {"q": "what happened to Claude Cowork", "group": "learn"},
+  {"q": "MCP vs function calling", "group": "learn"},
+  {"q": "MCP server design best practices", "group": "learn"},
+  {"q": "how does RAG work", "group": "learn"},
+  {"q": "CLAUDE.md best practices", "group": "learn"},
+  {"q": "AI consultant for commercial real estate firms", "group": "learn"}
 ]

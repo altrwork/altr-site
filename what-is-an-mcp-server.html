@@ -76,6 +76,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What is an MCP server in simple terms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An MCP server is a connector, built on the Model Context Protocol (MCP), that lets an AI assistant use one of your systems, such as a CRM, a database or a booking tool. The server tells the assistant what actions are available, runs them when asked, and checks who is signed in first."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is MCP only for Claude?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -214,7 +222,7 @@
         <section class="article-block">
           <h2>What problem does MCP solve?</h2>
           <p>MCP gives every AI app one way to connect to every system, instead of a custom integration for each pair. Before it, each assistant needed its own glue code for each system.</p>
-          <p>The protocol has three roles. The <strong>host</strong> is the app a person uses, such as Claude Desktop. Inside it, an <strong>MCP client</strong> connects to each <strong>MCP server</strong>, the part you build or install, which talks to one system and describes what it can do in a format every client understands. Build the server once and any compliant client can use it.</p>
+          <p>The protocol has three roles. The <strong>host</strong> is the app a person uses, such as Claude Desktop. Inside it, an <strong>MCP client</strong> connects to each <strong>MCP server</strong>, the part you build or install, which talks to one system and describes what it can do in a format every client understands. Build the server once and any compliant client can use it. Underneath, each client still hands the server's tools to its model through ordinary function calling. How the two layers differ, and when plain function calling is enough, is in <a href="mcp-agents-function-calling.html">MCP vs function calling</a>.</p>
           <p>Anthropic released MCP as an open specification, and in December 2025 donated it to the Agentic AI Foundation, a fund under the Linux Foundation co-founded with Block and OpenAI. For a buyer, that means a server you commission is not tied to one vendor's assistant.</p>
         </section>
 
@@ -226,7 +234,7 @@
             <li><strong>Resources</strong> are data the client can read into context, such as a file or a record, usually chosen by the app or the person.</li>
             <li><strong>Prompts</strong> are templates the server publishes, such as "summarize this account". The person chooses to run one.</li>
           </ul>
-          <p>Most business servers are mostly tools. Not every client supports all three, so check the client's documentation before designing around resources or prompts.</p>
+          <p>Most business servers are mostly tools. Not every client supports all three, so check the client's documentation before designing around resources or prompts. Beyond the core, the protocol now has optional extensions, including MCP Apps for interactive views such as charts and forms inside the conversation, and Tasks for long-running jobs. Both need support in the client as well as the server.</p>
         </section>
 
         <section class="article-block">
@@ -251,14 +259,15 @@
         <section class="article-block">
           <h2>How does sign-in work on an MCP server?</h2>
           <p>Remote servers use OAuth, the same sign-in pattern behind "Sign in with Microsoft" or "Sign in with Google". The person clicks connect, a browser window opens, they sign in, and the app receives a token that works only for that server.</p>
-          <p>For the technical reader: the MCP authorization specification is built on OAuth 2.1. Authorization is optional in the protocol, but when an HTTP server uses it, the server acts as an OAuth resource server, answers an unauthenticated request with a 401 and a <code>WWW-Authenticate</code> header, and publishes Protected Resource Metadata (RFC 9728) that tells the client which authorization server to use. Clients use PKCE and send a <code>resource</code> parameter (RFC 8707) so the token is bound to that one server. The server must reject tokens not issued for it and must not pass them through to other APIs. Local stdio servers skip all of this and read credentials from their environment.</p>
+          <p>For the technical reader: the MCP authorization specification is built on OAuth 2.1. Authorization is optional in the protocol, but when an HTTP server uses it, the server acts as an OAuth resource server, answers an unauthenticated request with a 401 and a <code>WWW-Authenticate</code> header, and publishes Protected Resource Metadata (RFC 9728) that tells the client which authorization server to use. Clients use PKCE and send a <code>resource</code> parameter (RFC 8707) so the token is bound to that one server. The server must reject tokens not issued for it and must not pass them through to other APIs. For registering the client, the current revision prefers Client ID Metadata Documents and marks Dynamic Client Registration as deprecated. Local stdio servers skip all of this and read credentials from their environment.</p>
+          <p>The current revision of the specification, dated July 28, 2026, also made the protocol stateless: there is no connection handshake or session, and every request carries what the server needs to answer it. For a business that mostly means remote servers are easier to scale, because any copy of the server can answer any request.</p>
           <p>For the business reader: because the server knows who signed in, it can apply that person's permissions, record what they did, and write as a named person rather than a shared key.</p>
         </section>
 
         <section class="article-block">
           <h2>Which AI apps support MCP?</h2>
           <p>Most major AI assistants and developer tools now act as MCP clients. The protocol's own site lists Claude, ChatGPT, Visual Studio Code, Cursor and many others, and Google's Gemini CLI documents MCP server support as well.</p>
-          <p>In Claude, remote servers are added as custom connectors, and Anthropic's help center says they work in Claude, Cowork and Claude Desktop on free, Pro, Max, Team and Enterprise plans. On Team and Enterprise, only an Owner can add a custom connector for the organization, and each person then connects and signs in individually. Claude Code connects to MCP servers too.</p>
+          <p>In Claude, remote servers are added as custom connectors, and Anthropic's help center says they work in Claude, Cowork and Claude Desktop on free, Pro, Max, Team and Enterprise plans. Free accounts are limited to one custom connector. On Team and Enterprise, only an Owner can add a custom connector for the organization, and each person then connects and signs in individually. The server has to be reachable over the public internet from Anthropic's IP ranges, because Anthropic's side makes the connection, so a server that only exists inside your office network will not work as a custom connector. Claude Code connects to MCP servers too, including local ones.</p>
           <p>Support is not uniform: clients differ in transports, primitives and sign-in flows, and those details change between releases. Test against the exact clients your team uses.</p>
         </section>
 
@@ -288,6 +297,8 @@
 
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
+          <h3>What is an MCP server in simple terms?</h3>
+          <p>An MCP server is a connector, built on the Model Context Protocol (MCP), that lets an AI assistant use one of your systems, such as a CRM, a database or a booking tool. The server tells the assistant what actions are available, runs them when asked, and checks who is signed in first.</p>
           <h3>Is MCP only for Claude?</h3>
           <p>No. Anthropic created the Model Context Protocol, but it is an open standard now governed under the Linux Foundation, and clients including ChatGPT, Visual Studio Code, Cursor and Gemini CLI support it. A server built to the specification can be used from any compliant client, though each client supports a different subset of features.</p>
           <h3>Is an MCP server the same as an API?</h3>
@@ -308,7 +319,7 @@
           <li><a href="impact-spark-labs-mcp.html">spARK Labs: a remote MCP server across four tools</a></li>
           <li><a href="impact-cloudflare-workers-architecture.html">Why we deploy MCP servers on Cloudflare Workers</a></li>
           <li><a href="what-is-an-ai-agent.html">What is an AI agent?</a></li>
-          <li><a href="mcp-agents-function-calling.html">MCP, agents and function calling</a></li>
+          <li><a href="mcp-agents-function-calling.html">MCP vs function calling</a></li>
           </ul>
         </section>
 

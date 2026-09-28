@@ -59,10 +59,15 @@ def passages_of(name, html):
     body = main.group(0) if main else html
     for m in re.finditer(r'<div class="article-summary">(.*?)</div>', body, re.S):
         out.append(("summary", text_of(m.group(1))))
-    faq = re.search(r'id="faq".*?</section>', body, re.S)
-    if faq:
-        for q, a in re.findall(r"<h3[^>]*>(.*?)</h3>\s*<p>(.*?)</p>", faq.group(0), re.S):
-            out.append(("faq", text_of(q) + " " + text_of(a)))
+    # FAQ answers come from the FAQPage schema, which engines read directly.
+    # seo_integrity_test.py guarantees every schema answer is visible text,
+    # so this also covers FAQs laid out as panels rather than an #faq block.
+    for raw in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+        graph = json.loads(raw)
+        for node in graph.get("@graph", [graph]):
+            if node.get("@type") == "FAQPage":
+                for entry in node["mainEntity"]:
+                    out.append(("faq", entry["name"] + " " + text_of(entry["acceptedAnswer"]["text"])))
     # sections: an h2 and everything up to the next h2
     parts = re.split(r"(?=<h2[\s>])", body)
     for part in parts:

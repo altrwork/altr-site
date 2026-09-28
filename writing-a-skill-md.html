@@ -13,10 +13,10 @@
 <meta charset="utf-8" />
 <title>How to write a SKILL.md that actually gets used | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Most SKILL.md files are too vague to trigger or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed." />
+<meta name="description" content="How to write a SKILL.md: the name and description rules, a body under 500 lines, reference files, a full example, and how to test that it triggers." />
 <link rel="canonical" href="https://altrwork.com/writing-a-skill-md.html" />
 <meta property="og:title" content="How to write a SKILL.md that actually gets used | altr" />
-<meta property="og:description" content="Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed." />
+<meta property="og:description" content="How to write a SKILL.md: the name and description rules, a body under 500 lines, reference files, a full example, and how to test that it triggers." />
 <meta property="og:url" content="https://altrwork.com/writing-a-skill-md.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -27,31 +27,119 @@
 <meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How to write a SKILL.md that actually gets used | altr" />
-<meta name="twitter:description" content="Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed." />
+<meta name="twitter:description" content="How to write a SKILL.md: the name and description rules, a body under 500 lines, reference files, a full example, and how to test that it triggers." />
 <meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to write a SKILL.md that actually gets used",
-  "description": "Most SKILL.md files are too vague to trigger reliably or too long to load efficiently. A practical guide to writing Claude Skills that get picked up and followed.",
-  "image": "https://altrwork.com/assets/altr_social_preview.png",
-  "author": {
-    "@type": "Organization",
-    "name": "altr"
-  },
-  "publisher": {
-    "@id": "https://altrwork.com/#business"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://altrwork.com/writing-a-skill-md.html"
-  },
-  "datePublished": "2026-06-30",
-  "dateModified": "2026-08-20",
-  "isPartOf": {
-    "@id": "https://altrwork.com/#website"
-  }
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to write a SKILL.md that actually gets used",
+      "description": "How to write a SKILL.md: the name and description rules, a body under 500 lines, reference files, a full example, and how to test that it triggers.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/writing-a-skill-md.html"
+      },
+      "datePublished": "2026-06-30",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "SKILL.md"
+        },
+        {
+          "@type": "Thing",
+          "name": "Claude Skills"
+        },
+        {
+          "@type": "Thing",
+          "name": "Agent Skills"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long should a SKILL.md be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anthropic recommends keeping the body under 500 lines, and most good Skills are far shorter. Only the name and description sit in context all the time. The body loads when the Skill triggers, so every line competes with the conversation for attention. Move long reference material into separate files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my Claude Skill not triggering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost always the description. It is the only part Claude reads before deciding, so it needs to say what the Skill does, when to use it, and the words people actually use for that task. Rewrite it in the third person with concrete triggers, then test from a fresh conversation without naming the Skill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a Skill include code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A Skill can bundle scripts that Claude runs instead of writing its own code each time, which is more reliable and uses fewer tokens because only the output enters the conversation. Say plainly whether Claude should run a script or read it, and list any packages the script needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be a developer to write a Skill?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A Skill is a text file with a short header. Anyone who can write down how a task should be done can write one, and Claude can draft it from a conversation where you walked it through the task once. Scripts inside a Skill are optional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a SKILL.md work outside Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually. SKILL.md is the Agent Skills open standard, which tools including ChatGPT and Codex, Gemini CLI, Cursor, VS Code and GitHub Copilot support. Instructions carry over well. Scripts depend on what each tool can run, so test in each one."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to write a SKILL.md that actually gets used",
+          "item": "https://altrwork.com/writing-a-skill-md.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -112,50 +200,131 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-forum">
-      <h1>Most SKILL.md files fail for one of two reasons.</h1>
-      <p class="page-lede">Either the description is too vague for Claude to know when to load it, or the body is long enough that it crowds out everything else in context. Writing a Skill that actually gets used reliably comes down to a handful of disciplines.</p>
+      <h1>How to write a SKILL.md: a description that triggers, and a body Claude can follow.</h1>
+      <p class="page-lede">Most Skills fail for one of two reasons. The description is too vague for Claude to know when to load it, or the body is so long that it buries the three rules that matter. Both are fixable in an afternoon.</p>
     </section>
 
     <section class="section article-section">
       <article class="article-body">
         <div class="article-summary">
           <span>Short answer</span>
-          <p>To write a SKILL.md that gets used, give it a description that names the exact situations it applies to, keep the body to the steps and judgment calls Claude cannot infer, and move long reference material into separate files it loads on demand. A Skill that never triggers, or floods the context when it does, is not doing its job.</p>
+          <p>A SKILL.md starts with YAML frontmatter holding a name, in lowercase letters, numbers and hyphens up to 64 characters, and a description of what the Skill does and when to use it, up to 1,024 characters. The body holds the steps Claude cannot infer, kept under 500 lines. Longer reference material goes in separate files the body links to.</p>
         </div>
 
         <section class="article-block">
-          <h2>The description field does the triggering.</h2>
-          <p>Claude decides whether to load a Skill based on its name and description, before it has read the body. A description that just restates the skill's name ("helps with reports") gives the model nothing to match against. A description that lists concrete trigger phrases, file types, or task shapes the user is likely to mention gets picked up far more reliably.</p>
-          <p>Write the description the way you'd write a search query you expect to match the user's actual words, not a category label.</p>
+          <h2>What goes in a SKILL.md file?</h2>
+          <p>Two parts: a YAML header that decides when the Skill loads, and a Markdown body that says what to do once it has. A Skill is the folder around the file, and it can also hold scripts, templates and reference documents.</p>
+          <pre><code>client-status-report/
+  SKILL.md          instructions, loaded when the Skill triggers
+  template.md       the report layout, read when needed
+  reference/
+    clients.md      account names and owners, read when needed
+  scripts/
+    check_dates.py  run, not read into context</code></pre>
+          <p>Anthropic's rules for the header, as of September 2026:</p>
+          <ul>
+            <li><code>name</code>: at most 64 characters, lowercase letters, numbers and hyphens only, and it cannot contain "anthropic" or "claude".</li>
+            <li><code>description</code>: required, at most 1,024 characters, no XML tags, and it should say both what the Skill does and when to use it.</li>
+          </ul>
+          <p>The same format is the <a href="https://agentskills.io/home" target="_blank" rel="noopener">Agent Skills</a> open standard, so a well-written Skill also works in other tools that read it, such as Codex, Gemini CLI, Cursor and VS Code.</p>
         </section>
 
         <section class="article-block">
-          <h2>Keep the body procedural, not informational.</h2>
-          <p>SKILL.md isn't a wiki page. It's a set of instructions a capable reader executes once, right now, on a real task. Background, history, and rationale belong in a comment or a linked reference file  - not the main body, where every paragraph competes for the model's attention.</p>
-          <p>Lead with what to do. State constraints and conventions as rules, not prose. If a step has a fixed sequence, number it.</p>
+          <h2>How do you write a description that triggers?</h2>
+          <p>Claude sees only the name and description of every installed Skill until one matches. The description is the whole decision, so write it for the words a person will actually type.</p>
+          <ul>
+            <li><strong>Say what it does and when.</strong> "Writes the weekly client status report. Use when asked for a status update, weekly report or account summary for a client."</li>
+            <li><strong>Name the triggers</strong>: the file types, phrases and tasks people mention, including the informal ones.</li>
+            <li><strong>Write in the third person.</strong> The description is inserted into Claude's system prompt, and Anthropic's guidance warns that "I can help you" or "You can use this" confuses selection.</li>
+            <li><strong>Avoid category labels.</strong> "Helps with reports" competes with every other Skill and rarely wins.</li>
+          </ul>
         </section>
 
         <section class="article-block">
-          <h2>Push detail into referenced files, not inline.</h2>
-          <p>Skills can ship supporting scripts, templates, and reference docs alongside SKILL.md. Anything that's only needed in an edge case  - a full schema, a long example, a rarely used flag  - belongs in a separate file that gets read on demand, not loaded by default with every invocation.</p>
-          <p>This keeps the default load small and fast while still making deep detail available when the task actually calls for it.</p>
+          <h2>What belongs in the body, and what does not?</h2>
+          <p>Only what Claude would get wrong without being told. It already knows what a status report is. It does not know that yours leads with risks, or that finance wants dates as "Sep 28".</p>
+          <ul>
+            <li><strong>Lead with the steps</strong>, numbered when the order matters.</li>
+            <li><strong>State rules as rules.</strong> "Never include pricing" beats a paragraph explaining why pricing is sensitive.</li>
+            <li><strong>Match the freedom to the risk.</strong> Loose guidance for judgment work, an exact script and "run exactly this" for anything fragile.</li>
+            <li><strong>Keep the body under 500 lines</strong>, Anthropic's recommendation. Split into files as you approach it.</li>
+            <li><strong>Link reference files one level deep.</strong> Claude may only preview a file that is linked from another linked file, so every reference should be linked from SKILL.md itself.</li>
+            <li><strong>Leave out time-sensitive notes</strong> such as "until August use the old form". They go stale and nobody remembers to remove them.</li>
+          </ul>
         </section>
 
         <section class="article-block">
-          <h2>Test the trigger, not just the output.</h2>
-          <p>It's easy to validate that a Skill produces the right output once you've manually invoked it. The harder, more important test is whether it fires on its own from a natural request  - the phrasing a real user would actually type, not the phrasing you used while building it.</p>
-          <p>If a Skill never triggers under its intended phrasing, the body quality doesn't matter. Fix the description first.</p>
+          <h2>What does a good SKILL.md look like?</h2>
+          <p>A complete, small example. It fits on one screen and every line changes what Claude does.</p>
+          <pre><code>---
+name: client-status-report
+description: Writes the weekly client status report from the project
+  folder. Use when asked for a status update, weekly report, account
+  summary or "where are we" note for a client.
+---
+
+# Client status report
+
+1. Read the latest notes in the client's folder. Ignore anything older
+   than 14 days unless it is an open risk.
+2. Fill in template.md. Keep the section order.
+3. Lead with risks and decisions needed. Progress comes second.
+4. Name an owner and a date for every open item. If either is
+   missing, write "owner needed" rather than guessing.
+5. Run scripts/check_dates.py on the draft and fix what it reports.
+
+Rules
+- Never include fees, rates or invoice amounts.
+- Dates as "Sep 28", never ISO.
+- Under 300 words. If it runs longer, cut progress, not risks.
+
+Account names and owners: see reference/clients.md</code></pre>
+        </section>
+
+        <section class="article-block">
+          <h2>How do you test that a Skill works?</h2>
+          <p>Test the trigger first, then the output. A perfect body is worth nothing if the Skill never loads.</p>
+          <ol>
+            <li><strong>Write three test requests before the Skill</strong>, in the words a colleague would use, and note how Claude does without it. Anthropic recommends building these evaluations first.</li>
+            <li><strong>Check it triggers</strong> in a fresh conversation, from each request, without naming the Skill.</li>
+            <li><strong>Check it does not trigger</strong> on nearby requests that should go elsewhere.</li>
+            <li><strong>Read what Claude did, not just the result.</strong> If it keeps opening the same reference file, that content belongs in SKILL.md. If it never opens one, the link is unclear or the file is unnecessary.</li>
+            <li><strong>Test on every model you use.</strong> Instructions that suit a large model can be too thin for a small one.</li>
+          </ol>
+          <p>You do not have to start from a blank file. Do the task once with Claude, then ask it to turn what you just told it into a Skill, and trim what it writes.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Where do you install a Skill?</h2>
+          <p>In the Claude apps, upload the folder as a ZIP under Customize, then Skills. It needs code execution turned on. On Team and Enterprise plans, Owners can provision a Skill for the whole organization. In Claude Code, put the folder in <code>.claude/skills/</code> inside a repository to share it with the team, or in <code>~/.claude/skills/</code> for yourself. Whether you need a Skill at all, or an MCP server, is covered in <a href="claude-skills-vs-mcp.html">Claude Skills vs MCP</a>.</p>
         </section>
 
         <div class="article-callout">
           <span>Working rule</span>
-          <p>Write the description for the matcher and the body for the executor. If you only optimize one of the two, the Skill will either never fire or fire and underdeliver.</p>
+          <p>Write the description for the matcher and the body for the executor. Test the first before you polish the second.</p>
         </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>How long should a SKILL.md be?</h3>
+          <p>Anthropic recommends keeping the body under 500 lines, and most good Skills are far shorter. Only the name and description sit in context all the time. The body loads when the Skill triggers, so every line competes with the conversation for attention. Move long reference material into separate files.</p>
+          <h3>Why is my Claude Skill not triggering?</h3>
+          <p>Almost always the description. It is the only part Claude reads before deciding, so it needs to say what the Skill does, when to use it, and the words people actually use for that task. Rewrite it in the third person with concrete triggers, then test from a fresh conversation without naming the Skill.</p>
+          <h3>Can a Skill include code?</h3>
+          <p>Yes. A Skill can bundle scripts that Claude runs instead of writing its own code each time, which is more reliable and uses fewer tokens because only the output enters the conversation. Say plainly whether Claude should run a script or read it, and list any packages the script needs.</p>
+          <h3>Do I need to be a developer to write a Skill?</h3>
+          <p>No. A Skill is a text file with a short header. Anyone who can write down how a task should be done can write one, and Claude can draft it from a conversation where you walked it through the task once. Scripts inside a Skill are optional.</p>
+          <h3>Does a SKILL.md work outside Claude?</h3>
+          <p>Usually. SKILL.md is the Agent Skills open standard, which tools including ChatGPT and Codex, Gemini CLI, Cursor, VS Code and GitHub Copilot support. Instructions carry over well. Scripts depend on what each tool can run, so test in each one.</p>
+        </section>
+
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
           <li><a href="claude-skills-vs-mcp.html">Claude Skills vs MCP: when to use each</a></li>
-          <li><a href="claude-cowork.html">Claude Cowork: what it is and how a team uses it</a></li>
+          <li><a href="claude-cre-skills.html">Claude in CRE: Skills</a></li>
+          <li><a href="claude-cowork.html">What is Claude Cowork?</a></li>
+          <li><a href="claude-prompts-for-small-business.html">Claude prompts for small business owners</a></li>
           <li><a href="context-engineering-large-codebases.html">Context engineering for large codebases</a></li>
           </ul>
         </section>
@@ -165,8 +334,8 @@
 
     <section class="cta-section">
       <div>
-        <h2>Building out a Skills library for your team?</h2>
-        <p>We help teams turn their existing playbooks and conventions into Skills that Claude actually picks up and follows.</p>
+        <h2>Have a process your team explains to Claude every time?</h2>
+        <p>That is a Skill waiting to be written. We run working sessions where your team writes and tests its own.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>
