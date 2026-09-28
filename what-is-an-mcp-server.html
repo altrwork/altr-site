@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-RHG020FK51');
+</script>
+<meta charset="utf-8" />
+<title>What is an MCP server? Model Context Protocol explained | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="An MCP server gives an AI assistant like Claude a controlled door to your tools and data. What it exposes, how sign-in works, and when a business needs one." />
+<link rel="canonical" href="https://altrwork.com/what-is-an-mcp-server.html" />
+<meta property="og:title" content="What is an MCP server? Model Context Protocol explained | altr" />
+<meta property="og:description" content="An MCP server gives an AI assistant like Claude a controlled door to your tools and data. What it exposes, how sign-in works, and when a business needs one." />
+<meta property="og:url" content="https://altrwork.com/what-is-an-mcp-server.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="altr" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="altr - AI automation and enablement, Tampa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="What is an MCP server? Model Context Protocol explained | altr" />
+<meta name="twitter:description" content="An MCP server gives an AI assistant like Claude a controlled door to your tools and data. What it exposes, how sign-in works, and when a business needs one." />
+<meta name="twitter:image" content="https://altrwork.com/assets/altr_social_preview.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "What is an MCP server? The Model Context Protocol explained",
+      "description": "An MCP server gives an AI assistant like Claude a controlled door to your tools and data. What it exposes, how sign-in works, and when a business needs one.",
+      "image": "https://altrwork.com/assets/altr_social_preview.png",
+      "author": {
+        "@type": "Person",
+        "@id": "https://altrwork.com/about.html#alex-britton",
+        "name": "Alex Britton",
+        "url": "https://altrwork.com/about.html"
+      },
+      "publisher": {
+        "@id": "https://altrwork.com/#business"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://altrwork.com/what-is-an-mcp-server.html"
+      },
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Model Context Protocol"
+        },
+        {
+          "@type": "Thing",
+          "name": "MCP server"
+        },
+        {
+          "@type": "Thing",
+          "name": "OAuth"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is MCP only for Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Anthropic created the Model Context Protocol, but it is an open standard now governed under the Linux Foundation, and clients including ChatGPT, Visual Studio Code, Cursor and Gemini CLI support it. A server built to the specification can be used from any compliant client, though each client supports a different subset of features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an MCP server the same as an API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. An API is how software talks to a system. An MCP server usually sits in front of one or more APIs and describes them in a form an AI model can discover and call, with names, descriptions and typed inputs, plus the sign-in and permission rules for AI use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does my data leave my system when I use an MCP server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The data stays in your system until a tool is called. When the assistant calls a tool, the result is returned into the conversation and processed by the AI provider under that provider's data terms. Design tools to return only what the task needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do users need API keys to connect to a remote MCP server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not when the server uses OAuth. The user pastes the server URL into their AI app, signs in through a browser, and the app holds a token scoped to that server. Local servers often do use keys stored in a configuration file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between an MCP server and a Claude Skill?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An MCP server gives Claude access to a system it could not reach before. A Skill is a set of instructions and files that teaches Claude how to do a task well with the access it already has. Many workflows use both."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Learn",
+          "item": "https://altrwork.com/learn.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is an MCP server? The Model Context Protocol explained",
+          "item": "https://altrwork.com/what-is-an-mcp-server.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=20260928a" />
+<link rel="stylesheet" href="redesign.css?v=20260928a" />
+</head>
+<body>
+<div class="site-shell">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="altr home"><span class="brand-mark"></span></a>
+    <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="services-menu"><span>Services</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="services-menu" aria-label="Services">
+        <span class="nav-dropdown-label">What we do</span>
+        <a class="nav-dropdown-item" href="how-we-altr-work.html">Strategy</a>
+        <a class="nav-dropdown-item" href="ai-enablement-workshop.html">Enablement</a>
+        <a class="nav-dropdown-item" href="custom-agents.html">Engineering</a>
+        <span class="nav-dropdown-label">Who we serve</span>
+        <a class="nav-dropdown-item" href="real-estate.html">Commercial Real Estate</a>
+        <a class="nav-dropdown-item" href="nonprofits.html">Non-profits</a>
+        <a class="nav-dropdown-item" href="ecommerce.html">Ecommerce</a>
+        <a class="nav-dropdown-item" href="law-firms.html">Law firms</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="work-menu"><span>Work</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel nav-work-menu" id="work-menu" aria-label="Work">
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="case-studies.html">
+          <span>Case studies</span>
+          <small>Projects we have delivered</small>
+        </a>
+        <a class="nav-dropdown-item nav-dropdown-item-described" href="mortr.html">
+          <span>Internal products</span>
+          <small>Tools built in our own studio</small>
+        </a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-controls="resources-menu" aria-current="page"><span>Resources</span><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+        <div class="nav-dropdown-panel" id="resources-menu" aria-label="Resources">
+        <a class="nav-dropdown-item" href="ai-workshop.html">Events</a>
+        <a class="nav-dropdown-item" href="learn.html">Learning center</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-contact">Contact us</a>
+      <a href="https://calendly.com/altrwork/30min" class="nav-cta">Book a call</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="page-hero article-hero hero-scene scene-forum">
+      <h1>An MCP server is a controlled door between an AI assistant and your systems.</h1>
+      <p class="page-lede">Model Context Protocol, or MCP, is the open standard most AI assistants now use to reach outside the chat window. This page explains what a server exposes, how people sign in to one, where the security boundary sits, and how to tell whether your business needs one.</p>
+    </section>
+
+    <section class="section article-section">
+      <article class="article-body">
+        <div class="article-summary">
+          <span>Short answer</span>
+          <p>An MCP server is a small program that lets an AI assistant such as Claude, ChatGPT or a coding tool reach one specific system through the Model Context Protocol, an open standard. It exposes named tools the assistant can call, resources it can read and prompts it can offer, and it decides who may use each. Your data stays where it is. The server is the supervised way in.</p>
+        </div>
+
+        <section class="article-block">
+          <h2>What problem does MCP solve?</h2>
+          <p>MCP gives every AI app one way to connect to every system, instead of a custom integration for each pair. Before it, each assistant needed its own glue code for each system.</p>
+          <p>The protocol has three roles. The <strong>host</strong> is the app a person uses, such as Claude Desktop. Inside it, an <strong>MCP client</strong> connects to each <strong>MCP server</strong>, the part you build or install, which talks to one system and describes what it can do in a format every client understands. Build the server once and any compliant client can use it.</p>
+          <p>Anthropic released MCP as an open specification, and in December 2025 donated it to the Agentic AI Foundation, a fund under the Linux Foundation co-founded with Block and OpenAI. For a buyer, that means a server you commission is not tied to one vendor's assistant.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>What are tools, resources and prompts?</h2>
+          <p>They are the three things a server can offer. Tools do things, resources are things to read, and prompts are reusable instructions a person can pick from a menu.</p>
+          <ul>
+            <li><strong>Tools</strong> are functions the model decides to call, each with a name, a description and a typed list of inputs. "Search contacts by company", "create a room booking" and "draft an email" are tools.</li>
+            <li><strong>Resources</strong> are data the client can read into context, such as a file or a record, usually chosen by the app or the person.</li>
+            <li><strong>Prompts</strong> are templates the server publishes, such as "summarize this account". The person chooses to run one.</li>
+          </ul>
+          <p>Most business servers are mostly tools. Not every client supports all three, so check the client's documentation before designing around resources or prompts.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>What is the difference between a local and a remote MCP server?</h2>
+          <p>A local server runs on the user's own computer and talks to the app directly. A remote server runs on the internet, at a URL, and people connect to it by signing in.</p>
+          <div class="article-table-wrap"><table class="article-table">
+            <thead>
+              <tr><th></th><th>Local server</th><th>Remote server</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Where it runs</td><td>On each user's machine, started by the app</td><td>On a hosted service, reached over HTTPS</td></tr>
+              <tr><td>How it connects</td><td>Standard input and output (stdio)</td><td>HTTP, usually the Streamable HTTP transport</td></tr>
+              <tr><td>How it gets credentials</td><td>From the local environment, such as a key in a config file</td><td>OAuth sign-in in a browser</td></tr>
+              <tr><td>Setup per person</td><td>Install and configure on every machine</td><td>Paste a URL, sign in</td></tr>
+              <tr><td>Good for</td><td>Local files, developer tools, one person's experiments</td><td>Shared business systems used by a team</td></tr>
+              <tr><td>Who maintains it</td><td>Whoever set up that machine</td><td>One owner, one deployment</td></tr>
+            </tbody>
+          </table></div>
+          <p>For a team, remote is usually right: one copy to update, one place to log activity, and no API key in a text file on somebody's laptop.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>How does sign-in work on an MCP server?</h2>
+          <p>Remote servers use OAuth, the same sign-in pattern behind "Sign in with Microsoft" or "Sign in with Google". The person clicks connect, a browser window opens, they sign in, and the app receives a token that works only for that server.</p>
+          <p>For the technical reader: the MCP authorization specification is built on OAuth 2.1. Authorization is optional in the protocol, but when an HTTP server uses it, the server acts as an OAuth resource server, answers an unauthenticated request with a 401 and a <code>WWW-Authenticate</code> header, and publishes Protected Resource Metadata (RFC 9728) that tells the client which authorization server to use. Clients use PKCE and send a <code>resource</code> parameter (RFC 8707) so the token is bound to that one server. The server must reject tokens not issued for it and must not pass them through to other APIs. Local stdio servers skip all of this and read credentials from their environment.</p>
+          <p>For the business reader: because the server knows who signed in, it can apply that person's permissions, record what they did, and write as a named person rather than a shared key.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Which AI apps support MCP?</h2>
+          <p>Most major AI assistants and developer tools now act as MCP clients. The protocol's own site lists Claude, ChatGPT, Visual Studio Code, Cursor and many others, and Google's Gemini CLI documents MCP server support as well.</p>
+          <p>In Claude, remote servers are added as custom connectors, and Anthropic's help center says they work in Claude, Cowork and Claude Desktop on free, Pro, Max, Team and Enterprise plans. On Team and Enterprise, only an Owner can add a custom connector for the organization, and each person then connects and signs in individually. Claude Code connects to MCP servers too.</p>
+          <p>Support is not uniform: clients differ in transports, primitives and sign-in flows, and those details change between releases. Test against the exact clients your team uses.</p>
+        </section>
+
+        <section class="article-block">
+          <h2>Where is the security boundary?</h2>
+          <p>The boundary is the server, not the model. Anything a tool can do, the model can be talked into doing, so the limit has to be enforced in code the model cannot change.</p>
+          <ul>
+            <li><strong>Scope each tool to one job.</strong> "Read order history" and "issue a refund" are two tools with two permission levels, not one tool with a flag.</li>
+            <li><strong>Treat content as untrusted.</strong> A customer email or web page the model reads can contain instructions. This is prompt injection, and the defense is that the dangerous action is not available, or needs approval, regardless of what the text says.</li>
+            <li><strong>Put people before consequential writes.</strong> Draft instead of send. Offer a dry run. Require a confirmation step for money, access and anything external.</li>
+            <li><strong>Log every call:</strong> who, which tool, what inputs, what happened.</li>
+            <li><strong>Vet third-party servers</strong> like any vendor with access to your data.</li>
+          </ul>
+        </section>
+
+        <section class="article-block">
+          <h2>When does a business need its own MCP server?</h2>
+          <p>You need one when people keep copying information between an AI assistant and a system it cannot reach. If the task only needs better instructions, a <a href="claude-skills-vs-mcp.html">Skill is enough</a>. If a vendor already publishes a connector for the tool, start there.</p>
+          <p>A custom server earns its place when the system is internal or niche, when several tools must combine into one workflow, when you need your own permission rules over a vendor's API, or when the data is public but scattered. </p>
+          <p>At altr we build remote MCP servers on Cloudflare Workers. For spARK Labs, one Worker connects Claude and Claude Cowork to four operations tools behind Microsoft sign-in, with a dry run flag on building access and email left as drafts (<a href="impact-spark-labs-mcp.html">case study</a>). For Tampa commercial real estate, a connector puts four counties of property records inside Claude (<a href="impact-cre-county-records-connector.html">case study</a>). Why Workers, and how one stateless deployment serves several teams, is in <a href="impact-cloudflare-workers-architecture.html">our architecture write-up</a>. The design rules we follow for tool boundaries, schemas and audit are in <a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a>.</p>
+        </section>
+
+        <div class="article-callout">
+          <span>Working rule</span>
+          <p>An MCP server is only as safe as its narrowest tool. Decide what the assistant may do, write that into the server, and let sign-in decide who may ask.</p>
+        </div>
+
+        <section class="article-block article-faq" id="faq">
+          <h2>Common questions</h2>
+          <h3>Is MCP only for Claude?</h3>
+          <p>No. Anthropic created the Model Context Protocol, but it is an open standard now governed under the Linux Foundation, and clients including ChatGPT, Visual Studio Code, Cursor and Gemini CLI support it. A server built to the specification can be used from any compliant client, though each client supports a different subset of features.</p>
+          <h3>Is an MCP server the same as an API?</h3>
+          <p>No. An API is how software talks to a system. An MCP server usually sits in front of one or more APIs and describes them in a form an AI model can discover and call, with names, descriptions and typed inputs, plus the sign-in and permission rules for AI use.</p>
+          <h3>Does my data leave my system when I use an MCP server?</h3>
+          <p>The data stays in your system until a tool is called. When the assistant calls a tool, the result is returned into the conversation and processed by the AI provider under that provider's data terms. Design tools to return only what the task needs.</p>
+          <h3>Do users need API keys to connect to a remote MCP server?</h3>
+          <p>Not when the server uses OAuth. The user pastes the server URL into their AI app, signs in through a browser, and the app holds a token scoped to that server. Local servers often do use keys stored in a configuration file.</p>
+          <h3>What is the difference between an MCP server and a Claude Skill?</h3>
+          <p>An MCP server gives Claude access to a system it could not reach before. A Skill is a set of instructions and files that teaches Claude how to do a task well with the access it already has. Many workflows use both.</p>
+        </section>
+
+        <section class="article-block article-related">
+          <h2>Related reading</h2>
+          <ul>
+          <li><a href="claude-skills-vs-mcp.html">Claude Skills vs MCP: when to use each</a></li>
+          <li><a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a></li>
+          <li><a href="impact-spark-labs-mcp.html">spARK Labs: a remote MCP server across four tools</a></li>
+          <li><a href="impact-cloudflare-workers-architecture.html">Why we deploy MCP servers on Cloudflare Workers</a></li>
+          <li><a href="what-is-an-ai-agent.html">What is an AI agent?</a></li>
+          <li><a href="mcp-agents-function-calling.html">MCP, agents and function calling</a></li>
+          </ul>
+        </section>
+
+      </article>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <h2>Is someone on your team copying data into a chat window?</h2>
+        <p>That is usually a connector waiting to be built. Show us the system and the task and we will tell you whether an MCP server is the right fix.</p>
+      </div>
+      <a class="button primary" href="start-a-conversation.html">Book a call</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="index.html" aria-label="altr home">
+        <span class="brand-mark"></span>
+        <span>AI services for teams who want to do real work</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="index.html#who-we-serve">Services</a>
+        <a href="case-studies.html">Work</a>
+        <a href="learn.html">Learn</a>
+        <a href="about.html">About</a>
+
+        <a href="https://www.linkedin.com/company/altrwork/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="ai-consulting-tampa.html">Tampa, FL</a>
+      <a href="tel:+14846315985">(484) 631-5985</a><a href="website-terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>
+    </div>
+  </footer>
+</div>
+<script src="nav.js"></script>
+<script src="intake-modal.js"></script>
+</body>
+</html>

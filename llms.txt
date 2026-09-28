@@ -71,12 +71,54 @@ Contact: inquiries@altrwork.com
 - [Claude in CRE: Cowork](https://altrwork.com/claude-cre-cowork.html): working directly inside approved local underwriting files
 - [Claude in CRE: Scheduled Tasks](https://altrwork.com/claude-cre-scheduled-tasks.html): recurring market, pipeline, and property routines
 
-## Frameworks
+## Learning center
 
+- [Learning center](https://altrwork.com/learn.html): every plain-answer page in one index, grouped as below
 
-## Blog
+### Commercial real estate
 
-- [Blog](https://altrwork.com/tutorials.html): step-by-step guides on MCP, agents, and AI infrastructure
+- [How commercial real estate brokers use AI](https://altrwork.com/ai-for-commercial-real-estate-brokers.html): Prospecting from public record, BOVs, comps, CRM hygiene, and market updates, with what not to hand to a model.
+- [MCP server for commercial real estate](https://altrwork.com/mcp-server-for-commercial-real-estate.html): What it does for a brokerage, what data can sit behind it, and the quiet failures to design against.
+- [What is a broker opinion of value (BOV)?](https://altrwork.com/what-is-a-broker-opinion-of-value.html): What goes in one, how it differs from an appraisal, and what Florida law says it may not be called.
+- [What Florida property appraiser data tells you](https://altrwork.com/florida-property-appraiser-data.html): Just value, DOR use codes, qualified sales, $100 deeds, portfolio sales, and what the roll never carries.
+- [AI rent roll and lease abstraction](https://altrwork.com/ai-rent-roll-and-lease-abstraction.html): The fields to pull, how to check them, and where a person still has to read the lease.
+- [AI in CRE underwriting: what it can and can't do](https://altrwork.com/ai-cre-underwriting.html): Normalizing T-12s and rent rolls, drafting memos, and why the value conclusion stays with the analyst.
+- [AI tools for commercial real estate](https://altrwork.com/ai-tools-for-commercial-real-estate.html): A map by job to be done: assistants, data platforms, abstraction, underwriting, CRM, and public record.
+- [Can Claude connect to CoStar?](https://altrwork.com/can-claude-connect-to-costar.html): There is no official connector, and CoStar's terms restrict AI access. What to automate instead.
+- [Claude in CRE: Skills](https://altrwork.com/claude-cre-skills.html): Package the underwriting steps your team repeats into a playbook Claude follows.
+- [Claude in CRE: Connectors](https://altrwork.com/claude-cre-connectors.html): Connect Claude to the CRM, property systems, and local market data.
+- [Claude in CRE: Cowork](https://altrwork.com/claude-cre-cowork.html): Work directly inside approved local underwriting files.
+- [Claude in CRE: Scheduled Tasks](https://altrwork.com/claude-cre-scheduled-tasks.html): Recurring market, pipeline, and property routines.
+
+### Claude, MCP and agents
+
+- [What is an MCP server?](https://altrwork.com/what-is-an-mcp-server.html): The Model Context Protocol for a business reader and a technical one: tools, resources, auth, and the security boundary.
+- [What is an AI agent?](https://altrwork.com/what-is-an-ai-agent.html): Agent vs chatbot vs automation, the loop an agent runs, and where a person has to stay in it.
+- [Claude Skills vs MCP](https://altrwork.com/claude-skills-vs-mcp.html): Skills package how Claude does a task. MCP is how it reaches a live system.
+- [What is Claude Cowork?](https://altrwork.com/claude-cowork.html): Claude working inside an approved local folder so the deliverable stays on disk.
+- [How to write a SKILL.md that gets used](https://altrwork.com/writing-a-skill-md.html): A sharp description, a lean body, and reference files loaded on demand.
+- [MCP server design for internal AI tools](https://altrwork.com/mcp-server-design-internal-ai-tools.html): Tool boundaries, read vs write, schemas as contracts, approval and audit.
+- [MCP agents and function calling](https://altrwork.com/mcp-agents-function-calling.html): Where tool-calling agents and MCP-connected workflows each fit.
+- [LLM retrieval and grounded answers](https://altrwork.com/llm-retrieval-grounded-answers.html): Chunking, embedding, ranking, and keeping answers tied to sources.
+- [RAG evaluation for internal knowledge bases](https://altrwork.com/rag-evaluation-internal-knowledge-bases.html): Measure retrieval quality and grounding before trusting it.
+- [Context engineering for large codebases](https://altrwork.com/context-engineering-large-codebases.html): Repo instructions, retrieval, and definitions of done as infrastructure.
+- [AI code review with judge agents](https://altrwork.com/ai-code-review-judge-agents.html): A judge-model loop that reviews pull requests without replacing the reviewer.
+
+### Rolling AI out to a team
+
+- [How to roll out Claude to a team](https://altrwork.com/how-to-roll-out-claude-to-a-team.html): One workflow first, then Projects, Skills, connectors, a data policy, and training.
+- [AI training for employees: what sticks](https://altrwork.com/ai-training-for-employees.html): Train on the team's own tasks, not a feature tour, and measure what people keep using.
+- [Claude prompts for small business owners](https://altrwork.com/claude-prompts-for-small-business.html): Copy-paste prompts from our free workshops, and how to turn a good one into a Skill.
+- [AI governance for small and mid-size businesses](https://altrwork.com/ai-governance-lite-smb.html): Policy, access, and audit trails without a compliance department.
+- [How to run a workflow audit before you automate](https://altrwork.com/ai-workflow-audit-small-business.html): Map inputs, decisions, tools, outputs, and failure modes first.
+- [The three phases of AI deployment](https://altrwork.com/three-phases-ai-deployment.html): Audit, pilot, controlled rollout.
+
+### Buying AI services
+
+- [How much does AI consulting cost?](https://altrwork.com/ai-consulting-cost.html): The pricing models in the market, what drives the number, and the costs outside the consultant.
+- [How to choose an AI consultant](https://altrwork.com/how-to-choose-an-ai-consultant.html): Questions to ask, what good deliverables look like, and the red flags.
+- [Claude vs ChatGPT for business teams](https://altrwork.com/claude-vs-chatgpt-for-business.html): A dated comparison of the things a team actually decides on.
+- [Zapier vs AI agents](https://altrwork.com/zapier-vs-ai-agents.html): Deterministic automation vs judgment steps, and when to combine them.
 
 ## Optional
 

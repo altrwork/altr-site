@@ -84,7 +84,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn('Content-Disposition: attachment; filename="AI-in-Real-Estate-Field-Guide.pdf"', headers)
 
     def test_content_card_images_have_alt_text(self):
-        for name in ("tutorials.html", "case-studies.html"):
+        for name in ("learn.html", "case-studies.html"):
             html = (ROOT / name).read_text(encoding="utf-8")
             empty = re.findall(r'<img\b[^>]*\balt=""[^>]*>', html)
             self.assertFalse(empty, f"{name} contains empty image alt text")
@@ -264,7 +264,7 @@ class SeoIntegrityTests(unittest.TestCase):
             'href="nonprofits.html"',
             'href="ecommerce.html"',
             'href="case-studies.html"',
-            'href="tutorials.html"',
+            'href="learn.html"',
         )
         for file in sorted(ROOT.glob("*.html")):
             html = file.read_text(encoding="utf-8")
@@ -350,6 +350,53 @@ class SeoIntegrityTests(unittest.TestCase):
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('href="ai-enablement-workshop.html"', homepage)
         self.assertIn("Enablement", homepage)
+
+
+    def test_learning_center_pages_are_wired_everywhere(self):
+        """A learning page nobody can reach is not in any engine's index.
+        Every page the hub links must exist, be in the sitemap and llms.txt,
+        and have its extensionless form redirected to the canonical .html."""
+        hub = (ROOT / "learn.html").read_text(encoding="utf-8")
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
+        redirects = (ROOT / "_redirects").read_text(encoding="utf-8")
+        links = re.findall(r'<h3><a href="([^"]+\.html)">', hub)
+        self.assertGreaterEqual(len(links), 30)
+        for href in links + ["learn.html"]:
+            self.assertTrue((ROOT / href).exists(), f"learn.html links a missing page: {href}")
+            self.assertIn(f"https://altrwork.com/{href}", sitemap, f"{href} not in sitemap")
+            self.assertIn(f"https://altrwork.com/{href}", llms, f"{href} not in llms.txt")
+            self.assertRegex(redirects, rf"(?m)^/{re.escape(href[:-5])}\s+/{re.escape(href)}\s+301!",
+                             f"{href} has no extensionless redirect")
+
+    def test_the_blog_index_is_folded_into_the_learning_center(self):
+        """One index, not two listing the same articles. The old blog URL and
+        its aliases must land on the hub so inbound links keep their value."""
+        self.assertFalse((ROOT / "tutorials.html").exists())
+        redirects = (ROOT / "_redirects").read_text(encoding="utf-8")
+        for old in ("/tutorials", "/tutorials.html", "/resources", "/resources.html"):
+            self.assertRegex(redirects, rf"(?m)^{re.escape(old)}\s+/learn\.html\s+301!")
+        for file in sorted(ROOT.glob("*.html")):
+            self.assertNotIn('href="tutorials.html"', file.read_text(encoding="utf-8"), file.name)
+
+    def test_every_page_links_the_learning_center(self):
+        for file in sorted(ROOT.glob("*.html")):
+            html = file.read_text(encoding="utf-8")
+            nav = re.search(r'<header class="nav">.*?</header>', html, re.S).group(0)
+            self.assertIn('href="learn.html"', nav, f"{file.name}: nav missing learn.html")
+
+    def test_answer_engine_simulation_finds_an_answer_for_every_query(self):
+        """tests/answer_engine_sim.py is a proxy for whether an engine could
+        lift an answer from this site. Every query in the set must land on a
+        page that answers it; a new query with no page fails here until the
+        page exists."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("sim", ROOT / "tests" / "answer_engine_sim.py")
+        sim = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(sim)
+        results = sim.run()
+        weak = [f"{r['query']} -> {r['page']} ({r['score']})" for r in results if r["verdict"] != "strong"]
+        self.assertEqual([], weak, "queries without a strong answer page")
 
 
 if __name__ == "__main__":
