@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <title>AI for Commercial Real Estate Teams | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="AI consulting for commercial real estate teams. Improve underwriting, property research, deal workflows, asset operations, and market monitoring." />
+<meta name="description" content="AI consulting for commercial real estate teams nationwide, based in Tampa: underwriting, property research, deal workflows, asset operations, market monitoring." />
 <link rel="canonical" href="https://altrwork.com/real-estate.html" />
 <meta property="og:title" content="AI for Commercial Real Estate Teams | altr" />
 <meta property="og:description" content="Move AI beyond chat and into the underwriting, research, files, and systems your commercial real estate team already owns." />
@@ -80,7 +80,7 @@
         {
           "@type": "Question",
           "name": "Can AI connect to CoStar?",
-          "acceptedAnswer": {"@type": "Answer", "text": "There is no official CoStar connector for Claude. Do not share CoStar credentials with an AI agent, scrape the service, or expose licensed data in ways the agreement prohibits. AI can support the permitted work around CoStar using approved exports, public records, internal files, and systems with authorized APIs."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Not as of September 2026. There is no CoStar connector for Claude, and CoStar's public terms bar sharing passcodes with AI agents, scraping, and using its data as input to generative AI. AI can do the work around CoStar using public records, your own files, and systems with authorized connectors or APIs."}
         },
         {
           "@type": "Question",
@@ -94,8 +94,8 @@
         },
         {
           "@type": "Question",
-          "name": "What should stay outside a commercial real estate AI workflow?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Keep unapproved licensed data, shared credentials, undisclosed client information, and final investment or legal judgment outside the model. A workflow should state what the model may access, what it may produce, and which person must review the result before anyone acts."}
+          "name": "Does altr work with CRE teams outside Tampa?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. altr is based in Tampa and works with commercial real estate teams across the US. Workshops and working sessions happen in person across Tampa Bay and remotely everywhere else. The Florida public-records tools cover Tampa-area counties; Skills, connectors and workflow design apply in any market."}
         }
       ]
     }
@@ -153,7 +153,7 @@
   <main class="page" id="main">
     <section class="page-hero hero-scene scene-colosseum">
       <h1 class="hero-title-long">AI workflows for commercial real estate teams.</h1>
-      <p class="page-lede">Commercial real estate teams can use AI to organize property research, prepare underwriting inputs, work across approved files and systems, draft review-ready deliverables, and monitor recurring market signals. The right workflow keeps brokers, analysts, asset managers, and principals in control of assumptions and decisions.</p>
+      <p class="page-lede">Commercial real estate teams can use AI to organize property research, prepare underwriting inputs, work across approved files and systems, draft review-ready deliverables, and monitor recurring market signals. The right workflow keeps brokers, analysts, asset managers, and principals in control of assumptions and decisions. altr is based in Tampa and works with CRE teams nationwide.</p>
       <div class="page-hero-actions">
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
         <a class="button secondary" href="ai-in-real-estate-guide.html">Download the field guide</a>
@@ -186,7 +186,7 @@
         <article class="engagement-item"><h3>03 · Workspace</h3><p>Give the model the narrowest practical access to the files and tools needed for this job - never a shared login or an unrestricted machine.</p></article>
         <article class="engagement-item"><h3>04 · Deliverable</h3><p>Define what "done" means: a research packet, model input sheet, CRM update, exception report, memo, or branded document.</p></article>
         <article class="engagement-item"><h3>05 · Review</h3><p>Assign the broker, analyst, property manager, asset manager, or principal who validates sources and owns the final decision.</p></article>
-        <article class="engagement-item"><h3>Guardrail</h3><p>Do not automate a process simply because a model can attempt it. Start where errors are visible, review is practical, and the team can compare the output with current work.</p></article>
+        <article class="engagement-item"><h3>Guardrail</h3><p>Do not automate a process simply because a model can attempt it. Start where errors are visible and review is practical. Keep shared credentials, licensed data your vendor excludes from AI tools, and final investment or legal judgment outside the model.</p></article>
       </div>
     </section>
 
@@ -205,8 +205,14 @@
         <a class="work-card" href="mortr.html">
           <span class="work-tag">Product · Florida property records</span>
           <h3>mortr: property owner and parcel research in chat</h3>
-          <p>Look up a Florida property owner by address, run parcel lookup, compare recorded sales, map an owner portfolio, and flag loan maturity from dated public records in Hillsborough, Pinellas, Pasco, and Polk.</p>
+          <p>A CRM for CRE teams: look up a property owner by address from dated public records in Pinellas, Hillsborough and Pasco, manage contacts and deals, and create BOVs in your firm&#x27;s branding.</p>
           <span class="work-more">See mortr</span>
+        </a>
+        <a class="work-card" href="impact-cre-county-records-connector.html">
+          <span class="work-tag">Commercial Real Estate · Case Study</span>
+          <h3>County property records inside Claude</h3>
+          <p>A remote MCP connector that brings four Tampa-area counties of parcels, owners and recorded sales into the assistant a broker already uses, with every figure naming its source file and date.</p>
+          <span class="work-more">Read the case study</span>
         </a>
       </div>
     </section>
@@ -214,15 +220,39 @@
     <section class="section product-page-section" aria-labelledby="cre-learning-path">
       <div class="section-header">
         <div><h2 id="cre-learning-path">Build the workflow one layer at a time.</h2></div>
-        <p>This four-part series moves from reusable instructions to approved system access, local file work, and recurring routines. Read it in order or start with the layer blocking your team today.</p>
+        <p>This four-part series by Jarred Robidoux moves from reusable instructions to approved system access, local file work, and recurring routines. Each part was updated in September 2026, including Anthropic&#x27;s merge of Cowork into everyday Claude. Read it in order or start with the layer blocking your team today.</p>
       </div>
       <div class="engagement-grid engagement-grid-2up">
         <article class="engagement-item"><h3><a href="claude-cre-skills.html">01 · Skills: package the playbook</a></h3><p>Turn underwriting context, required inputs, review steps, and output standards into reusable instructions instead of rewriting the same prompt.</p></article>
         <article class="engagement-item"><h3><a href="claude-cre-connectors.html">02 · Connectors: reach approved systems</a></h3><p>Give AI a controlled route to the CRM, property-management platform, or internal tool when an authorized connection exists.</p></article>
-        <article class="engagement-item"><h3><a href="claude-cre-cowork.html">03 · Cowork: operate on approved files</a></h3><p>Work directly with a deliberately scoped project folder so the output remains in the spreadsheets and documents the team will review.</p></article>
-        <article class="engagement-item"><h3><a href="claude-cre-scheduled-tasks.html">04 · Scheduled tasks: maintain the cadence</a></h3><p>Run defined market, pipeline, and property routines on schedule, with a clear source, destination, and person responsible for review.</p></article>
+        <article class="engagement-item"><h3><a href="claude-cre-cowork.html">03 · Cowork: operate on approved files</a></h3><p>Build and revise the underwriting model in one connected folder, so the output stays in the spreadsheet the team will review instead of an upload-and-download loop.</p></article>
+        <article class="engagement-item"><h3><a href="claude-cre-scheduled-tasks.html">04 · Scheduled tasks: maintain the cadence</a></h3><p>Run a weekly recorded-sales digest or pipeline review in the cloud on a cadence, with a clear source, output and person responsible for review.</p></article>
       </div>
       <p>For the complete model, download <a href="ai-in-real-estate-guide.html">AI in Real Estate: From Chatbot to Operating Layer</a>. If licensed data is the concern, read <a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a></p>
+    </section>
+
+    <section class="section product-page-section" aria-labelledby="cre-guides">
+      <div class="section-header">
+        <div><h2 id="cre-guides">Guides for the question in front of you.</h2></div>
+        <p>Each guide answers one question a CRE team asks before it changes a workflow. They are written for teams anywhere in the US; the Florida pages say so in the title.</p>
+      </div>
+      <div class="engagement-grid engagement-grid-2up">
+        <article class="engagement-item"><h3><a href="ai-tools-for-commercial-real-estate.html">Which AI tools fit which CRE job?</a></h3><p>Assistants, data and comps, lease abstraction, underwriting, CRM, public records and drafting, mapped by the job each one does.</p></article>
+        <article class="engagement-item"><h3><a href="ai-for-commercial-real-estate-brokers.html">How do brokers use AI day to day?</a></h3><p>Prospecting owners, BOVs, OMs, comps, CRM hygiene and follow-up, with a small pilot to test it.</p></article>
+        <article class="engagement-item"><h3><a href="ai-cre-underwriting.html">Where does AI help underwriting, and where not?</a></h3><p>What to hand to a model, what an analyst must still check, and how to keep assumptions visible.</p></article>
+        <article class="engagement-item"><h3><a href="ai-rent-roll-and-lease-abstraction.html">Can AI abstract rent rolls and leases?</a></h3><p>How to extract lease terms reliably and catch the errors that matter before they reach the model.</p></article>
+        <article class="engagement-item"><h3><a href="what-is-a-broker-opinion-of-value.html">What is a broker opinion of value?</a></h3><p>What a BOV is, how it differs from an appraisal, and what goes into a credible one.</p></article>
+        <article class="engagement-item"><h3><a href="mcp-server-for-commercial-real-estate.html">What does an MCP server do for a CRE team?</a></h3><p>How Claude or ChatGPT reach parcels, owners, sales, debt and your CRM through defined tools.</p></article>
+        <article class="engagement-item"><h3><a href="florida-property-appraiser-data.html">What does Florida property appraiser data tell you?</a></h3><p>Just, assessed and taxable value, use codes, $100 deeds and portfolio sales, for teams working Florida property.</p></article>
+        <article class="engagement-item"><h3><a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a></h3><p>No, and the reasons are in CoStar&#x27;s own terms. What to connect and automate instead.</p></article>
+      </div>
+    </section>
+
+    <section class="section product-page-section" aria-labelledby="cre-where">
+      <div class="section-header">
+        <div><h2 id="cre-where">Based in Tampa. Working with CRE teams nationwide.</h2></div>
+        <p>We run workshops and working sessions in person across Tampa Bay and remotely with brokerage, investment and property teams anywhere in the US. The workflow method, Skills and connectors work in any market. Our public-records tooling is where geography shows: it currently covers Florida counties around Tampa, because those are the records we have loaded and tested. For a team elsewhere, the same pattern runs on your own county&#x27;s data and your own systems.</p>
+      </div>
     </section>
 
     <section class="section product-page-section" aria-labelledby="cre-faq">
@@ -233,10 +263,10 @@
       <div class="content-split">
         <article class="content-panel"><h3>How can commercial real estate teams use AI?</h3><p>Commercial real estate teams can use AI to organize property research, prepare underwriting inputs, work across approved files and systems, draft review-ready deliverables, and monitor recurring market signals. The strongest workflows preserve human approval for assumptions, investment decisions, client commitments, and licensed data.</p></article>
         <article class="content-panel"><h3>What CRE workflow should a team automate first?</h3><p>Start with a repeated workflow that has stable inputs, a clear output, and an identifiable reviewer. Property research, CRM updates, recurring market summaries, document intake, and first-pass diligence are usually better starting points than investment decisions or irregular negotiations.</p></article>
-        <article class="content-panel"><h3>Can AI connect to CoStar?</h3><p>There is no official CoStar connector for Claude. Do not share CoStar credentials with an AI agent, scrape the service, or expose licensed data in ways the agreement prohibits. AI can support the permitted work around CoStar using approved exports, public records, internal files, and systems with authorized APIs.</p></article>
+        <article class="content-panel"><h3>Can AI connect to CoStar?</h3><p>Not as of September 2026. There is no CoStar connector for Claude, and CoStar&#x27;s public terms bar sharing passcodes with AI agents, scraping, and using its data as input to generative AI. AI can do the work around CoStar using public records, your own files, and systems with authorized connectors or APIs.</p></article>
         <article class="content-panel"><h3>Does AI replace brokers, analysts, or asset managers?</h3><p>No. A well-designed CRE workflow uses AI to collect inputs, follow repeatable steps, and prepare review-ready work. Brokers, analysts, asset managers, and principals remain responsible for assumptions, source validation, judgment, relationships, and final decisions.</p></article>
         <article class="content-panel"><h3>How does altr start an AI project with a CRE team?</h3><p>We start by mapping one real workflow: its sources, assumptions, handoffs, approvals, exceptions, and final deliverable. The team first learns to run the improved process with AI. Custom software is considered only when the validated workflow needs system access, automation, or deployment.</p></article>
-        <article class="content-panel"><h3>What should stay outside a commercial real estate AI workflow?</h3><p>Keep unapproved licensed data, shared credentials, undisclosed client information, and final investment or legal judgment outside the model. A workflow should state what the model may access, what it may produce, and which person must review the result before anyone acts.</p></article>
+        <article class="content-panel"><h3>Does altr work with CRE teams outside Tampa?</h3><p>Yes. altr is based in Tampa and works with commercial real estate teams across the US. Workshops and working sessions happen in person across Tampa Bay and remotely everywhere else. The Florida public-records tools cover Tampa-area counties; Skills, connectors and workflow design apply in any market.</p></article>
       </div>
     </section>
 
