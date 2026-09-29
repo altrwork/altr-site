@@ -14,11 +14,24 @@ Each drawing is a small SVG written by hand. The drawing holds only shapes and c
 `sketch.css` supplies every color and the hand-drawn wobble, so the whole set stays
 consistent and a restyle is one CSS edit.
 
+## Where this runs
+
+- **In the altr-site repo (Claude Code):** follow all four steps below. Steps 3 and 4 render
+  with a browser and write the site's images.
+- **Anywhere else (claude.ai, or no repo checked out):** do steps 1 and 2, writing the drawing
+  to any file. Then run `python header.py standalone <drawing.svg>` from this skill's folder.
+  It needs nothing installed and writes `<drawing>-header.svg`, one self-contained file with
+  the style and font built in. Open it or read it back to check it. Hand the user both files:
+  the plain drawing, which goes in the repo's `design-language/headers/svgs/<slug>.svg`, and
+  the standalone preview. Exporting and wiring into the site (steps 3 and 4) happen later in
+  the repo.
+
 ## Files
 
 - `design-language/headers/svgs/<slug>.svg` - the source drawing for `<slug>.html`. One per page.
-- `.claude/skills/sketch-header/sketch.css` - the style. Don't restyle a single drawing.
-- `.claude/skills/sketch-header/header.py` - renders previews and exports.
+- `sketch.css` (in this skill) - the style. Don't restyle a single drawing.
+- `header.py` (in this skill) - renders previews, exports, and standalone files.
+- `examples/` (in this skill) - four finished drawings to match for level of detail.
 - `assets/headers/<slug>.png` and `.webp` - the exported images the site serves.
 
 ## 1. Choose the idea
@@ -78,7 +91,7 @@ characters at most, and leave room to their right.
 - No markers, gradients, filters, images, `<use>`, clipPaths, or `style=`/`fill=`/`stroke=`/font attributes.
 - Paint order is document order, so draw back to front.
 - Aim for 20-60 elements: enough to feel illustrated, clean enough to read on a card about 400px wide.
-- Reference drawing: `design-language/headers/svgs/what-is-an-mcp-server.svg`.
+- Reference drawings: `examples/` in this skill, starting with `what-is-an-mcp-server.svg`.
 
 ## 3. Check it
 

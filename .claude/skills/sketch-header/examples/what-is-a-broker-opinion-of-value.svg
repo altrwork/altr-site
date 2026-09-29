@@ -1,0 +1,34 @@
+<!-- title: What is a BOV? -->
+<!-- concept: a balance scale weighs the owner's building, price unknown, against a pan of comparable sales until the beam settles on a value -->
+<!-- stand -->
+<rect class="f3" x="500" y="552" width="200" height="30" rx="6"/>
+<rect class="f3" x="586" y="222" width="28" height="332"/>
+<path class="ln" d="M300 220 L900 220"/>
+<!-- left hangers and pan -->
+<path class="ln" d="M300 220 L150 450"/>
+<path class="ln" d="M300 220 L450 450"/>
+<!-- subject building -->
+<rect class="f2" x="250" y="345" width="100" height="105"/>
+<rect class="f1" x="264" y="360" width="22" height="22"/>
+<rect class="f1" x="314" y="360" width="22" height="22"/>
+<rect class="f1" x="286" y="410" width="28" height="40"/>
+<rect class="f4" x="276" y="312" width="48" height="26" rx="4"/>
+<circle class="f1" cx="286" cy="325" r="4"/>
+<path class="f1" d="M140 450 L460 450 Q300 505 140 450 Z"/>
+<!-- right hangers and pan -->
+<path class="ln" d="M900 220 L750 450"/>
+<path class="ln" d="M900 220 L1050 450"/>
+<rect class="f3" x="810" y="390" width="55" height="60"/>
+<rect class="f1" x="825" y="404" width="24" height="14"/>
+<rect class="f3" x="875" y="355" width="55" height="95"/>
+<rect class="f1" x="890" y="370" width="24" height="14"/>
+<rect class="f1" x="890" y="398" width="24" height="14"/>
+<rect class="f3" x="940" y="380" width="52" height="70"/>
+<rect class="f1" x="954" y="394" width="24" height="14"/>
+<path class="f1" d="M740 450 L1060 450 Q900 505 740 450 Z"/>
+<!-- pivot -->
+<circle class="f4" cx="600" cy="220" r="16"/>
+<circle class="f1" cx="300" cy="220" r="7"/>
+<circle class="f1" cx="900" cy="220" r="7"/>
+<text class="lbl" x="245" y="540">Subject</text>
+<text class="lbl" x="855" y="540">Comps</text>

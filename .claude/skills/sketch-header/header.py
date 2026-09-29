@@ -4,14 +4,17 @@ Run from the repo root:
     uv run --with playwright --with pillow python .claude/skills/sketch-header/header.py preview <slug> [...]
     uv run --with playwright --with pillow python .claude/skills/sketch-header/header.py export <slug> [...] | --all
     uv run --with playwright --with pillow python .claude/skills/sketch-header/header.py sheet
+    python header.py standalone <drawing.svg> [out.svg]   (no dependencies, no browser)
+
+preview/export/sheet need Playwright and Pillow and run inside the altr-site repo.
+standalone works anywhere, including claude.ai: it writes one self-contained .svg
+(style and font embedded) that opens in any browser.
 
 preview -> design-language/headers/preview/<slug>.png (check it, never deployed)
 export  -> assets/headers/<slug>.png (1200x630, link previews) and .webp (cards, page)
 sheet   -> design-language/headers/preview/_sheet.png, every drawing at card size
 """
 import asyncio, base64, html, io, pathlib, re, sys
-from playwright.async_api import async_playwright
-from PIL import Image
 
 SKILL = pathlib.Path(__file__).resolve().parent
 ROOT = SKILL.parents[2]
@@ -25,8 +28,8 @@ DEFS = ('<defs><filter id="rough" x="-5%" y="-5%" width="110%" height="110%">'
         '<feDisplacementMap in="SourceGraphic" scale="4"/></filter></defs>')
 
 
-def svg(slug):
-    raw = (SRC / f"{slug}.svg").read_text(encoding="utf-8")
+def svg(slug, raw=None):
+    raw = raw if raw is not None else (SRC / f"{slug}.svg").read_text(encoding="utf-8")
     m = re.search(r"<!--\s*title:\s*(.*?)\s*-->", raw)
     if not m:
         sys.exit(f"{slug}.svg has no <!-- title: ... --> comment")
@@ -49,7 +52,18 @@ async def shoot(pg, doc, path, full=False):
     await pg.screenshot(path=str(path), full_page=full)
 
 
+def standalone(src, out):
+    """One self-contained SVG: style and font inlined, nothing to install."""
+    css = (SKILL / "sketch.css").read_text(encoding="utf-8")
+    style = f'<style>@font-face{{font-family:"Kalam";src:url("{FONT}");font-weight:700}} {css}</style>'
+    doc = svg(src.stem, src.read_text(encoding="utf-8")).replace("<defs>", f"<defs>{style}", 1)
+    out.write_text(doc, encoding="utf-8")
+    print(out)
+
+
 async def main(cmd, slugs):
+    from playwright.async_api import async_playwright
+    from PIL import Image
     async with async_playwright() as p:
         b = await p.chromium.launch()
         pg = await b.new_page(viewport={"width": 1200, "height": 630})
@@ -76,9 +90,15 @@ async def main(cmd, slugs):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2 or sys.argv[1] not in ("preview", "export", "sheet"):
+    if len(sys.argv) < 2 or sys.argv[1] not in ("preview", "export", "sheet", "standalone"):
         sys.exit(__doc__)
     cmd, args = sys.argv[1], sys.argv[2:]
+    if cmd == "standalone":
+        if not args:
+            sys.exit("name the drawing file")
+        src = pathlib.Path(args[0])
+        standalone(src, pathlib.Path(args[1]) if len(args) > 1 else src.with_name(src.stem + "-header.svg"))
+        sys.exit()
     if cmd == "sheet" or args == ["--all"]:
         args = sorted(p.stem for p in SRC.glob("*.svg"))
     if not args:
