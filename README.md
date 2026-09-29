@@ -80,7 +80,9 @@ is 404'd there so it is not served.
 `tools/` holds local build scripts and is gitignored, because this repo is the
 deployment and those scripts should not be served from the site root:
 
-- `tools/social-preview.py` - regenerates `assets/altr_social_preview.png`.
+- `assets/share/altr-home.jpg` - the link preview for the homepage and every non-article page:
+  the marble key over the workshop engraving. `assets/altr_social_preview.png` is the
+  retired card, kept only so old cached shares still resolve.
   Re-run it whenever the home page headline changes, or the card goes stale
   against the site.
 
