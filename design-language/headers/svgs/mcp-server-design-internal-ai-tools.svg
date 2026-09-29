@@ -1,0 +1,41 @@
+<!-- title: MCP server design -->
+<!-- concept: a tool board split into small open read tools and locked write tools that route to a person for approval, with every call printed onto an audit log -->
+<!-- the tool board -->
+<rect class="f1" x="150" y="195" width="610" height="270" rx="14"/>
+<path class="ln" d="M455 215 L455 445"/>
+<text class="lbl" x="185" y="240">Read</text>
+<text class="lbl" x="490" y="240">Write</text>
+<!-- read tools -->
+<rect class="f2" x="180" y="262" width="240" height="46" rx="10"/>
+<text class="lbl-in" x="202" y="294">find</text>
+<rect class="f2" x="180" y="326" width="240" height="46" rx="10"/>
+<text class="lbl-in" x="202" y="358">get</text>
+<rect class="f2" x="180" y="390" width="240" height="46" rx="10"/>
+<text class="lbl-in" x="202" y="422">list</text>
+<!-- write tools with locks -->
+<rect class="f3" x="490" y="262" width="240" height="46" rx="10"/>
+<text class="lbl-in" x="512" y="294">create</text>
+<path class="ln" d="M694 278 L694 272 A10 10 0 0 1 714 272 L714 278"/>
+<rect class="f4" x="688" y="276" width="32" height="22" rx="4"/>
+<rect class="f3" x="490" y="326" width="240" height="46" rx="10"/>
+<text class="lbl-in" x="512" y="358">update</text>
+<path class="ln" d="M694 342 L694 336 A10 10 0 0 1 714 336 L714 342"/>
+<rect class="f4" x="688" y="340" width="32" height="22" rx="4"/>
+<!-- approval -->
+<path class="dash" d="M732 285 Q 830 285 900 320"/>
+<path class="dash" d="M732 349 Q 830 349 900 335"/>
+<circle class="f1" cx="960" cy="285" r="26"/>
+<path class="f2" d="M912 375 Q 912 318 960 318 Q 1008 318 1008 375 Z"/>
+<circle class="f4" cx="1010" cy="365" r="17"/>
+<path class="ln" d="M1002 365 L1008 371 L1019 358"/>
+<text class="lbl" x="905" y="420">Approve</text>
+<!-- audit log -->
+<path class="acc" d="M455 465 L455 488"/>
+<polygon class="f4" points="443,484 455,502 467,484"/>
+<rect class="f1" x="150" y="505" width="930" height="56" rx="8"/>
+<text class="lbl" x="170" y="542">Log</text>
+<path class="ln" d="M250 515 L250 551 M330 515 L330 551 M410 515 L410 551 M490 515 L490 551 M570 515 L570 551 M650 515 L650 551 M730 515 L730 551 M810 515 L810 551"/>
+<rect class="f3" x="263" y="527" width="54" height="12" rx="6"/>
+<rect class="f2" x="343" y="527" width="54" height="12" rx="6"/>
+<rect class="f4" x="423" y="527" width="54" height="12" rx="6"/>
+<rect class="f2" x="503" y="527" width="54" height="12" rx="6"/>

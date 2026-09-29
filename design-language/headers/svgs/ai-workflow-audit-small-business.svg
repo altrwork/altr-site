@@ -1,0 +1,52 @@
+<!-- title: Audit a workflow first -->
+<!-- concept: the workflow mapped as sticky notes the way it actually runs, a magnifier on the one tedious step worth automating, timed before anything changes and logged on a worksheet -->
+<rect class="f1" x="90" y="210" width="150" height="90" rx="6"/>
+<circle class="f3" cx="115" cy="238" r="11"/>
+<text class="lbl" x="105" y="285">Email</text>
+<path class="acc" d="M240 255 L280 255"/>
+<polygon class="f4" points="280,244 298,255 280,266"/>
+<rect class="f1" x="300" y="210" width="150" height="90" rx="6"/>
+<circle class="f3" cx="325" cy="238" r="11"/>
+<text class="lbl" x="315" y="285">Copy</text>
+<path class="acc" d="M450 255 L490 255"/>
+<polygon class="f4" points="490,244 508,255 490,266"/>
+<rect class="f1" x="510" y="210" width="150" height="90" rx="6"/>
+<circle class="f3" cx="535" cy="238" r="11"/>
+<text class="lbl" x="525" y="285">Check</text>
+<path class="acc" d="M585 300 L585 398"/>
+<polygon class="f4" points="574,398 585,416 596,398"/>
+<rect class="f4" x="510" y="420" width="150" height="90" rx="6"/>
+<circle class="f1" cx="535" cy="448" r="11"/>
+<text class="lbl-in" x="525" y="495">Retype</text>
+<path class="acc" d="M510 465 L472 465"/>
+<polygon class="f4" points="472,454 454,465 472,476"/>
+<rect class="f1" x="300" y="420" width="150" height="90" rx="6"/>
+<circle class="f3" cx="325" cy="448" r="11"/>
+<text class="lbl" x="315" y="495">Send</text>
+<!-- magnifier on the tedious step -->
+<circle class="ln" cx="648" cy="424" r="46"/>
+<polygon class="f3" points="676,390 688,402 738,352 726,340"/>
+<!-- stopwatch: measure before -->
+<rect class="f3" x="150" y="400" width="30" height="16" rx="4"/>
+<circle class="f1" cx="165" cy="465" r="48"/>
+<path class="ln" d="M165 465 L165 432"/>
+<path class="ln" d="M165 465 L190 478"/>
+<text class="lbl" x="105" y="560">Time</text>
+<!-- worksheet -->
+<rect class="f1" x="820" y="205" width="280" height="355" rx="10"/>
+<rect class="f3" x="910" y="190" width="100" height="32" rx="8"/>
+<text class="lbl" x="850" y="270">Worksheet</text>
+<rect class="ln" x="850" y="296" width="24" height="24" rx="4"/>
+<path class="ln" d="M855 308 L861 315 L870 301"/>
+<rect class="f3" x="890" y="302" width="120" height="12" rx="6"/>
+<rect class="f2" x="1030" y="298" width="45" height="20" rx="10"/>
+<rect class="ln" x="850" y="356" width="24" height="24" rx="4"/>
+<path class="ln" d="M855 368 L861 375 L870 361"/>
+<rect class="f3" x="890" y="362" width="100" height="12" rx="6"/>
+<rect class="f2" x="1030" y="358" width="45" height="20" rx="10"/>
+<rect class="ln" x="850" y="416" width="24" height="24" rx="4"/>
+<rect class="f3" x="890" y="422" width="130" height="12" rx="6"/>
+<rect class="f2" x="1030" y="418" width="45" height="20" rx="10"/>
+<rect class="ln" x="850" y="476" width="24" height="24" rx="4"/>
+<rect class="f3" x="890" y="482" width="90" height="12" rx="6"/>
+<rect class="f2" x="1030" y="478" width="45" height="20" rx="10"/>

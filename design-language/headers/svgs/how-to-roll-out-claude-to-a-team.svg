@@ -1,0 +1,35 @@
+<!-- title: Roll out Claude to a team -->
+<!-- concept: the team stands together on the first step, one shared workflow, with the next workflows as steps still ahead -->
+<path class="ln" d="M100 560 L1100 560"/>
+<rect class="f2" x="140" y="470" width="280" height="90" rx="6"/>
+<rect class="f1" x="460" y="380" width="280" height="180" rx="6"/>
+<rect class="ln" x="780" y="290" width="280" height="270" rx="6"/>
+<!-- the first workflow, shared -->
+<rect class="f1" x="180" y="215" width="200" height="85" rx="12"/>
+<path class="ln" d="M234 257 L266 257"/>
+<path class="ln" d="M294 257 L326 257"/>
+<circle class="f4" cx="220" cy="257" r="14"/>
+<circle class="f3" cx="280" cy="257" r="14"/>
+<circle class="f3" cx="340" cy="257" r="14"/>
+<path class="dash" d="M280 300 L280 360"/>
+<!-- the team -->
+<path class="f3" d="M175 470 Q175 422 210 422 Q245 422 245 470 Z"/>
+<circle class="f1" cx="210" cy="394" r="22"/>
+<path class="f3" d="M245 470 Q245 422 280 422 Q315 422 315 470 Z"/>
+<circle class="f1" cx="280" cy="394" r="22"/>
+<path class="f3" d="M315 470 Q315 422 350 422 Q385 422 385 470 Z"/>
+<circle class="f1" cx="350" cy="394" r="22"/>
+<text class="lbl-in" x="180" y="528">Workflow 1</text>
+<!-- step up to workflow 2 -->
+<path class="acc" d="M400 440 C430 380 460 350 500 345"/>
+<polygon class="f4" points="500,333 522,345 500,357"/>
+<rect class="f3" x="560" y="315" width="140" height="65" rx="8"/>
+<rect class="f1" x="580" y="332" width="90" height="10" rx="5"/>
+<rect class="f1" x="580" y="354" width="60" height="10" rx="5"/>
+<text class="lbl" x="500" y="480">Workflow 2</text>
+<!-- later -->
+<path class="dash" d="M720 305 C750 265 790 248 830 245"/>
+<polygon class="f4" points="830,233 852,245 830,257"/>
+<path class="ln" d="M920 290 L920 200"/>
+<polygon class="f2" points="920,200 990,218 920,236"/>
+<text class="lbl" x="820" y="430">Workflow 3</text>

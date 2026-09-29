@@ -1,0 +1,40 @@
+<!-- title: Claude Cowork -->
+<!-- concept: inside one chat window, a request turns into worked steps and ends in a finished spreadsheet, drawing on connected folders and apps on either side -->
+<!-- connected folder (left) -->
+<path class="f2" d="M95 330 L150 330 L165 345 L240 345 L240 440 L95 440 Z"/>
+<rect class="f1" x="115" y="360" width="105" height="14" rx="7"/>
+<text class="lbl" x="100" y="490">Folders</text>
+<path class="dash" d="M245 390 L318 390"/>
+<!-- connected apps (right) -->
+<rect class="f3" x="965" y="315" width="120" height="44" rx="10"/>
+<rect class="f1" x="965" y="370" width="120" height="44" rx="10"/>
+<rect class="f3" x="965" y="425" width="120" height="44" rx="10"/>
+<circle class="f1" cx="990" cy="337" r="9"/>
+<circle class="f4" cx="990" cy="392" r="9"/>
+<circle class="f1" cx="990" cy="447" r="9"/>
+<text class="lbl" x="985" y="510">Apps</text>
+<path class="dash" d="M882 390 L960 390"/>
+<!-- the chat window -->
+<rect class="f1" x="320" y="195" width="560" height="370" rx="16"/>
+<path class="ln" d="M320 235 L880 235"/>
+<circle class="ln" cx="345" cy="215" r="6"/>
+<circle class="ln" cx="368" cy="215" r="6"/>
+<!-- the request -->
+<path class="f3" d="M630 252 L850 252 Q860 252 860 262 L860 300 Q860 310 850 310 L800 310 L815 330 L775 310 L630 310 Q620 310 620 300 L620 262 Q620 252 630 252 Z"/>
+<rect class="f1" x="640" y="266" width="150" height="12" rx="6"/>
+<rect class="f1" x="640" y="287" width="100" height="12" rx="6"/>
+<!-- worked steps -->
+<circle class="f2" cx="360" cy="340" r="12"/>
+<path class="ln" d="M354 340 L359 345 L367 335"/>
+<path class="ln" d="M385 340 L520 340"/>
+<circle class="f2" cx="360" cy="375" r="12"/>
+<path class="ln" d="M354 375 L359 380 L367 370"/>
+<path class="ln" d="M385 375 L560 375"/>
+<circle class="f2" cx="360" cy="410" r="12"/>
+<path class="ln" d="M354 410 L359 415 L367 405"/>
+<path class="ln" d="M385 410 L490 410"/>
+<!-- the finished file -->
+<rect class="f1" x="350" y="440" width="230" height="105" rx="6"/>
+<rect class="f4" x="350" y="440" width="230" height="24" rx="6"/>
+<path class="ln" d="M350 490 L580 490 M350 517 L580 517 M427 464 L427 545 M503 464 L503 545"/>
+<text class="lbl" x="605" y="505">Done</text>

@@ -50,6 +50,10 @@ is 404'd there so it is not served.
 - `hero-keys.js`, `lead-magnet-form.js` - page behavior.
 - `altr-brand-assets/` - source brand assets and brand notes.
 - `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
+- `assets/headers/` - each article's hand-drawn header, also used as its learning
+  center card and link preview. The source drawings are in
+  `design-language/headers/svgs/`. Make or change one with the `sketch-header`
+  Claude Code skill in `.claude/skills/sketch-header/`.
 - `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html` - crawl and discovery files.
 - `.github/workflows/indexnow.yml` and `.github/indexnow.py` - after every push
   to main that touches a page, tell IndexNow (Bing and the other IndexNow

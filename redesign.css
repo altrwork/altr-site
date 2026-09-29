@@ -1522,6 +1522,14 @@ h2 + p {
   border: 1px solid var(--rule);
 }
 
+/* an article's own header illustration, cropped to the same card frame as the engravings */
+img.cell-mark {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background-color: #FDFCF9;
+}
+
 .index-cell h2,
 .index-cell h3 {
   margin: 6px 0 0;

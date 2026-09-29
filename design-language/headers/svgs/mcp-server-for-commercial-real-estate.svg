@@ -1,0 +1,31 @@
+<!-- title: MCP servers for CRE -->
+<!-- concept: a broker's question in the chat window is answered with a parcel card pulled up through one MCP server from owner, sales and debt records below -->
+<!-- chat window -->
+<rect class="f1" x="320" y="190" width="560" height="225" rx="20"/>
+<rect class="f3" x="350" y="222" width="270" height="46" rx="23"/>
+<text class="lbl-in" x="372" y="254">Who owns it?</text>
+<!-- answer: parcel card -->
+<rect class="f1" x="520" y="290" width="330" height="108" rx="12"/>
+<rect class="f2" x="540" y="304" width="62" height="80"/>
+<rect class="f1" x="552" y="316" width="16" height="16"/>
+<rect class="f1" x="576" y="316" width="16" height="16"/>
+<rect class="f1" x="552" y="342" width="16" height="16"/>
+<rect class="f1" x="576" y="342" width="16" height="16"/>
+<rect class="f3" x="620" y="310" width="190" height="14" rx="7"/>
+<rect class="f3" x="620" y="336" width="140" height="14" rx="7"/>
+<rect class="f4" x="620" y="362" width="96" height="14" rx="7"/>
+<!-- server -->
+<path class="acc" d="M600 440 L600 430"/>
+<polygon class="f4" points="588,432 600,417 612,432"/>
+<rect class="f2" x="400" y="440" width="400" height="52" rx="26"/>
+<text class="lbl-in" x="600" y="475" text-anchor="middle">MCP server</text>
+<!-- records -->
+<path class="dash" d="M330 530 L470 492"/>
+<path class="dash" d="M600 530 L600 492"/>
+<path class="dash" d="M870 530 L730 492"/>
+<rect class="f3" x="230" y="530" width="200" height="56" rx="10"/>
+<text class="lbl-in" x="330" y="567" text-anchor="middle">Owner</text>
+<rect class="f3" x="500" y="530" width="200" height="56" rx="10"/>
+<text class="lbl-in" x="600" y="567" text-anchor="middle">Sales</text>
+<rect class="f3" x="770" y="530" width="200" height="56" rx="10"/>
+<text class="lbl-in" x="870" y="567" text-anchor="middle">Debt</text>

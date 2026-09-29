@@ -1,0 +1,39 @@
+<!-- title: AI training that sticks -->
+<!-- concept: a passive audience watching a demo screen on the left becomes, on the right, one employee working with the assistant on their own document -->
+<!-- demo -->
+<path class="ln" d="M260 380 L215 470"/>
+<path class="ln" d="M260 380 L305 470"/>
+<rect class="f1" x="90" y="200" width="340" height="180" rx="6"/>
+<rect class="f2" x="320" y="235" width="80" height="14" rx="7"/>
+<rect class="f3" x="130" y="290" width="40" height="60"/>
+<rect class="f3" x="190" y="265" width="40" height="85"/>
+<rect class="f3" x="250" y="240" width="40" height="110"/>
+<path class="ln" d="M120 350 L400 350"/>
+<path class="f2" d="M110 520 Q110 482 150 482 Q190 482 190 520 Z"/>
+<circle class="f3" cx="150" cy="452" r="26"/>
+<path class="f2" d="M330 520 Q330 482 370 482 Q410 482 410 520 Z"/>
+<circle class="f3" cx="370" cy="452" r="26"/>
+<path class="f2" d="M220 532 Q220 494 260 494 Q300 494 300 532 Z"/>
+<circle class="f3" cx="260" cy="464" r="26"/>
+<text class="lbl" x="260" y="575" text-anchor="middle">Demo</text>
+<!-- becomes -->
+<path class="acc" d="M470 330 L620 330"/>
+<polygon class="f4" points="620,318 644,330 620,342"/>
+<!-- own work -->
+<rect class="f1" x="690" y="215" width="140" height="80" rx="16"/>
+<polygon class="f1" points="730,293 718,330 762,293"/>
+<rect class="f3" x="710" y="238" width="90" height="10" rx="5"/>
+<rect class="f3" x="710" y="262" width="60" height="10" rx="5"/>
+<path class="dash" d="M830 245 Q895 200 960 250"/>
+<path class="f3" d="M830 440 Q830 372 890 372 Q950 372 950 440 Z"/>
+<circle class="f1" cx="890" cy="330" r="28"/>
+<rect class="f1" x="960" y="240" width="150" height="200" rx="6"/>
+<rect class="f3" x="985" y="268" width="100" height="10" rx="5"/>
+<rect class="f3" x="985" y="298" width="80" height="10" rx="5"/>
+<rect class="f4" x="985" y="326" width="100" height="14" rx="7"/>
+<rect class="f3" x="985" y="360" width="70" height="10" rx="5"/>
+<rect class="f3" x="985" y="390" width="90" height="10" rx="5"/>
+<rect class="f2" x="690" y="440" width="420" height="25" rx="4"/>
+<path class="ln" d="M720 465 L720 545"/>
+<path class="ln" d="M1080 465 L1080 545"/>
+<text class="lbl" x="830" y="530">Own work</text>

@@ -1,0 +1,31 @@
+<!-- title: Claude Skills vs MCP -->
+<!-- concept: two different inputs merge into one finished task: a Skill folder of written steps supplies the how, an MCP plug and socket supplies the way in -->
+<!-- skill: folder with an instruction sheet -->
+<rect class="f1" x="170" y="198" width="170" height="130" rx="6"/>
+<path class="ln" d="M190 222 L310 222 M190 248 L290 248"/>
+<circle class="f4" cx="196" cy="274" r="7"/>
+<path class="ln" d="M212 274 L300 274"/>
+<path class="f2" d="M120 250 L190 250 L208 268 L390 268 L390 380 L120 380 Z"/>
+<text class="lbl-in" x="255" y="335" text-anchor="middle">SKILL.md</text>
+<text class="lbl" x="150" y="425">Skill: how</text>
+<!-- mcp: plug and socket -->
+<rect class="f3" x="930" y="215" width="150" height="160" rx="18"/>
+<circle class="f1" cx="1005" cy="295" r="44"/>
+<rect class="ln" x="990" y="275" width="8" height="18" rx="3"/>
+<rect class="ln" x="1012" y="275" width="8" height="18" rx="3"/>
+<path class="ln" d="M780 295 L830 295"/>
+<rect class="f1" x="830" y="265" width="70" height="60" rx="10"/>
+<path class="ln" d="M900 283 L925 283 M900 307 L925 307"/>
+<text class="lbl" x="840" y="425">MCP: access</text>
+<!-- merge arrows -->
+<path class="acc" d="M395 330 C 480 340, 545 360, 560 400"/>
+<polygon class="f4" points="548,398 562,422 574,396"/>
+<path class="acc" d="M780 330 C 700 340, 655 360, 640 400"/>
+<polygon class="f4" points="626,396 638,422 652,398"/>
+<!-- the finished task -->
+<rect class="f1" x="480" y="430" width="240" height="120" rx="14"/>
+<circle class="f4" cx="530" cy="490" r="26"/>
+<path class="ln" d="M517 490 L527 501 L545 479"/>
+<rect class="f3" x="575" y="465" width="115" height="14" rx="7"/>
+<rect class="f3" x="575" y="495" width="80" height="14" rx="7"/>
+<text class="lbl" x="530" y="585">Task done</text>

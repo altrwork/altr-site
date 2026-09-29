@@ -1,0 +1,66 @@
+<!-- title: AI news: April 2026 -->
+<!-- concept: a monthly briefing board, with a wall-calendar page for the month in the middle, news clippings pinned to the dates they happened on the left, and the month's action checklist on the right (only the month name changes each month) -->
+<!-- news clippings -->
+<rect class="f1" x="90" y="215" width="240" height="130" rx="10"/>
+<rect class="f3" x="110" y="238" width="150" height="16" rx="8"/>
+<rect class="f3" x="110" y="272" width="190" height="10" rx="5"/>
+<rect class="f3" x="110" y="294" width="170" height="10" rx="5"/>
+<rect class="f3" x="110" y="316" width="120" height="10" rx="5"/>
+<rect class="f1" x="90" y="380" width="240" height="130" rx="10"/>
+<rect class="f2" x="110" y="403" width="130" height="16" rx="8"/>
+<rect class="f3" x="110" y="437" width="190" height="10" rx="5"/>
+<rect class="f3" x="110" y="459" width="160" height="10" rx="5"/>
+<rect class="f3" x="110" y="481" width="100" height="10" rx="5"/>
+<text class="lbl" x="100" y="565">Launches</text>
+<!-- calendar page -->
+<rect class="f1" x="450" y="200" width="300" height="360" rx="14"/>
+<path class="f4" d="M450 272 L450 214 Q450 200 464 200 L736 200 Q750 200 750 214 L750 272 Z"/>
+<rect class="f3" x="512" y="184" width="14" height="36" rx="7"/>
+<rect class="f3" x="674" y="184" width="14" height="36" rx="7"/>
+<text class="lbl-in" x="600" y="247" text-anchor="middle">April</text>
+<!-- date grid -->
+<rect class="ln" x="474" y="298" width="28" height="28" rx="4"/>
+<rect class="ln" x="512" y="298" width="28" height="28" rx="4"/>
+<rect class="ln" x="550" y="298" width="28" height="28" rx="4"/>
+<rect class="f3" x="588" y="298" width="28" height="28" rx="4"/>
+<rect class="ln" x="626" y="298" width="28" height="28" rx="4"/>
+<rect class="ln" x="664" y="298" width="28" height="28" rx="4"/>
+<rect class="ln" x="702" y="298" width="28" height="28" rx="4"/>
+<rect class="ln" x="474" y="360" width="28" height="28" rx="4"/>
+<rect class="ln" x="512" y="360" width="28" height="28" rx="4"/>
+<rect class="ln" x="550" y="360" width="28" height="28" rx="4"/>
+<rect class="ln" x="588" y="360" width="28" height="28" rx="4"/>
+<rect class="ln" x="626" y="360" width="28" height="28" rx="4"/>
+<rect class="f3" x="664" y="360" width="28" height="28" rx="4"/>
+<rect class="ln" x="702" y="360" width="28" height="28" rx="4"/>
+<rect class="ln" x="474" y="422" width="28" height="28" rx="4"/>
+<rect class="f2" x="512" y="422" width="28" height="28" rx="4"/>
+<rect class="ln" x="550" y="422" width="28" height="28" rx="4"/>
+<rect class="ln" x="588" y="422" width="28" height="28" rx="4"/>
+<rect class="ln" x="626" y="422" width="28" height="28" rx="4"/>
+<rect class="ln" x="664" y="422" width="28" height="28" rx="4"/>
+<rect class="ln" x="702" y="422" width="28" height="28" rx="4"/>
+<rect class="ln" x="474" y="484" width="28" height="28" rx="4"/>
+<rect class="ln" x="512" y="484" width="28" height="28" rx="4"/>
+<rect class="ln" x="550" y="484" width="28" height="28" rx="4"/>
+<rect class="ln" x="588" y="484" width="28" height="28" rx="4"/>
+<rect class="f3" x="626" y="484" width="28" height="28" rx="4"/>
+<rect class="ln" x="664" y="484" width="28" height="28" rx="4"/>
+<rect class="ln" x="702" y="484" width="28" height="28" rx="4"/>
+<!-- pins from dates to clippings -->
+<path class="dash" d="M586 312 C480 300 400 290 334 280"/>
+<path class="dash" d="M510 436 C440 440 390 445 334 445"/>
+<!-- action checklist -->
+<path class="dash" d="M694 374 C780 380 820 400 866 420"/>
+<rect class="f2" x="870" y="230" width="230" height="300" rx="14"/>
+<text class="lbl-in" x="892" y="276">Actions</text>
+<rect class="f1" x="892" y="305" width="26" height="26" rx="5"/>
+<polyline class="ln" points="897,318 904,325 914,310"/>
+<rect class="f1" x="932" y="312" width="140" height="12" rx="6"/>
+<rect class="f1" x="892" y="360" width="26" height="26" rx="5"/>
+<polyline class="ln" points="897,373 904,380 914,365"/>
+<rect class="f1" x="932" y="367" width="120" height="12" rx="6"/>
+<rect class="f1" x="892" y="415" width="26" height="26" rx="5"/>
+<rect class="f1" x="932" y="422" width="140" height="12" rx="6"/>
+<rect class="f1" x="892" y="470" width="26" height="26" rx="5"/>
+<rect class="f1" x="932" y="477" width="100" height="12" rx="6"/>

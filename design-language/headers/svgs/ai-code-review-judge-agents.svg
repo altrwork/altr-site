@@ -1,0 +1,51 @@
+<!-- title: Judge-agent code review -->
+<!-- concept: three narrow reviewers scan a pull request and toss up findings, a verifier funnel drops the ones it cannot confirm, and the single proven finding goes to a person who presses merge -->
+<!-- pull request diff -->
+<rect class="f1" x="80" y="220" width="170" height="290" rx="12"/>
+<rect class="f3" x="100" y="245" width="90" height="12" rx="6"/>
+<rect class="f2" x="100" y="285" width="130" height="12" rx="6"/>
+<rect class="f2" x="100" y="315" width="100" height="12" rx="6"/>
+<rect class="f3" x="100" y="355" width="120" height="12" rx="6"/>
+<rect class="f4" x="100" y="395" width="110" height="12" rx="6"/>
+<rect class="f2" x="100" y="435" width="125" height="12" rx="6"/>
+<rect class="f3" x="100" y="470" width="80" height="12" rx="6"/>
+<text class="lbl" x="80" y="565">Pull request</text>
+<!-- narrow reviewers -->
+<path class="dash" d="M252 290 L292 265"/>
+<path class="dash" d="M252 365 L292 365"/>
+<path class="dash" d="M252 440 L292 465"/>
+<circle class="f3" cx="330" cy="265" r="34"/>
+<circle class="ln" cx="324" cy="259" r="13"/>
+<path class="ln" d="M334 269 L346 281"/>
+<circle class="f3" cx="330" cy="365" r="34"/>
+<circle class="ln" cx="324" cy="359" r="13"/>
+<path class="ln" d="M334 369 L346 381"/>
+<circle class="f3" cx="330" cy="465" r="34"/>
+<circle class="ln" cx="324" cy="459" r="13"/>
+<path class="ln" d="M334 469 L346 481"/>
+<text class="lbl" x="270" y="210">Reviewers</text>
+<!-- findings -->
+<rect class="f1" x="400" y="238" width="48" height="24" rx="6"/>
+<rect class="f1" x="470" y="275" width="48" height="24" rx="6"/>
+<rect class="f1" x="400" y="340" width="48" height="24" rx="6"/>
+<rect class="f4" x="475" y="370" width="48" height="24" rx="6"/>
+<rect class="f1" x="405" y="440" width="48" height="24" rx="6"/>
+<rect class="f1" x="470" y="470" width="48" height="24" rx="6"/>
+<!-- verifier funnel -->
+<polygon class="f2" points="570,220 740,322 740,378 570,480"/>
+<rect class="f2" x="736" y="330" width="54" height="40" rx="4"/>
+<text class="lbl" x="596" y="210">Verifier</text>
+<!-- dropped findings -->
+<path class="dash" d="M640 440 C650 480 660 500 668 520"/>
+<path class="dash" d="M600 462 C600 490 596 505 590 525"/>
+<polygon class="f1" points="570,532 612,522 617,544 575,554"/>
+<polygon class="f1" points="652,528 694,536 690,558 648,550"/>
+<!-- the proven finding -->
+<rect class="f4" x="806" y="338" width="48" height="24" rx="6"/>
+<path class="acc" d="M862 350 C900 350 905 438 936 438"/>
+<polygon class="f4" points="934,426 956,438 934,450"/>
+<!-- human who merges -->
+<circle class="f1" cx="1030" cy="285" r="34"/>
+<path class="f3" d="M970 385 C970 330 1090 330 1090 385 Z"/>
+<rect class="f2" x="958" y="410" width="150" height="56" rx="28"/>
+<text class="lbl-in" x="1033" y="447" text-anchor="middle">Merge</text>

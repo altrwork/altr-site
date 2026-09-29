@@ -1,0 +1,41 @@
+<!-- title: Claude vs ChatGPT -->
+<!-- concept: two open toolkits side by side, each holding the same kit a team actually decides on (files, memory, connectors, admin), with a date tag between them because the comparison is dated -->
+<!-- left kit: lid then case -->
+<path class="f1" d="M110 250 L470 250 L450 190 L130 190 Z"/>
+<rect class="f3" x="90" y="250" width="400" height="250" rx="14"/>
+<rect class="f1" x="115" y="275" width="350" height="200" rx="8"/>
+<rect class="f3" x="250" y="232" width="80" height="18" rx="9"/>
+<!-- left tools: file, memory stack, plug, shield -->
+<rect class="f1" x="140" y="300" width="70" height="90" rx="6"/>
+<path class="ln" d="M155 325 L195 325 M155 345 L195 345 M155 365 L180 365"/>
+<rect class="f2" x="245" y="350" width="80" height="18" rx="4"/>
+<rect class="f2" x="245" y="326" width="80" height="18" rx="4"/>
+<rect class="f2" x="245" y="302" width="80" height="18" rx="4"/>
+<rect class="f4" x="365" y="310" width="36" height="44" rx="6"/>
+<path class="ln" d="M375 310 L375 292 M391 310 L391 292 M383 354 L383 378"/>
+<path class="f1" d="M150 410 L190 420 L190 445 Q190 462 170 470 Q150 462 150 445 Z"/>
+<rect class="f2" x="245" y="410" width="190" height="14" rx="7"/>
+<rect class="f3" x="245" y="436" width="130" height="14" rx="7"/>
+<text class="lbl" x="220" y="550">Claude</text>
+<!-- date tag hanging between -->
+<path class="dash" d="M600 190 L600 290"/>
+<circle class="ln" cx="600" cy="186" r="7"/>
+<rect class="f4" x="545" y="290" width="110" height="64" rx="8"/>
+<text class="lbl-in" x="600" y="331" text-anchor="middle">2026</text>
+<path class="ln" d="M575 400 L625 400 M575 420 L625 420"/>
+<!-- right kit -->
+<path class="f1" d="M730 250 L1090 250 L1070 190 L750 190 Z"/>
+<rect class="f3" x="710" y="250" width="400" height="250" rx="14"/>
+<rect class="f1" x="735" y="275" width="350" height="200" rx="8"/>
+<rect class="f3" x="870" y="232" width="80" height="18" rx="9"/>
+<rect class="f1" x="760" y="300" width="70" height="90" rx="6"/>
+<path class="ln" d="M775 325 L815 325 M775 345 L815 345 M775 365 L800 365"/>
+<rect class="f2" x="865" y="350" width="80" height="18" rx="4"/>
+<rect class="f2" x="865" y="326" width="80" height="18" rx="4"/>
+<rect class="f2" x="865" y="302" width="80" height="18" rx="4"/>
+<rect class="f4" x="985" y="310" width="36" height="44" rx="6"/>
+<path class="ln" d="M995 310 L995 292 M1011 310 L1011 292 M1003 354 L1003 378"/>
+<path class="f1" d="M770 410 L810 420 L810 445 Q810 462 790 470 Q770 462 770 445 Z"/>
+<rect class="f2" x="865" y="410" width="190" height="14" rx="7"/>
+<rect class="f3" x="865" y="436" width="130" height="14" rx="7"/>
+<text class="lbl" x="830" y="550">ChatGPT</text>

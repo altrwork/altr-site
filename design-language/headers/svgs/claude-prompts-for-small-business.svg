@@ -1,0 +1,36 @@
+<!-- title: Claude prompts, ready to copy -->
+<!-- concept: a card file of tabbed prompts (quotes, docs, ops); one card is pulled out, copied, and pasted into the chat -->
+<rect class="f2" x="115" y="262" width="135" height="48" rx="8"/>
+<text class="lbl-in" x="129" y="293">Quotes</text>
+<rect class="f1" x="105" y="300" width="370" height="120" rx="8"/>
+<rect class="f3" x="260" y="282" width="115" height="48" rx="8"/>
+<text class="lbl-in" x="274" y="313">Docs</text>
+<rect class="f1" x="105" y="320" width="370" height="100" rx="8"/>
+<rect class="f2" x="385" y="302" width="90" height="48" rx="8"/>
+<text class="lbl-in" x="399" y="333">Ops</text>
+<rect class="f1" x="105" y="340" width="370" height="80" rx="8"/>
+<path class="ln" d="M125 368 L300 368"/>
+<rect class="f3" x="90" y="390" width="400" height="170" rx="10"/>
+<rect class="f1" x="250" y="428" width="80" height="14" rx="7"/>
+<text class="lbl-in" x="228" y="515">Prompts</text>
+<!-- pulled card -->
+<path class="acc" d="M490 360 C515 330 520 300 535 295"/>
+<polygon class="f4" points="535,283 556,295 535,307"/>
+<rect class="f1" x="560" y="210" width="240" height="170" rx="10"/>
+<rect class="f3" x="585" y="238" width="120" height="14" rx="7"/>
+<rect class="f3" x="585" y="275" width="180" height="10" rx="5"/>
+<rect class="f2" x="585" y="298" width="90" height="22" rx="11"/>
+<rect class="f3" x="688" y="304" width="80" height="10" rx="5"/>
+<rect class="f3" x="585" y="340" width="150" height="10" rx="5"/>
+<rect class="ln" x="740" y="226" width="28" height="28" rx="4"/>
+<rect class="f4" x="752" y="238" width="28" height="28" rx="4"/>
+<text class="lbl" x="640" y="430">Copy</text>
+<!-- pasted into chat -->
+<path class="acc" d="M810 330 L850 330"/>
+<polygon class="f4" points="850,318 872,330 850,342"/>
+<rect class="f1" x="880" y="270" width="230" height="150" rx="22"/>
+<polygon class="f1" points="930,418 915,465 975,418"/>
+<rect class="f3" x="905" y="305" width="150" height="12" rx="6"/>
+<rect class="f3" x="905" y="335" width="175" height="12" rx="6"/>
+<rect class="f2" x="905" y="365" width="110" height="12" rx="6"/>
+<text class="lbl" x="995" y="470">Claude</text>

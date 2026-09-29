@@ -1,0 +1,37 @@
+<!-- title: How to write a SKILL.md -->
+<!-- concept: an annotated SKILL.md sheet: a name and a copper description in the frontmatter that a request matches, numbered steps in the body, and longer references split into linked files -->
+<!-- the sheet -->
+<rect class="f1" x="330" y="195" width="360" height="370" rx="10"/>
+<rect class="f3" x="352" y="215" width="316" height="118" rx="8"/>
+<rect class="f1" x="372" y="232" width="140" height="18" rx="9"/>
+<rect class="f4" x="372" y="268" width="270" height="16" rx="8"/>
+<rect class="f4" x="372" y="296" width="200" height="16" rx="8"/>
+<!-- body steps -->
+<circle class="f2" cx="372" cy="375" r="11"/>
+<path class="ln" d="M395 375 L610 375"/>
+<circle class="f2" cx="372" cy="418" r="11"/>
+<path class="ln" d="M395 418 L570 418"/>
+<circle class="f2" cx="372" cy="461" r="11"/>
+<path class="ln" d="M395 461 L640 461"/>
+<circle class="f2" cx="372" cy="504" r="11"/>
+<path class="ln" d="M395 504 L540 504"/>
+<!-- annotations -->
+<text class="lbl" x="150" y="250">Name</text>
+<path class="dash" d="M235 241 L365 241"/>
+<text class="lbl" x="110" y="297">Trigger</text>
+<path class="dash" d="M240 288 L365 288"/>
+<text class="lbl" x="150" y="448">Steps</text>
+<path class="dash" d="M240 440 L355 440"/>
+<!-- a request matching the description -->
+<path class="f1" d="M840 205 L1060 205 Q1075 205 1075 220 L1075 262 Q1075 277 1060 277 L1010 277 L1030 298 L985 277 L840 277 Q825 277 825 262 L825 220 Q825 205 840 205 Z"/>
+<rect class="f3" x="848" y="224" width="150" height="12" rx="6"/>
+<rect class="f3" x="848" y="248" width="110" height="12" rx="6"/>
+<path class="acc" d="M820 250 C 760 255, 725 275, 680 282"/>
+<polygon class="f4" points="690,270 668,284 692,294"/>
+<text class="lbl" x="880" y="335">Request</text>
+<!-- linked reference files -->
+<path class="dash" d="M548 504 L790 460"/>
+<rect class="f1" x="830" y="370" width="150" height="140" rx="6"/>
+<rect class="f1" x="800" y="400" width="150" height="140" rx="6"/>
+<path class="ln" d="M822 430 L925 430 M822 455 L905 455 M822 480 L925 480 M822 505 L885 505"/>
+<text class="lbl" x="790" y="580">References</text>

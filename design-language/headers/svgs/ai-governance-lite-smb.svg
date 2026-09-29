@@ -1,0 +1,47 @@
+<!-- title: AI policy on two pages -->
+<!-- concept: the tools already in use feed into an open two-page policy - a data list (public ok, client ask, secret never) and one approver who signs off - with a simple log beside it -->
+<!-- tools already in use -->
+<rect class="f3" x="100" y="250" width="60" height="60" rx="14"/>
+<circle class="f1" cx="130" cy="280" r="11"/>
+<rect class="f2" x="100" y="340" width="60" height="60" rx="14"/>
+<rect class="f1" x="115" y="364" width="30" height="12" rx="6"/>
+<rect class="f1" x="100" y="430" width="60" height="60" rx="14"/>
+<circle class="ln" cx="130" cy="460" r="11"/>
+<path class="dash" d="M160 280 L265 320"/>
+<path class="dash" d="M160 370 L265 370"/>
+<path class="dash" d="M160 460 L265 420"/>
+<text class="lbl" x="92" y="540">Tools</text>
+<!-- booklet -->
+<rect class="f2" x="265" y="245" width="710" height="290" rx="12"/>
+<path class="f1" d="M280 230 Q445 205 610 230 L610 520 Q445 495 280 520 Z"/>
+<path class="f1" d="M630 230 Q795 205 960 230 L960 520 Q795 495 630 520 Z"/>
+<!-- page 1: what data goes in -->
+<rect class="f3" x="310" y="245" width="170" height="16" rx="8"/>
+<circle class="f2" cx="322" cy="310" r="16"/>
+<text class="lbl" x="352" y="319">Public</text>
+<path class="ln" d="M548 310 L558 321 L578 298"/>
+<circle class="f3" cx="322" cy="380" r="16"/>
+<text class="lbl" x="352" y="389">Client</text>
+<path class="ln" d="M546 382 Q553 372 560 382 Q567 392 574 382"/>
+<circle class="ln" cx="322" cy="450" r="16"/>
+<text class="lbl" x="352" y="459">Secret</text>
+<path class="ln" d="M550 440 L572 462 M572 440 L550 462"/>
+<!-- page 2: who approves -->
+<rect class="f3" x="660" y="245" width="170" height="16" rx="8"/>
+<path class="f2" d="M665 365 Q665 338 690 338 Q715 338 715 365 Z"/>
+<circle class="f2" cx="690" cy="318" r="16"/>
+<text class="lbl" x="730" y="350">Approver</text>
+<rect class="f3" x="660" y="395" width="240" height="12" rx="6"/>
+<rect class="f3" x="660" y="425" width="180" height="12" rx="6"/>
+<path class="ln" d="M662 478 Q680 450 695 478 Q710 500 725 470 Q740 450 760 478 L800 474"/>
+<circle class="f4" cx="895" cy="466" r="32"/>
+<path class="ln" d="M880 466 L892 479 L912 454"/>
+<text class="lbl" x="620" y="580" text-anchor="middle">Two pages</text>
+<!-- log -->
+<path class="dash" d="M960 445 L1018 445"/>
+<rect class="f1" x="1032" y="378" width="84" height="110" rx="6"/>
+<rect class="f1" x="1020" y="390" width="84" height="110" rx="6"/>
+<path class="ln" d="M1035 420 L1088 420"/>
+<path class="ln" d="M1035 445 L1088 445"/>
+<path class="ln" d="M1035 470 L1075 470"/>
+<text class="lbl" x="1034" y="545">Log</text>

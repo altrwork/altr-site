@@ -1,0 +1,13 @@
+/* Sketchbook header style. The drawing carries only classes; every colour lives here. */
+.hdr .bg { fill: #FDFCF9; }
+.hdr .ln, .hdr .f1, .hdr .f2, .hdr .f3, .hdr .f4 { stroke: #1D1A17; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.hdr .ln { fill: none; }
+.hdr .f1 { fill: #FFFFFF; }
+.hdr .f2 { fill: #B9CFAA; }
+.hdr .f3 { fill: #A9C3CE; }
+.hdr .f4 { fill: #F0A56B; }
+.hdr .acc { fill: none; stroke: #C8642C; stroke-width: 4; stroke-linecap: round; }
+.hdr .dash { fill: none; stroke: #1D1A17; stroke-width: 2.5; stroke-dasharray: 2 10; stroke-linecap: round; }
+.hdr .art { filter: url(#rough); }
+.hdr text { font-family: "Kalam", "Comic Sans MS", cursive; font-weight: 700; font-size: 26px; fill: #1D1A17; }
+.hdr .ttl { font-size: 64px; text-anchor: middle; }

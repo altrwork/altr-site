@@ -1,0 +1,47 @@
+<!-- title: MCP vs function calling -->
+<!-- concept: three stacked layers: the agent loop on top, function calling in the middle (the model emits a structured call your code runs), and MCP at the base publishing a server's tools to any app -->
+<!-- layer 1: agent loop -->
+<rect class="f1" x="360" y="190" width="760" height="95" rx="14"/>
+<path class="acc" d="M452 226 A26 26 0 1 1 430 211"/>
+<polygon class="f4" points="424,201 442,211 424,221"/>
+<rect class="f3" x="500" y="220" width="140" height="34" rx="17"/>
+<text class="lbl-in" x="570" y="245" text-anchor="middle">Plan</text>
+<path class="ln" d="M645 237 L665 237"/>
+<polygon class="f4" points="663,229 677,237 663,245"/>
+<rect class="f3" x="680" y="220" width="140" height="34" rx="17"/>
+<text class="lbl-in" x="750" y="245" text-anchor="middle">Call</text>
+<path class="ln" d="M825 237 L845 237"/>
+<polygon class="f4" points="843,229 857,237 843,245"/>
+<rect class="f3" x="860" y="220" width="140" height="34" rx="17"/>
+<text class="lbl-in" x="930" y="245" text-anchor="middle">Read</text>
+<path class="dash" d="M930 258 Q 750 292 570 258"/>
+<text class="lbl" x="80" y="247">Agent</text>
+<polygon class="f4" points="705,289 735,289 720,306"/>
+<!-- layer 2: function calling -->
+<rect class="f3" x="360" y="310" width="760" height="95" rx="14"/>
+<rect class="f1" x="395" y="330" width="150" height="55" rx="10"/>
+<text class="lbl" x="470" y="366" text-anchor="middle">Model</text>
+<path class="acc" d="M550 357 L595 357"/>
+<polygon class="f4" points="593,346 613,357 593,368"/>
+<rect class="f1" x="620" y="325" width="220" height="65" rx="8"/>
+<text class="lbl" x="730" y="366" text-anchor="middle">{ call }</text>
+<path class="acc" d="M845 357 L890 357"/>
+<polygon class="f4" points="888,346 908,357 888,368"/>
+<rect class="f1" x="915" y="330" width="170" height="55" rx="10"/>
+<text class="lbl" x="1000" y="366" text-anchor="middle">Code</text>
+<text class="lbl" x="80" y="367">Function call</text>
+<polygon class="f4" points="705,409 735,409 720,426"/>
+<!-- layer 3: MCP -->
+<rect class="f2" x="360" y="430" width="760" height="135" rx="14"/>
+<rect class="f1" x="395" y="448" width="190" height="100" rx="10"/>
+<rect class="f4" x="415" y="465" width="150" height="14" rx="7"/>
+<rect class="f4" x="415" y="491" width="120" height="14" rx="7"/>
+<rect class="f4" x="415" y="517" width="140" height="14" rx="7"/>
+<path class="dash" d="M590 472 L815 463"/>
+<path class="dash" d="M590 498 L815 498"/>
+<path class="dash" d="M590 524 L815 533"/>
+<rect class="f1" x="820" y="448" width="130" height="30" rx="8"/>
+<rect class="f1" x="820" y="483" width="130" height="30" rx="8"/>
+<rect class="f1" x="820" y="518" width="130" height="30" rx="8"/>
+<text class="lbl-in" x="975" y="507">Any app</text>
+<text class="lbl" x="80" y="507">MCP</text>

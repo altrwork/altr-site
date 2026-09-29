@@ -1,0 +1,43 @@
+<!-- title: Audit, pilot, rollout -->
+<!-- concept: a timeline with three widening windows - a magnifier over the work, one person proving one workflow, then the whole team using it -->
+<path class="acc" d="M90 520 L1090 520"/>
+<polygon class="f4" points="1090,508 1114,520 1090,532"/>
+<!-- audit -->
+<path class="ln" d="M220 475 L220 510"/>
+<circle class="f1" cx="220" cy="390" r="85"/>
+<path class="ln" d="M170 395 L270 395"/>
+<rect class="f3" x="150" y="383" width="24" height="24" rx="4"/>
+<rect class="f3" x="208" y="383" width="24" height="24" rx="4"/>
+<rect class="f3" x="266" y="383" width="24" height="24" rx="4"/>
+<circle class="ln" cx="220" cy="380" r="34"/>
+<path class="ln" d="M244 404 L272 432"/>
+<circle class="f4" cx="220" cy="520" r="10"/>
+<text class="lbl" x="220" y="572" text-anchor="middle">Audit</text>
+<!-- pilot -->
+<path class="dash" d="M312 390 L448 380"/>
+<path class="ln" d="M560 480 L560 510"/>
+<circle class="f1" cx="560" cy="375" r="105"/>
+<path class="f2" d="M485 440 Q485 385 525 385 Q565 385 565 440 Z"/>
+<circle class="f2" cx="525" cy="345" r="26"/>
+<rect class="f3" x="585" y="320" width="62" height="80" rx="6"/>
+<path class="ln" d="M600 360 L612 374 L632 346"/>
+<circle class="f4" cx="560" cy="520" r="10"/>
+<text class="lbl" x="560" y="572" text-anchor="middle">Pilot</text>
+<!-- rollout -->
+<path class="dash" d="M672 375 L798 365"/>
+<path class="ln" d="M930 485 L930 510"/>
+<circle class="f1" cx="930" cy="360" r="125"/>
+<path class="f3" d="M852 355 Q852 322 880 322 Q908 322 908 355 Z"/>
+<circle class="f2" cx="880" cy="300" r="17"/>
+<path class="f3" d="M902 355 Q902 322 930 322 Q958 322 958 355 Z"/>
+<circle class="f2" cx="930" cy="300" r="17"/>
+<path class="f3" d="M952 355 Q952 322 980 322 Q1008 322 1008 355 Z"/>
+<circle class="f2" cx="980" cy="300" r="17"/>
+<path class="f3" d="M852 440 Q852 407 880 407 Q908 407 908 440 Z"/>
+<circle class="f2" cx="880" cy="385" r="17"/>
+<path class="f3" d="M902 440 Q902 407 930 407 Q958 407 958 440 Z"/>
+<circle class="f2" cx="930" cy="385" r="17"/>
+<path class="f3" d="M952 440 Q952 407 980 407 Q1008 407 1008 440 Z"/>
+<circle class="f2" cx="980" cy="385" r="17"/>
+<circle class="f4" cx="930" cy="520" r="10"/>
+<text class="lbl" x="930" y="572" text-anchor="middle">Rollout</text>

@@ -1,0 +1,38 @@
+<!-- title: Florida appraiser data -->
+<!-- concept: one parcel on a county block map is pulled out into its tax roll card: just value, taxable value, use code, owner and last sale -->
+<!-- block map -->
+<rect class="f2" x="90" y="200" width="110" height="85"/>
+<rect class="f1" x="205" y="200" width="115" height="85"/>
+<rect class="f3" x="90" y="290" width="230" height="90"/>
+<rect class="f1" x="340" y="200" width="110" height="180"/>
+<rect class="f4" x="455" y="200" width="115" height="85"/>
+<rect class="f2" x="455" y="290" width="115" height="90"/>
+<rect class="f1" x="90" y="400" width="150" height="170"/>
+<rect class="f2" x="245" y="400" width="75" height="170"/>
+<rect class="f3" x="340" y="400" width="230" height="80"/>
+<rect class="f2" x="340" y="485" width="110" height="85"/>
+<rect class="f1" x="455" y="485" width="115" height="85"/>
+<path class="dash" d="M330 200 L330 570"/>
+<path class="dash" d="M90 390 L570 390"/>
+<circle class="f1" cx="512" cy="242" r="9"/>
+<!-- leader -->
+<path class="acc" d="M575 242 L640 242"/>
+<polygon class="f4" points="638,230 660,242 638,254"/>
+<!-- tax roll card -->
+<rect class="f1" x="665" y="200" width="440" height="372" rx="12"/>
+<path class="f3" d="M665 258 L665 212 Q665 200 677 200 L1093 200 Q1105 200 1105 212 L1105 258 Z"/>
+<text class="lbl-in" x="690" y="240">Tax roll</text>
+<text class="lbl" x="690" y="306">Just value</text>
+<rect class="f2" x="905" y="290" width="170" height="16" rx="8"/>
+<text class="lbl" x="690" y="364">Taxable</text>
+<rect class="f2" x="905" y="348" width="120" height="16" rx="8"/>
+<text class="lbl" x="690" y="422">Use code</text>
+<rect class="f3" x="905" y="406" width="60" height="16" rx="8"/>
+<text class="lbl" x="690" y="480">Owner</text>
+<rect class="f3" x="905" y="464" width="150" height="16" rx="8"/>
+<text class="lbl" x="690" y="538">Last sale</text>
+<rect class="f4" x="905" y="522" width="110" height="16" rx="8"/>
+<path class="ln" d="M690 322 L1080 322"/>
+<path class="ln" d="M690 380 L1080 380"/>
+<path class="ln" d="M690 438 L1080 438"/>
+<path class="ln" d="M690 496 L1080 496"/>

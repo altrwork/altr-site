@@ -1,0 +1,46 @@
+<!-- title: RAG evaluation -->
+<!-- concept: a golden set of real questions forks into two separate checks, one scoring whether retrieval found the right passage and one scoring whether the answer stayed faithful, each with its own pass or fail -->
+<!-- golden set clipboard -->
+<rect class="f3" x="90" y="210" width="220" height="310" rx="14"/>
+<rect class="f1" x="110" y="238" width="180" height="262" rx="6"/>
+<rect class="f1" x="160" y="194" width="80" height="32" rx="8"/>
+<rect class="ln" x="128" y="266" width="20" height="20" rx="4"/>
+<rect class="f3" x="162" y="270" width="108" height="12" rx="6"/>
+<rect class="ln" x="128" y="318" width="20" height="20" rx="4"/>
+<rect class="f3" x="162" y="322" width="90" height="12" rx="6"/>
+<rect class="ln" x="128" y="370" width="20" height="20" rx="4"/>
+<rect class="f3" x="162" y="374" width="104" height="12" rx="6"/>
+<rect class="ln" x="128" y="422" width="20" height="20" rx="4"/>
+<rect class="f3" x="162" y="426" width="80" height="12" rx="6"/>
+<text class="lbl" x="100" y="570">Golden set</text>
+<!-- fork into two checks -->
+<path class="acc" d="M315 365 L370 365"/>
+<path class="acc" d="M370 365 C420 365 420 265 466 265"/>
+<path class="acc" d="M370 365 C420 365 420 450 466 450"/>
+<polygon class="f4" points="466,253 488,265 466,277"/>
+<polygon class="f4" points="466,438 488,450 466,462"/>
+<!-- retrieval check: the source page -->
+<path class="f1" d="M500 200 L595 200 L625 230 L625 330 L500 330 Z"/>
+<path class="ln" d="M595 200 L595 230 L625 230"/>
+<rect class="f3" x="520" y="232" width="60" height="10" rx="5"/>
+<rect class="f4" x="520" y="258" width="85" height="10" rx="5"/>
+<rect class="f3" x="520" y="284" width="75" height="10" rx="5"/>
+<rect class="f3" x="520" y="308" width="55" height="10" rx="5"/>
+<path class="dash" d="M635 265 L725 265"/>
+<circle class="f2" cx="785" cy="265" r="46"/>
+<polyline class="ln" points="763,266 780,284 810,248"/>
+<text class="lbl" x="855" y="275">Retrieval</text>
+<!-- answer check: the reply -->
+<rect class="f1" x="500" y="395" width="135" height="105" rx="20"/>
+<path class="f1" d="M530 498 L520 540 L570 498 Z"/>
+<rect class="f3" x="520" y="422" width="90" height="12" rx="6"/>
+<rect class="f3" x="520" y="446" width="70" height="12" rx="6"/>
+<rect class="f3" x="520" y="470" width="95" height="12" rx="6"/>
+<path class="dash" d="M645 450 L725 450"/>
+<circle class="f4" cx="785" cy="450" r="46"/>
+<path class="ln" d="M766 431 L804 469"/>
+<path class="ln" d="M804 431 L766 469"/>
+<text class="lbl" x="855" y="460">Answer</text>
+<!-- rerun loop -->
+<path class="dash" d="M785 505 C785 590 300 590 290 525"/>
+<text class="lbl" x="660" y="545">Rerun</text>

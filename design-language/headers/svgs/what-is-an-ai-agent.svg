@@ -1,0 +1,35 @@
+<!-- title: What is an AI agent? -->
+<!-- concept: an agent circles a decide, use-tool, read-result loop until it either exits to the goal flag or hands off to a person -->
+<!-- the loop -->
+<circle class="acc" cx="480" cy="390" r="140"/>
+<polygon class="f4" points="608,332 605.5,305.5 586.5,316.5"/>
+<polygon class="f4" points="466,530 490,519 490,541"/>
+<polygon class="f4" points="366,308 363.5,334.5 344.5,323.5"/>
+<text class="lbl" x="480" y="398" text-anchor="middle">Repeat</text>
+<!-- decide station (top) -->
+<circle class="f1" cx="480" cy="250" r="48"/>
+<path class="ln" d="M480 280 L480 256 M480 256 L462 230 M480 256 L498 230"/>
+<circle class="f4" cx="498" cy="230" r="6"/>
+<text class="lbl" x="300" y="245">Decide</text>
+<!-- use tool station (bottom right) -->
+<circle class="f3" cx="601" cy="460" r="48"/>
+<path class="ln" d="M583 480 L608 455"/>
+<circle class="ln" cx="614" cy="448" r="10"/>
+<text class="lbl" x="560" y="560">Use tool</text>
+<!-- read result station (bottom left) -->
+<circle class="f1" cx="359" cy="460" r="48"/>
+<rect class="f2" x="342" y="438" width="34" height="44" rx="4"/>
+<path class="ln" d="M350 452 L368 452 M350 462 L368 462 M350 472 L362 472"/>
+<text class="lbl" x="290" y="560">Read</text>
+<!-- exit: goal met -->
+<path class="acc" d="M528 245 C 640 225, 680 300, 765 300"/>
+<polygon class="f4" points="765,288 790,300 765,312"/>
+<path class="f2" d="M780 342 Q 880 290 980 342 Z"/>
+<path class="ln" d="M880 318 L880 200"/>
+<polygon class="f4" points="880,200 962,222 880,244"/>
+<text class="lbl" x="815" y="382">Goal met</text>
+<!-- exit: needs a person -->
+<path class="dash" d="M652 452 Q 760 420 850 468"/>
+<circle class="f1" cx="900" cy="448" r="24"/>
+<path class="f2" d="M855 535 Q 855 480 900 480 Q 945 480 945 535 Z"/>
+<text class="lbl" x="852" y="578">Person</text>

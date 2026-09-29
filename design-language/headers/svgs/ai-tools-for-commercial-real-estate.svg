@@ -1,0 +1,30 @@
+<!-- title: AI tools for CRE -->
+<!-- concept: a signpost sorts CRE AI tools by the job they do, each arm pointing to its own work: comps, leases, BOVs and public records -->
+<path class="ln" d="M140 580 L1060 580"/>
+<rect class="f3" x="586" y="200" width="28" height="380"/>
+<!-- comps (right) -->
+<polygon class="f1" points="614,215 875,215 900,240 875,265 614,265"/>
+<text class="lbl" x="640" y="250">Comps</text>
+<rect class="f3" x="930" y="220" width="40" height="55"/>
+<rect class="f2" x="975" y="195" width="45" height="80"/>
+<rect class="f3" x="1025" y="235" width="40" height="40"/>
+<!-- leases (left) -->
+<polygon class="f1" points="586,295 325,295 300,320 325,345 586,345"/>
+<text class="lbl" x="350" y="330">Leases</text>
+<rect class="f1" x="175" y="275" width="90" height="110" rx="4"/>
+<path class="ln" d="M190 300 L250 300"/>
+<path class="ln" d="M190 322 L250 322"/>
+<path class="ln" d="M190 344 L235 344"/>
+<path class="ln" d="M190 368 C200 356 210 376 225 364"/>
+<!-- BOV (right) -->
+<polygon class="f2" points="614,375 875,375 900,400 875,425 614,425"/>
+<text class="lbl-in" x="640" y="410">BOV</text>
+<polygon class="f4" points="940,375 1025,375 1045,400 1025,425 940,425"/>
+<circle class="f1" cx="1022" cy="400" r="6"/>
+<!-- records (left) -->
+<polygon class="f1" points="586,455 325,455 300,480 325,505 586,505"/>
+<text class="lbl" x="350" y="490">Records</text>
+<rect class="f2" x="150" y="440" width="55" height="45"/>
+<rect class="f1" x="210" y="440" width="55" height="45"/>
+<rect class="f3" x="150" y="490" width="115" height="45"/>
+<ellipse class="f3" cx="600" cy="580" rx="60" ry="10"/>
