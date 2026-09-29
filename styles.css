@@ -1020,6 +1020,26 @@ to {
 
 /* the monthly news series: one quiet row of links, and a catalog that
    reads as a list of months rather than another grid of cards */
+.founder-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  font-size: 15px;
+}
+
+.founder-links a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-decoration-color: var(--line-control);
+  text-underline-offset: 3px;
+}
+
+.founder-links a:hover {
+  color: var(--copper);
+  text-decoration-color: var(--copper);
+}
+
 .news-pager {
   display: flex;
   flex-wrap: wrap;
