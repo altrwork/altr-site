@@ -306,6 +306,95 @@ class SeoIntegrityTests(unittest.TestCase):
             (ROOT / "_redirects").read_text(encoding="utf-8"),
         )
 
+    def test_homepage_and_about_do_not_cannibalize_tampa_consulting(self):
+        """GSC, last 7 days Sep 21 to 27: 'ai consulting company' is the
+        homepage at 236 impressions, avg position 4.8, 0 clicks. 'ai consulting
+        tampa' is the homepage at 17 impressions, position 2.3, versus
+        ai-consulting-tampa.html at 2 impressions, position 25. 'ai consultant
+        tampa' is the homepage at 7 impressions, position 3.9, versus the
+        dedicated page at 6 impressions, position 23.2.
+
+        The homepage may say it is an AI consulting company for ops teams, but
+        its title and meta must not use the local head phrases. The dedicated
+        page owns 'AI consulting in Tampa' and 'AI consultant in Tampa'. About
+        stays a studio page, and the homepage hands the local query off with
+        a visible anchor."""
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        about = (ROOT / "about.html").read_text(encoding="utf-8")
+        consulting = (ROOT / "ai-consulting-tampa.html").read_text(encoding="utf-8")
+
+        def title_of(html):
+            return re.search(r"<title>(.*?)</title>", html, re.S).group(1).strip()
+
+        def meta_of(html):
+            return re.search(
+                r'<meta\s+name="description"\s+content="([^"]+)"', html
+            ).group(1)
+
+        home_title = title_of(homepage)
+        home_meta = meta_of(homepage)
+        about_title = title_of(about)
+        about_meta = meta_of(about)
+        consult_title = title_of(consulting)
+        consult_meta = meta_of(consulting)
+        local_heads = (
+            "ai consulting tampa",
+            "ai consultant tampa",
+            "ai consulting in tampa",
+            "ai consultant in tampa",
+        )
+
+        self.assertEqual("altr | AI consulting for ops teams", home_title)
+        self.assertEqual(2, homepage.count(f'content="{home_title}"'))
+        self.assertEqual(3, homepage.count(f'content="{home_meta}"'))
+        self.assertGreaterEqual(len(home_meta), 140)
+        self.assertLessEqual(len(home_meta), 160)
+        self.assertIn("consulting", home_meta.lower())
+        self.assertIn("ai consulting company", home_meta.lower())
+        for phrase in local_heads:
+            self.assertNotIn(phrase, home_title.lower())
+            self.assertNotIn(phrase, home_meta.lower())
+        self.assertNotIn("consultant", home_title.lower())
+
+        self.assertEqual(
+            "AI Consulting in Tampa | AI Consultant for Tampa Bay Businesses | altr",
+            consult_title,
+        )
+        self.assertIn("ai consulting", consult_title.lower())
+        self.assertIn("ai consultant", consult_title.lower())
+        self.assertEqual(2, consulting.count(f'content="{consult_title}"'))
+        self.assertEqual(3, consulting.count(f'content="{consult_meta}"'))
+        self.assertIn(f'"name": "{consult_title}"', consulting)
+        self.assertIn(f'"description": "{consult_meta}"', consulting)
+        self.assertIn("ai consultant in tampa", consult_meta.lower())
+        self.assertIn("ai consulting", consult_meta.lower())
+        h1 = re.sub(
+            r"\s+", " ",
+            re.sub(r"<[^>]+>", " ", re.search(r"<h1[^>]*>(.*?)</h1>", consulting, re.S).group(1)),
+        ).lower()
+        self.assertIn("ai consulting in tampa", h1)
+        self.assertIn("If you searched for an AI consultant in Tampa, this is the page.", consulting)
+
+        self.assertEqual("About altr | Studio and team in Tampa Bay", about_title)
+        self.assertNotIn("consulting", about_title.lower())
+        self.assertNotIn("consultant", about_title.lower())
+        self.assertNotIn("tampa ai automation", about_title.lower())
+        self.assertNotIn("consulting", about_meta.lower())
+        self.assertNotIn("consultant", about_meta.lower())
+        self.assertEqual(2, about.count(f'content="{about_title}"'))
+        self.assertEqual(3, about.count(f'content="{about_meta}"'))
+
+        hero = re.search(
+            r'class="band band-quiet home-about home-about-hero".*?</section>',
+            homepage,
+            re.S,
+        ).group(0)
+        self.assertIn('href="ai-consulting-tampa.html"', hero)
+        self.assertIn(">AI consulting in Tampa</a>", hero)
+        self.assertIn(">AI consultant in Tampa</a>", homepage)
+        self.assertIn(">Tampa, FL</a>", homepage)
+        self.assertGreaterEqual(about.count('href="ai-consulting-tampa.html"'), 2)
+
     def test_ai_strategy_page_sells_what_the_rest_of_the_site_sells(self):
         """The page used to sell a 7-day audit, two named deliverables and an
         embedded engineering team, none of which altr does. It also carried

@@ -270,6 +270,19 @@
   margin-top: clamp(22px, 2.6vw, 30px);
 }
 
+/* local handoff under the chat actions: same italic aside as the why band,
+   centred on the thread so it reads as part of the hero rather than a footnote */
+.home-hero-handoff {
+  margin: clamp(16px, 2.2vw, 22px) 0 0;
+  max-width: none;
+  text-align: center;
+}
+
+.home-hero-handoff a {
+  color: var(--copper);
+  text-underline-offset: 3px;
+}
+
 @keyframes home-about-cursor {
   50% { opacity: 0; }
 }
