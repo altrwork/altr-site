@@ -119,13 +119,21 @@ If Playwright says the browser is missing, run
 uv run --no-project --with playwright --with pillow python .claude/skills/sketch-header/header.py export <slug>
 ```
 
-This writes `assets/headers/<slug>.png` (1200x630) and `assets/headers/<slug>.webp`. Then
-update the page. Follow `claude-cre-skills.html`, which already does the first three:
+This writes three files:
+- `assets/headers/<slug>.png` and `.webp`: the drawing, used for the page header and its card.
+- `assets/headers/share/<slug>.png`: the link preview. It's the same drawing above a thin dark
+  band with the altr key, altrwork.com and "Learning center". The user chose this card, so don't
+  point link previews at the plain drawing.
 
-- `og:image` and `twitter:image` -> `https://altrwork.com/assets/headers/<slug>.png`
+Then update the page. `what-is-an-mcp-server.html` shows every one of these:
+
+- `og:image` and `twitter:image` -> `https://altrwork.com/assets/headers/share/<slug>.png`
+- `og:image:alt` -> a one-sentence description of the picture
 - the Article schema `"image"` -> `https://altrwork.com/assets/headers/<slug>.webp`
-- the header figure under the h1: `<figure class="cre-hero-image"><picture><source srcset="assets/headers/<slug>.webp" type="image/webp" /><img src="assets/headers/<slug>.webp" width="1200" height="630" alt="..." /></picture></figure>`, with alt text that describes the picture
-- the page's card in `learn.html`. The cards currently use a `<span class="cell-mark mark-*">` engraving. Swapping in the header image is a layout change, so confirm the card treatment with the user the first time.
+- the header figure, right after the `article-hero` section: `<figure class="cre-hero-image"><picture><source srcset="assets/headers/<slug>.webp" type="image/webp" /><img src="assets/headers/<slug>.png" width="1200" height="630" alt="Illustration: ..." /></picture></figure>`
+- the page's card in `learn.html`: `<img class="cell-mark" src="assets/headers/<slug>.webp" width="1200" height="630" loading="lazy" alt="..." />`, with the same alt text as the figure. `tests/seo_integrity_test.py` fails on empty card alt text.
+
+Run the tests (`PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run --no-project --with pytest python -m pytest -q tests`).
 
 `preview/` is scratch output. Delete it or leave it untracked; don't commit it. Commit the
 `.svg` source together with the exported images, so the source always matches the site.

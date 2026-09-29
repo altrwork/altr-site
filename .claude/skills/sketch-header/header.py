@@ -11,7 +11,8 @@ standalone works anywhere, including claude.ai: it writes one self-contained .sv
 (style and font embedded) that opens in any browser.
 
 preview -> design-language/headers/preview/<slug>.png (check it, never deployed)
-export  -> assets/headers/<slug>.png (1200x630, link previews) and .webp (cards, page)
+export  -> assets/headers/<slug>.png and .webp (the page header and its learning center card)
+           assets/headers/share/<slug>.png (1200x630 link preview: the drawing plus the altr band)
 sheet   -> design-language/headers/preview/_sheet.png, every drawing at card size
 """
 import asyncio, base64, html, io, pathlib, re, sys
@@ -21,6 +22,7 @@ ROOT = SKILL.parents[2]
 SRC = ROOT / "design-language" / "headers" / "svgs"
 PREVIEW = ROOT / "design-language" / "headers" / "preview"
 OUT = ROOT / "assets" / "headers"
+SHARE = OUT / "share"
 # embedded: a page opened with set_content may not load file:// fonts
 FONT = "data:font/ttf;base64," + base64.b64encode((SKILL / "fonts" / "Kalam-Bold.ttf").read_bytes()).decode()
 DEFS = ('<defs><filter id="rough" x="-5%" y="-5%" width="110%" height="110%">'
@@ -44,6 +46,25 @@ def page(inner, extra_css=""):
     css = (SKILL / "sketch.css").read_text(encoding="utf-8")
     return (f'<html><head><style>@font-face{{font-family:"Kalam";src:url("{FONT}");font-weight:700}}'
             f'body{{margin:0}} {css} {extra_css}</style></head><body>{inner}</body></html>')
+
+
+def data_uri(path, mime):
+    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
+
+
+def share_page(slug):
+    """Link-preview card: the drawing above a thin dark band with the altr key and altrwork.com."""
+    key = data_uri(ROOT / "assets" / "logo" / "altr-key-marble.png", "image/png")
+    grot = data_uri(ROOT / "assets" / "fonts" / "SpaceGrotesk-VariableFont_wght.woff2", "font/woff2")
+    band = ('<div style="position:absolute;left:0;right:0;bottom:0;height:70px;background:#1D1A17;display:flex;'
+            'align-items:center;gap:16px;padding:0 44px">'
+            f'<img src="{key}" style="height:44px">'
+            '<span style="font:600 26px Grot;color:#F2EDE4;letter-spacing:-.02em">altrwork.com</span>'
+            '<span style="margin-left:auto;font:500 17px/1 ui-monospace,Consolas,monospace;letter-spacing:.16em;'
+            'text-transform:uppercase;color:#D9A27A">Learning center</span></div>')
+    card = (f'<div style="width:1200px;height:630px;position:relative;overflow:hidden;background:#FDFCF9">'
+            f'<div style="position:absolute;inset:0 0 70px 0">{svg(slug).replace("<svg ", "<svg width=\"100%\" height=\"100%\" ", 1)}</div>{band}</div>')
+    return page(card, f'@font-face{{font-family:"Grot";src:url("{grot}");font-weight:300 700}}')
 
 
 async def shoot(pg, doc, path, full=False):
@@ -85,7 +106,10 @@ async def main(cmd, slugs):
                 img = Image.open(io.BytesIO(await pg.screenshot())).convert("RGB")
                 img.save(OUT / f"{s}.png", optimize=True)
                 img.save(OUT / f"{s}.webp", quality=88, method=6)
-                print(OUT / f"{s}.png", "+ .webp")
+                SHARE.mkdir(parents=True, exist_ok=True)
+                await pg.set_content(share_page(s), wait_until="load"); await pg.evaluate("document.fonts.ready")
+                Image.open(io.BytesIO(await pg.screenshot())).convert("RGB").save(SHARE / f"{s}.png", optimize=True)
+                print(OUT / f"{s}.png", "+ .webp + share/")
         await b.close()
 
 
