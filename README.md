@@ -29,6 +29,19 @@ is 404'd there so it is not served.
 
 ## Files
 
+**Design system (October 2026):** every page loads `paper.css` alone: warm
+paper ground, Fraunces headings, Geist text, one copper accent, a dashed nav
+strip with the marble key top left, and dark closer and footer bands. It holds
+the homepage sections (`ph-*`), the shared chrome and components (`pp-*`), and
+paper versions of every older page component (`page-hero`, `article-*`,
+`impact-*`, `index-cell`, `engagement-*` and the rest), so no page loads
+`styles.css`, `redesign.css` or `chat-hero.css` any more. `pp.js` runs the nav,
+the menu sheet and the reveal-on-view motion. Those three stylesheets,
+`plate.css`, `nav.js`, `home-typewriter.js` and `home-press.js` are no longer
+loaded by any live page; `lab/` and `design-language/` still reference some of
+them. `lab/` holds local design experiments and is 404'd in production.
+
+
 - `index.html` - home page.
 - `styles.css` - the base stylesheet. Colors are CSS custom properties in
   `:root`. The site is dark: `#14110E` ground, `#F2EDE4` type, 16.1:1. The

@@ -151,14 +151,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="styles.css?v=20260928a" />
-<link rel="stylesheet" href="redesign.css?v=20261001e" />
-<link rel="stylesheet" href="paper.css?v=20261001d" />
+<link rel="stylesheet" href="paper.css?v=20261001g" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..600,0..100,0..1&family=Geist:wght@400;500;600&display=swap" />
 </head>
-<body>
+<body class="pp-page">
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
@@ -261,9 +258,9 @@
           <h2>Where do AI agents fit?</h2>
           <p>An agent is a model running in a loop toward a goal: call a tool, read the result, decide the next step, repeat until done or stuck. Function calling is how each step is requested. MCP is one place the tools can come from. An agent can use both in the same run.</p>
           <p>So "agent vs MCP" is not a real choice. The real questions are how much the loop is allowed to do without a person, covered in <a href="what-is-an-ai-agent.html">what is an AI agent</a>, and where its tools should be defined, which is this page.</p>
-          <div class="article-table-wrap"><table class="article-table">
+          <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table class="article-table">
             <thead>
-              <tr><th></th><th>Function calling</th><th>MCP server</th><th>Agent</th></tr>
+              <tr><td></td><th>Function calling</th><th>MCP server</th><th>Agent</th></tr>
             </thead>
             <tbody>
               <tr><td>What it is</td><td>A model API feature</td><td>A protocol and a service</td><td>A loop around a model</td></tr>

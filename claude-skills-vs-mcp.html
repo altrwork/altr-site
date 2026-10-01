@@ -147,14 +147,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="styles.css?v=20260928a" />
-<link rel="stylesheet" href="redesign.css?v=20261001e" />
-<link rel="stylesheet" href="paper.css?v=20261001d" />
+<link rel="stylesheet" href="paper.css?v=20261001g" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..600,0..100,0..1&family=Geist:wght@400;500;600&display=swap" />
 </head>
-<body>
+<body class="pp-page">
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
@@ -233,9 +230,9 @@
           <p>A Skill is knowledge and an MCP server is access. A Skill changes how Claude works. An MCP server changes what Claude can touch.</p>
           <p>A <strong>Skill</strong> is a folder with a <code>SKILL.md</code> file: a short YAML header with a <code>name</code> and a <code>description</code>, then instructions. It can also carry scripts, templates and reference documents. Claude keeps only the name and description of each installed Skill in view, and reads the full file when a request matches. There is nothing to host and no sign-in to manage.</p>
           <p>An <strong>MCP server</strong> is a program that speaks the <a href="what-is-an-mcp-server.html">Model Context Protocol</a>. It exposes tools, such as "search contacts" or "create a booking", that Claude can call against a live system, under a real identity. It has to be deployed, secured and kept running like any other service.</p>
-          <div class="article-table-wrap"><table class="article-table">
+          <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table class="article-table">
             <thead>
-              <tr><th></th><th>Skill</th><th>MCP server</th></tr>
+              <tr><td></td><th>Skill</th><th>MCP server</th></tr>
             </thead>
             <tbody>
               <tr><td>What it adds</td><td>Instructions, conventions, scripts, templates</td><td>Tools and data from an outside system</td></tr>
