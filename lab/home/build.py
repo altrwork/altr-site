@@ -33,6 +33,7 @@ def head(title, fonts, css):
 <link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet" />
 <style>*,*::before,*::after{{box-sizing:border-box}}body{{margin:0}}h1,h2,h3,p,ul,ol,figure{{margin:0}}ul,ol{{list-style:none;padding:0}}a{{color:inherit}}img{{display:block;max-width:100%;height:auto}}
 :focus-visible{{outline:2px solid currentColor;outline-offset:4px}}.wrap{{width:min(1240px,calc(100% - 2*var(--m)));margin-inline:auto}}
+.brand-key{{width:44px;height:auto}}header.wrap{{position:relative;z-index:10}}header.wrap::before{{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:var(--paper,var(--bg))}}
 .optbar{{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;padding:6px;border-radius:10px;background:rgba(20,17,14,.92);border:1px solid rgba(242,237,228,.2);font:500 12.5px/1 system-ui,sans-serif}}
 .optbar a{{color:#B9B0A3;text-decoration:none;padding:8px 10px;border-radius:6px}}.optbar a[aria-current]{{background:#F2EDE4;color:#14110E}}
 @media (prefers-reduced-motion:reduce){{*,*::before,*::after{{animation:none!important;transition:none!important}}}}
@@ -110,7 +111,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media (max-width:860px){.hero-row,.s-head,.svc,.feature,.teams li,.list a{grid-template-columns:1fr}.hero-art{margin-top:24px;justify-self:center}nav.top a:not(.brand):not(.btn){display:none}}
 '''
 ledger = head("Ledger", "family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600", ledger_css) + f'''
-<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="ledger.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
+<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="ledger.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
 <p class="eyebrow">{C["eyebrow"]}</p>
@@ -168,7 +169,7 @@ footer{border-top:1px solid var(--rule);padding-block:34px;font-size:14px;color:
 @media (max-width:900px){.cols,.feature{grid-template-columns:1fr}.teams{grid-template-columns:1fr 1fr}nav.top a:not(.brand):not(.btn){display:none}}
 '''
 signal = head("Signal", "family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500", signal_css) + f'''
-<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="signal.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
+<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="signal.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
 <p class="mono" data-in>{C["eyebrow"]}</p>
@@ -229,7 +230,7 @@ footer{border-top:1px solid var(--rule);padding-block:32px;font-size:14px;color:
 @media (max-width:860px){.cards,.feature,.list{grid-template-columns:1fr}.row{grid-template-columns:minmax(0,1.6fr) 90px 104px}.row .what{display:none}nav.top a:not(.brand):not(.btn){display:none}}
 '''
 desk = head("Desk", "family=Geist:wght@400;500;600", desk_css) + f'''
-<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="desk.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
+<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="desk.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
 <p class="eyebrow" data-in>{C["eyebrow"]}</p><h1 data-in>Do more with the team you have.</h1><p data-in>{C["lede"]}</p>
@@ -262,6 +263,7 @@ collage_css = '''
 :root{--m:clamp(20px,5vw,72px);--paper:#EFE7DA;--paper-2:#E5DBCA;--ink:#1D1915;--ink-2:#4F463C;--ink-3:#7B7064;--copper:#A2542A;--rule:rgba(29,25,21,.16)}
 body{background:var(--paper);color:var(--ink);font:400 17px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased;background-image:radial-gradient(rgba(29,25,21,.05) 1px,transparent 1px);background-size:5px 5px}
 nav.top{display:flex;align-items:center;gap:26px;height:76px}nav.top .brand{font:600 italic 30px/1 "Fraunces",serif;margin-right:auto;text-decoration:none}
+header.wrap::before{background:var(--paper);border-bottom:1px dashed var(--rule)}
 nav.top a{text-decoration:none;font-size:15px;color:var(--ink-2)}nav.top a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;min-height:50px;padding:0 22px;border-radius:4px;background:var(--ink);color:var(--paper)!important;font-weight:500;text-decoration:none;box-shadow:3px 3px 0 var(--copper);transition:transform .15s,box-shadow .15s}
 .btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--copper)}.btn.sm{min-height:40px;padding:0 16px;font-size:14.5px;box-shadow:2px 2px 0 var(--copper)}
@@ -278,7 +280,7 @@ nav.top a{text-decoration:none;font-size:15px;color:var(--ink-2)}nav.top a:hover
 .piece{opacity:0;transform:translateY(40px) rotate(calc(var(--r) * 2))}.in .piece{opacity:1;transform:rotate(var(--r))}
 .in .p2{transition-delay:.15s}.in .p3{transition-delay:.3s}.in .p4{transition-delay:.45s}
 .herobg{display:none}
-body[data-hero="photo"] .herobg{display:block;position:absolute;left:0;right:0;top:-76px;height:min(960px,100vh);z-index:-1;background:url("../../assets/plates/wash-workshop.webp") 72% 30%/cover no-repeat;mix-blend-mode:multiply;opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 34%,#000 70%),linear-gradient(180deg,#000 70%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 34%,#000 70%),linear-gradient(180deg,#000 70%,transparent);mask-composite:intersect;filter:sepia(.35) contrast(.95)}
+body[data-hero="photo"] .herobg{display:block;position:absolute;left:0;right:0;top:0;height:min(880px,92vh);z-index:-1;background:url("../../assets/plates/wash-workshop.webp") 72% 30%/cover no-repeat;mix-blend-mode:multiply;opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 34%,#000 70%),linear-gradient(180deg,#000 70%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 34%,#000 70%),linear-gradient(180deg,#000 70%,transparent);mask-composite:intersect;filter:sepia(.35) contrast(.95)}
 body[data-hero="photo"] .hero{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
 body[data-hero="photo"] .hero h1{font-size:clamp(3.8rem,8.4vw,8rem)}
 body[data-hero="photo"] .heroart{display:none}
@@ -324,7 +326,7 @@ footer{background:#1D1915;color:#A79C8D;padding-block:34px;border-top:1px solid 
 @media (max-width:860px){.hero,.slips,.feature{grid-template-columns:1fr}.teams{columns:1}nav.top a:not(.brand):not(.btn){display:none}}
 '''
 collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..600,0..100,0..1&family=Geist:wght@400;500&family=Caveat:wght@500", collage_css) + f'''
-<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="collage.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
+<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="collage.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <div class="herobg" aria-hidden="true"></div><div class="wrap"><section class="hero">
 <div><p class="eyebrow" data-in>{C["eyebrow"]}</p><h1 data-in>Do more with the team <em>you have.</em></h1><p data-in>{C["lede"]}</p>

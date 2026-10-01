@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}h1,h2,h3,p,ul,ol,figure{margin:0}ul,ol{list-style:none;padding:0}a{color:inherit}img{display:block;max-width:100%;height:auto}
 :focus-visible{outline:2px solid currentColor;outline-offset:4px}.wrap{width:min(1240px,calc(100% - 2*var(--m)));margin-inline:auto}
+.brand-key{width:44px;height:auto}header.wrap{position:relative;z-index:10}header.wrap::before{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:var(--paper,var(--bg))}
 .optbar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;padding:6px;border-radius:10px;background:rgba(20,17,14,.92);border:1px solid rgba(242,237,228,.2);font:500 12.5px/1 system-ui,sans-serif}
 .optbar a{color:#B9B0A3;text-decoration:none;padding:8px 10px;border-radius:6px}.optbar a[aria-current]{background:#F2EDE4;color:#14110E}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -53,7 +54,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .hero h1 .l:nth-child(2) span{animation-delay:.08s}.hero h1 .l:nth-child(3) span{animation-delay:.16s}@keyframes up{to{transform:none}}
 @media (max-width:860px){.hero-row,.s-head,.svc,.feature,.teams li,.list a{grid-template-columns:1fr}.hero-art{margin-top:24px;justify-self:center}nav.top a:not(.brand):not(.btn){display:none}}
 </style></head><body>
-<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="ledger.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="https://calendly.com/altrwork/30min?utm_source=altr_site&amp;utm_medium=lab">Book a call</a></nav></header>
+<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="ledger.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="https://calendly.com/altrwork/30min?utm_source=altr_site&amp;utm_medium=lab">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
 <p class="eyebrow">AI audits, automation and training for small and medium-sized businesses</p>
