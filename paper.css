@@ -3611,3 +3611,40 @@ article.legal hr {
   justify-self: center;
   width: 100%;
 }
+
+/* credential row a size up; a dotted break, then the services close behind it */
+.pp-logos {
+  padding-bottom: 0;
+}
+
+.pp-logos .pp-wrap {
+  padding-bottom: 36px;
+  border-bottom: 2px dotted var(--rule-strong);
+}
+
+.ph-cred {
+  padding-top: 26px;
+}
+
+.ph-cred-badge,
+.ph-event {
+  font-size: 1.02rem;
+}
+
+.ph-cred-badge img {
+  height: 20px;
+}
+
+.ph-event-tag {
+  padding: 5px 13px;
+}
+
+.ph-event .ph-event-btn {
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 0.97rem;
+}
+
+#what-we-do {
+  padding-top: clamp(40px, 5vw, 64px);
+}
