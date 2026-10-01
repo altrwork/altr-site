@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Model lab | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600&display=swap" />
+<link rel="stylesheet" href="../plate.css?v=lab2" />
+<style>
+/* Model lab: professionally made CC0 3D models (Poly Haven) standing free
+   on the ink ground beside the homepage copy. Local review only. */
+.m-stage { position: relative; width: calc(100% + var(--margin) * 0.6); margin-right: calc(-0.6 * var(--margin)); aspect-ratio: 1 / 1; }
+.m-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; transition: filter 500ms ease; }
+.m-stage canvas:active { cursor: grabbing; }
+.m-stage.tone canvas { filter: grayscale(1) sepia(0.35) contrast(1.08) brightness(0.98); }
+.m-stage::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: 8%; height: 14%; border-radius: 50%; background: radial-gradient(closest-side, rgba(216, 138, 82, 0.12), transparent); pointer-events: none; }
+[hidden] { display: none !important; }
+.m-loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--cream-3); font-size: 14px; }
+.lab-bar { position: fixed; left: 50%; bottom: 18px; z-index: 150; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; max-width: calc(100% - 24px); padding: 8px; border: 1px solid var(--rule-strong); border-radius: 10px; background: rgba(28, 24, 20, 0.94); backdrop-filter: blur(12px); }
+.lab-bar button { font: inherit; font-size: 13px; font-weight: 500; color: var(--cream-2); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+.lab-bar button:hover { color: var(--cream); }
+.lab-bar button[aria-pressed="true"] { color: var(--ink); background: var(--cream); }
+.lab-bar .sep { width: 1px; align-self: stretch; background: var(--rule-strong); margin: 0 4px; }
+.lab-note { position: fixed; left: 50%; bottom: 82px; z-index: 150; transform: translateX(-50%); width: min(720px, calc(100% - 24px)); padding: 12px 16px; border-radius: 8px; background: rgba(28, 24, 20, 0.94); border: 1px solid var(--rule); color: var(--cream-2); font-size: 14px; line-height: 1.5; }
+.lab-note b { color: var(--cream); }
+.lab-tall { height: 110vh; }
+@media (max-width: 900px) { .m-stage { width: 100%; margin: 0; } }
+</style>
+</head>
+<body class="pp-page">
+<main id="main">
+  <section class="pp-hero" aria-labelledby="home-headline">
+    <div class="pp-wrap pp-hero-grid pp-hero-press">
+      <div class="pp-hero-copy">
+        <p class="pp-eyebrow" data-settle>AI audits, automation and training for small and medium-sized businesses</p>
+        <h1 class="pp-display" id="home-headline">
+          <span class="ln" style="--i:0"><span>Do more with</span></span>
+          <span class="ln" style="--i:1"><span>the team</span></span>
+          <span class="ln" style="--i:2"><span><em>you have.</em></span></span>
+        </h1>
+        <p class="pp-lede" data-settle style="--d:380ms">We find the work that eats your team's week, automate it, and train your people to use AI on the rest.</p>
+        <div class="pp-actions" data-settle style="--d:520ms">
+          <a class="pp-key pp-key-lg" href="#">Book a free call</a>
+          <a class="pp-link" href="#">See our work</a>
+        </div>
+      </div>
+      <div class="m-stage" id="stage"><canvas id="cv"></canvas><div class="m-loading" id="loading">Loading model…</div></div>
+    </div>
+  </section>
+  <section class="pp-section"><div class="pp-wrap"><p class="pp-aside">Scroll: the model turns with the page.</p></div><div class="lab-tall"></div></section>
+</main>
+<div class="lab-note" id="note"></div>
+<nav class="lab-bar" id="bar" aria-label="Models"></nav>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+<script src="../pp.js"></script>
+<script>
+const MODELS = [
+  { id: 'marble_bust_01', name: 'Marble bust', note: '<b>Marble bust.</b> A carved classical bust, turning slowly in studio light. Closest to the Tenex feeling, but a portrait rather than statues holding gadgets.', tilt: 0.05 },
+  { id: 'vintage_pocket_watch', name: 'Pocket watch', note: '<b>Pocket watch.</b> Time, and getting hours back. Precise brass and glass catch the light as it turns.', tilt: 0.55 },
+  { id: 'spinning_wheel_01', name: 'Spinning wheel', note: '<b>Spinning wheel.</b> A hand machine from the workshop age. The idea is a craft tool working while the craftsperson does something else.', tilt: 0.1 },
+  { id: 'mantel_clock_01', name: 'Mantel clock', note: '<b>Mantel clock.</b> A classic carved clock: the working week, kept on time.', tilt: 0.08 },
+  { id: 'seadogs_compass', name: 'Compass', note: '<b>Ship\'s compass.</b> Direction. It suits the AI Audit idea of finding where to point the work.', tilt: 0.5 },
+  { id: 'lion_head', name: 'Lion head', note: '<b>Lion head.</b> A carved architectural ornament, the same world as the Piranesi plates, in real 3D.', tilt: 0.1 },
+];
+const stage = document.getElementById('stage'), cv = document.getElementById('cv'), loading = document.getElementById('loading');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.physicallyCorrectLights = true;
+const scene = new THREE.Scene();
+const cam = new THREE.PerspectiveCamera(28, 1, 0.01, 100);
+const pmrem = new THREE.PMREMGenerator(renderer);
+new THREE.RGBELoader().setDataType(THREE.UnsignedByteType).load('models/studio.hdr', hdr => {
+  scene.environment = pmrem.fromEquirectangular(hdr).texture; hdr.dispose();
+});
+const key = new THREE.DirectionalLight(0xfff1dd, 2.4); key.position.set(-2, 3, 2.5); scene.add(key);
+const rim = new THREE.DirectionalLight(0xD88A52, 3.2); rim.position.set(3, 1.2, -3); scene.add(rim);
+const pivot = new THREE.Group(); scene.add(pivot);
+const loader = new THREE.GLTFLoader();
+let current = null, idx = -1, target = 0, rot = 0, drag = null, baseTilt = 0;
+
+function fit(obj) {
+  const box = new THREE.Box3().setFromObject(obj), size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+  obj.position.sub(center);
+  const s = 2.0 / Math.max(size.x, size.y, size.z); obj.scale.setScalar(s);
+  cam.position.set(0, 0.1, 4.8); cam.lookAt(0, -0.05, 0);
+}
+function show(i) {
+  if (i === idx) return; idx = i;
+  [...bar.querySelectorAll('[data-m]')].forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+  document.getElementById('note').innerHTML = MODELS[i].note;
+  loading.hidden = false;
+  const m = MODELS[i];
+  loader.load(`models/${m.id}/${m.id}_1k.gltf`, gltf => {
+    if (idx !== i) return;
+    if (current) { pivot.remove(current); current.traverse(o => { if (o.geometry) o.geometry.dispose(); }); }
+    current = gltf.scene; fit(current); pivot.add(current);
+    baseTilt = m.tilt; loading.hidden = true;
+  }, undefined, () => { loading.textContent = 'Could not load this model.'; });
+  try { history.replaceState(null, '', '#m' + (i + 1)); } catch (e) {}
+}
+const bar = document.getElementById('bar');
+MODELS.forEach((m, i) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.m = i; b.textContent = `${i + 1} ${m.name}`; b.onclick = () => show(i); bar.appendChild(b); });
+const sep = document.createElement('span'); sep.className = 'sep'; bar.appendChild(sep);
+const toneBtn = document.createElement('button'); toneBtn.type = 'button'; toneBtn.textContent = 'Engraved tone'; toneBtn.setAttribute('aria-pressed', 'false');
+toneBtn.onclick = () => { const on = stage.classList.toggle('tone'); toneBtn.setAttribute('aria-pressed', String(on)); };
+bar.appendChild(toneBtn);
+addEventListener('keydown', e => { const n = parseInt(e.key, 10); if (n >= 1 && n <= MODELS.length) show(n - 1); if (e.key === 't') toneBtn.click(); });
+
+cv.addEventListener('pointerdown', e => { drag = e.clientX; cv.setPointerCapture(e.pointerId); });
+cv.addEventListener('pointermove', e => { if (drag !== null) { target += (e.clientX - drag) * 0.008; drag = e.clientX; } });
+cv.addEventListener('pointerup', () => drag = null);
+const size = () => { const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+size(); addEventListener('resize', size);
+const tick = () => {
+  const sp = Math.min(1, scrollY / (innerHeight * 0.9));
+  if (!reduced && drag === null) target += 0.0028;
+  rot += (target - rot) * 0.07;
+  pivot.rotation.y = rot + sp * 1.4;
+  pivot.rotation.x = baseTilt + sp * 0.25;
+  pivot.position.y = Math.sin(performance.now() / 2200) * (reduced ? 0 : 0.025) - sp * 0.2;
+  renderer.render(scene, cam);
+  requestAnimationFrame(tick);
+};
+tick();
+const h = parseInt((location.hash.match(/m(\d)/) || [])[1], 10);
+show(h >= 1 && h <= MODELS.length ? h - 1 : 0);
+</script>
+</body>
+</html>
