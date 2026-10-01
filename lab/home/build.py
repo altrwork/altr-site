@@ -277,6 +277,13 @@ nav.top a{text-decoration:none;font-size:15px;color:var(--ink-2)}nav.top a:hover
 .tape{position:absolute;width:90px;height:26px;background:rgba(246,238,222,.75);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:3}
 .piece{opacity:0;transform:translateY(40px) rotate(calc(var(--r) * 2))}.in .piece{opacity:1;transform:rotate(var(--r))}
 .in .p2{transition-delay:.15s}.in .p3{transition-delay:.3s}.in .p4{transition-delay:.45s}
+.herobg{display:none}
+body[data-hero="photo"] .herobg{display:block;position:absolute;left:0;right:0;top:-76px;height:min(960px,100vh);z-index:-1;background:url("../../assets/plates/wash-workshop.webp") 72% 30%/cover no-repeat;mix-blend-mode:multiply;opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 34%,#000 70%),linear-gradient(180deg,#000 70%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 34%,#000 70%),linear-gradient(180deg,#000 70%,transparent);mask-composite:intersect;filter:sepia(.35) contrast(.95)}
+body[data-hero="photo"] .hero{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+body[data-hero="photo"] .hero h1{font-size:clamp(3.8rem,8.4vw,8rem)}
+body[data-hero="photo"] .heroart{display:none}
+main{position:relative;isolation:isolate}
+@media (max-width:860px){body[data-hero="photo"] .herobg{height:620px;opacity:.32;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}}
 .heroart{position:relative;min-height:560px}.hv{display:none}body[data-hero="press"] .hv-press,body[data-hero="founders"] .hv-founders,body[data-hero="cards"] .hv-cards,body[data-hero="type"] .hv-type{display:block}
 .hv-press img{width:100%;mix-blend-mode:multiply;filter:contrast(1.05)}.hv-press figcaption{margin-top:10px;text-align:right;font-size:13px;color:var(--ink-3);font-style:italic}
 .hv-founders{position:relative;height:560px}.print{position:absolute;width:52%;padding:12px 12px 16px;background:#FBF7F0;box-shadow:0 18px 30px -14px rgba(29,25,21,.45),0 2px 3px rgba(29,25,21,.15);transition:transform .5s cubic-bezier(.16,1,.3,1)}
@@ -319,7 +326,7 @@ footer{background:#1D1915;color:#A79C8D;padding-block:34px;border-top:1px solid 
 collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..600,0..100,0..1&family=Geist:wght@400;500&family=Caveat:wght@500", collage_css) + f'''
 <header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="collage.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
-<div class="wrap"><section class="hero">
+<div class="herobg" aria-hidden="true"></div><div class="wrap"><section class="hero">
 <div><p class="eyebrow" data-in>{C["eyebrow"]}</p><h1 data-in>Do more with the team <em>you have.</em></h1><p data-in>{C["lede"]}</p>
 <div class="acts" data-in><a class="btn" href="../../start-a-conversation.html">Book a free call</a><a class="link" href="../../case-studies.html">See our work</a></div></div>
 <div class="heroart" data-in id="heroart">
@@ -342,10 +349,10 @@ collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400
 <section class="s" style="padding-top:0"><div class="wrap"><h2 data-in>Questions owners <em>ask us first.</em></h2>{faq()}</div></section>
 <section class="closer"><div class="wrap"><h2>Tell us what your team does <em>by hand.</em></h2><p>Thirty minutes, free. We'll tell you which of the three fits, or that none does.</p><a class="btn" href="../../start-a-conversation.html">Book a free call</a></div></section>
 </main><footer><div class="wrap"><span>altr &middot; Tampa, Florida</span><span><a href="../../learn.html">Learn</a><a href="../../about.html">About</a><a href="../../contact.html">Contact</a></span></div></footer>
-<div class="herobar" role="group" aria-label="Hero art"><button type="button" data-h="press">Press in ink</button><button type="button" data-h="founders">Founder prints</button><button type="button" data-h="cards">Index cards</button><button type="button" data-h="type">Type only</button></div>
+<div class="herobar" role="group" aria-label="Hero art"><button type="button" data-h="photo">Photo background</button><button type="button" data-h="press">Press in ink</button><button type="button" data-h="founders">Founder prints</button><button type="button" data-h="cards">Index cards</button><button type="button" data-h="type">Type only</button></div>
 {optbar("collage")}{REVEAL}
 <script>(()=>{{const bs=[...document.querySelectorAll('.herobar button')];const set=h=>{{document.body.dataset.hero=h;bs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.h===h)));try{{history.replaceState(null,'','#'+h)}}catch(e){{}}}};
-bs.forEach(b=>b.onclick=()=>set(b.dataset.h));set(['press','founders','cards','type'].includes(location.hash.slice(1))?location.hash.slice(1):'press')}})()</script>
+bs.forEach(b=>b.onclick=()=>set(b.dataset.h));set(['photo','press','founders','cards','type'].includes(location.hash.slice(1))?location.hash.slice(1):'photo')}})()</script>
 </body></html>'''
 
 for name, html in [("ledger", ledger), ("signal", signal), ("desk", desk), ("collage", collage)]:
