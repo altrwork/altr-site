@@ -344,7 +344,9 @@ class SeoIntegrityTests(unittest.TestCase):
             "ai consultant in tampa",
         )
 
-        self.assertEqual("altr | AI consulting for ops teams", home_title)
+        self.assertEqual("altr | AI Transformation and AI Consulting for Small Business", home_title)
+        self.assertIn("ai consulting", home_title.lower())
+        self.assertIn("ai transformation", home_title.lower())
         self.assertEqual(2, homepage.count(f'content="{home_title}"'))
         self.assertEqual(3, homepage.count(f'content="{home_meta}"'))
         self.assertGreaterEqual(len(home_meta), 140)

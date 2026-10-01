@@ -1,7 +1,8 @@
 # altr
 
-> AI enablement and automation firm in Tampa, Florida. We help growing teams use AI
-> inside the work they already own, then automate the repeated parts. Founded by
+> AI Transformation for small and mid-size businesses. altr is an AI transformation
+> and AI consulting agency in Tampa, Florida: we replace wasted labor and cost with
+> automated workflows, and train employees to use AI in ways that benefit the company. Founded by
 > Alex Britton and Jarred Robidoux. In person across Tampa Bay, St. Petersburg and
 > Clearwater; remote for teams anywhere in the United States. Focus: commercial real
 > estate and operations-heavy teams, Claude enablement, MCP servers and agents.
