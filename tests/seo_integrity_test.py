@@ -203,13 +203,22 @@ class SeoIntegrityTests(unittest.TestCase):
         # <b>/<em> for the two-tone treatment, which a raw substring test breaks
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", homepage))
+        # the three services are a menu: each is named, and each has its own
+        # first step, so the page never implies one is a prerequisite
         for phrase in (
-            "From one repeated workflow to a system your team can trust.",
-            "Map the workflow",
-            "Prove it with the team",
-            "Deploy what earns a role",
+            "Three services. Start with whichever one you need.",
+            "Each one stands on its own.",
+            "AI Audit",
+            "Automation",
+            "AI Training",
+            "Every service has its own first step.",
+            "Walk us through your week",
+            "Send us real examples",
+            "Bring the team and their work",
         ):
             self.assertIn(phrase, visible)
+        for retired in ("Zero to one", "One to ten", "in the order they earn"):
+            self.assertNotIn(retired, visible)
 
     def test_faq_schema_answers_appear_on_the_page(self):
         """Google drops FAQ rich results when the schema text is not on the page.
@@ -432,13 +441,13 @@ class SeoIntegrityTests(unittest.TestCase):
                 )
 
     def test_workshops_are_still_offered(self):
-        """Enablement is one of the three services and the workshops are real.
+        """AI Training is one of the three services and the workshops are real.
         Nothing in the slop cleanup should take them off the site."""
         for name in ("ai-enablement-workshop.html", "ai-workshop.html"):
             self.assertTrue((ROOT / name).exists(), f"{name} is missing")
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('href="ai-enablement-workshop.html"', homepage)
-        self.assertIn("Enablement", homepage)
+        self.assertIn("AI Training", homepage)
 
 
     def test_learning_center_pages_are_wired_everywhere(self):
