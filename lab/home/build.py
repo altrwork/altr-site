@@ -277,6 +277,23 @@ nav.top a{text-decoration:none;font-size:15px;color:var(--ink-2)}nav.top a:hover
 .tape{position:absolute;width:90px;height:26px;background:rgba(246,238,222,.75);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:3}
 .piece{opacity:0;transform:translateY(40px) rotate(calc(var(--r) * 2))}.in .piece{opacity:1;transform:rotate(var(--r))}
 .in .p2{transition-delay:.15s}.in .p3{transition-delay:.3s}.in .p4{transition-delay:.45s}
+.heroart{position:relative;min-height:560px}.hv{display:none}body[data-hero="press"] .hv-press,body[data-hero="founders"] .hv-founders,body[data-hero="cards"] .hv-cards,body[data-hero="type"] .hv-type{display:block}
+.hv-press img{width:100%;mix-blend-mode:multiply;filter:contrast(1.05)}.hv-press figcaption{margin-top:10px;text-align:right;font-size:13px;color:var(--ink-3);font-style:italic}
+.hv-founders{position:relative;height:560px}.print{position:absolute;width:52%;padding:12px 12px 16px;background:#FBF7F0;box-shadow:0 18px 30px -14px rgba(29,25,21,.45),0 2px 3px rgba(29,25,21,.15);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.print img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(1.02)}.print figcaption{margin-top:10px;font:500 22px/1 "Caveat",cursive;color:var(--ink-2)}
+.pr1{left:2%;top:4%;transform:rotate(-5deg)}.pr2{right:2%;top:18%;transform:rotate(4deg)}.print:hover{transform:rotate(0) translateY(-6px);z-index:2}
+.tape{position:absolute;left:50%;top:-12px;width:96px;height:26px;margin-left:-48px;background:rgba(244,236,218,.82);box-shadow:0 1px 2px rgba(0,0,0,.1);transform:rotate(-3deg)}.t2{transform:rotate(4deg)}
+.note{font:500 24px/1.3 "Caveat",cursive;color:#3a2f14;background:#F7E7A6;padding:14px 16px 18px;box-shadow:0 8px 14px rgba(29,25,21,.18);width:200px}
+.n2{position:absolute;left:6%;right:auto;top:auto;bottom:0;width:220px;transform:rotate(-4deg);z-index:3}
+.hv-cards{position:relative;height:560px}.ic{position:absolute;left:50%;top:50%;width:300px;min-height:200px;margin:-110px 0 0 -150px;padding:22px 22px 24px;background:#F8F3EA;text-decoration:none;color:var(--ink);box-shadow:0 18px 30px -16px rgba(29,25,21,.45);border-top:3px solid var(--copper);display:flex;flex-direction:column;gap:10px;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.ic b{font:500 2rem/1 "Fraunces",serif}.ic-n{font:500 13px/1 "Geist",sans-serif;color:var(--copper)}.ic-d{color:var(--ink-2);font-size:15px}
+.ic1{transform:translate(-24px,-36px) rotate(-9deg)}.ic2{transform:translate(0,0) rotate(-1deg)}.ic3{transform:translate(26px,38px) rotate(7deg)}
+.hv-cards:hover .ic1{transform:translate(-150px,-120px) rotate(-6deg)}.hv-cards:hover .ic2{transform:translate(40px,-10px) rotate(2deg)}.hv-cards:hover .ic3{transform:translate(-60px,140px) rotate(5deg)}.ic:hover{z-index:3}
+body[data-hero="type"] .hero{grid-template-columns:1fr}body[data-hero="type"] .hero h1{font-size:clamp(4rem,10.5vw,10rem)}body[data-hero="type"] .heroart{position:absolute;right:var(--m);top:120px;min-height:0}
+.n3{position:relative;top:auto;right:auto;transform:rotate(5deg);width:230px}
+.herobar{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;padding:6px;border-radius:10px;background:rgba(20,17,14,.92);border:1px solid rgba(242,237,228,.2);font:500 12.5px/1 system-ui,sans-serif}
+.herobar button{font:inherit;color:#B9B0A3;background:transparent;border:0;padding:8px 10px;border-radius:6px;cursor:pointer}.herobar button[aria-pressed="true"]{background:#C2703A;color:#14110E}
+@media (max-width:860px){.heroart,.hv-founders,.hv-cards{min-height:440px;height:440px}.ic{width:240px;margin-left:-120px}body[data-hero="type"] .heroart{position:relative;top:0;right:0}}
 .logos{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;padding-block:30px;border-block:1px dashed var(--rule)}
 .logos img{height:30px;width:auto;filter:brightness(0);opacity:.6}.logos .mono img{filter:invert(1) brightness(0)}
 section.s{padding-block:clamp(80px,10vw,140px)}
@@ -305,10 +322,15 @@ collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400
 <div class="wrap"><section class="hero">
 <div><p class="eyebrow" data-in>{C["eyebrow"]}</p><h1 data-in>Do more with the team <em>you have.</em></h1><p data-in>{C["lede"]}</p>
 <div class="acts" data-in><a class="btn" href="../../start-a-conversation.html">Book a free call</a><a class="link" href="../../case-studies.html">See our work</a></div></div>
-<div class="collage" data-in id="collage" aria-hidden="true">
-<img class="piece p1" src="assets/frag-port.webp" alt="" data-depth="18" /><img class="piece p2" src="assets/frag-bridge.webp" alt="" data-depth="34" />
-<img class="piece p3" src="assets/frag-workshop.webp" alt="" data-depth="10" /><img class="piece p4" src="assets/frag-basilica.webp" alt="" data-depth="46" />
-<div class="note piece" style="--r:6deg" data-depth="60">Bills, orders, follow-ups: handled.</div></div>
+<div class="heroart" data-in id="heroart">
+<figure class="hv hv-press" aria-label="An 18th-century printing press from Diderot's Encyclopedie, printed in black ink"><img src="assets/press-ink.webp" alt="" /><figcaption>Imprimerie, pl. XV &middot; Encyclop&eacute;die, 1769</figcaption></figure>
+<div class="hv hv-founders" aria-label="Photos of the founders, Jarred Robidoux and Alex Britton">
+<figure class="print pr1"><span class="tape t1"></span><img src="../../assets/jarred-robidoux-headshot.webp" alt="" /><figcaption>Jarred &middot; audits &amp; training</figcaption></figure>
+<figure class="print pr2"><span class="tape t2"></span><img src="../../assets/alex-britton-headshot.webp" alt="" /><figcaption>Alex &middot; automations</figcaption></figure>
+<p class="note n2">Two of us. No hand-offs.</p></div>
+<div class="hv hv-cards" aria-label="The three services as index cards">{"".join(f'<a class="ic ic{k}" href="{h}"><span class="ic-n">0{k}</span><b>{n}</b><span class="ic-d">{d.split(". ")[0]}.</span></a>' for k,(n,h,d,f2) in enumerate(C["services"],1))}</div>
+<div class="hv hv-type" aria-hidden="true"><p class="note n3">Bills, orders, follow-ups: handled.</p></div>
+</div>
 </section></div>
 <div class="wrap">{logos()}</div>
 <section class="s"><div class="wrap"><h2 data-in>Three services. <em>Take one, or all three.</em></h2>
@@ -320,9 +342,11 @@ collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400
 <section class="s" style="padding-top:0"><div class="wrap"><h2 data-in>Questions owners <em>ask us first.</em></h2>{faq()}</div></section>
 <section class="closer"><div class="wrap"><h2>Tell us what your team does <em>by hand.</em></h2><p>Thirty minutes, free. We'll tell you which of the three fits, or that none does.</p><a class="btn" href="../../start-a-conversation.html">Book a free call</a></div></section>
 </main><footer><div class="wrap"><span>altr &middot; Tampa, Florida</span><span><a href="../../learn.html">Learn</a><a href="../../about.html">About</a><a href="../../contact.html">Contact</a></span></div></footer>
+<div class="herobar" role="group" aria-label="Hero art"><button type="button" data-h="press">Press in ink</button><button type="button" data-h="founders">Founder prints</button><button type="button" data-h="cards">Index cards</button><button type="button" data-h="type">Type only</button></div>
 {optbar("collage")}{REVEAL}
-<script>(()=>{{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const ps=[...document.querySelectorAll('#collage [data-depth]')];
-addEventListener('scroll',()=>{{const y=Math.min(scrollY,700);ps.forEach(p=>p.style.translate=`0 ${{-y*p.dataset.depth/300}}px`)}},{{passive:true}})}})()</script></body></html>'''
+<script>(()=>{{const bs=[...document.querySelectorAll('.herobar button')];const set=h=>{{document.body.dataset.hero=h;bs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.h===h)));try{{history.replaceState(null,'','#'+h)}}catch(e){{}}}};
+bs.forEach(b=>b.onclick=()=>set(b.dataset.h));set(['press','founders','cards','type'].includes(location.hash.slice(1))?location.hash.slice(1):'press')}})()</script>
+</body></html>'''
 
 for name, html in [("ledger", ledger), ("signal", signal), ("desk", desk), ("collage", collage)]:
     open(f"lab/home/{name}.html", "w", encoding="utf-8", newline="\n").write(html)
