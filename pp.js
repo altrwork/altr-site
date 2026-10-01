@@ -6,7 +6,7 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -- reveal: .is-in when an element reaches the viewport ---------- */
-  const targets = document.querySelectorAll('[data-settle], [data-pull], [data-rule], .ln');
+  const targets = document.querySelectorAll('[data-settle], [data-pull], [data-rule], [data-build], .ln');
   const show = el => el.classList.add('is-in');
 
   document.querySelectorAll('[data-rule]').forEach(list => {

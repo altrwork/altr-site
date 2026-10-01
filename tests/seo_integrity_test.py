@@ -410,8 +410,9 @@ class SeoIntegrityTests(unittest.TestCase):
 
         self.assertIn("AI Strategy", re.search(r"<title>(.*?)</title>", html, re.S).group(1))
         self.assertIn("AI strategy", html)
-        for phase in ("Map", "Prove", "Deploy"):
-            self.assertIn(f"<h3>{phase}</h3>", html)
+        # the audit is a standalone service now, not the first of three phases
+        for step in ("Map", "Rank", "Recommend"):
+            self.assertIn(f"<h3>{step}</h3>", html)
         for retired in ("7-day", "seven-day", "priced up front",
                         "embedded engineering", "30-day Roadmap", "Opportunity Map"):
             self.assertNotIn(retired, html, f"retired claim back on the page: {retired}")

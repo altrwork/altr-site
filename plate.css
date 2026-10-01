@@ -73,7 +73,7 @@ html {
   text-size-adjust: 100%;
 }
 
-body {
+body.pp-page {
   margin: 0;
   background: var(--ink);
   color: var(--cream);
@@ -85,21 +85,24 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-img {
+:where(.pp-page, .nav, .pp-footer) img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-a {
+:where(.pp-page, .nav, .pp-footer) a {
   color: inherit;
 }
 
-h1, h2, h3, p, ol, ul, figure, blockquote {
+:where(.pp-page) :where(h1, h2, h3, p, ol, ul, figure, blockquote),
+:where(.nav) :where(h2, h3, p, ol, ul, figure),
+:where(.pp-footer) :where(h2, p, ol, ul) {
   margin: 0;
 }
 
-h1, h2, h3 {
+:where(.pp-page) :where(h1, h2, h3),
+:where(.pp-footer) :where(h2) {
   font-weight: 500;
   text-wrap: balance;
 }
@@ -231,6 +234,21 @@ h1, h2, h3 {
 }
 
 /* -- nav ----------------------------------------------------------- */
+.nav,
+.pp-menu,
+.pp-footer {
+  font-family: var(--sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nav ul,
+.nav ol,
+.pp-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
@@ -559,6 +577,37 @@ h1, h2, h3 {
   font-size: 12px;
 }
 
+/* Build: the hero engraving constructs itself. A line drawing of the
+   architecture rises from the foundations, the tonal plate follows it up,
+   the lines dissolve into the tone, and one pass of light crosses the
+   finished plate. Static (no JS, reduced motion): the finished plate. */
+.pp-build {
+  background: transparent;
+}
+
+.pp-build img {
+  position: absolute;
+  inset: 0;
+}
+
+.pp-build .pp-build-lines {
+  opacity: 0;
+  mix-blend-mode: screen;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 42% 50%;
+}
+
+.pp-build-light {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 45% at 50% 50%, rgba(255, 226, 190, 0.55), rgba(255, 226, 190, 0) 70%);
+  mix-blend-mode: soft-light;
+}
+
 /* -- logos --------------------------------------------------------- */
 .pp-logos {
   padding-bottom: var(--section);
@@ -799,6 +848,28 @@ h1, h2, h3 {
 }
 
 /* -- work ---------------------------------------------------------- */
+.pp-feature-plate {
+  position: relative;
+}
+
+.pp-feature-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(200deg, rgba(20, 17, 14, 0) 30%, rgba(20, 17, 14, 0.82) 100%);
+  pointer-events: none;
+}
+
+.pp-feature .pp-feature-logo {
+  position: absolute;
+  left: clamp(20px, 3vw, 36px);
+  bottom: clamp(18px, 2.6vw, 32px);
+  z-index: 1;
+  width: clamp(96px, 11vw, 150px);
+  height: auto;
+  object-fit: contain;
+}
+
 .pp-feature {
   display: grid;
   gap: 24px;
@@ -816,7 +887,7 @@ h1, h2, h3 {
   transition: transform 900ms var(--ease-out);
 }
 
-.pp-feature:hover .pp-plate img {
+.pp-feature:hover .pp-plate img:not(.pp-feature-logo) {
   transform: scale(1.025);
 }
 
@@ -1266,16 +1337,65 @@ body.intake-modal-open {
   }
 
   /* Pull: an engraving is pulled from top to bottom, like a print */
-  .js [data-pull] img {
+  .js [data-pull] img:not(.pp-feature-logo) {
     clip-path: inset(0 0 100% 0);
     transform: scale(1.08);
     transition: clip-path var(--t-pull) var(--ease-ink), transform calc(var(--t-pull) + 600ms) var(--ease-out);
     transition-delay: var(--d, 0ms);
   }
 
-  .js [data-pull].is-in img {
+  .js [data-pull].is-in img:not(.pp-feature-logo) {
     clip-path: inset(0 0 0 0);
     transform: none;
+  }
+
+  .js .pp-build .pp-build-tone,
+  .js .pp-build .pp-build-lines {
+    -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 60%);
+    mask-image: linear-gradient(to top, #000 40%, transparent 60%);
+    -webkit-mask-size: 100% 250%;
+    mask-size: 100% 250%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 0 0%;
+    mask-position: 0 0%;
+  }
+
+  .js .pp-build .pp-build-lines {
+    opacity: 1;
+  }
+
+  .js .pp-build.is-in .pp-build-lines {
+    animation: pp-rise 1700ms cubic-bezier(0.33, 0, 0.2, 1) 0ms both, pp-fade-out 1300ms ease 2100ms both;
+  }
+
+  .js .pp-build.is-in .pp-build-tone {
+    animation: pp-rise 2000ms cubic-bezier(0.45, 0, 0.2, 1) 750ms both, pp-settle-scale 3400ms var(--ease-out) 750ms both;
+  }
+
+  .js .pp-build.is-in .pp-build-light {
+    animation: pp-light 3000ms ease-in-out 2700ms both;
+  }
+
+  @keyframes pp-rise {
+    from { -webkit-mask-position: 0 0%; mask-position: 0 0%; }
+    to { -webkit-mask-position: 0 100%; mask-position: 0 100%; }
+  }
+
+  @keyframes pp-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes pp-settle-scale {
+    from { transform: scale(1.035); }
+    to { transform: none; }
+  }
+
+  @keyframes pp-light {
+    0% { opacity: 0; transform: translateX(-60%); }
+    35% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(60%); }
   }
 
   /* Rule: hairlines draw from the left, one after another */
@@ -1413,5 +1533,216 @@ body.intake-modal-open {
 
   .pp-footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===================================================================
+   Legacy pages
+   -------------------------------------------------------------------
+   Pages not yet rebuilt still load styles.css + redesign.css for their
+   body, then this file for the shared nav, menu and footer. The old
+   stylesheets drew .nav as a floating rounded pill and zero every
+   radius and shadow with !important, so the chrome restates itself
+   here with enough weight to win.
+   =================================================================== */
+header.nav {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  height: 72px;
+  margin: 0;
+  padding: 0 var(--margin);
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transform: none;
+}
+
+header.nav.is-scrolled {
+  background: rgba(28, 24, 20, 0.92);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--rule);
+}
+
+header.nav.is-hidden {
+  transform: translateY(-100%);
+}
+
+.pp-key {
+  border-radius: 6px !important;
+  box-shadow: 0 3px 0 #B9B0A3, 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+.pp-key:active {
+  box-shadow: 0 1px 0 #B9B0A3, 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+@media (max-width: 640px) {
+  header.nav {
+    height: 64px;
+  }
+}
+
+/* old stylesheets colour every nav link cream, which hid the key's label */
+header.nav .pp-key,
+header.nav .pp-key:hover,
+header.nav .pp-key:focus-visible {
+  color: var(--ink);
+}
+
+/* ===================================================================
+   Inner pages
+   =================================================================== */
+.pp-hero-page {
+  padding-bottom: clamp(64px, 8vw, 120px);
+}
+
+.pp-hero-page .pp-display {
+  font-size: clamp(2.6rem, 5.6vw, 5.2rem);
+  line-height: 0.98;
+}
+
+.pp-hero-page .pp-hero-plate {
+  aspect-ratio: 5 / 6;
+}
+
+.pp-note {
+  margin-top: 28px;
+  color: var(--cream-3);
+  font-size: var(--fs-meta);
+}
+
+/* definition rows: a term and what it means, ruled */
+.pp-defs {
+  list-style: none;
+  padding: 0;
+}
+
+.pp-defs li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 6px 28px;
+  align-items: baseline;
+  padding: 24px 0;
+}
+
+.pp-defs h3,
+.pp-defs b {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.pp-defs div,
+.pp-defs > li > span {
+  color: var(--cream-2);
+}
+
+.pp-defs div p + p {
+  margin-top: 8px;
+}
+
+.pp-defs .pp-defs-lead {
+  color: var(--cream);
+}
+
+.pp-prose-block {
+  max-width: 60ch;
+  color: var(--cream-2);
+  font-size: var(--fs-lede);
+  line-height: 1.55;
+}
+
+.pp-prose-block p + p {
+  margin-top: 18px;
+}
+
+/* About */
+.pp-founders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+  align-self: start;
+}
+
+.pp-founder img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  filter: grayscale(0.15) contrast(1.02);
+}
+
+.pp-founder figcaption {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.pp-founder-name {
+  color: var(--cream);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.pp-founder-role {
+  color: var(--cream-2);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pp-founder-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.pp-founder-links a {
+  color: var(--copper-hi);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pp-founder-links a:hover {
+  text-decoration: underline;
+}
+
+.pp-verse {
+  max-width: 38ch;
+}
+
+.pp-verse p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+  line-height: 1.45;
+}
+
+.pp-verse cite {
+  display: block;
+  margin-top: 16px;
+  color: var(--cream-3);
+  font-size: 14px;
+  font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .pp-defs li {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-hero-page .pp-hero-plate {
+    aspect-ratio: 16 / 10;
   }
 }
