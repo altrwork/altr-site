@@ -42,9 +42,9 @@
       typeText(
         statement,
         fullText,
-        character => character === '.' ? 220 : character === ',' || character === ':' ? 120 : 34
+        character => character === '.' ? 140 : character === ',' || character === ':' ? 70 : 15
       );
-    }, 1250);
+    }, 650);
   };
 
   const startConversation = () => {
@@ -54,8 +54,8 @@
     }
 
     window.setTimeout(() => {
-      typeText(prompt, promptText, () => 92, () => window.setTimeout(typeAnswer, 420));
-    }, 520);
+      typeText(prompt, promptText, () => 55, () => window.setTimeout(typeAnswer, 260));
+    }, 300);
   };
 
   if (!('IntersectionObserver' in window)) {

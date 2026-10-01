@@ -203,13 +203,20 @@ class SeoIntegrityTests(unittest.TestCase):
         # <b>/<em> for the two-tone treatment, which a raw substring test breaks
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", homepage))
+        # the three services are a menu: each is named, and each has its own
+        # first step, so the page never implies one is a prerequisite
         for phrase in (
-            "From one repeated workflow to a system your team can trust.",
-            "Map the workflow",
-            "Prove it with the team",
-            "Deploy what earns a role",
+            "Three services. Take one, or all three.",
+            "AI Audit",
+            "Automation",
+            "AI Training",
+            "First step: walk us through your week.",
+            "First step: send us twenty recent examples of the paperwork.",
+            "First step: bring the team and one task each.",
         ):
             self.assertIn(phrase, visible)
+        for retired in ("Zero to one", "One to ten", "in the order they earn"):
+            self.assertNotIn(retired, visible)
 
     def test_faq_schema_answers_appear_on_the_page(self):
         """Google drops FAQ rich results when the schema text is not on the page.
@@ -387,7 +394,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertEqual(3, about.count(f'content="{about_meta}"'))
 
         hero = re.search(
-            r'class="band band-quiet home-about home-about-hero".*?</section>',
+            r'class="pp-hero[^"]*".*?</section>',
             homepage,
             re.S,
         ).group(0)
@@ -405,8 +412,9 @@ class SeoIntegrityTests(unittest.TestCase):
 
         self.assertIn("AI Strategy", re.search(r"<title>(.*?)</title>", html, re.S).group(1))
         self.assertIn("AI strategy", html)
-        for phase in ("Map", "Prove", "Deploy"):
-            self.assertIn(f"<h3>{phase}</h3>", html)
+        # the audit is a standalone service now, not the first of three phases
+        for step in ("Map", "Rank", "Recommend"):
+            self.assertIn(f"<h3>{step}</h3>", html)
         for retired in ("7-day", "seven-day", "priced up front",
                         "embedded engineering", "30-day Roadmap", "Opportunity Map"):
             self.assertNotIn(retired, html, f"retired claim back on the page: {retired}")
@@ -434,13 +442,13 @@ class SeoIntegrityTests(unittest.TestCase):
                 )
 
     def test_workshops_are_still_offered(self):
-        """Enablement is one of the three services and the workshops are real.
+        """AI Training is one of the three services and the workshops are real.
         Nothing in the slop cleanup should take them off the site."""
         for name in ("ai-enablement-workshop.html", "ai-workshop.html"):
             self.assertTrue((ROOT / name).exists(), f"{name} is missing")
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('href="ai-enablement-workshop.html"', homepage)
-        self.assertIn("Enablement", homepage)
+        self.assertIn("AI Training", homepage)
 
 
     def test_learning_center_pages_are_wired_everywhere(self):

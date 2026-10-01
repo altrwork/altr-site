@@ -12,14 +12,15 @@ crowding the header.
 
 | Nav item | Page |
 |---|---|
-| Services | the three services (`how-we-altr-work.html` Strategy, `ai-enablement-workshop.html` Enablement, `custom-agents.html` Engineering) and the four industries |
+| Services | the three services (`how-we-altr-work.html` AI Audit, `custom-agents.html` Automation, `ai-enablement-workshop.html` AI Training) and the four industries |
 | Work | `case-studies.html` -> the `impact-*.html` case studies; `mortr.html` internal products |
 | Resources | `ai-workshop.html` events, `tutorials.html` blog |
 | About | `about.html` |
 
-The three services are one vocabulary: Strategy takes a team from zero to one,
-Enablement trains the people doing the work, Engineering takes it from one to
-ten. Do not introduce a fourth name for any of them.
+The three services are one vocabulary: AI Audit finds where the team's hours
+go, Automation takes the repetitive work off their plate, AI Training teaches
+the people doing the work. Do not introduce a fourth name for any of them, and
+do not bring back Strategy, Enablement, or Engineering as service names.
 
 Detail pages not in the nav: `workflow-audit.html` and the local landing pages
 (`ai-consulting-tampa.html`, `workflow-automation-consultant-tampa.html`).
@@ -27,6 +28,19 @@ Retired URLs redirect in `_redirects`; `design-language/` is internal notes and
 is 404'd there so it is not served.
 
 ## Files
+
+**Design system (October 2026):** every page loads `paper.css` alone: warm
+paper ground, Fraunces headings, Geist text, one copper accent, a dashed nav
+strip with the marble key top left, and dark closer and footer bands. It holds
+the homepage sections (`ph-*`), the shared chrome and components (`pp-*`), and
+paper versions of every older page component (`page-hero`, `article-*`,
+`impact-*`, `index-cell`, `engagement-*` and the rest), so no page loads
+`styles.css`, `redesign.css` or `chat-hero.css` any more. `pp.js` runs the nav,
+the menu sheet and the reveal-on-view motion. Those three stylesheets,
+`plate.css`, `nav.js`, `home-typewriter.js` and `home-press.js` are no longer
+loaded by any live page; `lab/` and `design-language/` still reference some of
+them. `lab/` holds local design experiments and is 404'd in production.
+
 
 - `index.html` - home page.
 - `styles.css` - the base stylesheet. Colors are CSS custom properties in
@@ -126,10 +140,11 @@ This repo is public; those things must never land in it again.
   `llms.txt` so they cannot come back through one file. `about.html` keeps
   "forward deployed engineer" as a job title in a bio, which describes a
   person rather than a service.
-- The three engagements are a sequence, not a menu: enablement first, a build
-  only if enablement finds one, the retainer only after either. The `01/02/03`
-  labels on the homepage encode that order, tagged zero to one / one / one to
-  ten.
+- The three services are a menu, not a sequence: a client can take any one of
+  them or any combination, and none is a prerequisite for another. The homepage
+  says so ("Start with whichever one you need") and gives each service its own
+  first step, so do not add 01/02/03 labels or copy that implies an order. The
+  retainer is still only available after one of the three.
 - Enablement has two formats and **either can come first**: a working session
   (1-4 people, hands-on, returns a written workflow map) or a team workshop
   (up to 10, broader). Do not write copy that makes the session a prerequisite

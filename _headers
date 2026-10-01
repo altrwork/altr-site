@@ -2,3 +2,12 @@
   Content-Type: application/pdf
   Content-Disposition: attachment; filename="AI-in-Real-Estate-Field-Guide.pdf"
   X-Content-Type-Options: nosniff
+
+# Images, fonts and brand files are not fingerprinted, so a week rather than
+# a year: returning visitors skip the revalidation round trip on every plate,
+# and a replaced file is never stale for long.
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/altr-brand-assets/*
+  Cache-Control: public, max-age=604800

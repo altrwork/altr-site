@@ -102,3 +102,6 @@
 
 # .github/ holds the IndexNow workflow and its script, not content.
 /.github/*                                    /404.html                                    404!
+
+# lab/ holds hero experiments for local review only
+/lab/*                                        /404.html                                    404!

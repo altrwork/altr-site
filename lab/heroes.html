@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Hero lab | altr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600&display=swap" />
+<link rel="stylesheet" href="../plate.css?v=lab1" />
+<style>
+/* Hero lab: the homepage hero with a swappable right-hand visual. Local
+   review only; /lab/* is 404'd in production. */
+.lab-stage { position: relative; width: calc(100% + var(--margin) * 0.5); margin-right: calc(-0.5 * var(--margin)); aspect-ratio: 1324 / 1110; }
+.lab-stage > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lab-layer img, .lab-stage img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lab-bar { position: fixed; left: 50%; bottom: 18px; z-index: 150; transform: translateX(-50%); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; max-width: calc(100% - 24px); padding: 8px; border: 1px solid var(--rule-strong); border-radius: 10px; background: rgba(28, 24, 20, 0.94); backdrop-filter: blur(12px); }
+.lab-bar button { font: inherit; font-size: 13px; font-weight: 500; color: var(--cream-2); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+.lab-bar button:hover { color: var(--cream); }
+.lab-bar button[aria-pressed="true"] { color: var(--ink); background: var(--cream); }
+.lab-note { position: fixed; left: 50%; bottom: 82px; z-index: 150; transform: translateX(-50%); width: min(720px, calc(100% - 24px)); padding: 12px 16px; border-radius: 8px; background: rgba(28, 24, 20, 0.94); border: 1px solid var(--rule); color: var(--cream-2); font-size: 14px; line-height: 1.5; }
+.lab-note b { color: var(--cream); }
+.lab-tall { height: 120vh; }
+
+/* v1/v2 press layers */
+.v-press .tympan { transform-origin: 34.6% 53.2%; will-change: transform; }
+.v-press .frisket { transform-origin: 11.5% 36.6%; will-change: transform; }
+.v-parts .part { will-change: transform, opacity; }
+
+/* v3/v5 organic edge */
+.edge { -webkit-mask-image: url("assets/edge-mask.png"); mask-image: url("assets/edge-mask.png"); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+.v-pen canvas { width: 100%; height: 100%; }
+.v-pen .tone { opacity: 0; transition: opacity 2200ms cubic-bezier(.45,0,.2,1); object-fit: cover; }
+.v-pen.done .tone { opacity: 0.32; }
+
+/* v4 keycap canvas */
+.v-key canvas { width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+
+/* v5 living fragment */
+.v-living svg { width: 100%; height: 100%; }
+
+@media (max-width: 900px) { .lab-stage { width: 100%; margin: 0; } }
+</style>
+</head>
+<body class="pp-page">
+
+<main id="main">
+  <section class="pp-hero" aria-labelledby="home-headline">
+    <div class="pp-wrap pp-hero-grid pp-hero-press">
+      <div class="pp-hero-copy">
+        <p class="pp-eyebrow" data-settle>AI audits, automation and training for small and medium-sized businesses</p>
+        <h1 class="pp-display" id="home-headline">
+          <span class="ln" style="--i:0"><span>Do more with</span></span>
+          <span class="ln" style="--i:1"><span>the team</span></span>
+          <span class="ln" style="--i:2"><span><em>you have.</em></span></span>
+        </h1>
+        <p class="pp-lede" data-settle style="--d:380ms">We find the work that eats your team's week, automate it, and train your people to use AI on the rest.</p>
+        <div class="pp-actions" data-settle style="--d:520ms">
+          <a class="pp-key pp-key-lg" href="#" id="cta">Book a free call</a>
+          <a class="pp-link" href="#">See our work</a>
+        </div>
+      </div>
+      <div class="lab-stage" id="stage" aria-hidden="true"></div>
+    </div>
+  </section>
+  <section class="pp-section"><div class="pp-wrap"><p class="pp-aside">Scroll to see how each option behaves as the page moves.</p></div><div class="lab-tall"></div></section>
+</main>
+
+<div class="lab-note" id="note"></div>
+<nav class="lab-bar" id="bar" aria-label="Hero options"></nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../pp.js"></script>
+<script>
+const A = '../assets/plates/sized/';
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stage = document.getElementById('stage');
+const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const outEase = t => 1 - Math.pow(1 - t, 3);
+const span = (t, a, b) => Math.min(1, Math.max(0, (t - a) / (b - a)));
+const scrollP = () => Math.min(1, window.scrollY / (innerHeight * 0.9));
+
+const VARIANTS = [
+/* 1 ------------------------------------------------------------------ */
+{ name: 'Press, refined', note: '<b>1 · Press, refined.</b> The printing press runs on its own: the frames fold and swing onto the bed and back, slowly, with no flying paper. Quiet machinery in the corner of your eye.',
+  mount(el) {
+    el.className = 'lab-stage v-press';
+    el.innerHTML = `<img src="${A}press-body.webp" alt=""><div class="tympan"><img src="${A}press-tympan.webp" alt=""><div class="frisket"><img src="${A}press-frisket.webp" alt=""></div></div>`;
+    const ty = el.querySelector('.tympan'), fr = el.querySelector('.frisket');
+    const LOOP = 13000; let raf, t0 = performance.now();
+    const f = now => {
+      const t = ((now - t0) % LOOP) / 1000;
+      const fold = ease(span(t, 1.0, 2.6)) - ease(span(t, 8.6, 10.2));
+      const swing = ease(span(t, 2.6, 4.8)) - ease(span(t, 6.4, 8.6));
+      fr.style.transform = `rotate(${fold * 151}deg)`; ty.style.transform = `rotate(${swing * 153}deg)`;
+      raf = requestAnimationFrame(f);
+    };
+    if (!reduced) raf = requestAnimationFrame(f);
+    return () => cancelAnimationFrame(raf);
+  } },
+/* 2 ------------------------------------------------------------------ */
+{ name: 'Assembles itself', note: '<b>2 · The press assembles itself.</b> It arrives as floating parts that fit together into the press, then drifts slightly apart as you scroll. The idea: we put your systems together. Scroll down and back up.',
+  mount(el) {
+    el.className = 'lab-stage v-parts';
+    const parts = [
+      ['arcs', 0, -40, 0, 1.0], ['post', 0, -120, 0, 0.2], ['back', -40, -80, -4, 0.35], ['table', 140, 40, 3, 0.45],
+      ['bed', -60, 70, -3, 0.6], ['support', -160, 30, -6, 0.7], ['leg', -90, 140, 5, 0.8], ['block', 30, 150, 8, 0.9],
+      ['tympan', -200, -110, -18, 0.75], ['frisket', -230, -170, -30, 0.85]];
+    el.innerHTML = parts.map(([n]) => `<img class="part" data-p="${n}" src="${n === 'tympan' || n === 'frisket' ? A + 'press-' + n : 'assets/part-' + n}.webp" alt="">`).join('');
+    const imgs = [...el.querySelectorAll('.part')];
+    let raf, t0 = performance.now();
+    const f = now => {
+      const t = (now - t0) / 1000, sp = scrollP();
+      imgs.forEach((img, i) => {
+        const [n, dx, dy, rot, delay] = parts[i];
+        const a = reduced ? 1 : outEase(span(t, delay * 1.4, delay * 1.4 + 1.3));
+        const apart = (1 - a) + sp * 0.45;
+        img.style.transform = `translate(${dx * apart}px, ${dy * apart}px) rotate(${rot * apart}deg)`;
+        img.style.opacity = n === 'arcs' ? String(a * (1 - sp)) : String(Math.min(1, a * 1.6));
+      });
+      raf = requestAnimationFrame(f);
+    };
+    raf = requestAnimationFrame(f);
+    return () => cancelAnimationFrame(raf);
+  } },
+/* 3 ------------------------------------------------------------------ */
+{ name: 'Pen-drawn arch', note: '<b>3 · Pen-drawn arch.</b> A pen draws the architecture stroke by stroke from the foundations up, straight onto the page. The edges dissolve into the dark instead of stopping at a frame, and a little tone settles in at the end.',
+  mount(el) {
+    el.className = 'lab-stage v-pen';
+    el.style.aspectRatio = '16 / 10';
+    el.innerHTML = `<img class="tone edge" src="${A}scene-bridge-1200.webp" alt=""><canvas class="edge" width="1000" height="625"></canvas>`;
+    const cv = el.querySelector('canvas'), ctx = cv.getContext('2d');
+    const src = new Image(); src.src = A + 'scene-bridge-lines.webp';
+    let raf;
+    src.onload = () => {
+      const o = document.createElement('canvas'); o.width = cv.width; o.height = cv.height;
+      const oc = o.getContext('2d'); oc.drawImage(src, 0, 0, cv.width, cv.height);
+      const d = oc.getImageData(0, 0, cv.width, cv.height).data, pts = [];
+      for (let y = 0; y < cv.height; y += 2) for (let x = 0; x < cv.width; x += 2) { const v = d[(y * cv.width + x) * 4]; if (v > 60) pts.push([x, y, v, (cv.height - y) + Math.sin(x * 0.018) * 45 + Math.random() * 70]); }
+      pts.sort((a, b) => a[3] - b[3]);
+      const draw = (a, b) => { for (let k = a; k < Math.min(b, pts.length); k++) { const p = pts[k]; ctx.fillStyle = `rgba(240,229,210,${p[2] / 255 * 0.95})`; ctx.fillRect(p[0], p[1], 2, 2); } };
+      if (reduced) { draw(0, pts.length); el.classList.add('done'); return; }
+      let i = 0; const per = Math.ceil(pts.length / 170);
+      const step = () => { draw(i, i + per); i += per; if (i < pts.length) raf = requestAnimationFrame(step); else el.classList.add('done'); };
+      raf = requestAnimationFrame(step);
+    };
+    return () => { cancelAnimationFrame(raf); el.style.aspectRatio = ''; };
+  } },
+/* 4 ------------------------------------------------------------------ */
+{ name: 'Engraved 3D key', note: '<b>4 · The marble key, engraved in 3D.</b> altr\'s own keycap as a real 3D object, shaded with engraving hatch lines instead of a gradient. It turns slowly, you can drag it, and it presses down when you hover "Book a free call."',
+  mount(el) {
+    el.className = 'lab-stage v-key';
+    el.style.aspectRatio = '1 / 1';
+    el.innerHTML = '<canvas></canvas>';
+    if (!window.THREE) { el.innerHTML = '<p style="position:static;color:#B9B0A3">3D could not load.</p>'; return () => {}; }
+    const cv = el.querySelector('canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(28, 1, 0.1, 100); cam.position.set(0, 6.2, 7.4); cam.lookAt(0, 0.1, 0);
+    // keycap: a rounded square that tapers to a dished top
+    const shape = new THREE.Shape(); const s = 1.35, r = 0.42;
+    shape.moveTo(-s + r, -s); shape.lineTo(s - r, -s); shape.quadraticCurveTo(s, -s, s, -s + r); shape.lineTo(s, s - r); shape.quadraticCurveTo(s, s, s - r, s);
+    shape.lineTo(-s + r, s); shape.quadraticCurveTo(-s, s, -s, s - r); shape.lineTo(-s, -s + r); shape.quadraticCurveTo(-s, -s, -s + r, -s);
+    const geo = new THREE.ExtrudeGeometry(shape, { depth: 1.1, bevelEnabled: true, bevelThickness: 0.28, bevelSize: 0.26, bevelSegments: 8, curveSegments: 24 });
+    geo.rotateX(-Math.PI / 2); geo.translate(0, -0.6, 0);
+    const p = geo.attributes.position, v = new THREE.Vector3();
+    for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const k = 1 - Math.max(0, (v.y + 0.6) / 1.7) * 0.24; v.x *= k; v.z *= k; if (v.y > 0.6) v.y -= 0.08 * (1 - (v.x * v.x + v.z * v.z) / 2.2); p.setXYZ(i, v.x, v.y, v.z); }
+    geo.computeVertexNormals();
+    // "altr" letters as a texture that darkens the hatching
+    const tc = document.createElement('canvas'); tc.width = tc.height = 512; const g = tc.getContext('2d');
+    g.fillStyle = '#000'; g.fillRect(0, 0, 512, 512); g.fillStyle = '#fff'; g.font = '600 150px "Clash Grotesk", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('altr', 256, 270);
+    const tex = new THREE.CanvasTexture(tc);
+    const mat = new THREE.ShaderMaterial({
+      transparent: true,
+      uniforms: { uLight: { value: new THREE.Vector3(-0.5, 0.9, 0.55).normalize() }, uTex: { value: tex } },
+      vertexShader: `varying vec3 vN; varying vec3 vP; void main(){ vN = normalize(normalMatrix * normal); vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+      fragmentShader: `uniform vec3 uLight; uniform sampler2D uTex; varying vec3 vN; varying vec3 vP;
+        float line(float c, float w){ float f = abs(fract(c) - 0.5); return smoothstep(w, w * 0.35, f); }
+        void main(){
+          vec3 n = normalize(vN);
+          float l = clamp(dot(n, normalize((viewMatrix * vec4(uLight,0.0)).xyz)) * 0.55 + 0.55, 0.0, 1.0);
+          float letter = 0.0;
+          if (vP.y > 0.55) letter = texture2D(uTex, vec2(vP.x / 2.6 + 0.5, 0.5 - vP.z / 2.6)).r;
+          l -= letter * 0.7;
+          vec2 q = gl_FragCoord.xy;
+          float ink = 0.0;
+          float edge = 1.0 - smoothstep(0.0, 0.35, abs(dot(n, vec3(0.0, 0.0, 1.0))));
+          ink = max(ink, line((q.x + q.y) / 6.0, 0.1 + (1.0 - l) * 0.12));
+          if (l < 0.66) ink = max(ink, line((q.x - q.y) / 6.0, 0.08 + (1.0 - l) * 0.12));
+          if (l < 0.42) ink = max(ink, line(q.y / 4.0, 0.12));
+          ink = max(ink, edge * 0.9);
+          gl_FragColor = vec4(vec3(0.94, 0.9, 0.82), ink * 0.9);
+        }`
+    });
+    const key = new THREE.Mesh(geo, mat); scene.add(key);
+    let target = 0.5, rot = 0.5, drag = null, press = 0, pressT = 0;
+    const cta = document.getElementById('cta');
+    const on = () => pressT = 1, off = () => pressT = 0;
+    cta.addEventListener('mouseenter', on); cta.addEventListener('mouseleave', off); cta.addEventListener('focus', on); cta.addEventListener('blur', off);
+    const size = () => { const w = el.clientWidth, h = el.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+    size(); addEventListener('resize', size);
+    cv.addEventListener('pointerdown', e => { drag = e.clientX; cv.setPointerCapture(e.pointerId); });
+    cv.addEventListener('pointermove', e => { if (drag !== null) { target += (e.clientX - drag) * 0.01; drag = e.clientX; } });
+    cv.addEventListener('pointerup', () => drag = null);
+    let raf;
+    const tick = () => {
+      if (!reduced && drag === null) target += 0.0035;
+      rot += (target - rot) * 0.08; press += (pressT - press) * 0.18;
+      key.rotation.y = rot; key.position.y = -press * 0.22 - scrollP() * 0.6; key.rotation.x = scrollP() * 0.5;
+      renderer.render(scene, cam); raf = requestAnimationFrame(tick);
+    };
+    tick();
+    return () => { cancelAnimationFrame(raf); removeEventListener('resize', size); cta.removeEventListener('mouseenter', on); cta.removeEventListener('mouseleave', off); renderer.dispose(); el.style.aspectRatio = ''; };
+  } },
+/* 5 ------------------------------------------------------------------ */
+{ name: 'Living fragment', note: '<b>5 · A living fragment.</b> A torn-edged piece of Piranesi\'s Port of Ripa Grande, free of any frame. The water ripples and the sky drifts, as if the engraving were breathing. Code only here; a video model could add moving boats and figures.',
+  mount(el) {
+    el.className = 'lab-stage v-living';
+    el.style.aspectRatio = '16 / 10';
+    el.innerHTML = `<svg class="edge" viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid slice"><defs>
+      <filter id="lw" x="0" y="0" width="100%" height="100%"><feTurbulence id="lt1" type="fractalNoise" baseFrequency="0.012 0.06" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+      <filter id="ls" x="0" y="0" width="100%" height="100%"><feTurbulence id="lt2" type="fractalNoise" baseFrequency="0.004 0.012" numOctaves="2" seed="8" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+      <linearGradient id="gw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000"/><stop offset=".62" stop-color="#000"/><stop offset=".72" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="mw"><rect width="1000" height="625" fill="url(#gw)"/></mask>
+      <linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".22" stop-color="#fff"/><stop offset=".36" stop-color="#000"/></linearGradient><mask id="ms"><rect width="1000" height="625" fill="url(#gs)"/></mask>
+      </defs>
+      <image href="../assets/plates/scene-port.webp" width="1000" height="625"/>
+      <image href="../assets/plates/scene-port.webp" width="1000" height="625" filter="url(#ls)" mask="url(#ms)"/>
+      <image href="../assets/plates/scene-port.webp" width="1000" height="625" filter="url(#lw)" mask="url(#mw)"/></svg>`;
+    const t1 = el.querySelector('#lt1'), t2 = el.querySelector('#lt2'); let raf, t = 0;
+    const f = () => { t += 0.006; t1.setAttribute('baseFrequency', `${0.012 + Math.sin(t) * 0.002} ${0.06 + Math.cos(t * 1.3) * 0.012}`); t2.setAttribute('baseFrequency', `${0.004 + Math.sin(t * 0.5) * 0.0008} ${0.012 + Math.cos(t * 0.4) * 0.002}`); el.style.transform = `translateY(${scrollP() * 40}px)`; raf = requestAnimationFrame(f); };
+    if (!reduced) raf = requestAnimationFrame(f);
+    return () => { cancelAnimationFrame(raf); el.style.transform = ''; el.style.aspectRatio = ''; };
+  } },
+];
+
+let current = -1, cleanup = null;
+const bar = document.getElementById('bar'), note = document.getElementById('note');
+VARIANTS.forEach((v, i) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = `${i + 1} ${v.name}`; b.addEventListener('click', () => show(i)); bar.appendChild(b); });
+function show(i) {
+  if (i === current) return;
+  if (cleanup) cleanup();
+  stage.innerHTML = ''; stage.className = 'lab-stage'; stage.removeAttribute('style');
+  current = i; cleanup = VARIANTS[i].mount(stage) || null;
+  note.innerHTML = VARIANTS[i].note;
+  [...bar.children].forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
+  try { history.replaceState(null, '', '#v' + (i + 1)); } catch (e) {}
+}
+addEventListener('keydown', e => { const n = parseInt(e.key, 10); if (n >= 1 && n <= VARIANTS.length) show(n - 1); });
+const fromHash = parseInt((location.hash.match(/v(\d)/) || [])[1], 10);
+show(fromHash >= 1 && fromHash <= VARIANTS.length ? fromHash - 1 : 0);
+</script>
+</body>
+</html>
