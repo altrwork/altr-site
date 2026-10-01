@@ -392,7 +392,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertEqual(3, about.count(f'content="{about_meta}"'))
 
         hero = re.search(
-            r'class="pp-hero".*?</section>',
+            r'class="pp-hero[^"]*".*?</section>',
             homepage,
             re.S,
         ).group(0)

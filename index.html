@@ -35,11 +35,11 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="preconnect" href="https://api.fontshare.com" />
-<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600&display=swap" />
-<link rel="preload" as="image" href="assets/plates/sized/press-body.webp" fetchpriority="high" />
-<link rel="stylesheet" href="plate.css?v=20261001f" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..600,0..100,0..1&family=Geist:wght@400;500;600&display=swap" />
+<link rel="preload" as="image" href="assets/plates/wash-workshop.webp" />
+<link rel="stylesheet" href="paper.css?v=20261001d" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -250,29 +250,19 @@
 </header>
 
 <main id="main">
-  <section class="pp-hero" aria-labelledby="home-headline">
-    <div class="pp-wrap pp-hero-grid pp-hero-press">
-      <div class="pp-hero-copy">
-        <p class="pp-eyebrow" data-settle>AI audits, automation and training for small and medium-sized businesses</p>
-        <h1 class="pp-display" id="home-headline">
-          <span class="ln" style="--i:0"><span>Do more with</span></span>
-          <span class="ln" style="--i:1"><span>the team</span></span>
-          <span class="ln" style="--i:2"><span><em>you have.</em></span></span>
-        </h1>
-        <p class="pp-lede" data-settle style="--d:380ms">We find the work that eats your team's week, automate it, and train your people to use AI on the rest.</p>
-        <div class="pp-actions" data-settle style="--d:520ms">
-          <a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a free call</a>
-          <a class="pp-link" href="case-studies.html">See our work</a>
-        </div>
-        <p class="pp-hero-note pp-prose" data-settle style="--d:640ms">Based in Tampa. Looking for <a href="ai-consulting-tampa.html">AI consulting in Tampa</a>?</p>
+  <section class="pp-hero ph-hero" aria-labelledby="home-headline">
+    <div class="pp-wrap">
+      <h1 class="pp-display" id="home-headline">
+        <span class="ln" style="--i:0"><span>Do more with</span></span>
+        <span class="ln" style="--i:1"><span>the team <em>you</em></span></span>
+        <span class="ln" style="--i:2"><span><em>have.</em></span></span>
+      </h1>
+      <p class="pp-lede" data-settle style="--d:320ms">We find the work that eats your team's week, automate it, and train your people to use AI on the rest.</p>
+      <div class="pp-actions" data-settle style="--d:440ms">
+        <a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a free call</a>
+        <a class="pp-link" href="case-studies.html">See our work</a>
       </div>
-      <figure class="pp-press" data-press role="img" aria-label="An 18th-century printing press from Diderot's Encyclopédie, running on its own">
-        <img class="pp-press-body" src="assets/plates/sized/press-body.webp" width="1324" height="1110" alt="" fetchpriority="high" decoding="async" />
-        <div class="pp-press-tympan">
-          <img src="assets/plates/sized/press-tympan.webp" width="1324" height="1110" alt="" decoding="async" />
-          <div class="pp-press-frisket"><img src="assets/plates/sized/press-frisket.webp" width="1324" height="1110" alt="" decoding="async" /></div>
-        </div>
-      </figure>
+      <p class="pp-hero-note pp-prose" data-settle style="--d:560ms">Based in Tampa. Looking for <a href="ai-consulting-tampa.html">AI consulting in Tampa</a>?</p>
     </div>
   </section>
 
@@ -281,100 +271,60 @@
       <p>Teams we have worked with</p>
       <ul class="pp-logo-row">
         <li><img src="assets/clients/vector-cre.svg" alt="Vector Commercial Real Estate" width="446" height="129" loading="lazy" decoding="async" /></li>
-        <li class="is-mono"><img src="assets/clients/spark-labs.svg" alt="spARK Labs" width="130" height="69" loading="lazy" decoding="async" /></li>
+        <li class="tone"><img src="assets/clients/spark-labs-light.svg" alt="spARK Labs" width="130" height="69" loading="lazy" decoding="async" /></li>
         <li><picture><source srcset="assets/clients/fishin-prints.webp" type="image/webp" /><img src="assets/clients/fishin-prints.png" alt="Fishin Prints" width="480" height="206" loading="lazy" decoding="async" /></picture></li>
-        <li><picture><source srcset="assets/clients/bebrief.webp" type="image/webp" /><img src="assets/clients/bebrief.png" alt="BeBrief" width="300" height="50" loading="lazy" decoding="async" /></picture></li>
+        <li class="tone"><img src="assets/clients/bebrief-light.webp" alt="BeBrief" width="300" height="50" loading="lazy" decoding="async" /></li>
       </ul>
     </div>
   </section>
 
-  <section class="pp-section" id="what-we-do" aria-labelledby="services-heading">
-    <div class="pp-wrap pp-split">
-      <div class="pp-split-head">
-        <h2 class="pp-h2" id="services-heading"><span class="ln"><span>Three services.</span></span> <span class="ln" style="--i:1"><span>Take one, or all three.</span></span></h2>
-        <p class="pp-aside" data-settle style="--d:200ms">Each one stands on its own, so you only buy what you need.</p>
-      </div>
-      <ol class="pp-index pp-ruled" data-rule>
-        <li>
-          <a class="pp-row" href="how-we-altr-work.html">
-            <span class="pp-row-head"><span class="pp-row-name">AI Audit</span><span class="pp-row-thumb" aria-hidden="true"><img src="assets/plates/thumbs/scene-piazza.webp" width="400" height="250" alt="" loading="lazy" decoding="async" /></span></span>
-            <span class="pp-row-arrow" aria-hidden="true">&rarr;</span>
-            <span class="pp-row-text">We sit with the people who do the work and find where the hours go. You get a ranked list: what to automate, what to train, what to leave alone.<span class="pp-row-step"><b>First step:</b> walk us through your week.</span></span>
-          </a>
-        </li>
-        <li>
-          <a class="pp-row" href="custom-agents.html">
-            <span class="pp-row-head"><span class="pp-row-name">Automation</span><span class="pp-row-thumb" aria-hidden="true"><img src="assets/plates/thumbs/scene-port.webp" width="400" height="250" alt="" loading="lazy" decoding="async" /></span></span>
-            <span class="pp-row-arrow" aria-hidden="true">&rarr;</span>
-            <span class="pp-row-text">Systems that do the repetitive work inside the tools you already use: orders entered, bills matched, intake sorted, documents checked, reports written. Anything unusual waits for a person.<span class="pp-row-step"><b>First step:</b> send us twenty recent examples of the paperwork.</span></span>
-          </a>
-        </li>
-        <li>
-          <a class="pp-row" href="ai-enablement-workshop.html">
-            <span class="pp-row-head"><span class="pp-row-name">AI Training</span><span class="pp-row-thumb" aria-hidden="true"><img src="assets/plates/thumbs/scene-forum.webp" width="400" height="250" alt="" loading="lazy" decoding="async" /></span></span>
-            <span class="pp-row-arrow" aria-hidden="true">&rarr;</span>
-            <span class="pp-row-text">We set up Claude for your company, then train your team on their real work, on site in Tampa Bay or remote. They leave with tools that already do part of their job, and a one-page rule on what is safe to put in.<span class="pp-row-step"><b>First step:</b> bring the team and one task each.</span></span>
-          </a>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="pp-statement" aria-label="Why altr">
-    <figure class="pp-statement-plate pp-drift" aria-hidden="true"><img src="assets/plates/sized/scene-port-band.webp" width="960" height="600" alt="" loading="lazy" decoding="async" /></figure>
+  <section class="ph-section" id="what-we-do" aria-labelledby="services-heading">
     <div class="pp-wrap">
-      <p class="pp-statement-text"><span class="ln"><span>Your team already</span></span> <span class="ln" style="--i:1"><span>pays for AI.</span></span> <span class="ln" style="--i:2"><span><em>We make it pull</em></span></span> <span class="ln" style="--i:3"><span><em>its weight.</em></span></span></p>
-      <p class="pp-prose" data-settle style="--d:300ms">On site across Tampa Bay, remote everywhere else. Talk to an <a href="ai-consulting-tampa.html">AI consultant in Tampa</a>.</p>
-    </div>
-  </section>
-
-  <section class="pp-section" id="who-we-serve" aria-labelledby="teams-heading">
-    <div class="pp-wrap pp-split">
-      <div class="pp-split-head">
-        <h2 class="pp-h2" id="teams-heading"><span class="ln"><span>For the teams that</span></span> <span class="ln" style="--i:1"><span>keep a business running.</span></span></h2>
-      </div>
-      <div>
-        <ul class="pp-teams pp-ruled" data-rule>
-          <li><b>Office and admin</b><span>Bills, forms, filing and the shared inbox.</span></li>
-          <li><b>Operations</b><span>Orders, scheduling and the hand-offs between them.</span></li>
-          <li><b>Sales and service</b><span>Follow-ups, quotes and customer requests.</span></li>
-          <li><b>Finance and billing</b><span>Invoices, statements and month-end.</span></li>
-          <li><b>Owners and managers</b><span>The Monday summary and the decisions behind it.</span></li>
-        </ul>
-        <p class="pp-industries pp-prose" data-settle>Working in a specific field? See how this looks in <a href="real-estate.html">Commercial Real Estate</a>, <a href="law-firms.html">law firms</a>, <a href="nonprofits.html">non-profits</a> and <a href="ecommerce.html">ecommerce</a>.</p>
+      <h2 class="pp-h2" id="services-heading" data-settle>Three services. <em>Take one, or all three.</em></h2>
+      <div class="ph-slips">
+        <a class="ph-slip" href="how-we-altr-work.html" data-settle><h3>AI Audit</h3><p>We sit with the people who do the work and find where the hours go. You get a ranked list: what to automate, what to train, what to leave alone.</p><small>First step: walk us through your week. &rarr;</small></a>
+        <a class="ph-slip" href="custom-agents.html" data-settle style="--d:80ms"><h3>Automation</h3><p>Systems that do the repetitive work inside the tools you already use: orders entered, bills matched, intake sorted, reports written. Anything unusual waits for a person.</p><small>First step: send us twenty recent examples of the paperwork. &rarr;</small></a>
+        <a class="ph-slip" href="ai-enablement-workshop.html" data-settle style="--d:160ms"><h3>AI Training</h3><p>We set up Claude for your company and train your team on their real work, so they leave with tools that already do part of their job.</p><small>First step: bring the team and one task each. &rarr;</small></a>
       </div>
     </div>
   </section>
 
-  <section class="pp-section" id="our-work" aria-labelledby="work-heading">
-    <div class="pp-wrap pp-split">
-      <div class="pp-split-head">
-        <h2 class="pp-h2" id="work-heading"><span class="ln"><span>Real businesses,</span></span> <span class="ln" style="--i:1"><span>by name.</span></span></h2>
-      </div>
-      <div>
-        <a class="pp-feature" href="impact-spark-labs.html">
-          <figure class="pp-plate pp-feature-plate pp-feature-mark" data-settle>
-            <img class="pp-feature-logo" src="assets/clients/spark-labs.svg" width="130" height="69" alt="spARK Labs by ARK Invest" loading="lazy" decoding="async" />
-          </figure>
-          <span class="pp-feature-meta" data-settle>spARK Labs by ARK Invest &middot; St. Petersburg</span>
-          <h3 data-settle>Expense and event paperwork, handled with one command.</h3>
-          <p data-settle>Receipts become finished expense reports and event forms become review-ready PDFs, connected to the four tools the team already uses, with a person approving each one.</p>
-        </a>
-        <ul class="pp-list pp-ruled" data-rule>
-          <li><a href="impact-slice-of-heaven-cakes.html"><span class="pp-list-name">Slice of Heaven Cakes</span><span class="pp-list-text">Every cake order in one place, answered on arrival.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li><a href="impact-fishin-prints.html"><span class="pp-list-name">Fishin Prints</span><span class="pp-list-text">From a customer's catch photo to print-ready art.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li>
-          <li><a href="impact-real-estate-property-intelligence.html"><span class="pp-list-name">CRE Harness</span><span class="pp-list-text">From a property address to a branded broker opinion of value.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li>
-        </ul>
-        <p class="pp-more"><a class="pp-link" href="case-studies.html">All case studies</a></p>
+  <section class="ph-section" id="who-we-serve" aria-labelledby="teams-heading">
+    <div class="pp-wrap">
+      <h2 class="pp-h2" id="teams-heading" data-settle>For the teams that keep a business <em>running.</em></h2>
+      <ul class="ph-teams" data-settle>
+        <li><b>Office and admin</b><span>Bills, forms, filing and the shared inbox.</span></li>
+        <li><b>Operations</b><span>Orders, scheduling and the hand-offs between them.</span></li>
+        <li><b>Sales and service</b><span>Follow-ups, quotes and customer requests.</span></li>
+        <li><b>Finance and billing</b><span>Invoices, statements and month-end.</span></li>
+        <li><b>Owners and managers</b><span>The Monday summary and the decisions behind it.</span></li>
+      </ul>
+      <p class="pp-industries pp-prose" data-settle>Working in a specific field? See how this looks in <a href="real-estate.html">Commercial Real Estate</a>, <a href="law-firms.html">law firms</a>, <a href="nonprofits.html">non-profits</a> and <a href="ecommerce.html">ecommerce</a>.</p>
+    </div>
+  </section>
+
+  <section class="ph-section" id="our-work" aria-label="Case studies">
+    <div class="pp-wrap">
+      <p class="ph-divider" data-settle><span>Case studies</span></p>
+      <a class="ph-feature" href="impact-spark-labs.html" data-settle>
+        <div class="ph-feature-mark"><img src="assets/clients/spark-labs.svg" alt="spARK Labs by ARK Invest" width="130" height="69" loading="lazy" decoding="async" /></div>
+        <div>
+          <span class="pp-feature-meta">spARK Labs by ARK Invest &middot; St. Petersburg</span>
+          <h3>Expense and event paperwork, handled with one command.</h3>
+          <p>Receipts become finished expense reports and event forms become review-ready PDFs, connected to the four tools the team already uses.</p>
+        </div>
+      </a>
+      <div class="ph-list">
+        <a href="impact-slice-of-heaven-cakes.html"><b>Slice of Heaven Cakes</b><span>Every cake order in one place, answered on arrival.</span></a>
+        <a href="impact-fishin-prints.html"><b>Fishin Prints</b><span>From a customer's catch photo to print-ready art.</span></a>
+        <a href="impact-real-estate-property-intelligence.html"><b>CRE Harness</b><span>From a property address to a branded broker opinion of value.</span></a>
       </div>
     </div>
   </section>
 
-  <section class="pp-section home-faq" id="questions" aria-labelledby="faq-heading">
-    <div class="pp-wrap pp-split">
-      <div class="pp-split-head">
-        <h2 class="pp-h2" id="faq-heading"><span class="ln"><span>Questions owners</span></span> <span class="ln" style="--i:1"><span>ask us first.</span></span></h2>
-      </div>
+  <section class="ph-section home-faq" id="questions" aria-labelledby="faq-heading">
+    <div class="pp-wrap">
+      <h2 class="pp-h2" id="faq-heading" data-settle>Questions owners <em>ask us first.</em></h2>
       <div class="pp-faq" data-settle>
         <details>
           <summary><h3>We already pay for ChatGPT and almost nobody uses it. Why is this different?</h3></summary>
@@ -397,10 +347,9 @@
   </section>
 
   <section class="pp-closer" aria-labelledby="closer-heading">
-    <figure class="pp-closer-plate pp-drift" aria-hidden="true"><img src="assets/plates/sized/bg-shop-band.webp" width="1280" height="684" alt="" loading="lazy" decoding="async" /></figure>
     <div class="pp-wrap">
-      <h2 id="closer-heading"><span class="ln"><span>Tell us what</span></span> <span class="ln" style="--i:1"><span>your team does</span></span> <span class="ln" style="--i:2"><span>by hand.</span></span></h2>
-      <p data-settle style="--d:240ms">Thirty minutes, free. We'll tell you which of the three fits, or that none does.</p>
+      <h2 id="closer-heading"><span class="ln"><span>Tell us what your team</span></span> <span class="ln" style="--i:1"><span>does <em>by hand.</em></span></span></h2>
+      <p data-settle style="--d:240ms">Thirty minutes, free. We'll tell you which of the three fits, or that none does. On site across Tampa Bay, remote everywhere else: talk to an <a class="pp-link" href="ai-consulting-tampa.html">AI consultant in Tampa</a>.</p>
       <div class="pp-actions" data-settle style="--d:360ms">
         <a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a free call</a>
         <a class="pp-link" href="case-studies.html">See our work first</a>
@@ -458,6 +407,5 @@
 </footer>
 <script src="intake-modal.js"></script>
 <script src="pp.js"></script>
-<script src="home-press.js"></script>
 </body>
 </html>
