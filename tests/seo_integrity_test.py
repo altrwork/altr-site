@@ -206,15 +206,13 @@ class SeoIntegrityTests(unittest.TestCase):
         # the three services are a menu: each is named, and each has its own
         # first step, so the page never implies one is a prerequisite
         for phrase in (
-            "Three services. Start with whichever one you need.",
-            "Each one stands on its own.",
+            "Three services. Take one, or all three.",
             "AI Audit",
             "Automation",
             "AI Training",
-            "Every service has its own first step.",
-            "Walk us through your week",
-            "Send us real examples",
-            "Bring the team and their work",
+            "First step: walk us through your week.",
+            "First step: send us twenty recent bills or orders.",
+            "First step: bring the team and one task each.",
         ):
             self.assertIn(phrase, visible)
         for retired in ("Zero to one", "One to ten", "in the order they earn"):
