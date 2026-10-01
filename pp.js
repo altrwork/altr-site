@@ -28,6 +28,12 @@
     window.setTimeout(() => targets.forEach(show), 4000);
   }
 
+  /* -- dated items (the next workshop) hide once their date passes -- */
+  document.querySelectorAll('[data-until]').forEach(el => {
+    const until = Date.parse(el.dataset.until);
+    if (!Number.isNaN(until) && Date.now() > until) el.hidden = true;
+  });
+
   /* -- nav: tint once scrolled, hide on the way down ---------------- */
   const nav = document.querySelector('.nav');
   if (!nav) return;

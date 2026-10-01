@@ -3532,3 +3532,82 @@ article.legal hr {
     padding-top: 72px;
   }
 }
+
+/* -- credential and the next workshop, under the client logos -------- */
+.pp-logos .pp-wrap {
+  row-gap: 22px;
+}
+
+.ph-cred {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--rule);
+}
+
+.ph-cred-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--cream-2);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ph-cred-badge img {
+  width: auto;
+  height: 15px;
+}
+
+.ph-cred-badge span {
+  padding-left: 14px;
+  border-left: 1px solid var(--rule-strong);
+}
+
+.ph-cred-badge:hover span {
+  color: var(--cream);
+}
+
+.ph-event {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  font-size: var(--fs-meta);
+  color: var(--cream-2);
+}
+
+.ph-event-tag {
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--copper);
+  color: #FFF8EF;
+  font-weight: 500;
+}
+
+.ph-event-when b {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.ph-event .ph-event-btn {
+  min-height: 38px;
+  padding: 0 14px;
+  font-size: 0.88rem;
+}
+
+/* service pages: the plate sits centred beside the header */
+.pp-hero-page .pp-hero-grid {
+  align-items: center;
+}
+
+.pp-hero-page .pp-hero-plate {
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+}
