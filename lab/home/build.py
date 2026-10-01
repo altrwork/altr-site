@@ -35,6 +35,7 @@ def head(title, fonts, css):
 :focus-visible{{outline:2px solid currentColor;outline-offset:4px}}.wrap{{width:min(1240px,calc(100% - 2*var(--m)));margin-inline:auto}}
 .brand-key{{width:44px;height:auto}}header.wrap{{position:relative;z-index:10}}header.wrap::before{{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:var(--paper,var(--bg))}}
 .divider{{display:flex;align-items:center;gap:16px;margin-bottom:28px;font-size:13px;letter-spacing:.04em;opacity:.72}}.divider::after{{content:"";flex:1;height:1px;background:currentColor;opacity:.35}}
+.logos .tone img{{filter:none!important;opacity:.9!important}}.logos img[src*="spark-labs"]{{height:44px!important}}
 .optbar{{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;padding:6px;border-radius:10px;background:rgba(20,17,14,.92);border:1px solid rgba(242,237,228,.2);font:500 12.5px/1 system-ui,sans-serif}}
 .optbar a{{color:#B9B0A3;text-decoration:none;padding:8px 10px;border-radius:6px}}.optbar a[aria-current]{{background:#F2EDE4;color:#14110E}}
 @media (prefers-reduced-motion:reduce){{*,*::before,*::after{{animation:none!important;transition:none!important}}}}
@@ -47,8 +48,17 @@ def optbar(cur):
         f'<a href="{(n if n.endswith(".html") else n + ".html")}"{" aria-current=\"page\"" if n == cur else ""}>{l}</a>' for n, l in names) + "</nav>"
 
 
-def logos(cls=""):
-    return '<ul class="logos ' + cls + '">' + "".join(f'<li class="{m}"><img src="{s}" alt="{a}" loading="lazy" /></li>' for s, a, m in LOGOS) + "</ul>"
+def logos(ground="dark"):
+    alt = {"spark-labs.svg": f"spark-labs-{'light' if ground == 'light' else 'dark'}.svg", "bebrief.webp": f"bebrief-{ground}.webp"}
+    items = []
+    for s, a, m in LOGOS:
+        name = s.rsplit("/", 1)[1]
+        if name in alt:
+            src = s.replace(name, alt[name]) if not (name == "spark-labs.svg" and ground == "dark") else "../../assets/clients/spark-labs.svg"
+            items.append(f'<li class="tone"><img src="{src}" alt="{a}" loading="lazy" /></li>')
+        else:
+            items.append(f'<li><img src="{s}" alt="{a}" loading="lazy" /></li>')
+    return '<ul class="logos">' + "".join(items) + "</ul>"
 
 
 def services(item):
@@ -93,7 +103,7 @@ h2{font:400 clamp(2.4rem,4.6vw,4rem)/1 "Instrument Serif",serif;letter-spacing:-
 .teams li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;padding-block:20px;border-top:1px solid var(--rule)}
 .teams b{font:400 1.75rem/1.1 "Instrument Serif",serif}.teams span{color:var(--ink-2)}
 .feature{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:48px;align-items:center;padding:clamp(28px,4vw,56px);background:var(--paper-2);border-radius:4px;text-decoration:none}
-.feature img{width:min(100%,360px);margin-inline:auto;filter:invert(1) brightness(.2)}
+.feature img{width:min(100%,360px);margin-inline:auto}
 .feature h3{font:400 clamp(1.9rem,3vw,2.7rem)/1.05 "Instrument Serif",serif}.feature p{color:var(--ink-2);margin-top:14px}.feature .meta{font-size:14px;color:var(--ink-3);margin-bottom:12px}
 .list a{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;padding-block:20px;border-top:1px solid var(--rule);text-decoration:none}.list a:hover b{color:var(--copper)}
 .list b{font-weight:500}.list span{color:var(--ink-2)}
@@ -115,15 +125,14 @@ ledger = head("Ledger", "family=Instrument+Serif:ital@0;1&family=Geist:wght@400;
 <header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="ledger.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
-<p class="eyebrow">{C["eyebrow"]}</p>
 <h1><span class="l"><span>{C["h1"][0]}</span></span><span class="l"><span>{C["h1"][1]}</span></span><span class="l"><span><em>{C["h1"][2]}</em></span></span></h1>
 <div class="hero-row"><div data-in><p>{C["lede"]}</p><div class="acts"><a class="btn" href="../../start-a-conversation.html">Book a free call</a><a class="link" href="../../case-studies.html">See our work</a></div></div>
 <img class="hero-art" data-in src="assets/press-ink.webp" alt="An 18th-century printing press from Diderot's Encyclopedie" /></div>
-{logos()}</div></section>
+{logos("light")}</div></section>
 <section class="s"><div class="wrap s-head"><h2 data-in>Three services.<br><em>Take one, or all three.</em></h2><div>{services(lambda n,h,d,f: f'<a class="svc" href="{h}" data-in><h3>{n}</h3><div><p>{d}</p><small>First step: {f.lower()}</small></div></a>')}</div></div></section>
 <section class="s"><div class="wrap s-head"><h2 data-in>For the teams that keep a business running.</h2><ul class="teams" data-in>{"".join(f"<li><b>{a}</b><span>{b}</span></li>" for a,b in C["teams"])}</ul></div></section>
 <section class="s"><div class="wrap"><p class="divider" data-in><span>Case studies</span></p>
-<a class="feature" href="../../impact-spark-labs.html" data-in><img src="../../assets/clients/spark-labs.svg" alt="spARK Labs by ARK Invest" /><div><p class="meta">spARK Labs by ARK Invest &middot; St. Petersburg</p><h3>Expense and event paperwork, handled with one command.</h3><p>Receipts become finished expense reports and event forms become review-ready PDFs, connected to the four tools the team already uses.</p></div></a>
+<a class="feature" href="../../impact-spark-labs.html" data-in><img src="../../assets/clients/spark-labs-light.svg" alt="spARK Labs by ARK Invest" /><div><p class="meta">spARK Labs by ARK Invest &middot; St. Petersburg</p><h3>Expense and event paperwork, handled with one command.</h3><p>Receipts become finished expense reports and event forms become review-ready PDFs, connected to the four tools the team already uses.</p></div></a>
 <div class="list" style="margin-top:28px">{"".join(f'<a href="{h}"><b>{n}</b><span>{t}</span></a>' for n,t,h in C["work"])}</div></div></section>
 <section class="s"><div class="wrap s-head"><h2 data-in>Questions owners ask us first.</h2>{faq()}</div></section>
 <section class="closer"><div class="wrap"><h2>Tell us what your team does <em>by hand.</em></h2><p>Thirty minutes, free. We'll tell you which of the three fits, or that none does.</p><a class="btn" href="../../start-a-conversation.html">Book a free call</a></div></section>
@@ -173,7 +182,6 @@ signal = head("Signal", "family=Geist:wght@400;500;600&family=Geist+Mono:wght@40
 <header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="signal.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
-<p class="mono" data-in>{C["eyebrow"]}</p>
 <h1 data-in>Do more with the team you have.<span class="cycle">We handle the <span class="w" aria-hidden="true"><span class="on">bills.</span><span>orders.</span><span>reports.</span><span>follow-ups.</span><span>scheduling.</span><span>inbox.</span></span></span></h1>
 <p data-in>{C["lede"]}</p><div class="acts" data-in><a class="btn" href="../../start-a-conversation.html">Book a free call &rarr;</a><a class="btn ghost" href="../../case-studies.html">See our work</a></div>
 </div></section>
@@ -234,7 +242,7 @@ desk = head("Desk", "family=Geist:wght@400;500;600", desk_css) + f'''
 <header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="desk.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <section class="hero"><div class="wrap">
-<p class="eyebrow" data-in>{C["eyebrow"]}</p><h1 data-in>Do more with the team you have.</h1><p data-in>{C["lede"]}</p>
+<h1 data-in>Do more with the team you have.</h1><p data-in>{C["lede"]}</p>
 <div class="acts" data-in><a class="btn" href="../../start-a-conversation.html">Book a free call</a><a class="link" href="../../case-studies.html">See our work</a></div>
 <div class="stage" data-in aria-label="Example: this morning's paperwork, handled"><div class="app"><div class="app-top"><b>This morning</b><span>Bills, orders and forms</span><span class="count" id="count">0 handled &middot; 0 for you</span></div><div class="rows" id="rows"></div></div></div>
 </div></section>
@@ -330,7 +338,7 @@ collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400
 <header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="collage.html" aria-label="altr home"><img class="brand-key" src="../../assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" /></a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="{CAL}">Book a call</a></nav></header>
 <main>
 <div class="herobg" aria-hidden="true"></div><div class="wrap"><section class="hero">
-<div><p class="eyebrow" data-in>{C["eyebrow"]}</p><h1 data-in>Do more with the team <em>you have.</em></h1><p data-in>{C["lede"]}</p>
+<div><h1 data-in>Do more with the team <em>you have.</em></h1><p data-in>{C["lede"]}</p>
 <div class="acts" data-in><a class="btn" href="../../start-a-conversation.html">Book a free call</a><a class="link" href="../../case-studies.html">See our work</a></div></div>
 <div class="heroart" data-in id="heroart">
 <figure class="hv hv-press" aria-label="An 18th-century printing press from Diderot's Encyclopedie, printed in black ink"><img src="assets/press-ink.webp" alt="" /><figcaption>Imprimerie, pl. XV &middot; Encyclop&eacute;die, 1769</figcaption></figure>
@@ -342,7 +350,7 @@ collage = head("Collage", "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400
 <div class="hv hv-type" aria-hidden="true"><p class="note n3">Bills, orders, follow-ups: handled.</p></div>
 </div>
 </section></div>
-<div class="wrap">{logos()}</div>
+<div class="wrap">{logos("light")}</div>
 <section class="s"><div class="wrap"><h2 data-in>Three services. <em>Take one, or all three.</em></h2>
 <div class="slips">{services(lambda n,h,d,f: f'<a class="slip" href="{h}" data-in><h3>{n}</h3><p>{d}</p><small>First step: {f.lower()} &rarr;</small></a>')}</div></div></section>
 <section class="s" style="padding-top:0"><div class="wrap"><h2 data-in>For the teams that keep a business <em>running.</em></h2><ul class="teams" data-in>{"".join(f"<li><b>{a}</b><span>{b}</span></li>" for a,b in C["teams"])}</ul></div></section>
