@@ -2211,180 +2211,562 @@ body {
   }
 }
 
-/* Homepage "This week" panel: the routine items tick over to Handled one by
-   one and the odd one waits for a person. At rest (no JS, reduced motion,
-   or after it plays) every row shows its final state. */
-.busywork {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
+/* ===================================================================
+   Refinement pass, October 2026
+   -------------------------------------------------------------------
+   The cell grid (E) put a full box around every grid on the site, so
+   services, industries, case studies and FAQs all read as the same
+   spreadsheet. This block, last in the file, sets one spacing and type
+   scale and gives each kind of content its own quieter shape:
+   - one boxed grid per page at most (the homepage services)
+   - everything else is open columns or ruled rows, top rule only
+   - FAQs are an expandable list
+   - card links are sentence case, so mono caps stay for data labels
+   =================================================================== */
+:root {
+  --space-section: clamp(72px, 9vw, 120px);
+  --space-section-sm: clamp(48px, 6vw, 72px);
+  --space-head: clamp(28px, 3vw, 48px);
+  --fs-h3: clamp(1.2rem, 1.7vw, 1.55rem);
+  /* the band content box: page-max minus the gutter on both sides, so a
+     band, the closer and the footer all start on the same left edge */
+  --content-max: calc(var(--page-max) - 2 * var(--gutter));
 }
 
-.busywork-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+/* -- spacing ------------------------------------------------------ */
+.band-inner {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
 }
 
-.busywork-copy h2 {
-  margin: 0;
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
-  line-height: 1.03;
-  max-width: min(14ch, 100%);
+.section-top {
+  margin-bottom: var(--space-head);
 }
 
-.busywork-week {
-  margin: 0;
-  border: 1px solid var(--line-strong);
-  background: var(--paper-raised);
-  padding: clamp(18px, 2.4vw, 26px);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-width: 0;
+/* -- open grids: columns with a top rule, no box ------------------ */
+.gap-grid,
+.home-industry-grid,
+.engagement-grid,
+.engagement-grid-2up,
+.service-arm-grid,
+.text-block-grid {
+  border: 0;
+  column-gap: clamp(28px, 3.5vw, 56px);
+  row-gap: clamp(32px, 4vw, 48px);
 }
 
-.busywork-head,
-.busywork-foot {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--bone-dim);
+.gap-grid > *,
+.home-industry-grid > *,
+.engagement-grid > *,
+.engagement-grid-2up > *,
+.service-arm-grid > *,
+.text-block-grid > * {
+  padding: 24px 0 0;
+  border: 0;
+  border-top: 1px solid var(--rule-ink);
 }
 
-.busywork-foot {
-  margin: 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--line-strong);
+.home-industry-grid .work-card:hover,
+.gap-grid article:hover,
+.engagement-grid > *:hover {
+  background: transparent;
+  border-color: transparent;
+  border-top-color: var(--copper);
 }
 
-.busywork-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+.engagement-grid-2up .engagement-item:nth-child(n) {
+  border-right: 0;
 }
 
-.busywork-list li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2px 16px;
-  padding: 12px 0;
-  border-top: 1px solid var(--line-strong);
+/* the homepage services are the one boxed grid: three offers side by
+   side, each a door you can walk through on its own */
+.home-main #what-we-do .home-service-grid {
+  column-gap: 0;
+  border-top: 1px solid var(--rule-ink);
+  border-left: 1px solid var(--rule);
 }
 
-.busywork-list li:first-child {
+.home-main #what-we-do .home-service-grid > * {
+  padding: clamp(26px, 2.6vw, 40px) clamp(24px, 2.4vw, 38px);
   border-top: 0;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
-.busywork-item {
+.home-main #what-we-do .home-service-grid > *:hover {
+  background: var(--paper-sunk);
+}
+
+/* -- cards: one heading size, links pinned to the bottom ---------- */
+.work-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-card > .work-more {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.gap-grid article h3,
+.work-card h3,
+.engagement-item h3,
+.text-block h3,
+.content-panel h3,
+.step h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+}
+
+.work-card p + p {
+  margin-top: 10px;
+}
+
+.work-card p b {
   color: var(--bone);
-  font-weight: 500;
-  overflow-wrap: anywhere;
+  font-weight: 600;
 }
 
-.busywork-note {
-  grid-column: 1;
+.work-card .work-tag,
+.gap-grid .work-card .work-tag {
+  display: block;
+  margin: 0;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--bone-dim);
-  font-size: 0.9em;
 }
 
-.busywork-state {
-  position: relative;
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border: 1px solid var(--line-strong);
-  color: var(--bone-soft);
-  white-space: nowrap;
-}
-
-.busywork-flag .busywork-state {
-  border-color: var(--copper);
+.work-card .work-more,
+.gap-grid .work-card .work-more {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--copper);
 }
 
-/* "To do" sits on top of each state label and fades away as it is handled */
-.busywork-week.is-pending .busywork-state::after,
-.busywork-week.is-playing .busywork-state::after {
-  content: "To do";
-  position: absolute;
-  inset: 0;
+.work-more::after {
+  content: " \2192";
+}
+
+.home-industry-grid .work-more::after {
+  content: " \2192";
+}
+
+/* -- headlines: one colour, one accent ---------------------------- */
+.two-tone {
+  color: var(--bone);
+}
+
+/* -- homepage: industries as ruled rows --------------------------- */
+.home-main .home-who {
+  background: transparent;
+}
+
+.home-main .home-industry-grid {
+  grid-template-columns: 1fr;
+  row-gap: 0;
+}
+
+.home-main .home-industry-grid .work-card {
   display: grid;
-  place-items: center;
-  background: var(--paper-raised);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto;
+  align-items: baseline;
+  gap: 8px 32px;
+  padding: 22px 0;
+  background: transparent;
+}
+
+.home-main .home-industry-grid .work-card:last-child {
+  border-bottom: 1px solid var(--rule-ink);
+}
+
+.home-main .home-industry-grid .work-card h3,
+.home-main .home-industry-grid .work-card p {
+  margin: 0;
+  max-width: none;
+}
+
+.home-main .home-industry-grid .work-card > .work-more {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* -- homepage: FAQ as an expandable list -------------------------- */
+.faq-list {
+  max-width: 820px;
+  border-bottom: 1px solid var(--rule-ink);
+}
+
+.faq-item {
+  border-top: 1px solid var(--rule-ink);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--copper);
+  transition: transform 150ms var(--ease-out);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 4px;
+}
+
+.faq-item h3 {
+  margin: 0;
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.faq-item p {
+  max-width: 64ch;
+  margin: 0;
+  padding: 0 0 24px;
+  color: var(--bone-soft);
+  line-height: 1.64;
+}
+
+/* -- homepage: first band starts at the top, not mid-air ---------- */
+.home-main #who-this-is-for .busywork {
+  align-items: start;
+}
+
+/* -- closer: one column, on the band's left edge ------------------ */
+.closer {
+  grid-template-columns: minmax(0, var(--content-max));
+}
+
+.closer-inner {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  max-width: 720px;
+}
+
+/* -- footer on the same edge as the bands ------------------------- */
+.footer-inner {
+  width: min(var(--content-max), calc(100% - 2 * var(--gutter)));
+}
+
+/* -- nav: open on hover where there is a mouse -------------------- */
+@media (hover: hover) and (min-width: 981px) {
+  .nav .nav-dropdown:hover .nav-dropdown-panel,
+  .nav .nav-dropdown:focus-within .nav-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  /* bridge the 8px gap so the panel does not close on the way down */
+  .nav .nav-dropdown-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    height: 10px;
+  }
+}
+
+/* -- logos: an even two-by-two on phones -------------------------- */
+@media (max-width: 680px) {
+  .client-logos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+
+  .home-main .home-industry-grid .work-card {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-main #what-we-do .home-service-grid > * {
+    border-right: 1px solid var(--rule);
+  }
+}
+
+/* -- About, compressed: one intro with the founders beside it, the
+   principles as a short list, the mission, the closer. No cards. ---- */
+.about-page > section:not(.closer) {
+  width: min(var(--content-max), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+
+.about-top {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(36px, 6vw, 88px);
+  align-items: start;
+  padding-block: var(--space-section-sm) var(--space-section);
+}
+
+.about-top-copy h1 {
+  margin: 0 0 24px;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.about-top-copy p {
+  max-width: 54ch;
+  margin: 0 0 16px;
+  color: var(--bone-soft);
+  font-size: 1.05rem;
+  line-height: 1.64;
+}
+
+.about-top-copy .about-lede {
+  color: var(--bone);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.45;
+  letter-spacing: -0.012em;
+}
+
+.about-top-copy a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-decoration-color: var(--copper);
+  text-underline-offset: 4px;
+}
+
+.about-founders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.about-founder {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-founder img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  filter: grayscale(0.15) contrast(1.02);
+}
+
+#jarred-robidoux img {
+  object-position: 50% 30%;
+}
+
+#alex-britton img {
+  object-position: 50% 22%;
+}
+
+.about-founder figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-founder-name {
+  color: var(--bone);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.about-founder-role {
+  color: var(--bone-dim);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.about-founder-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 2px;
+}
+
+.about-founder-links a {
+  color: var(--copper);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.about-principles,
+.about-mission-quote {
+  padding-block: var(--space-section);
+  border-top: 1px solid var(--rule-ink);
+}
+
+.about-principles {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(28px, 5vw, 80px);
+}
+
+.about-principles h2,
+.about-mission-quote h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+}
+
+.about-principles ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: principle;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-principles li {
+  counter-increment: principle;
+  position: relative;
+  padding: 18px 0 18px 48px;
+  border-top: 1px solid var(--rule);
+  color: var(--bone-soft);
+  line-height: 1.6;
+  max-width: 64ch;
+}
+
+.about-principles li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.about-principles li:first-child::before {
+  top: 0;
+}
+
+.about-principles li::before {
+  content: counter(principle, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--copper);
+  padding-top: 0.35em;
+}
+
+.about-principles li b {
+  color: var(--bone);
+  font-weight: 600;
+}
+
+.about-mission-quote {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(28px, 5vw, 80px);
+}
+
+.about-mission-quote blockquote {
+  margin: 0;
+  max-width: 40ch;
+}
+
+.about-mission-quote blockquote p {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.45;
+  color: var(--bone);
+  text-align: left;
+}
+
+.about-mission-quote cite {
+  font-style: normal;
+  font-size: 14px;
   color: var(--bone-dim);
 }
 
-.busywork-week.is-pending .busywork-state {
-  border-color: var(--line-strong);
+.about-page > .closer {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
-.busywork-week.is-pending .busywork-note,
-.busywork-week.is-pending .busywork-foot {
-  opacity: 0;
-}
-
-.busywork-week.is-playing .busywork-state {
-  animation: busywork-state-in 420ms var(--ease-out) both;
-}
-
-.busywork-week.is-playing .busywork-state::after {
-  animation: busywork-todo-out 420ms var(--ease-out) both;
-}
-
-.busywork-week.is-playing .busywork-note {
-  animation: busywork-note-in 420ms var(--ease-out) both;
-}
-
-.busywork-week.is-playing .busywork-foot {
-  animation: busywork-note-in 500ms var(--ease-out) 3400ms both;
-}
-
-.busywork-week.is-playing li:nth-child(1) .busywork-note,
-.busywork-week.is-playing li:nth-child(1) .busywork-state,
-.busywork-week.is-playing li:nth-child(1) .busywork-state::after { animation-delay: 500ms; }
-.busywork-week.is-playing li:nth-child(2) .busywork-note,
-.busywork-week.is-playing li:nth-child(2) .busywork-state,
-.busywork-week.is-playing li:nth-child(2) .busywork-state::after { animation-delay: 1100ms; }
-.busywork-week.is-playing li:nth-child(3) .busywork-note,
-.busywork-week.is-playing li:nth-child(3) .busywork-state,
-.busywork-week.is-playing li:nth-child(3) .busywork-state::after { animation-delay: 1700ms; }
-.busywork-week.is-playing li:nth-child(4) .busywork-note,
-.busywork-week.is-playing li:nth-child(4) .busywork-state,
-.busywork-week.is-playing li:nth-child(4) .busywork-state::after { animation-delay: 2300ms; }
-.busywork-week.is-playing li:nth-child(5) .busywork-note,
-.busywork-week.is-playing li:nth-child(5) .busywork-state,
-.busywork-week.is-playing li:nth-child(5) .busywork-state::after { animation-delay: 2900ms; }
-
-@keyframes busywork-state-in {
-  from { transform: scale(0.92); }
-  to { transform: scale(1); }
-}
-
-@keyframes busywork-todo-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes busywork-note-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: none; }
-}
-
-@media (max-width: 860px) {
-  .busywork {
+@media (max-width: 900px) {
+  .about-top,
+  .about-principles,
+  .about-mission-quote {
     grid-template-columns: 1fr;
+  }
+
+  .about-founders {
+    max-width: 520px;
+  }
+}
+
+.page.about-page {
+  width: 100%;
+}
+
+/* -- nav panels hang from their trigger's left edge --------------- */
+@media (min-width: 981px) {
+  .nav .nav-dropdown-panel {
+    left: 0;
+    transform: translateY(-6px);
+  }
+
+  .nav .nav-dropdown.is-open .nav-dropdown-panel {
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) and (min-width: 981px) {
+  .nav .nav-dropdown:hover .nav-dropdown-panel,
+  .nav .nav-dropdown:focus-within .nav-dropdown-panel {
+    transform: translateY(0);
+  }
+}
+
+/* -- phone menu: everything flush left, so opening a section does not
+   shift the rest of the list sideways ---------------------------- */
+@media (max-width: 680px) {
+  .nav.is-menu-open .nav-links {
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .nav-links > a:not(.nav-cta),
+  .nav-links .nav-dropdown,
+  .nav-links .nav-dropdown-trigger {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
   }
 }

@@ -38,7 +38,9 @@ document.querySelectorAll('.nav').forEach(nav => {
     }
   });
 
-  nav.addEventListener('keydown', event => {
+  // on the document, not the nav: after opening the menu by tap, focus
+  // can sit outside the nav and Escape never reached it
+  document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
     const open = dropdowns.find(d => d.classList.contains('is-open'));
     if (open) {
