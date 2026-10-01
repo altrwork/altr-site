@@ -2210,3 +2210,181 @@ body {
     gap: 24px 36px;
   }
 }
+
+/* Homepage "This week" panel: the routine items tick over to Handled one by
+   one and the odd one waits for a person. At rest (no JS, reduced motion,
+   or after it plays) every row shows its final state. */
+.busywork {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.busywork-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.busywork-copy h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.03;
+  max-width: min(14ch, 100%);
+}
+
+.busywork-week {
+  margin: 0;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-raised);
+  padding: clamp(18px, 2.4vw, 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.busywork-head,
+.busywork-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+
+.busywork-foot {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.busywork-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.busywork-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.busywork-list li:first-child {
+  border-top: 0;
+}
+
+.busywork-item {
+  color: var(--bone);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.busywork-note {
+  grid-column: 1;
+  color: var(--bone-dim);
+  font-size: 0.9em;
+}
+
+.busywork-state {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--line-strong);
+  color: var(--bone-soft);
+  white-space: nowrap;
+}
+
+.busywork-flag .busywork-state {
+  border-color: var(--copper);
+  color: var(--copper);
+}
+
+/* "To do" sits on top of each state label and fades away as it is handled */
+.busywork-week.is-pending .busywork-state::after,
+.busywork-week.is-playing .busywork-state::after {
+  content: "To do";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--paper-raised);
+  color: var(--bone-dim);
+}
+
+.busywork-week.is-pending .busywork-state {
+  border-color: var(--line-strong);
+}
+
+.busywork-week.is-pending .busywork-note,
+.busywork-week.is-pending .busywork-foot {
+  opacity: 0;
+}
+
+.busywork-week.is-playing .busywork-state {
+  animation: busywork-state-in 420ms var(--ease-out) both;
+}
+
+.busywork-week.is-playing .busywork-state::after {
+  animation: busywork-todo-out 420ms var(--ease-out) both;
+}
+
+.busywork-week.is-playing .busywork-note {
+  animation: busywork-note-in 420ms var(--ease-out) both;
+}
+
+.busywork-week.is-playing .busywork-foot {
+  animation: busywork-note-in 500ms var(--ease-out) 3400ms both;
+}
+
+.busywork-week.is-playing li:nth-child(1) .busywork-note,
+.busywork-week.is-playing li:nth-child(1) .busywork-state,
+.busywork-week.is-playing li:nth-child(1) .busywork-state::after { animation-delay: 500ms; }
+.busywork-week.is-playing li:nth-child(2) .busywork-note,
+.busywork-week.is-playing li:nth-child(2) .busywork-state,
+.busywork-week.is-playing li:nth-child(2) .busywork-state::after { animation-delay: 1100ms; }
+.busywork-week.is-playing li:nth-child(3) .busywork-note,
+.busywork-week.is-playing li:nth-child(3) .busywork-state,
+.busywork-week.is-playing li:nth-child(3) .busywork-state::after { animation-delay: 1700ms; }
+.busywork-week.is-playing li:nth-child(4) .busywork-note,
+.busywork-week.is-playing li:nth-child(4) .busywork-state,
+.busywork-week.is-playing li:nth-child(4) .busywork-state::after { animation-delay: 2300ms; }
+.busywork-week.is-playing li:nth-child(5) .busywork-note,
+.busywork-week.is-playing li:nth-child(5) .busywork-state,
+.busywork-week.is-playing li:nth-child(5) .busywork-state::after { animation-delay: 2900ms; }
+
+@keyframes busywork-state-in {
+  from { transform: scale(0.92); }
+  to { transform: scale(1); }
+}
+
+@keyframes busywork-todo-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes busywork-note-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 860px) {
+  .busywork {
+    grid-template-columns: 1fr;
+  }
+}

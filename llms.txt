@@ -1,8 +1,8 @@
 # altr
 
-> AI consulting company for small businesses, based in Tampa, Florida. Three services,
-> offered on their own or together: an AI audit that finds where a team's hours go,
-> automation of the repetitive work, and AI training for the team. Founded by
+> AI consulting company for small and medium-sized businesses, based in Tampa, Florida.
+> Three services, offered on their own or together: an AI audit that finds where a
+> team's hours go, automation of the repetitive work, and AI training for the team. Founded by
 > Alex Britton and Jarred Robidoux. In person across Tampa Bay, St. Petersburg and
 > Clearwater; remote for teams anywhere in the United States. Focus: commercial real
 > estate and operations-heavy teams, Claude enablement, MCP servers and agents.

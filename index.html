@@ -38,7 +38,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20260928a" />
-<link rel="stylesheet" href="redesign.css?v=20261001a" />
+<link rel="stylesheet" href="redesign.css?v=20261001b" />
 <link rel="stylesheet" href="chat-hero.css?v=20260928b" />
 <script type="application/ld+json">
 {
@@ -54,7 +54,7 @@
       "logo": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png",
       "image": "https://altrwork.com/assets/share/altr-home.jpg",
       "email": "inquiries@altrwork.com",
-      "description": "AI consulting company for small businesses nationwide, based in Tampa. Three services, offered on their own or together: an AI audit that finds where a team's hours go, automation of the repetitive work, and AI training for the team.",
+      "description": "AI consulting company for small and medium-sized businesses nationwide, based in Tampa. Three services, offered on their own or together: an AI audit that finds where a team's hours go, automation of the repetitive work, and AI training for the team.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tampa",
@@ -254,7 +254,7 @@
             <div class="home-chat-answer">
               <span class="home-chat-label">altr</span>
               <p class="home-chat-thinking" data-thinking role="status" aria-label="Thinking..." hidden>Thinking<span aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></p>
-              <p class="home-about-statement" data-typewriter aria-label="An AI transformation partner for small businesses. We find the work eating your team's week, automate it, and train your people to use AI on the rest.">An AI transformation partner for small businesses. We find the work eating your team's week, automate it, and train your people to use AI on the rest.</p>
+              <p class="home-about-statement" data-typewriter aria-label="An AI transformation partner for small and medium-sized businesses. We find the work eating your team's week, automate it, and train your people to use AI on the rest.">An AI transformation partner for small and medium-sized businesses. We find the work eating your team's week, automate it, and train your people to use AI on the rest.</p>
             </div>
           </div>
         </div>
@@ -268,11 +268,22 @@
 
     <section class="band" id="who-this-is-for" aria-labelledby="who-this-is-for-heading">
       <div class="band-inner">
-        <div class="section-top">
-          <div>
+        <div class="busywork">
+          <div class="busywork-copy">
             <h2 id="who-this-is-for-heading">Small teams carrying too much by hand.</h2>
+            <p class="aside-note">If the week runs on spreadsheets, PDFs, an inbox, and the same report every Friday, that is the work we take on.</p>
           </div>
-          <p class="aside-note">If the week runs on spreadsheets, PDFs, an inbox, and the same report every Friday, that is the work we take on.</p>
+          <figure class="busywork-week" data-busywork aria-label="Example: a small office's week, with the routine items handled and one left for a person">
+            <figcaption class="busywork-head"><span>This week</span><span>Example</span></figcaption>
+            <ol class="busywork-list">
+              <li><span class="busywork-item">Palmetto Lumber bill.pdf</span><span class="busywork-note">Matched to job 2618</span><span class="busywork-state">Handled</span></li>
+              <li><span class="busywork-item">PO from Pelican Homes</span><span class="busywork-note">Entered at your prices</span><span class="busywork-state">Handled</span></li>
+              <li><span class="busywork-item">RE: W-9 still missing</span><span class="busywork-note">Reminder sent, day 7</span><span class="busywork-state">Handled</span></li>
+              <li><span class="busywork-item">Friday report.xlsx</span><span class="busywork-note">Drafted from QuickBooks</span><span class="busywork-state">Handled</span></li>
+              <li class="busywork-flag"><span class="busywork-item">Brightwater bill, no PO</span><span class="busywork-note">$20,950, waiting for you</span><span class="busywork-state">Needs you</span></li>
+            </ol>
+            <p class="busywork-foot"><span>4 handled</span><span>1 for a person</span></p>
+          </figure>
         </div>
       </div>
     </section>
@@ -436,7 +447,7 @@
     <div class="footer-inner">
       <a class="footer-brand" href="index.html" aria-label="altr home">
         <span class="brand-mark"></span>
-        <span>AI audits, automation, and training for small businesses</span>
+        <span>AI audits, automation, and training for small and medium-sized businesses</span>
       </a>
       <nav class="footer-links" aria-label="Footer links">
         <a href="index.html#what-we-do">Services</a>
@@ -455,5 +466,6 @@
 <script src="intake-modal.js"></script>
 <script src="nav.js"></script>
 <script src="home-typewriter.js"></script>
+<script src="home-busywork.js"></script>
 </body>
 </html>
