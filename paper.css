@@ -3741,3 +3741,8 @@ article.legal hr {
     font-size: 0.8rem;
   }
 }
+
+.ph-teams {
+  list-style: none;
+  padding-left: 0;
+}
