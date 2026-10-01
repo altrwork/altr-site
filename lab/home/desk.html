@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><title>Desk | altr design option</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}h1,h2,h3,p,ul,ol,figure{margin:0}ul,ol{list-style:none;padding:0}a{color:inherit}img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}.wrap{width:min(1240px,calc(100% - 2*var(--m)));margin-inline:auto}
+.optbar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:99;display:flex;gap:4px;padding:6px;border-radius:10px;background:rgba(20,17,14,.92);border:1px solid rgba(242,237,228,.2);font:500 12.5px/1 system-ui,sans-serif}
+.optbar a{color:#B9B0A3;text-decoration:none;padding:8px 10px;border-radius:6px}.optbar a[aria-current]{background:#F2EDE4;color:#14110E}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+:root{--m:clamp(20px,5vw,72px);--bg:#121110;--panel:#1B1917;--panel-2:#22201D;--fg:#EFEBE4;--fg-2:#A9A39A;--fg-3:#7A746B;--accent:#D9884F;--ok:#8FB38A;--rule:rgba(239,235,228,.1)}
+body{background:var(--bg);color:var(--fg);font:400 16.5px/1.6 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+nav.top{display:flex;align-items:center;gap:26px;height:70px}nav.top .brand{font-weight:600;font-size:21px;letter-spacing:-.03em;margin-right:auto;text-decoration:none}
+nav.top a{text-decoration:none;font-size:14px;color:var(--fg-2)}nav.top a:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:10px;background:var(--fg);color:var(--bg)!important;font-weight:500;font-size:15px;text-decoration:none}
+.btn.sm{min-height:36px;padding:0 14px;font-size:13.5px}.link{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--fg-3)}
+.hero{padding-block:clamp(60px,9vw,120px) 30px;text-align:center}
+.hero .eyebrow{font-size:14px;color:var(--fg-3)}.hero h1{font-weight:500;font-size:clamp(2.8rem,7vw,6.2rem);line-height:.98;letter-spacing:-.05em;margin-top:18px}
+.hero p{max-width:44ch;margin:24px auto 0;font-size:1.2rem;color:var(--fg-2)}.hero .acts{display:flex;gap:22px;align-items:center;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.stage{position:relative;margin:56px auto 0;width:min(980px,100%);padding:1px;border-radius:16px;background:linear-gradient(180deg,rgba(239,235,228,.22),rgba(239,235,228,.04))}
+.app{border-radius:15px;background:var(--panel);overflow:hidden;box-shadow:0 40px 120px -40px rgba(217,136,79,.25)}
+.app-top{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--rule);font-size:13.5px;color:var(--fg-2)}
+.app-top b{color:var(--fg);font-weight:500}.app-top .count{margin-left:auto;font-variant-numeric:tabular-nums}
+.rows{position:relative;height:360px;overflow:hidden}
+.row{position:absolute;left:0;right:0;display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1.6fr) 110px 120px;gap:14px;align-items:center;padding:0 18px;height:60px;border-bottom:1px solid var(--rule);font-size:14.5px;transition:transform .7s cubic-bezier(.16,1,.3,1),opacity .5s}
+.row .who{font-weight:500}.row .what{color:var(--fg-2)}.row .amt{text-align:right;font-variant-numeric:tabular-nums}
+.chip{justify-self:end;font-size:12.5px;padding:4px 10px;border-radius:99px;border:1px solid var(--rule);color:var(--fg-2);transition:all .4s}
+.chip.ok{color:var(--ok);border-color:rgba(143,179,138,.4);background:rgba(143,179,138,.08)}.chip.need{color:var(--accent);border-color:rgba(217,136,79,.5);background:rgba(217,136,79,.1)}
+.logos{display:flex;justify-content:center;align-items:center;gap:56px;flex-wrap:wrap;padding-block:64px 20px}
+.logos img{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.5}.logos .mono img{filter:none;opacity:.7}
+section.s{padding-block:clamp(80px,10vw,140px)}
+h2{font-weight:500;font-size:clamp(2.2rem,4.4vw,3.8rem);line-height:1.02;letter-spacing:-.045em;text-align:center;max-width:18ch;margin-inline:auto}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:56px}
+.card{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:14px;background:var(--panel);border:1px solid var(--rule);text-decoration:none;transition:border-color .2s,transform .2s}.card:hover{border-color:rgba(217,136,79,.5);transform:translateY(-2px)}
+.card h3{font-weight:500;font-size:1.45rem;letter-spacing:-.03em}.card p{color:var(--fg-2)}.card small{margin-top:auto;padding-top:12px;font-size:14px}
+.teams{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:40px}.teams li{padding:10px 18px;border-radius:99px;border:1px solid var(--rule);background:var(--panel)}.teams b{font-weight:500}.teams span{color:var(--fg-3);margin-left:8px;font-size:14px}
+.feature{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:center;margin-top:56px;padding:44px;border-radius:16px;background:var(--panel);border:1px solid var(--rule);text-decoration:none}
+.feature img{width:min(80%,280px);margin-inline:auto}.feature h3{font-weight:500;font-size:1.9rem;letter-spacing:-.035em;line-height:1.08}.feature p{color:var(--fg-2);margin-top:12px}.feature .meta{font-size:14px;color:var(--fg-3);margin-bottom:10px}
+.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}.list a{padding:22px;border-radius:14px;border:1px solid var(--rule);text-decoration:none}.list b{display:block;font-weight:500}.list span{display:block;color:var(--fg-2);font-size:14.5px;margin-top:6px}
+.faq{max-width:780px;margin:48px auto 0}.faq details{border-top:1px solid var(--rule)}.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{display:flex;justify-content:space-between;gap:20px;padding-block:20px;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}.faq details[open] summary::after{content:"\2212"}.faq h3{font-weight:500;font-size:1.15rem}.faq p{padding-bottom:20px;color:var(--fg-2)}
+.closer{padding-block:clamp(100px,13vw,180px);text-align:center}.closer h2{font-size:clamp(2.8rem,6.4vw,5.6rem)}.closer p{color:var(--fg-2);margin-top:20px;font-size:1.15rem}.closer .btn{margin-top:32px}
+footer{border-top:1px solid var(--rule);padding-block:32px;font-size:14px;color:var(--fg-3)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}footer a{color:var(--fg-2);text-decoration:none;margin-left:18px}
+[data-in]{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}[data-in].in{opacity:1;transform:none}
+@media (max-width:860px){.cards,.feature,.list{grid-template-columns:1fr}.row{grid-template-columns:minmax(0,1.6fr) 90px 104px}.row .what{display:none}nav.top a:not(.brand):not(.btn){display:none}}
+</style></head><body>
+<header class="wrap"><nav class="top" aria-label="Primary"><a class="brand" href="desk.html">altr</a><a href="../../how-we-altr-work.html">AI Audit</a><a href="../../custom-agents.html">Automation</a><a href="../../ai-enablement-workshop.html">AI Training</a><a href="../../case-studies.html">Work</a><a href="../../about.html">About</a><a class="btn sm" href="https://calendly.com/altrwork/30min?utm_source=altr_site&amp;utm_medium=lab">Book a call</a></nav></header>
+<main>
+<section class="hero"><div class="wrap">
+<p class="eyebrow" data-in>AI audits, automation and training for small and medium-sized businesses</p><h1 data-in>Do more with the team you have.</h1><p data-in>We find the work that eats your team's week, automate it, and train your people to use AI on the rest.</p>
+<div class="acts" data-in><a class="btn" href="../../start-a-conversation.html">Book a free call</a><a class="link" href="../../case-studies.html">See our work</a></div>
+<div class="stage" data-in aria-label="Example: this morning's paperwork, handled"><div class="app"><div class="app-top"><b>This morning</b><span>Bills, orders and forms</span><span class="count" id="count">0 handled &middot; 0 for you</span></div><div class="rows" id="rows"></div></div></div>
+</div></section>
+<div class="wrap"><ul class="logos "><li class=""><img src="../../assets/clients/vector-cre.svg" alt="Vector Commercial Real Estate" loading="lazy" /></li><li class="mono"><img src="../../assets/clients/spark-labs.svg" alt="spARK Labs" loading="lazy" /></li><li class=""><img src="../../assets/clients/fishin-prints.webp" alt="Fishin Prints" loading="lazy" /></li><li class=""><img src="../../assets/clients/bebrief.webp" alt="BeBrief" loading="lazy" /></li></ul></div>
+<section class="s"><div class="wrap"><h2 data-in>Three services. Take one, or all three.</h2>
+<div class="cards"><a class="card" href="../../how-we-altr-work.html" data-in><h3>AI Audit</h3><p>We sit with the people who do the work and find where the hours go. You get a ranked list: what to automate, what to train, what to leave alone.</p><small>First step: walk us through your week. &rarr;</small></a><a class="card" href="../../custom-agents.html" data-in><h3>Automation</h3><p>Systems that do the repetitive work inside the tools you already use: orders entered, bills matched, intake sorted, reports written. Anything unusual waits for a person.</p><small>First step: send us twenty recent examples of the paperwork. &rarr;</small></a><a class="card" href="../../ai-enablement-workshop.html" data-in><h3>AI Training</h3><p>We set up Claude for your company and train your team on their real work, so they leave with tools that already do part of their job.</p><small>First step: bring the team and one task each. &rarr;</small></a></div></div></section>
+<section class="s" style="padding-top:0"><div class="wrap"><h2 data-in>For the teams that keep a business running.</h2><ul class="teams" data-in><li><b>Office and admin</b><span>Bills, forms, filing and the shared inbox.</span></li><li><b>Operations</b><span>Orders, scheduling and the hand-offs between them.</span></li><li><b>Sales and service</b><span>Follow-ups, quotes and customer requests.</span></li><li><b>Finance and billing</b><span>Invoices, statements and month-end.</span></li><li><b>Owners and managers</b><span>The Monday summary and the decisions behind it.</span></li></ul></div></section>
+<section class="s" style="padding-top:0"><div class="wrap"><h2 data-in>Real businesses, by name.</h2>
+<a class="feature" href="../../impact-spark-labs.html" data-in><img src="../../assets/clients/spark-labs.svg" alt="spARK Labs by ARK Invest" /><div><p class="meta">spARK Labs by ARK Invest &middot; St. Petersburg</p><h3>Expense and event paperwork, handled with one command.</h3><p>Receipts become finished expense reports and event forms become review-ready PDFs, connected to the four tools the team already uses.</p></div></a>
+<div class="list"><a href="../../impact-slice-of-heaven-cakes.html" data-in><b>Slice of Heaven Cakes</b><span>Every cake order in one place, answered on arrival.</span></a><a href="../../impact-fishin-prints.html" data-in><b>Fishin Prints</b><span>From a customer's catch photo to print-ready art.</span></a><a href="../../impact-real-estate-property-intelligence.html" data-in><b>CRE Harness</b><span>From a property address to a branded broker opinion of value.</span></a></div></div></section>
+<section class="s" style="padding-top:0"><div class="wrap"><h2 data-in>Questions owners ask us first.</h2><div class="faq"><details><summary><h3>We already pay for ChatGPT and almost nobody uses it. Why is this different?</h3></summary><p>We train people on their own work, not on features, and save what they build where the whole team can use it.</p></details><details><summary><h3>I don't have an IT person. Who keeps this running?</h3></summary><p>We do, for as long as you want. It runs on the tools you already have, and you get the notes to take it over.</p></details><details><summary><h3>Will this replace my staff?</h3></summary><p>No. It takes the retyping and chasing off their plate. Most owners use the time to grow without hiring.</p></details><details><summary><h3>Is our data safe?</h3></summary><p>Stored encrypted, seen only by your team and ours, and never used to train AI. Nothing is sent or approved without your say.</p></details></div></div></section>
+<section class="closer"><div class="wrap"><h2 data-in>Tell us what your team does by hand.</h2><p>Thirty minutes, free. We'll tell you which of the three fits, or that none does.</p><a class="btn" href="../../start-a-conversation.html">Book a free call</a></div></section>
+</main><footer><div class="wrap"><span>altr &middot; Tampa, Florida</span><span><a href="../../learn.html">Learn</a><a href="../../about.html">About</a><a href="../../contact.html">Contact</a></span></div></footer>
+<nav class="optbar" aria-label="Design options"><a href="ledger.html">1 Ledger</a><a href="signal.html">2 Signal</a><a href="desk.html" aria-current="page">3 Desk</a><a href="collage.html">4 Collage</a><a href="../../index.html">5 Current</a></nav><script>(()=>{const r=matchMedia('(prefers-reduced-motion: reduce)').matches;const els=document.querySelectorAll('[data-in]');
+if(r||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+els.forEach(e=>io.observe(e));setTimeout(()=>els.forEach(e=>e.classList.add('in')),3500)})()</script>
+<script>(()=>{const items=[["Palmetto Lumber","Bill · job 2618 · framing","$3,412.80","ok"],["Pelican Homes","Order · 3 items at your prices","$1,968.00","ok"],["Brightwater Drywall","Bill · no PO number","$20,950.00","need"],
+["Gulf Coast Electric","Bill · job 2604 · electrical","$7,180.00","ok"],["Bayside Property Co.","Insurance certificate · current","—","ok"],["Harbor Supply","Order · price below your list","$842.50","need"],["Coastal Signs","W-9 · received and checked","—","ok"],["Sunrise Plumbing","Bill · job 2621 · plumbing","$4,260.00","ok"]];
+const box=document.getElementById('rows'),count=document.getElementById('count'),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0,ok=0,need=0,shown=[];
+function add(){const [w,t,a,s]=items[i%items.length];i++;const r=document.createElement('div');r.className='row';r.innerHTML=`<span class="who">${w}</span><span class="what">${t}</span><span class="amt">${a}</span><span class="chip">Reading…</span>`;
+r.style.transform='translateY(-60px)';r.style.opacity='0';box.prepend(r);shown.unshift(r);
+requestAnimationFrame(()=>{shown.forEach((el,k)=>{el.style.transform=`translateY(${k*60}px)`;el.style.opacity=k>5?'0':'1'})});
+setTimeout(()=>{const c=r.querySelector('.chip');c.className='chip '+s;c.textContent=s==='ok'?'Handled':'Needs you';s==='ok'?ok++:need++;count.textContent=`${ok} handled · ${need} for you`},reduced?0:1100);
+if(shown.length>7)shown.pop().remove()}
+for(let k=0;k<(reduced?6:1);k++)add();if(!reduced)setInterval(add,1700)})()</script></body></html>
