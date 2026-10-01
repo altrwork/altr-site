@@ -1401,13 +1401,13 @@ body.intake-modal-open {
   .js .ln {
     display: block;
     overflow: hidden;
-    padding-bottom: 0.08em;
-    margin-bottom: -0.08em;
+    padding-bottom: 0.22em;
+    margin-bottom: -0.22em;
   }
 
   .js .ln > span {
     display: inline-block;
-    transform: translateY(108%);
+    transform: translateY(130%);
     transition: transform var(--t-settle) var(--ease-out);
     transition-delay: calc(var(--i, 0) * 70ms + var(--d, 0ms));
   }
