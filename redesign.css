@@ -2168,3 +2168,45 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Client logos on the homepage proof band. Each mark is flattened to the type
+   colour so four different brand palettes read as one quiet row on the dark
+   ground. */
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px 48px;
+  margin: 0 0 clamp(32px, 4vw, 48px);
+  padding: 0;
+  list-style: none;
+}
+
+.client-logos li {
+  display: flex;
+  align-items: center;
+}
+
+.client-logos img {
+  display: block;
+  width: auto;
+  height: clamp(30px, 3.4vw, 42px);
+  max-width: 180px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.72;
+}
+
+/* spARK's letters are knocked out of its squares, so the filter would fill
+   them in. Its file is already drawn in the type and ground colours. */
+.client-logos .client-logo-mono img {
+  filter: none;
+}
+
+@media (max-width: 680px) {
+  .client-logos {
+    justify-content: flex-start;
+    gap: 24px 36px;
+  }
+}

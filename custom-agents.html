@@ -36,7 +36,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20260928a" />
-<link rel="stylesheet" href="redesign.css?v=20260929a" />
+<link rel="stylesheet" href="redesign.css?v=20261001a" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -97,10 +97,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What happens before you build anything?",
+          "name": "Do we need an audit or training first?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A workflow audit comes first. We map the real inputs, decisions, tools, review points, and failure modes of one workflow before proposing any system. If the audit shows the work does not need an agent, we say so."
+            "text": "No. Automation stands on its own. If you already know which job you want off your team's plate, we can start there."
           }
         },
         {
@@ -108,7 +108,15 @@
           "name": "Do we have to change the tools we use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Agents are built around your existing stack, permissions, and approval paths. Connecting to those tools is usually done with an MCP server rather than by moving your team onto something new."
+            "text": "No. We build around what you already run, such as QuickBooks, your inbox, and your CRM. Your team, customers, and vendors keep working the way they do now."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when it gets something wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anything that does not match your records waits for a person to approve or send back. Nothing is sent or paid without your say."
           }
         },
         {
@@ -117,14 +125,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Your team. Every engagement ends with the prompts, system instructions, documentation, and operating notes handed over, so the people who own the workflow can keep changing it without us."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you only work with Tampa companies?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. We are based in Tampa, Florida and build for teams anywhere in the US. Across Tampa Bay, St. Petersburg, and Clearwater we can work on site; everywhere else the working sessions run over video, and the build and the handover are the same."
           }
         }
       ]
@@ -183,46 +183,57 @@
   <main class="page" id="main">
     <section class="page-hero hero-scene scene-bridge">
       <h1>Custom AI agents for the work your team repeats</h1>
-      <p class="page-lede">Workflow-specific agents and automations built around the tools, review paths, and constraints your team already uses.</p>
+      <p class="page-lede">We take the paperwork your office does by hand and have a system do it instead: orders entered, bills matched, paperwork chased, reports written. It works with the tools you already use, and anything unusual waits for a person.</p>
       <div class="page-hero-actions">
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
-        <a class="button secondary" href="how-we-altr-work.html">See how we work</a>
+        <a class="button secondary" href="case-studies.html">See our work</a>
       </div>
-      <a class="price-inline" href="index.html#how-it-works">
+      <a class="price-inline" href="index.html#what-we-do">
         <span class="price-inline-amount">Scoped</span>
-        <span class="price-inline-label">one fixed fee, quoted after enablement &middot; see how it works</span>
+        <span class="price-inline-label">one fixed fee, quoted in writing before work starts &middot; see all three services</span>
       </a>
     </section>
 
     <section class="section product-page-section">
       <div class="section-header">
         <div>
-          <h2>Three kinds of custom agent work.</h2>
+          <h2>What we automate.</h2>
         </div>
-        <p>A custom AI agent is a system that gathers its own context, takes bounded actions in your tools, and stops for a human at the points where judgment matters. We build them from Tampa for teams anywhere in the US.</p>
+        <p>If someone on your team opens it, reads it, checks it against something, and types it somewhere else, it is a good candidate.</p>
       </div>
       <div class="engagement-grid">
         <article class="engagement-item">
-          <h3>Workflow agents</h3>
-          <p>Agents that gather context, draft outputs, route requests, and keep humans in the loop where judgment or approval matters.</p>
+          <h3>Orders</h3>
+          <p>Customer purchase orders that arrive by email become sales orders at your prices. Anything priced below your list, or an item you do not carry, is flagged before it ships.</p>
         </article>
         <article class="engagement-item">
-          <h3>Agentic coding systems</h3>
-          <p>Repo-aware workflows for documentation, issue triage, code review, implementation loops, and the repetitive engineering tasks that slow builders down.</p>
+          <h3>Bills</h3>
+          <p>Supplier bills are matched to the right job and purchase order and sorted by cost code, ready for QuickBooks. A bill with no PO, or one you have already seen, waits for you.</p>
         </article>
         <article class="engagement-item">
-          <h3>Automation handoff</h3>
-          <p>Clear ownership, prompts, system instructions, and operating notes so the system can keep improving after the initial build.</p>
+          <h3>Paperwork you chase</h3>
+          <p>W-9s and insurance certificates are requested from every sub or vendor, checked against your requirements, and asked for again before they expire.</p>
+        </article>
+        <article class="engagement-item">
+          <h3>Intake and requests</h3>
+          <p>Web forms, emails, and requests become organized records with the next step attached, whether that is a new client, a cake order, or an event request.</p>
+        </article>
+        <article class="engagement-item">
+          <h3>Documents and reports</h3>
+          <p>Receipts become expense reports, forms become finished PDFs, and the weekly summary gets drafted from the systems the numbers already live in.</p>
+        </article>
+        <article class="engagement-item">
+          <h3>Custom agents</h3>
+          <p>When nothing off the shelf fits, we build an agent that reads what comes in, decides what to do next, and works across your tools through a <a href="mcp-server-design-internal-ai-tools.html">connector</a>, with a person approving anything that matters. <a href="impact-spark-labs-mcp.html">See one we built</a>.</p>
         </article>
       </div>
     </section>
 
     <section class="section product-page-section">
       <div class="narrative-copy">
-        <h2>Agents are useful when they understand the workflow around the task.</h2>
-        <p>A useful agent needs more than a model call. It needs the right context, permissions, tools, review points, and failure path. It also needs to fit the way the team already works.</p>
-        <p>We build agents and automations around those details. That can mean customer follow-up, internal research, document generation, coding-agent workflows, or recurring operations work that should not be rebuilt by hand every week.</p>
-        <p>Not every workflow needs an agent. If the steps are fixed and the inputs arrive clean, a plain automation in Zapier, Make, or a short script is cheaper to run and easier to debug. An agent earns its place when the work means reading unstructured input, deciding which tool to use next, or pulling context from several places before acting. <a href="zapier-vs-ai-agents.html">Zapier vs AI agents</a> walks through that decision, and <a href="what-is-an-ai-agent.html">what an AI agent is</a> covers the basics.</p>
+        <h2>Nobody on your team or theirs has to change how they work.</h2>
+        <p>Your customers and vendors keep emailing the way they do now. The system reads each document, checks it against your own records, and handles the ones that add up. The ones that do not land in front of a person, with a note saying what looks wrong, to approve or send back.</p>
+        <p>Not everything needs AI. If the steps never change and the information arrives clean, a plain automation in Zapier or Make is cheaper and easier to fix, and we will say so. AI earns its place when someone has to read a messy document, make a judgment call, or pull information from several places first. <a href="zapier-vs-ai-agents.html">Zapier vs AI agents</a> walks through that choice, and <a href="what-is-an-ai-agent.html">what an AI agent is</a> covers the basics.</p>
       </div>
     </section>
 
@@ -231,20 +242,20 @@
         <div>
           <h2>What this looks like in practice.</h2>
         </div>
-        <p>Three builds, each starting from a workflow someone was doing by hand.</p>
+        <p>Three systems, each replacing work someone was doing by hand.</p>
       </div>
       <div class="engagement-grid">
         <article class="engagement-item">
-          <h3>Operations intake</h3>
-          <p>Expense submissions and event requests at a St. Petersburg nonprofit startup incubator moved from manual document handoffs into AI-assisted workflows with defined review paths. <a href="impact-spark-labs.html">Read the spARK Labs study</a>.</p>
+          <h3>Expense and event paperwork</h3>
+          <p>At spARK Labs in St. Petersburg, receipts and event forms went from manual handoffs to finished, review-ready documents, connected to the four tools the team already used. <a href="impact-spark-labs.html">Read the spARK Labs study</a>.</p>
         </article>
         <article class="engagement-item">
-          <h3>A remote MCP server</h3>
-          <p>A remote <a href="mcp-server-design-internal-ai-tools.html">MCP server</a> connected Claude directly to the tools an operations team already used. <a href="impact-spark-labs-mcp.html">Read the MCP study</a>.</p>
+          <h3>Every order in one place</h3>
+          <p>A Tampa bakery's website orders and quote requests now land in one dashboard, confirmed on arrival and added to the calendar. <a href="impact-slice-of-heaven-cakes.html">Read the Slice of Heaven study</a>.</p>
         </article>
         <article class="engagement-item">
-          <h3>Coding agents in the build loop</h3>
-          <p>Agents read the app, explained features, made focused edits, and ran checks across a product build. <a href="impact-bebrief.html">Read the BeBrief study</a>.</p>
+          <h3>Photo to finished product</h3>
+          <p>Each Fishin Prints order follows the same path from a customer's photo to print-ready art, with a person approving the result. <a href="impact-fishin-prints.html">Read the Fishin Prints study</a>.</p>
         </article>
       </div>
     </section>
@@ -252,33 +263,33 @@
     <section class="section product-page-section">
       <div class="section-header">
         <div>
-          <h2>Questions we get before an agent build.</h2>
+          <h2>Questions we get before an automation.</h2>
         </div>
       </div>
       <div class="content-split">
         <article class="content-panel">
-          <h3>What happens before you build anything?</h3>
-          <p>A <a href="workflow-audit.html">workflow audit</a> comes first. We map the real inputs, decisions, tools, review points, and failure modes of one workflow before proposing any system. If the audit shows the work does not need an agent, we say so.</p>
+          <h3>Do we need an audit or training first?</h3>
+          <p>No. Automation stands on its own. If you already know which job you want off your team's plate, we can start there.</p>
         </article>
         <article class="content-panel content-panel-muted">
           <h3>Do we have to change the tools we use?</h3>
-          <p>No. Agents are built around your existing stack, permissions, and approval paths. Connecting to those tools is usually done with an MCP server rather than by moving your team onto something new.</p>
+          <p>No. We build around what you already run, such as QuickBooks, your inbox, and your CRM. Your team, customers, and vendors keep working the way they do now.</p>
         </article>
         <article class="content-panel content-panel-muted">
-          <h3>Who owns the system after launch?</h3>
-          <p>Your team. Every engagement ends with the prompts, system instructions, documentation, and operating notes handed over, so the people who own the workflow can keep changing it without us.</p>
+          <h3>What happens when it gets something wrong?</h3>
+          <p>Anything that does not match your records waits for a person to approve or send back. Nothing is sent or paid without your say.</p>
         </article>
         <article class="content-panel">
-          <h3>Do you only work with Tampa companies?</h3>
-          <p>No. We are based in Tampa, Florida and build for teams anywhere in the US. Across Tampa Bay, St. Petersburg, and Clearwater we can work on site; everywhere else the working sessions run over video, and the build and the handover are the same.</p>
+          <h3>Who owns the system after launch?</h3>
+          <p>Your team. Every engagement ends with the prompts, system instructions, documentation, and operating notes handed over, so the people who own the workflow can keep changing it without us.</p>
         </article>
       </div>
     </section>
 
     <section class="section product-page-section conversation-section">
       <div class="conversation-copy">
-        <h2>Show us the repeat work your team keeps doing manually.</h2>
-        <p>We will help decide whether it needs a workflow automation, a custom agent, an agentic coding system, or a simpler enablement session first.</p>
+        <h2>Send us twenty recent examples of the paperwork.</h2>
+        <p>Bills, orders, forms, or whatever your team retypes. We will show you how each one would have been handled, and what we would have caught, before you commit to anything.</p>
         <a class="conversation-link" href="start-a-conversation.html">Book a call</a>
       </div>
     </section>

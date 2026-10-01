@@ -211,7 +211,7 @@ class SeoIntegrityTests(unittest.TestCase):
             "Automation",
             "AI Training",
             "First step: walk us through your week.",
-            "First step: send us twenty recent bills or orders.",
+            "First step: send us twenty recent examples of the paperwork.",
             "First step: bring the team and one task each.",
         ):
             self.assertIn(phrase, visible)
