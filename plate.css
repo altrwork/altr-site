@@ -622,7 +622,7 @@ body.pp-page {
 
 .pp-feature .pp-feature-mark .pp-feature-logo {
   position: static;
-  width: clamp(150px, 22%, 240px);
+  width: clamp(220px, 42%, 420px);
   height: auto;
   transform: none;
 }
