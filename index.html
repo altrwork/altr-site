@@ -38,8 +38,8 @@
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600&display=swap" />
-<link rel="preload" as="image" href="assets/plates/sized/scene-bridge-1200.webp" imagesrcset="assets/plates/sized/scene-bridge-800.webp 800w, assets/plates/sized/scene-bridge-1200.webp 1200w, assets/plates/scene-bridge.webp 1600w" imagesizes="(min-width: 901px) 44vw, 100vw" fetchpriority="high" />
-<link rel="stylesheet" href="plate.css?v=20261001e" />
+<link rel="preload" as="image" href="assets/plates/sized/press-body.webp" fetchpriority="high" />
+<link rel="stylesheet" href="plate.css?v=20261001f" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -251,7 +251,7 @@
 
 <main id="main">
   <section class="pp-hero" aria-labelledby="home-headline">
-    <div class="pp-wrap pp-hero-grid">
+    <div class="pp-wrap pp-hero-grid pp-hero-press">
       <div class="pp-hero-copy">
         <p class="pp-eyebrow" data-settle>AI audits, automation and training for small and medium-sized businesses</p>
         <h1 class="pp-display" id="home-headline">
@@ -266,10 +266,19 @@
         </div>
         <p class="pp-hero-note pp-prose" data-settle style="--d:640ms">Based in Tampa. Looking for <a href="ai-consulting-tampa.html">AI consulting in Tampa</a>?</p>
       </div>
-      <figure class="pp-plate pp-hero-plate pp-build" data-build>
-        <img class="pp-build-tone" src="assets/plates/sized/scene-bridge-1200.webp" srcset="assets/plates/sized/scene-bridge-800.webp 800w, assets/plates/sized/scene-bridge-1200.webp 1200w, assets/plates/scene-bridge.webp 1600w" sizes="(min-width: 901px) 44vw, 100vw" width="1600" height="1000" alt="" fetchpriority="high" decoding="async" />
-        <img class="pp-build-lines" src="assets/plates/sized/scene-bridge-lines.webp" width="1000" height="625" alt="" decoding="async" aria-hidden="true" />
-        <span class="pp-build-light" aria-hidden="true"></span>
+      <figure class="pp-press" data-press role="img" aria-label="An 18th-century printing press from Diderot's Encyclopédie, printing a sheet on its own">
+        <img class="pp-press-body" src="assets/plates/sized/press-body.webp" width="1324" height="1110" alt="" fetchpriority="high" decoding="async" />
+        <div class="pp-press-tympan">
+          <img src="assets/plates/sized/press-tympan.webp" width="1324" height="1110" alt="" decoding="async" />
+          <div class="pp-press-frisket"><img src="assets/plates/sized/press-frisket.webp" width="1324" height="1110" alt="" decoding="async" /></div>
+        </div>
+        <svg class="pp-press-fx" viewBox="0 0 662 555" aria-hidden="true">
+          <g class="pp-press-stack"><rect x="30" y="522.0" width="98" height="2.4" /><rect x="32" y="517.5" width="98" height="2.4" /><rect x="29" y="513.0" width="98" height="2.4" /><rect x="31" y="508.5" width="98" height="2.4" /><rect x="30" y="504.0" width="98" height="2.4" /><rect x="32" y="499.5" width="98" height="2.4" /></g>
+          <g class="pp-press-sheet">
+            <rect x="281" y="222" width="98" height="66" class="paper" />
+            <path d="M291 236h62M291 244h78M291 252h70M291 260h78M291 268h46" class="print" />
+          </g>
+        </svg>
       </figure>
     </div>
   </section>
@@ -456,5 +465,6 @@
 </footer>
 <script src="intake-modal.js"></script>
 <script src="pp.js"></script>
+<script src="home-press.js"></script>
 </body>
 </html>

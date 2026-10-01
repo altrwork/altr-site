@@ -627,6 +627,90 @@ body.pp-page {
   transform: none;
 }
 
+/* Press: the homepage hero. A printing press cut free of its plate,
+   drawn in cream line on the ink ground, with no frame around it. Its
+   frames swing and it prints a sheet on its own (home-press.js). */
+.pp-hero-press {
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: center;
+}
+
+.pp-press {
+  position: relative;
+  width: calc(100% + var(--margin) * 0.5);
+  aspect-ratio: 1324 / 1110;
+  margin-right: calc(-0.5 * var(--margin));
+}
+
+.pp-press img,
+.pp-press-tympan,
+.pp-press-frisket,
+.pp-press-fx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pp-press-tympan {
+  transform-origin: 34.6% 53.2%;
+  will-change: transform;
+}
+
+.pp-press-frisket {
+  transform-origin: 11.5% 36.6%;
+  will-change: transform;
+}
+
+.pp-press-fx {
+  overflow: visible;
+}
+
+.pp-press-stack rect {
+  fill: #F0E5D2;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.pp-press-sheet {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pp-press-sheet .paper {
+  fill: rgba(240, 229, 210, 0.1);
+  stroke: #F0E5D2;
+  stroke-width: 1;
+}
+
+.pp-press-sheet .print {
+  fill: none;
+  stroke: #D88A52;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .pp-press {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 1200ms var(--ease-out) 150ms, transform 1400ms var(--ease-out) 150ms;
+  }
+
+  .js .pp-press.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .pp-press {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 /* -- logos --------------------------------------------------------- */
 .pp-logos {
   padding-bottom: var(--section);

@@ -96,3 +96,14 @@ tailoring plate re-fetched from Commons at 2400px and toned the same way.
 
 The `cut-*` cutouts and the unplaced `wash-facade` / `wash-quarry` plates were
 removed when the scenes replaced them.
+
+## Homepage press
+
+`sized/press-body.webp`, `sized/press-tympan.webp`, `sized/press-frisket.webp`: Diderot and
+d'Alembert, *Encyclopédie*, Imprimerie, pl. XV, "Presse vue par le côté du dehors" (fig. 3),
+drawn by Goussier, engraved by Benard. Cut free of the plate, inverted to cream line on a
+transparent ground, and split so the tympan and frisket can swing (`home-press.js`).
+Source scan: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Planche_encyclop%C3%A9die_imprimerie_7_Presse_vue_du_dehors.jpg),
+which labels the scan CC BY-SA 4.0. The 1769 engraving itself is public domain. Before
+launch, either credit the scan as Commons asks or swap in a public-domain-tagged copy at
+higher resolution (this scan is 737px wide).
