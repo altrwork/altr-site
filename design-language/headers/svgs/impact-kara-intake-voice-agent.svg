@@ -1,0 +1,48 @@
+<!-- title: 90 minutes down to 5 -->
+<!-- concept: before, a 90-minute discovery meeting (clock nearly all copper, a tall stack of notes); after, a five-minute phone call (tiny wedge on the phone) that produces one short brief with two scores -->
+<!-- before: the long meeting clock -->
+<circle class="f1" cx="230" cy="365" r="118"/>
+<path class="f4" d="M230 365 L230 257 A108 108 0 1 1 122 365 Z"/>
+<circle class="ln" cx="230" cy="365" r="8"/>
+<path class="ln" d="M230 365 L230 285"/>
+<path class="ln" d="M230 365 L172 365"/>
+<path class="ln" d="M230 247 L230 262"/>
+<path class="ln" d="M348 365 L333 365"/>
+<path class="ln" d="M230 483 L230 468"/>
+<path class="ln" d="M112 365 L127 365"/>
+<text class="lbl" x="230" y="540" text-anchor="middle">90 min</text>
+<!-- before: the stack of notes -->
+<rect class="f1" x="400" y="300" width="130" height="170" rx="6"/>
+<rect class="f1" x="392" y="285" width="130" height="170" rx="6"/>
+<rect class="f1" x="384" y="270" width="130" height="170" rx="6"/>
+<path class="ln" d="M404 305 L494 305"/>
+<path class="ln" d="M404 332 L494 332"/>
+<path class="ln" d="M404 359 L480 359"/>
+<path class="ln" d="M404 386 L494 386"/>
+<path class="ln" d="M404 413 L470 413"/>
+<text class="lbl" x="458" y="540" text-anchor="middle">Notes</text>
+<!-- divider -->
+<path class="dash" d="M600 200 L600 580"/>
+<!-- after: the phone with a five-minute wedge -->
+<rect class="f3" x="660" y="235" width="128" height="230" rx="20"/>
+<rect class="f1" x="674" y="262" width="100" height="168" rx="8"/>
+<circle class="f1" cx="724" cy="330" r="36"/>
+<path class="f4" d="M724 330 L724 296 A34 34 0 0 1 741 300.6 Z"/>
+<circle class="ln" cx="724" cy="330" r="4"/>
+<rect class="f2" x="690" y="385" width="68" height="12" rx="6"/>
+<rect class="f2" x="700" y="405" width="48" height="10" rx="5"/>
+<path class="ln" d="M640 300 Q628 330 640 360"/>
+<path class="ln" d="M622 288 Q604 330 622 372"/>
+<text class="lbl" x="724" y="540" text-anchor="middle">5 min</text>
+<!-- after: call becomes a brief -->
+<path class="acc" d="M800 350 L868 350"/>
+<polygon class="f4" points="868,337 893,350 868,363"/>
+<rect class="f1" x="905" y="225" width="200" height="270" rx="8"/>
+<path class="ln" d="M925 255 L1060 255"/>
+<path class="ln" d="M925 282 L1085 282"/>
+<path class="ln" d="M925 309 L1040 309"/>
+<rect class="f2" x="925" y="345" width="140" height="18" rx="9"/>
+<rect class="f3" x="925" y="385" width="95" height="18" rx="9"/>
+<path class="ln" d="M925 430 L1085 430"/>
+<path class="ln" d="M925 457 L1050 457"/>
+<text class="lbl" x="1005" y="540" text-anchor="middle">Brief</text>

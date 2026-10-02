@@ -48,6 +48,7 @@ Contact: inquiries@altrwork.com
 
 ## Case studies
 
+- [Kara intake voice agent](https://altrwork.com/impact-kara-intake-voice-agent.html): replacing 90-minute discovery calls with a five-minute AI phone call (ElevenLabs Agents, Claude, Cal.com, Telnyx SIP, Cloudflare Workflows), cost per call, guardrails
 - [Cloudflare Workers architecture](https://altrwork.com/impact-cloudflare-workers-architecture.html): two Workers, a service binding, two D1 databases, cron ingest, and a stateless MCP server
 - [Automated invoicing on Stripe](https://altrwork.com/impact-automated-invoicing-stripe.html): one-command draft invoices, ACH ahead of card, and nightly reconciliation against Stripe
 - [Tampa property records connector](https://altrwork.com/impact-cre-county-records-connector.html): Hillsborough, Pinellas, Pasco and Polk county records inside Claude, with branded valuations
