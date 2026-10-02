@@ -125,7 +125,7 @@
         </div>
       </div>
       <div class="pp-menu-foot">
-        <a class="pp-key" href="get-started.html">Start your intake now</a>
+        <a class="pp-key" href="start-a-conversation.html">Start your intake now</a>
         <span>inquiries@altrwork.com</span>
         <span>Tampa, Florida &middot; working across the US</span>
       </div>
@@ -140,9 +140,7 @@
       <form class="kara-form" id="kara-form">
         <label><span>Name</span><input name="name" type="text" autocomplete="name" required /></label>
         <label><span>Email</span><input name="email" type="email" autocomplete="email" required /></label>
-        <label><span>Mobile</span><input name="phone" type="tel" autocomplete="tel" required /></label>
-        <label><span>Company</span><input name="company" type="text" autocomplete="organization" required /></label>
-        <label class="full"><span>What do you want help with? (optional)</span><input name="notes" type="text" placeholder="e.g. invoices take us hours every week" /></label>
+        <label class="full"><span>Mobile</span><input name="phone" type="tel" autocomplete="tel" required /></label>
         <label class="consent"><input name="consent" type="checkbox" required /><span>OK to get a recorded call from Kara at this number.</span></label>
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAFLjaom9qRJwzcO4" data-theme="light" data-size="flexible"></div>
         <div class="kara-submit">
@@ -256,8 +254,6 @@
           name: data.get("name"),
           email: data.get("email"),
           phone: data.get("phone"),
-          company: data.get("company"),
-          notes: data.get("notes"),
           consent: data.get("consent") === "on",
           timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
           turnstileToken: token,
