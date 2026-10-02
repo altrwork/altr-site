@@ -134,38 +134,23 @@
 </header>
 
   <main class="page" id="main">
-    <section class="page-hero hero-scene scene-workshop">
-      <h1>Start your intake now</h1>
-      <p class="page-lede">Tell us a little about your business and Kara, our AI intake assistant, will call you in the next few minutes. In up to ten minutes she learns how your business runs and where your team loses time. Alex and Jarred, the founders, read it and follow up within one business day. No sales pitch, and no need to repeat yourself.</p>
-    </section>
-
-    <section class="section">
-      <div class="intake-panel">
-        <form class="intake-form" id="kara-form" novalidate>
-          <label><span>Your name</span><input name="name" type="text" autocomplete="name" required /></label>
-          <label><span>Email</span><input name="email" type="email" autocomplete="email" required /></label>
-          <label><span>Mobile number</span><input name="phone" type="tel" autocomplete="tel" placeholder="(813) 555-0123" required /></label>
-          <label><span>Company</span><input name="company" type="text" autocomplete="organization" required /></label>
-          <label><span>What would you like to talk about?</span><textarea name="notes" rows="5" placeholder="The process your team keeps doing by hand, or what you want AI to help with." required></textarea></label>
-          <label class="consent"><input name="consent" type="checkbox" required /><span>I agree to a recorded phone call from Kara, altr's AI assistant, at this number.</span></label>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAFLjaom9qRJwzcO4" data-theme="light"></div>
-          <button class="button primary" type="submit">Have Kara call me now</button>
-          <p class="form-status" id="kara-status" role="status" aria-live="polite"></p>
-        </form>
-
-        <aside class="intake-note">
-          <div>
-            <h2>What to expect</h2>
-          </div>
-          <ol class="booking-steps">
-            <li>Kara calls from <strong>(813) 227-6521</strong> within a few minutes. Outside 8am to 9pm your time, she calls first thing the next morning.</li>
-            <li>She asks how your business runs and walks through one job your team repeats. There's no need to share client names or anything confidential.</li>
-            <li>The founders read it and email you within one business day with next steps.</li>
-          </ol>
-          <p>Not a good moment? <a href="start-a-conversation.html">Book a call for later</a>.</p>
-          <p class="contact-direct">Or email <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a><br />Tampa, FL &middot; serving Tampa Bay and teams across the US.</p>
-        </aside>
-      </div>
+    <section class="kara">
+      <h1>Talk to Kara</h1>
+      <p class="kara-lede">Kara is our AI intake assistant. She calls you in a few minutes for a quick chat (about five minutes) about how your business runs. Then Alex and Jarred follow up within one business day.</p>
+      <form class="kara-form" id="kara-form">
+        <label><span>Name</span><input name="name" type="text" autocomplete="name" required /></label>
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required /></label>
+        <label><span>Mobile</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+        <label><span>Company</span><input name="company" type="text" autocomplete="organization" required /></label>
+        <label class="full"><span>What do you want help with? (optional)</span><input name="notes" type="text" placeholder="e.g. invoices take us hours every week" /></label>
+        <label class="consent"><input name="consent" type="checkbox" required /><span>OK to get a recorded call from Kara at this number.</span></label>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFLjaom9qRJwzcO4" data-theme="light" data-size="flexible"></div>
+        <div class="kara-submit">
+          <button class="button primary" type="submit">Call me now</button>
+          <p class="kara-status" id="kara-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+      <p class="kara-alt">She calls from (813) 227-6521, 8am to 9pm your time. Busy right now? <a href="start-a-conversation.html">Pick a time</a>.</p>
     </section>
   </main>
 
@@ -219,12 +204,28 @@
 </div>
 
 <style>
-  .booking-steps { display: grid; gap: 10px; padding-left: 1.2em; margin: 0; }
-  .intake-form label.consent { display: flex; gap: 10px; align-items: flex-start; }
-  .intake-form label.consent input { width: 20px; min-height: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--copper); }
-  .intake-form label.consent span { color: var(--cream-2); }
-  .form-status { min-height: 1.4em; color: var(--cream-2); font-size: var(--fs-meta); }
-  .form-status.is-error { color: var(--copper-hi); }
+  .kara { max-width: 640px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) 20px clamp(56px, 8vw, 96px); }
+  .kara.wide { max-width: 980px; }
+  .kara h1 { margin: 0 0 12px; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; }
+  .kara-lede { margin: 0 0 28px; color: var(--cream-2); font-size: 1.08rem; line-height: 1.5; max-width: 560px; }
+  .kara-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .kara-form label { display: grid; gap: 6px; }
+  .kara-form label.full { grid-column: 1 / -1; }
+  .kara-form label span { color: var(--cream-2); font-size: var(--fs-meta); font-weight: 500; }
+  .kara-form input[type=text], .kara-form input[type=email], .kara-form input[type=tel] {
+    width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--rule-strong); border-radius: 4px;
+    background: #FFFDF9; color: var(--cream); font: inherit; }
+  .kara-form input:focus-visible { border-color: var(--copper); outline: 2px solid var(--copper); outline-offset: 1px; }
+  .kara-form .consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; }
+  .kara-form .consent input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--copper); }
+  .kara-form .consent span { font-weight: 400; }
+  .kara-form .cf-turnstile, .kara-form .kara-submit { grid-column: 1 / -1; }
+  .kara-submit { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .kara-status { margin: 0; color: var(--cream-2); font-size: var(--fs-meta); }
+  .kara-status.is-error { color: var(--copper-hi); }
+  .kara-alt { margin: 22px 0 0; color: var(--cream-3); font-size: var(--fs-meta); }
+  .kara-frame { width: 100%; min-height: 560px; }
+  @media (max-width: 600px) { .kara-form { grid-template-columns: 1fr; } }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>

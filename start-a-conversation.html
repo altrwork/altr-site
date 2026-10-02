@@ -134,33 +134,12 @@
 </header>
 
   <main class="page" id="main">
-    <section class="page-hero hero-scene scene-workshop">
+    <section class="kara wide">
       <h1>Book a call</h1>
-      <p class="page-lede">Pick a time and Kara, our AI intake assistant, will call you for up to ten minutes to learn how your business runs and where your team loses time. Alex and Jarred, the founders, read what you shared and follow up within one business day.</p>
-    </section>
-
-    <section class="section">
-      <div class="intake-panel">
-        <div class="booking-embed">
-          <div id="cal-booking" class="booking-frame"></div>
-          <noscript><p><a class="button primary" href="https://cal.com/altr-ai/intro">Open the booking page</a></p></noscript>
-        </div>
-
-        <aside class="intake-note">
-          <div>
-            <h2>Rather not wait?</h2>
-          </div>
-          <p>Start your intake now and Kara calls you in a few minutes.</p>
-          <p><a class="button primary" href="get-started.html">Start your intake now</a></p>
-          <h2>How it works</h2>
-          <ol class="booking-steps">
-            <li>Kara calls from <strong>(813) 227-6521</strong> at the time you pick, any day between 8am and 9pm your time.</li>
-            <li>She asks how your business runs and walks through one job your team repeats. No sales pitch.</li>
-            <li>The founders read it and email you within one business day with next steps.</li>
-          </ol>
-          <p class="contact-direct">Calendar not loading? <a href="https://cal.com/altr-ai/intro">Book on Cal.com</a>. Or email <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>.</p>
-        </aside>
-      </div>
+      <p class="kara-lede">Pick a time and Kara, our AI intake assistant, will call you for a quick chat (about five minutes) about how your business runs. Alex and Jarred follow up within one business day.</p>
+      <div id="cal-booking" class="kara-frame"></div>
+      <noscript><p><a class="button primary" href="https://cal.com/altr-ai/intro">Open the booking page</a></p></noscript>
+      <p class="kara-alt">Kara calls from (813) 227-6521. Want to talk now? <a href="get-started.html">Have Kara call you in a few minutes</a>.</p>
     </section>
   </main>
 
@@ -214,8 +193,28 @@
 </div>
 
 <style>
-  .booking-frame { width: 100%; min-height: 640px; overflow: auto; background: var(--plate); }
-  .booking-steps { display: grid; gap: 10px; padding-left: 1.2em; margin: 0; }
+  .kara { max-width: 640px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) 20px clamp(56px, 8vw, 96px); }
+  .kara.wide { max-width: 980px; }
+  .kara h1 { margin: 0 0 12px; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; }
+  .kara-lede { margin: 0 0 28px; color: var(--cream-2); font-size: 1.08rem; line-height: 1.5; max-width: 560px; }
+  .kara-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .kara-form label { display: grid; gap: 6px; }
+  .kara-form label.full { grid-column: 1 / -1; }
+  .kara-form label span { color: var(--cream-2); font-size: var(--fs-meta); font-weight: 500; }
+  .kara-form input[type=text], .kara-form input[type=email], .kara-form input[type=tel] {
+    width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--rule-strong); border-radius: 4px;
+    background: #FFFDF9; color: var(--cream); font: inherit; }
+  .kara-form input:focus-visible { border-color: var(--copper); outline: 2px solid var(--copper); outline-offset: 1px; }
+  .kara-form .consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; }
+  .kara-form .consent input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--copper); }
+  .kara-form .consent span { font-weight: 400; }
+  .kara-form .cf-turnstile, .kara-form .kara-submit { grid-column: 1 / -1; }
+  .kara-submit { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .kara-status { margin: 0; color: var(--cream-2); font-size: var(--fs-meta); }
+  .kara-status.is-error { color: var(--copper-hi); }
+  .kara-alt { margin: 22px 0 0; color: var(--cream-3); font-size: var(--fs-meta); }
+  .kara-frame { width: 100%; min-height: 560px; }
+  @media (max-width: 600px) { .kara-form { grid-template-columns: 1fr; } }
 </style>
 <script>
   // Cal.com inline embed: the "Talk to Kara" event. Kara calls at the booked time.

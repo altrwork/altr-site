@@ -7,7 +7,7 @@ import requests
 from PIL import Image, ImageOps
 
 API = 'https://commons.wikimedia.org/w/api.php'
-H = {'User-Agent': 'altr-site-design/1.0 (alex.britton@drivelinebaseball.com)'}
+H = {'User-Agent': 'altr-site-design/1.0 (alex@altrwork.com)'}
 ROOT = r'C:\Users\alex.britton\projects\altr\altr-site'
 DEST = os.path.join(ROOT, 'assets', 'plates')
 os.makedirs(DEST, exist_ok=True)

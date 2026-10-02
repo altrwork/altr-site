@@ -7,7 +7,7 @@ import requests
 from PIL import Image
 
 API = 'https://commons.wikimedia.org/w/api.php'
-H = {'User-Agent': 'altr-site-design/1.0 (alex.britton@drivelinebaseball.com)'}
+H = {'User-Agent': 'altr-site-design/1.0 (alex@altrwork.com)'}
 ROOT = r'C:\Users\alex.britton\projects\altr\altr-site'
 CAND = os.path.join(ROOT, '.firecrawl', 'candidates')
 os.makedirs(CAND, exist_ok=True)
