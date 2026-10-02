@@ -64,7 +64,7 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn("BreadcrumbList", types)
 
     def test_primary_forms_emit_generate_lead_events(self):
-        self.assertIn("generate_lead", (ROOT / "intake-modal.js").read_text(encoding="utf-8"))
+        self.assertIn("generate_lead", (ROOT / "get-started.html").read_text(encoding="utf-8"))
         self.assertIn("generate_lead", (ROOT / "start-a-conversation.html").read_text(encoding="utf-8"))
         self.assertIn("generate_lead", (ROOT / "lead-magnet-form.js").read_text(encoding="utf-8"))
 

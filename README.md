@@ -55,9 +55,9 @@ them. `lab/` holds local design experiments and is 404'd in production.
   accent. The rules are stated once with their exceptions listed rather than
   enumerated per component, and they need `!important` because a universal
   selector has specificity zero and loses to any class.
-- `intake-modal.js` - booking intake modal behavior. Every page that links to
-  `start-a-conversation.html` must load it, or the same button behaves
-  differently depending on the page.
+- Intake: `get-started.html` (Kara calls within minutes, via the kara-intake
+  Worker in the intake-agent repo) and `start-a-conversation.html` (Book a call:
+  the Cal.com "Talk to Kara" embed). Every booking link points at one of the two.
 - `nav.js` - nav toggling only; the nav markup itself is static on every page.
 - `filter-grid.js` - card filtering, search and list/grid toggle, shared by the
   work index and the blog index.
