@@ -1,5 +1,5 @@
 (function () {
-  const calendlyBaseUrl = "https://calendly.com/altrwork/30min";
+  const bookingBaseUrl = "https://cal.com/altr-ai/intro";
   const triggerSelector = 'a[href="start-a-conversation.html"]';
   let lastFocusedElement = null;
 
@@ -15,7 +15,7 @@
         <div class="intake-modal-copy">
           <div class="section-kicker">Book an intro</div>
           <h2 id="intake-modal-title">Tell us what you want to discuss.</h2>
-          <p>Share the company and the workflow, agent, demo, or enablement topic. Calendly will handle the meeting details next.</p>
+          <p>Share the company and the workflow, agent, demo, or enablement topic. Then choose a time with Kara, or ask for a call now.</p>
         </div>
         <form class="intake-form" id="intake-modal-form">
           <label>
@@ -26,7 +26,10 @@
             <span>What are you interested in solving?</span>
             <textarea id="intake-modal-interest" name="interest" rows="6" placeholder="Describe the workflow, agentic coding system, demo, or AI enablement need you want to discuss." required></textarea>
           </label>
-          <button class="button primary" type="submit">Book an intro</button>
+          <div class="intake-actions">
+            <button class="button primary" type="submit">Choose a time</button>
+            <a href="start-a-conversation.html#call-now" data-call-now>Call me now</a>
+          </div>
         </form>
       </div>
     `;
@@ -60,18 +63,8 @@
     }
   }
 
-  function calendlyUrl(company, interest) {
-    const params = new URLSearchParams({
-      utm_source: "altr_site",
-      utm_medium: "intake_modal",
-      utm_campaign: "start_a_conversation",
-      utm_content: company,
-      utm_term: interest,
-      company,
-      interest
-    });
-
-    return `${calendlyBaseUrl}?${params.toString()}`;
+  function bookingUrl(company, interest) {
+    return `${bookingBaseUrl}?company=${encodeURIComponent(company)}&notes=${encodeURIComponent(interest)}`;
   }
 
   function trackLeadAndNavigate(destination) {
@@ -98,6 +91,15 @@
   }
 
   document.addEventListener("click", (event) => {
+    const callNow = event.target.closest("[data-call-now]");
+    if (callNow) {
+      event.preventDefault();
+      const company = document.getElementById("intake-modal-company")?.value.trim() || "";
+      const interest = document.getElementById("intake-modal-interest")?.value.trim() || "";
+      window.location.assign(`start-a-conversation.html?company=${encodeURIComponent(company)}&notes=${encodeURIComponent(interest)}#call-now`);
+      return;
+    }
+
     const trigger = event.target.closest(triggerSelector);
     if (trigger) {
       event.preventDefault();
@@ -117,7 +119,7 @@
 
     const company = document.getElementById("intake-modal-company").value.trim();
     const interest = document.getElementById("intake-modal-interest").value.trim();
-    trackLeadAndNavigate(calendlyUrl(company, interest));
+    trackLeadAndNavigate(bookingUrl(company, interest));
   });
 
   document.addEventListener("keydown", (event) => {

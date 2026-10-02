@@ -23,7 +23,7 @@ C = {
 }
 LOGOS = [("../../assets/clients/vector-cre.svg", "Vector Commercial Real Estate", ""), ("../../assets/clients/spark-labs.svg", "spARK Labs", "mono"),
          ("../../assets/clients/fishin-prints.webp", "Fishin Prints", ""), ("../../assets/clients/bebrief.webp", "BeBrief", "")]
-CAL = "https://calendly.com/altrwork/30min?utm_source=altr_site&amp;utm_medium=lab"
+CAL = "https://cal.com/altr-ai/intro"
 
 
 def head(title, fonts, css):

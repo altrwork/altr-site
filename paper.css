@@ -1389,6 +1389,56 @@ body.intake-modal-open {
   box-shadow: 3px 3px 0 var(--copper);
 }
 
+.intake-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.intake-actions a {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.call-now-form h2 {
+  margin-bottom: 8px;
+}
+
+.call-now-form > div > p {
+  color: var(--cream-2);
+}
+
+.intake-form .call-now-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.intake-form .call-now-consent input {
+  width: 20px;
+  min-height: 20px;
+  margin-top: 2px;
+  flex: 0 0 20px;
+}
+
+.call-now-status {
+  min-height: 1.5em;
+}
+
+.call-now-status[data-state="error"] {
+  color: #a7372a;
+}
+
+.call-now-status[data-state="success"] {
+  color: var(--cream);
+}
+
+.call-now-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
 /* ===================================================================
    Motion
    -------------------------------------------------------------------
