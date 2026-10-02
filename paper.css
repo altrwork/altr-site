@@ -2691,6 +2691,7 @@ main.page > figure {
 
 .article-body {
   max-width: 720px;
+  margin-inline: auto;
 }
 
 .article-summary,
@@ -2904,6 +2905,7 @@ main.page > figure {
 
 .impact-detail {
   max-width: 780px;
+  margin-inline: auto;
 }
 
 .impact-study-copy h1 {
