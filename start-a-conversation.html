@@ -224,7 +224,7 @@
   const prefill = Object.fromEntries(["name", "email", "company", "notes"].filter((k) => params.get(k)).map((k) => [k, params.get(k)]));
   Cal("init", "intro", { origin: "https://cal.com" });
   Cal.ns.intro("inline", { elementOrSelector: "#cal-booking", calLink: "altr-ai/intro", config: { layout: "month_view", ...prefill } });
-  Cal.ns.intro("ui", { hideEventTypeDetails: false, layout: "month_view" });
+  Cal.ns.intro("ui", { theme: "light", hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": "#1D1915" } } });
   Cal.ns.intro("on", {
     action: "bookingSuccessful",
     callback: () => typeof window.gtag === "function" && window.gtag("event", "generate_lead", { lead_type: "kara_scheduled", form_location: "book_a_call" }),
