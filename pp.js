@@ -5,6 +5,38 @@
   const root = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Type the homepage headline letter by letter, while reserving its full width. */
+  const typeHeadline = document.querySelector('[data-type-headline]');
+  if (typeHeadline && !reduced) {
+    const lines = [...typeHeadline.querySelectorAll('[data-type-line]')].map(line => {
+      const value = line.textContent;
+      const reserve = document.createElement('span');
+      reserve.className = 'ph-type-reserve';
+      reserve.textContent = value;
+      const live = document.createElement('span');
+      live.className = 'ph-type-live';
+      line.replaceChildren(reserve, live);
+      return { value, live };
+    });
+    typeHeadline.classList.add('is-typing');
+    const typeLine = (lineIndex, charIndex = 0) => {
+      if (lineIndex >= lines.length) {
+        typeHeadline.classList.add('is-complete');
+        return;
+      }
+      const { value, live } = lines[lineIndex];
+      live.classList.add('is-active');
+      live.textContent = value.slice(0, charIndex + 1);
+      if (charIndex + 1 < value.length) {
+        window.setTimeout(() => typeLine(lineIndex, charIndex + 1), 55);
+      } else {
+        live.classList.remove('is-active');
+        window.setTimeout(() => typeLine(lineIndex + 1), 130);
+      }
+    };
+    window.setTimeout(typeLine, 140, 0);
+  }
+
   /* -- reveal: .is-in when an element reaches the viewport ---------- */
   const targets = document.querySelectorAll('[data-settle], [data-pull], [data-rule], [data-build], [data-press], .ln');
   const show = el => el.classList.add('is-in');

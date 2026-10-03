@@ -196,25 +196,41 @@ class SeoIntegrityTests(unittest.TestCase):
 
         self.assertIn("Commercial Real Estate", homepage)
         self.assertIn("Commercial Real Estate", navigation)
-        self.assertIn('href="how-we-altr-work.html"', navigation)
+        self.assertIn('href="ai-transformation.html"', navigation)
+        self.assertIn('href="ai-engineering.html"', navigation)
 
     def test_homepage_explains_the_engagement_method(self):
         # assert against rendered text, not raw source: headlines carry inline
         # <b>/<em> for the two-tone treatment, which a raw substring test breaks
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", homepage))
-        # the three services are a menu: each is named, and each has its own
-        # first step, so the page never implies one is a prerequisite
+        # The three approach lanes lead to two service paths.
         for phrase in (
-            "Three services. Take one, or all three.",
-            "AI Audit",
-            "Automation",
-            "AI Training",
-            "First step: walk us through your week.",
-            "First step: send us twenty recent examples of the paperwork.",
-            "First step: bring the team and one task each.",
+            "AI services company",
+            "win the AI renaissance",
+            "Our approach",
+            "Strategy",
+            "Transformation",
+            "Engineering",
+            "customer-facing products",
         ):
             self.assertIn(phrase, visible)
+        section = re.search(r'<section class="ph-section" id="what-we-do".*?</section>', homepage, re.S).group(0)
+        self.assertNotIn("About us", section)
+        self.assertNotIn("We altr how you work with AI.", section)
+        self.assertEqual(2, section.count('class="ph-slip" href="ai-transformation.html"'))
+        self.assertEqual(1, section.count('class="ph-slip" href="ai-engineering.html"'))
+        self.assertEqual(3, section.count('class="ph-slip-figure ph-slip-figure--'))
+        for image in (
+            "approach-strategy-dividers.webp",
+            "approach-transformation-mallet.webp",
+            "approach-engineering-gear.webp",
+        ):
+            self.assertIn(f'assets/plates/{image}', section)
+            self.assertTrue((ROOT / "assets" / "plates" / image).is_file())
+        self.assertNotIn("ph-chisel-block", section)
+        self.assertNotIn("ph-gear-axle", section)
+        self.assertNotIn("Three services.", visible)
         for retired in ("Zero to one", "One to ten", "in the order they earn"):
             self.assertNotIn(retired, visible)
 
@@ -261,12 +277,11 @@ class SeoIntegrityTests(unittest.TestCase):
     def test_navigation_is_static_html_on_every_page(self):
         """The nav used to be rebuilt by JavaScript, so crawlers that do not
         execute JS saw different internal links than users did. It is static
-        markup now: every page must carry the same links to the three
-        services and the three industries."""
+        markup now: every page must carry the same links to the two
+        service paths and the three industries."""
         required = (
-            'href="how-we-altr-work.html"',
-            'href="ai-enablement-workshop.html"',
-            'href="custom-agents.html"',
+            'href="ai-transformation.html"',
+            'href="ai-engineering.html"',
             'href="real-estate.html"',
             'href="nonprofits.html"',
             'href="ecommerce.html"',
@@ -351,15 +366,15 @@ class SeoIntegrityTests(unittest.TestCase):
             "ai consultant in tampa",
         )
 
-        self.assertEqual("altr | AI Transformation and AI Consulting for Small Business", home_title)
-        self.assertIn("ai consulting", home_title.lower())
+        self.assertEqual("altr | AI Transformation and AI Engineering", home_title)
+        self.assertIn("ai engineering", home_title.lower())
         self.assertIn("ai transformation", home_title.lower())
         self.assertEqual(2, homepage.count(f'content="{home_title}"'))
         self.assertEqual(3, homepage.count(f'content="{home_meta}"'))
         self.assertGreaterEqual(len(home_meta), 140)
         self.assertLessEqual(len(home_meta), 160)
-        self.assertIn("consulting", home_meta.lower())
-        self.assertIn("ai consulting company", home_meta.lower())
+        self.assertIn("ai services company", home_meta.lower())
+        self.assertIn("customer-facing products", home_meta.lower())
         for phrase in local_heads:
             self.assertNotIn(phrase, home_title.lower())
             self.assertNotIn(phrase, home_meta.lower())
@@ -398,9 +413,8 @@ class SeoIntegrityTests(unittest.TestCase):
             homepage,
             re.S,
         ).group(0)
-        self.assertIn('href="ai-consulting-tampa.html"', hero)
-        self.assertIn(">AI consulting in Tampa</a>", hero)
-        self.assertIn(">AI consultant in Tampa</a>", homepage)
+        self.assertNotIn('href="ai-consulting-tampa.html"', hero)
+        self.assertNotIn("Based in Tampa", hero)
         self.assertIn(">Tampa, FL</a>", homepage)
         self.assertGreaterEqual(about.count('href="ai-consulting-tampa.html"'), 2)
 
@@ -442,13 +456,13 @@ class SeoIntegrityTests(unittest.TestCase):
                 )
 
     def test_workshops_are_still_offered(self):
-        """AI Training is one of the three services and the workshops are real.
-        Nothing in the slop cleanup should take them off the site."""
+        """Workshops remain accessible beneath the AI Transformation path."""
         for name in ("ai-enablement-workshop.html", "ai-workshop.html"):
             self.assertTrue((ROOT / name).exists(), f"{name} is missing")
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn('href="ai-enablement-workshop.html"', homepage)
-        self.assertIn("AI Training", homepage)
+        transformation = (ROOT / "ai-transformation.html").read_text(encoding="utf-8")
+        self.assertIn('href="ai-transformation.html"', homepage)
+        self.assertIn('href="ai-enablement-workshop.html"', transformation)
 
 
     def test_learning_center_pages_are_wired_everywhere(self):
