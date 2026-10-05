@@ -465,12 +465,12 @@ class SeoIntegrityTests(unittest.TestCase):
 
     def test_free_claude_workshop_leads_with_search_terms(self):
         """The public workshop page leads with Free, Claude, Tampa Bay, and
-        small business, and keeps the October 22 COhatch West Tampa facts."""
+        small business, and keeps October 22 at COhatch St. Petersburg."""
         html = (ROOT / "ai-workshop.html").read_text(encoding="utf-8")
         title = "Free Claude Workshops for Tampa Bay Small Businesses | altr"
         description = (
             "Free Claude workshop for Tampa Bay small businesses on October 22 "
-            "at COhatch West Tampa. Bring a real task and build a workflow you can reuse."
+            "at COhatch St. Petersburg. Bring a real task and build a workflow you can reuse."
         )
         self.assertIn(f"<title>{title}</title>", html)
         self.assertEqual(2, html.count(f'content="{title}"'))
@@ -480,18 +480,28 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertIn('"name": "Free Claude Workshop for Tampa Bay Small Business"', html)
         self.assertEqual(2, html.count('"name": "Free Claude Workshops for Tampa Bay Small Businesses"'))
         self.assertIn("<h3>Free Claude Workshop for Tampa Bay Small Business</h3>", html)
+        self.assertIn("<h2>The next workshop is October 22 in St. Petersburg.</h2>", html)
         self.assertIn("2026-10-22T11:30:00-04:00", html)
         self.assertIn("2026-10-22T13:00:00-04:00", html)
+        self.assertIn('"name": "COhatch St. Petersburg"', html)
+        self.assertIn('"streetAddress": "15 8th St N"', html)
+        self.assertIn('"addressLocality": "St. Petersburg"', html)
+        self.assertIn('"postalCode": "33701"', html)
         self.assertIn(
             "Thursday, October 22, 2026, from 11:30 AM to 1:00 PM ET at "
-            "COhatch West Tampa, 2130 W Main St, Tampa, FL 33607.",
+            "COhatch St. Petersburg, 15 8th St N, St. Petersburg, FL 33701.",
             html,
         )
         self.assertIn("https://luma.com/i0re04ey", html)
         self.assertIn("November 10", html)
-        for bad in ("St. Pete", "St Pete", "St. Petersburg", "St Petersburg"):
-            self.assertNotIn(bad, html)
+        self.assertNotIn("October 22 in Tampa", html)
+        for leftover in ("COhatch West Tampa", "2130 W Main", "33607"):
+            self.assertNotIn(leftover, html)
         self.assertNotIn("\u2014", html)
+        for path in list(ROOT.glob("*.html")) + [ROOT / "llms.txt"]:
+            text = path.read_text(encoding="utf-8")
+            for leftover in ("COhatch West Tampa", "2130 W Main", "33607"):
+                self.assertNotIn(leftover, text, f"{path.name} still names {leftover}")
 
 
     def test_learning_center_pages_are_wired_everywhere(self):
