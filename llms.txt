@@ -12,7 +12,7 @@ Contact: inquiries@altrwork.com
 
 ## Engagements
 
-- [Who we serve](https://altrwork.com/#who-we-serve): industry-specific service pages and three services a team can take on their own or in any
+- [Who we serve](https://altrwork.com/#what-we-do): industry-specific service pages and three services a team can take on their own or in any
  combination, with no separate charge for the intro call. Fees are not published; they are quoted on a call and put in writing
  before anything is committed, because the right number depends on the team's size, location, and how
  far along they already are. No service is a prerequisite for another. AI Training is hands-on work run against the
@@ -35,9 +35,12 @@ Contact: inquiries@altrwork.com
 
 ## Services
 
+- [AI Transformation](https://altrwork.com/ai-transformation.html): find where AI fits, change the work around it, and train the team to use it; covers the AI Audit and AI Training
+- [AI Engineering](https://altrwork.com/ai-engineering.html): internal systems and customer-facing AI products, built against a team's real data and handed off to an owner; covers Automation
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
 - [Workflow automation consultant in Tampa](https://altrwork.com/workflow-automation-consultant-tampa.html): map one process, decide what to automate, then build automations and agents only when the path is clean
 - [AI workflows for commercial real estate teams](https://altrwork.com/real-estate.html): the central CRE hub for brokerage, acquisitions, underwriting, asset and property operations, development diligence, connected systems, controlled file work, and recurring market monitoring
+- [AI for law firms](https://altrwork.com/law-firms.html): intake, document review, drafting and billing for small and mid-size firms, built around confidentiality and privilege
 - [AI services for nonprofits](https://altrwork.com/nonprofits.html): program intake, funder research, workshops, reporting, and nonprofit operations
 - [AI services for ecommerce](https://altrwork.com/ecommerce.html): product content, customer request triage, order operations, and repeatable production workflows
 - [AI Audit](https://altrwork.com/how-we-altr-work.html): find where a team's hours go and get a ranked plan of what to automate, what to train, and what to leave alone
@@ -45,15 +48,17 @@ Contact: inquiries@altrwork.com
 - [AI Training](https://altrwork.com/ai-enablement-workshop.html): hands-on work against a team's own tasks, as a small-group working session or a full team workshop
 - [Automation](https://altrwork.com/custom-agents.html): systems that do the repetitive work in a team's existing tools, from workflow automations to custom agents
 - [Events](https://altrwork.com/ai-workshop.html): workshops, community demos, workflow reviews
+- [Contact](https://altrwork.com/contact.html): email, or start an intake call with Kara, altr's AI intake assistant
 
 ## Case studies
 
+- [Case studies](https://altrwork.com/case-studies.html): every project in one index
+- [CRE Harness](https://altrwork.com/impact-real-estate-property-intelligence.html): county records, screened comparable sales, LLC owner tracing and branded BOVs in one Claude workflow for CRE brokers
 - [Kara intake voice agent](https://altrwork.com/impact-kara-intake-voice-agent.html): replacing 90-minute discovery calls with a five-minute AI phone call (ElevenLabs Agents, Claude, Cal.com, Telnyx SIP, Cloudflare Workflows), cost per call, guardrails
 - [Cloudflare Workers architecture](https://altrwork.com/impact-cloudflare-workers-architecture.html): two Workers, a service binding, two D1 databases, cron ingest, and a stateless MCP server
 - [Automated invoicing on Stripe](https://altrwork.com/impact-automated-invoicing-stripe.html): one-command draft invoices, ACH ahead of card, and nightly reconciliation against Stripe
 - [Tampa property records connector](https://altrwork.com/impact-cre-county-records-connector.html): Hillsborough, Pinellas, Pasco and Polk county records inside Claude, with branded valuations
 - [Slice of Heaven Cakes](https://altrwork.com/impact-slice-of-heaven-cakes.html): website orders and quote requests into one pipeline with automatic confirmations and quoting
-- [Contact](https://altrwork.com/contact.html): email, or start an intake call with Kara, altr's AI intake assistant
 - [Manhattan office condo registry](https://altrwork.com/impact-manhattan-office-condo-registry.html): every Manhattan office condominium assembled from ACRIS, the Digital Tax Map and the DOF assessment roll
 - [spARK Labs, operations intake](https://altrwork.com/impact-spark-labs.html): expense and event request workflows in Claude Cowork
 - [spARK Labs, remote MCP server](https://altrwork.com/impact-spark-labs-mcp.html): Cloudflare Workers MCP server connecting Claude to operations tools

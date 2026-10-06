@@ -408,7 +408,7 @@ body.pp-page {
   border-bottom: 1px solid var(--rule);
 }
 
-.pp-menu-main a {
+.pp-menu-main > li > a {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -423,16 +423,48 @@ body.pp-page {
   transition: color var(--t-ui), padding var(--t-open) var(--ease-open);
 }
 
-.pp-menu-main a small {
+.pp-menu-main > li > a small {
   color: var(--cream-3);
   font-size: var(--fs-meta);
   font-weight: 400;
   letter-spacing: 0;
 }
 
-.pp-menu-main a:hover {
+.pp-menu-main > li > a:hover {
   color: var(--copper-hi);
   padding-left: 12px;
+}
+
+/* the services under each umbrella, one quiet row under its name */
+.pp-menu-sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: -6px;
+  padding-bottom: 18px;
+}
+
+.pp-menu-sub a {
+  color: var(--cream-2);
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color var(--t-ui);
+}
+
+.pp-menu-sub a:hover,
+.pp-menu-sub a[aria-current="page"],
+.pp-menu-main > li > a[aria-current="page"],
+.pp-menu-cols a[aria-current="page"] {
+  color: var(--copper-hi);
+}
+
+/* the page you are on keeps its underline in the bar */
+.pp-quick a[aria-current="page"] {
+  color: var(--cream);
+}
+
+.pp-quick a[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
 .pp-menu-cols {
@@ -1594,8 +1626,11 @@ body.intake-modal-open {
     gap: 14px;
   }
 
+  /* the booking key stays in the bar on phones, just smaller */
   .nav .pp-key {
-    display: none;
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.85rem;
   }
 
   .pp-menu .pp-key {
@@ -1624,7 +1659,7 @@ body.intake-modal-open {
     grid-template-columns: 1fr 1fr;
   }
 
-  .pp-menu-main a small {
+  .pp-menu-main > li > a small {
     display: none;
   }
 
@@ -1847,7 +1882,7 @@ header.nav .pp-key:focus-visible {
 /* ===================================================================
    Paper overrides
    =================================================================== */
-:where(.pp-display, .pp-h2, .pp-page h1, .pp-page h2, .pp-faq summary h3, .pp-defs h3, .pp-row-name, .pp-feature h3, .pp-menu-main a, .pp-closer h2) {
+:where(.pp-display, .pp-h2, .pp-page h1, .pp-page h2, .pp-faq summary h3, .pp-defs h3, .pp-row-name, .pp-feature h3, .pp-menu-main > li > a, .pp-closer h2) {
   font-family: var(--serif);
   font-weight: 500;
 }

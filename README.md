@@ -5,22 +5,27 @@ public and ranks for the brand name, so the first link here is the site.
 
 ## Structure
 
-The nav is four items plus the booking CTA, written as static HTML into every
-page so crawlers and users get the same links. Everything else is a detail page
-reached from within the content, so it keeps its URL and search rankings without
-crowding the header.
+The nav bar is the logo, the two service umbrellas (AI Transformation, AI
+Engineering), the Book a call key and the Menu button, written as static HTML
+into every page so crawlers and users get the same links. On phones the two
+umbrellas fold into the menu and Book a call stays in the bar. The menu sheet is
+generated from one template, so it is identical on every page apart from
+`aria-current`:
 
-| Nav item | Page |
+| Menu | Pages |
 |---|---|
-| Services | the three services (`how-we-altr-work.html` AI Audit, `custom-agents.html` Automation, `ai-enablement-workshop.html` AI Training) and the four industries |
-| Work | `case-studies.html` -> the `impact-*.html` case studies; `mortr.html` internal products |
-| Resources | `ai-workshop.html` events, `tutorials.html` blog |
-| About | `about.html` |
+| AI Transformation | `ai-transformation.html`, with `how-we-altr-work.html` (AI Audit) and `ai-enablement-workshop.html` (AI Training) under it |
+| AI Engineering | `ai-engineering.html`, with `custom-agents.html` (Automation) under it |
+| Industries | `real-estate.html`, `law-firms.html`, `nonprofits.html`, `ecommerce.html` |
+| Work | `case-studies.html` -> the `impact-*.html` case studies; `mortr.html` |
+| Learn | `learn.html` learning center, `ai-workshop.html` free workshops |
+| Company | `about.html`, `contact.html` |
 
 The three services are one vocabulary: AI Audit finds where the team's hours
 go, Automation takes the repetitive work off their plate, AI Training teaches
-the people doing the work. Do not introduce a fourth name for any of them, and
-do not bring back Strategy, Enablement, or Engineering as service names.
+the people doing the work. AI Transformation and AI Engineering are the two
+umbrellas they sit under, not services of their own. Do not introduce a fourth
+service name, and do not bring back Strategy or Enablement as service names.
 
 Detail pages not in the nav: `workflow-audit.html` and the local landing pages
 (`ai-consulting-tampa.html`, `workflow-automation-consultant-tampa.html`).

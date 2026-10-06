@@ -1,7 +1,7 @@
 /frameworks.html  /how-we-altr-work.html  301!
 /frameworks       /how-we-altr-work.html  301!
-/what-we-do.html  /#who-we-serve  301!
-/what-we-do       /#who-we-serve  301!
+/what-we-do.html  /#what-we-do  301!
+/what-we-do       /#what-we-do  301!
 /index.html       /               301!
 
 # Canonical URL form is .html (matches <link rel=canonical> and sitemap.xml).
@@ -77,6 +77,16 @@
 /ai-news-for-business-july-2026               /ai-news-for-business-july-2026.html          301!
 /ai-news-for-business-august-2026             /ai-news-for-business-august-2026.html        301!
 /ai-news-archive                              /ai-news-archive.html                         301!
+/ai-engineering                               /ai-engineering.html                          301!
+/ai-transformation                            /ai-transformation.html                       301!
+/contact                                      /contact.html                                 301!
+/impact-automated-invoicing-stripe            /impact-automated-invoicing-stripe.html       301!
+/impact-cloudflare-workers-architecture       /impact-cloudflare-workers-architecture.html  301!
+/impact-cre-county-records-connector          /impact-cre-county-records-connector.html     301!
+/impact-kara-intake-voice-agent               /impact-kara-intake-voice-agent.html          301!
+/impact-manhattan-office-condo-registry       /impact-manhattan-office-condo-registry.html  301!
+/impact-slice-of-heaven-cakes                 /impact-slice-of-heaven-cakes.html            301!
+/impact-spark-labs-air-supply                 /impact-spark-labs-air-supply.html            301!
 /privacy                                      /privacy.html                                 301!
 /terms                                        /terms.html                                   301!
 /website-terms                                /website-terms.html                           301!
@@ -90,8 +100,8 @@
 /resources                                    /learn.html   301!
 /internal-products.html                       /mortr.html                                  301!
 /internal-products                            /mortr.html                                  301!
-/pricing.html                                 /#who-we-serve                               301!
-/pricing                                      /#who-we-serve                               301!
+/pricing.html                                 /#what-we-do                               301!
+/pricing                                      /#what-we-do                               301!
 
 # design-language/ holds internal working notes: the debt and slop audits,
 # the competitor design study, and the plate and hero scratch pages. The
