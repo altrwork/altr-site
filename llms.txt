@@ -47,7 +47,7 @@ Contact: inquiries@altrwork.com
 - [Workflow audit](https://altrwork.com/workflow-audit.html): the mapping phase on its own, before anything is built
 - [Team training](https://altrwork.com/ai-enablement-workshop.html): part of AI Transformation; hands-on work against a team's own tasks, as a small-group working session or a full team workshop
 - [Internal systems](https://altrwork.com/custom-agents.html): part of AI Engineering; systems that do the repetitive work in a team's existing tools, from workflow automations to custom agents
-- [Events](https://altrwork.com/ai-workshop.html): workshops, community demos, workflow reviews
+- [Events](https://altrwork.com/ai-workshop.html): free Claude workshops for Tampa Bay small businesses; next session Thursday, October 22, 2026, 11:30 AM to 1:00 PM ET at COhatch St. Petersburg, 15 8th St N, St. Petersburg, FL 33701
 - [Contact](https://altrwork.com/contact.html): email, or start an intake call with Kara, altr's AI intake assistant
 
 ## Case studies
