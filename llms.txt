@@ -35,8 +35,8 @@ Contact: inquiries@altrwork.com
 
 ## Services
 
-- [AI Transformation](https://altrwork.com/ai-transformation.html): find where AI fits, change the work around it, and train the team to use it; covers the AI Audit and AI Training
-- [AI Engineering](https://altrwork.com/ai-engineering.html): internal systems and customer-facing AI products, built against a team's real data and handed off to an owner; covers Automation
+- [AI Transformation](https://altrwork.com/ai-transformation.html): find where AI fits, change the work around it, and train the team to use it
+- [AI Engineering](https://altrwork.com/ai-engineering.html): internal systems and customer-facing AI products, built against a team's real data and handed off to an owner
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
 - [Workflow automation consultant in Tampa](https://altrwork.com/workflow-automation-consultant-tampa.html): map one process, decide what to automate, then build automations and agents only when the path is clean
 - [AI workflows for commercial real estate teams](https://altrwork.com/real-estate.html): the central CRE hub for brokerage, acquisitions, underwriting, asset and property operations, development diligence, connected systems, controlled file work, and recurring market monitoring

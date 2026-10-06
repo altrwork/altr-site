@@ -435,24 +435,6 @@ body.pp-page {
   padding-left: 12px;
 }
 
-/* the services under each umbrella, one quiet row under its name */
-.pp-menu-sub {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
-  margin-top: -6px;
-  padding-bottom: 18px;
-}
-
-.pp-menu-sub a {
-  color: var(--cream-2);
-  font-size: 1.05rem;
-  text-decoration: none;
-  transition: color var(--t-ui);
-}
-
-.pp-menu-sub a:hover,
-.pp-menu-sub a[aria-current="page"],
 .pp-menu-main > li > a[aria-current="page"],
 .pp-menu-cols a[aria-current="page"] {
   color: var(--copper-hi);

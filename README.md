@@ -14,18 +14,16 @@ generated from one template, so it is identical on every page apart from
 
 | Menu | Pages |
 |---|---|
-| AI Transformation | `ai-transformation.html`, with `how-we-altr-work.html` (AI Audit) and `ai-enablement-workshop.html` (AI Training) under it |
-| AI Engineering | `ai-engineering.html`, with `custom-agents.html` (Automation) under it |
+| AI Transformation | `ai-transformation.html` |
+| AI Engineering | `ai-engineering.html` |
 | Industries | `real-estate.html`, `law-firms.html`, `nonprofits.html`, `ecommerce.html` |
 | Work | `case-studies.html` -> the `impact-*.html` case studies; `mortr.html` |
 | Learn | `learn.html` learning center, `ai-workshop.html` free workshops |
 | Company | `about.html`, `contact.html` |
 
-The three services are one vocabulary: AI Audit finds where the team's hours
-go, Automation takes the repetitive work off their plate, AI Training teaches
-the people doing the work. AI Transformation and AI Engineering are the two
-umbrellas they sit under, not services of their own. Do not introduce a fourth
-service name, and do not bring back Strategy or Enablement as service names.
+The services are AI Transformation and AI Engineering. They replaced the
+older AI Audit, Automation and AI Training language, which stays out of the
+nav; do not bring those back as service names.
 
 Detail pages not in the nav: `workflow-audit.html` and the local landing pages
 (`ai-consulting-tampa.html`, `workflow-automation-consultant-tampa.html`).
