@@ -36,7 +36,11 @@ the homepage sections (`ph-*`), the shared chrome and components (`pp-*`), and
 paper versions of every older page component (`page-hero`, `article-*`,
 `impact-*`, `index-cell`, `engagement-*` and the rest), so no page loads
 `styles.css`, `redesign.css` or `chat-hero.css` any more. `pp.js` runs the nav,
-the menu sheet and the reveal-on-view motion. Those three stylesheets,
+the menu sheet and the reveal-on-view motion. No eyebrows: nothing small
+sits above a heading to label it (no kickers, category tags, "01 /" indices or
+pills); the heading does that job. The two service pages,
+`ai-transformation.html` and `ai-engineering.html`, share one layout (`at-*` in
+`paper.css`) and the same reveal attributes, so a change to one is made to both. Those three stylesheets,
 `plate.css`, `nav.js`, `home-typewriter.js` and `home-press.js` are no longer
 loaded by any live page; `lab/` and `design-language/` still reference some of
 them. `lab/` holds local design experiments and is 404'd in production.
