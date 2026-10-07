@@ -1,7 +1,11 @@
 name: IndexNow
 
-# Netlify deploys every push to main. Once it has had time to go live, tell
+# Netlify deploys every push to main. First date the changed pages in
+# sitemap.xml, which is the signal Google reads (it ignores IndexNow), and
+# commit that back. Then, once the deploy has had time to go live, tell
 # IndexNow which listed pages changed so Bing recrawls them without waiting.
+# The sitemap commit is pushed with GITHUB_TOKEN, which never re-triggers
+# workflows, so this cannot loop.
 on:
   push:
     branches: [main]
@@ -9,6 +13,13 @@ on:
       - "**.html"
       - "sitemap.xml"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
 
 jobs:
   submit:
@@ -24,10 +35,7 @@ jobs:
 
       - run: pip install requests
 
-      - name: Wait for the Netlify deploy
-        run: sleep 120
-
-      - name: Submit changed pages
+      - name: Find the commit before this push
         env:
           BEFORE: ${{ github.event.before }}
         run: |
@@ -35,4 +43,20 @@ jobs:
           if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
             BEFORE=$(git rev-parse HEAD~1)
           fi
-          python .github/indexnow.py --changed-since "$BEFORE"
+          echo "BEFORE=$BEFORE" >> "$GITHUB_ENV"
+
+      - name: Date changed pages in sitemap.xml
+        run: |
+          python .github/indexnow.py --stamp-lastmod "$BEFORE"
+          if git diff --quiet -- sitemap.xml; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "sitemap: date pages changed in ${GITHUB_SHA::7}" -- sitemap.xml
+          # someone may have pushed meanwhile; replay the one-file change on top
+          git pull --rebase origin main && git push origin HEAD:main
+
+      - name: Wait for the Netlify deploy
+        run: sleep 120
+
+      - name: Submit changed pages
+        run: python .github/indexnow.py --changed-since "$BEFORE"
