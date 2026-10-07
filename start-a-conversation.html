@@ -129,9 +129,13 @@
     <section class="kara wide">
       <h1>Book a call</h1>
       <p class="kara-lede">Pick a time and Kara, our AI intake assistant, will call you for a quick chat (about five minutes) about how your business runs. Alex and Jarred follow up within one business day.</p>
+      <div class="kara-call">
+        <a class="button secondary" href="tel:+18132276521">Call Kara now: (813) 227-6521</a>
+        <span>She answers any time. Or pick a time below and she'll call you.</span>
+      </div>
       <div id="cal-booking" class="kara-frame"><p class="kara-alt">Loading available times&hellip; If the calendar doesn't appear, <a href="https://cal.com/altr-ai/intro">open the booking page</a>.</p></div>
       <noscript><p><a class="button primary" href="https://cal.com/altr-ai/intro">Open the booking page</a></p></noscript>
-      <p class="kara-alt">Rather call now? Kara answers <a href="tel:+18132276521">(813) 227-6521</a> any time. If you book, she calls you from that number, 8am to 9pm your time, and the soonest slot is usually just a few minutes away.</p>
+      <p class="kara-alt">If you book, Kara calls you from (813) 227-6521, 8am to 9pm your time. The soonest slot is usually just a few minutes away.</p>
       <p class="kara-alt">Prefer a person? Email <a href="mailto:inquiries@altrwork.com">inquiries@altrwork.com</a>. Curious how Kara works? <a href="impact-kara-intake-voice-agent.html">Read how we built her</a>.</p>
     </section>
   </main>
@@ -206,6 +210,9 @@
   .kara-status.is-error { color: var(--copper-hi); }
   .kara-alt { margin: 22px 0 0; color: var(--cream-3); font-size: var(--fs-meta); }
   .kara-frame { width: 100%; min-height: 560px; }
+  .kara-call { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: -8px 0 28px; }
+  .kara-call span { color: var(--cream-3); font-size: var(--fs-meta); }
+  @media (max-width: 600px) { .kara-call .button { width: 100%; } }
   .kara-frame:has(iframe, cal-inline) > .kara-alt { display: none; }
   @media (max-width: 600px) { .kara-form { grid-template-columns: 1fr; } }
 </style>
