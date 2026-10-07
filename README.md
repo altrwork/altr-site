@@ -5,22 +5,25 @@ public and ranks for the brand name, so the first link here is the site.
 
 ## Structure
 
-The nav is four items plus the booking CTA, written as static HTML into every
-page so crawlers and users get the same links. Everything else is a detail page
-reached from within the content, so it keeps its URL and search rankings without
-crowding the header.
+The nav is one bar, written as static HTML into every page so crawlers and users
+get the same links: the logo, three dropdowns (Services, Industries, Resources),
+About, and the Book a call key. The dropdowns are `<details>` elements, so they
+open without JavaScript; `pp.js` only closes the others and handles Escape. On
+phones and tablets (900px and under) the same list becomes a sheet behind the
+Menu button, each dropdown folds open in place, and Book a call stays in the
+bar. The header is identical on every page apart from `aria-current` and the
+`is-current` mark on the section that holds the page:
 
-| Nav item | Page |
+| Nav | Pages |
 |---|---|
-| Services | the three services (`how-we-altr-work.html` AI Audit, `custom-agents.html` Automation, `ai-enablement-workshop.html` AI Training) and the four industries |
-| Work | `case-studies.html` -> the `impact-*.html` case studies; `mortr.html` internal products |
-| Resources | `ai-workshop.html` events, `tutorials.html` blog |
-| About | `about.html` |
+| Services | `ai-transformation.html`, `ai-engineering.html`, `mortr.html` |
+| Industries | `real-estate.html`, `law-firms.html`, `nonprofits.html`, `ecommerce.html` |
+| Resources | `case-studies.html` -> the `impact-*.html` case studies; `learn.html`; `ai-workshop.html` |
+| About | `about.html` (contact is in the footer; every booking CTA reads "Book a call") |
 
-The three services are one vocabulary: AI Audit finds where the team's hours
-go, Automation takes the repetitive work off their plate, AI Training teaches
-the people doing the work. Do not introduce a fourth name for any of them, and
-do not bring back Strategy, Enablement, or Engineering as service names.
+The services are AI Transformation and AI Engineering. They replaced the
+older AI Audit, Automation and AI Training language, which stays out of the
+nav; do not bring those back as service names.
 
 Detail pages not in the nav: `workflow-audit.html` and the local landing pages
 (`ai-consulting-tampa.html`, `workflow-automation-consultant-tampa.html`).
@@ -36,7 +39,11 @@ the homepage sections (`ph-*`), the shared chrome and components (`pp-*`), and
 paper versions of every older page component (`page-hero`, `article-*`,
 `impact-*`, `index-cell`, `engagement-*` and the rest), so no page loads
 `styles.css`, `redesign.css` or `chat-hero.css` any more. `pp.js` runs the nav,
-the menu sheet and the reveal-on-view motion. Those three stylesheets,
+the menu sheet and the reveal-on-view motion. No eyebrows: nothing small
+sits above a heading to label it (no kickers, category tags, "01 /" indices or
+pills); the heading does that job. The two service pages,
+`ai-transformation.html` and `ai-engineering.html`, share one layout (`at-*` in
+`paper.css`) and the same reveal attributes, so a change to one is made to both. Those three stylesheets,
 `plate.css`, `nav.js`, `home-typewriter.js` and `home-press.js` are no longer
 loaded by any live page; `lab/` and `design-language/` still reference some of
 them. `lab/` holds local design experiments and is 404'd in production.

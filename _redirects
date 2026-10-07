@@ -77,13 +77,9 @@
 /ai-news-for-business-july-2026               /ai-news-for-business-july-2026.html          301!
 /ai-news-for-business-august-2026             /ai-news-for-business-august-2026.html        301!
 /ai-news-archive                              /ai-news-archive.html                         301!
-/privacy                                      /privacy.html                                 301!
-/terms                                        /terms.html                                   301!
-/website-terms                                /website-terms.html                           301!
 /ai-engineering                               /ai-engineering.html                          301!
 /ai-transformation                            /ai-transformation.html                       301!
 /contact                                      /contact.html                                 301!
-/contact-thank-you                            /contact-thank-you.html                       301!
 /impact-automated-invoicing-stripe            /impact-automated-invoicing-stripe.html       301!
 /impact-cloudflare-workers-architecture       /impact-cloudflare-workers-architecture.html  301!
 /impact-cre-county-records-connector          /impact-cre-county-records-connector.html     301!
@@ -91,6 +87,10 @@
 /impact-manhattan-office-condo-registry       /impact-manhattan-office-condo-registry.html  301!
 /impact-slice-of-heaven-cakes                 /impact-slice-of-heaven-cakes.html            301!
 /impact-spark-labs-air-supply                 /impact-spark-labs-air-supply.html            301!
+/privacy                                      /privacy.html                                 301!
+/terms                                        /terms.html                                   301!
+/website-terms                                /website-terms.html                           301!
+/contact-thank-you                            /contact-thank-you.html                       301!
 
 # merged pages
 /events.html                                  /ai-workshop.html                            301!
