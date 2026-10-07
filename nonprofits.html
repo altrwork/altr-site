@@ -1,9 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
+     Visit any page with ?internal=1 once per browser to tag your own visits. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-RHG020FK51');</script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ if (!/(^|\.)altrwork\.com$/.test(location.hostname)) window['ga-disable-G-RHG020FK51'] = true;
+ var altrGa = { page_location: (location.origin + location.pathname + location.search).replace(/([?&](?:email|name|phone|company|notes)=)[^&#]*/g, '$1redacted') };
+ try {
+  if (/[?&]internal=1/.test(location.search)) localStorage.setItem('altr_internal', '1');
+  if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
+ } catch (e) {}
+ gtag('config', 'G-RHG020FK51', altrGa);
+</script>
 <meta charset="utf-8" />
 <title>AI Consulting for Nonprofits | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261002c" />
+<link rel="stylesheet" href="paper.css?v=20261006n" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "AI consulting for nonprofits", "url": "https://altrwork.com/nonprofits.html", "description": "AI consulting and enablement for nonprofit teams managing programs, fundraising, events, reporting, and operations. Based in Tampa, working with nonprofits nationwide.", "provider": {"@id": "https://altrwork.com/#business"}, "areaServed": {"@type": "Country", "name": "United States"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we need a large technology budget?", "acceptedAnswer": {"@type": "Answer", "text": "No. We start with one workflow and the tools you already pay for. Anthropic offers discounted Claude Team and Enterprise plans to eligible nonprofits, verified through Goodstack, as of September 2026. A useful first step is often team enablement rather than custom software."}}, {"@type": "Question", "name": "How do we protect donor and participant information?", "acceptedAnswer": {"@type": "Answer", "text": "We write down what the workflow may read, who can use it, where a person must review, and which records stay out entirely. In practice that means a business or team plan rather than personal accounts, no health or case notes in general-purpose chat, and outbound messages drafted for a person to send."}}, {"@type": "Question", "name": "Will this replace staff?", "acceptedAnswer": {"@type": "Answer", "text": "The goal is to remove repeated administrative work, not the relationships and judgment your mission depends on. People remain responsible for decisions and communication."}}, {"@type": "Question", "name": "Where should we start?", "acceptedAnswer": {"@type": "Answer", "text": "Choose a recurring process with clear inputs and a clear output: program intake, event requests, expense reporting, or a monthly funder report. If one person spends hours on it every week and can say what a good result looks like, it is a strong first candidate."}}, {"@type": "Question", "name": "Do you work with nonprofits outside Tampa Bay?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We are based in Tampa and work in person across Tampa Bay. Nonprofits anywhere else in the US work with us remotely, with the working sessions over video and the same handover at the end."}}]}]}
@@ -35,59 +47,45 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
-  <nav class="pp-quick" aria-label="Services">
-    <a href="ai-transformation.html">AI Transformation</a>
-    <a href="ai-engineering.html">AI Engineering</a>
-  </nav>
-  <a class="pp-key" href="start-a-conversation.html">Book a call</a>
-  <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
-  <div class="pp-menu" id="pp-menu">
-    <nav class="pp-menu-grid" aria-label="Primary navigation">
-      <ul class="pp-menu-main">
-        <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
-        <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
-      </ul>
-      <div class="pp-menu-cols">
-        <div>
-          <p>Work</p>
+    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
+    <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
+      <ul class="pp-bar-list">
+        <li><details class="pp-dd">
+          <summary>Services</summary>
           <ul>
-            <li><a href="case-studies.html">Case studies</a></li>
-            <li><a href="mortr.html">mortr</a></li>
+            <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
+            <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
+            <li><a href="mortr.html">mortr <small>Our CRM for commercial real estate</small></a></li>
           </ul>
-        </div>
-        <div>
-          <p>Industries</p>
+        </details></li>
+        <li><details class="pp-dd is-current">
+          <summary>Industries</summary>
           <ul>
             <li><a href="real-estate.html">Commercial Real Estate</a></li>
             <li><a href="law-firms.html">Law firms</a></li>
             <li><a href="nonprofits.html" aria-current="page">Non-profits</a></li>
             <li><a href="ecommerce.html">Ecommerce</a></li>
           </ul>
-        </div>
-        <div>
-          <p>Company</p>
+        </details></li>
+        <li><details class="pp-dd">
+          <summary>Resources</summary>
           <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Learn</p>
-          <ul>
+            <li><a href="case-studies.html">Case studies</a></li>
             <li><a href="learn.html">Learning center</a></li>
             <li><a href="ai-workshop.html">Free workshops</a></li>
           </ul>
-        </div>
-      </div>
+        </details></li>
+        <li><a class="pp-bar-link" href="about.html">About</a></li>
+      </ul>
       <div class="pp-menu-foot">
-        <a class="pp-key" href="start-a-conversation.html">Start your intake now</a>
+        <a class="pp-key" href="start-a-conversation.html">Book a call</a>
         <span>inquiries@altrwork.com</span>
         <span>Tampa, Florida &middot; working across the US</span>
       </div>
     </nav>
-  </div>
-</header>
+    <a class="pp-key" href="start-a-conversation.html">Book a call</a>
+    <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
+  </header>
 
   <main class="page" id="main">
     <section class="page-hero hero-scene scene-piazza">
@@ -184,6 +182,6 @@
   </div>
 </footer>
 </div>
-<script src="pp.js"></script>
+<script src="pp.js?v=20261006n"></script>
 </body>
 </html>

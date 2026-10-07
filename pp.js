@@ -1,6 +1,6 @@
-/* Plate & Press behaviour: reveal-on-view, the nav, and the menu sheet.
-   Pages render complete without this file; it only adds motion and the
-   menu toggle. */
+/* Plate & Press behaviour: reveal-on-view, the nav, its dropdowns and the
+   phone menu sheet. Pages render complete without this file; the dropdowns
+   are <details> and open on their own. */
 (() => {
   const root = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -66,6 +66,14 @@
     if (!Number.isNaN(until) && Date.now() > until) el.hidden = true;
   });
 
+  /* -- which button sent someone to book: page + label in GA ------- */
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href*="start-a-conversation"]');
+    if (link && typeof window.gtag === 'function') {
+      window.gtag('event', 'cta_click', { link_text: link.textContent.trim(), cta_page: location.pathname, transport_type: 'beacon' });
+    }
+  });
+
   /* -- nav: tint once scrolled, hide on the way down ---------------- */
   const nav = document.querySelector('.nav');
   if (!nav) return;
@@ -89,33 +97,52 @@
   }, { passive: true });
   onScroll();
 
-  /* -- menu sheet ---------------------------------------------------- */
+  /* -- dropdowns: one open at a time; outside click or Escape shuts -- */
+  const drops = [...nav.querySelectorAll('.pp-dd')];
+  drops.forEach(dd => dd.addEventListener('toggle', () => {
+    if (dd.open) drops.forEach(other => { if (other !== dd) other.open = false; });
+  }));
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.pp-dd')) drops.forEach(dd => { dd.open = false; });
+  });
+
+  /* -- menu sheet (900px and under) --------------------------------- */
   const button = nav.querySelector('.pp-menu-btn');
   const menu = document.getElementById('pp-menu');
   if (!button || !menu) return;
   const label = button.querySelector('span');
+  const narrow = window.matchMedia('(max-width: 900px)');
 
-  menu.querySelectorAll('.pp-menu-main li, .pp-menu-cols > div').forEach((el, i) => el.style.setProperty('--i', i));
-
-  const focusables = () => [...menu.querySelectorAll('a, button')];
+  const focusables = () => [...menu.querySelectorAll('summary, a')].filter(el => el.offsetParent);
 
   const setOpen = open => {
     root.classList.toggle('pp-menu-open', open);
     button.setAttribute('aria-expanded', String(open));
     if (label) label.textContent = open ? 'Close' : 'Menu';
-    menu.inert = !open;
+    menu.inert = narrow.matches && !open;
     document.body.style.overflow = open ? 'hidden' : '';
     nav.classList.remove('is-hidden');
     if (open) window.setTimeout(() => focusables()[0]?.focus({ preventScroll: true }), 60);
   };
 
-  menu.inert = true;
+  setOpen(false);
+  const onNarrowChange = () => setOpen(false);
+  if (narrow.addEventListener) narrow.addEventListener('change', onNarrowChange);
+  else narrow.addListener(onNarrowChange); // Safari 13 and older
   button.addEventListener('click', () => setOpen(!root.classList.contains('pp-menu-open')));
   menu.addEventListener('click', event => {
     if (event.target.closest('a')) setOpen(false);
   });
 
   document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      const openDrop = drops.find(dd => dd.open);
+      if (openDrop && !narrow.matches) {
+        openDrop.open = false;
+        openDrop.querySelector('summary').focus();
+        return;
+      }
+    }
     if (!root.classList.contains('pp-menu-open')) return;
     if (event.key === 'Escape') {
       setOpen(false);
@@ -124,7 +151,8 @@
     }
     if (event.key !== 'Tab') return;
     // keep focus inside the sheet and its toggle while it is open
-    const items = [button, ...focusables()];
+    // the button sits after the sheet in the header, so it closes the loop
+    const items = [...focusables(), button];
     const first = items[0];
     const last = items[items.length - 1];
     if (event.shiftKey && document.activeElement === first) {

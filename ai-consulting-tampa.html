@@ -1,22 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
+     Visit any page with ?internal=1 once per browser to tag your own visits. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
 <script>
  window.dataLayer = window.dataLayer || [];
  function gtag(){dataLayer.push(arguments);}
  gtag('js', new Date());
-
- gtag('config', 'G-RHG020FK51');
+ if (!/(^|\.)altrwork\.com$/.test(location.hostname)) window['ga-disable-G-RHG020FK51'] = true;
+ var altrGa = { page_location: (location.origin + location.pathname + location.search).replace(/([?&](?:email|name|phone|company|notes)=)[^&#]*/g, '$1redacted') };
+ try {
+  if (/[?&]internal=1/.test(location.search)) localStorage.setItem('altr_internal', '1');
+  if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
+ } catch (e) {}
+ gtag('config', 'G-RHG020FK51', altrGa);
 </script>
 <meta charset="utf-8" />
 <title>AI Consulting in Tampa | AI Consultant for Tampa Bay Businesses | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Looking for an AI consultant in Tampa? AI consulting in Tampa for small businesses: automate wasted work, train your people, build what earns a role." />
+<meta name="description" content="Looking for an AI consultant in Tampa? altr is a Tampa Bay AI consulting firm: free Claude workshops, team training and custom AI agents. Book a call." />
 <link rel="canonical" href="https://altrwork.com/ai-consulting-tampa.html" />
 <meta property="og:title" content="AI Consulting in Tampa | AI Consultant for Tampa Bay Businesses | altr" />
-<meta property="og:description" content="Looking for an AI consultant in Tampa? AI consulting in Tampa for small businesses: automate wasted work, train your people, build what earns a role." />
+<meta property="og:description" content="Looking for an AI consultant in Tampa? altr is a Tampa Bay AI consulting firm: free Claude workshops, team training and custom AI agents. Book a call." />
 <meta property="og:url" content="https://altrwork.com/ai-consulting-tampa.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="altr" />
@@ -27,7 +33,7 @@
 <meta property="og:image:alt" content="The carved marble altr key over an engraving of a busy workshop, with the line: AI for the work your team repeats every week. AI Transformation, altrwork.com." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="AI Consulting in Tampa | AI Consultant for Tampa Bay Businesses | altr" />
-<meta name="twitter:description" content="Looking for an AI consultant in Tampa? AI consulting in Tampa for small businesses: automate wasted work, train your people, build what earns a role." />
+<meta name="twitter:description" content="Looking for an AI consultant in Tampa? altr is a Tampa Bay AI consulting firm: free Claude workshops, team training and custom AI agents. Book a call." />
 <meta name="twitter:image" content="https://altrwork.com/assets/share/altr-home-v2.jpg" />
 <meta name="geo.region" content="US-FL" />
 <meta name="geo.placename" content="Tampa" />
@@ -37,78 +43,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261002c" />
+<link rel="stylesheet" href="paper.css?v=20261006n" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": [
-        "LocalBusiness",
-        "ProfessionalService"
-      ],
-      "@id": "https://altrwork.com/#business",
-      "name": "altr",
-      "legalName": "Uncreated LLC",
-      "alternateName": "Uncreated LLC d/b/a altr",
-      "url": "https://altrwork.com/",
-      "image": "https://altrwork.com/assets/share/altr-home-v2.jpg",
-      "logo": "https://altrwork.com/altr-brand-assets/assets/logo-no-background.png",
-      "email": "inquiries@altrwork.com",
-      "description": "Tampa based AI automation and enablement firm for small and mid-size businesses. We find the work teams repeat by hand, teach people to use AI inside it, and build the parts worth automating.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tampa",
-        "addressRegion": "FL",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 27.9506,
-        "longitude": -82.4572
-      },
-      "priceRange": "$$",
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Tampa"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Tampa Bay"
-        },
-        {
-          "@type": "City",
-          "name": "St. Petersburg"
-        },
-        {
-          "@type": "City",
-          "name": "Wesley Chapel"
-        },
-        {
-          "@type": "City",
-          "name": "Clearwater"
-        },
-        {
-          "@type": "City",
-          "name": "Orlando"
-        },
-        {
-          "@type": "City",
-          "name": "Lakeland"
-        }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/company/altrwork/",
-        "https://g.page/r/Ca3DjCX8Us2aEBM"
-      ]
-    },
-    {
       "@type": "WebPage",
       "name": "AI Consulting in Tampa | AI Consultant for Tampa Bay Businesses | altr",
       "url": "https://altrwork.com/ai-consulting-tampa.html",
-      "description": "Looking for an AI consultant in Tampa? AI consulting in Tampa for small businesses: automate wasted work, train your people, build what earns a role.",
+      "description": "Looking for an AI consultant in Tampa? altr is a Tampa Bay AI consulting firm: free Claude workshops, team training and custom AI agents. Book a call.",
       "isPartOf": {
         "@id": "https://altrwork.com/#website"
       },
@@ -162,7 +107,7 @@
         },
         {
           "@type": "Question",
-          "name": "Who is a fit for Tampa AI consulting with altr and who is not?",
+          "name": "Who is a good fit for altr, and who is not?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "A fit is an ops heavy team where a specific person still does repeated work by hand and someone can own the system after launch. Not a fit: a chatbot wrapper, or a strategy deck with no owner."
@@ -170,7 +115,7 @@
         },
         {
           "@type": "Question",
-          "name": "Where should a team start with AI consulting in Tampa?",
+          "name": "Where should a Tampa Bay team start with AI?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "A discovery call on one process. It is bounded and it produces a decision either way: enablement, automation, or leaving the process alone. Fees are quoted in writing before you commit."
@@ -194,65 +139,51 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
-  <nav class="pp-quick" aria-label="Services">
-    <a href="ai-transformation.html">AI Transformation</a>
-    <a href="ai-engineering.html">AI Engineering</a>
-  </nav>
-  <a class="pp-key" href="start-a-conversation.html">Book a call</a>
-  <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
-  <div class="pp-menu" id="pp-menu">
-    <nav class="pp-menu-grid" aria-label="Primary navigation">
-      <ul class="pp-menu-main">
-        <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
-        <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
-      </ul>
-      <div class="pp-menu-cols">
-        <div>
-          <p>Work</p>
+    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
+    <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
+      <ul class="pp-bar-list">
+        <li><details class="pp-dd">
+          <summary>Services</summary>
           <ul>
-            <li><a href="case-studies.html">Case studies</a></li>
-            <li><a href="mortr.html">mortr</a></li>
+            <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
+            <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
+            <li><a href="mortr.html">mortr <small>Our CRM for commercial real estate</small></a></li>
           </ul>
-        </div>
-        <div>
-          <p>Industries</p>
+        </details></li>
+        <li><details class="pp-dd">
+          <summary>Industries</summary>
           <ul>
             <li><a href="real-estate.html">Commercial Real Estate</a></li>
             <li><a href="law-firms.html">Law firms</a></li>
             <li><a href="nonprofits.html">Non-profits</a></li>
             <li><a href="ecommerce.html">Ecommerce</a></li>
           </ul>
-        </div>
-        <div>
-          <p>Company</p>
+        </details></li>
+        <li><details class="pp-dd">
+          <summary>Resources</summary>
           <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Learn</p>
-          <ul>
+            <li><a href="case-studies.html">Case studies</a></li>
             <li><a href="learn.html">Learning center</a></li>
             <li><a href="ai-workshop.html">Free workshops</a></li>
           </ul>
-        </div>
-      </div>
+        </details></li>
+        <li><a class="pp-bar-link" href="about.html">About</a></li>
+      </ul>
       <div class="pp-menu-foot">
-        <a class="pp-key" href="start-a-conversation.html">Start your intake now</a>
+        <a class="pp-key" href="start-a-conversation.html">Book a call</a>
         <span>inquiries@altrwork.com</span>
         <span>Tampa, Florida &middot; working across the US</span>
       </div>
     </nav>
-  </div>
-</header>
+    <a class="pp-key" href="start-a-conversation.html">Book a call</a>
+    <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
+  </header>
 
   <main class="page" id="main">
     <section class="page-hero hero-scene scene-workshop">
       <h1 class="hero-title-long">AI consulting in Tampa for teams who need workflows,<br>
  not another tool.</h1>
-      <p class="page-lede">If you searched for an AI consultant in Tampa, this is the page. An AI consultant in Tampa helps a team make AI reliable inside work they already own. At altr, that means mapping one repeated workflow, training people on their own tools (enablement), and only then building agents or connectors when the process earns software. We work on site across Tampa Bay including St. Petersburg, Wesley Chapel, and Clearwater, and focus on operations-heavy teams in commercial real estate, nonprofits, and ecommerce rather than selling a chatbot or a strategy deck alone.</p>
+      <p class="page-lede">altr is an AI consulting firm in Tampa, run by founders Alex Britton and Jarred Robidoux. We train Tampa Bay teams on Claude and build the agents and connectors their work needs. We start by mapping one repeated workflow, train people on their own tools, and build software only when the process earns it. Most of our clients are operations-heavy teams in commercial real estate, nonprofits and ecommerce.</p>
       <div class="page-hero-actions">
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
         <a class="button secondary" href="#proof">See the work</a>
@@ -271,7 +202,7 @@
     <section class="section product-page-section">
       <div class="section-header">
         <div>
-          <h2>Who this Tampa AI consulting is for.</h2>
+          <h2>Who we work with.</h2>
         </div>
         <p>Ops heavy teams where a named person still carries repeated work and someone can own the system after launch: <a href="real-estate.html">commercial real estate</a>, <a href="nonprofits.html">nonprofits</a>, and <a href="ecommerce.html">ecommerce</a>.</p>
       </div>
@@ -302,7 +233,7 @@
         </article>
         <article class="engagement-item">
           <h3><a href="custom-agents.html">Deployment</a></h3>
-          <p>Agents and workflows built around your existing stack, permissions, and approval paths. Connecting to your tools is usually an MCP server or connector, not a migration. Your team keeps the prompts, documentation, and operating notes.</p>
+          <p>Agents and workflows built around your existing stack, permissions, and approval paths. Connecting to your tools is usually an MCP server or connector, not a migration. Your team keeps the prompts, documentation, and operating notes. Read more about <a href="custom-agents.html">AI agent development</a>.</p>
         </article>
       </div>
     </section>
@@ -313,6 +244,28 @@
           <h2>Work you can read in full.</h2>
         </div>
         <p>Every engagement we can write about is published as an impact study: the operational problem, the AI assisted path, and how the team kept control after launch. No invented hours saved stats. Read <a href="impact-spark-labs.html">operations intake</a>, <a href="impact-spark-labs-mcp.html">tools connected to Claude</a>, <a href="impact-fishin-prints.html">creative production</a>, and <a href="impact-bebrief.html">coding agents in a full stack build</a>, or browse all of them on <a href="case-studies.html">Work</a>.</p>
+      </div>
+    </section>
+
+    <section class="section product-page-section" id="where-we-work">
+      <div class="section-header">
+        <div>
+          <h2>Where we work in Tampa Bay.</h2>
+        </div>
+        <p>We are based in Tampa and work on site across the bay. Mapping a workflow goes fastest in the room, so for local teams we come to you.</p>
+      </div>
+      <div class="engagement-grid engagement-grid-2up">
+        <article class="engagement-item">
+          <h3>Tampa</h3>
+          <p>Our home base. Team sessions run in your office, and our <a href="ai-workshop.html">free Claude workshops</a> for small business owners are held in person at COhatch West Tampa. Bring one recurring task and a laptop.</p>
+        </article>
+        <article class="engagement-item">
+          <h3>St. Petersburg</h3>
+          <p>spARK Labs, the nonprofit innovation hub ARK Invest backs in St. Petersburg, runs Claude with a connector we built to BossHub, Verkada, Nexudus and Outlook. Read the <a href="impact-spark-labs-mcp.html">spARK Labs connector</a> case study.</p>
+        </article>
+      </div>
+      <div class="section-header">
+        <p>Teams in Wesley Chapel, Clearwater and the rest of Tampa Bay get the same process, on site or remote.</p>
       </div>
     </section>
 
@@ -359,11 +312,11 @@
           <p>A chatbot is one interface. We build a workflow: defined permissions, human review points, fallback behavior, logging, and an owner. Your team keeps the prompts and documentation, so you are not dependent on us to change it.</p>
         </article>
         <article class="content-panel">
-          <h3>Who is a fit for Tampa AI consulting with altr and who is not?</h3>
+          <h3>Who is a good fit for altr, and who is not?</h3>
           <p>A fit is an ops heavy team where a specific person still does repeated work by hand and someone can own the system after launch. Not a fit: a chatbot wrapper, or a strategy deck with no owner.</p>
         </article>
         <article class="content-panel content-panel-muted">
-          <h3>Where should a team start with AI consulting in Tampa?</h3>
+          <h3>Where should a Tampa Bay team start with AI?</h3>
           <p>A discovery call on one process. It is bounded and it produces a decision either way: enablement, automation, or leaving the process alone. Fees are quoted in writing before you commit.</p>
         </article>
         <article class="content-panel">
@@ -429,6 +382,6 @@
   </div>
 </footer>
 </div>
-<script src="pp.js"></script>
+<script src="pp.js?v=20261006n"></script>
 </body>
 </html>

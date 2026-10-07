@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
+     Visit any page with ?internal=1 once per browser to tag your own visits. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-RHG020FK51');</script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ if (!/(^|\.)altrwork\.com$/.test(location.hostname)) window['ga-disable-G-RHG020FK51'] = true;
+ var altrGa = { page_location: (location.origin + location.pathname + location.search).replace(/([?&](?:email|name|phone|company|notes)=)[^&#]*/g, '$1redacted') };
+ try {
+  if (/[?&]internal=1/.test(location.search)) localStorage.setItem('altr_internal', '1');
+  if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
+ } catch (e) {}
+ gtag('config', 'G-RHG020FK51', altrGa);
+</script>
 <meta charset="utf-8" />
 <title>AI Strategy Consulting | How altr Works | altr</title>
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261002c" />
+<link rel="stylesheet" href="paper.css?v=20261006n" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="AI strategy consulting that starts with one workflow: map it, prove it with your team, deploy only what earns a role. Based in Tampa, working nationwide." />
@@ -53,57 +65,43 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="nav">
   <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
-  <nav class="pp-quick" aria-label="Services">
-    <a href="ai-transformation.html">AI Transformation</a>
-    <a href="ai-engineering.html">AI Engineering</a>
+  <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
+    <ul class="pp-bar-list">
+      <li><details class="pp-dd">
+        <summary>Services</summary>
+        <ul>
+          <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
+          <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
+          <li><a href="mortr.html">mortr <small>Our CRM for commercial real estate</small></a></li>
+        </ul>
+      </details></li>
+      <li><details class="pp-dd">
+        <summary>Industries</summary>
+        <ul>
+          <li><a href="real-estate.html">Commercial Real Estate</a></li>
+          <li><a href="law-firms.html">Law firms</a></li>
+          <li><a href="nonprofits.html">Non-profits</a></li>
+          <li><a href="ecommerce.html">Ecommerce</a></li>
+        </ul>
+      </details></li>
+      <li><details class="pp-dd">
+        <summary>Resources</summary>
+        <ul>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="learn.html">Learning center</a></li>
+          <li><a href="ai-workshop.html">Free workshops</a></li>
+        </ul>
+      </details></li>
+      <li><a class="pp-bar-link" href="about.html">About</a></li>
+    </ul>
+    <div class="pp-menu-foot">
+      <a class="pp-key" href="start-a-conversation.html">Book a call</a>
+      <span>inquiries@altrwork.com</span>
+      <span>Tampa, Florida &middot; working across the US</span>
+    </div>
   </nav>
   <a class="pp-key" href="start-a-conversation.html">Book a call</a>
   <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
-  <div class="pp-menu" id="pp-menu">
-    <nav class="pp-menu-grid" aria-label="Primary navigation">
-      <ul class="pp-menu-main">
-        <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
-        <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
-      </ul>
-      <div class="pp-menu-cols">
-        <div>
-          <p>Work</p>
-          <ul>
-            <li><a href="case-studies.html">Case studies</a></li>
-            <li><a href="mortr.html">mortr</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Industries</p>
-          <ul>
-            <li><a href="real-estate.html">Commercial Real Estate</a></li>
-            <li><a href="law-firms.html">Law firms</a></li>
-            <li><a href="nonprofits.html">Non-profits</a></li>
-            <li><a href="ecommerce.html">Ecommerce</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Company</p>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Learn</p>
-          <ul>
-            <li><a href="learn.html">Learning center</a></li>
-            <li><a href="ai-workshop.html">Free workshops</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="pp-menu-foot">
-        <a class="pp-key" href="start-a-conversation.html">Start your intake now</a>
-        <span>inquiries@altrwork.com</span>
-        <span>Tampa, Florida &middot; working across the US</span>
-      </div>
-    </nav>
-  </div>
 </header>
 
 <main id="main">
@@ -114,7 +112,7 @@
         <h1 class="pp-display" id="page-heading"><span class="ln" style="--i:0"><span>Find where AI</span></span> <span class="ln" style="--i:1"><span>improves your business</span></span></h1>
         <p class="pp-lede" data-settle style="--d:320ms">We sit with the people who do the work, find where the hours go, and hand you a ranked plan: what to automate, what to train, and what to leave alone. The plan is yours either way.</p>
         <div class="pp-actions" data-settle style="--d:440ms">
-          <a class="pp-key pp-key-lg" href="start-a-conversation.html">Start your intake now</a>
+          <a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a call</a>
           <a class="pp-link" href="#pick">How we pick the work</a>
         </div>
         <p class="pp-note pp-prose" data-settle style="--d:560ms">Quoted in writing before anything starts. Part of our AI strategy work, and it stands on its own.</p>
@@ -185,7 +183,7 @@
       <h2 id="closer-heading"><span class="ln" style="--i:0"><span>Walk us through</span></span> <span class="ln" style="--i:1"><span>your week.</span></span></h2>
       <p data-settle style="--d:240ms">Start with a five-minute call from Kara, our AI intake assistant. Then we will tell you whether an audit is the right first step, or whether you already know enough to start.</p>
       <div class="pp-actions" data-settle style="--d:360ms">
-        <a class="pp-key pp-key-lg" href="start-a-conversation.html">Start your intake now</a>
+        <a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a call</a>
         <a class="pp-link" href="case-studies.html">See our work first</a>
       </div>
     </div>
@@ -238,6 +236,6 @@
     </div>
   </div>
 </footer>
-<script src="pp.js"></script>
+<script src="pp.js?v=20261006n"></script>
 </body>
 </html>

@@ -1,9 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
+     Visit any page with ?internal=1 once per browser to tag your own visits. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-RHG020FK51');</script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ if (!/(^|\.)altrwork\.com$/.test(location.hostname)) window['ga-disable-G-RHG020FK51'] = true;
+ var altrGa = { page_location: (location.origin + location.pathname + location.search).replace(/([?&](?:email|name|phone|company|notes)=)[^&#]*/g, '$1redacted') };
+ try {
+  if (/[?&]internal=1/.test(location.search)) localStorage.setItem('altr_internal', '1');
+  if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
+ } catch (e) {}
+ gtag('config', 'G-RHG020FK51', altrGa);
+</script>
 <meta charset="utf-8" />
 <title>AI Consulting for Ecommerce Teams | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261002c" />
+<link rel="stylesheet" href="paper.css?v=20261006n" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "AI consulting for ecommerce teams", "url": "https://altrwork.com/ecommerce.html", "description": "AI consulting for ecommerce teams managing product content, customer requests, order operations, and production workflows. Based in Tampa, working with teams nationwide.", "provider": {"@id": "https://altrwork.com/#business"}, "areaServed": {"@type": "Country", "name": "United States"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do we need to replace our ecommerce platform?", "acceptedAnswer": {"@type": "Answer", "text": "No. We map the workflow around your current storefront, order system, help desk, content tools, and production process. The build reads from and writes to those systems rather than moving you onto a new one."}}, {"@type": "Question", "name": "Can AI publish or send things automatically?", "acceptedAnswer": {"@type": "Answer", "text": "It can, but only where the risk is understood. A reply that quotes an order status can often go out on its own; a refund, a price change, or a new product page should wait for a person. We decide that line per output before anything ships."}}, {"@type": "Question", "name": "What about inconsistent product or customer data?", "acceptedAnswer": {"@type": "Answer", "text": "That is part of the design. Product copy should be written only from the fields you actually have, so the model does not invent a material, a size, or a care instruction. When a field is missing, the workflow flags it and asks instead of guessing."}}, {"@type": "Question", "name": "Where should we start?", "acceptedAnswer": {"@type": "Answer", "text": "Choose a high-volume process with the same basic route every time: product content, request triage, document intake, or a production handoff. Count how many times it ran last month; if the answer is dozens and one person does most of it, start there."}}, {"@type": "Question", "name": "Do you work with ecommerce teams outside Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We are based in Tampa and most ecommerce work runs remotely, because the systems are online anyway. Teams in Tampa Bay can also work with us in person."}}]}]}
@@ -35,59 +47,45 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
-  <nav class="pp-quick" aria-label="Services">
-    <a href="ai-transformation.html">AI Transformation</a>
-    <a href="ai-engineering.html">AI Engineering</a>
-  </nav>
-  <a class="pp-key" href="start-a-conversation.html">Book a call</a>
-  <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
-  <div class="pp-menu" id="pp-menu">
-    <nav class="pp-menu-grid" aria-label="Primary navigation">
-      <ul class="pp-menu-main">
-        <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
-        <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
-      </ul>
-      <div class="pp-menu-cols">
-        <div>
-          <p>Work</p>
+    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
+    <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
+      <ul class="pp-bar-list">
+        <li><details class="pp-dd">
+          <summary>Services</summary>
           <ul>
-            <li><a href="case-studies.html">Case studies</a></li>
-            <li><a href="mortr.html">mortr</a></li>
+            <li><a href="ai-transformation.html">AI Transformation <small>Put AI to work</small></a></li>
+            <li><a href="ai-engineering.html">AI Engineering <small>Build what comes next</small></a></li>
+            <li><a href="mortr.html">mortr <small>Our CRM for commercial real estate</small></a></li>
           </ul>
-        </div>
-        <div>
-          <p>Industries</p>
+        </details></li>
+        <li><details class="pp-dd is-current">
+          <summary>Industries</summary>
           <ul>
             <li><a href="real-estate.html">Commercial Real Estate</a></li>
             <li><a href="law-firms.html">Law firms</a></li>
             <li><a href="nonprofits.html">Non-profits</a></li>
             <li><a href="ecommerce.html" aria-current="page">Ecommerce</a></li>
           </ul>
-        </div>
-        <div>
-          <p>Company</p>
+        </details></li>
+        <li><details class="pp-dd">
+          <summary>Resources</summary>
           <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>Learn</p>
-          <ul>
+            <li><a href="case-studies.html">Case studies</a></li>
             <li><a href="learn.html">Learning center</a></li>
             <li><a href="ai-workshop.html">Free workshops</a></li>
           </ul>
-        </div>
-      </div>
+        </details></li>
+        <li><a class="pp-bar-link" href="about.html">About</a></li>
+      </ul>
       <div class="pp-menu-foot">
-        <a class="pp-key" href="start-a-conversation.html">Start your intake now</a>
+        <a class="pp-key" href="start-a-conversation.html">Book a call</a>
         <span>inquiries@altrwork.com</span>
         <span>Tampa, Florida &middot; working across the US</span>
       </div>
     </nav>
-  </div>
-</header>
+    <a class="pp-key" href="start-a-conversation.html">Book a call</a>
+    <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
+  </header>
 
   <main class="page" id="main">
     <section class="page-hero hero-scene scene-port">
@@ -184,6 +182,6 @@
   </div>
 </footer>
 </div>
-<script src="pp.js"></script>
+<script src="pp.js?v=20261006n"></script>
 </body>
 </html>

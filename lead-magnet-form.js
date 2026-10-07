@@ -63,6 +63,8 @@
       if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
 
       trackLead();
+      // the booking page prefills Cal.com from this, so readers who book don't retype it
+      try { sessionStorage.setItem('altr_lead_email', form.email.value); } catch (e) {}
       window.location.assign(form.getAttribute('action'));
     } catch (error) {
       showFallback();

@@ -228,7 +228,6 @@ body.pp-page {
 
 /* -- nav ----------------------------------------------------------- */
 .nav,
-.pp-menu,
 .pp-footer {
   font-family: var(--sans);
   line-height: 1.5;
@@ -279,41 +278,6 @@ body.pp-page {
   height: auto;
 }
 
-.pp-quick {
-  display: flex;
-  gap: 28px;
-}
-
-.pp-quick a {
-  position: relative;
-  color: var(--cream-2);
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color var(--t-ui);
-}
-
-.pp-quick a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background: var(--copper);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--t-ui) var(--ease-out);
-}
-
-.pp-quick a:hover {
-  color: var(--cream);
-}
-
-.pp-quick a:hover::after {
-  transform: scaleX(1);
-}
-
 .nav .pp-key {
   min-height: 40px;
   padding: 0 16px;
@@ -361,126 +325,207 @@ body.pp-page {
 .pp-menu-open .pp-menu-btn i::before { top: 3.25px; transform: rotate(45deg); }
 .pp-menu-open .pp-menu-btn i::after { top: 3.25px; transform: rotate(-45deg); }
 
-/* the menu: a full ink sheet, cut in rather than slid, links settle */
-.pp-menu {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  display: grid;
-  align-content: start;
-  padding: 112px var(--margin) 40px;
-  overflow-y: auto;
-  background: var(--ink);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 140ms linear, visibility 0s linear 140ms;
-}
-
-.pp-menu-open .pp-menu {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 140ms linear, visibility 0s;
-}
-
-.pp-menu-grid {
-  width: min(var(--wrap), 100%);
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: clamp(40px, 6vw, 96px);
-}
-
-.pp-menu-main {
-  list-style: none;
-  padding: 0;
-}
-
-.pp-menu-main li {
-  border-top: 1px solid var(--rule);
-}
-
-.pp-menu-main li:last-child {
-  border-bottom: 1px solid var(--rule);
-}
-
-.pp-menu-main a {
+/* the bar: one row of four on wide screens. Services, Industries and
+   Resources are <details> so they open without pp.js; About is a link. */
+.pp-bar-list {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 18px 0;
-  font-size: clamp(1.55rem, 3.7vw, 3.2rem);
+  align-items: center;
+  gap: 4px;
+}
+
+.pp-bar-list > li {
+  position: relative;
+}
+
+.pp-dd > summary,
+.pp-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 12px;
+  color: var(--cream-2);
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
   text-decoration: none;
-  transition: color var(--t-ui), padding var(--t-open) var(--ease-open);
-}
-
-.pp-menu-main a small {
-  color: var(--cream-3);
-  font-size: var(--fs-meta);
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.pp-menu-main a:hover {
-  color: var(--copper-hi);
-  padding-left: 12px;
-}
-
-.pp-menu-cols {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 36px 28px;
-  align-content: start;
-  padding-top: 18px;
-}
-
-.pp-menu-cols p {
-  margin-bottom: 12px;
-  color: var(--cream-3);
-  font-size: var(--fs-meta);
-}
-
-.pp-menu-cols ul {
   list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 8px;
-}
-
-.pp-menu-cols a {
-  color: var(--cream);
-  font-size: 1.1rem;
-  text-decoration: none;
+  cursor: pointer;
   transition: color var(--t-ui);
 }
 
-.pp-menu-cols a:hover {
+.pp-dd > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* the caret: a small chevron drawn from two borders */
+.pp-dd > summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--t-ui) var(--ease-out), margin var(--t-ui) var(--ease-out);
+}
+
+.pp-dd[open] > summary::after {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+.pp-dd > summary:hover,
+.pp-dd[open] > summary,
+.pp-bar-link:hover {
+  color: var(--cream);
+}
+
+/* the section holding the current page carries a copper underline */
+.pp-dd.is-current > summary,
+.pp-bar-link[aria-current="page"] {
+  color: var(--cream);
+  text-decoration: underline 1px var(--copper);
+  text-underline-offset: 6px;
+}
+
+.pp-dd ul {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 264px;
+  padding: 8px;
+  display: grid;
+  gap: 2px;
+  background: var(--plate);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--copper);
+}
+
+.pp-dd ul a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 4px;
+  color: var(--cream);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--t-ui), color var(--t-ui);
+}
+
+.pp-dd ul a small {
+  display: block;
+  color: var(--cream-3);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.pp-dd ul a:hover {
+  background: var(--ink-2);
+  color: var(--copper-hi);
+}
+
+.pp-dd ul a[aria-current="page"] {
   color: var(--copper-hi);
 }
 
 .pp-menu-foot {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px 24px;
-  padding-top: 28px;
-  border-top: 1px solid var(--rule);
-  color: var(--cream-3);
-  font-size: var(--fs-meta);
+  display: none;
 }
 
-.pp-menu-foot {
-  align-items: center;
+@media (min-width: 901px) {
+  .pp-menu-btn {
+    display: none;
+  }
 }
 
-.pp-menu-foot .pp-key {
-  margin-right: auto;
-  color: var(--ink);
+/* phones and tablets: the same list becomes a sheet under the strip, and
+   each section folds open in place */
+@media (max-width: 900px) {
+  .pp-bar {
+    position: fixed;
+    inset: 72px 0 0 0;
+    z-index: 1;
+    padding: 12px var(--margin) 40px;
+    overflow-y: auto;
+    background: var(--ink);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 140ms linear, visibility 0s linear 140ms;
+  }
+
+  .pp-menu-open .pp-bar {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 140ms linear, visibility 0s;
+  }
+
+  .pp-bar-list {
+    display: block;
+  }
+
+  .pp-bar-list > li {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pp-dd > summary,
+  .pp-bar-link {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 64px;
+    padding: 0;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+
+  .pp-dd > summary::after {
+    width: 9px;
+    height: 9px;
+    margin-right: 4px;
+  }
+
+  .pp-dd ul {
+    position: static;
+    min-width: 0;
+    padding: 0 0 16px;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .pp-dd ul a {
+    padding: 8px 0;
+    font-size: 1.05rem;
+  }
+
+  .pp-dd ul a:hover {
+    background: none;
+  }
+
+  .pp-menu-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 28px;
+    color: var(--cream-3);
+    font-size: var(--fs-meta);
+  }
+}
+
+@media (max-width: 640px) {
+  .pp-bar {
+    inset: 64px 0 0 0;
+  }
+
+  /* the strip's key hides on phones; the sheet's own key stays */
+  .nav .pp-menu-foot .pp-key {
+    display: inline-flex;
+  }
 }
 
 /* -- hero ---------------------------------------------------------- */
@@ -1520,21 +1565,6 @@ body.intake-modal-open {
     transform: none;
   }
 
-  /* menu links settle in when the sheet opens */
-  .js .pp-menu-main li,
-  .js .pp-menu-cols > div {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
-  }
-
-  .js.pp-menu-open .pp-menu-main li,
-  .js.pp-menu-open .pp-menu-cols > div {
-    opacity: 1;
-    transform: none;
-    transition-delay: calc(var(--i, 0) * 45ms + 60ms);
-  }
-
   /* Drift: plates behind type move slower than the page */
   @supports (animation-timeline: view()) {
     .pp-drift img {
@@ -1552,10 +1582,6 @@ body.intake-modal-open {
 
 /* -- responsive ----------------------------------------------------- */
 @media (max-width: 1080px) {
-  .pp-quick {
-    display: none;
-  }
-
   .pp-footer-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1568,8 +1594,7 @@ body.intake-modal-open {
 @media (max-width: 900px) {
   .pp-hero-grid,
   .pp-split,
-  .pp-logos .pp-wrap,
-  .pp-menu-grid {
+  .pp-logos .pp-wrap {
     grid-template-columns: 1fr;
   }
 
@@ -1602,10 +1627,6 @@ body.intake-modal-open {
     display: none;
   }
 
-  .pp-menu .pp-key {
-    display: inline-flex;
-  }
-
   .pp-display {
     letter-spacing: -0.04em;
   }
@@ -1622,14 +1643,6 @@ body.intake-modal-open {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px 24px;
-  }
-
-  .pp-menu-cols {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pp-menu-main a small {
-    display: none;
   }
 
   .pp-footer-grid {
@@ -1851,7 +1864,7 @@ header.nav .pp-key:focus-visible {
 /* ===================================================================
    Paper overrides
    =================================================================== */
-:where(.pp-display, .pp-h2, .pp-page h1, .pp-page h2, .pp-faq summary h3, .pp-defs h3, .pp-row-name, .pp-feature h3, .pp-menu-main a, .pp-closer h2) {
+:where(.pp-display, .pp-h2, .pp-page h1, .pp-page h2, .pp-faq summary h3, .pp-defs h3, .pp-row-name, .pp-feature h3, .pp-closer h2) {
   font-family: var(--serif);
   font-weight: 500;
 }
@@ -1895,15 +1908,6 @@ header.nav .pp-key:focus-visible {
 .pp-brand,
 .pp-brand img {
   width: 44px;
-}
-
-.pp-quick a {
-  color: var(--cream-2);
-  font-size: 15px;
-}
-
-.pp-quick a:hover {
-  color: var(--cream);
 }
 
 .nav .pp-key {
@@ -1979,8 +1983,19 @@ header.nav .pp-key:focus-visible {
   letter-spacing: -0.03em;
 }
 
-.ph-renaissance-cta .pp-link {
+.ph-renaissance-cta .pp-actions {
   margin-top: 30px;
+}
+
+/* the homepage's hand-off to the Tampa page, under the three slips */
+.ph-local {
+  margin-top: 28px;
+  color: var(--cream-2);
+  font-size: var(--fs-meta);
+}
+
+.ph-local a {
+  color: var(--copper-hi);
 }
 
 .pp-footer {

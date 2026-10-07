@@ -25,6 +25,17 @@ class SeoIntegrityTests(unittest.TestCase):
             rules.append(tuple(parts))
         self.assertIn(("/index.html", "/", "301!"), rules)
 
+    def test_every_page_redirects_its_extensionless_form(self):
+        """Search Console indexed /page and /page.html as two URLs for pages
+        missing a rule. Every top-level page needs one, not just the hub's."""
+        redirects = (ROOT / "_redirects").read_text(encoding="utf-8")
+        for file in sorted(ROOT.glob("*.html")):
+            if file.name in ("index.html", "404.html"):
+                continue
+            stem = re.escape(file.stem)
+            self.assertRegex(redirects, rf"(?m)^/{stem}\s+/{stem}\.html\s+301!",
+                             f"{file.name} has no extensionless redirect")
+
     def test_sitemap_urls_exist_and_self_canonicalize(self):
         tree = ElementTree.parse(ROOT / "sitemap.xml")
         ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -365,7 +376,7 @@ class SeoIntegrityTests(unittest.TestCase):
             "ai consultant in tampa",
         )
 
-        self.assertEqual("altr | AI Transformation and AI Engineering", home_title)
+        self.assertEqual("AI Consulting Company | AI Transformation and AI Engineering | altr", home_title)
         self.assertIn("ai engineering", home_title.lower())
         self.assertIn("ai transformation", home_title.lower())
         self.assertEqual(2, homepage.count(f'content="{home_title}"'))
@@ -396,7 +407,7 @@ class SeoIntegrityTests(unittest.TestCase):
             re.sub(r"<[^>]+>", " ", re.search(r"<h1[^>]*>(.*?)</h1>", consulting, re.S).group(1)),
         ).lower()
         self.assertIn("ai consulting in tampa", h1)
-        self.assertIn("If you searched for an AI consultant in Tampa, this is the page.", consulting)
+        self.assertIn("altr is an AI consulting firm in Tampa, run by founders Alex Britton and Jarred Robidoux.", consulting)
 
         self.assertEqual("About altr | Studio and team in Tampa Bay", about_title)
         self.assertNotIn("consulting", about_title.lower())
