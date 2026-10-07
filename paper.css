@@ -1831,6 +1831,20 @@ header.nav .pp-key:focus-visible {
   text-decoration: underline;
 }
 
+/* about page: the whole team in one row under its heading */
+.pp-team {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(28px, 3.5vw, 48px);
+}
+
+@media (max-width: 640px) {
+  .pp-team {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
+    gap: 40px;
+  }
+}
+
 .pp-verse {
   max-width: 38ch;
 }
