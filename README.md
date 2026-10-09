@@ -71,6 +71,17 @@ them. `lab/` holds local design experiments and is 404'd in production.
 - `hero-keys.js`, `lead-magnet-form.js` - page behavior.
 - `altr-brand-assets/` - source brand assets and brand notes.
 - `assets/` - site assets. Images are served as WebP with PNG/JPEG fallbacks.
+  `_headers` caches everything under `assets/` for a year, so never overwrite
+  an image in place: save the new one under a new name (the size suffixes,
+  `-1000`, `-600`, `-128`, are the pattern) or add `?v=` to its URL.
+- Page speed (October 2026; homepage mobile Lighthouse went from 75 to 93
+  on a local run): EB Garamond and Geist
+  are self-hosted in `assets/fonts/` (`@font-face` at the top of `paper.css`,
+  the two latin files preloaded on every page), so nothing waits on Google
+  Fonts. gtag.js is injected on `load`. The homepage hero plate has a 1000px
+  file for phones and a 1600px one for desktop, each preloaded by media query,
+  and the plates shown in grayscale are stored in grayscale. Keep new
+  animations to opacity and transform.
 - `assets/headers/` - each article's hand-drawn header, also used as its learning
   center card and link preview. The source drawings are in
   `design-language/headers/svgs/`. Make or change one with the `sketch-header`

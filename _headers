@@ -3,11 +3,19 @@
   Content-Disposition: attachment; filename="AI-in-Real-Estate-Field-Guide.pdf"
   X-Content-Type-Options: nosniff
 
-# Images, fonts and brand files are not fingerprinted, so a week rather than
-# a year: returning visitors skip the revalidation round trip on every plate,
-# and a replaced file is never stale for long.
+# Images, fonts and brand files are cached for a year. To change one, save it
+# under a new name (or add ?v= to its URL, as the headshots do) and update the
+# pages; never overwrite a file in place, or returning visitors keep the old
+# one. paper.css and pp.js are only ever loaded with ?v=, which every edit to
+# them bumps on all pages, so they get a year too.
 /assets/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=31536000
 
 /altr-brand-assets/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=31536000
+
+/paper.css
+  Cache-Control: public, max-age=31536000
+
+/pp.js
+  Cache-Control: public, max-age=31536000

@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
-     Visit any page with ?internal=1 once per browser to tag your own visits. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
+     Visit any page with ?internal=1 once per browser to tag your own visits.
+     gtag.js loads after the page does, so its 190 KB never competes with the
+     page for bandwidth; events queue in dataLayer until then. -->
 <script>
  window.dataLayer = window.dataLayer || [];
  function gtag(){dataLayer.push(arguments);}
@@ -15,6 +16,12 @@
   if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
  } catch (e) {}
  gtag('config', 'G-RHG020FK51', altrGa);
+ addEventListener('load', function () {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51';
+  document.head.appendChild(s);
+ });
 </script>
 <meta charset="utf-8" />
 <title>Your AI in Real Estate Field Guide | altr</title>
@@ -24,17 +31,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261007n" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
 <body class="pp-page">
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
+    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -93,7 +99,7 @@
   <div class="pp-wrap">
     <div class="pp-footer-grid">
       <div class="pp-footer-brand">
-        <img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" loading="lazy" />
+        <img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr" loading="lazy" />
         <p>AI services company</p>
       </div>
       <div>
@@ -136,6 +142,6 @@
   </div>
 </footer>
 </div>
-<script src="pp.js?v=20261007n"></script>
+<script src="pp.js?v=20261009a"></script>
 </body>
 </html>

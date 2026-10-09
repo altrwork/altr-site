@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
-     Visit any page with ?internal=1 once per browser to tag your own visits. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
+     Visit any page with ?internal=1 once per browser to tag your own visits.
+     gtag.js loads after the page does, so its 190 KB never competes with the
+     page for bandwidth; events queue in dataLayer until then. -->
 <script>
  window.dataLayer = window.dataLayer || [];
  function gtag(){dataLayer.push(arguments);}
@@ -15,6 +16,12 @@
   if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
  } catch (e) {}
  gtag('config', 'G-RHG020FK51', altrGa);
+ addEventListener('load', function () {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51';
+  document.head.appendChild(s);
+ });
 </script>
 <meta charset="utf-8" />
 <title>AI Consulting Company | AI Transformation and AI Engineering | altr</title>
@@ -41,11 +48,11 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
-<link rel="preload" as="image" href="assets/plates/school-of-athens-hero.webp" />
-<link rel="stylesheet" href="paper.css?v=20261007n" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
+<link rel="preload" as="image" href="assets/plates/school-of-athens-hero-1000.webp" media="(max-width: 900px)" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/plates/school-of-athens-hero-1600.webp" media="(width > 900px)" fetchpriority="high" />
+<link rel="stylesheet" href="paper.css?v=20261009a" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -196,7 +203,7 @@
 <body class="pp-page">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="nav">
-  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
+  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
   <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
     <ul class="pp-bar-list">
       <li><details class="pp-dd">
@@ -258,13 +265,13 @@
       <ul class="pp-logo-row">
         <li><img src="assets/clients/vector-cre.svg" alt="Vector Commercial Real Estate" width="446" height="129" loading="lazy" decoding="async" /></li>
         <li class="tone"><img src="assets/clients/spark-labs-light.svg" alt="spARK Labs" width="130" height="69" loading="lazy" decoding="async" /></li>
-        <li><picture><source srcset="assets/clients/fishin-prints.webp" type="image/webp" /><img src="assets/clients/fishin-prints.png" alt="Fishin Prints" width="480" height="206" loading="lazy" decoding="async" /></picture></li>
+        <li><picture><source srcset="assets/clients/fishin-prints-168.webp" type="image/webp" /><img src="assets/clients/fishin-prints.png" alt="Fishin Prints" width="480" height="206" loading="lazy" decoding="async" /></picture></li>
         <li class="bebrief-paper"><img src="assets/clients/bebrief-light.webp" alt="BeBrief" width="300" height="50" loading="lazy" decoding="async" /></li>
       </ul>
       <div class="ph-cred">
         <div class="ph-cred-assets">
           <a class="ph-cred-badge" href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs" target="_blank" rel="noopener" aria-label="Anthropic: Claude for small business"><img src="assets/clients/anthropic.svg" alt="Anthropic" width="1024" height="115" loading="lazy" decoding="async" /></a>
-          <img class="ph-cred-partner" src="assets/clients/claude-partner-network-transparent.webp" alt="Claude Partner Network" width="700" height="72" loading="lazy" decoding="async" />
+          <img class="ph-cred-partner" src="assets/clients/claude-partner-network-600.webp" srcset="assets/clients/claude-partner-network-450.webp 450w, assets/clients/claude-partner-network-600.webp 600w" sizes="300px" alt="Claude Partner Network" width="600" height="62" loading="lazy" decoding="async" />
         </div>
         <div class="ph-event" data-until="2026-10-22T13:00:00-04:00">
           <span class="ph-event-when"><b>Free Claude workshop on Thu, Oct 22</b><span class="ph-event-dot"> &middot;</span> 11:30 AM to 1:00 PM &middot; COhatch St. Petersburg</span>
@@ -280,15 +287,15 @@
       <h2 class="visually-hidden" id="services-heading">Our approach</h2>
       <div class="ph-slips ph-slips-three">
         <a class="ph-slip" href="ai-transformation.html">
-          <span class="ph-slip-figure ph-slip-figure--strategy" aria-hidden="true"><img src="assets/plates/approach-strategy-dividers.webp" alt="" width="400" height="600" loading="lazy" decoding="async" /></span>
+          <span class="ph-slip-figure ph-slip-figure--strategy" aria-hidden="true"><img src="assets/plates/approach-strategy-dividers-gray.webp" srcset="assets/plates/approach-strategy-dividers-240.webp 240w, assets/plates/approach-strategy-dividers-gray.webp 400w" sizes="calc(clamp(180px, 18vw, 230px) * 0.667)" alt="" width="400" height="600" loading="lazy" decoding="async" /></span>
           <h3>Strategy</h3><p>Find the right opportunities and a clear path forward.</p><small>Explore our approach &rarr;</small>
         </a>
         <a class="ph-slip" href="ai-transformation.html">
-          <span class="ph-slip-figure ph-slip-figure--transformation" aria-hidden="true"><img src="assets/plates/approach-transformation-mallet.webp" alt="" width="700" height="467" loading="lazy" decoding="async" /></span>
+          <span class="ph-slip-figure ph-slip-figure--transformation" aria-hidden="true"><img src="assets/plates/approach-transformation-mallet-600.webp" srcset="assets/plates/approach-transformation-mallet-400.webp 400w, assets/plates/approach-transformation-mallet-600.webp 600w" sizes="calc(clamp(180px, 18vw, 230px) * 1.5)" alt="" width="600" height="400" loading="lazy" decoding="async" /></span>
           <h3>Transformation</h3><p>Give your team the skills and support to use AI every day.</p><small>Explore transformation &rarr;</small>
         </a>
         <a class="ph-slip" href="ai-engineering.html">
-          <span class="ph-slip-figure ph-slip-figure--engineering" aria-hidden="true"><img src="assets/plates/approach-engineering-gear.webp" alt="" width="650" height="592" loading="lazy" decoding="async" /></span>
+          <span class="ph-slip-figure ph-slip-figure--engineering" aria-hidden="true"><img src="assets/plates/approach-engineering-gear-600.webp" srcset="assets/plates/approach-engineering-gear-400.webp 400w, assets/plates/approach-engineering-gear-600.webp 600w" sizes="calc(clamp(180px, 18vw, 230px) * 1.1)" alt="" width="600" height="546" loading="lazy" decoding="async" /></span>
           <h3>Engineering</h3><p>Build AI-powered systems and customer-facing products.</p><small>Explore engineering &rarr;</small>
         </a>
       </div>
@@ -330,7 +337,7 @@
   <div class="pp-wrap">
     <div class="ph-footer-row">
       <a class="ph-footer-home" href="index.html" aria-label="altr home">
-        <img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="" loading="lazy" />
+        <img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="" loading="lazy" />
         <span>altr &middot; AI services company</span>
       </a>
       <nav class="ph-footer-links" aria-label="Footer links">
@@ -348,6 +355,6 @@
     </div>
   </div>
 </footer>
-<script src="pp.js?v=20261007n"></script>
+<script src="pp.js?v=20261009a"></script>
 </body>
 </html>

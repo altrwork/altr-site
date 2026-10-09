@@ -232,9 +232,9 @@ class SeoIntegrityTests(unittest.TestCase):
         self.assertEqual(1, section.count('class="ph-slip" href="ai-engineering.html"'))
         self.assertEqual(3, section.count('class="ph-slip-figure ph-slip-figure--'))
         for image in (
-            "approach-strategy-dividers.webp",
-            "approach-transformation-mallet.webp",
-            "approach-engineering-gear.webp",
+            "approach-strategy-dividers-gray.webp",
+            "approach-transformation-mallet-600.webp",
+            "approach-engineering-gear-600.webp",
         ):
             self.assertIn(f'assets/plates/{image}', section)
             self.assertTrue((ROOT / "assets" / "plates" / image).is_file())

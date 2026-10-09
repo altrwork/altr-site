@@ -77,7 +77,7 @@
   /* -- nav: tint once scrolled, hide on the way down ---------------- */
   const nav = document.querySelector('.nav');
   if (!nav) return;
-  let lastY = window.scrollY;
+  let lastY = 0;
   let ticking = false;
   const onScroll = () => {
     const y = window.scrollY;
@@ -95,7 +95,12 @@
       window.requestAnimationFrame(onScroll);
     }
   }, { passive: true });
-  onScroll();
+  // first read waits a frame: reading scrollY now, right after the headline
+  // and menu writes, would force a synchronous layout
+  window.requestAnimationFrame(() => {
+    lastY = window.scrollY;
+    onScroll();
+  });
 
   /* -- dropdowns: one open at a time; outside click or Escape shuts -- */
   const drops = [...nav.querySelectorAll('.pp-dd')];

@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js). Only altrwork.com reports; local dev does not.
-     Visit any page with ?internal=1 once per browser to tag your own visits. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51"></script>
+     Visit any page with ?internal=1 once per browser to tag your own visits.
+     gtag.js loads after the page does, so its 190 KB never competes with the
+     page for bandwidth; events queue in dataLayer until then. -->
 <script>
  window.dataLayer = window.dataLayer || [];
  function gtag(){dataLayer.push(arguments);}
@@ -15,6 +16,12 @@
   if (localStorage.getItem('altr_internal') === '1') altrGa.traffic_type = 'internal';
  } catch (e) {}
  gtag('config', 'G-RHG020FK51', altrGa);
+ addEventListener('load', function () {
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RHG020FK51';
+  document.head.appendChild(s);
+ });
 </script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,10 +35,9 @@
 <meta property="og:image" content="https://altrwork.com/assets/share/altr-home-v2.jpg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Geist:wght@400;500;600&display=swap" />
-<link rel="stylesheet" href="paper.css?v=20261007n" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
+<link rel="stylesheet" href="paper.css?v=20261009a" />
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "AI transformation and AI consulting for small business", "serviceType": "AI consulting", "provider": {"@id": "https://altrwork.com/#business"}, "areaServed": "US", "url": "https://altrwork.com/ai-transformation.html", "description": "AI consulting for small and mid-size businesses: find where AI fits, redesign the work around it and train your team on their own tools. Book a call."}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does an AI consulting company do for a small business?", "acceptedAnswer": {"@type": "Answer", "text": "It finds where AI fits in the work you already do, changes the process around it, and trains the people who do it. At altr that starts with one repeated process and ends with a recommendation: train the team, build a system, or leave the process alone."}}, {"@type": "Question", "name": "How is altr different from other AI consulting companies?", "acceptedAnswer": {"@type": "Answer", "text": "We start with the work, not a tool or a slide deck. Your team keeps the prompts, workflows and documentation. When something needs a build, our engineers carry the plan into an internal system or customer-facing product."}}, {"@type": "Question", "name": "Do we need technical staff to work with you?", "acceptedAnswer": {"@type": "Answer", "text": "No. The training is about judgment: when to trust the output, when to edit it and when to escalate. People work on their own tasks in the tools they already use."}}, {"@type": "Question", "name": "How much does AI consulting cost?", "acceptedAnswer": {"@type": "Answer", "text": "Fees are quoted on a call rather than published. Scope and price are agreed in writing before any work starts."}}]}]}
 </script>
@@ -39,7 +45,7 @@
 <body class="pp-page at-page">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="nav">
-  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr home" /></a>
+  <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
   <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
     <ul class="pp-bar-list">
       <li><details class="pp-dd is-current">
@@ -92,7 +98,7 @@
   <section class="at-chapter" id="strategy" aria-labelledby="strategy-heading">
     <div class="pp-wrap at-chapter-grid">
       <div class="at-chapter-aside">
-        <figure class="at-chapter-image" data-pull><img src="assets/plates/approach-strategy-dividers.webp" alt="Antique drafting dividers" width="400" height="600" loading="lazy" decoding="async" /></figure>
+        <figure class="at-chapter-image" data-pull><img src="assets/plates/approach-strategy-dividers-gray.webp" alt="Antique drafting dividers" width="400" height="600" loading="lazy" decoding="async" /></figure>
       </div>
       <div class="at-chapter-content">
         <h2 id="strategy-heading" data-settle>Start with the work.</h2>
@@ -110,7 +116,7 @@
   <section class="at-chapter" id="transformation" aria-labelledby="transformation-heading">
     <div class="pp-wrap at-chapter-grid">
       <div class="at-chapter-aside">
-        <figure class="at-chapter-image at-chapter-image--wide" data-pull><img src="assets/plates/approach-transformation-mallet.webp" alt="Antique wooden mallet" width="700" height="467" loading="lazy" decoding="async" /></figure>
+        <figure class="at-chapter-image at-chapter-image--wide" data-pull><img src="assets/plates/approach-transformation-mallet-600.webp" alt="Antique wooden mallet" width="600" height="400" loading="lazy" decoding="async" /></figure>
       </div>
       <div class="at-chapter-content">
         <h2 id="transformation-heading" data-settle>Change the process.</h2>
@@ -204,7 +210,7 @@
   <div class="pp-wrap">
     <div class="pp-footer-grid">
       <div class="pp-footer-brand">
-        <img src="assets/logo/altr-key-marble.webp" width="512" height="486" alt="altr" loading="lazy" />
+        <img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr" loading="lazy" />
         <p>AI services company</p>
       </div>
       <div>
@@ -246,6 +252,6 @@
     </div>
   </div>
 </footer>
-<script src="pp.js?v=20261007n"></script>
+<script src="pp.js?v=20261009a"></script>
 </body>
 </html>
