@@ -476,37 +476,47 @@ class SeoIntegrityTests(unittest.TestCase):
 
     def test_free_claude_workshop_leads_with_search_terms(self):
         """The public workshop page leads with Free, Claude, Tampa Bay, and
-        small business, and keeps October 22 at COhatch St. Petersburg."""
+        small business, and features only the next calendar event on the
+        workshop landing page and homepage."""
         html = (ROOT / "ai-workshop.html").read_text(encoding="utf-8")
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         title = "Free Claude Workshops for Tampa Bay Small Businesses | altr"
         description = (
-            "Free Claude workshop for Tampa Bay small businesses on October 22 "
-            "at COhatch St. Petersburg. Bring a real task and build a workflow you can reuse."
+            "Free Claude SMB workshop for Tampa Bay small businesses on October 22 "
+            "in St. Petersburg. Bring a real task and build a workflow you can reuse."
         )
         self.assertIn(f"<title>{title}</title>", html)
         self.assertEqual(2, html.count(f'content="{title}"'))
         self.assertEqual(3, html.count(f'content="{description}"'))
         self.assertLessEqual(len(description), 160)
         self.assertIn("<h1>Free Claude workshops for Tampa Bay small businesses</h1>", html)
-        self.assertIn('"name": "Free Claude Workshop for Tampa Bay Small Business"', html)
+        self.assertEqual(1, html.count('"name": "Claude SMB Workshop with Altrwork - St. Petersburg"'))
         self.assertEqual(2, html.count('"name": "Free Claude Workshops for Tampa Bay Small Businesses"'))
-        self.assertIn("<h3>Free Claude Workshop for Tampa Bay Small Business</h3>", html)
         self.assertIn("<h2>The next workshop is October 22 in St. Petersburg.</h2>", html)
-        self.assertIn("2026-10-22T11:30:00-04:00", html)
+        self.assertIn("<h3>Thursday, October 22</h3>", html)
+        self.assertIn("2026-10-22T11:00:00-04:00", html)
         self.assertIn("2026-10-22T13:00:00-04:00", html)
-        self.assertIn('"name": "COhatch St. Petersburg"', html)
-        self.assertIn('"streetAddress": "15 8th St N"', html)
-        self.assertIn('"addressLocality": "St. Petersburg"', html)
-        self.assertIn('"postalCode": "33701"', html)
-        self.assertIn(
-            "Thursday, October 22, 2026, from 11:30 AM to 1:00 PM ET at "
-            "COhatch St. Petersburg, 15 8th St N, St. Petersburg, FL 33701.",
-            html,
-        )
-        self.assertIn("https://luma.com/i0re04ey", html)
-        self.assertIn("November 10", html)
+        self.assertIn("https://luma.com/fkurr1y0", html)
+        self.assertIn("https://luma.com/calendar/cal-jWIAJ4PQoQ092hE", html)
+        self.assertNotIn("October 27", html)
+        self.assertNotIn("November 4", html)
+        self.assertNotIn("https://luma.com/mltbo9ku", html)
+        self.assertNotIn("https://luma.com/06x77f4p", html)
+        self.assertIn("Free Claude workshop on Thu, Oct 22", homepage)
+        self.assertIn("https://luma.com/fkurr1y0", homepage)
+        self.assertNotIn("October 27", homepage)
+        self.assertNotIn("November 4", homepage)
+        self.assertNotIn("https://luma.com/mltbo9ku", homepage)
+        self.assertNotIn("https://luma.com/06x77f4p", homepage)
         self.assertNotIn("October 22 in Tampa", html)
-        for leftover in ("COhatch West Tampa", "2130 W Main", "33607"):
+        for leftover in (
+            "https://luma.com/i0re04ey",
+            "COhatch West Tampa",
+            "2130 W Main",
+            "33607",
+            "15 8th St N",
+            "33701",
+        ):
             self.assertNotIn(leftover, html)
         self.assertNotIn("\u2014", html)
         for path in list(ROOT.glob("*.html")) + [ROOT / "llms.txt"]:
