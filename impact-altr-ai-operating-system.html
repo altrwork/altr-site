@@ -26,10 +26,10 @@
 <meta charset="utf-8" />
 <title>How We Run altr on Our Own AI Operating System | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How altr runs on its own AI operating system: one login, chat, docs and a CRM on Cloudflare, and four agents working under written, enforced limits, with what it costs and how we tested it." />
+<meta name="description" content="How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits." />
 <link rel="canonical" href="https://altrwork.com/impact-altr-ai-operating-system.html" />
 <meta property="og:title" content="How We Run altr on Our Own AI Operating System | altr" />
-<meta property="og:description" content="How altr runs on its own AI operating system: one login, chat, docs and a CRM on Cloudflare, and four agents working under written, enforced limits, with what it costs and how we tested it." />
+<meta property="og:description" content="How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits." />
 <meta property="og:url" content="https://altrwork.com/impact-altr-ai-operating-system.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -40,7 +40,7 @@
 <meta property="og:image:alt" content="A person signs in once with the altr key and reaches three stacked systems, Chat, Docs and CRM. Four agents, Kara, Counsel, GTM and Engy, reach the same systems from the other side through a copper gate labeled Limits." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How We Run altr on Our Own AI Operating System | altr" />
-<meta name="twitter:description" content="How altr runs on its own AI operating system: one login, chat, docs and a CRM on Cloudflare, and four agents working under written, enforced limits, with what it costs and how we tested it." />
+<meta name="twitter:description" content="How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/impact-altr-ai-operating-system.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -56,7 +56,7 @@
     {
       "@type": "Article",
       "headline": "How we run altr on our own AI operating system.",
-      "description": "How altr runs on its own AI operating system: one login, chat, docs and a CRM on Cloudflare, and four agents working under written, enforced limits, with what it costs and how we tested it.",
+      "description": "How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits.",
       "image": "https://altrwork.com/assets/headers/impact-altr-ai-operating-system.webp",
       "author": {
         "@type": "Organization",
@@ -159,285 +159,99 @@
 <div class="impact-study-copy">
 <h1>How we run altr on our own AI operating system.</h1>
 <figure class="cre-hero-image"><picture><source srcset="assets/headers/impact-altr-ai-operating-system.webp" type="image/webp" /><img src="assets/headers/impact-altr-ai-operating-system.webp" width="1200" height="630" alt="A person signs in once with the altr key and reaches three stacked systems, Chat, Docs and CRM. Four agents, Kara, Counsel, GTM and Engy, reach the same systems from the other side through a copper gate labeled Limits." /></picture></figure>
-<p class="impact-subheading">altr is three people. We run the company's chat, wiki and CRM on software we wrote ourselves, behind one login, and four AI agents work in that software the same way a teammate does. They have accounts, they post in channels, they edit pages, and they update CRM records. This page explains how it is put together, why we made each choice, and what we checked along the way.</p>
-<p>It is written for people who build things. If you only want the idea, read the next section and the walkthrough of Kara. If you want the mechanisms, keep going.</p>
+<p class="impact-subheading">altr is three people. We run the company's chat, wiki and CRM on software we wrote ourselves, behind one login, and four AI agents work in that software the same way a teammate does. They have accounts, they post in channels, they edit pages, and they update CRM records. This page shows what it looks like, why we built it, and what it means for a team our size.</p>
 <h2 class="impact-article-heading">The short version</h2>
 <ul>
-<li><strong>Four apps on Cloudflare.</strong> <code>altr-auth</code> (login, directory, OAuth), <code>altr-chat</code> (Slack-like), <code>altr-docs</code> (Notion-like) and <code>altr-crm</code> (HubSpot-shaped). Each is one Cloudflare Worker. Data lives in D1 (SQLite), file bytes in R2, and Durable Objects hold live connections.</li>
-<li><strong>One login.</strong> People sign in once with Google through Cloudflare Access. Every app checks that identity itself and asks <code>altr-auth</code> whether the person is still active.</li>
-<li><strong>Every app is also an MCP server.</strong> Claude, and our agents, connect to the same apps people use and read and write the same records. There is no separate "AI database".</li>
-<li><strong>Four agents:</strong> Kara takes intake calls, Counsel drafts documents and invoices, GTM drafts follow-up emails and preps us for meetings, and Engy builds and fixes our internal software.</li>
-<li><strong>Agents are code.</strong> Each one is a manifest file in a git repo. A merge deploys it. The login server enforces what any agent may be given, no matter what the manifest says.</li>
-<li><strong>About 30,000 lines</strong> of TypeScript and SQL across the four apps, and about 285 commits across eight repositories since October 1, 2026. The four platform repositories begin between October 6 and October 9, and the last commit described here is from October 15.</li>
-<li><strong>Platform infrastructure costs about $0 to $0.20 a month</strong> on top of the $5 Workers Paid plan we already had. Model usage is separate and capped per agent.</li>
+<li><strong>Three connected apps and one login.</strong> A chat, a wiki and a CRM, all ours, all running on Cloudflare. People sign in once with Google, and the same identity system covers the agents.</li>
+<li><strong>Claude and our agents work on the same records people do.</strong> Each app can be reached through MCP, an open protocol for connecting AI to tools. There is no separate "AI database" to keep in sync.</li>
+<li><strong>Four agents.</strong> Kara takes the first call with a new lead. Counsel drafts documents and invoices. GTM drafts follow-up emails and preps us for meetings. Engy builds and fixes our internal software.</li>
+<li><strong>Every agent works under written limits.</strong> What it may do alone, what needs a person to approve, and what it never does. The limits are enforced by the software, not by asking the model nicely.</li>
+<li><strong>It is cheap to run.</strong> Hosting adds about $5 a month. The real variable cost is model usage, and every agent has a daily cap.</li>
 </ul>
-<h2 class="impact-article-heading">Why we built it</h2>
-<p>We wanted five things:</p>
-<ol>
-<li>One login for people, with no password system of our own to defend.</li>
-<li>Agents as full members of the workspace, reachable through MCP, not bolted on through screen scraping or one-off scripts.</li>
-<li>A record that cannot be lost: soft deletes, point-in-time restore, and encrypted off-database copies.</li>
-<li>Agents that cannot do more than we allowed, with the limits enforced in code and not in a prompt.</li>
-<li>A system small enough that three people can operate it, and that we can describe in one document.</li>
-</ol>
-<p>The rest of this page is what those five goals turned into.</p>
 <h2 class="impact-article-heading">Why this matters for a small team</h2>
 <p>A three-person company has the same jobs as a thirty-person one and a third of the hours. Someone has to take the first call with a new lead, write the follow-up, file the notes, draft the proposal, send the invoice, remember who spoke to whom last week, and fix the broken thing in the internal tools. When the same people also do the client work, those jobs either get squeezed or get done at night.</p>
 <p>Agents change that only if they can be trusted with real work. A chatbot that answers questions in a separate window does not take a job off anyone's plate, because a person still has to copy its output into the CRM, the wiki and the email. What takes the job off is an agent that works inside the same systems the team uses, under the same login, with limits the team has chosen.</p>
-<p>That is what we built, and it is why the agents here are not a separate product bolted on the side:</p>
+<p>That is what we built, and it is why the agents here are not a separate product bolted on the side.</p>
 <ul>
 <li><strong>They act in the systems of record.</strong> Kara's call ends up as a CRM record, a docs page and a chat post. Counsel's draft invoice is a real Stripe draft with a note on the CRM deal. GTM's follow-up is a draft in the seller's own Gmail. Engy's change is a real pull request. Nobody retypes anything.</li>
 <li><strong>They act under limits.</strong> Each agent has one job, a daily spend cap, a list of what it may do alone and what needs a person, and a list of what it will never do. The three of us can hold a list that short in our heads.</li>
-<li><strong>They leave a trail.</strong> Every call an agent makes is in an audit log with the credential it used. When something looks wrong, we can see what happened and switch the agent off in one step.</li>
+<li><strong>They leave a trail.</strong> Every call an agent makes is in an audit log, and we can switch any agent off in one step.</li>
 <li><strong>They stay inside the team's attention.</strong> The questions, the approvals and the results all show up in chat, where we already are. Approving an invoice is replying "approve" in a thread.</li>
 </ul>
-<p>We should be plain about what we have and have not measured. We have not timed how long the team used to spend on these jobs, so this page does not claim a number of hours saved. What we can state is what changed in who does the mechanical half: the intake call, the notes, the first draft of a document, the follow-up email, the CRM entry and the first pass at a small code change are now done by an agent and reviewed by a person. The judgment half, who to work with, what to promise, and whether to merge, stays with us on purpose.</p>
+<p>We should be plain about what we have and have not measured. We have not timed how long the team used to spend on these jobs, so this page does not claim a number of hours saved. What we can state is what changed in who does the mechanical half. The intake call, the notes, the first draft of a document, the follow-up email, the CRM entry and the first pass at a small code change are now done by an agent and reviewed by a person. The judgment half, who to work with, what to promise, and whether to merge, stays with us on purpose.</p>
+<h2 class="impact-article-heading">Why we built it</h2>
+<p>We wanted five things.</p>
+<ol>
+<li>One login for people, with no password system of our own to defend.</li>
+<li>Agents as full members of the workspace, not scripts bolted on through screen scraping.</li>
+<li>A record that cannot be lost.</li>
+<li>Agents that cannot do more than we allowed.</li>
+<li>A system small enough that three people can run it.</li>
+</ol>
 <h2 class="impact-article-heading">The system at a glance</h2>
-<pre><code>                      people (Google Workspace sign-in)
-                                   │
-                    Cloudflare Access (&quot;altr apps&quot;)           Claude.ai / Claude Code / agents
-                                   │ Cf-Access-Jwt-Assertion          │ OAuth 2.1 + PKCE, or a service token
-         ┌─────────────────────────┼───────────────────────────┐      │
-         ▼                         ▼                           ▼      ▼
-  chat.altrwork.com         docs.altrwork.com           crm.altrwork.com        each app also serves /mcp
-  Worker + Durable          Worker + Durable            Worker + D1
-  Objects + D1 + R2         Object + D1 + R2
-         │  ▲                       ▲  │                         │
-         │  └── link previews (service bindings) ──┘             │
-         │                                                       │
-         └─────── token check, directory, roles ─────────────────┘
-                                   ▼
-                        auth.altrwork.com (altr-auth, D1)
-                 people, agents, grants, agent specs, audit log
-                                   ▲
-                 provisioning calls from CI (one service identity)
-                                   │
-              GitHub Actions in altr-agents ──► deploys each agent's Worker
+<pre><code>   People ──► one login ──┐
+                          ├──►  Chat  ·  Docs  ·  CRM
+   Agents ──► written ────┘
+              limits
+   (Kara · Counsel · GTM · Engy)
 </code></pre>
 <div class="article-table-wrap"><table class="article-table">
 <thead>
 <tr>
 <th>Piece</th>
-<th>What it is</th>
-<th>State</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>altr-auth</code></td>
-<td>Login directory, OAuth 2.1 server, agent provisioning API, audit log, admin pages</td>
-<td>D1</td>
+<td><strong>Login and directory</strong></td>
+<td>One place that knows every person and every agent, and checks every request.</td>
 </tr>
 <tr>
-<td><code>altr-chat</code></td>
-<td>Channels, DMs, threads, files, search, push notifications, agent webhooks</td>
-<td>D1, R2, Durable Objects</td>
+<td><strong>Chat</strong></td>
+<td>Channels, DMs and threads. Agents are members, with a badge.</td>
 </tr>
 <tr>
-<td><code>altr-docs</code></td>
-<td>Page tree, real-time co-editing, page-level access control, history</td>
-<td>D1, R2, Durable Object per page</td>
+<td><strong>Docs</strong></td>
+<td>A wiki people edit together. Agents read and write the same pages.</td>
 </tr>
 <tr>
-<td><code>altr-crm</code></td>
-<td>Companies, people, prospects, deals, tickets, tasks, Gmail/Stripe/Granola/Apollo sync</td>
-<td>D1</td>
+<td><strong>CRM</strong></td>
+<td>Companies, people, deals and tasks, with email and meetings attached automatically.</td>
 </tr>
 <tr>
-<td><code>altr-backup</code></td>
-<td>Nightly encrypted dump of every database, plus a mirror of the file buckets</td>
-<td>R2</td>
-</tr>
-<tr>
-<td><code>altr-agents</code></td>
-<td>The agents' manifests, the deploy pipeline, and a small SDK</td>
-<td>GitHub Actions</td>
-</tr>
-<tr>
-<td>Agents</td>
-<td>One Worker each: <code>kara-intake</code>, <code>counsel-agent</code>, <code>gtm-agent</code>, <code>engy-agent</code></td>
-<td>their own</td>
+<td><strong>Agents</strong></td>
+<td>Four of them, each defined as reviewed code with its own limits.</td>
 </tr>
 </tbody>
 </table></div>
-<h2 class="impact-article-heading">Decisions that shaped it</h2>
-<h3>One Worker per app, no framework</h3>
-<p>Each app is a single Worker with a hand-written router: dispatch on the URL path in <code>src/index.ts</code>, about fifty lines. Every app already worked that way before we wrote it down, and it keeps bundles and cold starts small. The auth Worker bundles to 27 KB gzipped, chat to 168 KB, docs to 466 KB.</p>
-<p>D1 holds relational data. R2 holds file bytes. Durable Objects are used only where something has to stay connected: the chat rooms and the document editor.</p>
-<h3>A written standard, checked by a script</h3>
-<p>The four apps follow one standard (<code>altr-app-standard/1</code>). It fixes the layout of the repository, the pinned version of every dependency (exact versions, no ranges), the shape of IDs (<code>&lt;prefix&gt;_&lt;ULID&gt;</code>), the shape of timestamps (UTC ISO 8601), the error format, the security headers, the audit table, and the names of the MCP tools.</p>
-<p>A script, <code>conformance.mjs</code>, checks all of it against each repo. It looks at the scripts in <code>package.json</code>, the pinned versions, whether the vendored shared packages match their source, the migration file names, the audit table, the <code>wrangler.jsonc</code> settings, and conventions in the code such as the health route and the error envelope. It also checks that each README has the same sections. The point is that any of us, or any agent, can open any repo and already know where things are.</p>
-<p>The shared code is two packages: <code>@altr/platform</code> (HTTP helpers, security headers, IDs, the audit writer, MCP instrumentation) and <code>@altr/auth-client</code> (token verification). They are copied into each app by a sync script, so every repo builds on its own in CI without reaching into another repo.</p>
-<h3>Why we wrote our own authorization server</h3>
-<p>Claude connects to a remote tool server using OAuth 2.1, and our four apps all need to accept the same tokens. We looked at the options.</p>
-<p>Cloudflare's <code>workers-oauth-provider</code> library is good, but it is built for one Worker that is both the authorization server and the resource server. We needed one server that four apps trust. It stores grants in KV, which is another product with its own pricing. It seals grant properties when the person consents, which conflicts with deactivating someone and having their tokens die immediately. And its refresh-token rotation leaves the old token valid until the new one is used, which is a grace window and not reuse detection.</p>
-<p>Better Auth and OpenAuth would have left us running password, two-factor and recovery code. Keycloak, Authentik and Zitadel need a server with Postgres. For three people that is the wrong amount to operate.</p>
-<p>So <code>altr-auth</code> is its own Worker with its own D1 database. The first version was about 600 lines. With agent provisioning, admin pages and audit it is about 2,100 lines of TypeScript and SQL today. It is deliberately separate from the product we sell to clients. Internal identity never shares a database or an issuer with client systems.</p>
-<h3>We did not write our own sign-in or two-factor</h3>
-<p>A managed path already gives phishing-resistant sign-in: Google Workspace behind Cloudflare Access, with Google's 2-Step Verification, including passkeys and security keys. Writing our own WebAuthn ceremonies, authenticator secrets and account recovery would add the riskiest code in the company and protect nothing extra. Our job is narrower: verify the identity we are handed, and authorize well.</p>
-<h3>Outside data comes in once, through the CRM</h3>
-<p>This is the rule that keeps the agents simple. Gmail, Stripe, Granola and Apollo are read only by the CRM's own sync, on a schedule an admin controls. Agents never hold read credentials for those services. If an agent wants to know what a client has paid, it asks the CRM (<code>get_stripe_billing</code>). If it wants to know whether a teammate emailed someone last week, it asks the CRM (<code>get_recent_touches</code>). The manifest check rejects any agent that declares read access to Stripe, Gmail or Granola.</p>
-<p>The other half of the rule is that <strong>doing</strong> something in an outside service belongs to exactly one agent, holding the narrowest key that works. Counsel is the only agent that writes to Stripe. GTM is the only one that writes Gmail drafts. Kara is the only one that places phone calls. There is no shared "do everything" server, and no Worker calls another agent's Worker.</p>
-<h3>Dry run first, then confirm</h3>
-<p>Every CRM write tool returns a preview and changes nothing unless the caller passes <code>confirm: true</code>. The preview lists exactly which records and fields would change and whether the change is valid. Agents run the preview, check <code>valid</code>, and then confirm. Deletes are soft everywhere: records are archived, never removed.</p>
-<h2 class="impact-article-heading">Identity and tokens</h2>
-<h3>People</h3>
-<p>A person opens any altr app. Cloudflare Access sends them through Google sign-in and sets a session cookie for that hostname. The app receives a signed JWT in the <code>Cf-Access-Jwt-Assertion</code> header. The Worker does not trust the header. It checks the signature against Cloudflare's published keys and checks the issuer and the audience, so a misconfigured Access policy fails closed.</p>
-<p>Then the Worker asks <code>altr-auth</code> whether this email belongs to an active person, and what their role is. The answer is cached for 60 seconds. A new person with an <code>@altrwork.com</code> address is added to the directory on first visit.</p>
-<p>One decision here is worth stating. If <code>altr-auth</code> cannot be reached, the apps still let in a person Access has already authenticated. They fail open on that lookup only. Bearer tokens do the opposite and fail closed. We chose this because a person has already proven who they are to Cloudflare, and losing the directory should not lock the whole team out of their work, while a token is a credential we can only judge by asking.</p>
-<p>Roles live in one place. <code>altr-auth</code> is the source of truth for whether someone is an admin. Chat, docs and the CRM each keep a cached copy of the role and correct it whenever <code>altr-auth</code> answers. Deactivating a person in <code>altr-auth</code> revokes every token they or their agents hold, and every app refuses them on the next request, within 60 seconds.</p>
-<h3>Agents and MCP clients</h3>
-<p>An MCP client such as Claude.ai or Claude Code finds the login server like this:</p>
-<pre><code>1. POST chat.altrwork.com/mcp          → 401, WWW-Authenticate points at the resource metadata
-2. GET  the resource metadata          → &quot;authorization server: auth.altrwork.com&quot;
-3. GET  auth.altrwork.com/.well-known/oauth-authorization-server
-4. Browser → /oauth/authorize?resource=https://chat.altrwork.com/mcp&amp;scope=chat:read chat:write&amp;code_challenge=…
-        Access sign-in → consent screen: which scopes, and &quot;connect as&quot; yourself or an agent you own
-5. POST /oauth/token (code + verifier + resource)
-        → access token (1 hour) + refresh token (30 days, rotated on every use)
-</code></pre>
-<p>The tokens are random opaque strings, not JWTs. <code>altr-auth</code> stores only their SHA-256 hashes. Each app checks a bearer token by calling <code>altr-auth</code>'s introspection endpoint over a service binding (a direct Worker-to-Worker call, with no public network hop and no extra request fee), and caches a positive answer for 30 seconds. Because every check reads live state, revoking a token or deactivating a person takes effect within 30 seconds.</p>
-<p>Introspection runs these checks in order: the token's hash, whether it was revoked, its expiry, its audience, whether the principal is active, whether the person acting is active, whether the owner of an agent is active, whether the token's scopes fit within the agent's current spec, and that no token carrying the provisioning scope is accepted at an app.</p>
-<div class="article-table-wrap"><table class="article-table">
-<thead>
-<tr>
-<th>Token</th>
-<th>Lifetime</th>
-<th>Issued by</th>
-<th>Valid at</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OAuth access token</td>
-<td>1 hour</td>
-<td><code>/oauth/token</code> after consent</td>
-<td>the one app in its audience</td>
-</tr>
-<tr>
-<td>OAuth refresh token</td>
-<td>30 days, sliding, rotated each use</td>
-<td><code>/oauth/token</code></td>
-<td><code>altr-auth</code> only</td>
-</tr>
-<tr>
-<td>Agent service token</td>
-<td>up to 90 days</td>
-<td>the deploy pipeline only</td>
-<td>every app its scopes cover</td>
-</tr>
-<tr>
-<td>Deployer token</td>
-<td>up to 365 days</td>
-<td>an out-of-band script</td>
-<td>the provisioning API only, never an app</td>
-</tr>
-<tr>
-<td>App introspection secret</td>
-<td>until rotated</td>
-<td><code>altr-auth</code> admin</td>
-<td><code>altr-auth</code>'s introspection and directory routes</td>
-</tr>
-</tbody>
-</table></div>
-<p>Some details that matter:</p>
-<ul>
-<li><strong>Audience binding (RFC 8707).</strong> A token minted for the docs MCP endpoint is inactive at chat. A leaked docs token cannot be replayed against the CRM.</li>
-<li><strong>Scopes</strong> are <code>chat:read</code>, <code>chat:write</code>, <code>docs:read</code>, <code>docs:write</code>, <code>crm:read</code> and <code>crm:write</code>. Read-only tokens are never shown the write tools, and calling one returns a 403 with a standard <code>insufficient_scope</code> challenge. There is no "admin" scope. Admin is a person's role in <code>altr-auth</code>.</li>
-<li><strong>"Connect as."</strong> The consent screen lets a person authorize a client as an agent they own. When we use Claude to post in chat as <code>@kara</code>, the token records that a person acted for the agent.</li>
-<li><strong>Refresh token reuse revokes the whole grant.</strong> If an old refresh token is presented again, we assume it was stolen and revoke everything issued from it.</li>
-<li><strong>PKCE with S256 only.</strong> Redirects must match exactly, except that loopback redirects ignore the port, which Claude Code needs. Authorization codes are single-use (<code>DELETE … RETURNING</code>). Client metadata documents are fetched over https only, with a 5-second timeout, a 64 KB cap, no redirects, and public addresses only.</li>
-</ul>
-<h2 class="impact-article-heading">The three systems of record</h2>
+<h2 class="impact-article-heading">The ideas that shaped it</h2>
+<p><strong>People and agents share one identity system.</strong> An agent has an owner, a role and credentials that can be switched off. Deactivate a person and their agents stop with them.</p>
+<p><strong>Agents work on the same records people do.</strong> Nothing important lives only inside an agent. If an agent disappeared tomorrow, the CRM, the wiki and the chat would still hold everything it did.</p>
+<p><strong>Outside data comes in once.</strong> Email, meetings, payments and prospect lists flow into the CRM through one controlled path, and agents read history from there. Doing something in an outside service belongs to exactly one agent, with the narrowest access that works. The agent that drafts invoices is the only one that touches billing. The agent that drafts emails is the only one that touches drafts.</p>
+<p><strong>Preview, then confirm.</strong> When an agent changes the CRM, it first shows what would change. Only then does it save. Nothing is ever hard-deleted.</p>
+<p><strong>Limits live in code.</strong> Spend caps, approvals, calling hours and do-not-call lists are checks the software enforces. A prompt that asks an agent nicely is a request. Code that refuses is a guarantee.</p>
+<p><strong>Agents are reviewed code.</strong> Every agent is a file in git. Adding one, or changing what it may do, is a pull request. The login system refuses anything outside its own policy, no matter what the file says.</p>
+<h2 class="impact-article-heading">The three systems</h2>
 <h3>Chat</h3>
-<p><code>altr-chat</code> is a Slack-style app: public and private channels, DMs, threads, mentions, reactions, edits with history, file uploads, full-text search, and per-person preferences.</p>
-<p>Realtime works through Durable Objects. There is one hibernating Durable Object per channel or DM for live delivery, and one per workspace for presence and unread counts. Every write commits to D1 first. Only then, in the background, does it fan out to the channel's room, send a small ping to the workspace hub, and wake any agent webhooks. This ordering means a failed broadcast can never lose a message.</p>
-<p>Search uses SQLite's FTS5, and it respects private channels: a message in a channel you cannot read never appears, in results or in unread counts.</p>
-<p>Some things we built because agents are members:</p>
-<ul>
-<li><strong>Agent badge and directory.</strong> Agents show an Agent badge. A read-only Agents page lists each one with its owner, its permissions, when it was last active, and what it did recently.</li>
-<li><strong>Signed wake-up webhooks.</strong> When someone mentions or direct-messages an agent, chat posts a signed event to that agent's Worker. The signature is an HMAC-SHA256 over the timestamp and body, with a delivery ID so receivers can drop repeats and a five-minute tolerance for replays. The payload includes the sender's role from <code>altr-auth</code>, so an agent can check "is this an admin?" in code. The signing secret is sealed at rest with AES-256-GCM.</li>
-<li><strong><code>ask_agent</code>.</strong> A person working in Claude can call one tool that posts a message in their private DM with an agent and waits up to about 45 seconds for the answer. Agents mark their "On it…" acknowledgements as interim so the caller gets the real reply.</li>
-<li><strong>Loop protection.</strong> Two agents that keep replying to each other are cut off after 20 agent messages in 5 minutes in one conversation, and agent writes are limited to 60 a minute.</li>
-<li><strong>Push notifications.</strong> DMs, mentions and thread replies reach the phone lock screen with the right unread count. Transport is standard Web Push, encrypted per RFC 8291 and signed with VAPID, written directly on the browser's crypto API with no third-party SDK. Nothing is pushed while the person has chat open and focused on any device.</li>
-</ul>
-<p>On a phone, installed to the home screen, it behaves like a native app. The channel list is the home screen and channels push over it, the document never scrolls, the composer rides on the keyboard, and a long press opens an action sheet.</p>
+<p>Chat is Slack-style, with channels, DMs, threads, files and search, and on a phone it behaves like a native app. Agents show an Agent badge and can be mentioned like anyone else. From Claude, a person can ask an agent a question and get the answer back in one step. Agents that start talking to each other are cut off, so they cannot loop.</p>
 <figure class="shot"><a href="assets/aios/aios-agents-limits.webp" target="_blank" rel="noopener"><picture><img src="assets/aios/aios-agents-limits.webp" width="1568" height="726" loading="lazy" alt="The Agents tab in altr chat. Each agent has a card listing what it owns, what it does alone, what needs approval, what it never does, its owner, its permissions and its recent activity." /></picture></a><figcaption>The Agents tab in chat. Every agent lists what it owns, what it does alone, what needs a person to approve, and what it never does. Client names in recent activity are blurred. <span class="shot-hint">Select the image to enlarge it.</span></figcaption></figure>
 <h3>Docs</h3>
-<p><code>altr-docs</code> is a Notion-style wiki. People co-edit pages in real time. Agents read and write the same pages as Markdown through MCP, and their edits appear live in open editors, labelled with the agent's name.</p>
-<p>Each page is one Yjs document, held in its own Durable Object with its own SQLite storage. The editor is TipTap. When an agent submits Markdown, the server does not overwrite the page. It diffs the Markdown against the live document and applies the difference, so a person typing in the same paragraph is not clobbered. The browser and the Durable Object share one Markdown converter and one editor schema, so human and agent edits use the same document model.</p>
-<p><strong>Page access</strong> is a small model with one rule. A page can be open to the workspace, view-only for everyone else, or restricted to named people and agents. Effective access is the <strong>intersection along the page's ancestor chain</strong>. To read a page you need a grant on every restricted page above it. A child can narrow access and can never widen what a parent limits. Everything about this lives in one module, and nothing else compares pages and people.</p>
-<p>A few consequences we tested on purpose:</p>
-<ul>
-<li>A page you cannot read returns 404, not 403, so its existence does not leak.</li>
-<li>Search excludes unreadable pages inside the FTS query itself, before ranking and before snippets are cut.</li>
-<li>Links to pages you cannot read render as "Restricted page" in the editor, in MCP reads, in version previews and in link previews.</li>
-<li>Revoking access closes a person's open editing session. The room re-checks permissions on every message once the last check is more than 10 seconds old.</li>
-<li>Agents can only narrow access, only on pages they created or hold an edit grant on, and the list must include the agent itself. They can never un-restrict a page or move one out of a restricted area. This is how Counsel keeps unreviewed legal drafts visible to admins and to Counsel only.</li>
-</ul>
+<p>Docs is a Notion-style wiki. People edit pages together in real time, and agents write pages too, with their edits showing up live and labeled with the agent's name. Pages can be restricted to chosen people and agents, and a page you cannot read behaves as if it does not exist. That is how Counsel keeps unreviewed legal drafts visible to the right people only.</p>
 <figure class="shot"><a href="assets/aios/aios-docs-clients.webp" target="_blank" rel="noopener"><picture><img src="assets/aios/aios-docs-clients.webp" width="1568" height="726" loading="lazy" alt="The Clients section of altr docs, with one page per client in the sidebar and a note that Kara files each call under the client&#x27;s Calls page." /></picture></a><figcaption>The Clients section of the wiki. Kara files each call under the client's Calls page and adds a line to the client's history. Client page names are blurred. <span class="shot-hint">Select the image to enlarge it.</span></figcaption></figure>
 <h3>CRM</h3>
-<p><code>altr-crm</code> follows HubSpot's model on purpose, so agent prompts and skills written for HubSpot carry over. It is object-agnostic: a few generic tools work on every record type, and the schema itself is data an agent can read.</p>
-<p>The data model has people, prospects, companies, deals, tickets and activities. Properties are typed definitions: core properties map to columns, and custom properties live in a JSON column and are queried with <code>json_extract</code>. Relationships are many-to-many associations with labels such as "decision maker." Deals and tickets live in configurable pipelines with stages, probabilities and won/lost flags. Lists are static or dynamic segments. Every write runs as one D1 batch together with its audit row and a per-property history row (old value, new value, who, through which credential, when).</p>
-<p><strong>Two lists, one ladder.</strong> People are the warm pipeline: lead, qualified, customer, former. Prospects are the cold outreach list: researching, ready, contacted. An email belongs to exactly one record on one list. When a prospect replies, books a call or meets us, a bridge moves them to contacts as a lead and carries their notes, emails, meetings, tasks and deals along, leaving a pointer behind so an import can never add them back.</p>
-<p><strong>Email.</strong> Each person can connect their own Gmail in settings. The CRM then logs the emails they exchange with people and companies already in the CRM onto those records. A privacy filter decides, and nothing reaches the database before it says yes:</p>
-<ul>
-<li>An email is logged only if an external address exactly matches a contact, or its domain is a company's website domain.</li>
-<li>Free-mail domains (gmail.com and similar) and shared social and hosting domains never match a company.</li>
-<li>Internal-only email is never logged. Nothing creates a contact or company.</li>
-<li>A message that does not match is read as headers only. Its body is never fetched, and nothing about it is stored.</li>
-<li>Refresh tokens are stored encrypted, with the owner's email bound in as additional data, so a token copied to another row does not decrypt.</li>
-<li>The connected mailbox must be the signed-in person's own work address. The CRM never sends, changes or deletes mail.</li>
-</ul>
-<p><strong>Stripe, Granola and Apollo.</strong> Stripe is read with a restricted read-only key, and the client has no write method at all (a test asserts it). It stores invoices and payments, leaves one note per invoice status on the company and deal, keeps billing totals current, and matches each invoice to a company by a fixed order of evidence: the deal ID in the invoice metadata, then a company ID, then an earlier match, then an exact contact email, then an exact company domain, then an exact company name. A tie or a miss counts as unmatched. It never guesses. There is deliberately no "its only open deal" shortcut, because one such shortcut once attached a payment for a closed agreement to an unrelated new deal. Granola adds meetings to timelines by title, time, attendees and AI summary only, and never requests a transcript. Apollo prospect search runs through the CRM, which holds the key, enforces which agents may use it, and enforces a daily credit cap with an atomic reservation before each paid call.</p>
-<p><strong>Syncs are boring on purpose.</strong> One 15-minute cron tick looks at each integration's schedule. A run takes a lock, is bounded to 25 seconds, saves where it stopped, and continues on the next tick. Manual runs have a 10-minute cooldown. Only admins, and agents an admin has allowed, can start one.</p>
-<p>The CRM deploys on its own: a push to <code>main</code> runs the checks, applies migrations, deploys, and smoke-tests <code>/health</code>.</p>
+<p>The CRM follows HubSpot's model on purpose, so anything written for HubSpot carries over. It holds companies, people, deals and tasks, and keeps a warm list of people we know apart from a cold list of prospects, with a clean move from one to the other when someone replies or books a call.</p>
+<p>The part we like most is that the history fills itself in. Each person connects their work Gmail, and emails with people already in the CRM attach to the right record. Meetings and payments attach the same way. The CRM never sends mail, only logs it, and it ignores anything that is not with someone we already know. Every change to a record keeps a history of who or what made it.</p>
 <figure class="shot"><a href="assets/aios/aios-crm-timeline.webp" target="_blank" rel="noopener"><picture><img src="assets/aios/aios-crm-timeline.webp" width="1568" height="772" loading="lazy" alt="The altr CRM showing a company record with a recent activity timeline of sent and received emails, a meeting, and links to open each in Gmail or Granola." /></picture></a><figcaption>A company record in the CRM. Emails from Gmail and meetings from Granola attach themselves to the timeline. Names, subjects and amounts are blurred. <span class="shot-hint">Select the image to enlarge it.</span></figcaption></figure>
-<h2 class="impact-article-heading">How the systems connect</h2>
-<p><strong>MCP is the common surface.</strong> Each app serves stateless Streamable HTTP MCP at <code>/mcp</code>. Tool names are <code>verb_noun</code>. Every result has the same shape, every error has the same shape, and every call writes an audit row recording which credential made it. Tool descriptions that return user content say so, and tell the model to treat it as data.</p>
-<div class="article-table-wrap"><table class="article-table">
-<thead>
-<tr>
-<th>App</th>
-<th>Read tools</th>
-<th>Write tools</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Chat</td>
-<td>list channels, read a channel, get a thread, search, list mentions, get users</td>
-<td>post, reply, react, create or join a channel, open a DM, upload, mark read</td>
-</tr>
-<tr>
-<td>Docs</td>
-<td>search, page tree, read a page, recent changes, get page access</td>
-<td>create, append, replace, retitle, move, comment, restrict</td>
-</tr>
-<tr>
-<td>CRM</td>
-<td>search and get records of any type, schema, owners, timeline, property history, aggregate queries</td>
-<td>manage records, associations, properties, pipelines, segments, tasks, log email</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Service bindings</strong> carry app-to-app calls: token checks, directory lookups and link previews. They cost nothing extra and skip the Access login hop.</p>
-<p><strong>Link previews</strong> work across apps. Every app exposes an unfurl route. Chat shows previews for docs pages and CRM records, and docs shows bookmark cards for chat threads. A preview only shows what the viewer is allowed to read, and an unreadable page previews as "Restricted page" with no title.</p>
-<p><strong>One agent registry.</strong> <code>altr-auth</code> publishes every agent, with its per-app settings, at a directory endpoint. Chat, docs and the CRM each sync from it every 15 minutes, when someone opens their Agents tab, and within seconds of a provisioning change, when <code>altr-auth</code> pings a named entry point on each app over a service binding. The sync creates or updates the agent's user row and deactivates agents that were disabled or removed. It never creates tokens and never joins channels. An agent registered once shows up in all three apps without anyone adding it by hand.</p>
+<h2 class="impact-article-heading">How they connect</h2>
+<p>Everything sits behind the same login, and each app can be reached by Claude and by our agents through MCP. A link to a docs page or a CRM record shows a preview in chat, and only to people allowed to read it. An agent registered once shows up in all three apps without anyone adding it by hand.</p>
 <h2 class="impact-article-heading">Walkthrough: how a booking becomes a client record</h2>
-<p>Kara is our intake agent. This is the most complete example of the system working across every part, so we will follow one booking through it.</p>
-<p><strong>1. A booking.</strong> Someone books a call with Kara on our scheduling page and ticks a consent checkbox for the call. The wording of the checkbox and the time it was accepted are saved with the booking as the record of consent, and a booking without the checkbox is never called. That booking starts a Cloudflare Workflow. A Workflow is a durable multi-step job: each step has its own retries, and state survives restarts.</p>
-<p><strong>2. Research.</strong> Before the call, Claude researches the person and company with web search. If the booking has a personal email address and no company, the research step does not search on a name alone, because a name alone could match several unrelated people. It says so in the brief instead, and tells the founders which three things to ask for on the next call: the company, the person's role, and what they hope to get from AI.</p>
-<p><strong>3. The call.</strong> At the booked time Kara phones the number. She is a voice agent built on ElevenLabs, on a Telnyx number. The rules for calling are code, not instructions to the model:</p>
-<ul>
-<li>Florida requires every party to agree to a recording. Her opening asks. If the person says no, Kara says a founder will follow up by email and ends the call. Any call whose recording consent is not confirmed never reaches Claude. The conversation, transcript and audio are deleted at the voice provider, and what we keep is a record of who, when and the outcome.</li>
-<li>She calls only between 8am and 8pm in the person's time zone, checked when the call is planned and again just before dialing.</li>
-<li>A do-not-call request is written to a list the Worker checks before every dial, even in test mode.</li>
-<li>Before dialing, the Workflow writes a lock keyed on the booking to R2, only if it does not already exist, and the "place call" step has no automatic retry. A lost response, a retried step or a restarted run cannot dial twice.</li>
-<li>If the post-call webhook never arrives, the Workflow waits up to 40 minutes, then fetches the conversation itself and processes it through the same code. A "don't call me" said on a call cannot be lost to a dropped webhook.</li>
-</ul>
-<p><strong>4. The brief.</strong> Claude writes a short brief for the founders from the booking, the research and the transcript: who they are, a verdict (meet, nurture or not a fit), what they want to automate, the watch-outs, and what to ask next time. Calls that were robocalls, sales pitches or silence are saved and go no further.</p>
-<p><strong>5. Filing it across the three systems.</strong> Kara uses one service token that is valid at the CRM, docs and chat, and does the work as separate Workflow steps, in this order:</p>
+<p>Kara is our intake agent. She is the clearest example of the whole system working together, so we will follow one booking.</p>
+<p><strong>A booking.</strong> Someone books a call with Kara on our site and ticks a consent box. The wording of the box and the time it was accepted are saved as the record of consent. No box, no call.</p>
+<p><strong>Research.</strong> Before the call, Kara researches the person and the company. If she cannot tell who someone is, she says so in the brief and tells us what to ask next time, instead of guessing.</p>
+<p><strong>The call.</strong> At the time they picked, Kara phones them. She is a voice agent, she says she is an AI, and she asks permission to record before anything else. Her rules are code, not instructions to a model. She only calls inside a set window in the person's own time zone, she never calls a number that asked not to be called, and she cannot dial the same booking twice.</p>
+<p><strong>The brief.</strong> She writes a short brief for Jarred and me. It covers who they are, a verdict, the workflow they described step by step, and what to ask in a follow-up.</p>
+<p><strong>Filing it everywhere.</strong> Then she does the work we used to do by hand.</p>
 <div class="article-table-wrap"><table class="article-table">
 <thead>
 <tr>
@@ -448,55 +262,26 @@
 <tbody>
 <tr>
 <td><strong>CRM</strong></td>
-<td>Finds the company (by email domain, then name) and the person (by email, then phone), or creates them. If the person was on the cold prospect list, she promotes them to a contact first, so their history comes along and no duplicate appears. Fills only empty fields. Creates or advances a deal: Meet goes to Qualification, Nurture goes to Prospecting, Not a fit gets no deal. A deal never moves backwards. Logs the call as an activity with a one-line summary and links to the other two systems, and creates a follow-up task, unassigned. Every write is a preview first and is applied only if it is valid.</td>
+<td>Finds or creates the company and the person, moves them off the cold list if they were on it, creates or advances a deal, logs the call, and creates a follow-up task. Every write is previewed before it is saved.</td>
 </tr>
 <tr>
 <td><strong>Docs</strong></td>
-<td>Makes sure <code>Clients / &lt;Company&gt; / Calls</code> exists, creates a page for the call with the brief, the full transcript and links back to the CRM and chat, and adds a dated line to the company's history page. This is the only place the transcript is posted.</td>
+<td>Files a page for the call under the client, with the brief and the notes, and adds a line to the client's history.</td>
 </tr>
 <tr>
 <td><strong>Chat</strong></td>
-<td>Posts a short summary in <code>#intake</code>, with the full brief in the thread and links to the docs page and the CRM record. No transcript goes to chat.</td>
+<td>Posts a short summary for the team, with links to the docs page and the CRM record.</td>
 </tr>
 </tbody>
 </table></div>
 <figure class="shot"><a href="assets/aios/aios-kara-brief.webp" target="_blank" rel="noopener"><picture><img src="assets/aios/aios-kara-brief.webp" width="1568" height="772" loading="lazy" alt="Kara&#x27;s brief posted in the intake channel of altr chat, with the headings Watch-outs, Research, Status and Recommendation, a link to the docs page and the CRM record, and a docs preview card." /></picture></a><figcaption>Kara's brief in <code>#intake</code>. The headings and structure are visible and the prospect's details are blurred. The links lead to the docs page and the CRM record, and the card previews the docs page. <span class="shot-hint">Select the image to enlarge it.</span></figcaption></figure>
-<p>Nothing Kara files is assigned to anyone. She mentions no one. The founders decide who follows up.</p>
-<p><strong>6. Making it safe to retry.</strong> Each write is recorded in R2 the moment it lands, so a retried step continues instead of repeating. If that record is ever lost, Kara finds her earlier work by markers she left: the call activity and the chat post carry a <code>kara/&lt;run&gt;</code> marker, pages are matched by title and marker, and people and companies are found by email and domain. If one system stays down after its retries, it is logged and skipped, the others still run, and only the links to the failed system are missing. The brief itself is always safe in R2.</p>
-<p><strong>7. Limits.</strong> Kara can spend at most $5 a day on model calls and place at most 30 calls a day, and her kill switch stops every entry point.</p>
-<p>The result is what you can see on a client's CRM record afterwards: the call, the emails around it pulled in from Gmail, the meeting from Granola, the deal, the task, and links to the notes and the chat thread, with nobody having typed any of it in.</p>
-<h2 class="impact-article-heading">Agents as code</h2>
-<h3>A manifest and a merge</h3>
-<p>Every agent is one file, <code>agents/&lt;handle&gt;/agent.jsonc</code>, in the <code>altr-agents</code> repository. It names the agent and its owner, a one-line description, what it owns, the outside credentials its Worker holds, what it may do alone and what needs approval and what it must never do, its daily caps, its scopes, and its settings for each app (channels to join, a webhook, a docs root page, a CRM owner). The schema is checked in CI and generates editor completion.</p>
-<p>A pull request runs the tests, a type check, and <code>check</code>, which validates every manifest and cross-checks them against each other. Then it runs <code>plan</code>, the way you would read a Terraform plan. Merging to <code>main</code> deploys.</p>
-<h3>What a deploy does</h3>
-<ol>
-<li>Refuses to start if the check fails, the folder has uncommitted changes, the manifest was deleted, or an admin has put the agent on hold.</li>
-<li>Calls <code>altr-auth</code> to create or update the agent, with the git commit in a header so the audit log records which commit made the change.</li>
-<li>Mints a new service token, valid for up to 90 days. The old one dies after a 10-minute grace so the running Worker keeps working until the new secret is live.</li>
-<li>Writes the token into the Worker as a secret, through standard input so it never appears on a command line or in a log.</li>
-<li>Deploys the Worker.</li>
-<li>Using the agent's own new token, joins its chat channels, sets its chat webhook, creates its docs root page, and checks its CRM owner.</li>
-</ol>
-<p>Deploys rotate the token every time. A weekly job redeploys any agent whose token expires within 30 days. It also runs a drift check that fails if the login server has an active agent that has no manifest.</p>
-<h3>The login server is the authority, not the manifest</h3>
-<p>The policy limiting what an agent can hold lives in <code>altr-auth</code>, and the copy in the manifest repo only exists so a pull request fails early. Editing the copy changes nothing: <code>altr-auth</code> refuses anything outside its own policy on every call.</p>
-<ul>
-<li>An agent can hold only the six app scopes. It can never hold the provisioning scope or admin.</li>
-<li>Its owner must be an active admin. If the owner is deactivated, the agent's tokens stop working everywhere.</li>
-<li>Tokens last 90 days at most. At most two are live per agent. At most 10 rotations a day.</li>
-<li>At most 50 managed agents.</li>
-<li>Only one identity, a service principal called <code>altr-deployer</code>, can provision at all. Its token lives in the pipeline's secrets and nowhere else, and it cannot read app data.</li>
-<li>The admin page can no longer create agents or mint tokens. It answers with an error that says agents are code.</li>
-</ul>
-<p>The spec is a live ceiling. <code>altr-auth</code> intersects every agent token's scopes with the agent's current spec each time it checks the token, including grants where a person chose "connect as this agent." Removing a scope in a pull request takes effect on the agent's next call, with no need to rotate anything.</p>
-<h3>Each agent has one job</h3>
-<p>The manifest's <code>owns</code> list is exclusive, and CI fails if two agents claim the same thing. The list is also used at runtime. Every agent receives a roster of the others, and when someone asks it for something that belongs to another agent, the reply is built in code from the roster: "That's @gtm's job (outreach drafts). Ask @gtm directly; I don't do that." The model is never asked to decide whether to attempt it.</p>
+<p>Nothing Kara files is assigned to anyone, and she mentions no one. We decide who follows up. Every step is safe to retry. If something fails halfway, she picks up where she stopped instead of filing the call twice, and if one system is down the others still get updated. Her spend and her calls are capped every day, and she has a kill switch.</p>
+<h2 class="impact-article-heading">The agents and their rules</h2>
+<p>Each agent has one job, and another agent that is asked for it hands it off instead of attempting it. Here is what each may and may not do.</p>
 <div class="article-table-wrap"><table class="article-table">
 <thead>
 <tr>
 <th>Agent</th>
-<th>Owns</th>
 <th>Does alone</th>
 <th>Needs approval</th>
 <th>Never</th>
@@ -505,171 +290,49 @@
 <tbody>
 <tr>
 <td><strong>Kara</strong></td>
-<td>intake, booking calls, outbound voice calls</td>
-<td>call people who booked and consented, within the calling window; CRM upsert; the <code>#intake</code> brief; the client docs page</td>
+<td>Calls people who booked and consented, inside the calling window. Fills in the CRM, the docs page and the chat brief.</td>
 <td></td>
-<td>call without consent, call numbers on the do-not-call list, call outside the window, cold-call</td>
+<td>Calls without consent, calls numbers on the do-not-call list, cold-calls.</td>
 </tr>
 <tr>
 <td><strong>Counsel</strong></td>
-<td>legal documents, proposals, invoicing, Stripe writes</td>
-<td>draft documents, review contracts, draft invoices, create customers and payment links, answer billing questions from the CRM</td>
-<td>finalize and send an invoice</td>
-<td>refunds, voids, credit notes, deleting Stripe objects, sending anything to clients, signing</td>
+<td>Drafts documents, reviews contracts, drafts invoices and payment links, answers billing questions from the CRM.</td>
+<td>Sending an invoice.</td>
+<td>Refunds, voids, deleting anything in billing, sending anything to a client, signing.</td>
 </tr>
 <tr>
 <td><strong>GTM</strong></td>
-<td>outreach drafts, Gmail drafts, meeting prep</td>
-<td>research, check for a recent teammate email, CRM contact and note, a Gmail draft in the requester's own drafts folder, meeting briefs from the requester's calendar</td>
+<td>Researches, checks whether a teammate already emailed the person, saves a draft in the requester's own Gmail drafts, preps a seller for their meetings.</td>
 <td></td>
-<td>send email, email someone marked do-not-contact or recently contacted by a teammate, add recipients</td>
+<td>Sending email, or emailing anyone flagged do-not-contact.</td>
 </tr>
 <tr>
 <td><strong>Engy</strong></td>
-<td>engineering changes</td>
-<td>start a Claude Code run, open a pull request, post updates</td>
-<td>merge to <code>main</code></td>
-<td>push to <code>main</code>, deploy, touch client repos, touch secrets or settings</td>
+<td>Starts a change, runs the checks, opens a pull request.</td>
+<td>Merging.</td>
+<td>Pushing to main, deploying, touching client repos.</td>
 </tr>
 </tbody>
 </table></div>
-<h3>Limits are enforced in the Worker, not in the prompt</h3>
-<p><strong>Autonomy</strong> is a field in the manifest and a set of checks in the agent's code. Approval is verified in code from chat's signed webhook: the approver must be a human, must have the admin role in <code>altr-auth</code>, and must reply in the right thread. A missing role fails closed.</p>
-<p><strong>Spend caps are hard.</strong> Each Worker keeps a small table of daily model spend. Right before every model call it atomically reserves the call's worst-case cost (the maximum output tokens plus a bound on input). If spent plus reserved plus this call would pass the daily cap, the call is refused. After the call it settles the actual cost and frees the reservation, and a reservation that never settles expires after 30 minutes. Counted actions, such as invoice drafts or outbound calls, have per-day caps taken the same way. Over a cap the agent says "I've hit today's budget; ask an admin to raise it" and stops. The effective cap is the smaller of the number in the code and the number in the manifest, so a manifest can lower a limit but can never raise it.</p>
-<p><strong>The kill switch</strong> runs in three steps, in this order, and a failure in the first two never blocks the third. First, the roster without the agent is pushed to its Worker, which then answers every entry point with "I'm switched off" and makes no model calls. Second, its chat webhook is turned off. Third, <code>altr-auth</code> disables the agent and revokes every token. In an emergency an admin can press Disable on the login server's admin page, which does all of that at once and puts the agent on hold, so the pipeline cannot quietly re-enable it. One deliberate exception: Kara still records a do-not-call request when she is switched off.</p>
-<p><strong>A shared company brief.</strong> What altr is and who we work with lives in one docs page that people edit. Agents read it at runtime through the docs MCP, cache it for 10 minutes, clip it to 6,000 characters, and put it in the prompt as labeled data. If docs is down, they carry on without it.</p>
-<p><strong>Outside text is data, never instructions.</strong> Chat messages, CRM notes, email subjects, Stripe descriptions, meeting summaries and the company brief are wrapped as data in every prompt. They can influence a choice among an agent's fixed actions. They cannot add an action or widen a limit. Layered under that: scopes are minimal, CRM writes are dry runs until confirmed, agent writes are rate-limited, and the loop breaker caps agents replying to each other.</p>
-<p><strong>Lessons that need approval.</strong> Agents learn from feedback, but nothing reaches a prompt until an admin approves it. A thumbs-down from a person, or a reply starting "feedback:" or "next time," makes a cheap model call that proposes at most one short lesson. It is stored as proposed. An admin approves or deletes it in chat with a command handled in code, with no model involved. GTM's per-seller style notes, learned from the edits a seller makes to its drafts, are the one exception: they are active automatically, and capped.</p>
-<p><strong>Evals that cost nothing to run.</strong> Each agent has an eval folder with quality cases, hand-off cases and bounds cases, including prompt injection hidden in a CRM note and attempts to bypass approval. A self-check runs in CI for $0: it confirms that a known-good answer passes and that a null answer and deliberately bad answers fail, so a grader cannot pass vacuously. Paid runs happen only on request, print their actual cost, and abort at a spending limit. Where possible the checks are code, not a model judging a model.</p>
-<h3>Counsel, in more detail</h3>
-<p>Counsel writes proposals in our brand and formal documents (SOWs, agreements, NDAs, amendments) in a law-firm voice, from a knowledge base of Florida law and our own playbook that is bundled into the Worker at build time. It prepares Stripe draft invoices and payment links, and answers billing questions from the CRM by company ID, never by fuzzy name. It uses a small model to classify the request, a larger model to draft, and the largest only when asked.</p>
-<p>Its approval flow is the clearest example of "enforced in code":</p>
-<ol>
-<li>Counsel creates a <strong>draft</strong> invoice in Stripe, notes it in the CRM, and posts "Approval needed" in <code>#legal</code> with the amount, customer, line items and an expiry of 7 days.</li>
-<li>An admin replies <code>approve</code> in that thread. Counsel checks, in code, that the replier is a human, that chat's signed payload says <code>role: admin</code>, that the reply is under that request in <code>#legal</code>, that it has not expired, and that the invoice is unchanged since the request.</li>
-<li>Counsel re-reads the invoice. If the customer, an amount, a line or the terms changed, or the total is over $250,000, it sends nothing and posts a new request. Otherwise it finalizes and sends, with idempotency keys on both Stripe calls so a double approval finalizes once.</li>
-</ol>
-<p>Counsel's own Stripe key is restricted to the resources it needs. Billing history is read by the CRM's separate read-only key.</p>
-<h3>GTM, in more detail</h3>
-<p>A seller types a quick capture into chat ("met Dana at the chamber mixer, ops lead at Acme"). GTM researches, checks whether a teammate has touched that person or domain in the last 30 days, creates or updates the CRM contact, and saves a draft follow-up in the seller's own Gmail drafts. The collision rule is enforced in code: the draft submission is refused until the check has run for that exact recipient, and refused for anyone a teammate contacted recently. It holds no Google credentials. Drafting goes through a CRM tool that only this agent can see, writes only into the mailbox of the person who asked, and has no send call anywhere. It can also prepare a seller for the day from their calendar and the CRM's history.</p>
-<h3>Engy, in more detail</h3>
-<p>Anyone on the team can post a request in <code>#engineering</code>: "@engy can we get X." Engy's Worker starts a run of a Claude Code Routine, which clones our internal repos, reads each repo's own standards, writes the change test-first, runs the repo's checks, reviews its own diff, and opens a pull request on a branch whose name the Worker chose. It reports back in plain language in the chat thread, with the engineering detail in the pull request.</p>
-<p>It never pushes to <code>main</code> and never deploys. When Alex replies "@engy merge," the Worker squash-merges, and the repo's own push-to-main pipeline does the deploy. Only the repos on a short allowlist are reachable. The login server and Kara's repository are left off the list on purpose, and client repos are never touched. The run limit is 20 a day. The Routine's instructions live in the repo as a Markdown file, so changing Engy's behavior is a pull request. The engineering skills it follows (test-driven development, a diagnosis loop for bugs, a code-review pass, and an architecture pass limited to the code it touched) are Matt Pocock's, adapted for an unattended run.</p>
+<p><strong>How the rules are kept.</strong></p>
+<ul>
+<li>An agent can only hold the access its file asks for and the login system allows, and its owner has to be an admin. If the owner is deactivated, the agent stops.</li>
+<li>Daily caps on model spend and on key actions are enforced in the agent's own code. An agent's own file can lower a cap and can never raise it.</li>
+<li>Approvals are checked by the software, from who actually replied and in what thread, and not by asking the model whether it was approved.</li>
+<li>Anything an agent reads, such as a chat message, a CRM note or an email, is treated as data and never as an instruction.</li>
+<li>Any agent can be switched off everywhere at once.</li>
+<li>Agents can learn from feedback, but nothing they learn reaches a prompt until an admin approves it.</li>
+</ul>
+<p><strong>Counsel</strong> writes our proposals in our brand and our agreements in a careful, law-firm voice, from a written playbook. It prepares invoices and holds them until one of us approves them in chat. It is a first drafter, not a lawyer, and it flags anything off-playbook for a person to review.</p>
+<p><strong>GTM</strong> turns a quick note in chat into a researched follow-up email, sitting in the seller's own drafts to review and send. It checks first so we never email someone a teammate already contacted. It has no way to send anything.</p>
+<p><strong>Engy</strong> takes build and fix requests in an engineering channel, works on a branch, runs the repo's checks, and opens a pull request. It reports back in plain language. It merges only when Alex says so, and the repo's own pipeline does the deploy.</p>
 <figure class="shot"><a href="assets/aios/aios-engy-merge.webp" target="_blank" rel="noopener"><picture><img src="assets/aios/aios-engy-merge.webp" width="1568" height="772" loading="lazy" alt="An engineering request in altr chat. Engy replies in the thread that the change is ready for review, links the pull request, reports that the checks passed with 140 tests, and after the reply merge, reports that it merged to main." /></picture></a><figcaption>A request in <code>#engineering</code>. Engy works on a branch, runs the repo's checks, and posts a pull request. It merges only after Alex replies &ldquo;merge,&rdquo; and the repo's own pipeline does the deploy. <span class="shot-hint">Select the image to enlarge it.</span></figcaption></figure>
-<h2 class="impact-article-heading">Security</h2>
-<h3>Threat model</h3>
-<div class="article-table-wrap"><table class="article-table">
-<thead>
-<tr>
-<th>Threat</th>
-<th>What stops it</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Stolen laptop session or phished login</td>
-<td>Google 2-Step Verification behind Access. Workers re-verify the Access JWT. Sessions expire. Deactivation takes effect everywhere within 60 seconds.</td>
-</tr>
-<tr>
-<td>Stolen agent token</td>
-<td>Scoped to the manifest and live-checked against the spec on every call. Audience-bound. Rotated on every deploy. Revocable instantly. Every use is audited in the app it was used at.</td>
-</tr>
-<tr>
-<td>Stolen deployer token</td>
-<td>Can provision agents only within policy. Cannot read app data, cannot grant the provisioning scope to an agent, never valid at an app. Each action is audited with the git commit.</td>
-</tr>
-<tr>
-<td>Rogue agent creation</td>
-<td>No UI or API path other than the pipeline. A weekly drift check flags any active agent without a manifest.</td>
-</tr>
-<tr>
-<td>Prompt injection through content</td>
-<td>Least-privilege scopes, dry-run writes, rate limits, the loop breaker, content marked as data in every prompt and tool description, and approvals checked in code.</td>
-</tr>
-<tr>
-<td>Cross-app token replay</td>
-<td>Audience binding. A docs token is inactive at chat. Introspection needs each app's own secret.</td>
-</tr>
-<tr>
-<td>OAuth attacks</td>
-<td>PKCE S256 only, exact redirect matching, single-use codes, refresh rotation with reuse detection, locked-down metadata fetches, public-clients-only registration limited to 30 an hour, and a consent screen that shows the requesting host.</td>
-</tr>
-<tr>
-<td>CSRF, XSS, clickjacking</td>
-<td>Origin or Sec-Fetch-Site check on cookie writes, a strict content security policy, HSTS and frame restrictions, uploads sniffed by their bytes and served as sandboxed downloads, React text rendering with no raw HTML.</td>
-</tr>
-<tr>
-<td>Webhook spoofing and SSRF</td>
-<td>HMAC-signed webhooks with timestamps and delivery IDs, https-only URLs, outbound fetches restricted to public addresses, sealed signing secrets.</td>
-</tr>
-<tr>
-<td>Data loss</td>
-<td>Soft deletes, point-in-time restore, snapshots, encrypted nightly dumps.</td>
-</tr>
-<tr>
-<td>Insider misuse</td>
-<td>Append-only audit in <code>altr-auth</code> for every admin action, consent, token event and provisioning call, and an audit row in each app for every MCP call, with the credential it came through.</td>
-</tr>
-</tbody>
-</table></div>
-<h3>Review and break testing</h3>
-<p>We reviewed the apps in October 2026 and fixed what we found, each with a regression test. A few of the findings show what to look for in this kind of system.</p>
-<ul>
-<li><strong>Cross-site WebSocket hijacking in chat.</strong> WebSockets had no origin check, so any web page a signed-in person visited could open a connection with their Access cookie and read private channels live. Fixed with a required same-origin check, and tested.</li>
-<li><strong>Two agents could mention each other forever.</strong> There was no rate limit. Fixed with a write limit and the loop breaker.</li>
-<li><strong>Files were served with the type the uploader declared.</strong> An upload could be served inline as something it was not. Fixed by sniffing the bytes, allowing only a short list of inline types, and serving everything else as a sandboxed download.</li>
-<li><strong>Docs page content existed only in each page's Durable Object.</strong> One storage failure would have lost it. Fixed with a snapshot to R2 on every history version, automatic recovery when a page's storage is empty, and a nightly mirror.</li>
-<li><strong>The CRM failed on search text longer than 48 characters.</strong> D1 rejects <code>LIKE</code> patterns over 50 bytes, so a long search returned a server error. Fixed by switching to <code>instr()</code>.</li>
-<li><strong>The CRM record page re-read the record every 400 milliseconds and kept showing stale values.</strong> Edits made by another person or an agent never appeared. Fixed by refreshing the cache from the read.</li>
-</ul>
-<p>In all, the review of chat and the review of docs each logged twelve findings, nearly all fixed, and the CRM review produced twenty-six fixes across security, data correctness and the interface. For the browser, we wrote a "break" suite that attacks the running apps with hostile text, oversized pastes, concurrent and offline edits, reconnects and mobile layouts: 109 checks in the platform repo, plus 23 end-to-end checks across the four apps. The CRM was also hit with roughly 60 hostile MCP calls and 40 malformed REST bodies.</p>
-<h2 class="impact-article-heading">Data safety</h2>
-<div class="article-table-wrap"><table class="article-table">
-<thead>
-<tr>
-<th>Layer</th>
-<th>What it covers</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Soft delete</td>
-<td>Chat messages and files are restorable for 30 days. Docs pages are archived, never deleted, and any history version can be restored. CRM records are archived, never deleted over MCP. People and agents are deactivated, never removed.</td>
-</tr>
-<tr>
-<td>D1 Time Travel</td>
-<td>Any minute in the last 30 days, for every database. A restore returns a bookmark so it can be undone.</td>
-</tr>
-<tr>
-<td>Durable Object recovery</td>
-<td>The docs page Durable Objects have 30-day point-in-time recovery.</td>
-</tr>
-<tr>
-<td>Page snapshots</td>
-<td>Each page's Yjs state is copied to R2 on every history version. A page whose storage is empty restores itself.</td>
-</tr>
-<tr>
-<td>Nightly backup</td>
-<td>A Worker dumps all four databases, gzips and encrypts each with AES-256-GCM, and mirrors the chat and docs file buckets. It keeps 35 daily and 12 monthly copies.</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>The FTS5 problem.</strong> <code>wrangler d1 export</code> refuses any database that contains a virtual table, and both chat and docs use FTS5 for search. So the backup Worker does its own export. It reads the schema from <code>sqlite_master</code>, pages every ordinary table by <code>rowid</code>, and skips the FTS shadow tables. On restore it rebuilds the external-content index with FTS5's <code>rebuild</code> command, re-inserts the standalone one from its dumped rows, and creates triggers last.</p>
-<p>We tested restore against a real local chat database, not only in unit tests. Counts matched exactly (21 messages, 21 search-index rows, 20 members, 7 conversations, 4 users, 6 reactions), search hits were identical, and a wrong key failed.</p>
+<h2 class="impact-article-heading">Safety and data</h2>
+<p>We reviewed the apps twice in October and fixed what we found, and we back that with hundreds of automated tests and browser tests that attack the running apps with hostile input. Deletes are soft, so a mistaken delete is recoverable. Every action an agent takes is recorded in an audit log with the credential it used. Everything is backed up nightly in encrypted form, and databases can be restored to an earlier point in time.</p>
 <h2 class="impact-article-heading">What it costs</h2>
-<p>The platform runs inside the Workers Paid plan we already pay for ($5 a month). Our own usage is well under the included allowances: under 0.5 million requests a month against 10 million included, and about 1.9 GB of D1 across our whole Cloudflare account against 5 GB included. Introspection and previews use service bindings, which have no request fee. Cron triggers are cheap: the 15-minute sync is about 2,900 small invocations a month per app, and it writes only when something changed. Access is free for up to 50 users, and agents do not take a seat because they never sign in through Access.</p>
-<p>The estimate for the platform is <strong>$0 to $0.20 a month above the base plan.</strong> The risks we watch are a Durable Object that never hibernates and R2 storage growing past 10 GB.</p>
-<p>Model usage is the real variable cost, and it is bounded. Every agent has a daily dollar cap enforced in code, and the paid eval suites need an explicit go-ahead.</p>
-<h2 class="impact-article-heading">How we test it</h2>
-<p>We counted test declarations in the repositories: about 520 in the four platform apps and about 230 across the agents and the deploy pipeline. They include tests that run in the Workers runtime against a real D1, tests of the full OAuth flows, a restore test, and tests where fake versions of chat, docs and the CRM speak real MCP so an agent's whole filing flow can run offline. Beyond those:</p>
-<ul>
-<li><strong>Conformance</strong> checks every app against the standard.</li>
-<li><strong>End-to-end and break suites</strong> drive real browsers against the running apps.</li>
-<li><strong>Evals</strong> grade each agent's quality and its limits, with a free self-check in CI.</li>
-<li><strong>Local-only testing.</strong> Tests run against local Worker simulators. They never use production tokens from a laptop.</li>
-</ul>
+<p>The platform runs inside a Cloudflare plan we already pay for, so hosting adds about $5 a month. Model usage is the real variable cost, and it is bounded because every agent has a daily dollar cap.</p>
 <h2 class="impact-article-heading">Where this applies in a business</h2>
-<p>The apps here are ours, but the part worth copying is the pattern. We think of an agentic ecosystem as several agents that each own one job, working on shared records, under one identity system, with a human approving anything that is hard to undo. Pulled out of our specifics, a company needs six things before agents can be trusted with real work:</p>
+<p>The apps here are ours, but the part worth copying is the pattern. We think of an agentic ecosystem as several agents that each own one job, working on shared records, under one identity system, with a human approving anything hard to undo. A company needs six things before agents can be trusted with real work.</p>
 <div class="article-table-wrap"><table class="article-table">
 <thead>
 <tr>
@@ -680,117 +343,56 @@
 <tbody>
 <tr>
 <td><strong>One identity for people and agents</strong></td>
-<td>A single directory in <code>altr-auth</code>. Agents have an owner, a role and tokens that can be revoked. Deactivating a person shuts down their agents.</td>
+<td>A single directory. Agents have an owner and credentials that can be revoked.</td>
 </tr>
 <tr>
 <td><strong>Shared systems of record</strong></td>
-<td>Chat, docs and a CRM that people and agents both read and write, so there is no second copy of the truth for an agent to drift from.</td>
+<td>Chat, docs and a CRM that people and agents both use, so there is no second copy of the truth.</td>
 </tr>
 <tr>
 <td><strong>A standard way for agents to reach those systems</strong></td>
-<td>MCP on every app, with the same tool names, result shapes and error shapes everywhere.</td>
+<td>MCP on every app.</td>
 </tr>
 <tr>
 <td><strong>Scoped authority</strong></td>
-<td>Per-app read and write scopes, enforced by the login server on every call, with the agent's current manifest as a ceiling.</td>
+<td>Each agent can only do what its file allows, checked on every call.</td>
 </tr>
 <tr>
 <td><strong>Approval and limits in code</strong></td>
-<td>Spend caps, daily action caps, calling windows, do-not-call lists and approvals that a person gives in chat and the code verifies.</td>
+<td>Spend caps, daily action caps, calling hours, do-not-call lists, and approvals a person gives in chat.</td>
 </tr>
 <tr>
 <td><strong>An audit trail and an off switch</strong></td>
-<td>An audit row for every call and a kill switch that works at every entry point.</td>
+<td>A record of every call, and a way to stop any agent everywhere.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Without the first four, an agent is a script with a shared password. Without the last two, it is a risk the team has to watch constantly. With all six, adding an agent is a small, reviewable change: a manifest and a Worker, merged through a pull request.</p>
-<p>That is why the marginal cost of the next agent is low for us. Counsel, GTM and Engy were each added on top of the identity, the apps and the pipeline that Kara already used. None of them needed a new login system, a new place to store records or a new way to ask for approval.</p>
+<p>Without the first four, an agent is a script with a shared password. Without the last two, it is a risk the team has to watch constantly. With all six, adding an agent is a small, reviewable change. That is why the next agent is cheap for us. Counsel, GTM and Engy were each added on top of the identity, the apps and the process that Kara already used.</p>
 <h3>What the work looks like for a team like ours</h3>
-<p>The jobs below are the ones we run agents on today, and they are the ones most small service businesses share:</p>
+<p>These are the jobs we run agents on today, and most small service businesses share them.</p>
 <ul>
-<li><strong>Intake.</strong> A new lead is spoken to, researched, scored and recorded, and the people who will follow up get a short brief instead of a raw transcript (Kara).</li>
-<li><strong>Document preparation.</strong> The first draft of a proposal, statement of work or agreement, in the house voice, from a written playbook, ready for a person to review (Counsel).</li>
-<li><strong>Billing preparation.</strong> An invoice drafted correctly and held until a person approves it (Counsel, with approval in chat).</li>
-<li><strong>Follow-up and meeting prep.</strong> A drafted follow-up email that has already been checked against what teammates sent, and a brief before each meeting that pulls from the CRM's history (GTM).</li>
-<li><strong>Record keeping.</strong> Emails, meetings, calls and payments attached to the right company and deal without anyone logging them by hand (the CRM's syncs, and Kara).</li>
-<li><strong>Internal engineering.</strong> Small requests for the tools themselves, written test-first and delivered as pull requests that a person merges (Engy).</li>
+<li><strong>Intake.</strong> A new lead is spoken to, researched and recorded, and the people who follow up get a short brief instead of a raw transcript.</li>
+<li><strong>Document preparation.</strong> The first draft of a proposal, statement of work or agreement, in the house voice, ready for a person to review.</li>
+<li><strong>Billing preparation.</strong> An invoice drafted correctly and held until a person approves it.</li>
+<li><strong>Follow-up and meeting prep.</strong> A drafted follow-up that has already been checked against what teammates sent, and a brief before each meeting from the CRM's history.</li>
+<li><strong>Record keeping.</strong> Emails, meetings, calls and payments attached to the right company and deal without anyone logging them by hand.</li>
+<li><strong>Internal engineering.</strong> Small requests for the tools themselves, delivered as pull requests that a person merges.</li>
 </ul>
 <h3>Why the pattern travels</h3>
-<p>The apps matter less than the layer under them. The CRM follows HubSpot's object model, and its tools are named after HubSpot's, so prompts and skills written for HubSpot carry over. The agents talk to every app over MCP, an open protocol, and not through anything specific to our software. A company that already uses a CRM, a chat tool and a wiki could put the same identity, scoping, approval and audit layer in front of the systems it has.</p>
-<p>That is the work we do for clients: we build the connectors, the agents and the guardrails around the tools a team already uses. Running our own company on the same pattern is how we know which parts hold up. It is also why this page spends as much time on limits, approvals and audit as it does on what the agents can do.</p>
+<p>The apps matter less than the layer under them. The agents reach every app over an open protocol, and the CRM follows HubSpot's model, so a company that already uses a CRM, a chat tool and a wiki could put the same identity, limits, approval and audit layer in front of the systems it has.</p>
+<p>That is the work we do for clients. We build the connectors, the agents and the guardrails around the tools a team already uses. Running our own company the same way is how we know which parts hold up.</p>
 <h3>A note on scale</h3>
-<p>Three people is the size at which this is easiest to see, because everything is visible. Every limit in the system was chosen by someone who has to live with it, and the whole design fits in one document. The same properties are what let it grow: roles come from one place, access rules are checked in one module, agents are added through a reviewed file, and a script checks that every app follows the same standard. We have only run it at our own size.</p>
+<p>Three people is the size at which this is easiest to see, because everything is visible. Every limit in the system was chosen by someone who has to live with it, and the whole design fits in one head. We have only run it at our own size.</p>
 <h2 class="impact-article-heading">What we took from building it</h2>
 <p>These are the choices we would repeat.</p>
 <ul>
 <li><strong>Put outside reads in one place, and outside actions in one agent each.</strong> It shrank the number of credentials that exist and made every agent's access easy to describe.</li>
-<li><strong>Enforce limits where the agent cannot argue with them.</strong> Spend caps, approvals, calling windows and do-not-call lists are checks in code. A prompt that says "please don't" is a request, and code that refuses is a guarantee.</li>
-<li><strong>Make permissions reviewable.</strong> Agents are pull requests. The permission policy sits in a different system from the repository, so editing the manifest cannot grant more than the policy allows.</li>
-<li><strong>Preview, then confirm.</strong> A dry run that shows exactly what would change is cheap for an agent to use and easy for a person to audit.</li>
-<li><strong>Make multi-step work safe to retry.</strong> One step per system, state saved after every write, and a marker in everything an agent posts, so a lost state record never turns into a duplicate.</li>
-<li><strong>Treat everything an agent reads as untrusted.</strong> Name it as data in the prompt, and make sure the worst that data can do is choose among actions the agent already had.</li>
-<li><strong>Write the standard down and check it with a script.</strong> Eight repositories stay readable because a script says so.</li>
+<li><strong>Enforce limits where the agent cannot argue with them.</strong> A prompt that says "please don't" is a request. Code that refuses is a guarantee.</li>
+<li><strong>Make permissions reviewable.</strong> Agents are pull requests, and the policy that limits them lives in a different system from the file that describes them.</li>
+<li><strong>Preview, then confirm.</strong> A dry run that shows exactly what would change is easy for an agent to use and easy for a person to check.</li>
+<li><strong>Make multi-step work safe to retry.</strong> A step that fails halfway should resume, not repeat.</li>
+<li><strong>Treat everything an agent reads as untrusted.</strong> Make sure the worst it can do is choose among actions the agent already had.</li>
 </ul>
-<h2 class="impact-article-heading">Appendix: the stack</h2>
-<div class="article-table-wrap"><table class="article-table">
-<thead>
-<tr>
-<th>Item</th>
-<th>Choice</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Language</td>
-<td>TypeScript, strict, ES modules</td>
-</tr>
-<tr>
-<td>Runtime</td>
-<td>One Cloudflare Worker per app, compatibility date 2026-10-01, <code>nodejs_compat</code>, outbound fetches limited to public addresses</td>
-</tr>
-<tr>
-<td>Data</td>
-<td>D1 for relational data, R2 for file bytes, Durable Objects (SQLite-backed) for live rooms and documents</td>
-</tr>
-<tr>
-<td>Durable jobs</td>
-<td>Cloudflare Workflows for multi-step agent work</td>
-</tr>
-<tr>
-<td>Auth</td>
-<td>Cloudflare Access with Google Workspace for people, OAuth 2.1 with PKCE, client ID metadata documents and rate-limited dynamic registration, RFC 8707 audiences, RFC 9728 resource metadata, RFC 7662 introspection</td>
-</tr>
-<tr>
-<td>Agent protocol</td>
-<td>MCP over stateless Streamable HTTP</td>
-</tr>
-<tr>
-<td>Editor</td>
-<td>TipTap and Yjs</td>
-</tr>
-<tr>
-<td>UI</td>
-<td>React, built with Vite</td>
-</tr>
-<tr>
-<td>Models</td>
-<td>Claude Haiku 5.5 for routing and lesson proposals, Sonnet 5.5 for drafting and meeting briefs, Opus 5.5 only when someone asks Counsel for the careful model</td>
-</tr>
-<tr>
-<td>Voice</td>
-<td>ElevenLabs on a Telnyx number</td>
-</tr>
-<tr>
-<td>Tests</td>
-<td>Vitest in the Workers runtime, <code>node:test</code> for agents, Playwright for the browser suites</td>
-</tr>
-<tr>
-<td>CI and deploy</td>
-<td>GitHub Actions. The CRM deploys on push to <code>main</code>. Agents deploy through one pipeline.</td>
-</tr>
-</tbody>
-</table></div>
 <p>If you want something like this built around your own CRM, your own documents and your own team, <a href="start-a-conversation.html">book a call</a>.</p>
 </div>
 <p class="impact-related">Related: <a href="impact-kara-intake-voice-agent.html">how we built Kara, our AI intake agent</a>, <a href="impact-cloudflare-workers-architecture.html">why we deploy on Cloudflare Workers</a>, and <a href="what-is-an-ai-agent.html">what an AI agent is</a>.</p>
