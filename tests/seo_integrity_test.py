@@ -214,12 +214,13 @@ class SeoIntegrityTests(unittest.TestCase):
         # <b>/<em> for the two-tone treatment, which a raw substring test breaks
         homepage = (ROOT / "index.html").read_text(encoding="utf-8")
         visible = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", homepage))
-        # The three approach lanes lead to two service paths.
+        # Two service cards, one per service (Strategy is part of AI Transformation).
         for phrase in (
             "AI services company",
             "win the AI renaissance",
             "Our approach",
-            "Strategy",
+            "AI Transformation",
+            "AI Engineering",
             "Transformation",
             "Engineering",
             "customer-facing products",
@@ -228,11 +229,11 @@ class SeoIntegrityTests(unittest.TestCase):
         section = re.search(r'<section class="ph-section" id="what-we-do".*?</section>', homepage, re.S).group(0)
         self.assertNotIn("About us", section)
         self.assertNotIn("We altr how you work with AI.", section)
-        self.assertEqual(2, section.count('class="ph-slip" href="ai-transformation.html"'))
+        self.assertEqual(1, section.count('class="ph-slip" href="ai-transformation.html"'))
         self.assertEqual(1, section.count('class="ph-slip" href="ai-engineering.html"'))
-        self.assertEqual(3, section.count('class="ph-slip-figure ph-slip-figure--'))
+        self.assertEqual(2, section.count('class="ph-slip-figure ph-slip-figure--'))
+        self.assertNotIn("ph-slip-figure--strategy", section)
         for image in (
-            "approach-strategy-dividers-gray.webp",
             "approach-transformation-mallet-600.webp",
             "approach-engineering-gear-600.webp",
         ):

@@ -2272,7 +2272,7 @@ header.nav .pp-key:focus-visible {
   filter: grayscale(1);
 }
 
-.ph-slips-three .ph-slip h3 {
+.ph-slips .ph-slip h3 {
   font-size: clamp(2rem, 3.2vw, 3.4rem);
 }
 

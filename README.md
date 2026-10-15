@@ -158,11 +158,12 @@ This repo is public; those things must never land in it again.
   `llms.txt` so they cannot come back through one file. `about.html` keeps
   "forward deployed engineer" as a job title in a bio, which describes a
   person rather than a service.
-- The three services are a menu, not a sequence: a client can take any one of
-  them or any combination, and none is a prerequisite for another. The homepage
+- The two services are a menu, not a sequence: a client can take either one
+  or both, and neither is a prerequisite for the other. The homepage
   says so ("Start with whichever one you need") and gives each service its own
   first step, so do not add 01/02/03 labels or copy that implies an order. The
-  retainer is still only available after one of the three.
+  homepage shows the two services as two cards (Strategy is part of AI
+  Transformation); keep it at two.
 - Enablement has two formats and **either can come first**: a working session
   (1-4 people, hands-on, returns a written workflow map) or a team workshop
   (up to 10, broader). Do not write copy that makes the session a prerequisite
@@ -174,11 +175,13 @@ This repo is public; those things must never land in it again.
 - Fees, session length, and any credit or discount mechanics are call-time
   only. They are sales levers and lose their value in print, so they must not
   appear on the site, in `llms.txt`, or in schema.
-- The retainer is advisory hours only. It is **not** a workshop allowance and
-  **not** forward deployed or embedded engineering time. Additional sessions,
-  additional workshops, and any real engineering are scoped and quoted as their
-  own thing. Keep the homepage, service pages, structured data, and `llms.txt`
-  in sync.
+- Pricing shape (no amounts): a fixed implementation fee for a build, then a
+  monthly fee once it is running, covering the software, hosting and upkeep that
+  keep it working. There is no advisory retainer any more. Claude and other
+  subscriptions stay in the client's name; we never resell or mark them up.
+  Additional sessions, workshops and new capabilities are scoped and quoted as
+  their own thing. Equity partnerships and acquisitions stay off the site. Keep
+  the homepage, service pages, structured data, and `llms.txt` in sync.
 - Images must not be sized by width alone. An `<img>` width/height attribute is
   a presentational hint, so a rule setting only width leaves the attribute
   height standing and the image renders the wrong shape. `img { height: auto }`

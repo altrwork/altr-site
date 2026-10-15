@@ -25,18 +25,16 @@ Contact: inquiries@altrwork.com, or call Kara, altr's AI intake assistant, at +1
  hand. AI Engineering can be the first engagement or follow AI Transformation work, and is quoted as one
  fixed fee against written scope with hours named per workstream. A build means software engineering: multi-step agent orchestrations
  that act autonomously, MCP servers wiring agents into existing tools and permissions, deployed and
- monitored rather than run by hand. Consulting retainer is third: up to ten hours a month of advisory
- time, available only after strategy work, training, or a build, never as an entry point. Month to
- month or on a three or six month term, which costs less per month; unused hours roll one month.
- Retainer hours cover advisory work only. They are not a build slot, not engineering time,
- and not a workshop allowance; additional sessions, additional workshops, and
- anything needing real engineering are scoped and quoted separately. Model and infrastructure
- costs are billed by vendors directly to the client and are a small monthly amount at pilot volume.
+ monitored rather than run by hand. A build is a fixed implementation fee, followed by a monthly fee
+ once the system is running, which covers the software, hosting and upkeep that keep it working.
+ New capabilities, additional sessions and additional workshops are scoped and quoted separately.
+ Claude and other subscriptions stay in the client's name, billed by the vendor; altr never resells
+ or marks them up.
 
 ## Services
 
 - [AI Transformation](https://altrwork.com/ai-transformation.html): find where AI fits, change the work around it, and train the team to use it
-- [AI Engineering](https://altrwork.com/ai-engineering.html): internal systems and customer-facing AI products, built against a team's real data and handed off to an owner
+- [AI Engineering](https://altrwork.com/ai-engineering.html): internal systems and customer-facing AI products, built against a team's real data, with an owner on the team, and kept running by altr
 - [AI consulting in Tampa](https://altrwork.com/ai-consulting-tampa.html): local service overview and common questions
 - [Workflow automation consultant in Tampa](https://altrwork.com/workflow-automation-consultant-tampa.html): map one process, decide what to automate, then build automations and agents only when the path is clean
 - [AI workflows for commercial real estate teams](https://altrwork.com/real-estate.html): the central CRE hub for brokerage, acquisitions, underwriting, asset and property operations, development diligence, connected systems, controlled file work, and recurring market monitoring
