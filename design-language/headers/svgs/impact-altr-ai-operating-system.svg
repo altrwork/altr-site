@@ -1,0 +1,61 @@
+<!-- title: One login, three systems -->
+<!-- concept: a person signs in once with a key and reaches three stacked systems (chat, docs, CRM); four named agents reach the same three systems from the other side, but only through a copper gate marked limits -->
+<!-- people: head and shoulders -->
+<circle class="f1" cx="150" cy="335" r="40"/>
+<path class="f2" d="M82 475 Q82 400 150 400 Q218 400 218 475 Z"/>
+<path class="ln" d="M126 332 Q150 350 174 332"/>
+<text class="lbl" x="150" y="545" text-anchor="middle">People</text>
+<!-- the login key -->
+<rect class="f4" x="262" y="350" width="82" height="66" rx="14"/>
+<rect class="f1" x="274" y="362" width="58" height="42" rx="9"/>
+<text class="lbl" x="303" y="392" text-anchor="middle">altr</text>
+<text class="lbl" x="303" y="465" text-anchor="middle">One login</text>
+<!-- key to systems -->
+<path class="acc" d="M352 383 L412 383"/>
+<polygon class="f4" points="410,369 438,383 410,397"/>
+<path class="dash" d="M350 366 Q396 296 446 273"/>
+<path class="dash" d="M350 400 Q396 470 446 499"/>
+<!-- the three systems -->
+<rect class="f3" x="450" y="225" width="230" height="92" rx="10"/>
+<circle class="f1" cx="486" cy="256" r="13"/>
+<path class="ln" d="M506 252 L560 252"/>
+<path class="ln" d="M506 266 L546 266"/>
+<text class="lbl" x="590" y="298" text-anchor="middle">Chat</text>
+<rect class="f2" x="450" y="340" width="230" height="92" rx="10"/>
+<rect class="f1" x="472" y="354" width="34" height="42" rx="4"/>
+<path class="ln" d="M479 366 L499 366"/>
+<path class="ln" d="M479 378 L494 378"/>
+<text class="lbl" x="590" y="413" text-anchor="middle">Docs</text>
+<rect class="f1" x="450" y="455" width="230" height="92" rx="10"/>
+<rect class="f4" x="472" y="470" width="14" height="30" rx="3"/>
+<rect class="f3" x="492" y="480" width="14" height="20" rx="3"/>
+<rect class="f2" x="512" y="488" width="14" height="12" rx="3"/>
+<text class="lbl" x="590" y="528" text-anchor="middle">CRM</text>
+<!-- copper arrows into each system -->
+<path class="acc" d="M776 271 L712 271"/>
+<polygon class="f4" points="710,258 684,271 710,284"/>
+<path class="acc" d="M776 386 L712 386"/>
+<polygon class="f4" points="710,373 684,386 710,399"/>
+<path class="acc" d="M776 501 L712 501"/>
+<polygon class="f4" points="710,488 684,501 710,514"/>
+<!-- the limits gate -->
+<rect class="f4" x="776" y="215" width="24" height="340" rx="12"/>
+<text class="lbl" x="788" y="590" text-anchor="middle">Limits</text>
+<!-- the agents -->
+<text class="lbl" x="1015" y="200" text-anchor="middle">Agents</text>
+<path class="dash" d="M928 246 L800 246"/>
+<path class="dash" d="M928 336 L800 336"/>
+<path class="dash" d="M928 426 L800 426"/>
+<path class="dash" d="M928 516 L800 516"/>
+<rect class="f1" x="930" y="215" width="170" height="62" rx="12"/>
+<circle class="f4" cx="956" cy="246" r="9"/>
+<text class="lbl" x="1034" y="255" text-anchor="middle">Kara</text>
+<rect class="f1" x="930" y="305" width="170" height="62" rx="12"/>
+<circle class="f2" cx="956" cy="336" r="9"/>
+<text class="lbl" x="1034" y="345" text-anchor="middle">Counsel</text>
+<rect class="f1" x="930" y="395" width="170" height="62" rx="12"/>
+<circle class="f3" cx="956" cy="426" r="9"/>
+<text class="lbl" x="1034" y="435" text-anchor="middle">GTM</text>
+<rect class="f1" x="930" y="485" width="170" height="62" rx="12"/>
+<circle class="f4" cx="956" cy="516" r="9"/>
+<text class="lbl" x="1034" y="525" text-anchor="middle">Engy</text>

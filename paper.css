@@ -4197,3 +4197,91 @@ article.legal hr {
   list-style: none;
   padding-left: 0;
 }
+
+/* Technical case studies: subheadings, code and diagrams, and tables inside .impact-study-copy */
+.impact-study-copy h3 {
+  margin-top: 30px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.impact-study-copy code {
+  padding: 1px 5px;
+  background: var(--ink-2);
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.impact-study-copy pre {
+  margin: 20px 0 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: pre;
+}
+
+.impact-study-copy pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+.impact-study-copy .article-table-wrap {
+  margin-block: 22px;
+}
+
+.impact-study-copy .article-table {
+  font-size: 0.93rem;
+}
+
+.impact-study-copy .article-table th,
+.impact-study-copy .article-table td {
+  min-width: 7rem;
+  padding-right: 16px;
+}
+
+.impact-study-copy ul li + li,
+.impact-study-copy ol li + li {
+  margin-top: 6px;
+}
+
+.impact-study-copy ol {
+  list-style: decimal;
+}
+
+/* Screenshots inside technical case studies */
+.impact-study-copy figure.shot {
+  margin: 30px 0;
+}
+
+.impact-study-copy figure.shot picture,
+.impact-study-copy figure.shot img {
+  margin: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 var(--rule);
+}
+
+.impact-study-copy figure.shot figcaption {
+  margin-top: 14px;
+  color: var(--cream-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.impact-study-copy figure.shot > a {
+  display: block;
+  text-decoration: none;
+}
+
+.impact-study-copy figure.shot .shot-hint {
+  white-space: nowrap;
+  color: var(--copper-hi);
+}
