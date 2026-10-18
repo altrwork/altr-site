@@ -24,12 +24,12 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>Can Claude connect to CoStar? | altr</title>
+<title>Can Claude Connect to CoStar? No, and What to Use | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="No. There is no CoStar connector for Claude, and CoStar&#x27;s terms bar sharing logins with AI agents or feeding its data to AI. What CRE teams can connect instead." />
+<meta name="description" content="Can Claude connect to CoStar? No. Its terms bar AI agents, scraping and generative AI use. See what to automate instead: county records, Yardi, your own files." />
 <link rel="canonical" href="https://altrwork.com/can-claude-connect-to-costar.html" />
-<meta property="og:title" content="Can Claude connect to CoStar? | altr" />
-<meta property="og:description" content="There is no CoStar connector for Claude. What CoStar&#x27;s July 2026 terms bar, and what a CRE team should connect and automate instead." />
+<meta property="og:title" content="Can Claude Connect to CoStar? No, and What to Use | altr" />
+<meta property="og:description" content="Can Claude connect to CoStar? No. Its terms bar AI agents, scraping and generative AI use. See what to automate instead: county records, Yardi, your own files." />
 <meta property="og:url" content="https://altrwork.com/can-claude-connect-to-costar.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -39,14 +39,14 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Illustration: the road from the assistant to a locked, licensed listing database is closed by a terms barrier, while the open fork leads to county public record and the team&#x27;s own files." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Can Claude connect to CoStar? | altr" />
-<meta name="twitter:description" content="There is no CoStar connector for Claude. What CoStar&#x27;s July 2026 terms bar, and what a CRE team should connect and automate instead." />
+<meta name="twitter:title" content="Can Claude Connect to CoStar? No, and What to Use | altr" />
+<meta name="twitter:description" content="Can Claude connect to CoStar? No. Its terms bar AI agents, scraping and generative AI use. See what to automate instead: county records, Yardi, your own files." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/can-claude-connect-to-costar.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -55,8 +55,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "Can Claude connect to CoStar?",
-      "description": "There is no CoStar connector for Claude. CoStar's public Terms of Use bar sharing passcodes with AI agents, scraping, and using licensed data as input to generative AI or RAG.",
+      "headline": "Can Claude Connect to CoStar? No, and What to Use",
+      "description": "Can Claude connect to CoStar? No. Its terms bar AI agents, scraping and generative AI use. See what to automate instead: county records, Yardi, your own files.",
       "image": "https://altrwork.com/assets/headers/can-claude-connect-to-costar.webp",
       "author": {
         "@type": "Person",
@@ -112,14 +112,6 @@
         },
         {
           "@type": "Question",
-          "name": "Does this apply to ChatGPT and Copilot too?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The terms restrict AI tools outside CoStar in general, not Claude in particular. Any assistant, agent or retrieval pipeline given CoStar credentials or CoStar data falls under the same restrictions."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "What can Claude use for comps instead of CoStar?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -159,7 +151,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -203,7 +195,7 @@
     <section class="page-hero article-hero hero-scene scene-colosseum">
       <h1>Can Claude connect to CoStar?</h1>
       <div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-30">August 30, 2026</time><span>Updated September 28, 2026</span></div>
-      <p class="page-lede">"Can you just hook Claude up to CoStar?" I hear some version of that in almost every CRE conversation. The answer is no. The useful part is why, and what your team should automate instead.</p>
+      <p class="page-lede">"Can you just hook Claude up to CoStar?" The answer is no. Here is why, and what to automate instead.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/can-claude-connect-to-costar.webp" type="image/webp" /><img src="assets/headers/can-claude-connect-to-costar.png" width="1200" height="630" alt="Illustration: the road from the assistant to a locked, licensed listing database is closed by a terms barrier, while the open fork leads to county public record and the team&#x27;s own files." /></picture></figure>
 
@@ -218,19 +210,17 @@
 
         <section class="article-block">
           <h2>Why is there no CoStar connector in Claude?</h2>
-          <p>Open Customize &gt; Connectors and search for CoStar. It is not there. That is not a gap Anthropic forgot to fill: CoStar&#x27;s terms are written to keep its licensed data out of outside AI tools, so a connector would contradict them.</p>
-          <p>The request usually comes right after a principal buys Claude seats. The team already pays for CoStar and wants comps and market context without copying screens into a chat window. That is a reasonable want. It is just not a CoStar problem.</p>
+          <p>Open Customize &gt; Connectors and search for CoStar. It is not there, because CoStar&#x27;s terms keep its licensed data out of outside AI tools and a connector would contradict them. Teams ask because they already pay for CoStar and want comps without pasting screens into a chat.</p>
         </section>
 
         <section class="article-block">
           <h2>What do CoStar&#x27;s terms actually prohibit?</h2>
-          <p>CoStar&#x27;s public <a href="https://www.costar.com/about/termsofuse" target="_blank" rel="noopener">Terms of Use</a>, last revised July 6, 2026, rule out the three shortcuts teams ask for. This is not legal advice, and your signed license agreement governs your account.</p>
+          <p>CoStar&#x27;s public <a href="https://www.costar.com/about/termsofuse" target="_blank" rel="noopener">Terms of Use</a>, last revised July 6, 2026, rule out three shortcuts. This is not legal advice; your signed license governs your account.</p>
           <ol>
             <li><strong>Sharing the login with an AI agent.</strong> Passcodes may not be shared with third-party AI services, including AI agents. The terms also let CoStar raise fees for additional users it detects.</li>
             <li><strong>Scraping.</strong> Scraping, data mining, robots, spiders and extraction tools are prohibited. A "connector" that signs in as a user and reads the screens is exactly this.</li>
             <li><strong>Exporting a slice into Claude.</strong> You may not expose the licensed product to AI tools outside CoStar, or use data generated from it to train an AI system or as input to generative AI or retrieval-augmented generation.</li>
           </ol>
-          <p>None of this is specific to Claude. It covers any assistant, agent or retrieval pipeline.</p>
         </section>
 
         <section class="article-block">
@@ -245,9 +235,7 @@
               <tr><td>A CoStar market report</td><td>Read it in CoStar. Write your own conclusions into the memo.</td></tr>
             </tbody>
           </table></div>
-          <p>Start with systems the team owns: the CRM, Yardi and the files already on disk. That is the <a href="claude-cre-connectors.html">connectors</a> work, and it is allowed because the systems and the data are yours. Run the file work in <a href="claude-cre-cowork.html">Cowork</a>, and put recurring research on <a href="claude-cre-scheduled-tasks.html">scheduled tasks</a> against sources you are allowed to automate.</p>
-          <p>For Florida property, we built a <a href="impact-cre-county-records-connector.html">county records connector</a> that answers ownership and comps questions from public record, with each figure naming its source file and date.</p>
-          <p>Someone still opens CoStar when they need CoStar. Claude does the repeatable work around it. If Claude only works when someone pastes CoStar into the chat, the team does not have a CoStar problem. It has a workflow problem.</p>
+          <p>Start with systems you own: the CRM, Yardi and the files on disk. That is <a href="claude-cre-connectors.html">connectors</a> work. Run file work in <a href="claude-cre-cowork.html">Cowork</a> and recurring research on <a href="claude-cre-scheduled-tasks.html">scheduled tasks</a>. For Florida property, our <a href="impact-cre-county-records-connector.html">county records connector</a> answers ownership and comps questions from public record, each figure naming its source file and date. Someone still opens CoStar when they need CoStar.</p>
         </section>
 
         <section class="article-block article-faq" id="faq">
@@ -256,16 +244,10 @@
           <p>No. As of September 2026 CoStar is not in Claude's connector directory and has not announced a Claude connector. The directory changes often, so check Customize &gt; Connectors before relying on this.</p>
           <h3>Can I paste a CoStar export into Claude?</h3>
           <p>CoStar's public Terms of Use say you may not expose the licensed product to AI tools outside CoStar or use data generated from it as input to generative AI or retrieval-augmented generation. Your signed license governs your account, so read it before you do this.</p>
-          <h3>Does this apply to ChatGPT and Copilot too?</h3>
-          <p>Yes. The terms restrict AI tools outside CoStar in general, not Claude in particular. Any assistant, agent or retrieval pipeline given CoStar credentials or CoStar data falls under the same restrictions.</p>
           <h3>What can Claude use for comps instead of CoStar?</h3>
           <p>Public records such as county property appraiser and deed data, your own closed deals and rent rolls, and market data from vendors whose license allows AI use. Yardi, for example, publishes a Claude connector for its Yardi Matrix market data.</p>
         </section>
 
-        <div class="article-callout">
-          <span>Working line</span>
-          <p>Do not ask Claude to log into CoStar. Ask it to run the work you are allowed to automate, on a cadence, with a person who owns the output.</p>
-        </div>
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
@@ -284,7 +266,7 @@
     <section class="cta-section">
       <div>
         <h2>Want the work around CoStar, not a connector that should not exist?</h2>
-        <p>Bring one process you are allowed to automate. A <a href="ai-enablement-workshop.html">team workshop</a> or a call is enough to see whether it needs a Skill, a connector to systems you own, or nothing at all.</p>
+        <p>Bring one process you are allowed to automate. A <a href="ai-enablement-workshop.html">team workshop</a> or a call shows whether it needs a Skill, a connector to your own systems, or nothing.</p>
       </div>
       <div class="page-hero-actions"><a class="button primary" href="start-a-conversation.html">Book a call</a> <a class="button secondary" href="ai-in-real-estate-guide.html">Get the free field guide</a></div>
     </section>

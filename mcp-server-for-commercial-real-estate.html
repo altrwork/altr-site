@@ -24,12 +24,12 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>MCP Server for Commercial Real Estate: What It Does and How to Build One | altr</title>
+<title>MCP Server for Commercial Real Estate | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one." />
+<meta name="description" content="MCP server for commercial real estate: what it does for brokers, which data sits behind it, how it fails when built carelessly, and build or buy." />
 <link rel="canonical" href="https://altrwork.com/mcp-server-for-commercial-real-estate.html" />
-<meta property="og:title" content="MCP Server for Commercial Real Estate: What It Does and How to Build One | altr" />
-<meta property="og:description" content="An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one." />
+<meta property="og:title" content="MCP Server for Commercial Real Estate | altr" />
+<meta property="og:description" content="MCP server for commercial real estate: what it does for brokers, which data sits behind it, how it fails when built carelessly, and build or buy." />
 <meta property="og:url" content="https://altrwork.com/mcp-server-for-commercial-real-estate.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -39,8 +39,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Illustration: a broker&#x27;s question in the chat window is answered with a parcel card pulled up through one MCP server from owner, sales and debt records below." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="MCP Server for Commercial Real Estate: What It Does and How to Build One | altr" />
-<meta name="twitter:description" content="An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one." />
+<meta name="twitter:title" content="MCP Server for Commercial Real Estate | altr" />
+<meta name="twitter:description" content="MCP server for commercial real estate: what it does for brokers, which data sits behind it, how it fails when built carelessly, and build or buy." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/mcp-server-for-commercial-real-estate.png" />
 <script type="application/ld+json">
 {
@@ -48,8 +48,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "MCP server for commercial real estate: what it does and how to build one",
-      "description": "An MCP server lets Claude or ChatGPT query parcels, owners, sales, debt and your CRM through defined tools. What it does for CRE teams and how to build one.",
+      "headline": "MCP Server for Commercial Real Estate",
+      "description": "MCP server for commercial real estate: what it does for brokers, which data sits behind it, how it fails when built carelessly, and build or buy.",
       "image": "https://altrwork.com/assets/headers/mcp-server-for-commercial-real-estate.webp",
       "author": {
         "@type": "Person",
@@ -90,22 +90,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "It is a small service that exposes property data and your firm's own records to an AI assistant as named tools, such as finding a parcel by address, listing an owner's other buildings, or pulling comparable sales. The assistant calls the tool and answers from the result instead of from memory."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which AI assistants can use a CRE MCP server?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Any client that supports the Model Context Protocol, which includes Claude, ChatGPT, Microsoft Copilot, Gemini and developer tools such as Cursor and VS Code. A remote server with sign-in is added once by an administrator and then used by everyone on the team under their own login."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can an MCP server connect to CoStar?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Not legitimately. CoStar has no official connector and its terms restrict sharing logins with AI agents and exposing licensed data to generative AI. Public record, your CRM and data you license for that use are what belong behind a CRE MCP server."
           }
         },
         {
@@ -156,7 +140,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -164,7 +148,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -206,8 +190,8 @@
 
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-forum">
-      <h1>An MCP server puts property records inside the assistant your brokers already use.</h1>
-      <p class="page-lede">Commercial real estate runs on lookups: who owns this, what did it trade for, what is the debt, what are the comps. An MCP server is how an AI assistant runs those lookups against the record instead of answering from memory.</p>
+      <h1>MCP server for commercial real estate: property records inside your assistant</h1>
+      <p class="page-lede">CRE runs on lookups: who owns this, what did it trade for, what is the debt, what are the comps. An MCP server lets an assistant run them against the record instead of answering from memory.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/mcp-server-for-commercial-real-estate.webp" type="image/webp" /><img src="assets/headers/mcp-server-for-commercial-real-estate.png" width="1200" height="630" alt="Illustration: a broker&#x27;s question in the chat window is answered with a parcel card pulled up through one MCP server from owner, sales and debt records below." /></picture></figure>
 
@@ -225,8 +209,7 @@
 
         <section class="article-block">
           <h2>What does an MCP server do for a CRE team?</h2>
-          <p>It turns the lookups a broker or analyst repeats all day into tools the assistant can call. Instead of opening the county appraiser site, searching a parcel, copying figures into a spreadsheet and doing it again for every comparable, the person asks one question and the assistant runs the lookups.</p>
-          <p>A useful CRE server usually exposes a short list of tools:</p>
+          <p>It turns the lookups a broker repeats all day into tools the assistant can call. Instead of searching the county appraiser site and copying figures into a spreadsheet for every comp, you ask one question. A useful CRE server exposes a short list of tools:</p>
           <ul>
             <li>Find a parcel from an address, and return the owner of record, the use code, the building area and the assessed value.</li>
             <li>Resolve an LLC owner to the people behind it through the state corporate registry, and list everything else that entity owns.</li>
@@ -234,12 +217,12 @@
             <li>Show recorded debt where the county publishes it, and say plainly where it does not.</li>
             <li>Read and write the firm's own contacts, deals and documents, so research becomes a record rather than a chat transcript.</li>
           </ul>
-          <p>The Model Context Protocol is the open standard that makes those tools usable from any compatible assistant. Anthropic created it and in December 2025 donated it to the Agentic AI Foundation, part of the Linux Foundation, so no single vendor controls it. <a href="what-is-an-mcp-server.html">What an MCP server is</a> covers the protocol itself.</p>
+          <p>The Model Context Protocol is the open standard that makes those tools work from any compatible assistant. <a href="what-is-an-mcp-server.html">What an MCP server is</a> covers the protocol.</p>
         </section>
 
         <section class="article-block">
           <h2>What data can sit behind it?</h2>
-          <p>Three kinds, and the licence decides which. Public record is free to use and is where most of the value for owner research sits. Your own CRM and files are yours. Licensed data belongs behind the server only when the licence allows AI access.</p>
+          <p>Public record, your own CRM and files, and licensed data only where the license allows AI access. Public record is where most owner-research value sits.</p>
           <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways">
           <table class="article-table">
             <thead><tr><th>Source</th><th>What it answers</th><th>What to watch</th></tr></thead>
@@ -258,7 +241,7 @@
 
         <section class="article-block">
           <h2>What goes wrong when one is built carelessly?</h2>
-          <p>The failures are quiet. The assistant still answers, fluently, and the answer is wrong. These are the ones we have seen in our own build and designed against:</p>
+          <p>The failures are quiet: the assistant answers fluently and the answer is wrong. These are the ones we hit in our own build.</p>
           <ul>
             <li>Matching a house number as a substring, so a search for 715 returns 1715 on the same street.</li>
             <li>Treating a nominal $100 deed as a sale, or dividing a portfolio price across one building's square feet.</li>
@@ -266,43 +249,33 @@
             <li>Returning an empty debt list for a county that publishes no mortgage index, which reads as a building with no debt.</li>
             <li>Letting a layer that is down fail the whole request instead of falling back to the stored record and saying so.</li>
           </ul>
-          <p>Each of these is a design rule, not a model problem. The server has to say what it does not know, date what it does, and refuse inputs that would fabricate a result.</p>
+          <p>Each is a design rule, not a model problem. The server says what it does not know, dates what it does, and refuses inputs that would fabricate a result.</p>
         </section>
 
         <section class="article-block">
           <h2>Should you build one or use a vendor's?</h2>
-          <p>Use a vendor's server for data you already license from that vendor, if they publish one. Build one for public record in your own market and for your own CRM, because nobody else will model your counties or your pipeline the way you work them.</p>
-          <p>The build is ordinary software engineering: a hosted service, sign-in so the server knows who is asking, read tools separated from write tools, rate limits, and tests that pin the cases that went wrong once. We build ours on Cloudflare Workers; <a href="impact-cloudflare-workers-architecture.html">the architecture is written up here</a>.</p>
+          <p>Use a vendor's server for data you already license from that vendor. Build one for public record in your market and for your own CRM, because nobody else models your counties or pipeline the way you work them. The build is ordinary engineering: a hosted service, sign-in, read tools separate from write tools, rate limits, and tests for every case that went wrong once. We build on Cloudflare Workers; <a href="impact-cloudflare-workers-architecture.html">the architecture is written up here</a>.</p>
         </section>
 
         <section class="article-block">
           <h2>How does a team add one to Claude or ChatGPT?</h2>
-          <p>As a remote connector, once, by an administrator. As of September 2026:</p>
+          <p>As a remote connector, added once by an administrator. As of September 2026:</p>
           <ul>
             <li><strong>Claude.</strong> On Team and Enterprise plans, an owner adds the server's URL under Organization settings, Connectors. Each person then connects and signs in with their own account. On Pro and Max plans, individuals add it themselves under Connectors.</li>
             <li><strong>ChatGPT.</strong> Custom MCP servers are added as apps through developer mode, which a Business or Enterprise admin may have to turn on for the workspace first.</li>
           </ul>
-          <p>Before it goes to the whole team, give it to one broker for a week and read what it returned. Check three things: that each answer names its source and file date, that an address with a unit number returns the right parcel, and that a county with no mortgage index says so instead of reporting no debt.</p>
+          <p>Give it to one broker for a week and read what it returned. Check that each answer names its source and file date, that an address with a unit number returns the right parcel, and that a county with no mortgage index says so instead of reporting no debt.</p>
         </section>
 
         <section class="article-block">
           <h2>What does one look like in practice?</h2>
-          <p>Our own is the <a href="impact-cre-county-records-connector.html">Tampa property records connector</a>: Hillsborough, Pinellas, Pasco and Polk county records inside the chat window, with ownership resolved to people, recorded debt where it exists, screened comparables, and a branded valuation summary at the end. The same records power <a href="mortr.html">mortr</a>, our CRM for commercial real estate teams, so the chat and the CRM read and write one store.</p>
+          <p>Our <a href="impact-cre-county-records-connector.html">Tampa property records connector</a> puts Hillsborough, Pinellas, Pasco and Polk records in the chat, with owners resolved to people, recorded debt where it exists, screened comps and a branded valuation summary. The same records power <a href="mortr.html">mortr</a>, our CRM for CRE teams.</p>
         </section>
-
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>If a broker on your team is copying an answer out of a public system by hand, that lookup is a tool waiting to be written. Start with the one they repeat most, and make it say what it could not find.</p>
-        </div>
 
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>What is an MCP server for commercial real estate?</h3>
           <p>It is a small service that exposes property data and your firm's own records to an AI assistant as named tools, such as finding a parcel by address, listing an owner's other buildings, or pulling comparable sales. The assistant calls the tool and answers from the result instead of from memory.</p>
-          <h3>Which AI assistants can use a CRE MCP server?</h3>
-          <p>Any client that supports the Model Context Protocol, which includes Claude, ChatGPT, Microsoft Copilot, Gemini and developer tools such as Cursor and VS Code. A remote server with sign-in is added once by an administrator and then used by everyone on the team under their own login.</p>
-          <h3>Can an MCP server connect to CoStar?</h3>
-          <p>Not legitimately. CoStar has no official connector and its terms restrict sharing logins with AI agents and exposing licensed data to generative AI. Public record, your CRM and data you license for that use are what belong behind a CRE MCP server.</p>
           <h3>What public data can a CRE MCP server use in Florida?</h3>
           <p>County property appraiser rolls and sales files, the Florida Department of Revenue assessment files, the Sunbiz corporate registry, clerk recording indexes where the county publishes one, SEC filings for securitized loans, and federal SBA 504 loan data.</p>
           <h3>How long does it take to build one?</h3>
@@ -327,7 +300,7 @@
     <section class="cta-section">
       <div>
         <h2>Want the records your team looks up every day inside Claude?</h2>
-        <p>We will map the lookups your brokers repeat and tell you which ones a connector can take over.</p>
+        <p>We map the lookups your brokers repeat and tell you which ones a connector can take over.</p>
       </div>
       <div class="page-hero-actions"><a class="button primary" href="start-a-conversation.html">Book a call</a> <a class="button secondary" href="ai-in-real-estate-guide.html">Get the free field guide</a></div>
     </section>

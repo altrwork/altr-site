@@ -46,7 +46,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -107,7 +107,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -162,9 +162,9 @@
           <source srcset="assets/case-cre-connector.webp" type="image/webp" />
           <img class="impact-study-image" src="assets/case-cre-connector.webp" width="1200" height="675" loading="lazy" alt="Tampa metro coverage: 1.73 million parcels, 295,255 commercial, across four counties, from county appraiser record" />
         </picture>
-          <p>We built this for commercial real estate brokers working the Tampa Bay market. A broker used to answer one question (who owns this building, what did it last sell for, what is it worth) by opening the county appraiser website, searching a parcel, copying figures into a spreadsheet, then doing it again for every comparable. We connected those records to Claude, the assistant the broker already uses. Now they ask, and the answer comes back with the parcel, the owner, the sale history and the comparables already assembled.</p>
-          <p>The connector is a remote MCP server: the piece that lets an assistant read one specific set of records instead of guessing. Claude knows nothing about your county property roll on its own. Through the connector, every figure comes from the county file and names that file and its date. It covers Hillsborough, Pinellas, Pasco and Polk: 1,730,745 parcels, 295,255 of them commercial, as measured in September 2026. It is part of CRE Harness, the property research and BOV system we build for brokerage teams.</p>
-          <p>There is no API key to paste. The broker adds the connector in Claude and signs in through a browser. Because the connection knows who is asking, it can save a contact, a deal or a finished document as that person, not only read records.</p>
+          <p>We built this for commercial real estate brokers in Tampa Bay. A broker used to answer who owns this building, what it last sold for and what it is worth by searching the county appraiser site and copying figures into a spreadsheet, then repeating it for every comp. We connected those records to Claude. Now the broker asks, and the parcel, owner, sale history and comps come back assembled.</p>
+          <p>The connector is a remote MCP server that lets Claude read one set of records instead of guessing. Every figure comes from the county file and names that file and its date. It covers Hillsborough, Pinellas, Pasco and Polk: 1,730,745 parcels, 295,255 of them commercial, as measured in September 2026. It is part of CRE Harness, the property research and BOV system we build for brokerage teams.</p>
+          <p>There is no API key to paste. The broker adds the connector in Claude and signs in through a browser, so it can save a contact, a deal or a finished document as that person, not only read records.</p>
         </div>
         <p class="impact-related">Related: <a href="impact-real-estate-property-intelligence.html">CRE Harness, from address to branded BOV</a>, <a href="mcp-server-for-commercial-real-estate.html">what an MCP server for commercial real estate does</a>, <a href="florida-property-appraiser-data.html">reading Florida property appraiser data</a> and <a href="impact-cloudflare-workers-architecture.html">why our connectors run on Cloudflare Workers</a>.</p>
       </article>
@@ -175,7 +175,7 @@
         <div>
           <h2>It answers the two questions a broker actually has.</h2>
         </div>
-        <p>Ownership and debt are the whole job. Everything else is context around them.</p>
+        <p>Ownership and debt. Everything else is context.</p>
       </div>
       <div class="text-block-grid">
         <article class="text-block">
@@ -194,16 +194,16 @@
         <div>
           <h2>And it produces the document at the end.</h2>
         </div>
-        <p>Research is only worth having if it becomes something a broker can send.</p>
+        <p>Research counts when it becomes something a broker can send.</p>
       </div>
       <div class="text-block-grid">
         <article class="text-block">
           <h3>Comparables chosen properly</h3>
-          <p>The valuation tool applies the screens a careful analyst would: the subject building’s own use type, a size band either side, market sales only, portfolio deeds removed, and sales far from assessed value set aside. It reports what it excluded and why, so the set can be checked. Where in the range the building sits is still the broker’s call: condition, tenancy and rents are not in any public record.</p>
+          <p>The valuation tool screens like a careful analyst: the subject’s own use type, a size band either side, market sales only, portfolio deeds removed, sales far from assessed value set aside. It reports what it excluded and why. Condition, tenancy and rents are not in any public record, so where the building sits in the range is the broker’s call.</p>
         </article>
         <article class="text-block">
           <h3>In the firm’s own brand</h3>
-          <p>A broker opinion of value (BOV) comes out as a finished PDF in the firm’s logo, colors and typefaces, read from its own website, and signed with the broker’s own contact card. One request, one document ready to review and send.</p>
+          <p>A broker opinion of value (BOV) comes out as a finished PDF in the firm’s logo, colors and typefaces, read from its own website, with the broker’s contact card. One request, one document.</p>
         </article>
       </div>
     </section>
@@ -212,7 +212,7 @@
       <div class="services-cta modern-final-cta">
         <div>
           <h2>Your team is retyping something today.</h2>
-          <p>If the answer already sits in a public system and somebody is copying it across by hand, that is a connector waiting to be built. We find them, build them, and hand them over.</p>
+          <p>If the answer sits in a public system and somebody copies it across by hand, that is a connector waiting to be built. We find it, build it and hand it over.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>

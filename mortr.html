@@ -45,7 +45,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -167,26 +167,10 @@
         },
         {
           "@type": "Question",
-          "name": "Which counties can I research?",
+          "name": "Which counties does mortr cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "mortr supports property appraiser records in Pinellas, Hillsborough, and Pasco counties in Florida."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I look up a property owner?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Enter an address in mortr’s chat to look up the recorded owner, mailing address, parcel ID, and available property details from county property appraiser records."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I create BOVs in my own branding?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Add your logo, brand color, firm details, and broker card. mortr uses those settings to create BOV documents in your branding, which you can preview as a PDF."
+            "text": "Pinellas, Hillsborough, and Pasco counties, Florida."
           }
         },
         {
@@ -195,6 +179,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Not minute by minute. mortr uses dated public records: parcel details come from the September 2026 county files, and sales results show the date of the file they came from. Deeds take weeks to be recorded, so the most recent month of sales always reads low. Check the county record before you rely on a figure in a BOV."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does mortr show loan information?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For properties matched to securitized loan records, yes: balances and maturity dates appear alongside your research. Loan details come from dated servicer reports and may not include all debt on a property."
           }
         },
         {
@@ -215,7 +207,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd is-current">
@@ -260,116 +252,81 @@
       <h1 class="hero-title-long">Property research, your CRM, and branded BOVs in one place.</h1>
       <p class="page-lede">mortr is a CRM for commercial real estate teams. Look up county property records, manage contacts and deals, and create broker opinions of value (BOVs) in your firm’s branding. New to BOVs? Read <a href="what-is-a-broker-opinion-of-value.html">what a broker opinion of value is</a>.</p>
       <div class="page-hero-actions">
-        <a class="button primary" href="start-a-conversation.html">See mortr in action</a>
+        <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>
       <p class="page-note">Property record coverage: Pinellas, Hillsborough, and Pasco counties, Florida.</p>
     </section>
 
-    <section class="section product-page-section" aria-labelledby="owner-lookup-demo">
-      <div class="section-header">
-        <div><h2 id="owner-lookup-demo">Type an address. See who owns the property.</h2></div>
-        <p>Ask mortr’s chat about an address and it answers from county property appraiser records: the recorded owner, mailing address, parcel ID and property details, without searching each county site separately.</p>
-      </div>
-      <figure class="product-demo-figure">
-        <img src="assets/mortr/mortr-chat-demo.gif" alt="mortr chat looking up a Tampa property and returning the recorded owner, mailing address, parcel ID, and related addresses" />
-        <figcaption>Start with an address to find ownership and parcel details.</figcaption>
-      </figure>
-      <p class="page-note">Property research uses dated public records.</p>
-    </section>
-
-    <section class="section product-page-section" aria-labelledby="mortr-crm">
-      <div class="section-header">
-        <div><h2 id="mortr-crm">Keep the relationship and the next step in your CRM.</h2></div>
-        <p>Property research is the start of the work. mortr gives your team a place to manage contacts, track deals, and follow each opportunity through your pipeline.</p>
-      </div>
-      <div class="engagement-grid engagement-grid-2up">
-        <article class="engagement-item">
-          <h3>Contacts</h3>
-          <p>Keep the people behind your opportunities in one workspace, alongside your property research.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Deal pipeline</h3>
-          <p>Track deal stages, values, owners, and next steps. Review your pipeline in a table or board, from the first lead to a closed deal.</p>
-        </article>
+    <section class="at-chapter" id="what-mortr-does" aria-labelledby="does-heading">
+      <div class="pp-wrap at-chapter-grid">
+        <div class="at-chapter-aside"></div>
+        <div class="at-chapter-content">
+          <h2 id="does-heading" data-settle>Type an address. See who owns the property.</h2>
+          <div class="pp-prose-block pp-prose" data-settle>
+            <p>Ask mortr&rsquo;s chat about an address and it answers from county property appraiser records for Pinellas, Hillsborough and Pasco: owner, mailing address, parcel ID and property details, without searching each county site. Property research uses dated public records, so every answer shows where it came from.</p>
+            <figure class="product-demo-figure">
+              <img src="assets/mortr/mortr-chat-demo.gif" alt="mortr chat looking up a Tampa property and returning the recorded owner, mailing address, parcel ID, and related addresses" />
+              <figcaption>Start with an address to find ownership and parcel details.</figcaption>
+            </figure>
+            <p>The research sits next to your CRM. Keep the people behind your opportunities as contacts, and track each deal through your pipeline with its stage, value, owner and next step, in a table or a board, from the first lead to a closed deal. The same property records and CRM can be added to Claude as a connector, so you can work from the assistant you already use (<a href="claude-cre-connectors.html">Claude connectors for CRE</a>).</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section product-page-section" aria-labelledby="bov-branding">
-      <div class="section-header">
-        <div><h2 id="bov-branding">Create BOVs that look like your firm.</h2></div>
-        <p>Generate a broker opinion of value in your own branding. Add your logo, choose your brand color, and enter your firm’s contact details. Your broker card adds the name, photo, and contact information used on the document.</p>
-      </div>
-      <figure class="product-demo-figure">
-        <a href="assets/mortr/mortr-bov-branding.png" target="_blank" rel="noopener" aria-label="View the mortr BOV branding screenshot at full size">
-          <img src="assets/mortr/mortr-bov-branding.png" width="2559" height="1325" alt="mortr Brand settings showing a BOV cover with the Asset and Key logo and green brand color, plus fields for firm name, address, phone, and website" loading="lazy" decoding="async" />
-        </a>
-        <figcaption>Your logo, color, and firm details on a BOV cover. Select the image to view it at full size.</figcaption>
-      </figure>
-      <div class="engagement-grid">
-        <article class="engagement-item">
-          <h3>Set your branding</h3>
-          <p>Save your firm’s logo, color, and contact details so you can use them across the BOVs you create.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Generate your BOV</h3>
-          <p>Ask mortr to create a BOV for the property you’re working on, with your firm and broker details on the document.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Review the document</h3>
-          <p>Preview the PDF in your branding and review the property information and valuation before sharing it.</p>
-        </article>
+    <section class="at-chapter" id="bovs" aria-labelledby="bov-heading">
+      <div class="pp-wrap at-chapter-grid">
+        <div class="at-chapter-aside"></div>
+        <div class="at-chapter-content">
+          <h2 id="bov-heading" data-settle>BOVs that look like your firm.</h2>
+          <div class="pp-prose-block pp-prose" data-settle>
+            <p>Save your logo, brand color and firm details once. Your broker card adds the name, photo and contact information used on the document. Then ask mortr to create a BOV for the property you are working on, preview the PDF in your branding, and review the property information and valuation before you share it. New to BOVs? Read <a href="what-is-a-broker-opinion-of-value.html">what a broker opinion of value is</a>.</p>
+            <figure class="product-demo-figure">
+              <a href="assets/mortr/mortr-bov-branding.png" target="_blank" rel="noopener" aria-label="View the mortr BOV branding screenshot at full size">
+                <img src="assets/mortr/mortr-bov-branding.png" width="2559" height="1325" alt="mortr Brand settings showing a BOV cover with the Asset and Key logo and green brand color, plus fields for firm name, address, phone, and website" loading="lazy" decoding="async" />
+              </a>
+              <figcaption>Your logo, color, and firm details on a BOV cover. Select the image to view it at full size.</figcaption>
+            </figure>
+            <p>For properties matched to securitized loan records, mortr also shows loan details alongside your research, including balances and maturity dates. Loan details come from dated servicer reports and may not include all debt on a property.</p>
+            <figure class="product-demo-figure">
+              <img src="assets/mortr/mortr-securitized-loans.jpg" alt="mortr property research chat beside a panel with securitized loan details, balances, and maturity dates" loading="lazy" decoding="async" />
+              <figcaption>Property research with loan details when a match is available.</figcaption>
+            </figure>
+            <p>mortr is one part of our work for CRE teams. See the <a href="real-estate.html">commercial real estate hub</a> or the <a href="ai-in-real-estate-guide.html">AI in Real Estate field guide</a>.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section product-page-section" aria-labelledby="loan-maturity">
-      <div class="section-header">
-        <div><h2 id="loan-maturity">More property context when data is available.</h2></div>
-        <p>For properties matched to securitized loan records, mortr can show loan details alongside your research, including balances and maturity dates.</p>
-      </div>
-      <figure class="product-demo-figure">
-        <img src="assets/mortr/mortr-securitized-loans.jpg" alt="mortr property research chat beside a panel with securitized loan details, balances, and maturity dates" loading="lazy" decoding="async" />
-        <figcaption>Property research with loan details when a match is available.</figcaption>
-      </figure>
-      <p class="page-note">Loan details come from dated servicer reports and may not include all debt on a property.</p>
-    </section>
-
-    <section class="section product-page-section" aria-labelledby="mortr-faq">
-      <div class="section-header">
-        <div><h2 id="mortr-faq">A few questions about mortr.</h2></div>
-        <p>What it does, where it works, and how your branding carries through to a BOV.</p>
-      </div>
-      <div class="content-split">
-        <article class="content-panel">
-          <h3>What is mortr?</h3>
-          <p>mortr is a CRM for commercial real estate teams. It combines property record lookup, contacts, a deal pipeline, and broker opinion of value (BOV) generation in your firm’s branding.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Which counties can I research?</h3>
-          <p>mortr supports property appraiser records in Pinellas, Hillsborough, and Pasco counties in Florida.</p>
-        </article>
-        <article class="content-panel">
-          <h3>How do I look up a property owner?</h3>
-          <p>Enter an address in mortr’s chat to look up the recorded owner, mailing address, parcel ID, and available property details from county property appraiser records.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Can I create BOVs in my own branding?</h3>
-          <p>Yes. Add your logo, brand color, firm details, and broker card. mortr uses those settings to create BOV documents in your branding, which you can preview as a PDF.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Are the property records live?</h3>
-          <p>Not minute by minute. mortr uses dated public records: parcel details come from the September 2026 county files, and sales results show the date of the file they came from. Deeds take weeks to be recorded, so the most recent month of sales always reads low. Check the county record before you rely on a figure in a BOV.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Can I use mortr inside Claude?</h3>
-          <p>Yes. The same property records and CRM can be added to Claude as a connector. You sign in with your mortr account in a browser, with no API key to paste, and contacts, deals and documents saved from Claude appear in mortr.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section product-page-section" aria-labelledby="cre-workflows">
-      <div class="section-header">
-        <div><h2 id="cre-workflows">Explore more ways to use AI in commercial real estate.</h2></div>
-        <p>Visit our <a href="real-estate.html">commercial real estate hub</a>, read about <a href="claude-cre-connectors.html">Claude connectors for CRE</a>, or explore the <a href="ai-in-real-estate-guide.html">AI in Real Estate field guide</a>.</p>
+    <section class="pp-section" id="mortr-faq">
+      <div class="pp-wrap pp-split">
+        <div class="pp-split-head">
+          <h2 class="pp-h2">Questions about mortr.</h2>
+        </div>
+        <div>
+          <div class="pp-faq" data-settle>
+            <details>
+              <summary><h3>What is mortr?</h3></summary>
+              <p>mortr is a CRM for commercial real estate teams. It combines property record lookup, contacts, a deal pipeline, and broker opinion of value (BOV) generation in your firm&rsquo;s branding.</p>
+            </details>
+            <details>
+              <summary><h3>Which counties does mortr cover?</h3></summary>
+              <p>Pinellas, Hillsborough, and Pasco counties, Florida.</p>
+            </details>
+            <details>
+              <summary><h3>Are the property records live?</h3></summary>
+              <p>Not minute by minute. mortr uses dated public records: parcel details come from the September 2026 county files, and sales results show the date of the file they came from. Deeds take weeks to be recorded, so the most recent month of sales always reads low. Check the county record before you rely on a figure in a BOV.</p>
+            </details>
+            <details>
+              <summary><h3>Does mortr show loan information?</h3></summary>
+              <p>For properties matched to securitized loan records, yes: balances and maturity dates appear alongside your research. Loan details come from dated servicer reports and may not include all debt on a property.</p>
+            </details>
+            <details>
+              <summary><h3>Can I use mortr inside Claude?</h3></summary>
+              <p>Yes. The same property records and CRM can be added to Claude as a connector. You sign in with your mortr account in a browser, with no API key to paste, and contacts, deals and documents saved from Claude appear in mortr.</p>
+            </details>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -378,7 +335,7 @@
         <h2>See mortr in action.</h2>
         <p>We’ll walk you through property lookup, the CRM, and creating a BOV in your firm’s branding.</p>
       </div>
-      <a class="button primary" href="start-a-conversation.html">Book a demo</a>
+      <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>
   </main>
 

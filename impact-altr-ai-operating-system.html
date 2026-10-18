@@ -26,10 +26,10 @@
 <meta charset="utf-8" />
 <title>How We Run altr on Our Own AI Operating System | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits." />
+<meta name="description" content="How altr, a three-person company, runs chat, docs and a CRM behind one login with four AI agents that work inside them under written limits." />
 <link rel="canonical" href="https://altrwork.com/impact-altr-ai-operating-system.html" />
 <meta property="og:title" content="How We Run altr on Our Own AI Operating System | altr" />
-<meta property="og:description" content="How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits." />
+<meta property="og:description" content="How altr, a three-person company, runs chat, docs and a CRM behind one login with four AI agents that work inside them under written limits." />
 <meta property="og:url" content="https://altrwork.com/impact-altr-ai-operating-system.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -40,13 +40,13 @@
 <meta property="og:image:alt" content="A person signs in once with the altr key and reaches three stacked systems, Chat, Docs and CRM. Four agents, Kara, Counsel, GTM and Engy, reach the same systems from the other side through a copper gate labeled Limits." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How We Run altr on Our Own AI Operating System | altr" />
-<meta name="twitter:description" content="How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits." />
+<meta name="twitter:description" content="How altr, a three-person company, runs chat, docs and a CRM behind one login with four AI agents that work inside them under written limits." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/impact-altr-ai-operating-system.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261015a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -56,7 +56,7 @@
     {
       "@type": "Article",
       "headline": "How we run altr on our own AI operating system.",
-      "description": "How altr runs on its own AI operating system, with one login, chat, docs and a CRM that share the same records, and four agents that work inside them under written limits.",
+      "description": "How altr, a three-person company, runs chat, docs and a CRM behind one login with four AI agents that work inside them under written limits.",
       "image": "https://altrwork.com/assets/headers/impact-altr-ai-operating-system.webp",
       "author": {
         "@type": "Organization",
@@ -107,7 +107,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -159,35 +159,23 @@
 <div class="impact-study-copy">
 <h1>How we run altr on our own AI operating system.</h1>
 <figure class="cre-hero-image"><picture><source srcset="assets/headers/impact-altr-ai-operating-system.webp" type="image/webp" /><img src="assets/headers/impact-altr-ai-operating-system.webp" width="1200" height="630" alt="A person signs in once with the altr key and reaches three stacked systems, Chat, Docs and CRM. Four agents, Kara, Counsel, GTM and Engy, reach the same systems from the other side through a copper gate labeled Limits." /></picture></figure>
-<p class="impact-subheading">altr is three people. We run the company's chat, wiki and CRM on software we wrote ourselves, behind one login, and four AI agents work in that software the same way a teammate does. They have accounts, they post in channels, they edit pages, and they update CRM records. This page shows what it looks like, why we built it, and what it means for a team our size.</p>
+<p class="impact-subheading">altr is three people. We run the company's chat, wiki and CRM on software we wrote ourselves, behind one login, and four AI agents work in it the way a teammate does: they have accounts, post in channels, edit pages and update CRM records.</p>
 <h2 class="impact-article-heading">The short version</h2>
 <ul>
 <li><strong>Three connected apps and one login.</strong> A chat, a wiki and a CRM, all ours, all running on Cloudflare. People sign in once with Google, and the same identity system covers the agents.</li>
 <li><strong>Claude and our agents work on the same records people do.</strong> Each app can be reached through MCP, an open protocol for connecting AI to tools. There is no separate "AI database" to keep in sync.</li>
 <li><strong>Four agents.</strong> Kara takes the first call with a new lead. Counsel drafts documents and invoices. GTM drafts follow-up emails and preps us for meetings. Engy builds and fixes our internal software.</li>
-<li><strong>Every agent works under written limits.</strong> What it may do alone, what needs a person to approve, and what it never does. The limits are enforced by the software, not by asking the model nicely.</li>
-<li><strong>It is cheap to run.</strong> Hosting adds about $5 a month. The real variable cost is model usage, and every agent has a daily cap.</li>
+<li><strong>Every agent works inside written limits.</strong> What it may do alone and what it never does. The software enforces them, not the model's good manners, and every agent has a daily spend cap.</li>
 </ul>
-<h2 class="impact-article-heading">Why this matters for a small team</h2>
-<p>A three-person company has the same jobs as a thirty-person one and a third of the hours. Someone has to take the first call with a new lead, write the follow-up, file the notes, draft the proposal, send the invoice, remember who spoke to whom last week, and fix the broken thing in the internal tools. When the same people also do the client work, those jobs either get squeezed or get done at night.</p>
-<p>Agents change that only if they can be trusted with real work. A chatbot that answers questions in a separate window does not take a job off anyone's plate, because a person still has to copy its output into the CRM, the wiki and the email. What takes the job off is an agent that works inside the same systems the team uses, under the same login, with limits the team has chosen.</p>
-<p>That is what we built, and it is why the agents here are not a separate product bolted on the side.</p>
+<h2 class="impact-article-heading">Why we built it</h2>
+<p>A three-person company has the same jobs as a thirty-person one: the first call with a new lead, the follow-up, the notes, the proposal, the invoice, the broken internal tool. A chatbot in a separate window takes none of that off anyone's plate, because a person still copies its output into the CRM, the wiki and the email. An agent that works inside the same systems, under the same login, does.</p>
 <ul>
 <li><strong>They act in the systems of record.</strong> Kara's call ends up as a CRM record, a docs page and a chat post. Counsel's draft invoice is a real Stripe draft with a note on the CRM deal. GTM's follow-up is a draft in the seller's own Gmail. Engy's change is a real pull request. Nobody retypes anything.</li>
-<li><strong>They act under limits.</strong> Each agent has one job, a daily spend cap, a list of what it may do alone and what needs a person, and a list of what it will never do. The three of us can hold a list that short in our heads.</li>
+<li><strong>They act inside limits.</strong> Each agent has one job, a daily spend cap, and a short list of what it may do alone and what it never does.</li>
 <li><strong>They leave a trail.</strong> Every call an agent makes is in an audit log, and we can switch any agent off in one step.</li>
-<li><strong>They stay inside the team's attention.</strong> The questions, the approvals and the results all show up in chat, where we already are. Approving an invoice is replying "approve" in a thread.</li>
+<li><strong>They work where we already are.</strong> Questions and results show up in chat.</li>
 </ul>
-<p>We should be plain about what we have and have not measured. We have not timed how long the team used to spend on these jobs, so this page does not claim a number of hours saved. What we can state is what changed in who does the mechanical half. The intake call, the notes, the first draft of a document, the follow-up email, the CRM entry and the first pass at a small code change are now done by an agent and reviewed by a person. The judgment half, who to work with, what to promise, and whether to merge, stays with us on purpose.</p>
-<h2 class="impact-article-heading">Why we built it</h2>
-<p>We wanted five things.</p>
-<ol>
-<li>One login for people, with no password system of our own to defend.</li>
-<li>Agents as full members of the workspace, not scripts bolted on through screen scraping.</li>
-<li>A record that cannot be lost.</li>
-<li>Agents that cannot do more than we allowed.</li>
-<li>A system small enough that three people can run it.</li>
-</ol>
+<p>We have not timed how long these jobs used to take, so we claim no hours saved. What changed is who does the mechanical half: the intake call, the notes, the first draft, the follow-up, the CRM entry and the first pass at a small code change. Who to work with and what to promise stay with us.</p>
 <h2 class="impact-article-heading">The system at a glance</h2>
 <pre><code>   People ──► one login ──┐
                           ├──►  Chat  ·  Docs  ·  CRM
@@ -323,75 +311,22 @@
 <li>Any agent can be switched off everywhere at once.</li>
 <li>Agents can learn from feedback, but nothing they learn reaches a prompt until an admin approves it.</li>
 </ul>
-<p><strong>Counsel</strong> writes our proposals in our brand and our agreements in a careful, law-firm voice, from a written playbook. It prepares invoices and holds them until one of us approves them in chat. It is a first drafter, not a lawyer, and it flags anything off-playbook for a person to review.</p>
+<p><strong>Counsel</strong> writes our proposals in our brand and our agreements in a careful, law-firm voice, from a written playbook. It prepares invoices and flags anything off-playbook to us. It is a first drafter, not a lawyer.</p>
 <p><strong>GTM</strong> turns a quick note in chat into a researched follow-up email, sitting in the seller's own drafts to review and send. It checks first so we never email someone a teammate already contacted. It has no way to send anything.</p>
 <p><strong>Engy</strong> takes build and fix requests in an engineering channel, works on a branch, runs the repo's checks, and opens a pull request. It reports back in plain language. It merges only when Alex says so, and the repo's own pipeline does the deploy.</p>
 <figure class="shot"><a href="assets/aios/aios-engy-merge.webp" target="_blank" rel="noopener"><picture><img src="assets/aios/aios-engy-merge.webp" width="1568" height="772" loading="lazy" alt="An engineering request in altr chat. Engy replies in the thread that the change is ready for review, links the pull request, reports that the checks passed with 140 tests, and after the reply merge, reports that it merged to main." /></picture></a><figcaption>A request in <code>#engineering</code>. Engy works on a branch, runs the repo's checks, and posts a pull request. It merges only after Alex replies &ldquo;merge,&rdquo; and the repo's own pipeline does the deploy. <span class="shot-hint">Select the image to enlarge it.</span></figcaption></figure>
 <h2 class="impact-article-heading">Safety and data</h2>
 <p>We reviewed the apps twice in October and fixed what we found, and we back that with hundreds of automated tests and browser tests that attack the running apps with hostile input. Deletes are soft, so a mistaken delete is recoverable. Every action an agent takes is recorded in an audit log with the credential it used. Everything is backed up nightly in encrypted form, and databases can be restored to an earlier point in time.</p>
-<h2 class="impact-article-heading">What it costs</h2>
-<p>The platform runs inside a Cloudflare plan we already pay for, so hosting adds about $5 a month. Model usage is the real variable cost, and it is bounded because every agent has a daily dollar cap.</p>
 <h2 class="impact-article-heading">Where this applies in a business</h2>
-<p>The apps here are ours, but the part worth copying is the pattern. We think of an agentic ecosystem as several agents that each own one job, working on shared records, under one identity system, with a human approving anything hard to undo. A company needs six things before agents can be trusted with real work.</p>
-<div class="article-table-wrap"><table class="article-table">
-<thead>
-<tr>
-<th>What it needs</th>
-<th>How it looks here</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>One identity for people and agents</strong></td>
-<td>A single directory. Agents have an owner and credentials that can be revoked.</td>
-</tr>
-<tr>
-<td><strong>Shared systems of record</strong></td>
-<td>Chat, docs and a CRM that people and agents both use, so there is no second copy of the truth.</td>
-</tr>
-<tr>
-<td><strong>A standard way for agents to reach those systems</strong></td>
-<td>MCP on every app.</td>
-</tr>
-<tr>
-<td><strong>Scoped authority</strong></td>
-<td>Each agent can only do what its file allows, checked on every call.</td>
-</tr>
-<tr>
-<td><strong>Approval and limits in code</strong></td>
-<td>Spend caps, daily action caps, calling hours, do-not-call lists, and approvals a person gives in chat.</td>
-</tr>
-<tr>
-<td><strong>An audit trail and an off switch</strong></td>
-<td>A record of every call, and a way to stop any agent everywhere.</td>
-</tr>
-</tbody>
-</table></div>
-<p>Without the first four, an agent is a script with a shared password. Without the last two, it is a risk the team has to watch constantly. With all six, adding an agent is a small, reviewable change. That is why the next agent is cheap for us. Counsel, GTM and Engy were each added on top of the identity, the apps and the process that Kara already used.</p>
-<h3>What the work looks like for a team like ours</h3>
-<p>These are the jobs we run agents on today, and most small service businesses share them.</p>
-<ul>
-<li><strong>Intake.</strong> A new lead is spoken to, researched and recorded, and the people who follow up get a short brief instead of a raw transcript.</li>
-<li><strong>Document preparation.</strong> The first draft of a proposal, statement of work or agreement, in the house voice, ready for a person to review.</li>
-<li><strong>Billing preparation.</strong> An invoice drafted correctly and held until a person approves it.</li>
-<li><strong>Follow-up and meeting prep.</strong> A drafted follow-up that has already been checked against what teammates sent, and a brief before each meeting from the CRM's history.</li>
-<li><strong>Record keeping.</strong> Emails, meetings, calls and payments attached to the right company and deal without anyone logging them by hand.</li>
-<li><strong>Internal engineering.</strong> Small requests for the tools themselves, delivered as pull requests that a person merges.</li>
-</ul>
-<h3>Why the pattern travels</h3>
-<p>The apps matter less than the layer under them. The agents reach every app over an open protocol, and the CRM follows HubSpot's model, so a company that already uses a CRM, a chat tool and a wiki could put the same identity, limits, approval and audit layer in front of the systems it has.</p>
-<p>That is the work we do for clients. We build the connectors, the agents and the guardrails around the tools a team already uses. Running our own company the same way is how we know which parts hold up.</p>
-<h3>A note on scale</h3>
-<p>Three people is the size at which this is easiest to see, because everything is visible. Every limit in the system was chosen by someone who has to live with it, and the whole design fits in one head. We have only run it at our own size.</p>
+<p>The apps are ours. The pattern is what to copy: several agents that each own one job, on shared records, under one identity system, with limits in code. An agent needs one identity for people and agents, shared systems of record, a standard way to reach them (MCP), scoped authority, limits in code, and an audit trail with an off switch. Without the first four it is a script with a shared password; without the last two it is a risk someone has to watch.</p>
+<p>A company that already uses a CRM, a chat tool and a wiki can put the same layer in front of the systems it has. That is the work we do for clients: connectors, agents and guardrails around the tools a team already uses. We have only run it at our own size, three people.</p>
 <h2 class="impact-article-heading">What we took from building it</h2>
-<p>These are the choices we would repeat.</p>
 <ul>
-<li><strong>Put outside reads in one place, and outside actions in one agent each.</strong> It shrank the number of credentials that exist and made every agent's access easy to describe.</li>
-<li><strong>Enforce limits where the agent cannot argue with them.</strong> A prompt that says "please don't" is a request. Code that refuses is a guarantee.</li>
-<li><strong>Make permissions reviewable.</strong> Agents are pull requests, and the policy that limits them lives in a different system from the file that describes them.</li>
-<li><strong>Preview, then confirm.</strong> A dry run that shows exactly what would change is easy for an agent to use and easy for a person to check.</li>
-<li><strong>Make multi-step work safe to retry.</strong> A step that fails halfway should resume, not repeat.</li>
-<li><strong>Treat everything an agent reads as untrusted.</strong> Make sure the worst it can do is choose among actions the agent already had.</li>
+<li><strong>Outside reads in one place, outside actions in one agent each.</strong> Fewer credentials, and every agent's access is easy to describe.</li>
+<li><strong>Limits where the agent cannot argue.</strong> A prompt that says "please don't" is a request. Code that refuses is a guarantee.</li>
+<li><strong>Reviewable permissions.</strong> Agents are pull requests, and the policy that limits them lives in a different system from the file that describes them.</li>
+<li><strong>Preview, then confirm, and make multi-step work safe to retry.</strong></li>
+<li><strong>Treat everything an agent reads as untrusted.</strong></li>
 </ul>
 <p>If you want something like this built around your own CRM, your own documents and your own team, <a href="start-a-conversation.html">book a call</a>.</p>
 </div>

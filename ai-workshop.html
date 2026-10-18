@@ -46,7 +46,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -60,10 +60,17 @@
       "description": "Free, in-person Claude workshops for Tampa Bay small business owners. Participants bring a repetitive task and build practical prompts and a reusable workflow.",
       "url": "https://altrwork.com/ai-workshop.html",
       "image": "https://altrwork.com/assets/claude-small-business-workshop-header.webp",
-      "organizer": { "@id": "https://altrwork.com/#business" },
+      "organizer": {
+        "@id": "https://altrwork.com/#business"
+      },
       "isAccessibleForFree": true,
-      "audience": { "@type": "BusinessAudience", "name": "Tampa Bay small business owners and operators" },
-      "subEvent": { "@id": "https://altrwork.com/ai-workshop.html#session-1" }
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Tampa Bay small business owners and operators"
+      },
+      "subEvent": {
+        "@id": "https://altrwork.com/ai-workshop.html#session-1"
+      }
     },
     {
       "@type": "Event",
@@ -77,7 +84,9 @@
       "endDate": "2026-10-22T13:00:00-04:00",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
-      "superEvent": { "@id": "https://altrwork.com/ai-workshop.html#upcoming" },
+      "superEvent": {
+        "@id": "https://altrwork.com/ai-workshop.html#upcoming"
+      },
       "location": {
         "@type": "Place",
         "name": "Central Arts District, St. Petersburg",
@@ -88,7 +97,9 @@
           "addressCountry": "US"
         }
       },
-      "organizer": { "@id": "https://altrwork.com/#business" },
+      "organizer": {
+        "@id": "https://altrwork.com/#business"
+      },
       "isAccessibleForFree": true,
       "offers": {
         "@type": "Offer",
@@ -102,8 +113,18 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://altrwork.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Free Claude Workshops for Tampa Bay Small Businesses", "item": "https://altrwork.com/ai-workshop.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free Claude Workshops for Tampa Bay Small Businesses",
+          "item": "https://altrwork.com/ai-workshop.html"
+        }
       ]
     },
     {
@@ -120,26 +141,10 @@
         },
         {
           "@type": "Question",
-          "name": "Who is it for?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Small business owners and operators across professional services, home services, healthcare, and other local industries. You do not need a technical background."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Where and when is the next workshop?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The next workshop is Thursday, October 22, 2026, from 11:00 AM to 1:00 PM in the Central Arts District of St. Petersburg. The exact address is shared after registration."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to bring anything?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Bring a laptop, access to your Claude account, and one recurring business task you would like to improve."
           }
         },
         {
@@ -164,11 +169,11 @@
 }
 </script>
 </head>
-<body class="pp-page">
+<body class="pp-page at-page">
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -208,115 +213,48 @@
     <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
   </header>
 
-  <main class="page" id="main">
-    <section class="page-hero">
+  <main id="main">
+  <section class="at-hero">
+    <div class="pp-wrap">
       <h1>Free Claude workshops for Tampa Bay small businesses</h1>
-      <p class="page-lede">altr is one of the <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs" target="_blank" rel="noopener">Approved Claude SMB Trainers</a>, the organizations Anthropic and Tenex trained to run Claude workshops in their own communities. These hands-on sessions help owners and operators use Claude on the work already moving through their business. Bring a real task. Leave with practical prompts, a repeatable workflow, and a clearer sense of where AI belongs.</p>
-      <div class="page-hero-actions">
-        <a class="button primary" href="https://luma.com/calendar/cal-jWIAJ4PQoQ092hE" target="_blank" rel="noopener">View upcoming workshops</a>
-        <a class="button secondary" href="#upcoming">See workshop details</a>
+      <div class="at-hero-bottom">
+        <p data-settle style="--d:200ms">Bring one real task. Leave with a workflow you can reuse.</p>
+        <div data-settle style="--d:320ms"><p>altr is one of the <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs" target="_blank" rel="noopener">Approved Claude SMB Trainers</a>, the organizations Anthropic and Tenex trained to run Claude workshops in their own communities. These hands-on sessions are for owners and operators who want Claude working on the tasks already moving through their business.</p><a class="pp-key pp-key-lg" href="https://luma.com/calendar/cal-jWIAJ4PQoQ092hE" target="_blank" rel="noopener">View upcoming workshops</a></div>
       </div>
-      <!-- Series banner only. Do not use this image on paid workshop pages. -->
-      <figure class="workshop-hero-image">
-        <picture>
-          <img src="assets/claude-small-business-workshop-header.webp" width="2073" height="758" fetchpriority="high" decoding="async" alt="Tampa Bay small businesses along the waterfront skyline" />
-        </picture>
-      </figure>
-    </section>
-
-    <section class="section product-page-section" id="upcoming">
-      <div class="section-header">
-        <div>
-          <h2>The next workshop is October 22 in St. Petersburg.</h2>
-        </div>
-        <p>Bring one real business task and build a practical Claude workflow around it. The workshop is free; applications are reviewed by the host on Luma. Later dates are available on the workshop calendar.</p>
+    </div>
+  </section>
+  <section class="at-chapter" id="upcoming">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"><figure class="at-chapter-image at-chapter-image--wide" data-pull><img src="assets/claude-small-business-workshop-header.webp" width="2073" height="758" loading="lazy" decoding="async" alt="Tampa Bay small businesses along the waterfront skyline" /></figure></div>
+      <div class="at-chapter-content">
+        <h2>The next workshop is October 22 in St. Petersburg.</h2>
+        <div id="session-1"><h3>Thursday, October 22</h3><div class="pp-prose-block pp-prose" data-settle><p><strong>11:00 AM to 1:00 PM ET</strong>, Central Arts District, St. Petersburg, FL. The exact address is shared after registration. The workshop is free, and the host approves applications on Luma. Later dates are on the <a href="https://luma.com/calendar/cal-jWIAJ4PQoQ092hE" target="_blank" rel="noopener">workshop calendar</a>.</p><p>It is for small business owners and operators in professional services, home services, healthcare and other local industries. No technical background needed. Bring a laptop, access to your Claude account and one recurring business task you would like to improve.</p></div><p style="margin-top:1.4rem"><a class="pp-key" href="https://luma.com/fkurr1y0" target="_blank" rel="noopener">Apply on Luma</a></p></div>
       </div>
-      <div class="engagement-grid">
-        <article class="engagement-item" id="session-1">
-          <h3>Thursday, October 22</h3>
-          <p><strong>11:00 AM to 1:00 PM ET</strong><br />Central Arts District<br />St. Petersburg, FL</p>
-          <p><a class="button primary" href="https://luma.com/fkurr1y0" target="_blank" rel="noopener">Apply on Luma</a></p>
-        </article>
-        <article class="engagement-item">
-          <h3>Who it is for</h3>
-          <p>Small business owners and operators across professional services, home services, healthcare, and other local industries.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>What to bring</h3>
-          <p>A laptop, access to your Claude account, and one recurring business task you would like to improve.</p>
-        </article>
+    </div>
+  </section>
+  <section class="at-chapter" id="build" aria-labelledby="build-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="build-heading" data-settle>What we work on in the room.</h2>
+        <p class="at-chapter-lede" data-settle style="--d:80ms">You leave with prompts and operating notes written around your own task.</p>
+        <ul class="pp-defs pp-ruled" data-rule><li><h3>Customer and project work</h3><div>Draft follow-ups, organize intake, turn notes into next steps, or get a better first pass on proposals and updates.</div></li><li><h3>Documents and operations</h3><div>Summarize long material, compare documents, shape repeat reports, or turn a process into instructions the team can follow.</div></li><li><h3>Judgment</h3><div>What to share, what to verify, and when Claude is the wrong tool for the job.</div></li></ul>
       </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Build something useful during the session.</h2>
-        </div>
-        <p>This is not a feature tour. Bring the work that repeats and we will work through it in the room. You leave with prompts and operating notes written around your task, not someone else's demo.</p>
+    </div>
+  </section>
+  <section class="at-chapter" id="faq" aria-labelledby="faq-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="faq-heading" data-settle>What to know before you request a seat.</h2>
+        <div class="pp-faq" data-settle><details><summary><h3>Is the workshop free?</h3></summary><p>Yes. The workshop is free to attend. Registration is on Luma and subject to host approval.</p></details><details><summary><h3>Where and when is the next workshop?</h3></summary><p>The next workshop is Thursday, October 22, 2026, from 11:00 AM to 1:00 PM in the Central Arts District of St. Petersburg. The exact address is shared after registration.</p></details><details><summary><h3>How do I register?</h3></summary><p><a href="https://luma.com/calendar/cal-jWIAJ4PQoQ092hE" target="_blank" rel="noopener">Choose a workshop and apply on Luma.</a> Your registration is subject to host approval.</p></details><details><summary><h3>What if I want a private team workshop?</h3></summary><p>Need a private session for your team? Paid enablement workshops are scoped separately from the free public sessions. <a href="start-a-conversation.html">Book a call</a> to plan one for your team.</p></details></div>
       </div>
-      <div class="engagement-grid">
-        <article class="engagement-item">
-          <h3>Customer and project work</h3>
-          <p>Draft follow-ups, organize intake, turn notes into next steps, or create a better first pass on proposals and updates.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Documents and operations</h3>
-          <p>Summarize long material, compare documents, shape repeat reports, or turn a process into instructions the team can follow.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Safe, useful judgment</h3>
-          <p>Learn what to share, what to verify, where human review matters, and when Claude is the wrong tool for the job.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section product-page-section" id="faq" aria-labelledby="workshop-faq">
-      <div class="section-header">
-        <div>
-          <h2 id="workshop-faq">What to know before you request a seat.</h2>
-        </div>
-        <p>The workshop is hands-on, free to attend, and designed for non-technical business owners and operators.</p>
-      </div>
-      <div class="content-split">
-        <article class="content-panel">
-          <h3>Is the workshop free?</h3>
-          <p>Yes. The workshop is free to attend. Registration is on Luma and subject to host approval.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Who is it for?</h3>
-          <p>Small business owners and operators across professional services, home services, healthcare, and other local industries. You do not need a technical background.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Where and when is the next workshop?</h3>
-          <p>The next workshop is Thursday, October 22, 2026, from 11:00 AM to 1:00 PM in the Central Arts District of St. Petersburg. The exact address is shared after registration.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Do I need to bring anything?</h3>
-          <p>Bring a laptop, access to your Claude account, and one recurring business task you would like to improve.</p>
-        </article>
-        <article class="content-panel">
-          <h3>How do I register?</h3>
-          <p><a href="https://luma.com/calendar/cal-jWIAJ4PQoQ092hE" target="_blank" rel="noopener">Choose a workshop and apply on Luma.</a> Your registration is subject to host approval.</p>
-        </article>
-        <article class="content-panel">
-          <h3>What if I want a private team workshop?</h3>
-          <p>Need a private session for your team? Paid enablement workshops are scoped separately from the free public sessions. <a href="start-a-conversation.html">Book a call</a> to plan one for your team.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div>
-        <h2>Apply for the October 22 workshop.</h2>
-        <p>Registration is free and subject to host approval. Apply on Luma to request your seat in St. Petersburg.</p>
-      </div>
-      <div>
-        <a class="button primary" href="https://luma.com/calendar/cal-jWIAJ4PQoQ092hE" target="_blank" rel="noopener">View workshop calendar</a>
-        <a class="button secondary" href="start-a-conversation.html">Book a call about a team workshop</a>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
+  <section class="at-close" aria-labelledby="closer-heading">
+    <div class="pp-wrap"><h2 id="closer-heading" data-settle>Apply for the October 22 workshop.</h2><a class="pp-key pp-key-lg" data-settle style="--d:120ms" href="https://luma.com/fkurr1y0" target="_blank" rel="noopener">Apply on Luma</a></div>
+  </section>
+</main>
 
   <footer class="pp-footer">
   <div class="pp-wrap">

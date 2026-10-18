@@ -46,7 +46,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -107,7 +107,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -162,12 +162,10 @@
           <source srcset="assets/case-stripe-invoicing.webp" type="image/webp" />
           <img class="impact-study-image" src="assets/case-stripe-invoicing.webp" width="1200" height="675" loading="lazy" alt="Stripe" />
         </picture>
-          <p>The slowest part of a small consulting business is not the work. It is everything after the work. The session ends, the invoice does not get written until Friday, the client pays a couple of weeks after that, and a job you finished on the 3rd turns into money on the 25th.</p>
-          <p>So we made the invoice part instant. A session ends and we just say it: invoice them for today’s enablement session. One sentence, typed or spoken. A second later the invoice exists in Stripe as a draft, priced and addressed, with a link to review it.</p>
-          <p>There are two of us and no back office, so the old routine was never hard, just fiddly enough to put off. Find the client, start an invoice, type the amount, pick the terms, check every field, wonder whether this firm is already in there from last quarter. All of that now happens underneath the sentence. It finds the client by email and reuses the record, so a firm we bill monthly keeps one history instead of twelve near duplicates. It sets the terms, writes the line item and picks the payment options, the same way every time, without anyone having to remember any of it.</p>
-          <p>It stops at a draft on purpose. The script cannot finalize an invoice and cannot email one. Drafting is the tedious part and should be instant, but sending is where a wrong number reaches a client, so the last click stays ours. There is also a job that runs overnight and checks our records against Stripe in case a payment notification went missing and somebody is sitting in the wrong state. It is boring and it earns its keep about twice a year.</p>
-          <p>A side effect we did not plan for is that neither of us has ever felt pressure to go and hire someone to run the books. Every invoice sits on one client record, every payment lands in the same place, and the overnight check means the picture is right when we look at it in the morning rather than after somebody reconciles it by hand. Plenty of firms our size take on a fractional CFO or a bookkeeper just to keep that straight. We have not needed to, and that is a whole role two people have not had to pay for.</p>
-          <p>The point of all of it is timing. Billing now happens in the thirty seconds after the work finishes rather than on Friday, so the client gets the invoice while the session is still fresh in their head, which is exactly when they are most ready to pay it. For a two-person company that is the difference between a sale that closes and one that drags into next month.</p>
+          <p>The slowest part of a small consulting business is everything after the work. The invoice waits until Friday, the client pays two weeks later, and a job finished on the 3rd becomes money on the 25th.</p>
+          <p>So we made the invoice instant. When a session ends we say it: invoice them for today&rsquo;s enablement session. A second later a priced, addressed draft exists in Stripe with a link to review it.</p>
+          <p>Underneath that sentence, it finds the client by email and reuses the record, so a firm we bill monthly keeps one history instead of twelve near duplicates. It sets terms, line item and payment options the same way every time. It creates drafts only; the script cannot finalize or email an invoice. An overnight job checks our records against Stripe in case a payment notification went missing.</p>
+          <p>Billing now happens in the thirty seconds after the work finishes, while the session is fresh and the client is most ready to pay. For a two-person company, that is the difference between a sale that closes and one that drags into next month.</p>
           <p class="built-on-line">
             <span>Built on</span>
             <a href="https://stripe.com" rel="noopener nofollow" target="_blank"><img class="built-on-art built-on-art-stripe" src="assets/brand/stripe-wordmark.svg" alt="Stripe" /></a>
@@ -181,7 +179,7 @@
       <div class="services-cta modern-final-cta">
         <div>
           <h2>This is the easiest part of your sales cycle to fix.</h2>
-          <p>Quoting, invoicing and chasing are pure overhead, and they are the first thing worth handing to something you can just talk to. We build it around the tools you already bill through.</p>
+          <p>Quoting, invoicing and chasing are overhead. We build the sentence-to-draft step around the tools you already bill through.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>

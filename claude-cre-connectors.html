@@ -24,13 +24,13 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>Claude Connectors for CRE: CRM, Yardi and Public Records | altr</title>
+<title>Claude Connectors for CRE: CRM, Yardi, Public Records | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How a CRE team connects Claude to its CRM, Yardi and county records: setup steps, which connectors exist as of September 2026, and when to build a custom one." />
+<meta name="description" content="Claude connectors for CRE: add a CRM, Yardi or county records to Claude, which systems already have one, and when to build a custom connector." />
 <link rel="canonical" href="https://altrwork.com/claude-cre-connectors.html" />
-<meta property="og:title" content="Claude Connectors for CRE: CRM, Yardi and Public Records | altr" /><meta property="og:description" content="Connect Claude to your CRM, Yardi and public records: setup steps, which CRE connectors exist, and when a custom connector is the answer." /><meta property="og:url" content="https://altrwork.com/claude-cre-connectors.html" /><meta property="og:type" content="article" /><meta property="og:site_name" content="altr" /><meta property="og:image" content="https://altrwork.com/assets/claude-cre-connectors.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="https://altrwork.com/assets/claude-cre-connectors.png" />
+<meta property="og:title" content="Claude Connectors for CRE: CRM, Yardi, Public Records | altr" /><meta property="og:description" content="Claude connectors for CRE: add a CRM, Yardi or county records to Claude, which systems already have one, and when to build a custom connector." /><meta property="og:url" content="https://altrwork.com/claude-cre-connectors.html" /><meta property="og:type" content="article" /><meta property="og:site_name" content="altr" /><meta property="og:image" content="https://altrwork.com/assets/claude-cre-connectors.png" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="https://altrwork.com/assets/claude-cre-connectors.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" /><link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" /><link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" /><script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -39,8 +39,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "Claude in CRE: Connectors for your CRM, Yardi and public records",
-      "description": "How commercial real estate teams connect Claude to a CRM, Yardi and county records, which connectors exist as of September 2026, and when to build a custom one.",
+      "headline": "Claude Connectors for CRE: CRM, Yardi, Public Records",
+      "description": "Claude connectors for CRE: add a CRM, Yardi or county records to Claude, which systems already have one, and when to build a custom connector.",
       "image": "https://altrwork.com/assets/claude-cre-connectors.webp",
       "author": {
         "@type": "Person",
@@ -113,14 +113,6 @@
             "@type": "Answer",
             "text": "MCP, the Model Context Protocol, is the open standard connectors are built on. Anthropic donated it to the Agentic AI Foundation, part of the Linux Foundation, in December 2025. A connector is an MCP server packaged so you can add it inside Claude and sign in."
           }
-        },
-        {
-          "@type": "Question",
-          "name": "Does a connector give Claude access to everything in the system?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Claude acts with the permissions of the account you sign in with, and only through the tools the connector exposes. On Team and Enterprise plans an owner can also restrict a connector to read-only tools or require approval before Claude writes anything."
-          }
         }
       ]
     },
@@ -154,7 +146,7 @@
 <body class="pp-page"><div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -194,7 +186,7 @@
     <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
   </header>
   <main class="page" id="main">
-    <section class="page-hero article-hero cre-article-hero hero-scene scene-bridge"><h1>Claude in CRE: Connectors for your CRM, Yardi and public records</h1><div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-11">August 11, 2026</time><span>Updated September 28, 2026</span><span>7 min read</span></div><p class="page-lede">"I have it review emails." That is the most common answer when I ask CRE teams how they use Claude. A connector ends the copy-and-paste step by giving Claude its own route to the system.</p></section>
+    <section class="page-hero article-hero cre-article-hero hero-scene scene-bridge"><h1>Claude in CRE: Connectors for your CRM, Yardi and public records</h1><div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-11">August 11, 2026</time><span>Updated September 28, 2026</span><span>7 min read</span></div><p class="page-lede">Most CRE teams use Claude to review pasted emails. A connector ends the pasting by giving Claude its own route into the system.</p></section>
     <figure class="cre-hero-image"><picture><source srcset="assets/claude-cre-connectors.webp" type="image/webp" /><img src="assets/claude-cre-connectors.webp" width="1644" height="924" alt="AI in Real Estate: Connectors, illustrated with industrial, residential, retail, office, and construction properties" /></picture></figure>
     <section class="section article-section"><article class="article-body">
       <div class="article-summary"><span>Short answer</span><p>A Claude connector gives Claude permissioned access to another system, such as your CRM or Yardi, so it can read and update records instead of waiting for pasted text. Add one in Customize &gt; Connectors: pick from the directory, or add a custom connector by URL. Custom connectors are remote MCP servers. Free plans get one custom connector.</p></div>
@@ -205,10 +197,7 @@
       </div>
       <section class="article-block">
         <h2>What does a connector change for a CRE team?</h2>
-        <p>For most teams, reviewing an email with Claude looks like this:</p>
-        <figure class="article-inline-media"><img src="assets/linkedin-connectors-email.png" width="1488" height="896" alt="Email pasted into Claude with instructions to review it" loading="lazy" decoding="async" /><figcaption>The manual version: write instructions, then paste in the email.</figcaption></figure>
-        <p>That works, but it makes a person the integration layer. Every email, CRM note and property report has to be copied in by hand, and Claude only knows what someone remembered to paste.</p>
-        <p>A connector bridges Claude to an app, service or data source directly. Claude can then look things up, and with permission make changes, using the access of the account you sign in with.</p>
+        <p>Without one, a person is the integration layer: every email, CRM note and property report is pasted in by hand, and Claude only knows what someone remembered to paste. With one, Claude looks things up directly and, with permission, makes changes using the access of the account you sign in with.</p>
       </section>
       <section class="article-block">
         <h2>How do you add a connector in Claude?</h2>
@@ -224,7 +213,7 @@
       </section>
       <section class="article-block">
         <h2>Which CRE systems already have a Claude connector?</h2>
-        <p>Check the directory before building anything. The directory changes often, so treat this as a snapshot:</p>
+        <p>Check the directory before building anything. It changes often, so treat this as a snapshot.</p>
         <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table class="article-table">
             <thead><tr><th>System</th><th>Claude connector, as of September 2026</th><th>Notes</th></tr></thead>
             <tbody>
@@ -236,34 +225,32 @@
               <tr><td>CoStar</td><td>No</td><td>No connector, and its terms bar AI agents. <a href="can-claude-connect-to-costar.html">Why</a>.</td></tr>
             </tbody>
           </table></div>
-        <p>Yardi&#x27;s connectors are announced in its <a href="https://www.prnewswire.com/news-releases/yardi-publishes-second-connector-on-anthropic-marketplace-bringing-yardi-matrix-data-to-claude-302802538.html" target="_blank" rel="noopener">June 17, 2026 release</a>. Connected to Yardi, Claude can answer rent, lease, billing and work-order questions without someone exporting a report and filtering rows in Excel first.</p>
+        <p>Connected to Yardi, Claude answers rent, lease, billing and work-order questions without an Excel export first. Details are in Yardi&#x27;s <a href="https://www.prnewswire.com/news-releases/yardi-publishes-second-connector-on-anthropic-marketplace-bringing-yardi-matrix-data-to-claude-302802538.html" target="_blank" rel="noopener">June 17, 2026 release</a>.</p>
       </section>
       <section class="article-block">
         <h2>Example: turning a morning of prospecting into CRM records</h2>
-        <p>Commercial real estate runs on relationships, and they start everywhere: tours, lunches, referrals, a golf course. By noon a broker has business cards and phone notes, and none of it is in the CRM.</p>
-        <p>At one of our Claude in CRE workshops, the team used folk as its CRM. Once folk was connected, the notes became structured contacts through Claude instead of someone retyping every field. The prompt:</p>
+        <p>By noon a broker has business cards and phone notes, and none of it is in the CRM. At one of our Claude in CRE workshops, the team connected folk and turned the notes into structured contacts through Claude. The prompt:</p>
         <pre><code>Add these three people to the CRM as contacts.
 Link each one to their company, tag them "Industrial - Sept tours",
 and create a follow-up task for Friday.
 Show me the records before you save anything.
 
 [paste the notes or business-card text]</code></pre>
-        <p>The last line matters. Keep a review step on anything that writes to a system of record until you have seen it get the fields right on real data.</p>
+        <p>The review line matters. Keep it on anything that writes to a system of record until you have seen it get the fields right on real data.</p>
       </section>
       <section class="article-block">
         <h2>When do you need a custom connector?</h2>
-        <p>When the system you need has no connector but does have data you are allowed to use through an API or a public source.</p>
+        <p>When the system has no connector but does have data you are allowed to use through an API or a public source.</p>
         <figure class="article-inline-media"><img src="assets/linkedin-connectors-demo.gif" width="800" height="400" alt="Claude custom connector demonstration" loading="lazy" decoding="async" /><figcaption>A custom connector brings a source directly into Claude.</figcaption></figure>
-        <p>Say you are looking at an 80,000-square-foot industrial warehouse in Tampa. The first questions are who owns it, what it last sold for and what nearby buildings traded at. Teams usually answer those in a licensed platform and then copy the screen into chat.</p>
-        <p>We built a custom connector that reads county property appraiser and deed records and traces the owning LLC through Sunbiz, Florida&#x27;s corporate registry. Claude can then answer the ownership and comps questions from public record, with each figure naming its source file and date. The build is described in the <a href="impact-cre-county-records-connector.html">county records connector case study</a>.</p>
-        <p>That is the allowed path. <a href="can-claude-connect-to-costar.html">Claude cannot connect to CoStar</a>, and we will not build a connector that shares a login or scrapes a licensed service.</p>
+        <p>Take an 80,000-square-foot industrial warehouse in Tampa. Who owns it, what did it last sell for, what did nearby buildings trade at? We built a connector that reads county property appraiser and deed records and traces the owning LLC through Sunbiz, so Claude answers from public record with each figure naming its source file and date. The build is in the <a href="impact-cre-county-records-connector.html">county records connector case study</a>.</p>
+        <p><a href="can-claude-connect-to-costar.html">Claude cannot connect to CoStar</a>, and we do not build connectors that share a login or scrape a licensed service.</p>
       </section>
       <section class="article-block">
         <h2>What should a connector not be allowed to do?</h2>
         <ul>
-          <li><strong>Write before it has earned it.</strong> Read-only first. Turn on writes one tool at a time.</li>
+          <li><strong>Write on day one.</strong> Start read-only. Turn on writes one tool at a time.</li>
           <li><strong>Use a shared login.</strong> Each person signs in as themselves, so the audit trail names who acted.</li>
-          <li><strong>Send without approval.</strong> Email, tenant notices and anything a client sees stays behind a person.</li>
+          <li><strong>Send without approval.</strong> Set approval on email, tenant notices and anything a client sees.</li>
           <li><strong>Connect to a server you have not vetted.</strong> A connector&#x27;s responses reach the model, and Anthropic warns about prompt injection from untrusted servers.</li>
           <li><strong>Carry licensed data your vendor excludes from AI tools.</strong></li>
         </ul>
@@ -278,10 +265,7 @@ Show me the records before you save anything.
           <p>Not directly. Claude connects to custom connectors from Anthropic's cloud, so the server has to be reachable over the public internet. A system behind a VPN or firewall needs a secured public endpoint, or a firewall rule that allows Anthropic's published IP ranges.</p>
           <h3>What is the difference between a connector and MCP?</h3>
           <p>MCP, the Model Context Protocol, is the open standard connectors are built on. Anthropic donated it to the Agentic AI Foundation, part of the Linux Foundation, in December 2025. A connector is an MCP server packaged so you can add it inside Claude and sign in.</p>
-          <h3>Does a connector give Claude access to everything in the system?</h3>
-          <p>No. Claude acts with the permissions of the account you sign in with, and only through the tools the connector exposes. On Team and Enterprise plans an owner can also restrict a connector to read-only tools or require approval before Claude writes anything.</p>
         </section>
-      <div class="article-callout"><span>Working idea</span><p>Do not make your team act as the connector. Give Claude a controlled route to the source system.</p></div>
       <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
@@ -295,7 +279,7 @@ Show me the records before you save anything.
         </section>
       <p class="cre-source-link">Continue with the <a href="real-estate.html">commercial real estate AI workflow hub</a>, or read the original version in the <a href="https://www.linkedin.com/pulse/claude-cre-connectors-jarred-robidoux-ypoye/" target="_blank" rel="noopener">altr&#x27;d newsletter on LinkedIn</a>.</p>
     </article></section>
-    <section class="cta-section"><div><h2>Want Claude connected to the systems your CRE team uses?</h2><p>We map the workflow, choose the right access layer, and build the connector with clear boundaries on what it may read and write.</p></div><div class="page-hero-actions"><a class="button primary" href="start-a-conversation.html">Book a call</a> <a class="button secondary" href="ai-in-real-estate-guide.html">Get the free field guide</a></div></section>
+    <section class="cta-section"><div><h2>Want Claude connected to the systems your CRE team uses?</h2><p>We map the workflow, choose the access layer, and build the connector with clear limits on what it may read and write.</p></div><div class="page-hero-actions"><a class="button primary" href="start-a-conversation.html">Book a call</a> <a class="button secondary" href="ai-in-real-estate-guide.html">Get the free field guide</a></div></section>
   </main>
   <footer class="pp-footer">
   <div class="pp-wrap">

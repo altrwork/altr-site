@@ -92,7 +92,7 @@
           "name": "How many questions do you need to evaluate a RAG system?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Start with about 50 real questions that cover common requests, exact identifiers, recent changes and questions with no answer in the sources. That is enough to catch large regressions. Grow the set toward a few hundred as production failures show you what it is missing."
+            "text": "Start with about 50 real questions that cover common requests, exact identifiers, recent changes and questions with no answer in the sources. Grow toward a few hundred as production failures show what is missing."
           }
         },
         {
@@ -105,26 +105,10 @@
         },
         {
           "@type": "Question",
-          "name": "Can an LLM judge RAG answers reliably?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Reliably enough to run on every change, once calibrated. Have people score a sample, compare with the model's scores, and fix the rubric where they disagree. Ask the grader to cite the unsupported sentence, and keep the grader model fixed between runs you compare."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "How often should you run a RAG evaluation?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Before every change to the prompt, the model, chunking, the index, the retriever or source permissions, and on a schedule even when nothing changed, because the documents themselves change. Treat a drop on critical questions as a failed release."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the difference between retrieval metrics and answer metrics?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Retrieval metrics, such as recall at k and context precision, measure whether the right passages reached the model. Answer metrics, such as faithfulness and completeness, measure what the model did with them. Scoring them separately tells you which part of the system to fix."
+            "text": "Before every change to the prompt, model, chunking, index, retriever or source permissions, and on a schedule, because the documents change too. Treat a drop on critical questions as a failed release."
           }
         }
       ]
@@ -159,7 +143,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -167,7 +151,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -210,7 +194,7 @@
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-basilica">
       <h1>RAG evaluation for internal knowledge bases: test retrieval and answers separately.</h1>
-      <p class="page-lede">A knowledge assistant that looks good in a demo can still be wrong on a third of the questions staff actually ask. Evaluation is how you find out before they do, and how you know whether this week's change made it better or worse.</p>
+      <p class="page-lede">A knowledge assistant that looks good in a demo can still be wrong on a third of the questions staff ask. Evaluation tells you before they do, and shows whether this week's change helped.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/rag-evaluation-internal-knowledge-bases.webp" type="image/webp" /><img src="assets/headers/rag-evaluation-internal-knowledge-bases.png" width="1200" height="630" alt="Illustration: a golden set of real questions forks into two separate checks, one scoring whether retrieval found the right passage and one scoring whether the answer stayed faithful, each with its own pass or fail." /></picture></figure>
 
@@ -223,7 +207,7 @@
 
         <section class="article-block">
           <h2>What should a RAG evaluation measure?</h2>
-          <p>Two stages, scored apart, because they fail for different reasons and are fixed by different people. If the right passage never reached the model, no prompt change will help.</p>
+          <p>Two stages, scored apart, because they fail for different reasons. If the right passage never reached the model, no prompt change will help.</p>
           <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table class="article-table">
             <thead>
               <tr><th>Metric</th><th>Question it answers</th><th>How to score it</th></tr>
@@ -237,12 +221,12 @@
               <tr><td>Correct refusal</td><td>Did it decline when the sources do not answer, or the asker may not see them?</td><td>Automatic, on the unanswerable items</td></tr>
             </tbody>
           </table></div>
-          <p>Open-source libraries such as Ragas implement several of these under the names context precision, context recall, faithfulness and response relevancy. The names differ between tools, so define each metric in your own report.</p>
+          <p>Open-source libraries such as Ragas implement several of these. Names differ between tools, so define each metric in your own report.</p>
         </section>
 
         <section class="article-block">
           <h2>How do you build a golden set?</h2>
-          <p>From real questions, not invented ones. Pull them from the help desk, the team chat channel where people ask "does anyone know", and the assistant's own logs.</p>
+          <p>From real questions: the help desk, the chat channel where people ask "does anyone know", and the assistant's own logs.</p>
           <ul>
             <li><strong>Start with about 50 questions</strong> and grow toward a few hundred as failures teach you what to add.</li>
             <li><strong>Cover the hard cases on purpose</strong>: exact identifiers, questions whose answer changed recently, ambiguous wording, answers spread across two documents, and questions with no answer in the sources.</li>
@@ -261,7 +245,7 @@ review_by: 2027-01-15</code></pre>
 
         <section class="article-block">
           <h2>Can a language model grade the answers?</h2>
-          <p>Yes, for faithfulness and relevance, if you check it. A model grader reads the question, the retrieved passages and the answer, and scores against a written rubric. It is fast and cheap enough to run on every change.</p>
+          <p>Yes, for faithfulness and relevance, if you check it. A model grader reads the question, the passages and the answer and scores against a written rubric, cheaply enough to run on every change.</p>
           <ul>
             <li><strong>Calibrate it.</strong> Have a person score a sample of 30 to 50 items and compare. Where the grader and the person disagree, fix the rubric.</li>
             <li><strong>Make it show its work.</strong> Ask for the unsupported sentence and the passage it checked, not just a score.</li>
@@ -294,26 +278,17 @@ review_by: 2027-01-15</code></pre>
               <tr><td>Restricted content in an answer</td><td>Permissions filtered after retrieval, or not at all</td><td>Security</td></tr>
             </tbody>
           </table></div>
-          <p>How retrieval works, and why keyword search and reranking move these numbers, is in <a href="llm-retrieval-grounded-answers.html">how RAG works</a>.</p>
+          <p>Why keyword search and reranking move these numbers is in <a href="llm-retrieval-grounded-answers.html">how RAG works</a>.</p>
         </section>
-
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>Score retrieval and answers separately, keep the question set fixed between runs, and make every failure someone's to fix.</p>
-        </div>
 
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>How many questions do you need to evaluate a RAG system?</h3>
-          <p>Start with about 50 real questions that cover common requests, exact identifiers, recent changes and questions with no answer in the sources. That is enough to catch large regressions. Grow the set toward a few hundred as production failures show you what it is missing.</p>
+          <p>Start with about 50 real questions that cover common requests, exact identifiers, recent changes and questions with no answer in the sources. Grow toward a few hundred as production failures show what is missing.</p>
           <h3>What is faithfulness in RAG evaluation?</h3>
           <p>Faithfulness measures whether every claim in an answer is supported by the passages the system retrieved. An answer can be correct in general and still unfaithful, if it adds facts the sources do not contain. It is the main measure of whether the system is grounded.</p>
-          <h3>Can an LLM judge RAG answers reliably?</h3>
-          <p>Reliably enough to run on every change, once calibrated. Have people score a sample, compare with the model's scores, and fix the rubric where they disagree. Ask the grader to cite the unsupported sentence, and keep the grader model fixed between runs you compare.</p>
           <h3>How often should you run a RAG evaluation?</h3>
-          <p>Before every change to the prompt, the model, chunking, the index, the retriever or source permissions, and on a schedule even when nothing changed, because the documents themselves change. Treat a drop on critical questions as a failed release.</p>
-          <h3>What is the difference between retrieval metrics and answer metrics?</h3>
-          <p>Retrieval metrics, such as recall at k and context precision, measure whether the right passages reached the model. Answer metrics, such as faithfulness and completeness, measure what the model did with them. Scoring them separately tells you which part of the system to fix.</p>
+          <p>Before every change to the prompt, model, chunking, index, retriever or source permissions, and on a schedule, because the documents change too. Treat a drop on critical questions as a failed release.</p>
         </section>
 
         <section class="article-block article-related">
@@ -332,7 +307,7 @@ review_by: 2027-01-15</code></pre>
     <section class="cta-section">
       <div>
         <h2>Need to know whether your knowledge assistant can be trusted?</h2>
-        <p>Bring the knowledge base and the questions your team asks. We will help you build the test set and the release check.</p>
+        <p>Bring the knowledge base and the questions your team asks. We will build the test set and the release check with you.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

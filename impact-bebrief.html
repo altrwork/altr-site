@@ -46,7 +46,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -107,7 +107,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -159,15 +159,13 @@
         <div class="impact-study-copy">
           <h1>Codex inside the full-stack build process.</h1>
           <p>BeBrief is an iPhone preflight briefing app for pilots, built around route-level risk review, aircraft profiles, weather and NOTAM review, and Flight Service filing. Its team builds and maintains the mobile app, the backend and the integrations behind it.</p>
-          <p>The AI work was not a chatbot added to the product. It was a better way for the team to build the product. We helped set up Codex as an AI build partner that could read the app, understand the existing structure, help explain features, make focused edits, and run checks across the mobile app, backend, and integrations.</p>
-          <p>That included automated code review workflows, security review agents, remote Codex agents the team could control from a phone, and MCP tools that connected the agent to the systems and context it needed. The goal was simple: make full-stack product work easier to start, easier to review, and easier to keep moving.</p>
+          <p>The AI work was not a chatbot added to the product. It was a better way to build it: Codex set up as a build partner that reads the app, explains features, makes focused edits and runs checks across the mobile app, backend and integrations.</p>
           <h2 class="impact-article-heading">What we built</h2>
-          <p>Automated code review let Codex inspect proposed changes against the actual repo, call out risky edits, explain what changed, and help the team tighten implementation before release.</p>
-          <p>Remote agents made it possible to start and guide Codex work from a phone, so focused implementation, debugging, and review tasks could move without someone sitting at a full workstation.</p>
-          <p>Security review agents helped look for sensitive issues across authentication, data access, backend logic, and integration points before changes moved forward.</p>
-          <p>MCP tools gave Codex cleaner access to project context and workflows. Onboarding showed the team how to use those tools, review the diffs, and keep ownership of full-stack decisions.</p>
-          <h2 class="impact-article-heading">Where human judgment stayed</h2>
-          <p>We also onboarded the team on when to use Codex, how to ask for focused changes, how to review the output, and where human judgment still matters: product decisions, aviation safety context, code review, and releases.</p>
+          <p>Automated code review checks proposed changes against the actual repo, flags risky edits and explains what changed.</p>
+          <p>Remote agents let the team start and guide Codex work from a phone.</p>
+          <p>Security review agents check authentication, data access, backend logic and integration points before changes move forward.</p>
+          <p>MCP tools give Codex project context and workflows.</p>
+          <p>We onboarded the team on when to use Codex, how to ask for focused changes and how to review the output. Product decisions, aviation safety context and releases stay with the team.</p>
         </div>
         <p class="impact-related">Background on this pattern: <a href="ai-code-review-judge-agents.html">AI code review with judge agents</a> and <a href="context-engineering-large-codebases.html">context engineering for large codebases</a>.</p>
       </article>
@@ -176,7 +174,7 @@
       <div class="services-cta modern-final-cta">
         <div>
           <h2>Coding agents work best inside a real repo.</h2>
-          <p>If your product team is spending its time on review, triage, and context-gathering, agents can carry the repeatable parts. We build the system and hand it over.</p>
+          <p>If your product team spends its time on review, triage and context-gathering, agents can carry the repeatable parts. We build the system and hand it over.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>

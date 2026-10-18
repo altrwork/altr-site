@@ -24,11 +24,11 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>How RAG works: retrieval and grounded LLM answers | altr</title>
+<title>How RAG works: retrieval and grounded answers | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="How retrieval-augmented generation grounds an AI&#x27;s answers in your documents: chunking, hybrid search, reranking, citations, and when you do not need RAG." />
 <link rel="canonical" href="https://altrwork.com/llm-retrieval-grounded-answers.html" />
-<meta property="og:title" content="How RAG works: retrieval and grounded LLM answers | altr" />
+<meta property="og:title" content="How RAG works: retrieval and grounded answers | altr" />
 <meta property="og:description" content="How retrieval-augmented generation grounds an AI&#x27;s answers in your documents: chunking, hybrid search, reranking, citations, and when you do not need RAG." />
 <meta property="og:url" content="https://altrwork.com/llm-retrieval-grounded-answers.html" />
 <meta property="og:type" content="article" />
@@ -39,7 +39,7 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Illustration: a question goes to a search over a stack of documents, a magnifier picks out two highlighted passages, and dotted threads tie those passages to cited lines in the answer." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How RAG works: retrieval and grounded LLM answers | altr" />
+<meta name="twitter:title" content="How RAG works: retrieval and grounded answers | altr" />
 <meta name="twitter:description" content="How retrieval-augmented generation grounds an AI&#x27;s answers in your documents: chunking, hybrid search, reranking, citations, and when you do not need RAG." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/llm-retrieval-grounded-answers.png" />
 <script type="application/ld+json">
@@ -104,7 +104,7 @@
           "name": "Does RAG stop AI hallucinations?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It reduces them but does not eliminate them. The model can still misread a passage or fill a gap when retrieval returns little. Require citations, allow the answer that the sources do not say, and measure faithfulness on real questions before trusting the system."
+            "text": "It reduces them but does not eliminate them. The model can still misread a passage or fill a gap when retrieval returns little. Require citations, allow the answer that the sources do not say, and measure faithfulness on real questions."
           }
         },
         {
@@ -113,22 +113,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Not always. Small collections can go straight into the prompt, and many search tools already combine keyword and semantic search. A dedicated vector store earns its place when you have a large, changing document set and need control over chunking, metadata and permission filters."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How big should RAG chunks be?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "There is no universal size. Chunks need to be large enough to hold a complete idea, such as a clause with its exceptions or a table with its header, and small enough that several fit in the prompt. Split on the document's own structure, then test a few sizes against real questions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can RAG respect who is allowed to see what?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, if permissions are applied when chunks are retrieved. Store each chunk with the access rules of its source and filter by the person asking before anything reaches the model. Filtering after the model has read the text is too late."
           }
         }
       ]
@@ -163,7 +147,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -171,7 +155,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -214,7 +198,7 @@
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-basilica">
       <h1>How RAG works: the model answers from what retrieval puts in front of it.</h1>
-      <p class="page-lede">Retrieval-augmented generation, or RAG, is how an AI assistant answers from your documents instead of from memory. The model matters less than people expect. What it is shown matters more.</p>
+      <p class="page-lede">Retrieval-augmented generation (RAG) is how an AI assistant answers from your documents instead of from memory. What the model is shown matters more than which model it is.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/llm-retrieval-grounded-answers.webp" type="image/webp" /><img src="assets/headers/llm-retrieval-grounded-answers.png" width="1200" height="630" alt="Illustration: a question goes to a search over a stack of documents, a magnifier picks out two highlighted passages, and dotted threads tie those passages to cited lines in the answer." /></picture></figure>
 
@@ -227,7 +211,7 @@
 
         <section class="article-block">
           <h2>What happens when a RAG system answers a question?</h2>
-          <p>Six steps, the first two done ahead of time.</p>
+          <p>Six steps; the first two happen ahead of time.</p>
           <ol>
             <li><strong>Split.</strong> Documents are cut into chunks, each tagged with its source, date, owner and who may see it.</li>
             <li><strong>Index.</strong> Each chunk is stored twice: as an embedding, a list of numbers that captures meaning, and in a keyword index such as BM25, which matches exact words.</li>
@@ -236,15 +220,14 @@
             <li><strong>Assemble.</strong> The chosen chunks go into the prompt with instructions: answer only from these sources, cite them, say so if the answer is not there.</li>
             <li><strong>Generate.</strong> The model writes the answer from that context, token by token, as it always does.</li>
           </ol>
-          <p>The model does not learn the retrieved facts. Ask again tomorrow and it depends on retrieval finding them again.</p>
-        </section>
+                  </section>
 
         <section class="article-block">
           <h2>Do you need RAG at all?</h2>
-          <p>Often not. RAG earns its complexity when the material is too large to hand the model whole, or changes too often to curate by hand.</p>
+          <p>Often not. RAG pays off when the material is too large to hand the model whole, or changes too often to curate by hand.</p>
           <ul>
-            <li><strong>Small, stable material</strong>: put it in the prompt. Anthropic's guidance is that a knowledge base under about 200,000 tokens, roughly 500 pages, can simply be included, and prompt caching keeps the repeat cost down. A Claude Project or a Skill's reference files do this for a team without any code.</li>
-            <li><strong>Live systems</strong>: give the assistant a search tool instead of an index. A connector that queries the CRM or the ticket system returns current records, and nothing goes stale.</li>
+            <li><strong>Small, stable material</strong>: put it in the prompt. Anthropic's guidance is that a knowledge base under about 200,000 tokens, roughly 500 pages, can simply be included, and prompt caching keeps the repeat cost down. A Claude Project does this without code.</li>
+            <li><strong>Live systems</strong>: give the assistant a search tool instead of an index. A connector that queries the CRM returns current records.</li>
             <li><strong>Large, mixed document sets</strong>: this is where a retrieval pipeline pays off.</li>
           </ul>
         </section>
@@ -252,7 +235,7 @@
         <section class="article-block">
           <h2>Why does keyword search still matter?</h2>
           <p>Embeddings find passages that mean the same thing in different words. They are weak on exact strings: error codes, part numbers, clause numbers, a person's name. Keyword search is the opposite. Use both.</p>
-          <p>Anthropic's Contextual Retrieval research, published in September 2024, measured this. Adding a short note of document context to each chunk before indexing cut top-20 retrieval failures by 35%. Adding keyword search on top took it to 49%, and adding a reranker to 67%. Your numbers will differ. The direction rarely does.</p>
+          <p>Anthropic's Contextual Retrieval research, published in September 2024, measured this. Adding a short note of document context to each chunk before indexing cut top-20 retrieval failures by 35%. Adding keyword search on top took it to 49%, and adding a reranker to 67%. Your numbers will differ.</p>
         </section>
 
         <section class="article-block">
@@ -274,26 +257,17 @@
             <li><strong>The model fills gaps</strong> from general knowledge when retrieval came back thin.</li>
             <li><strong>Instructions hidden in documents</strong>: a retrieved page can contain text aimed at the model. Treat retrieved content as data, and keep risky actions out of reach of a system that reads it.</li>
           </ul>
-          <p>You find these by measuring, not by reading demo answers. <a href="rag-evaluation-internal-knowledge-bases.html">RAG evaluation for internal knowledge bases</a> covers how to build a test set and score retrieval and answers separately.</p>
+          <p>Find these by measuring, not by reading demo answers. <a href="rag-evaluation-internal-knowledge-bases.html">RAG evaluation for internal knowledge bases</a> covers the test set.</p>
         </section>
-
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>Before tuning the model or the prompt, check whether the right passage was retrieved. If it was not, nothing downstream can fix the answer.</p>
-        </div>
 
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>What is the difference between RAG and fine-tuning?</h3>
           <p>RAG gives the model relevant documents at the moment it answers, so updating knowledge means updating the documents. Fine-tuning changes the model's weights with training examples, which suits style and format better than facts. For company knowledge that changes, RAG or a live search tool is almost always the right choice.</p>
           <h3>Does RAG stop AI hallucinations?</h3>
-          <p>It reduces them but does not eliminate them. The model can still misread a passage or fill a gap when retrieval returns little. Require citations, allow the answer that the sources do not say, and measure faithfulness on real questions before trusting the system.</p>
+          <p>It reduces them but does not eliminate them. The model can still misread a passage or fill a gap when retrieval returns little. Require citations, allow the answer that the sources do not say, and measure faithfulness on real questions.</p>
           <h3>Do I need a vector database for RAG?</h3>
           <p>Not always. Small collections can go straight into the prompt, and many search tools already combine keyword and semantic search. A dedicated vector store earns its place when you have a large, changing document set and need control over chunking, metadata and permission filters.</p>
-          <h3>How big should RAG chunks be?</h3>
-          <p>There is no universal size. Chunks need to be large enough to hold a complete idea, such as a clause with its exceptions or a table with its header, and small enough that several fit in the prompt. Split on the document's own structure, then test a few sizes against real questions.</p>
-          <h3>Can RAG respect who is allowed to see what?</h3>
-          <p>Yes, if permissions are applied when chunks are retrieved. Store each chunk with the access rules of its source and filter by the person asking before anything reaches the model. Filtering after the model has read the text is too late.</p>
         </section>
 
         <section class="article-block article-related">
@@ -312,7 +286,7 @@
     <section class="cta-section">
       <div>
         <h2>Is your team searching the same documents by hand every week?</h2>
-        <p>Bring the documents and the questions people ask of them. We will tell you whether they need retrieval, a search tool, or just a better-organized Project.</p>
+        <p>Bring the documents and the questions people ask of them. We will tell you whether they need retrieval, a search tool, or a better-organized Project.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

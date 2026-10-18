@@ -48,7 +48,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -56,7 +56,10 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@type": [
+        "LocalBusiness",
+        "ProfessionalService"
+      ],
       "@id": "https://altrwork.com/#business",
       "name": "altr",
       "legalName": "Uncreated LLC",
@@ -80,11 +83,26 @@
       },
       "priceRange": "$$",
       "areaServed": [
-        { "@type": "City", "name": "Tampa" },
-        { "@type": "AdministrativeArea", "name": "Tampa Bay" },
-        { "@type": "City", "name": "St. Petersburg" },
-        { "@type": "City", "name": "Wesley Chapel" },
-        { "@type": "City", "name": "Clearwater" }
+        {
+          "@type": "City",
+          "name": "Tampa"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Tampa Bay"
+        },
+        {
+          "@type": "City",
+          "name": "St. Petersburg"
+        },
+        {
+          "@type": "City",
+          "name": "Wesley Chapel"
+        },
+        {
+          "@type": "City",
+          "name": "Clearwater"
+        }
       ],
       "sameAs": [
         "https://www.linkedin.com/company/altrwork/",
@@ -96,50 +114,65 @@
       "name": "Workflow Automation Consultant in Tampa | altr",
       "url": "https://altrwork.com/workflow-automation-consultant-tampa.html",
       "description": "Workflow automation consultant in Tampa for ops heavy teams. Map one process, decide what to automate, then build only when the path earns software.",
-      "isPartOf": { "@id": "https://altrwork.com/#website" },
-      "about": { "@id": "https://altrwork.com/#business" }
+      "isPartOf": {
+        "@id": "https://altrwork.com/#website"
+      },
+      "about": {
+        "@id": "https://altrwork.com/#business"
+      }
     },
     {
       "@type": "Service",
       "name": "Workflow automation consulting in Tampa",
       "serviceType": "Workflow automation consultant",
       "description": "A Tampa Bay workflow automation consultant who maps one repeated process, decides whether to enable, automate, or leave it alone, then builds automations, agents, and connectors only when the path is clean.",
-      "provider": { "@id": "https://altrwork.com/#business" },
+      "provider": {
+        "@id": "https://altrwork.com/#business"
+      },
       "url": "https://altrwork.com/workflow-automation-consultant-tampa.html",
       "areaServed": [
-        { "@type": "City", "name": "Tampa" },
-        { "@type": "AdministrativeArea", "name": "Tampa Bay" },
-        { "@type": "City", "name": "St. Petersburg" },
-        { "@type": "City", "name": "Wesley Chapel" },
-        { "@type": "City", "name": "Clearwater" }
+        {
+          "@type": "City",
+          "name": "Tampa"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Tampa Bay"
+        },
+        {
+          "@type": "City",
+          "name": "St. Petersburg"
+        },
+        {
+          "@type": "City",
+          "name": "Wesley Chapel"
+        },
+        {
+          "@type": "City",
+          "name": "Clearwater"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://altrwork.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Workflow Automation Consultant in Tampa", "item": "https://altrwork.com/workflow-automation-consultant-tampa.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Workflow Automation Consultant in Tampa",
+          "item": "https://altrwork.com/workflow-automation-consultant-tampa.html"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does a workflow automation consultant in Tampa do at altr?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A workflow automation consultant in Tampa maps one repeated process as it actually runs, then decides whether to enable the team, automate the clean parts, or leave the work alone. Software comes last, so you do not buy a faster broken Zapier stack."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the automation trap for Tampa Bay teams?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Wiring Zapier, Make, or scripts before anyone maps the process. Zaps go brittle when a field changes, nobody owns the exception, and there is no review point, so bad output keeps moving. Discovery is the cheapest place to stop that."
-          }
-        },
         {
           "@type": "Question",
           "name": "How is a workflow automation consultant different from an AI consultant in Tampa?",
@@ -153,15 +186,7 @@
           "name": "Do you offer business automation services on site in Tampa Bay?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We are based in Tampa and work on site across Tampa Bay, St. Petersburg, Wesley Chapel, and Clearwater. Discovery is better in the room, where we can watch files, tools, and handoffs move. Remote engagements run the same sequence over video."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who is a fit for a process automation consultant in Tampa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An ops heavy team with one named process that still breaks, loops, or lives in a pile of zaps with no owner. Not a fit if you want more connectors and no one to own the system after launch."
+            "text": "Yes. We are based in Tampa and work on site across Tampa Bay, including St. Petersburg, Clearwater and Wesley Chapel. Discovery is better in the room, where we can watch files, tools and handoffs move. Remote engagements run the same way over video."
           }
         },
         {
@@ -169,7 +194,15 @@
           "name": "Where should a team start with workflow automation in Tampa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A discovery call on one process. It is bounded and it produces a decision either way: enable, automate, or leave it alone. Fees are quoted in writing before you commit."
+            "text": "A call about one process. It produces a decision either way: automate it, train the team, or leave it alone. Scope is agreed in writing before work starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is a plain Zapier or Make automation enough?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When the steps never change and the information arrives clean. Then a plain automation is cheaper and we will say so. When documents arrive in different shapes, or a call needs judgment, an agent that reads each one and flags what does not add up is the better tool."
           }
         }
       ]
@@ -178,11 +211,11 @@
 }
 </script>
 </head>
-<body class="pp-page">
+<body class="pp-page at-page">
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -222,161 +255,47 @@
     <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
   </header>
 
-  <main class="page" id="main">
-    <section class="page-hero hero-scene scene-workshop">
-      <h1 class="hero-title-long">Workflow automation consultant in Tampa who will not skip discovery.</h1>
-      <p class="page-lede">A workflow automation consultant in Tampa maps one repeated process, decides whether to enable it, automate it, or leave it alone, then builds automations, agents, and connectors only when the path is clean. At altr, that is the job. You do not buy a faster broken Zapier stack. We work on site across Tampa Bay including St. Petersburg, Wesley Chapel, and Clearwater, and remote when the process is already clear on video.</p>
-      <div class="page-hero-actions">
-        <a class="button primary" href="start-a-conversation.html">Book a call</a>
-        <a class="button secondary" href="#how-we-work">See how we work</a>
+  <main id="main">
+  <section class="at-hero" aria-labelledby="page-heading">
+    <div class="pp-wrap">
+      <h1 id="page-heading" style="font-size:clamp(3.2rem,7.4vw,7.5rem);line-height:0.92"><span class="ln"><span>Workflow automation consultant <span class="at-accent">in Tampa.</span></span></span></h1>
+      <div class="at-hero-bottom">
+        <p data-settle style="--d:200ms">Map the process first. Automate what earns it.</p>
+        <div data-settle style="--d:320ms"><p>A workflow automation consultant in Tampa maps one repeated process and decides whether to automate it, train the team, or leave it alone. When it earns software, we build it and keep it from breaking quietly.</p><a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a call</a></div>
       </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Brittle zaps are easy to buy in Tampa. An owner and a review point are not.</h2>
-        </div>
-        <p>Most Tampa Bay teams we meet already run Zapier, Make, or a pile of internal scripts. The trap is skipping discovery. A field name changes, an exception appears, and the zap keeps running with nobody watching. There is no owner, no review point, and no shared picture of what good output looks like. Business automation services that start at the connector leave you with a faster version of a messy path. Workflow automation in Tampa only pays off after someone maps inputs, handoffs, exceptions, and who is allowed to say the output is good.</p>
+    </div>
+  </section>
+  <section class="at-chapter" id="how-we-work" aria-labelledby="how-we-work-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="how-we-work-heading" data-settle>Automation with an owner.</h2>
+        <div class="pp-prose-block pp-prose" data-settle><p>Most Tampa Bay teams we meet already run Zapier, Make or a pile of internal scripts. A field name changes, an exception appears, and the zap keeps running with nobody watching. Nobody can list everything that runs, customers find the failures first, and the person who wired it has moved on. Automation that starts at the connector gives you a faster version of a messy path.</p><p>So we start with the process. We follow one piece of work from the inbox to the finished record: who touches it, which tools, where it stalls, what an exception looks like. Then we decide whether to automate it, fix the handoff, train the people or leave it alone. A <a href="workflow-audit.html">workflow audit</a> does exactly that for one process.</p><p>Where automation earns its place, we build it on the stack you already run. Automations and agents read and write through a connector instead of a migration, inside limits you set, with every step logged. What matches your records is handled; what does not comes to you with a note. Your team holds the logins and the documentation. For work that needs judgment we use <a href="custom-agents.html">AI agents</a> instead of fixed rules, and <a href="zapier-vs-ai-agents.html">Zapier vs AI agents</a> explains the difference.</p><p>We work with operations-heavy teams in <a href="real-estate.html">commercial real estate</a>, <a href="nonprofits.html">nonprofits</a> and <a href="ecommerce.html">ecommerce</a>, on site in Tampa, St. Petersburg, Clearwater, Wesley Chapel, Lakeland and Orlando, and over video everywhere else. If the problem is AI that will not stick in work you already own, see <a href="ai-consulting-tampa.html">AI consulting in Tampa</a>.</p></div>
       </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Five signs your automations need an owner before another zap.</h2>
-        </div>
-        <p>If two or more of these are true, map the process before adding anything to it.</p>
+    </div>
+  </section>
+  <section class="at-chapter" id="workflows" aria-labelledby="workflows-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="workflows-heading" data-settle>Workflows we have built.</h2>
+        <ul class="pp-list pp-ruled" data-rule style="margin-top:0"><li><a href="how-a-vendor-bill-gets-handled.html"><span class="pp-list-name">Vendor bills to QuickBooks</span><span class="pp-list-text">Each bill matched to the right job and purchase order, with duplicates and missing POs flagged.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li><li><a href="impact-slice-of-heaven-cakes.html"><span class="pp-list-name">Cake orders and quotes, Tampa</span><span class="pp-list-text">Slice of Heaven Cakes confirms website orders and quote requests on arrival in one dashboard.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li><li><a href="impact-cre-county-records-connector.html"><span class="pp-list-name">County records lookups</span><span class="pp-list-text">Hillsborough, Pinellas, Pasco and Polk property records answered inside Claude.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li><li><a href="impact-spark-labs.html"><span class="pp-list-name">Receipts and event forms, St. Petersburg</span><span class="pp-list-text">spARK Labs gets finished expense reports and review-ready PDFs across four tools.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li><li><a href="impact-fishin-prints.html"><span class="pp-list-name">Photo to print-ready art</span><span class="pp-list-text">Every Fishin Prints order on the same path from a customer's photo to checked artwork.</span><span class="pp-list-arrow" aria-hidden="true">&rarr;</span></a></li></ul>
       </div>
-      <div class="engagement-grid">
-        <article class="engagement-item">
-          <h3>Customers find the failures</h3>
-          <p>A client or a colleague tells you a step did not happen before any alert does.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Nobody can list what runs</h3>
-          <p>No one person can name every zap, scenario, or script, what triggers it, and whose account it runs under.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>A renamed field broke something</h3>
-          <p>A form, CRM, or spreadsheet column changed in the last quarter and output quietly went wrong until someone noticed.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Cleanup happens after the automation</h3>
-          <p>Someone fixes, re-sorts, or re-sends what the automation produced, by hand, every week.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>The builder left</h3>
-          <p>The person who wired it has moved on, and the logins, logic, and exceptions left with them.</p>
-        </article>
+    </div>
+  </section>
+  <section class="at-chapter" id="faq" aria-labelledby="faq-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="faq-heading" data-settle>What Tampa teams ask first.</h2>
+        <div class="pp-faq" data-settle><details><summary><h3>How is a workflow automation consultant different from an AI consultant in Tampa?</h3></summary><p>The labels overlap; the lead offer does not. If the pain is brittle zaps and no owner, start here. If ChatGPT is not sticking inside work you already own, our <a href="ai-consulting-tampa.html">AI consulting in Tampa</a> page is the right start.</p></details><details><summary><h3>Do you offer business automation services on site in Tampa Bay?</h3></summary><p>Yes. We are based in Tampa and work on site across Tampa Bay, including St. Petersburg, Clearwater and Wesley Chapel. Discovery is better in the room, where we can watch files, tools and handoffs move. Remote engagements run the same way over video.</p></details><details><summary><h3>Where should a team start with workflow automation in Tampa?</h3></summary><p>A call about one process. It produces a decision either way: automate it, train the team, or leave it alone. Scope is agreed in writing before work starts.</p></details><details><summary><h3>When is a plain Zapier or Make automation enough?</h3></summary><p>When the steps never change and the information arrives clean. Then a plain automation is cheaper and we will say so. When documents arrive in different shapes, or a call needs judgment, an agent that reads each one and flags what does not add up is the better tool.</p></details></div>
       </div>
-    </section>
-
-    <section class="section product-page-section" id="how-we-work">
-      <div class="section-header">
-        <div>
-          <h2>Discovery, then a decision, then enablement, then deployment.</h2>
-        </div>
-        <p>Every engagement follows the same sequence. We map one process, decide what deserves software, teach the team on their own tools when that is the answer, and deploy automations only when the workflow has proven it needs them. Fees stay unpublished. Scope is quoted in writing on the call before you commit.</p>
-      </div>
-      <div class="engagement-grid engagement-grid-2up">
-        <article class="engagement-item">
-          <h3><a href="workflow-audit.html">Discovery</a></h3>
-          <p>We map one repeated process end to end: inputs, decisions, tools, handoffs, review points, and failure modes. This is where a process automation consultant in Tampa should start, and it is bounded on purpose.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Decision</h3>
-          <p>Enable, automate, or leave it alone. Not every bottleneck wants a zap. Some need a clearer handoff, a named owner, or a prompt the team can run by hand. We will say so before anyone builds.</p>
-        </article>
-        <article class="engagement-item">
-          <h3><a href="ai-enablement-workshop.html">Enablement</a></h3>
-          <p>Run against the process you just mapped, with the people who run it. They build the prompts and the manual steps themselves, so the parts worth automating are obvious by the end and the rest stops being guesswork.</p>
-        </article>
-        <article class="engagement-item">
-          <h3><a href="custom-agents.html">Deployment</a></h3>
-          <p>Only the steps the mapping proved worth building. Automations and agents sit on the stack you already run, reading and writing through a connector rather than a migration, with the approval path kept intact and your team holding the keys.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Ops heavy teams whose automations still need a person in the loop.</h2>
-        </div>
-        <p>We work with Tampa Bay teams where a named process still breaks, loops, or lives in a pile of zaps with no owner: <a href="real-estate.html">commercial real estate</a>, <a href="nonprofits.html">nonprofits</a>, and <a href="ecommerce.html">ecommerce</a>. If you are searching for business automation services in Tampa because the stack is noisy and nobody trusts it, start here.</p>
-      </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Workflow automation consultant vs automation shop vs AI agency vs AI consultant.</h2>
-        </div>
-        <p>Four kinds of firm answer to this search and they do not do the same job. Here is who does what, so the first call starts from the right place. If the pain is AI that will not stick inside work you already own, our <a href="ai-consulting-tampa.html">AI consulting in Tampa</a> page is the right start.</p>
-      </div>
-      <div class="engagement-grid engagement-grid-2up">
-        <article class="engagement-item">
-          <h3>Workflow automation consultant (altr)</h3>
-          <p>Starts with one repeated process. Maps it before anyone builds. Decides enable, automate, or leave it alone. Builds automations, agents, and review paths only when the path is clean. Ends with your team holding ownership. Fit when Zapier feels brittle and nobody owns the exception.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Automation shop</h3>
-          <p>Builds the zaps and the integrations, quickly, on the process you hand over. That is the right buy when the process is already clean and somebody owns the exceptions. When it is not, the automation inherits the mess and breaks quietly. We will point you to one when the path really is clean.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>AI automation agency</h3>
-          <p>Usually sells agents, chatbots, or a platform as the product. Useful when you already know the workflow and need a vendor to ship an interface. Weak when the pain is internal ops, documents, approvals, and handoffs that still have no owner.</p>
-        </article>
-        <article class="engagement-item">
-          <h3><a href="ai-consulting-tampa.html">AI consultant</a></h3>
-          <p>Starts with making AI reliable inside work the team already owns. Teaches people on their own tools first, then builds agents only when the process earns software. Choose that page when ChatGPT is not sticking. Choose this page when the stack of automations is the problem.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>What Tampa teams ask first.</h2>
-        </div>
-      </div>
-      <div class="content-split">
-        <article class="content-panel">
-          <h3>What does a workflow automation consultant in Tampa do at altr?</h3>
-          <p>A workflow automation consultant in Tampa maps one repeated process as it actually runs, then decides whether to enable the team, automate the clean parts, or leave the work alone. Software comes last, so you do not buy a faster broken Zapier stack.</p>
-        </article>
-        <article class="content-panel content-panel-muted">
-          <h3>What is the automation trap for Tampa Bay teams?</h3>
-          <p>Wiring Zapier, Make, or scripts before anyone maps the process. Zaps go brittle when a field changes, nobody owns the exception, and there is no review point, so bad output keeps moving. Discovery is the cheapest place to stop that.</p>
-        </article>
-        <article class="content-panel content-panel-muted">
-          <h3>How is a workflow automation consultant different from an AI consultant in Tampa?</h3>
-          <p>The labels overlap; the lead offer does not. If the pain is brittle zaps and no owner, start here. If ChatGPT is not sticking inside work you already own, our <a href="ai-consulting-tampa.html">AI consulting in Tampa</a> page is the right start.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Do you offer business automation services on site in Tampa Bay?</h3>
-          <p>Yes. We are based in Tampa and work on site across Tampa Bay, St. Petersburg, Wesley Chapel, and Clearwater. Discovery is better in the room, where we can watch files, tools, and handoffs move. Remote engagements run the same sequence over video.</p>
-        </article>
-        <article class="content-panel content-panel-muted">
-          <h3>Who is a fit for a process automation consultant in Tampa?</h3>
-          <p>An ops heavy team with one named process that still breaks, loops, or lives in a pile of zaps with no owner. Not a fit if you want more connectors and no one to own the system after launch.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Where should a team start with workflow automation in Tampa?</h3>
-          <p>A discovery call on one process. It is bounded and it produces a decision either way: enable, automate, or leave it alone. Fees are quoted in writing before you commit.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div>
-        <h2>Start with one process, not another zap.</h2>
-        <p>Bring the workflow your team keeps doing by hand, or the automation nobody trusts. We will map it, tell you whether automating it is even the right move, and put the next step in writing before you commit.</p>
-      </div>
-      <a class="button primary" href="start-a-conversation.html">Book a call</a>
-    </section>
-  </main>
+    </div>
+  </section>
+  <section class="at-close" aria-labelledby="closer-heading">
+    <div class="pp-wrap"><h2 id="closer-heading" data-settle>Start with one process, not another zap.</h2><a class="pp-key pp-key-lg" data-settle style="--d:120ms" href="start-a-conversation.html">Book a call</a></div>
+  </section>
+</main>
 
   <footer class="pp-footer">
   <div class="pp-wrap">

@@ -26,10 +26,10 @@
 <meta charset="utf-8" />
 <title>Claude Skills vs MCP: when to use each | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="A Skill teaches Claude how to do a task. An MCP server lets Claude reach a system. A decision table, failure modes, and when you need both." />
+<meta name="description" content="Claude Skills vs MCP: a Skill teaches Claude how to do a task, an MCP server lets Claude reach a system. A decision table, failure modes and when you need both." />
 <link rel="canonical" href="https://altrwork.com/claude-skills-vs-mcp.html" />
 <meta property="og:title" content="Claude Skills vs MCP: when to use each | altr" />
-<meta property="og:description" content="A Skill teaches Claude how to do a task. An MCP server lets Claude reach a system. A decision table, failure modes, and when you need both." />
+<meta property="og:description" content="Claude Skills vs MCP: a Skill teaches Claude how to do a task, an MCP server lets Claude reach a system. A decision table, failure modes and when you need both." />
 <meta property="og:url" content="https://altrwork.com/claude-skills-vs-mcp.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -40,7 +40,7 @@
 <meta property="og:image:alt" content="Illustration: two different inputs merge into one finished task: a Skill folder of written steps supplies the how, an MCP plug and socket supplies the way in." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Claude Skills vs MCP: when to use each | altr" />
-<meta name="twitter:description" content="A Skill teaches Claude how to do a task. An MCP server lets Claude reach a system. A decision table, failure modes, and when you need both." />
+<meta name="twitter:description" content="Claude Skills vs MCP: a Skill teaches Claude how to do a task, an MCP server lets Claude reach a system. A decision table, failure modes and when you need both." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/claude-skills-vs-mcp.png" />
 <script type="application/ld+json">
 {
@@ -49,7 +49,7 @@
     {
       "@type": "Article",
       "headline": "Claude Skills vs MCP: when to use each",
-      "description": "A Skill teaches Claude how to do a task. An MCP server lets Claude reach a system. A decision table, failure modes, and when you need both.",
+      "description": "Claude Skills vs MCP: a Skill teaches Claude how to do a task, an MCP server lets Claude reach a system. A decision table, failure modes and when you need both.",
       "image": "https://altrwork.com/assets/headers/claude-skills-vs-mcp.webp",
       "author": {
         "@type": "Person",
@@ -89,14 +89,6 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can a Claude Skill call an API?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A Skill can bundle scripts, and Claude can run them where code execution is enabled. But a script is not a managed connection: it does not handle sign-in, per-person permissions or an audit trail. For a shared business system, put the access behind an MCP server and let the Skill describe how to use it."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Do Skills work outside Claude?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -109,22 +101,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "As of September 2026, Anthropic's help center lists Skills on Free, Pro, Max, Team and Enterprise plans with code execution turned on, and custom MCP connectors on the same plans, with Free limited to one custom connector. On Team and Enterprise, an Owner adds connectors and can provision Skills for the whole organization."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is a Claude plugin the same as a Skill?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. A plugin is a package that can contain several Skills together with connectors and sub-agents, so a team can install one bundle instead of setting up each piece separately. A Skill is one of the things a plugin can hold."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which should a small team build first?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Usually a Skill. It costs an afternoon, needs no hosting and fixes the most common problem, which is Claude doing a task inconsistently. Build an MCP server when people are still copying data into the chat because Claude cannot reach the system that holds it."
           }
         }
       ]
@@ -159,7 +135,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -167,7 +143,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -210,7 +186,7 @@
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-forum">
       <h1>Claude Skills vs MCP: a Skill teaches Claude how, an MCP server gives it a way in.</h1>
-      <p class="page-lede">Both extend Claude, and teams mix them up constantly. One question separates them: does Claude need new instructions, or access to a system it cannot reach today?</p>
+      <p class="page-lede">Both extend Claude, and teams mix them up. One question separates them: does Claude need new instructions, or access to a system it cannot reach?</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/claude-skills-vs-mcp.webp" type="image/webp" /><img src="assets/headers/claude-skills-vs-mcp.png" width="1200" height="630" alt="Illustration: two different inputs merge into one finished task: a Skill folder of written steps supplies the how, an MCP plug and socket supplies the way in." /></picture></figure>
 
@@ -223,9 +199,9 @@
 
         <section class="article-block">
           <h2>What is the difference between a Claude Skill and MCP?</h2>
-          <p>A Skill is knowledge and an MCP server is access. A Skill changes how Claude works. An MCP server changes what Claude can touch.</p>
-          <p>A <strong>Skill</strong> is a folder with a <code>SKILL.md</code> file: a short YAML header with a <code>name</code> and a <code>description</code>, then instructions. It can also carry scripts, templates and reference documents. Claude keeps only the name and description of each installed Skill in view, and reads the full file when a request matches. There is nothing to host and no sign-in to manage.</p>
-          <p>An <strong>MCP server</strong> is a program that speaks the <a href="what-is-an-mcp-server.html">Model Context Protocol</a>. It exposes tools, such as "search contacts" or "create a booking", that Claude can call against a live system, under a real identity. It has to be deployed, secured and kept running like any other service.</p>
+          <p>A Skill is knowledge. An MCP server is access.</p>
+          <p>A <strong>Skill</strong> is a folder with a <code>SKILL.md</code> file: a short YAML header with a <code>name</code> and a <code>description</code>, then instructions. It can also carry scripts, templates and reference documents. Claude reads the full file when a request matches its description. Nothing to host, no sign-in to manage.</p>
+          <p>An <strong>MCP server</strong> is a program that speaks the <a href="what-is-an-mcp-server.html">Model Context Protocol</a>. It exposes tools, such as "search contacts" or "create a booking", that Claude can call against a live system, under a real identity. It has to be deployed, secured and kept running like any service.</p>
           <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table class="article-table">
             <thead>
               <tr><td></td><th>Skill</th><th>MCP server</th></tr>
@@ -243,51 +219,39 @@
 
         <section class="article-block">
           <h2>How do you decide which one you need?</h2>
-          <p>Ask what Claude got wrong the last time it tried the task.</p>
+          <p>Ask what Claude got wrong last time.</p>
           <ul>
             <li><strong>It had the information but did it differently each time.</strong> Wrong format, skipped a step, ignored your house style. That is a Skill.</li>
             <li><strong>It asked you to paste something in, or guessed.</strong> The data lives in a system Claude cannot see. That is an MCP server, or a connector a vendor already publishes.</li>
             <li><strong>It could see the system but used it badly.</strong> Called the wrong tool, used the wrong filter, forgot to check a second record. That is a Skill that teaches the procedure for the tools you already have.</li>
             <li><strong>It needs to act somewhere with a named person's permissions.</strong> That is MCP, because only a server can enforce who may do what.</li>
           </ul>
-          <p>Check the connector directory in Claude before building anything. If a vendor already publishes a connector for the tool, the work left is usually a Skill.</p>
+          <p>Check the connector directory before building anything. If a vendor already publishes a connector, what is left is usually a Skill.</p>
         </section>
 
         <section class="article-block">
           <h2>How do Skills and MCP work together?</h2>
-          <p>The Skill is the playbook and the MCP server is the equipment. A good Skill names the tools it expects, the order to call them in and the checks to make between calls.</p>
-          <p>Anthropic's authoring guidance says a Skill that uses MCP tools should name them in full, as <code>ServerName:tool_name</code>, so Claude can find the right one when several servers are connected. A Skill that says "look up the account in the CRM" with no CRM connection does not give Claude access. It gives Claude an instruction it cannot follow.</p>
+          <p>The Skill is the playbook and the MCP server is the equipment. A good Skill names the tools it expects, the order to call them in and the checks between calls. Anthropic's guidance says to name MCP tools in full, as <code>ServerName:tool_name</code>. A Skill that says "look up the account in the CRM" with no CRM connection gives Claude an instruction it cannot follow.</p>
           <p>spARK Labs uses both. A remote MCP server gives Claude access to BossHub, Verkada, Nexudus and Outlook (<a href="impact-spark-labs-mcp.html">case study</a>), and the rules for matching founders to advisors live in a Claude skill that proposes pairs for the team to review (<a href="impact-spark-labs-air-supply.html">case study</a>).</p>
-          <p>Two newer packaging layers sit on top. In Claude, a plugin bundles skills, connectors and sub-agents so a team installs one thing. And <a href="claude-cowork.html">Claude Cowork</a>, which Anthropic began merging into ordinary Claude conversations in September 2026, is where multi-step tasks run, using whichever Skills and connectors are installed.</p>
+          <p>A plugin bundles skills, connectors and sub-agents so a team installs one thing. <a href="claude-cowork.html">Claude Cowork</a>, which Anthropic began merging into ordinary Claude conversations in September 2026, runs multi-step tasks using whichever Skills and connectors are installed.</p>
         </section>
 
         <section class="article-block">
           <h2>Where do teams go wrong?</h2>
           <ul>
-            <li><strong>Building a server for what is really a style guide.</strong> If Claude already has the data, a server adds hosting, secrets and uptime for no gain.</li>
-            <li><strong>Hiding access inside a Skill.</strong> A script with an API key pasted into it works for one person and has no per-user permissions or audit trail. Shared business systems belong behind a server with sign-in.</li>
+            <li><strong>Building a server for what is really a style guide.</strong> If Claude already has the data, a server adds hosting and secrets for no gain.</li>
+            <li><strong>Hiding access inside a Skill.</strong> A script with a pasted API key has no per-user permissions or audit trail. Shared systems belong behind a server with sign-in.</li>
             <li><strong>A description that never triggers.</strong> Claude chooses a Skill from its description alone. "Helps with reports" rarely fires. See <a href="writing-a-skill-md.html">how to write a SKILL.md</a>.</li>
-            <li><strong>One giant tool.</strong> An MCP tool that "updates any record" makes the Skill's job harder, not easier. Narrow tools are easier to instruct and to secure. See <a href="mcp-server-design-internal-ai-tools.html">MCP server design</a>.</li>
+            <li><strong>One giant tool.</strong> An MCP tool that "updates any record" is hard to instruct and to secure. See <a href="mcp-server-design-internal-ai-tools.html">MCP server design</a>.</li>
           </ul>
         </section>
 
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>If you are writing instructions, write a Skill. If you are writing code that holds credentials, you are building an MCP server. Build the Skill first and the server only when Claude still cannot reach what it needs.</p>
-        </div>
-
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
-          <h3>Can a Claude Skill call an API?</h3>
-          <p>A Skill can bundle scripts, and Claude can run them where code execution is enabled. But a script is not a managed connection: it does not handle sign-in, per-person permissions or an audit trail. For a shared business system, put the access behind an MCP server and let the Skill describe how to use it.</p>
           <h3>Do Skills work outside Claude?</h3>
           <p>Largely, yes. Anthropic published Agent Skills as an open standard in December 2025, and tools including ChatGPT and Codex, Gemini CLI, Cursor, VS Code and GitHub Copilot now read the SKILL.md format. Instructions travel well. Scripts depend on what each tool can run, so test a Skill in every tool you plan to use it with.</p>
           <h3>Which Claude plans include Skills and custom connectors?</h3>
           <p>As of September 2026, Anthropic's help center lists Skills on Free, Pro, Max, Team and Enterprise plans with code execution turned on, and custom MCP connectors on the same plans, with Free limited to one custom connector. On Team and Enterprise, an Owner adds connectors and can provision Skills for the whole organization.</p>
-          <h3>Is a Claude plugin the same as a Skill?</h3>
-          <p>No. A plugin is a package that can contain several Skills together with connectors and sub-agents, so a team can install one bundle instead of setting up each piece separately. A Skill is one of the things a plugin can hold.</p>
-          <h3>Which should a small team build first?</h3>
-          <p>Usually a Skill. It costs an afternoon, needs no hosting and fixes the most common problem, which is Claude doing a task inconsistently. Build an MCP server when people are still copying data into the chat because Claude cannot reach the system that holds it.</p>
         </section>
 
         <section class="article-block article-related">
@@ -308,7 +272,7 @@
     <section class="cta-section">
       <div>
         <h2>Not sure whether you need a Skill, an MCP server, or both?</h2>
-        <p>Show us the task and where Claude falls short on it. We will tell you which layer fixes it.</p>
+        <p>Show us the task and where Claude falls short. We will tell you which layer fixes it.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

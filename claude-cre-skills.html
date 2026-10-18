@@ -26,10 +26,10 @@
 <meta charset="utf-8" />
 <title>Claude Skills for CRE Underwriting | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="What a Claude Skill is, how to create one in Customize &gt; Skills, and a free office-condo underwriting Skill a CRE team can test on its own deals." />
+<meta name="description" content="Claude Skills for CRE underwriting: write your OM process once in a SKILL.md, how to create and test one, and what belongs in it. Free office-condo example." />
 <link rel="canonical" href="https://altrwork.com/claude-cre-skills.html" />
 <meta property="og:title" content="Claude Skills for CRE Underwriting | altr" />
-<meta property="og:description" content="Turn the underwriting steps your CRE team repeats into a Claude Skill, with setup steps and a free office-condo underwriting Skill." />
+<meta property="og:description" content="Claude Skills for CRE underwriting: write your OM process once in a SKILL.md, how to create and test one, and what belongs in it. Free office-condo example." />
 <meta property="og:url" content="https://altrwork.com/claude-cre-skills.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -40,7 +40,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -49,8 +49,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "Claude in CRE: Skills for underwriting",
-      "description": "What a Claude Skill is, how a commercial real estate team creates one, and a free office-condo underwriting Skill to test.",
+      "headline": "Claude Skills for CRE Underwriting",
+      "description": "Claude Skills for CRE underwriting: write your OM process once in a SKILL.md, how to create and test one, and what belongs in it. Free office-condo example.",
       "image": "https://altrwork.com/assets/claude-cre-skills.webp",
       "author": {
         "@type": "Person",
@@ -98,34 +98,10 @@
         },
         {
           "@type": "Question",
-          "name": "Do I need to code to build a Claude Skill?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. A Skill is a Markdown file of instructions with a short name and description at the top. Scripts and reference files are optional. The easiest route is to describe the workflow to Claude, let it draft the Skill, then correct what it gets wrong."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "How is a Skill different from a Claude Project?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "A Project holds files and instructions for one workspace. A Skill is a packaged method Claude can pick up in any conversation when a request matches its description. Many teams keep the deal files in a Project and the underwriting method in a Skill."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does ChatGPT have something like Skills?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. As of September 2026 OpenAI is moving custom GPTs to plugins built on Skills, and ChatGPT Enterprise workspaces lose custom GPTs on December 11, 2026 unless an admin has a deferral. The context and steps you write down for one tool carry over to the other."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a Skill use CoStar data?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Not as a way around CoStar's terms. CoStar's public Terms of Use bar exposing its licensed product to AI tools outside CoStar and using its data as input to generative AI. Build the Skill on your own material: the OM, your rent roll and your investment criteria."
           }
         },
         {
@@ -169,7 +145,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -212,7 +188,7 @@
     <section class="page-hero article-hero cre-article-hero hero-scene scene-colosseum">
       <h1>Claude in CRE: Skills for underwriting</h1>
       <div class="cre-article-meta"><span>Jarred Robidoux</span><time datetime="2026-08-10">August 10, 2026</time><span>Updated September 28, 2026</span><span>7 min read</span></div>
-      <p class="page-lede">Most CRE teams retype the same underwriting instructions into Claude on every deal. A Skill writes them down once, so Claude follows your process every time it sees an OM.</p>
+      <p class="page-lede">Most CRE teams retype the same underwriting instructions on every deal. A Skill writes them down once, so Claude follows your process every time it sees an OM.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/claude-cre-skills.webp" type="image/webp" /><img src="assets/claude-cre-skills.webp" width="1584" height="894" alt="AI in Real Estate: Skills, illustrated with industrial, residential, retail, office, and construction properties" /></picture></figure>
     <section class="section article-section">
@@ -225,30 +201,27 @@
         </div>
         <section class="article-block">
           <h2>Why does Claude&#x27;s underwriting change from deal to deal?</h2>
-          <p>Because the process lives in the prompt, and the prompt lives in someone&#x27;s head. A May 2026 survey by <a href="https://www.firstam.com/news/2026/fa-dna-dealground-ai-adoption-20260512.html" target="_blank" rel="noopener">First American Data &amp; Analytics and DealGround</a> of 255 CRE professionals found 66% use AI weekly or daily, but only 5% trust it enough to inform deal decisions. More than half say they use it for support only.</p>
-          <p>Here is how that looks in practice. A typical underwriting request in Claude:</p>
+          <p>The process lives in the prompt, and the prompt lives in someone&#x27;s head. A May 2026 survey by <a href="https://www.firstam.com/news/2026/fa-dna-dealground-ai-adoption-20260512.html" target="_blank" rel="noopener">First American Data &amp; Analytics and DealGround</a> of 255 CRE professionals found 66% use AI weekly or daily, but only 5% trust it enough to inform deal decisions.</p>
           <figure class="article-inline-media"><img src="assets/linkedin-skills-prompt.png" width="1462" height="812" alt="Claude prompt asking for an office condo acquisition cash flow model" loading="lazy" decoding="async" /><figcaption>A typical one-off underwriting prompt.</figcaption></figure>
-          <p>Nothing is wrong with it. The trouble is that it has to be written again next time, slightly differently, by whoever is at the keyboard. A principal at a New York firm put it to me this way:</p>
-          <figure class="article-inline-media"><img src="assets/linkedin-skills-principal-quote.png" width="738" height="246" alt="CRE principal describing repeatedly rewriting the same Claude underwriting instructions" loading="lazy" decoding="async" /><figcaption>The repeated-instructions problem.</figcaption></figure>
-          <p>Output that changes with the person typing is output nobody can trust with a decision. A Skill fixes the input side of that.</p>
+          <p>Nothing is wrong with this prompt except that it gets rewritten next time, slightly differently, by whoever is at the keyboard. A Skill fixes the input side.</p>
         </section>
         <section class="article-block">
           <h2>What is a Claude Skill?</h2>
-          <p>A Skill is a reusable set of instructions Claude follows for one kind of task. Every prompt carries two things:</p>
+          <p>A reusable set of instructions Claude follows for one kind of task. Every prompt carries two things:</p>
           <ul><li><strong>Context:</strong> what Claude needs to know, such as your investment criteria, which source wins when the OM and the rent roll disagree, and the format your team expects.</li><li><strong>Steps:</strong> what Claude should do, in order.</li></ul>
           <figure class="article-inline-media"><img src="assets/linkedin-skills-context-steps.png" width="2022" height="948" alt="Annotated underwriting prompt separating context from the steps Claude should follow" loading="lazy" decoding="async" /><figcaption>A prompt contains context and steps. A Skill packages both.</figcaption></figure>
-          <p>A Skill stores both in a Markdown file called SKILL.md, a plain text document. At the top sit a name and a one-line description. Claude reads only that description until a request matches it, then loads the full instructions. That is why the description matters more than anything else in the file. For the file itself, see <a href="writing-a-skill-md.html">how to write a SKILL.md that gets used</a>.</p>
+          <p>A Skill stores both in a plain-text Markdown file called SKILL.md, with a name and one-line description at the top. Claude reads only the description until a request matches it, then loads the rest, so the description matters most. See <a href="writing-a-skill-md.html">how to write a SKILL.md that gets used</a>.</p>
         </section>
         <section class="article-block">
           <h2>How do you create a Skill in Claude?</h2>
           <ol>
             <li><strong>Turn on code execution.</strong> On a personal plan it is in Settings &gt; Capabilities. On Team and Enterprise, an owner enables it under Organization settings &gt; Plugins &amp; skills.</li>
             <li><strong>Open Customize &gt; Skills</strong>, click <strong>+</strong>, then <strong>Create skill</strong>.</li>
-            <li><strong>Choose a route.</strong> Building it with Claude in conversation is the best start: describe the workflow, the property type, the inputs and the deliverable, and Claude drafts the file. Writing the instructions yourself gives full control but is slower. Uploading takes a zip with the skill folder at its root, which is how you install a Skill someone else built.</li>
+            <li><strong>Choose a route.</strong> Best start: describe the workflow, property type, inputs and deliverable, and Claude drafts the file. Writing it yourself is slower. Uploading takes a zip with the skill folder at its root, which installs a Skill someone else built.</li>
             <li><strong>Test it on a deal you have already underwritten</strong> and compare the result with your analyst&#x27;s model. Fix the instructions, not the output.</li>
-            <li><strong>Share it.</strong> On Team and Enterprise plans you can share a Skill with colleagues or publish it to your organization&#x27;s library, and owners can provision it for everyone.</li>
+            <li><strong>Share it.</strong> On Team and Enterprise plans, share with colleagues or publish to the organization&#x27;s library.</li>
           </ol>
-          <p>As of September 2026 there is also a fourth route on Pro, Max and Team plans in Cowork on Mac: record yourself doing the task and Claude builds the Skill from what it observes. Source: Anthropic&#x27;s help pages on <a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" target="_blank" rel="noopener">using</a> and <a href="https://support.claude.com/en/articles/12512198-how-to-create-custom-skills" target="_blank" rel="noopener">creating</a> Skills.</p>
+          <p>As of September 2026, Pro, Max and Team plans in Cowork on Mac can also record you doing the task and build the Skill from it. Source: Anthropic&#x27;s help pages on <a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" target="_blank" rel="noopener">using</a> and <a href="https://support.claude.com/en/articles/12512198-how-to-create-custom-skills" target="_blank" rel="noopener">creating</a> Skills.</p>
           <p>A starting prompt for the Create-with-Claude route:</p>
           <pre><code>Help me create a Skill for underwriting [property type] offering memorandums.
 
@@ -267,8 +240,7 @@ Never fill a missing assumption silently.</code></pre>
           <h2>Example: an office-condo underwriting Skill</h2>
           <p>Our <a href="https://github.com/altrwork/skills/releases/download/nyc-office-condo-underwriting-v1/nyc-office-condo-underwriting.skill">nyc-office-condo-underwriting Skill</a> is free to download. The .skill file is a zip archive; upload it as it is. Every time it runs, Claude follows the same sequence:</p>
           <ol><li>Read the OM and record where each figure came from.</li><li>Identify what the OM does not cover.</li><li>Ask you to confirm the missing assumptions.</li><li>Build the ten-year investor cash flow.</li><li>Deliver the model as an Excel workbook.</li></ol>
-          <p>What makes it useful is the part a generic prompt leaves out. It tells Claude that common charges replace most of what CAM covers in a whole building, that there is no separate land value in a condo unit, and that the exit carries New York City and New York State transfer taxes, which it must ask about rather than recall, because rates change. It works only from the OM and what you confirm. It does not look anything up.</p>
-          <p>Use it as a pattern, not as your process. Your Skill should carry your criteria and your template.</p>
+          <p>It carries what a generic prompt leaves out: common charges replace most of what CAM covers in a whole building, a condo unit has no separate land value, and the exit carries New York City and State transfer taxes, which it asks about rather than recalls because rates change. It works only from the OM and what you confirm. Use it as a pattern; your Skill carries your criteria and template.</p>
         </section>
         <section class="article-block">
           <h2>What belongs in a CRE Skill, and what does not?</h2>
@@ -276,28 +248,21 @@ Never fill a missing assumption silently.</code></pre>
           <ul><li>Which source wins when the OM, the rent roll and your own data disagree.</li><li>Your investment criteria and hold assumptions.</li><li>The exact output: file type, tab order, which figures must stay live formulas.</li><li>A stop-and-ask step for anything the documents do not state.</li><li>One worked example of a finished deliverable.</li></ul>
           <p>Leave out:</p>
           <ul><li>Figures that change, such as tax rates, interest rates and market rents. Tell Claude to ask for them.</li><li>Licensed data your vendor does not allow in AI tools. See <a href="can-claude-connect-to-costar.html">Can Claude connect to CoStar?</a></li><li>Passwords, API keys and client details that do not need to travel with the method.</li></ul>
-          <p>Three failure modes we see most: a description too vague to trigger, so Claude never uses the Skill; a Skill that tries to cover all underwriting and ends up generic; and no stop-and-ask step, so Claude fills gaps with plausible numbers.</p>
+          <p>Common failures: a description too vague to trigger, a Skill that tries to cover all underwriting, and no stop-and-ask step, so Claude fills gaps with plausible numbers.</p>
         </section>
         <section class="article-block">
           <h2>Where do Skills stop?</h2>
-          <p>A Skill holds the method. It does not reach your systems. Pulling a rent roll from Yardi or logging a contact in your CRM needs a connector, which is <a href="claude-cre-connectors.html">Part 2 of this series</a>. The same applies to Rent Manager, AppFolio and Argus: Claude can work with them where the vendor offers a connector or an API you are allowed to use. For the split in general terms, see <a href="claude-skills-vs-mcp.html">Claude Skills vs MCP</a>.</p>
+          <p>A Skill holds the method and does not reach your systems. Pulling a rent roll from Yardi or logging a contact in your CRM needs a <a href="claude-cre-connectors.html">connector</a>. See also <a href="claude-skills-vs-mcp.html">Claude Skills vs MCP</a>.</p>
         </section>
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>Which Claude plans include Skills?</h3>
           <p>As of September 2026, Skills are available on Free, Pro, Max, Team and Enterprise plans, and code execution must be turned on. On Team and Enterprise plans an owner controls Skills in organization settings and can provision a Skill for everyone in the organization.</p>
-          <h3>Do I need to code to build a Claude Skill?</h3>
-          <p>No. A Skill is a Markdown file of instructions with a short name and description at the top. Scripts and reference files are optional. The easiest route is to describe the workflow to Claude, let it draft the Skill, then correct what it gets wrong.</p>
           <h3>How is a Skill different from a Claude Project?</h3>
           <p>A Project holds files and instructions for one workspace. A Skill is a packaged method Claude can pick up in any conversation when a request matches its description. Many teams keep the deal files in a Project and the underwriting method in a Skill.</p>
-          <h3>Does ChatGPT have something like Skills?</h3>
-          <p>Yes. As of September 2026 OpenAI is moving custom GPTs to plugins built on Skills, and ChatGPT Enterprise workspaces lose custom GPTs on December 11, 2026 unless an admin has a deferral. The context and steps you write down for one tool carry over to the other.</p>
-          <h3>Can a Skill use CoStar data?</h3>
-          <p>Not as a way around CoStar's terms. CoStar's public Terms of Use bar exposing its licensed product to AI tools outside CoStar and using its data as input to generative AI. Build the Skill on your own material: the OM, your rent roll and your investment criteria.</p>
           <h3>How many Skills should a CRE team start with?</h3>
           <p>One. Pick one property type and one output your team already checks, such as a ten-year cash flow for office condos. Test it on three deals you have already underwritten, and add a second Skill only when the first one matches your analysts.</p>
         </section>
-        <div class="article-callout"><span>Working idea</span><p>A Skill is the difference between asking Claude to improvise an underwriting process and giving it the playbook your team already trusts.</p></div>
         <section class="article-block article-related">
           <h2>Related reading</h2>
           <ul>
@@ -312,7 +277,7 @@ Never fill a missing assumption silently.</code></pre>
         <p class="cre-source-link">Continue with the <a href="real-estate.html">commercial real estate AI workflow hub</a>, or read the original version in the <a href="https://www.linkedin.com/pulse/claude-cre-skills-jarred-robidoux-drnfe/" target="_blank" rel="noopener">altr&#x27;d newsletter on LinkedIn</a>.</p>
       </article>
     </section>
-    <section class="cta-section"><div><h2>Want your underwriting process turned into a Skill?</h2><p>Bring the OM format, checklist and template your team already uses. We will map it, package it with your analysts, and show where live system access belongs.</p></div><div class="page-hero-actions"><a class="button primary" href="start-a-conversation.html">Book a call</a> <a class="button secondary" href="ai-in-real-estate-guide.html">Get the free field guide</a></div></section>
+    <section class="cta-section"><div><h2>Want your underwriting process turned into a Skill?</h2><p>Bring your OM format, checklist and template. We map it, package it with your analysts, and show where live system access belongs.</p></div><div class="page-hero-actions"><a class="button primary" href="start-a-conversation.html">Book a call</a> <a class="button secondary" href="ai-in-real-estate-guide.html">Get the free field guide</a></div></section>
   </main>
   <footer class="pp-footer">
   <div class="pp-wrap">

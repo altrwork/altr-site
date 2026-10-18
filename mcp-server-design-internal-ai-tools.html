@@ -24,11 +24,11 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>MCP server design: best practices for internal AI tools | altr</title>
+<title>MCP server design best practices for internal tools | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="How to design an MCP server for internal tools: tool boundaries, schemas, errors, OAuth, approval and audit, updated for the 2026-07-28 MCP spec." />
 <link rel="canonical" href="https://altrwork.com/mcp-server-design-internal-ai-tools.html" />
-<meta property="og:title" content="MCP server design: best practices for internal AI tools | altr" />
+<meta property="og:title" content="MCP server design best practices for internal tools | altr" />
 <meta property="og:description" content="How to design an MCP server for internal tools: tool boundaries, schemas, errors, OAuth, approval and audit, updated for the 2026-07-28 MCP spec." />
 <meta property="og:url" content="https://altrwork.com/mcp-server-design-internal-ai-tools.html" />
 <meta property="og:type" content="article" />
@@ -39,7 +39,7 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Illustration: a tool board split into small open read tools and locked write tools that route to a person for approval, with every call printed onto an audit log." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="MCP server design: best practices for internal AI tools | altr" />
+<meta name="twitter:title" content="MCP server design best practices for internal tools | altr" />
 <meta name="twitter:description" content="How to design an MCP server for internal tools: tool boundaries, schemas, errors, OAuth, approval and audit, updated for the 2026-07-28 MCP spec." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/mcp-server-design-internal-ai-tools.png" />
 <script type="application/ld+json">
@@ -92,23 +92,7 @@
           "name": "How many tools should an MCP server have?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "As few as cover the real jobs, which for one business system is often five to fifteen. Every tool's description and schema is sent to the model, so a long list costs context on every request and makes the right tool harder to choose. Split by job and permission level, not by API endpoint."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Should an MCP server have separate read and write tools?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Separate tools let you grant writes to fewer people, require approval only where it matters, and log the two differently. A single tool with a mode flag hides a write behind a read and makes all of that harder."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where should the approval step for an AI action live?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "In the server. Make risky tools create drafts, default to a dry run, or ask the person to confirm through the client. Instructions in a prompt can be ignored or overridden by text the model reads, and a limit in code cannot."
+            "text": "As few as cover the real jobs, which for one business system is often five to fifteen. Split by job and permission level, not by API endpoint."
           }
         },
         {
@@ -159,7 +143,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -167,7 +151,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -210,7 +194,7 @@
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-bridge">
       <h1>MCP server design: decide what each tool may do before you write it.</h1>
-      <p class="page-lede">This is the builder's page. If you need the definition first, read <a href="what-is-an-mcp-server.html">what an MCP server is</a>. Here: how to cut tools, write schemas and errors a model can use, handle sign-in, and put approval and audit where the model cannot talk its way past them.</p>
+      <p class="page-lede">For the definition, read <a href="what-is-an-mcp-server.html">what an MCP server is</a>. This page covers cutting tools, writing schemas and errors a model can use, sign-in, and putting approval and audit where the model cannot talk its way past them.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/mcp-server-design-internal-ai-tools.webp" type="image/webp" /><img src="assets/headers/mcp-server-design-internal-ai-tools.png" width="1200" height="630" alt="Illustration: a tool board split into small open read tools and locked write tools that route to a person for approval, with every call printed onto an audit log." /></picture></figure>
 
@@ -223,19 +207,18 @@
 
         <section class="article-block">
           <h2>How should you split an MCP server into tools?</h2>
-          <p>Start from the jobs, not the API. List what a person on the team actually does in the system, and make each job a tool. An API with sixty endpoints usually becomes eight tools.</p>
+          <p>Start from the jobs, not the API. List what a person actually does in the system and make each job a tool. Sixty endpoints usually become eight tools.</p>
           <ul>
             <li><strong>One job per tool.</strong> "Find a member by email" and "create a room booking" are tools. "Call the Nexudus API" is not.</li>
-            <li><strong>Read and write are separate tools.</strong> That lets you grant, approve and log them differently. A support agent can read order history without being able to refund.</li>
+            <li><strong>Read and write are separate tools.</strong> You can grant, approve and log them differently.</li>
             <li><strong>Name tools as verbs</strong>, such as <code>search_contacts</code> or <code>create_draft_email</code>. The MCP spec recommends names of 1 to 128 characters using letters, digits, underscore, hyphen and dot.</li>
-            <li><strong>Keep the list short.</strong> Every tool's name, description and schema is sent to the model, so fifty tools cost context on every request and make the right one harder to pick.</li>
-            <li><strong>Mark behavior with annotations</strong> such as <code>readOnlyHint</code> and <code>destructiveHint</code>. Clients use them to decide what to confirm, but the spec says clients must treat them as untrusted, so they never replace a check in your code.</li>
+            <li><strong>Keep the list short.</strong> Every tool's schema is sent to the model, so fifty tools cost context and make the right one harder to pick.</li>
+            <li><strong>Mark behavior with annotations</strong> such as <code>readOnlyHint</code> and <code>destructiveHint</code>. Clients use them to decide what to confirm, but the spec says to treat them as untrusted, so they never replace a check in your code.</li>
           </ul>
         </section>
 
         <section class="article-block">
           <h2>How do you write schemas and results a model can use?</h2>
-          <p>The schema is the contract. It tells the model what it may ask for and tells your tests what to check.</p>
           <ul>
             <li><strong>Constrain inputs.</strong> Required fields, enums, formats and maximums. No free-form filter strings passed through to a database.</li>
             <li><strong>Describe each field for the model</strong>: units, formats, examples. "Date as YYYY-MM-DD, must be in the future" prevents a retry.</li>
@@ -248,7 +231,7 @@
 
         <section class="article-block">
           <h2>What changed for server design in the 2026-07-28 MCP spec?</h2>
-          <p>The current revision, published July 28, 2026, made MCP stateless. Three consequences for anyone building a server now:</p>
+          <p>The revision published July 28, 2026 made MCP stateless. Three consequences:</p>
           <ul>
             <li><strong>No sessions.</strong> The initialize handshake and the <code>Mcp-Session-Id</code> header are gone, and each request carries its own protocol version and client capabilities. If a workflow needs state, such as a draft being built over several calls, return a handle from one tool and accept it as an argument on the next. Check the caller's authorization against that handle on every call.</li>
             <li><strong>The tool list may vary by caller's authorization, not by connection.</strong> It is fine to return only the tools a person's scopes allow. Return them in a stable order so clients can cache the list.</li>
@@ -259,14 +242,14 @@
 
         <section class="article-block">
           <h2>How should sign-in and permissions work?</h2>
-          <p>For a remote server used by a team, use OAuth, so every call runs as a named person with that person's permissions. The spec requirements, in short:</p>
+          <p>For a remote server used by a team, use OAuth so every call runs as a named person with that person's permissions. The spec requires:</p>
           <ul>
             <li>The server is an OAuth 2.1 resource server and must publish Protected Resource Metadata (RFC 9728) naming its authorization server.</li>
             <li>It answers a request without a valid token with a 401 and a <code>WWW-Authenticate</code> header, and a token with too little scope with a 403 and <code>error="insufficient_scope"</code>, so the client can ask for more.</li>
             <li>It must accept only tokens issued for itself (the audience check) and must never pass a client's token through to another API.</li>
             <li>For client registration, Client ID Metadata Documents are now preferred, and Dynamic Client Registration is deprecated but still allowed.</li>
           </ul>
-          <p>Two practical points for internal tools. Your server must be reachable from the public internet for Claude's custom connectors to use it, so authentication is not optional. And your identity provider, such as Microsoft Entra or Google, can do the sign-in, with an allowlist in the server deciding who is let in.</p>
+          <p>For internal tools: Claude's custom connectors need the server reachable from the public internet, so authentication is not optional. Your identity provider, such as Microsoft Entra or Google, can do the sign-in, with an allowlist in the server deciding who gets in.</p>
         </section>
 
         <section class="article-block">
@@ -279,7 +262,7 @@
             <li><strong>Idempotency keys</strong> on creates, so a retried call does not make two records.</li>
             <li><strong>A log line per call</strong>: who, which tool, a summary of the inputs, the system touched, the result, the approval state and a correlation ID. Keep secrets and full personal data out of it.</li>
           </ul>
-          <p>For spARK Labs we built exactly this shape: one remote server across four tools behind Microsoft sign-in and an email allowlist, with a dry-run flag on building access and Outlook limited to drafts (<a href="impact-spark-labs-mcp.html">case study</a>). How one stateless deployment on Cloudflare Workers can hand different tool sets to different teams is in <a href="impact-cloudflare-workers-architecture.html">our architecture write-up</a>.</p>
+          <p>For spARK Labs we built this shape: one remote server across four tools behind Microsoft sign-in and an email allowlist, with a dry-run flag on building access and Outlook limited to drafts (<a href="impact-spark-labs-mcp.html">case study</a>). The Cloudflare Workers deployment is in <a href="impact-cloudflare-workers-architecture.html">our architecture write-up</a>.</p>
         </section>
 
         <section class="article-block">
@@ -292,19 +275,10 @@
           </ol>
         </section>
 
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>Give every MCP tool one job, one permission level and one auditable result. If a limit matters, write it in code the model cannot change.</p>
-        </div>
-
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>How many tools should an MCP server have?</h3>
-          <p>As few as cover the real jobs, which for one business system is often five to fifteen. Every tool's description and schema is sent to the model, so a long list costs context on every request and makes the right tool harder to choose. Split by job and permission level, not by API endpoint.</p>
-          <h3>Should an MCP server have separate read and write tools?</h3>
-          <p>Yes. Separate tools let you grant writes to fewer people, require approval only where it matters, and log the two differently. A single tool with a mode flag hides a write behind a read and makes all of that harder.</p>
-          <h3>Where should the approval step for an AI action live?</h3>
-          <p>In the server. Make risky tools create drafts, default to a dry run, or ask the person to confirm through the client. Instructions in a prompt can be ignored or overridden by text the model reads, and a limit in code cannot.</p>
+          <p>As few as cover the real jobs, which for one business system is often five to fifteen. Split by job and permission level, not by API endpoint.</p>
           <h3>Does an internal MCP server have to be on the public internet?</h3>
           <p>For Claude's custom connectors, yes: Anthropic connects from its own infrastructure, so the server must be reachable over the internet and should require OAuth sign-in. A local server running on each person's machine is the alternative, but it gives up central updates, logging and sign-in.</p>
           <h3>What did the 2026-07-28 MCP spec change for server builders?</h3>
@@ -329,7 +303,7 @@
     <section class="cta-section">
       <div>
         <h2>Planning MCP tools for an internal system?</h2>
-        <p>Bring the system and the jobs your team does in it. We will help you cut the tools, the permissions and the approval points.</p>
+        <p>Bring the system and the jobs your team does in it. We will cut the tools, permissions and approval points with you.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

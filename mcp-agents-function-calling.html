@@ -24,12 +24,12 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>MCP vs function calling: the difference, and where agents fit | altr</title>
+<title>MCP vs function calling: the difference, and agents | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Function calling is how a model asks your code to run a tool. MCP is a standard way to publish tools to any AI app. How they relate, and which to build." />
+<meta name="description" content="MCP vs function calling: function calling is how a model asks your code to run a tool, MCP is how tools get published to any AI app. Which to build." />
 <link rel="canonical" href="https://altrwork.com/mcp-agents-function-calling.html" />
-<meta property="og:title" content="MCP vs function calling: the difference, and where agents fit | altr" />
-<meta property="og:description" content="Function calling is how a model asks your code to run a tool. MCP is a standard way to publish tools to any AI app. How they relate, and which to build." />
+<meta property="og:title" content="MCP vs function calling: the difference, and agents | altr" />
+<meta property="og:description" content="MCP vs function calling: function calling is how a model asks your code to run a tool, MCP is how tools get published to any AI app. Which to build." />
 <meta property="og:url" content="https://altrwork.com/mcp-agents-function-calling.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -39,8 +39,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Illustration: three stacked layers: the agent loop on top, function calling in the middle, and MCP at the base publishing a server&#x27;s tools to any app." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="MCP vs function calling: the difference, and where agents fit | altr" />
-<meta name="twitter:description" content="Function calling is how a model asks your code to run a tool. MCP is a standard way to publish tools to any AI app. How they relate, and which to build." />
+<meta name="twitter:title" content="MCP vs function calling: the difference, and agents | altr" />
+<meta name="twitter:description" content="MCP vs function calling: function calling is how a model asks your code to run a tool, MCP is how tools get published to any AI app. Which to build." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/mcp-agents-function-calling.png" />
 <script type="application/ld+json">
 {
@@ -49,7 +49,7 @@
     {
       "@type": "Article",
       "headline": "MCP vs function calling: the difference, and where agents fit",
-      "description": "Function calling is how a model asks your code to run a tool. MCP is a standard way to publish tools to any AI app. How they relate, and which to build.",
+      "description": "MCP vs function calling: function calling is how a model asks your code to run a tool, MCP is how tools get published to any AI app. Which to build.",
       "image": "https://altrwork.com/assets/headers/mcp-agents-function-calling.webp",
       "author": {
         "@type": "Person",
@@ -101,14 +101,6 @@
         },
         {
           "@type": "Question",
-          "name": "Is tool use the same as function calling?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Anthropic calls the feature tool use and OpenAI calls it function calling. In both, the application describes tools with names, descriptions and JSON Schema inputs, the model returns a structured request, and the application runs the tool and returns the result."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Can my own app use an MCP server through the API?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -117,18 +109,10 @@
         },
         {
           "@type": "Question",
-          "name": "Do I need an agent framework to use MCP?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Claude, ChatGPT, Cursor, VS Code and many other apps are already MCP clients, and the model APIs can call MCP servers directly. A framework helps when you are building your own multi-step agent, but it is not required to publish or use an MCP server."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Is an MCP server more secure than function calling?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Neither is secure by itself. Both run whatever code sits behind the tool. MCP gives you a standard OAuth sign-in and one place to enforce permissions and log calls, which helps. The limits that matter are still the ones written into the tool's own code."
+            "text": "Neither is secure by itself. MCP gives you a standard OAuth sign-in and one place to enforce permissions and log calls. The limits that matter are still the ones written into the tool's own code."
           }
         }
       ]
@@ -163,7 +147,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -171,7 +155,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -214,7 +198,7 @@
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-bridge">
       <h1>MCP vs function calling: one is how a model asks for a tool, the other is how tools get published.</h1>
-      <p class="page-lede">They are not rivals. Function calling is the mechanism inside a model API. MCP is a protocol for packaging tools so any AI app can find and use them. An agent is the loop that uses either. Knowing which layer you are choosing saves building the wrong thing.</p>
+      <p class="page-lede">They are not rivals. Function calling is the mechanism inside a model API. MCP is a protocol for packaging tools so any AI app can use them. An agent is the loop that uses either.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/mcp-agents-function-calling.webp" type="image/webp" /><img src="assets/headers/mcp-agents-function-calling.png" width="1200" height="630" alt="Illustration: three stacked layers: the agent loop on top, function calling in the middle, and MCP at the base publishing a server&#x27;s tools to any app." /></picture></figure>
 
@@ -227,14 +211,14 @@
 
         <section class="article-block">
           <h2>What is function calling?</h2>
-          <p>Function calling lets a model ask your application to run a function. The model never runs anything itself.</p>
+          <p>The model asks your application to run a function. It never runs anything itself.</p>
           <ol>
             <li>Your app sends the model a list of tools, each with a name, a description and a JSON Schema for its inputs.</li>
             <li>The model decides a tool would help and replies with a structured call: the tool's name and the arguments. In Claude's API this is a <code>tool_use</code> block with <code>stop_reason: "tool_use"</code>.</li>
             <li>Your code runs the function and sends the output back, in Claude's API as a <code>tool_result</code>.</li>
             <li>The model reads the result and either answers or calls another tool.</li>
           </ol>
-          <p>The tool definitions live in your code and work only in your app. Anthropic's docs call this tool use and note it is also called function calling, and OpenAI calls it function calling. Claude's API also offers strict tool use (<code>strict: true</code>), which makes its tool calls match your schema exactly.</p>
+          <p>The tool definitions live in your code and work only in your app. Claude's API also offers strict tool use (<code>strict: true</code>), which makes tool calls match your schema exactly.</p>
         </section>
 
         <section class="article-block">
@@ -247,13 +231,13 @@
             <li><strong>Sign-in.</strong> A standard OAuth flow, so each person connects as themselves.</li>
             <li><strong>More than tools.</strong> Resources to read and prompts a person can pick, where the client supports them.</li>
           </ul>
-          <p>The definition, the transports and the sign-in rules are covered in <a href="what-is-an-mcp-server.html">what is an MCP server</a>.</p>
+          <p>The transports and sign-in rules are in <a href="what-is-an-mcp-server.html">what is an MCP server</a>.</p>
         </section>
 
         <section class="article-block">
           <h2>Where do AI agents fit?</h2>
-          <p>An agent is a model running in a loop toward a goal: call a tool, read the result, decide the next step, repeat until done or stuck. Function calling is how each step is requested. MCP is one place the tools can come from. An agent can use both in the same run.</p>
-          <p>So "agent vs MCP" is not a real choice. The real questions are how much the loop is allowed to do without a person, covered in <a href="what-is-an-ai-agent.html">what is an AI agent</a>, and where its tools should be defined, which is this page.</p>
+          <p>An agent is a model in a loop: call a tool, read the result, decide the next step, repeat. Function calling is how each step is requested. MCP is one place the tools can come from. An agent can use both in the same run.</p>
+          <p>So "agent vs MCP" is not a real choice. How much the loop does without a person is covered in <a href="what-is-an-ai-agent.html">what is an AI agent</a>.</p>
           <div class="article-table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table class="article-table">
             <thead>
               <tr><td></td><th>Function calling</th><th>MCP server</th><th>Agent</th></tr>
@@ -274,9 +258,9 @@
           <ul>
             <li><strong>Plain function calling</strong> when the tools serve one application you control, the list is small and stable, and nobody needs them from Claude, ChatGPT or an editor directly.</li>
             <li><strong>An MCP server</strong> when people want the system inside the AI apps they already use, when more than one app or team needs it, or when each person must sign in as themselves.</li>
-            <li><strong>Both, from one server.</strong> You do not have to choose twice. As of September 2026, Claude's API can call a remote MCP server directly through its MCP connector, a beta that supports tool calls only and needs a server reachable over HTTP. OpenAI's Responses API has an <code>mcp</code> tool type with an approval setting. Build the server once and call it from your own product too.</li>
+            <li><strong>Both, from one server.</strong> As of September 2026, Claude's API can call a remote MCP server directly through its MCP connector, a beta that supports tool calls only and needs a server reachable over HTTP. OpenAI's Responses API has an <code>mcp</code> tool type with an approval setting. Build the server once and call it from your own product too.</li>
           </ul>
-          <p>A worked example. "Check an order's status" as a function call is fifty lines inside your support app, and only that app can use it. As an MCP server it is the same logic behind a URL: support staff use it from Claude, the operations team from Claude Desktop, and your app through the API connector, each person signed in as themselves. How to design those tools well is in <a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a>.</p>
+          <p>"Check an order's status" as a function call lives inside your support app, and only that app can use it. As an MCP server it is the same logic behind a URL: support staff use it from Claude, operations from Claude Desktop, your app through the API connector, each signed in as themselves. Design is covered in <a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a>.</p>
         </section>
 
         <section class="article-block">
@@ -285,27 +269,18 @@
             <li><strong>Vague tool descriptions.</strong> The model picks tools from their names and descriptions. Two tools that sound alike get confused, whichever layer defines them.</li>
             <li><strong>Missing arguments filled by guessing.</strong> Anthropic's docs note a model may infer a plausible value for a required field the user never gave. Validate inputs and ask when a required value is missing.</li>
             <li><strong>Trusting a tool's own labels.</strong> MCP lets a server mark a tool read-only, but the spec tells clients to treat those labels as untrusted. The permission check belongs in the code that runs the tool.</li>
-            <li><strong>Unbounded loops.</strong> An agent retrying a failing tool burns tokens. Set step limits and timeouts.</li>
+            <li><strong>Unbounded loops.</strong> Set step limits and timeouts on an agent retrying a failing tool.</li>
           </ul>
         </section>
-
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>Function calling is how a tool gets called. MCP decides where the tool lives and who can reach it. If more than one app or person needs the tool, put it behind an MCP server.</p>
-        </div>
 
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>Is MCP replacing function calling?</h3>
           <p>No. MCP sits on top of it. An MCP client fetches tool definitions from a server and passes them to its model, which asks for a tool through the model API's ordinary function calling. MCP standardizes where tools come from and how they are called, not how the model chooses them.</p>
-          <h3>Is tool use the same as function calling?</h3>
-          <p>Yes. Anthropic calls the feature tool use and OpenAI calls it function calling. In both, the application describes tools with names, descriptions and JSON Schema inputs, the model returns a structured request, and the application runs the tool and returns the result.</p>
           <h3>Can my own app use an MCP server through the API?</h3>
           <p>Yes. As of September 2026, Claude's API has an MCP connector, in beta, that calls a remote MCP server's tools from a normal Messages request, and OpenAI's Responses API accepts remote MCP servers as a tool type. Both need the server reachable over HTTP. You can also build your own MCP client with the official SDKs.</p>
-          <h3>Do I need an agent framework to use MCP?</h3>
-          <p>No. Claude, ChatGPT, Cursor, VS Code and many other apps are already MCP clients, and the model APIs can call MCP servers directly. A framework helps when you are building your own multi-step agent, but it is not required to publish or use an MCP server.</p>
           <h3>Is an MCP server more secure than function calling?</h3>
-          <p>Neither is secure by itself. Both run whatever code sits behind the tool. MCP gives you a standard OAuth sign-in and one place to enforce permissions and log calls, which helps. The limits that matter are still the ones written into the tool's own code.</p>
+          <p>Neither is secure by itself. MCP gives you a standard OAuth sign-in and one place to enforce permissions and log calls. The limits that matter are still the ones written into the tool's own code.</p>
         </section>
 
         <section class="article-block article-related">
@@ -325,7 +300,7 @@
     <section class="cta-section">
       <div>
         <h2>Not sure which layer your workflow needs?</h2>
-        <p>We can tell you whether it wants a direct integration, an MCP server, an agent loop, or a plain automation.</p>
+        <p>We can tell you whether it needs a direct integration, an MCP server, an agent loop, or a plain automation.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

@@ -24,12 +24,12 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>Context engineering for large codebases: CLAUDE.md and AGENTS.md | altr</title>
+<title>CLAUDE.md best practices: context for large codebases | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done." />
+<meta name="description" content="Context engineering for large codebases: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a checkable definition of done." />
 <link rel="canonical" href="https://altrwork.com/context-engineering-large-codebases.html" />
-<meta property="og:title" content="Context engineering for large codebases: CLAUDE.md and AGENTS.md | altr" />
-<meta property="og:description" content="How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done." />
+<meta property="og:title" content="CLAUDE.md best practices: context for large codebases | altr" />
+<meta property="og:description" content="Context engineering for large codebases: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a checkable definition of done." />
 <meta property="og:url" content="https://altrwork.com/context-engineering-large-codebases.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -39,8 +39,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Illustration: a large repository drawn as a map of file tiles, where a short CLAUDE.md signpost at the entrance marks a clear route to the one right file and a stale doc is crossed out." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Context engineering for large codebases: CLAUDE.md and AGENTS.md | altr" />
-<meta name="twitter:description" content="How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done." />
+<meta name="twitter:title" content="CLAUDE.md best practices: context for large codebases | altr" />
+<meta name="twitter:description" content="Context engineering for large codebases: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a checkable definition of done." />
 <meta name="twitter:image" content="https://altrwork.com/assets/headers/share/context-engineering-large-codebases.png" />
 <script type="application/ld+json">
 {
@@ -49,7 +49,7 @@
     {
       "@type": "Article",
       "headline": "Context engineering for large codebases: CLAUDE.md and AGENTS.md",
-      "description": "How to set up a large repo for AI coding agents: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a definition of done.",
+      "description": "Context engineering for large codebases: a short CLAUDE.md or AGENTS.md, path-scoped rules, search over preloading, and a checkable definition of done.",
       "image": "https://altrwork.com/assets/headers/context-engineering-large-codebases.webp",
       "author": {
         "@type": "Person",
@@ -96,15 +96,7 @@
           "name": "What is the difference between CLAUDE.md and AGENTS.md?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Both are Markdown files of project instructions for AI coding agents. CLAUDE.md is Claude Code's own file. AGENTS.md is a cross-tool convention read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. Claude Code reads AGENTS.md when there is no CLAUDE.md, and a CLAUDE.md can import AGENTS.md so every tool shares one set of instructions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long should a CLAUDE.md file be?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Anthropic's Claude Code documentation targets under 200 lines per file. Longer files use more of the context window and are followed less consistently. Move rules that apply to one part of the codebase into nested files or path-scoped rules so they load only when relevant."
+            "text": "CLAUDE.md is Claude Code's own file of project instructions. AGENTS.md is a cross-tool convention read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. Claude Code reads AGENTS.md when there is no CLAUDE.md, and a CLAUDE.md can import it so every tool shares one set of instructions."
           }
         },
         {
@@ -128,7 +120,7 @@
           "name": "What is a definition of done for an AI coding task?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A short list the agent can check before it hands over: which tests must pass, which checks must be clean, what must be added, such as an integration test for a new endpoint, and what the pull request must say, including what was not tested. It turns a vague finish into a verifiable one."
+            "text": "A short list the agent can check before it hands over: which tests must pass, which checks must be clean, what must be added, and what the pull request must say, including what was not tested."
           }
         }
       ]
@@ -163,7 +155,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 </head>
@@ -171,7 +163,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -214,7 +206,7 @@
   <main class="page" id="main">
     <section class="page-hero article-hero hero-scene scene-basilica">
       <h1>Context engineering for large codebases: make the right context easier to find than the wrong one.</h1>
-      <p class="page-lede">A coding agent in a large repository fails the way a new hire does. It edits the file in front of it, misses the caller three packages away, and follows a setup doc that stopped being true last spring. Context engineering is fixing what it reads first.</p>
+      <p class="page-lede">A coding agent in a large repository fails like a new hire: it edits the file in front of it, misses the caller three packages away, and follows a setup doc that stopped being true last spring. Context engineering fixes what it reads first.</p>
     </section>
     <figure class="cre-hero-image"><picture><source srcset="assets/headers/context-engineering-large-codebases.webp" type="image/webp" /><img src="assets/headers/context-engineering-large-codebases.png" width="1200" height="630" alt="Illustration: a large repository drawn as a map of file tiles, where a short CLAUDE.md signpost at the entrance marks a clear route to the one right file and a stale doc is crossed out." /></picture></figure>
 
@@ -227,8 +219,7 @@
 
         <section class="article-block">
           <h2>What is context engineering?</h2>
-          <p>It is deciding what goes into the model's context window, and what stays out, for the whole run and not just the first prompt. Anthropic frames it as finding the smallest set of high-signal tokens that gets the outcome you want. In a large repository, the risk is rarely too little information. It is the wrong information, loaded first and followed confidently.</p>
-          <p>Three layers to manage:</p>
+          <p>Deciding what goes into the model's context window, and what stays out, for the whole run. Anthropic frames it as finding the smallest set of high-signal tokens that gets the outcome. In a large repository the risk is rarely too little information. It is the wrong information, loaded first and followed confidently. Manage three layers:</p>
           <ul>
             <li><strong>Standing instructions</strong> that load every session.</li>
             <li><strong>Scoped rules</strong> that load only when the agent touches certain paths.</li>
@@ -238,7 +229,7 @@
 
         <section class="article-block">
           <h2>CLAUDE.md and AGENTS.md best practices: what belongs in the file?</h2>
-          <p>What an experienced engineer would tell a new colleague before their first change, and nothing a linter already enforces. Claude Code reads <code>CLAUDE.md</code>. <code>AGENTS.md</code> is the cross-tool convention started by OpenAI, now stewarded by the Agentic AI Foundation, and read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. As of September 2026, Claude Code also reads <code>AGENTS.md</code> when a repository has no <code>CLAUDE.md</code>, and a <code>CLAUDE.md</code> can import it with <code>@AGENTS.md</code> so there is one source for every tool.</p>
+          <p>What an experienced engineer would tell a new colleague before a first change, and nothing a linter enforces. Claude Code reads <code>CLAUDE.md</code>. <code>AGENTS.md</code> is the cross-tool convention started by OpenAI, now stewarded by the Agentic AI Foundation, and read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. As of September 2026, Claude Code also reads <code>AGENTS.md</code> when a repository has no <code>CLAUDE.md</code>, and a <code>CLAUDE.md</code> can import it with <code>@AGENTS.md</code> so there is one source for every tool.</p>
           <pre><code># Payments service
 
 ## Commands
@@ -256,7 +247,7 @@
 - New endpoints have an integration test.
 - The PR description lists what you did not test.</code></pre>
           <ul>
-            <li><strong>Keep it short.</strong> Anthropic's Claude Code docs target under 200 lines per <code>CLAUDE.md</code>, because longer files use more context and reduce how well the rules are followed.</li>
+            <li><strong>Keep it short.</strong> Anthropic's Claude Code docs target under 200 lines per <code>CLAUDE.md</code>, because longer files are followed less well.</li>
             <li><strong>Write rules as rules</strong>, with the exact command, path or name.</li>
             <li><strong>Remove contradictions.</strong> If two rules disagree, the agent may pick either.</li>
           </ul>
@@ -274,7 +265,7 @@
 
         <section class="article-block">
           <h2>How should an agent spend its context on a task?</h2>
-          <p>On evidence it finds, not on files you guessed it would need. Preloading a dozen files fills the window with material the agent may not use.</p>
+          <p>On evidence it finds, not files you guessed it would need.</p>
           <ul>
             <li><strong>Point, do not paste.</strong> Name the entry file, the failing test or the ticket, and let the agent search for callers and interfaces.</li>
             <li><strong>Ask for the plan before the edit</strong> on anything that crosses a package boundary, and read it.</li>
@@ -285,32 +276,25 @@
 
         <section class="article-block">
           <h2>Why are stale docs worse than missing ones?</h2>
-          <p>An agent follows a wrong instruction with the same confidence as a right one. A missing doc makes it search. An outdated doc sends it the wrong way.</p>
+          <p>An agent follows a wrong instruction as confidently as a right one. A missing doc makes it search. An outdated doc sends it the wrong way.</p>
           <ul>
             <li>Delete obsolete setup steps rather than marking them old.</li>
             <li>Link each rule to the test, script or config that proves it, so it breaks visibly when it stops being true.</li>
             <li>Review instruction files when a pull request changes what they describe. Claude's Code Review flags code changes that make a <code>CLAUDE.md</code> statement outdated.</li>
-            <li>Remember instructions are context, not enforcement. Anthropic's docs say to use a hook when an action must be blocked whatever the model decides.</li>
+            <li>Instructions are context, not enforcement. Use a hook when an action must be blocked whatever the model decides.</li>
           </ul>
         </section>
-
-        <div class="article-callout">
-          <span>Working rule</span>
-          <p>Every line in a standing instruction file is read on every task. Keep only the lines that would change what the agent does, and make each one checkable.</p>
-        </div>
 
         <section class="article-block article-faq" id="faq">
           <h2>Common questions</h2>
           <h3>What is the difference between CLAUDE.md and AGENTS.md?</h3>
-          <p>Both are Markdown files of project instructions for AI coding agents. CLAUDE.md is Claude Code's own file. AGENTS.md is a cross-tool convention read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. Claude Code reads AGENTS.md when there is no CLAUDE.md, and a CLAUDE.md can import AGENTS.md so every tool shares one set of instructions.</p>
-          <h3>How long should a CLAUDE.md file be?</h3>
-          <p>Anthropic's Claude Code documentation targets under 200 lines per file. Longer files use more of the context window and are followed less consistently. Move rules that apply to one part of the codebase into nested files or path-scoped rules so they load only when relevant.</p>
+          <p>CLAUDE.md is Claude Code's own file of project instructions. AGENTS.md is a cross-tool convention read by Codex, Cursor, Gemini CLI, GitHub Copilot and others. Claude Code reads AGENTS.md when there is no CLAUDE.md, and a CLAUDE.md can import it so every tool shares one set of instructions.</p>
           <h3>Will an AI coding agent always follow the instructions file?</h3>
           <p>No. The file is context the model reads, not a setting it must obey, and conflicting or vague rules are followed inconsistently. For anything that must never happen, such as running a production migration, enforce it with a hook, permissions or CI rather than a sentence.</p>
           <h3>Should I let the AI write the instructions file?</h3>
           <p>It is a reasonable first draft. Claude Code's init command reads the repository and proposes a CLAUDE.md. Then cut it hard: remove anything a linter enforces, anything obvious from the code, and anything you cannot check, and add the rules only your team knows.</p>
           <h3>What is a definition of done for an AI coding task?</h3>
-          <p>A short list the agent can check before it hands over: which tests must pass, which checks must be clean, what must be added, such as an integration test for a new endpoint, and what the pull request must say, including what was not tested. It turns a vague finish into a verifiable one.</p>
+          <p>A short list the agent can check before it hands over: which tests must pass, which checks must be clean, what must be added, and what the pull request must say, including what was not tested.</p>
         </section>
 
         <section class="article-block article-related">
@@ -329,7 +313,7 @@
     <section class="cta-section">
       <div>
         <h2>Want AI coding agents to work well inside your repository?</h2>
-        <p>Bring the codebase and the tasks you want to hand off. We will help you set up the instructions, rules and checks that keep the agent on the right path.</p>
+        <p>Bring the codebase and the tasks you want to hand off. We will set up the instructions, rules and checks.</p>
       </div>
       <a class="button primary" href="start-a-conversation.html">Book a call</a>
     </section>

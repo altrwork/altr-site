@@ -4285,3 +4285,74 @@ article.legal hr {
   white-space: nowrap;
   color: var(--copper-hi);
 }
+
+/* Home "what we build": longer descriptions than the case-study list, so the
+   title gets a fixed column on desktop and the row stacks on phones. */
+#what-we-build .pp-lede {
+  margin-top: 16px;
+  max-width: 52ch;
+}
+
+#what-we-build .ph-list a {
+  gap: 32px;
+}
+
+#what-we-build .ph-list b {
+  flex: 0 0 15em;
+}
+
+#what-we-build .ph-list span {
+  flex: 1;
+  max-width: 62ch;
+}
+
+@media (max-width: 700px) {
+  #what-we-build .ph-list a {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #what-we-build .ph-list b {
+    flex: none;
+  }
+}
+
+/* A chapter with no label or image in its side column should not leave an
+   empty third of the page on the left: let the content take the full width. */
+.at-chapter-grid:has(> .at-chapter-aside:empty) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.at-chapter-aside:empty {
+  display: none;
+}
+
+/* Prose or a list straight after a chapter heading, with no lede between:
+   give it the same space the lede had so the heading's descenders clear it. */
+.at-chapter-content h2 + .pp-prose-block,
+.at-chapter-content h2 + .at-reasons,
+.at-chapter-content h2 + .pp-list,
+.at-chapter-content h2 + .pp-defs {
+  margin-top: clamp(28px, 4vw, 52px);
+}
+
+/* Prompt and code blocks in articles wrap instead of pushing the page wider
+   than a phone screen. */
+main pre {
+  max-width: 100%;
+  margin: 1.4em 0;
+  padding: 18px 20px;
+  border: 1px dashed var(--rule);
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--cream-2);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+}
+
+main pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: inherit;
+}

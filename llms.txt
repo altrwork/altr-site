@@ -45,6 +45,7 @@ Contact: inquiries@altrwork.com, or call Kara, altr's AI intake assistant, at +1
 - [Workflow audit](https://altrwork.com/workflow-audit.html): the mapping phase on its own, before anything is built
 - [Team training](https://altrwork.com/ai-enablement-workshop.html): part of AI Transformation; hands-on work against a team's own tasks, as a small-group working session or a full team workshop
 - [Internal systems](https://altrwork.com/custom-agents.html): part of AI Engineering; systems that do the repetitive work in a team's existing tools, from workflow automations to custom agents
+- [How we automate vendor bills](https://altrwork.com/how-a-vendor-bill-gets-handled.html): one invented supplier bill from inbox to QuickBooks: matched to a job and PO, checked by rules, exceptions flagged to you, with the arithmetic for working out your own time back
 - [Events](https://altrwork.com/ai-workshop.html): free Claude workshops for Tampa Bay small businesses; next session Thursday, October 22, 2026, 11:00 AM to 1:00 PM ET in St. Petersburg
 - [Contact](https://altrwork.com/contact.html): email, call Kara, altr's AI intake assistant, at (813) 227-6521, or book a time for her to call
 

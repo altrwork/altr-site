@@ -46,7 +46,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -58,21 +58,50 @@
       "name": "Workflow audit",
       "description": "A discovery pass that maps one repeated business process end to end - inputs, decisions, tools, handoffs, review points, and failure modes - to decide whether AI enablement, automation, or no change is the right answer.",
       "serviceType": "Workflow audit",
-      "provider": { "@id": "https://altrwork.com/#business" },
+      "provider": {
+        "@id": "https://altrwork.com/#business"
+      },
       "url": "https://altrwork.com/workflow-audit.html",
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "City", "name": "Tampa" },
-        { "@type": "City", "name": "St. Petersburg" },
-        { "@type": "City", "name": "Clearwater" }
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "City",
+          "name": "Tampa"
+        },
+        {
+          "@type": "City",
+          "name": "St. Petersburg"
+        },
+        {
+          "@type": "City",
+          "name": "Clearwater"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://altrwork.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://altrwork.com/#what-we-do" },
-        { "@type": "ListItem", "position": 3, "name": "Workflow Audit", "item": "https://altrwork.com/workflow-audit.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://altrwork.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://altrwork.com/#what-we-do"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Workflow Audit",
+          "item": "https://altrwork.com/workflow-audit.html"
+        }
       ]
     },
     {
@@ -91,15 +120,7 @@
           "name": "Why not skip discovery and start building?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because automating a process nobody can explain is the quickest way to a system nobody trusts. If the team cannot say where judgment belongs and what good output looks like, an automation will only produce wrong answers faster. The audit is the cheapest place to find that out."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What do we get at the end?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A map of the workflow as it actually runs, the points where time and rework are lost, a recommendation with the reasoning behind it, and the control path any future system would need: permissions, human validation, fallback behavior, logging, and ownership."
+            "text": "Because automating a process nobody can explain is the quickest way to a system nobody trusts. If the team cannot say where judgment belongs and what good output looks like, an automation will only produce wrong answers faster. The audit is the place to find that out before you pay for a build."
           }
         },
         {
@@ -124,11 +145,11 @@
 }
 </script>
 </head>
-<body class="pp-page">
+<body class="pp-page at-page">
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -168,105 +189,47 @@
     <button class="pp-menu-btn" type="button" aria-expanded="false" aria-controls="pp-menu"><span>Menu</span><i aria-hidden="true"></i></button>
   </header>
 
-  <main class="page" id="main">
-    <section class="page-hero hero-scene scene-road">
-      <h1>Workflow audit: map the process before AI touches it</h1>
-      <p class="page-lede">Before anything is built we map one repeated process end to end: inputs, decisions, tools, handoffs, review points, and failure modes. The output is a decision rather than a proposal. We run audits on site across Tampa Bay, where we are based, and over video for teams anywhere in the US.</p>
-      <div class="page-hero-actions">
-        <a class="button primary" href="start-a-conversation.html">Book a call</a>
-        <a class="button secondary" href="ai-workflow-audit-small-business.html">Read the method</a>
+  <main id="main">
+  <section class="at-hero" aria-labelledby="page-heading">
+    <div class="pp-wrap">
+      <h1 id="page-heading" style="font-size:clamp(3.2rem,7.4vw,7.5rem);line-height:0.92"><span class="ln"><span>Workflow audit: <span class="at-accent">map the process before AI touches it.</span></span></span></h1>
+      <div class="at-hero-bottom">
+        <p data-settle style="--d:200ms">One repeated process, mapped end to end.</p>
+        <div data-settle style="--d:320ms"><p>We document the inputs, decisions, tools, handoffs and failure modes, and you get a decision, not a proposal. We run audits on site across Tampa Bay and over video for teams anywhere in the US.</p><a class="pp-key pp-key-lg" href="start-a-conversation.html">Book a call</a></div>
       </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Four things we document.</h2>
-        </div>
+    </div>
+  </section>
+  <section class="at-chapter" id="what-it-is" aria-labelledby="what-it-is-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="what-it-is-heading" data-settle>What an audit produces.</h2>
+        <div class="pp-prose-block pp-prose" data-settle><p>We take one process your team repeats, such as vendor bills, onboarding paperwork, intake or a weekly report, and follow it the way it really runs. That includes the steps that live in someone's head, the spreadsheet nobody mentions and the exceptions that break the documented version. We sit with the person who does the work, look at a handful of real examples and mark where the time goes. <a href="ai-workflow-audit-small-business.html">Read the method</a>.</p><p>Audits end in one of three places, and all are good outcomes. Sometimes the team needs skill, not software, and that becomes an <a href="ai-enablement-workshop.html">enablement workshop</a> on their own examples. Sometimes the repeated part should be a system, and that becomes a <a href="custom-agents.html">workflow automation or custom agent</a>; in Tampa Bay, see our <a href="workflow-automation-consultant-tampa.html">workflow automation consultant in Tampa</a> page. And sometimes the process is not ready, because the inputs are inconsistent or nobody owns it, and we say so. Nothing else has to follow the audit.</p></div>
       </div>
-      <div class="engagement-grid engagement-grid-2up">
-        <article class="engagement-item">
-          <h3>The real path</h3>
-          <p>How the work actually moves, including the steps that live in someone's head, the spreadsheet nobody mentions, and the exceptions that break the documented process.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>Where the drag is</h3>
-          <p>Rework, waiting, duplicate entry, and handoffs that stall. We look for repeated work with clear inputs, useful outputs, review points, and measurable drag.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>The control path</h3>
-          <p>Permissions, human validation, fallback behavior, logs, and ownership. We define these before any system goes live, not after.</p>
-        </article>
-        <article class="engagement-item">
-          <h3>The honest recommendation</h3>
-          <p>Enable, automate, or leave it alone, with the reasoning attached. Sometimes the answer is a training session and a better prompt, not a build.</p>
-        </article>
+    </div>
+  </section>
+  <section class="at-chapter" id="receive" aria-labelledby="receive-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="receive-heading" data-settle>What you receive.</h2>
+        <ul class="pp-defs pp-ruled" data-rule><li><h3>The real path</h3><div>How the work actually moves, including the exceptions.</div></li><li><h3>Where the drag is</h3><div>Rework, waiting, duplicate entry and handoffs that stall.</div></li><li><h3>The control path</h3><div>Permissions, limits, fallback behavior, logs and ownership, defined before any system goes live.</div></li><li><h3>The recommendation</h3><div>Train, automate, or leave it alone, with the reasoning attached.</div></li></ul>
       </div>
-    </section>
-
-    <section class="section product-page-section">
-      <div class="section-header">
-        <div>
-          <h2>Where audits usually lead.</h2>
-        </div>
-        <p>An audit ends in one of three places, and all three are acceptable outcomes. A fourth situation is not an outcome but a warning that the mapping will take longer.</p>
+    </div>
+  </section>
+  <section class="at-chapter" id="faq" aria-labelledby="faq-heading">
+    <div class="pp-wrap at-chapter-grid">
+      <div class="at-chapter-aside"></div>
+      <div class="at-chapter-content">
+        <h2 id="faq-heading" data-settle>Questions teams ask before an audit.</h2>
+        <div class="pp-faq" data-settle><details><summary><h3>What is a workflow audit?</h3></summary><p>A workflow audit is a structured pass over one repeated business process that documents its real inputs, decisions, tools, handoffs, review points, and failure modes. The output is a decision: enable the team to do the work better with AI, automate the repeated parts, or leave the process alone.</p></details><details><summary><h3>Why not skip discovery and start building?</h3></summary><p>Because automating a process nobody can explain is the quickest way to a system nobody trusts. If the team cannot say where judgment belongs and what good output looks like, an automation will only produce wrong answers faster. The audit is the place to find that out before you pay for a build.</p></details><details><summary><h3>What makes a workflow a good candidate?</h3></summary><p>Repeated work with clear inputs, useful outputs, a natural review point, and measurable drag. Processes that run weekly or daily, have an obvious owner, and produce something a person currently checks by hand are the strongest candidates.</p></details><details><summary><h3>What should we prepare?</h3></summary><p>Three or four real examples of the work: what came in, what went out, and anything that went wrong. Bring the person who does the work, not only the person who manages it, and a list of the tools it touches. Screenshots are fine.</p></details></div>
       </div>
-      <div class="content-split">
-        <article class="content-panel">
-          <h3>The team needs skill, not software.</h3>
-          <p>The workflow is fine; the people doing it have not been shown how AI fits inside it. That becomes an <a href="ai-enablement-workshop.html">enablement workshop</a> using their own examples.</p>
-        </article>
-        <article class="content-panel content-panel-muted">
-          <h3>The repeated part should be a system.</h3>
-          <p>The work has clear inputs, a real review point, and enough volume to justify a build. That becomes a <a href="custom-agents.html">workflow automation or custom agent</a>, then a <a href="three-phases-ai-deployment.html">phased rollout</a>. In Tampa Bay, see our <a href="workflow-automation-consultant-tampa.html">workflow automation consultant in Tampa</a> page.</p>
-        </article>
-        <article class="content-panel content-panel-muted">
-          <h3>The process is not ready.</h3>
-          <p>The inputs are inconsistent, the owner is unclear, or the volume does not justify the maintenance. We say so. A build on top of that produces a system nobody trusts.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Nobody can explain the process yet.</h3>
-          <p>When the workflow spans teams and no single person sees all of it, the mapping takes longer, because every handoff between those teams has to be walked through with the people on both sides of it.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section product-page-section" id="faq" aria-labelledby="faq-h">
-      <div class="section-header">
-        <div><h2 id="faq-h">Questions teams ask before an audit.</h2></div>
-      </div>
-      <div class="content-split">
-        <article class="content-panel">
-          <h3>What is a workflow audit?</h3>
-          <p>A workflow audit is a structured pass over one repeated business process that documents its real inputs, decisions, tools, handoffs, review points, and failure modes. The output is a decision: enable the team to do the work better with AI, automate the repeated parts, or leave the process alone.</p>
-        </article>
-        <article class="content-panel">
-          <h3>Why not skip discovery and start building?</h3>
-          <p>Because automating a process nobody can explain is the quickest way to a system nobody trusts. If the team cannot say where judgment belongs and what good output looks like, an automation will only produce wrong answers faster. The audit is the cheapest place to find that out.</p>
-        </article>
-        <article class="content-panel">
-          <h3>What do we get at the end?</h3>
-          <p>A map of the workflow as it actually runs, the points where time and rework are lost, a recommendation with the reasoning behind it, and the control path any future system would need: permissions, human validation, fallback behavior, logging, and ownership.</p>
-        </article>
-        <article class="content-panel">
-          <h3>What makes a workflow a good candidate?</h3>
-          <p>Repeated work with clear inputs, useful outputs, a natural review point, and measurable drag. Processes that run weekly or daily, have an obvious owner, and produce something a person currently checks by hand are the strongest candidates.</p>
-        </article>
-        <article class="content-panel">
-          <h3>What should we prepare?</h3>
-          <p>Three or four real examples of the work: what came in, what went out, and anything that went wrong. Bring the person who does the work, not only the person who manages it, and a list of the tools it touches. Screenshots are fine.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div>
-        <h2>Pick the process that annoys your team most.</h2>
-        <p>That is usually the right one to look at first. Bring it to the call and we will map it. No obligation to build anything.</p>
-      </div>
-      <a class="button primary" href="start-a-conversation.html">Book a call</a>
-    </section>
-  </main>
+    </div>
+  </section>
+  <section class="at-close" aria-labelledby="closer-heading">
+    <div class="pp-wrap"><h2 id="closer-heading" data-settle>Pick the process that annoys your team most.</h2><a class="pp-key pp-key-lg" data-settle style="--d:120ms" href="start-a-conversation.html">Book a call</a></div>
+  </section>
+</main>
 
   <footer class="pp-footer">
   <div class="pp-wrap">

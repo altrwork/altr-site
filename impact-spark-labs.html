@@ -24,12 +24,12 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>Claude Cowork Automation for Expense Reports and Events | altr</title>
+<title>Claude Cowork Workflows for Expenses and Events | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How spARK Labs uses Claude Cowork skills and MCP connectors to turn receipt PDFs into Excel expense reports and event forms into review-ready PDFs." />
+<meta name="description" content="How spARK Labs by ARK Invest runs expense reports and event requests as Claude Cowork workflows, built with MCP connectors and custom skills by altr." />
 <link rel="canonical" href="https://altrwork.com/impact-spark-labs.html" />
-<meta property="og:title" content="Claude Cowork Automation for Expense Reports and Events | altr" />
-<meta property="og:description" content="How spARK Labs uses Claude Cowork skills and MCP connectors to turn receipt PDFs into Excel expense reports and event forms into review-ready PDFs." />
+<meta property="og:title" content="Claude Cowork Workflows for Expenses and Events | altr" />
+<meta property="og:description" content="How spARK Labs by ARK Invest runs expense reports and event requests as Claude Cowork workflows, built with MCP connectors and custom skills by altr." />
 <meta property="og:url" content="https://altrwork.com/impact-spark-labs.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -41,14 +41,14 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="spARK Labs AI Automation Impact Study: Automating expenses and event requests with Claude Cowork." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Claude Cowork Automation for Expense Reports and Events | altr" />
-<meta name="twitter:description" content="How spARK Labs uses Claude Cowork skills and MCP connectors to turn receipt PDFs into Excel expense reports and event forms into review-ready PDFs." />
+<meta name="twitter:title" content="Claude Cowork Workflows for Expenses and Events | altr" />
+<meta name="twitter:description" content="How spARK Labs by ARK Invest runs expense reports and event requests as Claude Cowork workflows, built with MCP connectors and custom skills by altr." />
 <meta name="twitter:image" content="https://altrwork.com/assets/share/spark-labs.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -58,7 +58,7 @@
     {
       "@type": "Article",
       "headline": "Automating the work behind expenses and events",
-      "description": "How manual expense submissions and event requests at spARK Labs became reusable AI-assisted workflows with clear review paths.",
+      "description": "How spARK Labs by ARK Invest runs expense reports and event requests as Claude Cowork workflows, built with MCP connectors and custom skills by altr.",
       "image": "https://altrwork.com/assets/share/spark-labs.png",
       "author": {
         "@type": "Organization",
@@ -109,7 +109,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -167,14 +167,12 @@
           </div>
           <h1>Automating the work behind expenses and events</h1>
           <div class="impact-article-divider" aria-hidden="true"></div>
-          <p class="impact-subheading">spARK Labs by ARK Invest gives founders and entrepreneurs the insights, intelligence, and resources to help new ideas take form. This project started with two everyday operations jobs, expense reporting and event requests, and turned their manual submissions, handoffs and follow-up into reusable workflows in Claude Cowork that the team runs and can extend itself.
+          <p class="impact-subheading">spARK Labs by ARK Invest gives founders and entrepreneurs the insights, intelligence and resources to help new ideas take form. This project started with two everyday operations jobs, expense reports and event requests, and turned their manual handoffs into reusable workflows in Claude Cowork that the team runs and can extend itself.
           </p>
-          <p>The existing process relied on manual review, follow-up, and document handling across two common operational workflows: expense reporting and event requests. In partnership with <strong>altr</strong>, spARK Labs used Claude Cowork to turn those repeatable steps into AI-assisted workflows that could intake information, organize the required details, and help the team move from request to completed output with less manual effort.
-          </p>
-          <p>To make the workflow repeatable, we packaged the process into Claude Cowork using a combination of MCP connectors and custom skills. The connectors gave Claude access to the tools and files needed to complete the work, while the skill provided the step-by-step instructions, context, and guardrails for each workflow. This allowed members of the spARK Labs team to kick off the process with a slash (<code>/</code>) command inside Claude Cowork and move through expense reports or event requests in a consistent, guided way.
+          <p>With <strong>altr</strong>, spARK Labs packaged the process into Claude Cowork using MCP connectors and custom skills. The connectors give Claude the tools and files it needs. The skill holds the steps, context and guardrails. Team members start either workflow with a slash (<code>/</code>) command.
           </p>
           <h2 class="impact-article-heading">Expense Reports</h2>
-          <p>For the expense reporting workflow, the goal was to take a folder of monthly receipt PDFs and turn them into a completed Excel report using the team's existing template. Instead of manually opening each PDF, copying details, and filling out the report line by line, the workflow gives Claude Cowork the structure it needs to read the scans folder, extract the required information, and organize the output into the correct format.
+          <p>A folder of monthly receipt PDFs becomes a completed Excel report in the team's existing template. Claude Cowork reads the scans folder, extracts the details and fills the report, instead of someone opening each PDF and typing line by line.
           </p>
           <picture>
           <source srcset="assets/spARK-expense-report.webp" type="image/webp" />
@@ -182,14 +180,14 @@
           <img class="impact-article-image" src="assets/spARK-expense-report.webp" width="3540" height="1560" loading="lazy" alt="Expense report workflow from monthly PDFs to scans folder to completed Excel report" />
         </picture>
           <h2 class="impact-article-heading">Event Request</h2>
-          <p>For event requests, the workflow began with a completed interest form and ended with a review-ready PDF routed through email. Claude Cowork helped bridge the steps in between by using the submitted form details to draft the correct document and prepare the request for review. Instead of manually transferring information from the form into a PDF and coordinating the next step by hand, the team could move from intake to review through a repeatable AI-assisted process.
+          <p>An event request starts as a completed interest form and ends as a review-ready PDF routed through email. Claude Cowork drafts the document from the form details and prepares the request for review, replacing the manual copy into a PDF and the hand-coordinated next step.
           </p>
           <picture>
           <source srcset="assets/spARK-event-request.webp" type="image/webp" />
           <source srcset="assets/spARK-event-request.webp" type="image/png" />
           <img class="impact-article-image" src="assets/spARK-event-request.webp" width="3540" height="1680" loading="lazy" alt="Event request workflow from completed interest form to PDF draft to emailed review" />
         </picture>
-          <p>The result was not just a pair of automations, but a repeatable way for the spARK Labs team to launch and operate these workflows inside Claude Cowork. By packaging the process into skills and connecting the right tools through MCP, the team can move from intake to output with a simple command and a clear set of steps. Watch the video below to see how the workflow is triggered in Claude Cowork and how the process moves from request to completed output.
+          <p>The result is a repeatable way for the team to launch and run these workflows inside Claude Cowork. The video shows an event request triggered and carried through to the finished output.
           </p>
         </div>
           <video class="impact-video-player" controls preload="metadata" poster="uploads/thumbnails/event-request-splabs-hs.png" aria-label="spARK Labs Future of Work video">
@@ -203,7 +201,7 @@
       <div class="services-cta modern-final-cta">
         <div>
           <h2>Intake work is usually the first thing worth automating.</h2>
-          <p>Forms, documents, and approvals that move by hand are where these builds start. Show us one workflow and we will map it.</p>
+          <p>Forms, documents and approvals that move by hand are where these builds start. Show us one workflow and we map it.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>

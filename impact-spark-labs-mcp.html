@@ -24,12 +24,12 @@
  });
 </script>
 <meta charset="utf-8" />
-<title>Remote MCP Server for Claude: Nexudus, Verkada, Outlook | altr</title>
+<title>Remote MCP Server for Claude: Nexudus, Verkada | altr</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
+<meta name="description" content="How altr built one remote MCP server on Cloudflare Workers that connects Claude to BossHub, Verkada, Nexudus and Outlook for spARK Labs by ARK Invest." />
 <link rel="canonical" href="https://altrwork.com/impact-spark-labs-mcp.html" />
-<meta property="og:title" content="Remote MCP Server for Claude: Nexudus, Verkada, Outlook | altr" />
-<meta property="og:description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
+<meta property="og:title" content="Remote MCP Server for Claude: Nexudus, Verkada | altr" />
+<meta property="og:description" content="How altr built one remote MCP server on Cloudflare Workers that connects Claude to BossHub, Verkada, Nexudus and Outlook for spARK Labs by ARK Invest." />
 <meta property="og:url" content="https://altrwork.com/impact-spark-labs-mcp.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="altr" />
@@ -38,14 +38,14 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Remote MCP Server for Claude: Nexudus, Verkada, Outlook | altr" />
-<meta name="twitter:description" content="How altr built a remote MCP server on Cloudflare Workers to connect Claude to BossHub, Verkada, Nexudus, and Outlook for spARK Labs operations." />
+<meta name="twitter:title" content="Remote MCP Server for Claude: Nexudus, Verkada | altr" />
+<meta name="twitter:description" content="How altr built one remote MCP server on Cloudflare Workers that connects Claude to BossHub, Verkada, Nexudus and Outlook for spARK Labs by ARK Invest." />
 <meta name="twitter:image" content="https://altrwork.com/assets/share/spark-labs-mcp.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="altr-brand-assets/assets/logo-no-background.png" />
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="paper.css?v=20261009a" />
+<link rel="stylesheet" href="paper.css?v=20261019b" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/eb-garamond-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/geist-latin.woff2" crossorigin />
 <script type="application/ld+json">
@@ -54,8 +54,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "How altr built a remote MCP server to connect Claude to operations tools",
-      "description": "A remote MCP server that connected Claude directly to the tools an operations team already used.",
+      "headline": "How altr built a remote MCP server to connect Claude to a startup incubator's operations",
+      "description": "How altr built one remote MCP server on Cloudflare Workers that connects Claude to BossHub, Verkada, Nexudus and Outlook for spARK Labs by ARK Invest.",
       "image": "https://altrwork.com/assets/share/spark-labs-mcp.png",
       "author": {
         "@type": "Organization",
@@ -106,7 +106,7 @@
 <div class="site-shell">
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="nav">
-    <a class="pp-brand" href="index.html"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
+    <a class="pp-brand" href="/"><img src="assets/logo/altr-key-marble-128.webp" width="128" height="122" alt="altr home" /></a>
     <nav class="pp-bar" id="pp-menu" aria-label="Primary navigation">
       <ul class="pp-bar-list">
         <li><details class="pp-dd">
@@ -166,23 +166,22 @@
           <img class="impact-article-image" src="assets/operations-mcp.webp" width="1456" height="816" loading="lazy" alt="Architecture diagram: Claude Cowork connects through the Cloudflare Worker MCP server to BossHub, Verkada, Nexudus, and Outlook" />
         </picture>
           <div class="impact-article-divider" aria-hidden="true"></div>
-          <p class="impact-subheading">spARK Labs by ARK Invest manages member intake, physical building access, coworking memberships, and outbound communication across four separate platforms. Getting Claude to help with any of that work meant copying information between systems by hand. altr built a single remote MCP server, running on Cloudflare Workers, that connects all four platforms to Claude and Claude Cowork behind one endpoint that team members sign in to with their Microsoft accounts.</p>
-          <p>spARK Labs, the nonprofit innovation hub ARK Invest backs in St. Petersburg, runs on four tools: BossHub for intake forms, Verkada for building access control, Nexudus for memberships and room bookings, and Outlook for email. None of them was connected to Claude, so every onboarding meant reading a form in one system and retyping it into three others.</p>
-          <p>Rather than building separate integrations or distributing API keys to each team member, altr deployed a single Cloudflare Worker that exposes all four systems through a secure MCP endpoint. Authentication is handled through Microsoft OAuth, team members log in with their existing Microsoft accounts, and an email allowlist ensures only authorized operators can access the tools. There is nothing to install locally, no keys to manage, and no per user setup.</p>
+          <p class="impact-subheading">spARK Labs by ARK Invest, the nonprofit innovation hub in St. Petersburg, runs on four tools: BossHub for intake forms, Verkada for building access, Nexudus for memberships and room bookings, and Outlook for email. None was connected to Claude, so every onboarding meant reading a form in one system and retyping it into three others. altr built a single remote MCP server on Cloudflare Workers that connects all four to Claude and Claude Cowork behind one endpoint.</p>
+          <p>There are no separate integrations and no API keys to distribute. Team members sign in with their existing Microsoft accounts through Microsoft OAuth, and an email allowlist limits the tools to authorized operators. Nothing installs locally and there is no per-user setup.</p>
           <h2 class="impact-article-heading">BossHub: Reading form responses</h2>
-          <p>The BossHub tools give Claude read access to the inquiry forms and submissions the spARK Labs team uses to track new member interest, existing member engagement, event ideas, etc. Claude can list available forms, pull recent submissions, or look up a specific inquiry by name or email. In practice, this is where a member activation workflow begins: Claude reads the submission to understand what plan was requested, what company details were provided, and what the member needs before they move in.</p>
+          <p>Read access to the inquiry forms the team uses to track new member interest, member engagement and event ideas. Claude lists forms, pulls recent submissions or looks up an inquiry by name or email. A member activation starts here: Claude reads the plan requested, the company details and what the member needs before moving in.</p>
           <h2 class="impact-article-heading">Verkada: Provisioning building access</h2>
-          <p>The Verkada tools handle physical building access. Claude can search for an existing Verkada user by email, create a new access user, list available access groups, and add a user to the appropriate group to unlock building entry. These operations write directly to the building access system, so they are gated by both the email allowlist and a dry run flag that lets operators test the workflow without making live changes.</p>
+          <p>Claude searches for a Verkada user by email, creates a new access user, lists access groups and adds the user to the right group for building entry. These operations write to the building access system, so they sit behind the email allowlist and a dry run flag for testing without live changes.</p>
           <h2 class="impact-article-heading">Nexudus: Managing memberships and bookings</h2>
-          <p>Nexudus is the coworking platform that tracks members, plans, and room reservations. The tools cover both sides of operations: onboarding (looking up an existing coworker, creating a new member with the right plan assigned) and day-to-day management (listing available resources, creating room bookings, and canceling them when needed). Membership plans are mapped by tariff ID, so Claude can create a member record with the correct access level already in place.</p>
+          <p>Nexudus tracks members, plans and room reservations. Onboarding tools look up a coworker and create a member with the right plan; day-to-day tools list resources and create or cancel room bookings. Plans map by tariff ID, so a new member record has the correct access level from the start.</p>
           <h2 class="impact-article-heading">Outlook: Drafting emails</h2>
-          <p>The Outlook tool creates email drafts through the Microsoft Graph API. Claude composes the message and places it in the configured sender's mailbox ready to review. Nothing is sent automatically. This keeps a human in the loop on outbound communication while removing the work of composing and addressing the email from scratch.</p>
+          <p>The Outlook tool creates drafts through the Microsoft Graph API. Claude composes and addresses the message and leaves it in the configured sender's mailbox. It does not send.</p>
           <picture>
           <source srcset="assets/operations-mcp-sbs.webp" type="image/webp" />
           <source srcset="assets/operations-mcp-sbs.webp" type="image/png" />
           <img class="impact-article-image" src="assets/operations-mcp-sbs.webp" width="1536" height="768" loading="lazy" alt="Member activation workflow: BossHub form submission to Nexudus member record to Verkada building access to Outlook welcome email draft" />
         </picture>
-          <p>Together, these tools let a spARK Labs team member take a new member from form submission to membership record, building access and a drafted welcome email in one conversation. The MCP server runs entirely on Cloudflare Workers and requires no local software. New team members connect in minutes by authenticating with their existing Microsoft accounts.</p>
+          <p>Together, these tools take a new member from form submission to membership record, building access and a drafted welcome email in one conversation. New team members connect in minutes with their Microsoft account.</p>
         </div>
         <p class="impact-related">Also with this client: <a href="impact-spark-labs.html">automating the work behind expenses and events</a> and <a href="impact-spark-labs-air-supply.html">AIR Supply founder-advisor matching</a>. Background on the pattern: <a href="mcp-server-design-internal-ai-tools.html">MCP server design for internal AI tools</a>.</p>
       </article>
@@ -192,7 +191,7 @@
       <div class="services-cta modern-final-cta">
         <div>
           <h2>Your tools should talk to Claude.</h2>
-          <p>If your team is copying data between platforms or starting from scratch every time, a remote MCP server can change that. We scope, build, and deploy.</p>
+          <p>If your team copies data between platforms, a remote MCP server can end that. We scope, build and deploy it.</p>
         </div>
         <a class="button primary" href="start-a-conversation.html">Book a call</a>
       </div>
