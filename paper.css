@@ -4356,3 +4356,99 @@ main pre code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   white-space: inherit;
 }
+
+/* Tighter vertical rhythm: sections were stacking 128px of padding on top of
+   each other, leaving long empty bands between blocks. */
+.ph-section {
+  padding-block: clamp(44px, 6vw, 88px);
+}
+
+.ph-section + .ph-section {
+  padding-top: 0;
+}
+
+#what-we-do {
+  padding-top: 0;
+}
+
+.ph-section .ph-slips {
+  margin-top: 0;
+}
+
+.at-chapter {
+  padding: clamp(48px, 6vw, 96px) 0;
+}
+
+/* Chapter blocks used inside an older main.page layout: the old rules inset
+   every section a second time and shrink every h2. Keep the new blocks at
+   full width with their own heading size. */
+main.page > .at-hero,
+main.page > .at-chapter,
+main.page > .at-bridge,
+main.page > .at-close {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.page .at-chapter-content h2 {
+  font-size: clamp(3.3rem, 7vw, 7.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: auto;
+}
+
+.page .at-close h2 {
+  font-size: clamp(3.3rem, 7vw, 7.5rem);
+  letter-spacing: -0.045em;
+  text-wrap: auto;
+}
+
+/* FAQ rows: give the answer room instead of a 35-character sliver. */
+.at-reasons li {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+}
+
+.at-reasons p {
+  max-width: 62ch;
+}
+
+/* Chapters with no image or label column: heading on the left, content on the
+   right, so the page does not end in a wide empty band beside the text. */
+@media (min-width: 901px) {
+  .at-chapter-grid:has(> .at-chapter-aside:empty) .at-chapter-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.38fr) minmax(0, 1fr);
+    column-gap: clamp(32px, 6vw, 96px);
+    align-items: start;
+  }
+
+  .at-chapter-grid:has(> .at-chapter-aside:empty) .at-chapter-content > * {
+    grid-column: 2;
+  }
+
+  .at-chapter-grid:has(> .at-chapter-aside:empty) .at-chapter-content > h2 {
+    grid-column: 1;
+    grid-row: 1 / span 8;
+    position: sticky;
+    top: 96px;
+    font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+    line-height: 1.02;
+  }
+
+  .at-chapter-grid:has(> .at-chapter-aside:empty) .at-chapter-lede {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .at-reasons li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Same double inset for list sections placed directly under main.page. */
+main.page > .pp-section {
+  width: 100%;
+  margin-inline: 0;
+}
