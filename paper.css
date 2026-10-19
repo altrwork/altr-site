@@ -4600,3 +4600,38 @@ main.page > .pp-section {
     gap: 10px 20px;
   }
 }
+
+/* Header call to action: a key-colored "Contact" button that opens a menu with
+   the two ways in. Phones use the menu sheet's own buttons instead. */
+.pp-cta-dd {
+  position: relative;
+}
+
+.pp-cta-dd > summary.pp-key {
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px 0 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.pp-cta-dd > summary.pp-key:hover,
+.pp-cta-dd[open] > summary.pp-key {
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.pp-cta-dd ul {
+  left: auto;
+  right: 0;
+  top: calc(100% + 14px);
+}
+
+@media (max-width: 900px) {
+  .pp-cta-dd {
+    display: none;
+  }
+}
